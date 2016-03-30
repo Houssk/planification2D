@@ -91,9 +91,24 @@
 		<div id="pageMain">
 
 		<!-- Open file -->
-			<div class="openData" title="File">
+			<div class="informationPatient" title="INFORMATIONS">
+				<input id="" type="text" value="NOM" style="float: left;"></input>
+				<input type="text" value="PRENOM"></input>
+				<select id="coteChirurgie">
+					<option>COTE DE CHIRURGIE</option>
+					<option>COTE GAUCHE</option>
+					<option>COTE DROIT</option>
+				</select>
+				<select id="typeChirurgie">
+					<option>TYPE DE CHIRURGIE</option>
+					<option>CHIRURGIE GUIDER</option>
+					<option>CHIRURGIE NON GUIDER</option>
+				</select>
 				<div class="loaderlist"></div>
 				<div id="progressbar"></div>
+				<input type="text" value="TAILLE DE LA BILLE" style="float: left;"></input>
+				<span style="margin: 5px;">EN CM</span> 
+				<input style="margin-left: 200px;" type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
 			</div>
 
 			<!-- Toolbox -->

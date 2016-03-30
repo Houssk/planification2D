@@ -138,3 +138,8 @@ table.tagList td {
   -webkit-user-select: none;
   user-select: none;
 }
+
+span
+{
+	color: black;
+}

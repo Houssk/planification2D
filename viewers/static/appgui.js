@@ -98,8 +98,8 @@ dwv.gui.Toolbox = function (app)
 
         // toolbar
         var open = document.createElement("button");
-        open.appendChild(document.createTextNode("File"));
-        open.onclick = function() { toggle(".openData"); };
+        open.appendChild(document.createTextNode("INFORMATIONS"));
+        open.onclick = function() { toggle(".informationPatient"); };
 
         var toolbox = document.createElement("button");
         toolbox.appendChild(document.createTextNode("Toolbox"));
@@ -139,16 +139,16 @@ dwv.gui.Toolbox = function (app)
 
         // save state button
         var saveButton = document.createElement("button");
-        saveButton.appendChild(document.createTextNode("Download State"));
+        //saveButton.appendChild(document.createTextNode("Download State"));
         // save state link
-        var toggleSaveState = document.createElement("a");
-        toggleSaveState.onclick = app.onStateSave;
-        toggleSaveState.download = "state.json";
-        toggleSaveState.id = "download-state";
-        toggleSaveState.appendChild(saveButton);
-        // add to openData window
-        node = app.getElement("openData");
-        node.appendChild(toggleSaveState);
+        //var toggleSaveState = document.createElement("a");
+        //toggleSaveState.onclick = app.onStateSave;
+        //toggleSaveState.download = "state.json";
+        //toggleSaveState.id = "download-state";
+        //toggleSaveState.appendChild(saveButton);
+        // add to informationPatient window
+        node = app.getElement("informationPatient");
+        //node.appendChild(toggleSaveState);
     };
     this.display = function (bool)
     {
@@ -194,7 +194,7 @@ dwv.gui.setup = function () {
         appendTo: "#dwv"
     });
     // create dialogs
-    $(".openData").dialog({ position:
+    $(".informationPatient").dialog({ position:
         {my: "left top", at: "left top", of: "#pageMain"},
         appendTo: "#dwv"
     });
