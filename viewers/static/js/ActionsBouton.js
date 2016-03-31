@@ -44,6 +44,8 @@ $(document).ready(function () {
 					}
 				}
 
+				$('.informationPatient *').prop('disabled',true);
+				document.getElementById("informationPatient").style.display = "";
 				// to do
 				// passage a la boite dessin ou implant
 			};

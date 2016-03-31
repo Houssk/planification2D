@@ -138,7 +138,7 @@ dwv.gui.Toolbox = function (app)
         $("button").button();
 
         // save state button
-        var saveButton = document.createElement("button");
+        //var saveButton = document.createElement("button");
         //saveButton.appendChild(document.createTextNode("Download State"));
         // save state link
         //var toggleSaveState = document.createElement("a");
