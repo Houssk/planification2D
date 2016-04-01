@@ -1,3 +1,7 @@
+/**
+* Created by Quentin PETIT on 31/03/2016
+**/
+
 $(document).ready(function () {
 
 	var patient; // variable de stockage du patient
@@ -17,11 +21,11 @@ $(document).ready(function () {
 				var typeChirurgie = document.getElementById("typeChirurgie");
 				var tailleBille = document.getElementById("tailleBille");
 
-				if (nomPatient.value == "" || nomPatient.value == "Nom") {
+				if (nomPatient.value == "" || nomPatient.value == "NOM") {
 					alert("Nom du patient incorrect ou null");
 				} else {
 					console.log(nomPatient.value);
-					if (prenomPatient.value == "" || prenomPatient.value == "Prenom") {
+					if (prenomPatient.value == "" || prenomPatient.value == "PRENOM") {
 						alert("Prénom du patient incorrect ou null");
 					} else {
 						console.log(prenomPatient.value);
@@ -31,7 +35,7 @@ $(document).ready(function () {
 							console.log(coteChirurgie.options[coteChirurgie.selectedIndex].value);// Récupère la valeur de l'option sélectionnée
 							if (typeChirurgie.selectedIndex == 0) {// Test si l'option sélectionnée n'est pas l'option par défaut
 								alert("Veuillez sélectionner le type de chirurgie que vous voulez effectué");
-							} else {
+							} else { // Cas ou toute les données entrée sont valides
 								console.log(typeChirurgie.options[typeChirurgie.selectedIndex].value);// Récupère la valeur de l'option sélectionnée
 								patient = new Patient(nomPatient.value, 
 									prenomPatient.value, 
@@ -39,16 +43,33 @@ $(document).ready(function () {
 									"DICOM", // to do DICOM
 									coteChirurgie.options[coteChirurgie.selectedIndex].value);
 								console.log(patient);
+
+								$('.informationPatient *').prop('disabled',true);
+								document.getElementById("informationPatient").style.display = "";
+
+								if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
+									$('.outilsDessin *').prop('disabled',false);
+									document.getElementById("outilsDessin").style.display = "none";
+								}
+
+								if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
+									$('.implants *').prop('disabled',false);
+									document.getElementById("implants").style.display = "none";
+								}
 							}
 						}
 					}
 				}
-
-				$('.informationPatient *').prop('disabled',true);
-				document.getElementById("informationPatient").style.display = "";
-				// to do
-				// passage a la boite dessin ou implant
 			};
 			ValiderPatient()
 		},false);
+
+	/*var buttonDessinTrapeze = document.getElementById("buttonDessinTrapeze");
+	buttonDessinTrapeze.addEventListener('click', 
+		function() {
+			function DessinTrapeze(){
+				console.log("de trapèze");
+			};
+			DessinTrapeze()
+	}, false);*/
 });

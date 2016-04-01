@@ -101,6 +101,14 @@ dwv.gui.Toolbox = function (app)
         open.appendChild(document.createTextNode("INFORMATIONS"));
         open.onclick = function() { toggle(".informationPatient"); };
 
+        var outilsDessin = document.createElement("button");
+        outilsDessin.appendChild(document.createTextNode("OUTILS DESSIN"));
+        outilsDessin.onclick = function() {toggle(".outilsDessin"); };
+
+        var implants = document.createElement("button");
+        implants.appendChild(document.createTextNode("IMPLANTS"));
+        implants.onclick = function() {toggle(".implants"); };
+
         var toolbox = document.createElement("button");
         toolbox.appendChild(document.createTextNode("Toolbox"));
         toolbox.onclick = function() { toggle(".toolList"); };
@@ -127,6 +135,8 @@ dwv.gui.Toolbox = function (app)
 
         var node = app.getElement("toolbar");
         node.appendChild(open);
+        node.appendChild(outilsDessin);
+        node.appendChild(implants);
         node.appendChild(toolbox);
         node.appendChild(history);
         node.appendChild(tags);
@@ -198,12 +208,22 @@ dwv.gui.setup = function () {
         {my: "left top", at: "left top", of: "#pageMain"},
         appendTo: "#dwv"
     });
+    $(".outilsDessin").dialog({ position:
+        {my: "left top+290", at: "left top", of: "#pageMain"},
+        appendTo: "#dwv"
+    });
+    $(".implants").dialog({ position:
+        {my: "left top+445", at: "left top", of: "#pageMain"},
+        appendTo: "#dwv",
+    });
     $(".toolList").dialog({ position:
         {my: "left top+160", at: "left top", of: "#pageMain"},
+        autoOpen: false,
         appendTo: "#dwv"
     });
     $(".history").dialog({ position:
         {my: "left top+350", at: "left top", of: "#pageMain"},
+        autoOpen: false,
         appendTo: "#dwv"
     });
     $(".tags").dialog({ position:

@@ -77,9 +77,10 @@
 
 		<!--<script type="text/javascript" src="js/tests.js"></script>-->
 		<script type="text/javascript" src="js/ActionsBouton.js"></script>
+		<script type="text/javascript" src="js/Fonction.js"></script>
 	</head>
 
-	<body id="body">
+	<body id="body" onload="VerrouillageBoiteDialogue()">
 
 	<!-- DWV -->
 		<div id="dwv">
@@ -97,24 +98,39 @@
 
 		<!-- Open file -->
 			<div class="informationPatient" title="INFORMATIONS">
-				<input id="nomPatient" type="text" value="Nom" style="float: left;"></input>
-				<input id="prenomPatient" type="text" value="Prenom"></input>
+				<input id="nomPatient" type="text" value="NOM" style="float: left;"></input>
+				<input id="prenomPatient" type="text" value="PRENOM"></input>
 				<select id="coteChirurgie">
-					<option>Côté de chirurgie</option>
-					<option value="Gauche">Côté gauche</option>
-					<option value="Droit">Côté droit</option>
+					<option>COTE DE CHIRURGIE</option>
+					<option value="Gauche">COTE GAUCHE</option>
+					<option value="Droit">COTE DROIT</option>
 				</select>
 				<select id="typeChirurgie">
-					<option>Type de chirurgie</option>
-					<option value="Guider">Chirurgie guider</option>
-					<option value="Non guider">Chirurgie non guider</option>
+					<option>TYPE DE CHIRURGIE</option>
+					<option value="Guider">CHIRURGIE GUIDER</option>
+					<option value="Non guider">CHIRURGIE NON GUIDER</option>
 				</select>
 				<div class="loaderlist"></div>
 				<div id="progressbar"></div>
-				<input id="tailleBille" type="text" value="Taille de la bille" style="float: left;"></input>
+				<input id="tailleBille" type="text" value="TAILLE DE LA BILLE" style="float: left;"></input>
 				<span style="margin: 5px;">En mm</span>
-				<input style="margin-left: 180px;" type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
+				<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-left: 180px;" value="VALIDER"></input>
 				<div id="informationPatient" class="darkClass" style="display:none"></div>
+			</div>
+
+			<!-- OUTILS DESSIN -->
+			<div class="outilsDessin" title="OUTILS DESSIN">
+				<input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE"></input>
+				<input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH"></input>
+				<input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CERCLE"></input>
+				<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
+				<div id="outilsDessin" class="darkClass"></div>
+			</div>
+
+			<!-- IMPLANTS -->
+			<div class="implants" title="IMPLANTS">
+				<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
+				<div id="implants" class="darkClass"></div>
 			</div>
 
 			<!-- Toolbox -->
