@@ -62,13 +62,13 @@
 		<script type="text/javascript" src="../../src/tools/roi.js"></script>
 		<script type="text/javascript" src="../../src/tools/scroll.js"></script>
 		<script type="text/javascript" src="../../src/tools/toolbox.js"></script>
+		<script type="text/javascript" src="../../src/tools/circle.js"></script>
 		<script type="text/javascript" src="../../src/tools/undo.js"></script>
 		<script type="text/javascript" src="../../src/tools/windowLevel.js"></script>
 		<script type="text/javascript" src="../../src/tools/zoomPan.js"></script>
 		<script type="text/javascript" src="../../src/utils/string.js"></script>
 		<script type="text/javascript" src="../../src/utils/uri.js"></script>
 		<script type="text/javascript" src="../../src/utils/thread.js"></script>
-
 		<script type="text/javascript" src="js/class/Patient.js"></script>
 		<!-- Launch the app -->
 
@@ -112,8 +112,7 @@
 				</select>
 				<div class="loaderlist"></div>
 				<div id="progressbar"></div>
-				<input id="tailleBille" type="text" value="TAILLE DE LA BILLE" style="float: left;"></input>
-				<span style="margin: 5px;">En mm</span>
+				<input  style="margin-left: 10px; "type="button" id="buttonCalibrage" value="Calibrer"></input>
 				<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-left: 180px;" value="VALIDER"></input>
 				<div id="informationPatient" class="darkClass" style="display:none"></div>
 			</div>

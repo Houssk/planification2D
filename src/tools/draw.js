@@ -38,6 +38,8 @@ dwv.tool.DrawGroupCommand = function (group, name, layer)
         // callback
         this.onUndo({'type': 'draw-delete', 'id': group.id()});
     };
+
+
 }; // DrawGroupCommand class
 
 /**
@@ -599,7 +601,10 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         else if ( shape instanceof Kinetic.Ellipse ) {
             cmdName = "ellipse";
         }
+        else if (shape instanceof Kinetic.Circle){
 
+            cmdName= "circle";
+        }
         // shape colour
         var colour = shape.stroke();
 
@@ -663,7 +668,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         shape.on('dragend', function (/*event*/) {
             var pos = dragLastPos;
             dragLastPos = null;
-            // delete case
+            //  case
             if ( Math.abs( pos.x - trash.x() ) < 10 &&
                     Math.abs( pos.y - trash.y() ) < 10   ) {
                 // compensate for the drag translation

@@ -216,27 +216,44 @@ dwv.App = function ()
                 case "Scroll":
                     toolList.Scroll = new dwv.tool.Scroll(this);
                     break;
-                case "Draw":
-                    if ( config.shapes !== 0 ) {
-                        // setup the shape list
-                        var shapeList = {};
-                        for ( var s = 0; s < config.shapes.length; ++s ) {
-                            var shapeName = config.shapes[s];
-                            var shapeFactoryClass = shapeName+"Factory";
-                            if (typeof dwv.tool[shapeFactoryClass] !== "undefined") {
-                                shapeList[shapeName] = dwv.tool[shapeFactoryClass];
+                    case "Draw":
+
+                        //toolList["Draw"] = new dwv.tool.Scroll(this);
+                        if ( config.shapes !== 0 ) {
+                            // setup the shape list
+                            var shapeList = {};
+                            for ( var s = 0; s < config.shapes.length; ++s ) {
+                                switch( config.shapes[s] ) {
+
+                                    case "Cercle":
+                                        shapeList.Circle = dwv.tool.CircleFactory;
+                                        break;
+                                    case "Line":
+                                        shapeList.Line = dwv.tool.LineFactory;
+                                        break;
+                                    case "Protractor":
+                                        shapeList.Protractor = dwv.tool.ProtractorFactory;
+                                        break;
+                                    case "Rectangle":
+                                        shapeList.Rectangle = dwv.tool.RectangleFactory;
+                                        break;
+                                    case "Roi":
+                                        shapeList.Roi = dwv.tool.RoiFactory;
+                                        break;
+                                    case "Ellipse":
+                                        shapeList.Ellipse = dwv.tool.EllipseFactory;
+                                        break;
+
+
+                                }
                             }
-                            else {
-                                console.warn("Could not initialise unknown shape: "+shapeName);
-                            }
+                            toolList.Draw = new dwv.tool.Draw(this, shapeList);
+                            toolList.Draw.addEventListener("draw-create", fireEvent);
+                            toolList.Draw.addEventListener("draw-change", fireEvent);
+                            toolList.Draw.addEventListener("draw-move", fireEvent);
+                            toolList.Draw.addEventListener("draw-delete", fireEvent);
                         }
-                        toolList.Draw = new dwv.tool.Draw(this, shapeList);
-                        toolList.Draw.addEventListener("draw-create", fireEvent);
-                        toolList.Draw.addEventListener("draw-change", fireEvent);
-                        toolList.Draw.addEventListener("draw-move", fireEvent);
-                        toolList.Draw.addEventListener("draw-delete", fireEvent);
-                    }
-                    break;
+                        break;
                 case "Livewire":
                     toolList.Livewire = new dwv.tool.Livewire(this);
                     break;
@@ -1403,7 +1420,39 @@ dwv.App = function ()
             toolbox.init();
             toolbox.display(true);
         }
+        
+        var element = document.getElementById("buttonCalibrage");
+        var taille_bille_mm = null;
+        element.addEventListener('click', function() {
+                taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
+                console.log("calibrage");
+                console.log( toolbox );
+                toolbox.setSelectedTool("Draw");
+                toolboxController.setSelectedShape("Circle");
+            }
+        );
 
+        var element2 = document.getElementById("buttonValideInformationPatient");
+        element2.addEventListener('click', function() {
+                // Fonction qui permet de récuperer l'id maximum de getdata et qui correspond à (x, y) du centre de l'axe du trapèze
+
+                var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille"));
+                console.log(sessionStorage.getItem("taille_bille"));
+                // var taille_bille_mm = parseInt(document.getElementById("taille_bille_mm").value);
+                taille_bille_mm = parseInt(taille_bille_mm);
+                console.log("taille_bille_mm",taille_bille_mm);
+
+                var coeff =  taille_bille_mm / taille_bille_px;
+                var string = "coefficient de redimensionnement des implants est : " + coeff;
+                console.log(coeff);
+                sessionStorage.setItem("coefficient",coeff);
+                alert(string);
+                for(var i = 0 ; i<10 ; i++){
+                    undoStack.undo();
+                }
+                toolbox.display(false);
+            }
+        );
         // stop box listening to drag (after first drag)
         var box = self.getElement("dropBox");
         if ( box ) {
