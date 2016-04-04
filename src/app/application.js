@@ -1317,7 +1317,10 @@ dwv.App = function ()
     {
         fireEvent(event);
         if( event.lengthComputable )
+
         {
+
+
             var percent = Math.round((event.loaded / event.total) * 100);
             dwv.gui.displayProgress(percent);
         }
@@ -1420,10 +1423,16 @@ dwv.App = function ()
             toolbox.init();
             toolbox.display(true);
         }
-        
-        var element = document.getElementById("buttonCalibrage");
+
+        /**
+         *  Récupération de la taille de la bille en mm via un pop-up
+         *  @param taille_bille_mm  taille de la bille en mm
+         *  @author  Houssam KARRACH
+         **/
+
+        var buttonCalibrage = document.getElementById("buttonCalibrage");
         var taille_bille_mm = null;
-        element.addEventListener('click', function() {
+        buttonCalibrage.addEventListener('click', function() {
                 taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
                 console.log("calibrage");
                 console.log( toolbox );
@@ -1431,17 +1440,19 @@ dwv.App = function ()
                 toolboxController.setSelectedShape("Circle");
             }
         );
-
-        var element2 = document.getElementById("buttonValideInformationPatient");
-        element2.addEventListener('click', function() {
-                // Fonction qui permet de récuperer l'id maximum de getdata et qui correspond à (x, y) du centre de l'axe du trapèze
-
+        /**
+         *  Calcule du coefficient de la bille mm/px
+         *  @param taille_bille_px  taille de la bille en px
+         *  @param coeff  coefficient du redimenssionement de l'implant
+         *  @author  Houssam KARRACH
+         **/
+        var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
+        buttonValideInformationPatient.addEventListener('click', function() {
                 var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille"));
                 console.log(sessionStorage.getItem("taille_bille"));
                 // var taille_bille_mm = parseInt(document.getElementById("taille_bille_mm").value);
                 taille_bille_mm = parseInt(taille_bille_mm);
                 console.log("taille_bille_mm",taille_bille_mm);
-
                 var coeff =  taille_bille_mm / taille_bille_px;
                 var string = "coefficient de redimensionnement des implants est : " + coeff;
                 console.log(coeff);
@@ -1450,7 +1461,9 @@ dwv.App = function ()
                 for(var i = 0 ; i<10 ; i++){
                     undoStack.undo();
                 }
+                window.addEventListener("keydown", onMouch, false);
                 toolbox.display(false);
+                toolbox.setSelectedTool("Scroll");
             }
         );
         // stop box listening to drag (after first drag)
