@@ -4,6 +4,7 @@ dwv.tool = dwv.tool || {};
 //external
 var Kinetic = Kinetic || {};
 
+var onPeutTrace=false;
 /**
  * ROI factory.
  * @constructor
@@ -14,12 +15,12 @@ dwv.tool.RoiFactory = function ()
      * Get the number of points needed to build the shape.
      * @return {Number} The number of points.
      */
-    this.getNPoints = function () { return 50; };
+    this.getNPoints = function () { return 4; };
     /**
      * Get the timeout between point storage.
      * @return {Number} The timeout in milliseconds.
      */
-    this.getTimeout = function () { return 100; };
+    this.getTimeout = function () { return 20; };
 };
 
 /**
@@ -30,30 +31,61 @@ dwv.tool.RoiFactory = function ()
  */
 dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
 {
-    // physical shape
-    var roi = new dwv.math.ROI();
-    // add input points to the ROI
-    roi.addPoints(points);
-    // points stored the kineticjs way
-    var arr = [];
-    for( var i = 0; i < roi.getLength(); ++i )
-    {
-        arr.push( roi.getPoint(i).getX() );
-        arr.push( roi.getPoint(i).getY() );
+    //console.log("RoiFactory nb points "+points);
+    if (sessionStorage.getItem("premierPointTrapeze")===null) {
+        sessionStorage.setItem("premierPointTrapeze", points[0]);
+        var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
+        tempNbTrapeze++;
+        sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
+        onPeutTrace=true;
+    } else {
+        //console.log("points[0] "+points[0]);
+        //console.log("sessionStorage.getItem(premierPointTrapeze) "+sessionStorage.getItem("premierPointTrapeze"));
+        if (sessionStorage.getItem("premierPointTrapeze")!=points[0]) {
+            sessionStorage.setItem("premierPointTrapeze", points[0]);
+            //console.log("sessionStorage.getItem(nbTrapeze) "+ sessionStorage.getItem("nbTrapeze"));
+            if (sessionStorage.getItem("nbTrapeze")<=2) {
+                var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
+                tempNbTrapeze++;
+                sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
+                onPeutTrace=true;
+            } else {
+                alert("Veuillez supprimez un trapèze pour en recréer un nouveau");
+                onPeutTrace=false;
+            }
+        }
     }
-    // draw shape
-    var kshape = new Kinetic.Line({
-        points: arr,
-        stroke: style.getLineColour(),
-        strokeWidth: style.getScaledStrokeWidth(),
-        name: "shape",
-        closed: true
-    });
-    // return group
-    var group = new Kinetic.Group();
-    group.name("roi-group");
-    group.add(kshape);
-    return group;
+
+    if (onPeutTrace == true) {
+        // physical shape
+        var roi = new dwv.math.ROI();
+        // add input points to the ROI
+        roi.addPoints(points);
+        // points stored the kineticjs way
+        
+        var arr = [];
+        for( var i = 0; i < roi.getLength(); ++i )
+        {
+            arr.push( roi.getPoint(i).getX() );
+            arr.push( roi.getPoint(i).getY() );
+        }
+        // draw shape
+        var kshape = new Kinetic.Line({
+            points: arr,
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            name: "shape",
+            closed: true
+        });
+        // return group
+        var group = new Kinetic.Group();
+        group.name("roi-group");
+        group.add(kshape);
+        return group;
+    }else{
+        return null;
+    }
+    
 };
 
 /**

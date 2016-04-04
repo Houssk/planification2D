@@ -3,6 +3,10 @@ var dwv = dwv || {};
 // external
 var Kinetic = Kinetic || {};
 
+// Toolbox
+    var toolbox = null;
+    // Toolbox controller
+    var toolboxController = null;
 /**
  * Main application class.
  * @constructor
@@ -70,10 +74,7 @@ dwv.App = function ()
     // Generic style
     var style = new dwv.html.Style();
 
-    // Toolbox
-    var toolbox = null;
-    // Toolbox controller
-    var toolboxController = null;
+    
 
     // Loadbox
     var loadbox = null;
@@ -1472,6 +1473,7 @@ dwv.App = function ()
                 toolbox.setSelectedTool("Scroll");
             }
         );
+
         // stop box listening to drag (after first drag)
         var box = self.getElement("dropBox");
         if ( box ) {
@@ -1513,4 +1515,9 @@ dwv.App = function ()
         self.initWLDisplay();
     }
 
+   
 };
+ function DrawShape(typeShape) {
+        toolbox.setSelectedTool("Draw");
+        toolboxController.setSelectedShape(typeShape);
+    }

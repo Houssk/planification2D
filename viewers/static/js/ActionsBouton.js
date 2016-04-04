@@ -4,8 +4,8 @@
 
 $(document).ready(function () {
 
-	var patient; // variable de stockage du patient
-
+	var patient = null; // variable de stockage du patient
+	var nbTrapeze = 0;
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
 		function() {
@@ -64,12 +64,16 @@ $(document).ready(function () {
 			ValiderPatient()
 		},false);
 
-	/*var buttonDessinTrapeze = document.getElementById("buttonDessinTrapeze");
+	var buttonDessinTrapeze = document.getElementById("buttonDessinTrapeze");
 	buttonDessinTrapeze.addEventListener('click', 
 		function() {
 			function DessinTrapeze(){
-				console.log("de trapèze");
+				console.log("dessin trapèze");
+				if(sessionStorage.getItem("nbTrapeze")===null){
+					sessionStorage.setItem("nbTrapeze", 1);
+				}
+				DrawShape("Roi");
 			};
 			DessinTrapeze()
-	}, false);*/
+	}, false);
 });
