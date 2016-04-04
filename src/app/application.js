@@ -82,6 +82,11 @@ dwv.App = function ()
 
     // listeners
     var listeners = {};
+    // clear session storage
+    sessionStorage.clear();
+    // Calibrage
+    sessionStorage.setItem("calibrage",false);
+
 
     /**
      * Get the version of the application.
@@ -1457,11 +1462,12 @@ dwv.App = function ()
                 var string = "coefficient de redimensionnement des implants est : " + coeff;
                 console.log(coeff);
                 sessionStorage.setItem("coefficient",coeff);
+                sessionStorage.setItem("calibrage",true);
                 alert(string);
                 for(var i = 0 ; i<10 ; i++){
                     undoStack.undo();
                 }
-                window.addEventListener("keydown", onMouch, false);
+               window.addEventListener("keydown", onMouch, false);
                 toolbox.display(false);
                 toolbox.setSelectedTool("Scroll");
             }

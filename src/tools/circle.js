@@ -45,11 +45,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 {
     var x = points[0].getX();
     var y = points[0].getY();
-
-    //lastCenterPos = { 'x': points[0].getX(), 'y': points[0].getY() };
     console.log("CircleFactory OK");
-
-
     // calculate radius
     var radiusCircle = Math.sqrt(Math.pow(points[1].getX()-points[0].getX(),2)+Math.pow(points[1].getY()-points[0].getY(),2));
     // physical shape
@@ -64,7 +60,6 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         strokeWidth: style.getScaledStrokeWidth(),
         name: "shape"
     });
-
     var kcentreCercle = new Kinetic.Circle({
         x: circle.getCenter().getX(),
         y: circle.getCenter().getY(),
@@ -72,11 +67,20 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         fill: "#F47D30",
         name: "centreCercle"
     });
-    // quantification
-    /// var cm2 = quant.surface / 100;
-    var diametre =  Math.round((radiusCircle))*2;
-    var str = Math.round((radiusCircle))*2  + " px";//cm2.toPrecision(4) + " cm2";
-    sessionStorage.setItem("taille_bille",diametre);
+    var calibrage = sessionStorage.getItem("calibrage");
+    var coefficient = sessionStorage.getItem("coefficient");
+    var diametre_px =  Math.round((radiusCircle))*2;
+    var diametre_mm = null;
+    var str = null;
+    if(calibrage=="true"){
+
+        diametre_mm = Math.round((radiusCircle)*2*coefficient);
+        str = diametre_mm + "mm";
+    }
+    else {
+        str = diametre_px  + " px";
+        sessionStorage.setItem("taille_bille",diametre_px);
+       }
     // quantification text
     var ktext = new Kinetic.Text({
         x: circle.getCenter().getX(),
@@ -87,9 +91,6 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         fill: style.getLineColour(),
         name: "text"
     });
-
-
-
     // return group
     var group = new Kinetic.Group();
     group.name("circle-group");
@@ -98,7 +99,6 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
     group.add(ktext);
     return group;
 };
-
 dwv.tool.UpdateCircle = function (anchor, image)
 {
     console.log("UpdateCircle OK")
@@ -140,43 +140,32 @@ dwv.tool.UpdateCircle = function (anchor, image)
             radiusPoint.x(radiusPoint.x()+(anchor.x()-lastCenterPos.x));
             radiusPoint.y(centerCircleAnchor.y());
             break;
-        /*case 'centreCercle':
-         centreCercle.x(centerCircleAnchor.x());
-         centreCercle.y(centerCircleAnchor.y());
-         radiusPoint.x(radiusPoint.x()+(anchor.x()-lastCenterPos.x));
-         radiusPoint.y(centerCircleAnchor.y());
-         break;*/
 
         default :
             console.error('Unhandled anchor id: '+anchor.id());
             break;
     }
-    // update shape
-
-    //var radiusCircle = ( topRight.x() - topLeft.x() ) / 2; //Math.sqrt(Math.pow(topRight.x()-topLeft.x())+Math.pow(bottomRight.y()-topRight.y()));
     var centerCircle = { 'x': centerCircleAnchor.x(), 'y': centerCircleAnchor.y()};
-
     var x = centerCircleAnchor.x();
     var y = centerCircleAnchor.y();
-
-
-    lastCenterPos=centerCircle;
-    //dwv.math.Point2D(topLeft.x()+radiusCircle, topLeft.y()+radiusCircle);
-    // physical shape
-    //var circle = new dwv.math.Circle(points[0], radiusCircle);
-    //var radiusX = ( topRight.x() - topLeft.x() ) / 2;
-    //var radiusY = ( bottomRight.y() - topRight.y() ) / 2;
-    //var center = { 'x': topLeft.x() + radiusCircle, 'y': topRight.y() + radiusCircle };
     kcircle.position( centerCircle );
     kcircle.radius( radiusCircleAbs );
-
-    // update text
-    var circle = new dwv.math.Circle(centerCircle, radiusCircle);
     kcentreCercle.position(centerCircle);
-    //kcentreCercle.position( centerCircle );
-    //var quant = image.quantifyCircle( circle );
-    //var cm2 = quant.surface / 100;
-    var str = Math.round(radiusCircleAbs)*2 + " px";
+    var diametre_mm = null;
+    var diametre_px = null;
+    var str = null;
+    var coefficient = sessionStorage.getItem("coefficient");
+    var calibrage = sessionStorage.getItem("calibrage");
+    if(calibrage=="true"){
+
+        diametre_mm = Math.round((radiusCircle)*2*coefficient);
+        str = diametre_mm + "mm";
+    }
+    else {
+        diametre_px = Math.round((radiusCircle))*2;
+        str = diametre_px  + " px";
+        sessionStorage.setItem("taille_bille",diametre_px);
+    }
     var textPos = centerCircle;
     ktext.position(textPos);
     ktext.text(str);
