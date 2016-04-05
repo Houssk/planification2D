@@ -62,13 +62,16 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         // add input points to the ROI
         roi.addPoints(points);
         // points stored the kineticjs way
-        
         var arr = [];
+        var Yarr = [];
+        var Xarr = [];
         for( var i = 0; i < roi.getLength(); ++i )
         {
             arr.push( roi.getPoint(i).getX() );
             arr.push( roi.getPoint(i).getY() );
+            Yarr.push( roi.getPoint(i).getY() );
         }
+
         // draw shape
         var kshape = new Kinetic.Line({
             points: arr,
@@ -77,12 +80,33 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
             name: "shape",
             closed: true
         });
+
+        Yarr.sort(function(a, b){return a-b});
+        for (var i = 0; i < Yarr.length; i++) {
+            for (var j = 1; j < arr.length; j+=2) {
+                if(Yarr[i]==arr[j])
+                {
+                    Xarr.push(arr[j-1]);
+                }
+            };
+        };
+
+        var x1 = Xarr[2] / 2 + Xarr[3] / 2 ;
+        var y1 = Yarr[2] / 2 + Yarr[3] / 2 ;
+        var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;
+        var y2 = Yarr[0] / 2 + Yarr[1] / 2 ;
+
+        var centre = [] ;
+        centre.push(x1);
+        centre.push(y1);
+        centre.push(x2);
+        centre.push(y2);
         // return group
         var group = new Kinetic.Group();
         group.name("roi-group");
         group.add(kshape);
         return group;
-    }else{
+    } else {
         return null;
     }
     
