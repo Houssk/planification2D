@@ -4,7 +4,7 @@ dwv.tool = dwv.tool || {};
 //external
 var Kinetic = Kinetic || {};
 
-var onPeutTrace=false;
+var onPeutTraceTrapeze=false;
 var tailleDépassementDroite = 100;
 /**
  * ROI factory.
@@ -39,7 +39,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
         tempNbTrapeze++;
         sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
-        onPeutTrace=true;
+        onPeutTraceTrapeze=true;
     } else {
         //console.log("points[0] "+points[0]);
         //console.log("sessionStorage.getItem(premierPointTrapeze) "+sessionStorage.getItem("premierPointTrapeze"));
@@ -50,15 +50,15 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
                 var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
                 tempNbTrapeze++;
                 sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
-                onPeutTrace=true;
+                onPeutTraceTrapeze=true;
             } else {
                 alert("Veuillez supprimez un trapèze pour en recréer un nouveau");
-                onPeutTrace=false;
+                onPeutTraceTrapeze=false;
             }
         }
     }
 
-    if (onPeutTrace == true) {
+    if (onPeutTraceTrapeze == true) {
         // physical shape
         var roi = new dwv.math.ROI();
         // add input points to the ROI

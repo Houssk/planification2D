@@ -76,4 +76,17 @@ $(document).ready(function () {
 			};
 			DessinTrapeze()
 	}, false);
+
+	var buttonDessinCercle = document.getElementById("buttonDessinCercle");
+	buttonDessinCercle.addEventListener('click', 
+		function() {
+			function DessinCercle(){
+				console.log("dessin cercle");
+				if(sessionStorage.getItem("nbCercle")===null){
+					sessionStorage.setItem("nbCercle", 1);
+				}
+				DrawShape("Circle");
+			};
+			DessinCercle()
+	}, false);
 });
