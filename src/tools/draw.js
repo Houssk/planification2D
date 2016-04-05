@@ -186,6 +186,11 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
      * Execute the command.
      */
     this.execute = function () {
+        if("roi"==name){
+            var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
+            tempNbTrapeze--;
+            sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
+        }
         // remove the group from the parent layer
         group.remove();
         // draw
@@ -371,6 +376,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * @param {Object} event The mouse move event.
      */
     this.mousemove = function(event){
+        //console.log("mousemove");
         if (!started)
         {
             return;
@@ -698,6 +704,40 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 var translation = {'x': pos.x - dragStartPos.x,
                         'y': pos.y - dragStartPos.y};
                 if ( translation.x !== 0 || translation.y !== 0 ) {
+                    //console.log("save drag move");
+                    if(cmdName == "roi"){
+                        if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
+                            var trapezeAxePosition = sessionStorage.getItem("trapezeDroitPosition");
+                            var x1 = trapezeAxePosition[0] ;
+                            var y1 = trapezeAxePosition[1] ;
+                            var x2 = trapezeAxePosition[2] ;
+                            var y2 = trapezeAxePosition[2] ;
+                            x1 = x1+translation.x;
+                            y1 = x1+translation.y;
+                            x2 = x2+translation.x;
+                            y2 = x2+translation.y;
+                            trapezeAxePosition[0] = x1 ;
+                            trapezeAxePosition[1] = y1 ;
+                            trapezeAxePosition[2] = x2 ;
+                            trapezeAxePosition[2] = y2 ;
+                            sessionStorage.setItem("trapezeDroitPosition", trapezeAxePosition);
+                        } else {
+                            var trapezeAxePosition = sessionStorage.getItem("trapezeGauchePosition");
+                            var x1 = trapezeAxePosition[0] ;
+                            var y1 = trapezeAxePosition[1] ;
+                            var x2 = trapezeAxePosition[2] ;
+                            var y2 = trapezeAxePosition[2] ;
+                            x1 = x1+translation.x;
+                            y1 = x1+translation.y;
+                            x2 = x2+translation.x;
+                            y2 = x2+translation.y;
+                            trapezeAxePosition[0] = x1 ;
+                            trapezeAxePosition[1] = y1 ;
+                            trapezeAxePosition[2] = x2 ;
+                            trapezeAxePosition[2] = y2 ;
+                            sessionStorage.setItem("trapezeGauchePosition", trapezeAxePosition);
+                        }
+                    }
                     var mvcmd = new dwv.tool.MoveGroupCommand(this.getParent(), cmdName, translation, drawLayer);
                     mvcmd.onExecute = fireEvent;
                     mvcmd.onUndo = fireEvent;

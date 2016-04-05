@@ -5,6 +5,7 @@ dwv.tool = dwv.tool || {};
 var Kinetic = Kinetic || {};
 
 var onPeutTrace=false;
+var tailleDépassementDroite = 100;
 /**
  * ROI factory.
  * @constructor
@@ -31,6 +32,7 @@ dwv.tool.RoiFactory = function ()
  */
 dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
 {
+    //console.log("RoiFactory");
     //console.log("RoiFactory nb points "+points);
     if (sessionStorage.getItem("premierPointTrapeze")===null) {
         sessionStorage.setItem("premierPointTrapeze", points[0]);
@@ -96,30 +98,57 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;
         var y2 = Yarr[0] / 2 + Yarr[1] / 2 ;
 
-        var centre = [] ;
-        centre.push(x1);
-        centre.push(y1);
-        centre.push(x2);
-        centre.push(y2);
+        coeffDirect=(y2-y1)/(x2-x1);
+        x1=x1+(tailleDépassementDroite/coeffDirect);
+        y1=y1+tailleDépassementDroite;
+        x2=x2-(tailleDépassementDroite/coeffDirect);
+        y2=y2-tailleDépassementDroite;
 
-        var kshape2 = new Kinetic.Line({
-           points: centre,
+        //test pour savoir de quel cote est le trapeze sauvegarde
+        if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+            var trapezeAxePosition=[];
+            trapezeAxePosition.push(x1);
+            trapezeAxePosition.push(y1);
+            trapezeAxePosition.push(x2);
+            trapezeAxePosition.push(y2);
+            sessionStorage.setItem("trapezeDroitPosition", trapezeAxePosition);
+            sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
+            //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
+            //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
+        } else {
+            var trapezeAxePosition=[];
+            trapezeAxePosition.push(x1);
+            trapezeAxePosition.push(y1);
+            trapezeAxePosition.push(x2);
+            trapezeAxePosition.push(y2);
+            sessionStorage.setItem("trapezeGauchePosition", trapezeAxePosition);
+            sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
+            //console.log("trapezeGauchePosition "+sessionStorage.getItem("trapezeGauchePosition"));
+            //console.log("trapezeGauchecoeffDirect "+sessionStorage.getItem("trapezeGauchecoeffDirect"));
+        }
+
+        var pointsAxeCentre = [] ;
+        pointsAxeCentre.push(x1);
+        pointsAxeCentre.push(y1);
+        pointsAxeCentre.push(x2);
+        pointsAxeCentre.push(y2);
+
+        //console.log("x1 "+x1+", y1 "+y1+", x2 "+x2+", y2 "+y2);
+
+        var kAxeCentre = new Kinetic.Line({
+           points: pointsAxeCentre,
            stroke: "red",
            strokeWidth: 5,
            lineJoin: 'round',
-           /*
-            * line segments with a length of 33px
-            * with a gap of 10px
-            */
-           name: "shape2"
+           name: "AxeCentre"
         });
-    // Ligne en pointillé
-    kshape2.dashArray([10,2]);
+        // Ligne en pointillé
+        kAxeCentre.dashArray([10,2]);
         // return group
         var group = new Kinetic.Group();
         group.name("roi-group");
         group.add(kshape);
-        group.add(kshape2);
+        group.add(kAxeCentre);
         return group;
     } else {
         return null;
@@ -134,6 +163,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
  */
 dwv.tool.UpdateRoi = function (anchor /*, image*/)
 {
+    //console.log("roi update");
     // parent group
     var group = anchor.getParent();
     // associated shape
@@ -152,4 +182,59 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
     points[anchor.id()] = anchor.x() - kroi.x();
     points[anchor.id()+1] = anchor.y() - kroi.y();
     kroi.points( points );
+
+    var kAxe = group.getChildren( function (node) {
+        return node.name() === 'AxeCentre';
+    })[0];
+
+    //update axe
+    var Xarr = [];
+    var Yarr = [];
+
+    for (var i = 1; i < points.length; i+=2) {
+        Yarr.push(points[i]);
+    };
+
+    Yarr.sort(function(a, b){return a-b});
+    for (var i = 0; i < Yarr.length; i++) {
+        for (var j = 1; j < points.length; j+=2) {
+            if(Yarr[i]==points[j])
+            {
+                Xarr.push(points[j-1]);
+            }
+        };
+    };
+    
+    var x1 = Xarr[2] / 2 + Xarr[3] / 2 ;
+    var y1 = Yarr[2] / 2 + Yarr[3] / 2 ;
+    var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;
+    var y2 = Yarr[0] / 2 + Yarr[1] / 2 ;
+
+    coeffDirect=(y2-y1)/(x2-x1);
+    x1=x1+(tailleDépassementDroite/coeffDirect);
+    y1=y1+tailleDépassementDroite;
+    x2=x2-(tailleDépassementDroite/coeffDirect);
+    y2=y2-tailleDépassementDroite;
+
+    //test pour savoir de quel cote est le trapeze sauvegarde
+    if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+        var trapezeAxePosition=[];
+        trapezeAxePosition.push(x1);
+        trapezeAxePosition.push(y1);
+        trapezeAxePosition.push(x2);
+        trapezeAxePosition.push(y2);
+        sessionStorage.setItem("trapezeDroitPosition", trapezeAxePosition);
+        sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
+    } else {
+        var trapezeAxePosition=[];
+        trapezeAxePosition.push(x1);
+        trapezeAxePosition.push(y1);
+        trapezeAxePosition.push(x2);
+        trapezeAxePosition.push(y2);
+        sessionStorage.setItem("trapezeGauchePosition", trapezeAxePosition);
+        sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
+    }
+    //console.log("x1 "+x1+", y1 "+y1+", x2 "+x2+", y2 "+y2);
+
+    kAxe.points( [x1,y1,x2,y2] );
 };

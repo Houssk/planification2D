@@ -25,6 +25,10 @@ dwv.image.getViewFromDOMImage = function (image)
     var canvas = document.createElement('canvas');
     canvas.width = image.width;
     canvas.height = image.height;
+
+    sessionStorage.setItem("imageLargeur", image.width);
+    sessionStorage.setItem("imageHauteur", image.height);
+
     var ctx = canvas.getContext('2d');
     ctx.drawImage(image, 0, 0, image.width, image.height);
     // get the image data
