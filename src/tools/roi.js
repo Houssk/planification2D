@@ -101,10 +101,25 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         centre.push(y1);
         centre.push(x2);
         centre.push(y2);
+
+        var kshape2 = new Kinetic.Line({
+           points: centre,
+           stroke: "red",
+           strokeWidth: 5,
+           lineJoin: 'round',
+           /*
+            * line segments with a length of 33px
+            * with a gap of 10px
+            */
+           name: "shape2"
+        });
+    // Ligne en pointillé
+    kshape2.dashArray([10,2]);
         // return group
         var group = new Kinetic.Group();
         group.name("roi-group");
         group.add(kshape);
+        group.add(kshape2);
         return group;
     } else {
         return null;
