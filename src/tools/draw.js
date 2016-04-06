@@ -191,6 +191,11 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             tempNbTrapeze--;
             sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
         }
+        if ("circle"==name) {
+            var tempNbCercle = sessionStorage.getItem("nbCercle");
+            tempNbCercle--;
+            sessionStorage.setItem("nbCercle", tempNbCercle);
+        }
         // remove the group from the parent layer
         group.remove();
         // draw
@@ -736,6 +741,30 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             trapezeAxePosition[2] = x2 ;
                             trapezeAxePosition[2] = y2 ;
                             sessionStorage.setItem("trapezeGauchePosition", trapezeAxePosition);
+                        }
+                    }
+                    if (cmdName == "circle") {
+                        var calibrage = sessionStorage.getItem("calibrage");
+                        if (calibrage == "true") {
+                            if (dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)) {
+                                var centrePosition = sessionStorage.getItem("cercleDroitPosition");
+                                var x = centrePosition[0];
+                                var y = centrePosition[1];
+                                x = x+translation.x;
+                                y = y+translation.y;
+                                centrePosition[0] = x ;
+                                centrePosition[1] = y ;
+                                sessionStorage.setItem("cercleDroitPosition", centrePosition);
+                            } else {
+                                var centrePosition = sessionStorage.getItem("cercleGauchePosition");
+                                var x = centrePosition[0];
+                                var y = centrePosition[1];
+                                x = x+translation.x;
+                                y = y+translation.y;
+                                centrePosition[0] = x ;
+                                centrePosition[1] = y ;
+                                sessionStorage.setItem("cercleGauchePosition", centrePosition);
+                            }
                         }
                     }
                     var mvcmd = new dwv.tool.MoveGroupCommand(this.getParent(), cmdName, translation, drawLayer);

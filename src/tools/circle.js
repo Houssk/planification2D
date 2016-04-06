@@ -69,9 +69,9 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             }
         }
     } else {
-        console.log("calibrageAFaire "+calibrageAFaire);
-        console.log("lastPoint "+lastPoint);
-        console.log("onPeutTraceCercle "+onPeutTraceCercle);
+        //console.log("calibrageAFaire "+calibrageAFaire);
+        //console.log("lastPoint "+lastPoint);
+        //console.log("onPeutTraceCercle "+onPeutTraceCercle);
         if (calibrageAFaire==true) {
             if (lastPoint == null) {
                 lastPoint=points[0];
@@ -89,11 +89,11 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         var x = points[0].getX();
         var y = points[0].getY();
         lastCenterPos = { 'x': points[0].getX(), 'y': points[0].getY() };
-        console.log("CircleFactory OK");
+        //console.log("CircleFactory OK");
         // calculate radius
         var radiusCircle = Math.sqrt(Math.pow(points[1].getX()-points[0].getX(),2)+Math.pow(points[1].getY()-points[0].getY(),2));
         // physical shape
-        console.log(radiusCircle);
+        //console.log(radiusCircle);
         var circle = new dwv.math.Circle(points[0], radiusCircle);
         // draw shape
         var kshape = new Kinetic.Circle({
@@ -120,6 +120,18 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 
             diametre_mm = Math.round((radiusCircle)*2*coefficient);
             str = diametre_mm + "mm";
+
+            if (x>(sessionStorage.getItem("imageLargeur")/2)) {
+                var centrePosition = [];
+                centrePosition.push(x);
+                centrePosition.push(y);
+                sessionStorage.setItem("cercleDroitPosition", centrePosition);
+            } else {
+                var centrePosition = [];
+                centrePosition.push(x);
+                centrePosition.push(y);
+                sessionStorage.setItem("cercleGauchePosition", centrePosition);
+            }
         }
         else {
             str = diametre_px  + " px";
@@ -149,7 +161,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 };
 dwv.tool.UpdateCircle = function (anchor, image)
 {
-    console.log("UpdateCircle OK")
+    //console.log("UpdateCircle OK")
     // parent group
     var group = anchor.getParent();
     // associated shape
@@ -209,6 +221,18 @@ dwv.tool.UpdateCircle = function (anchor, image)
 
         diametre_mm = Math.round((radiusCircle)*2*coefficient);
         str = diametre_mm + "mm";
+
+        if (x>(sessionStorage.getItem("imageLargeur")/2)) {
+            var centrePosition = [];
+            centrePosition.push(x);
+            centrePosition.push(y);
+            sessionStorage.setItem("cercleDroitPosition", centrePosition);
+        } else {
+            var centrePosition = [];
+            centrePosition.push(x);
+            centrePosition.push(y);
+            sessionStorage.setItem("cercleGauchePosition", centrePosition);
+        }
     }
     else {
         diametre_px = Math.round((radiusCircle))*2;
