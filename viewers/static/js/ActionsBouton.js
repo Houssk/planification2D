@@ -89,4 +89,17 @@ $(document).ready(function () {
 			};
 			DessinCercle()
 	}, false);
+
+	var buttonDessinPetitTroch = document.getElementById("buttonDessinPetitTroch");
+	buttonDessinPetitTroch.addEventListener('click', 
+		function() {
+			function DessinMesurePetitTroch(){
+				console.log("dessin Mesure Petit Troch");
+				//if(sessionStorage.getItem("nbCercle")===null){
+				//	sessionStorage.setItem("nbCercle", 1);
+				//}
+				DrawShape("Mesurepetittroch");
+			};
+			DessinMesurePetitTroch()
+	}, false);
 });

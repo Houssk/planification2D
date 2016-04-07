@@ -317,6 +317,113 @@ dwv.math.ROI = function()
     this.addPoints = function(rhs) { points=points.concat(rhs);};
 }; // ROI class
 
+dwv.math.Mesurepetittroch = function(begin, end, left)
+{
+    /**
+     * Mesurepetittroch delta in the X direction.
+     * @property dx
+     * @private
+     * @type Number
+     */
+    var dx = end.getX() - begin.getX();
+    /**
+     * Mesurepetittroch delta in the Y direction.
+     * @property dy
+     * @private
+     * @type Number
+     */
+    var dy = end.getY() - begin.getY();
+    /**
+     * Mesurepetittroch length.
+     * @property length
+     * @private
+     * @type Number
+     */
+    var length = Math.sqrt( dx * dx + dy * dy );
+        
+    /**
+     * Get the begin point of the Mesurepetittroch.
+     * @method getBegin
+     * @return {Object} The beginning point of the line.
+     */
+    this.getBegin = function() { return begin; };
+    /**
+     * Get the end point of the Mesurepetittroch.
+     * @method getEnd
+     * @return {Object} The ending point of the line.
+     */
+    this.getEnd = function() { return end; };
+    /**
+     * Get the left point of the Mesurepetittroch.
+     * @method getLeft
+     * @return {Object} The left point of the line.
+     */
+    this.getLeft = function() { return left; };
+    /**
+     * Get the Mesurepetittroch delta in the X direction.
+     * @method getDeltaX
+     * @return {Number} The delta in the X direction.
+     */
+    this.getDeltaX = function() { return dx; };
+    /**
+     * Get the Mesurepetittroch delta in the Y direction.
+     * @method getDeltaX
+     * @return {Number} The delta in the Y direction.
+     */
+    this.getDeltaY = function() { return dy; };
+    /**
+     * Get the length of the line.
+     * @method getLength
+     * @return {Number} The length of the line.
+     */
+    this.getLength = function() { return length; };
+    /**
+     * Get the length of the line with spacing.
+     * @method getWorldLength
+     * @param {Number} spacingX The X spacing.
+     * @param {Number} spacingY The Y spacing.
+     * @return {Number} The length of the line with spacing.
+     */
+    this.getWorldLength = function(spacingX, spacingY)
+    {
+        var dxs = dx * spacingX;
+        var dys = dy * spacingY;
+        return Math.sqrt( dxs * dxs + dys * dys );
+    };
+    /**
+     * Get the mid point of the line.
+     * @method getMidpoint
+     * @return {Object} The mid point of the line.
+     */
+    this.getMidpoint = function()
+    {
+        return new dwv.math.Point2D( 
+            parseInt( (begin.getX()+end.getX()+left.getX()) / 2, 10 ), 
+            parseInt( (begin.getY()+end.getY()+left.getY()) / 2, 10 )
+        );
+    };
+    /**
+     * Get the slope of the line.
+     * @method getSlope
+     * @return {Number} The slope of the line.
+     */
+    this.getSlope = function()
+    { 
+        return dy / dx;
+    };
+    /**
+     * Get the inclination of the line.
+     * @method getInclination
+     * @return {Number} The inclination of the line.
+     */
+    this.getInclination = function()
+    { 
+        // tan(theta) = slope
+        var angle = Math.atan2( dy, dx ) * 180 / Math.PI;
+        // shift?
+        return 180 - angle;
+    };
+}; // Mesurepetittroch class
 /**
  * Path shape.
  * @constructor

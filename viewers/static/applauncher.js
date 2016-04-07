@@ -21,7 +21,7 @@ $(document).ready( function()
         "loaders": ["File", "Url"],
         "tools": ["Scroll", "Window/Level", "Zoom/Pan", "Draw", "Livewire", "Filter"],
         "filters": ["Threshold", "Sharpen", "Sobel"],
-        "shapes": ["Cercle","Line", "Protractor", "Rectangle", "Roi", "Ellipse"],
+        "shapes": ["Cercle","Line", "Protractor", "Rectangle", "Roi", "Ellipse", "Mesure Petit Troch"],
         "isMobile": false
     });
 

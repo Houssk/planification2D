@@ -603,7 +603,11 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 cmdName = "protractor";
             }
             else {
-                cmdName = "roi";
+                if (points[0]==points[4]&&points[1]==points[7]) {
+                    cmdName = "petitTroch";
+                } else {
+                    cmdName = "roi";
+                }
             }
         }
         else if ( shape instanceof Kinetic.Rect ) {

@@ -249,7 +249,8 @@ dwv.App = function ()
                                     case "Ellipse":
                                         shapeList.Ellipse = dwv.tool.EllipseFactory;
                                         break;
-
+                                    case "Mesure Petit Troch":
+                                        shapeList.Mesurepetittroch = dwv.tool.MesurepetittrochFactory;
 
                                 }
                             }
