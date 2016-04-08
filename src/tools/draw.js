@@ -716,7 +716,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     //console.log("save drag move");
                     if(cmdName == "roi"){
                         if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
-                            var trapezeAxePosition = sessionStorage.getItem("trapezeDroitPosition");
+                            var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
                             var x1 = trapezeAxePosition[0] ;
                             var y1 = trapezeAxePosition[1] ;
                             var x2 = trapezeAxePosition[2] ;
@@ -729,9 +729,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             trapezeAxePosition[1] = y1 ;
                             trapezeAxePosition[2] = x2 ;
                             trapezeAxePosition[2] = y2 ;
-                            sessionStorage.setItem("trapezeDroitPosition", trapezeAxePosition);
+                            sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
                         } else {
-                            var trapezeAxePosition = sessionStorage.getItem("trapezeGauchePosition");
+                            var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
                             var x1 = trapezeAxePosition[0] ;
                             var y1 = trapezeAxePosition[1] ;
                             var x2 = trapezeAxePosition[2] ;
@@ -744,23 +744,23 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             trapezeAxePosition[1] = y1 ;
                             trapezeAxePosition[2] = x2 ;
                             trapezeAxePosition[2] = y2 ;
-                            sessionStorage.setItem("trapezeGauchePosition", trapezeAxePosition);
+                            sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
                         }
                     }
                     if (cmdName == "circle") {
                         var calibrage = sessionStorage.getItem("calibrage");
                         if (calibrage == "true") {
                             if (dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)) {
-                                var centrePosition = sessionStorage.getItem("cercleDroitPosition");
+                                var centrePosition = JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
                                 var x = centrePosition[0];
                                 var y = centrePosition[1];
                                 x = x+translation.x;
                                 y = y+translation.y;
                                 centrePosition[0] = x ;
                                 centrePosition[1] = y ;
-                                sessionStorage.setItem("cercleDroitPosition", centrePosition);
+                                sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
                             } else {
-                                var centrePosition = sessionStorage.getItem("cercleGauchePosition");
+                                var centrePosition = JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
                                 var x = centrePosition[0];
                                 var y = centrePosition[1];
                                 x = x+translation.x;

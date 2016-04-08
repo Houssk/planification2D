@@ -5,7 +5,12 @@
 $(document).ready(function () {
 
 	var patient = null; // variable de stockage du patient
-	var nbTrapeze = 0;
+	var tige = null; // variable de stockage de la tige
+	var cotyle = null; // variable de stockage du coyle
+
+	var imgTige = null; // variable de stockage de l'image de la tige
+	var imgCotyle = null; // variable de stockage de l'image du cotyle
+
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
 		function() {
@@ -101,5 +106,45 @@ $(document).ready(function () {
 				DrawShape("Mesurepetittroch");
 			};
 			DessinMesurePetitTroch()
+	}, false);
+
+	var buttonValideOutilsDessin = document.getElementById("buttonValideOutilsDessin");
+	buttonValideOutilsDessin.addEventListener('click', 
+		function() {
+			function ValiderDessin(){
+				// récupération tige et cotyle
+				tige=getTige(11);
+				cotyle=getCotyle(17);
+
+				//Initialisation des images
+				imgTige = new Image;
+				imgCotyle = new Image;
+
+				var contexte = document.getElementById("canvasTige").getContext("2d");
+
+				imgTige.onload=function () {
+					var imgTigeWidth=imgTige.width;
+					var imgTigeHeight=imgTige.height;
+					tige.Snap(imgTigeWidth, imgTigeHeight, patient);
+					console.log("tige.GetPosition().x",tige.GetPosition().x);
+					console.log("tige.GetPosition().y",tige.GetPosition().y);
+					console.log("tige.GetOrientation()",tige.GetOrientation());
+					console.log("tige.GetImageLargeur()",tige.GetImageLargeur());
+					console.log("tige.GetImageHauteur()",tige.GetImageHauteur());
+					contexte.save();
+					contexte.clearRect(0, 0, canvasTige.width, canvasTige.height);
+					contexte.translate(tige.GetPosition().x,tige.GetPosition().y);
+					contexte.rotate(tige.GetOrientation());
+					contexte.drawImage(imgTige, 0, 0, imgTigeWidth, imgTigeWidth, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+					contexte.restore();
+				}
+				
+				//Source des images
+				imgTige.src=tige.GetUrl();
+				imgCotyle.src=cotyle.GetUrl();
+
+				
+			};
+			ValiderDessin()
 	}, false);
 });

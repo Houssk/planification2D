@@ -125,12 +125,12 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
                 var centrePosition = [];
                 centrePosition.push(x);
                 centrePosition.push(y);
-                sessionStorage.setItem("cercleDroitPosition", centrePosition);
+                sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
             } else {
                 var centrePosition = [];
                 centrePosition.push(x);
                 centrePosition.push(y);
-                sessionStorage.setItem("cercleGauchePosition", centrePosition);
+                sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
             }
         }
         else {
@@ -226,12 +226,12 @@ dwv.tool.UpdateCircle = function (anchor, image)
             var centrePosition = [];
             centrePosition.push(x);
             centrePosition.push(y);
-            sessionStorage.setItem("cercleDroitPosition", centrePosition);
+            sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
         } else {
             var centrePosition = [];
             centrePosition.push(x);
             centrePosition.push(y);
-            sessionStorage.setItem("cercleGauchePosition", centrePosition);
+            sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
         }
     }
     else {
