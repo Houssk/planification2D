@@ -149,15 +149,15 @@
 			<div class="help" title="Help"></div>
 
 			<!-- Layer Container -->
-			<div class="layerDialog" title="Image">
+			<div id="dwv-layerDialog" class="layerDialog" title="Image">
 				<div class="dropBox"></div>
 				<div class="layerContainer">
 					<div class="drop" style="z-index: 1">
 						<canvas id="canvasTige" class="draggable2" width=900px height=800px style="position: absolute;"></canvas>
-						<canvas id="canvasCotyle" class="draggable2" width=900px height=800px style="position: absolute;"></canvas>
-						<canvas id="dwv-imageLayer" class="imageLayer">Only for HTML5 compatible browsers...</canvas>
+						<canvas id="canvasCotyle" class="draggable2" width=900px height=800px style="position: absolute; "></canvas>
+						<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas>
 					</div>
-					<div id="dwv-drawDiv" class="drawDiv"></div>
+					<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
 					<div class="infoLayer">
 						<div class="infotl"></div>
 						<div class="infotr"></div>

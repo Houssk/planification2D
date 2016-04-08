@@ -119,28 +119,33 @@ $(document).ready(function () {
 				//Initialisation des images
 				imgTige = new Image;
 				imgCotyle = new Image;
-
+				var canvasTige = document.getElementById("canvasTige");
+				var m_canvasWidth=900;
+				var m_canvasHeight=800;
+				canvasTige.width=m_canvasWidth;
+				canvasTige.height=m_canvasHeight;
+				canvasTige.style.zIndex = "25";
+				//var dicomCanvas = document.getElementById("dwv-imageLayer");
+				//dicomCanvas.style.zIndex = "80";
 				var contexte = document.getElementById("canvasTige").getContext("2d");
-
+				console.log("contexte",contexte)
 				imgTige.onload=function () {
 					var imgTigeWidth=imgTige.width;
 					var imgTigeHeight=imgTige.height;
 					tige.Snap(imgTigeWidth, imgTigeHeight, patient);
-					console.log("tige.GetPosition().x",tige.GetPosition().x);
-					console.log("tige.GetPosition().y",tige.GetPosition().y);
-					console.log("tige.GetOrientation()",tige.GetOrientation());
-					console.log("tige.GetImageLargeur()",tige.GetImageLargeur());
-					console.log("tige.GetImageHauteur()",tige.GetImageHauteur());
 					contexte.save();
 					contexte.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contexte.translate(tige.GetPosition().x,tige.GetPosition().y);
 					contexte.rotate(tige.GetOrientation());
-					contexte.drawImage(imgTige, 0, 0, imgTigeWidth, imgTigeWidth, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+					contexte.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
 					contexte.restore();
 				}
 				
+				
 				//Source des images
 				imgTige.src=tige.GetUrl();
+
+				contexte.restore();
 				imgCotyle.src=cotyle.GetUrl();
 
 				
