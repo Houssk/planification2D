@@ -83,11 +83,20 @@ function getCotyle(id) {
     var docXML= xhr.responseXML;
     var cotyleIdBDD = docXML.getElementsByTagName("id");
     var cotyleUrlBDD = docXML.getElementsByTagName("url");
+    var widthPxCotyleBDD = docXML.getElementsByTagName("sizeXPx");
+    var widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm");
+    var heightPxCotyleBDD = docXML.getElementsByTagName("sizeYPx");
+    var heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm");
 
     var cotyleId = cotyleIdBDD.item(0).firstChild.data;
     var cotyleUrl = cotyleUrlBDD.item(0).firstChild.data;
+    var widthPxCotyle = widthPxCotyleBDD.item(0).firstChild.data;
+    var widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data;
+    var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
+    var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
     
-    var cotyle = new Cotyle(cotyleId,cotyleUrl);
+    
+    var cotyle = new Cotyle(cotyleId,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle);
 
     return cotyle;
 }

@@ -8,10 +8,13 @@
 *@param ID 				Identifiant de la tige
 *@param Url 			Chemin d'accès a l'image de la tige
 *@param OffsetX		 	Représente l'offset en x entre le centre de l'image et l'axe mécanique vertical en pixel.
+*@param tigeWidthPx	 	Représente la largeur de la tige en pixel.
+*@param tigeWidthPx	 	Représente la largeur de la tige en cm.
+*@param tigeWidthPx	 	Représente la hauteur de la tige en pixel.
+*@param tigeWidthPx	 	Représente la hauteur de la tige en cm.
 *
 *@author Quentin PETIT
 */
-
 function Tige(ID, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm) {
 	this.m_ID=ID;
 	this.m_Url=Url;
@@ -27,6 +30,7 @@ function Tige(ID, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeig
 	this.m_angleAlignement=null;
 	this.m_tigeImageWidth=null;
 	this.m_tigeImageHeight=null;
+	this.m_coeffRedimensionnement=null;
 }
 
 /**
@@ -65,21 +69,61 @@ Tige.prototype.GetOffsetX = function() {
 	return this.m_OffsetX;
 };
 
+/**
+*Cette fonction permet de récupérer la nouvelle largeur de l'image après calcul du snap.
+*
+*@return m_tigeImageWidth	Représente la nouvelle largeur de l'image après calcul du snap.
+*
+*@author Quentin PETIT
+*/
 Tige.prototype.GetImageLargeur = function() {
 	return this.m_tigeImageWidth;
 };
 
+/**
+*Cette fonction permet de récupérer la nouvelle hauteur de l'image après calcul de snap.
+*
+*@return m_tigeImageHeight	Représente la nouvelle hauteur de l'image après calcul de snap.
+*
+*@author Quentin PETIT
+*/
 Tige.prototype.GetImageHauteur = function() {
 	return this.m_tigeImageHeight;
 };
 
+/**
+*Cette fonction permet de récupérer la nouvelle position de l'image après calcul de snap.
+*
+*@return m_Position			Représente la nouvelle position de l'image après calcul de snap.
+*
+*@author Quentin PETIT
+*/
 Tige.prototype.GetPosition = function() {
 	return this.m_Position;
 };
 
+/**
+*Cette fonction permet de récupérer la nouvelle orientation de l'image après calcul de snap.
+*
+*@return m_angleAlignement	Représente la nouvelle orientation de l'image après calcul de snap.
+*
+*@author Quentin PETIT
+*/
 Tige.prototype.GetOrientation = function() {
 	return this.m_angleAlignement;
 };
+
+/**
+*Cette fonction permet de récupérer le nouveau coefficient de redimensionnement après calcul de snap.
+*
+*@return m_angleAlignement	Représente le nouveau coefficient de redimensionnement après calcul de snap.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetCoeffRedimensionnement = function() {
+	return this.m_coeffRedimensionnement;
+};
+
 /**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
 *
@@ -89,9 +133,13 @@ Tige.prototype.GetOrientation = function() {
 *
 *@author Quentin PETIT
 */
-
 Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 
+	/**
+	*Cette fonction récupère les différentes taille de la dicom
+	*
+	*@author Quentin PETIT
+	*/
 	function getValeursImage() {
 		var dicomCanvas = document.getElementById("dwv-imageLayer");
 
@@ -111,6 +159,11 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 		};
 	}
 
+	/**
+	*Cette fonction calul les facteurs de redimensionnement de la dicom
+	*
+	*@author Quentin PETIT
+	*/
 	function facteurRedimensionnementImage() {
 		// On récupère les valeurs de l'image affichée et de l'image réelle
 		var image = getValeursImage();
@@ -125,6 +178,16 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 		};
 	}
 
+	/**
+	*Cette fonction calul le facteur de redimensionnement de la tige
+	*
+	*@param tigeWidthPx	 	Représente la largeur de la tige en pixel.
+	*@param tigeWidthPx	 	Représente la largeur de la tige en cm.
+	*@param tigeWidthPx	 	Représente la hauteur de la tige en pixel.
+	*@param tigeWidthPx	 	Représente la hauteur de la tige en cm.
+	*
+	*@author Quentin PETIT
+	*/
 	function CoefRedimensionnementImplant(wTigePx,wTigeCm,hTigePx,hTigeCm) {
 		// On récupère les valeurs de l'image affichée et de l'image réelle
 		var image = getValeursImage();
@@ -152,28 +215,34 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	}
 
 	var trapeze = null;
+	var cercle = null;
+
 	var flip = null;
 	if (patient.GetCoteOperation()=="Droit") {
 		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
-		flip=true;
+		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
+		flip=180
 	} else {
 		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
-		flip=false;
+		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+		flip=0;
 	}
 
 	var canvasTige = document.getElementById("canvasTige");
 	canvasTige.width=this.m_canvasWidth;
 	canvasTige.height=this.m_canvasHeight;
-
+	
 	var coeffDicom = facteurRedimensionnementImage();
-	var coeffTige = CoefRedimensionnementImplant(this.m_tigeWidthPx,this.m_tigeWidthCm,this.m_tigeHeightPx,this.m_tigeHeightCm);
+	this.m_coeffRedimensionnement = CoefRedimensionnementImplant(this.m_tigeWidthPx,this.m_tigeWidthCm,this.m_tigeHeightPx,this.m_tigeHeightCm);
 
 	var dicomCanvas = document.getElementById("dwv-imageLayer");
 	var dicomWidth = sessionStorage.getItem("imageLargeur");
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
 
-	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*coeffTige*coeffDicom.coefWidth);
+	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
+
+	var deltaCercleTrapeze = (((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
 	var deltaX = trapeze[2]-trapeze[0];
 	var deltaY = trapeze[3]-trapeze[1];
@@ -182,8 +251,13 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	var atan = Math.atan(tan)*-1;
 	this.m_angleAlignement=atan;
 
-	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * coeffTige;
-	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * coeffTige;
+	this.m_coeffDirecteur=deltaY/deltaX;
+	this.m_Position.x=this.m_Position.x-(deltaCercleTrapeze/this.m_coeffDirecteur);
+	this.m_Position.y=this.m_Position.y-deltaCercleTrapeze;
+
+
+	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
+	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
 
 	console.log("this.m_tigeImageWidth",this.m_tigeImageWidth,"this.m_tigeImageHeight",this.m_tigeImageHeight);
 	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);

@@ -18,6 +18,10 @@
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	    echo "<id>" . $row[0] . "</id>\n";
 	    echo "<url>" . $row[2] . "</url>\n";
+	    echo "<sizeXPx>" . $row[3] . "</sizeXPx>\n";
+	    echo "<sizeYPx>" . $row[4] . "</sizeYPx>\n";
+	    echo "<sizeXCm>" . $row[5] . "</sizeXCm>\n";
+	    echo "<sizeYCm>" . $row[6] . "</sizeYCm>\n";
 	}
 	echo "</exemple>\n";
 	

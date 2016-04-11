@@ -124,30 +124,45 @@ $(document).ready(function () {
 				var m_canvasHeight=800;
 				canvasTige.width=m_canvasWidth;
 				canvasTige.height=m_canvasHeight;
-				canvasTige.style.zIndex = "25";
-				//var dicomCanvas = document.getElementById("dwv-imageLayer");
-				//dicomCanvas.style.zIndex = "80";
-				var contexte = document.getElementById("canvasTige").getContext("2d");
-				console.log("contexte",contexte)
+				canvasTige.style.zIndex = "26";
+				var contextetige = canvasTige.getContext("2d");
+				console.log("contextetige",contextetige)
 				imgTige.onload=function () {
+					console.log("imgTige",imgTige)
 					var imgTigeWidth=imgTige.width;
 					var imgTigeHeight=imgTige.height;
 					tige.Snap(imgTigeWidth, imgTigeHeight, patient);
-					contexte.save();
-					contexte.clearRect(0, 0, canvasTige.width, canvasTige.height);
-					contexte.translate(tige.GetPosition().x,tige.GetPosition().y);
-					contexte.rotate(tige.GetOrientation());
-					contexte.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
-					contexte.restore();
+					contextetige.save();
+					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+					contextetige.translate(tige.GetPosition().x,tige.GetPosition().y);
+					contextetige.rotate(tige.GetOrientation());
+					contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+					contextetige.restore();
 				}
-				
-				
 				//Source des images
 				imgTige.src=tige.GetUrl();
+				//contexte.restore();
 
-				contexte.restore();
+				var canvasCotyle = document.getElementById("canvasCotyle");
+				canvasCotyle.width=m_canvasWidth;
+				canvasCotyle.height=m_canvasHeight;
+				canvasCotyle.style.zIndex = "25";
+				var contextecotyle = canvasCotyle.getContext("2d");
+				console.log("contextecotyle",contextecotyle)
+
+				imgCotyle.onload=function () {
+					var imgCotyleWidth=imgCotyle.width;
+					var imgCotyleHeight=imgCotyle.height;
+					cotyle.Snap(imgCotyleWidth, imgCotyleHeight, tige.GetOrientation(), tige.GetCoeffRedimensionnement(), patient);
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyle.GetPosition().x,cotyle.GetPosition().y);
+					contextecotyle.rotate(tige.GetOrientation());
+					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyle.GetImageLargeur() / 2, -cotyle.GetImageHauteur() / 2, cotyle.GetImageLargeur(), cotyle.GetImageHauteur());
+					contextecotyle.restore();
+				}
 				imgCotyle.src=cotyle.GetUrl();
-
+				/*contexte.restore();*/
 				
 			};
 			ValiderDessin()
