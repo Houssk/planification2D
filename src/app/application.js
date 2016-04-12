@@ -1475,6 +1475,18 @@ dwv.App = function ()
             }
         );
 
+        /**
+        *Bouton de retour de l'outil des dessins
+        *
+        *@author Quentin PETIT
+        */
+        var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
+        buttonRetourOutilsDessin.addEventListener('click', 
+            function() {
+                for(var i = 0 ; i<100 ; i++){
+                    undoStack.undo();
+                }
+        }, false);
         // stop box listening to drag (after first drag)
         var box = self.getElement("dropBox");
         if ( box ) {

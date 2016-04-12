@@ -189,4 +189,39 @@ $(document).ready(function () {
 			};
 			ValiderDessin()
 	}, false);
+
+	var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
+	buttonRetourOutilsDessin.addEventListener('click', 
+		function() {
+			function RetourDessin(){
+				// Nettoyage du canvas tige
+				var canvasTige = document.getElementById("canvasTige");
+				var contextetige = canvasTige.getContext("2d");
+				contextetige.save();
+				contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+				contextetige.restore();
+
+				// Nettoyage du canvas cotyle
+				var canvasCotyle = document.getElementById("canvasCotyle");
+				var contextecotyle = canvasCotyle.getContext("2d");
+				contextecotyle.save();
+				contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+				contextecotyle.restore();
+
+				//Mise a zéro du session.storage
+				sessionStorage.removeItem("nbCercle");
+				sessionStorage.removeItem("nbTrapeze");
+				sessionStorage.removeItem("cercleGauchePosition");
+				sessionStorage.removeItem("cercleDroitPosition");
+				sessionStorage.removeItem("trapezeGauchePosition");
+				sessionStorage.removeItem("trapezeDroitPosition");
+
+				$('.outilsDessin *').prop('disabled',true);
+				document.getElementById("outilsDessin").style.display = "";
+
+				$('.informationPatient *').prop('disabled',false);
+				document.getElementById("informationPatient").style.display = "none";
+			};
+			RetourDessin()
+	}, false);
 });
