@@ -14,8 +14,9 @@
 *@author Quentin PETIT
 */
 
-function Cotyle(ID, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm) {
+function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm) {
 	this.m_ID=ID;
+	this.m_Nom=Nom;
 	this.m_Url=Url;
 	this.m_coeffDirecteur=null;
 	this.m_Position={'x' : null, 'y' : null};
@@ -53,6 +54,17 @@ Cotyle.prototype.GetID = function() {
 
 Cotyle.prototype.GetUrl = function() {
 	return this.m_Url;
+};
+
+/**
+*Cette fonction permet de récupérer le nom de l'image du cotyle
+*
+*@return m_Nom 				Nom de l'image du cotyle
+*
+*@author Quentin PETIT
+*/
+Cotyle.prototype.GetNom = function() {
+	return this.m_Nom;
 };
 
 /**

@@ -17,6 +17,7 @@
 	// On boucle sur le résultat
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	    echo "<id>" . $row[0] . "</id>\n";
+	    echo "<nom> ". $row[1] . " </nom>";
 	    echo "<url>" . $row[2] . "</url>\n";
 	    echo "<distOffsetX>".$row[15]."</distOffsetX>";
 	    echo "<widthPx>" . $row[3] . "</widthPx>\n";

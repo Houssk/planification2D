@@ -11,6 +11,9 @@ $(document).ready(function () {
 	var imgTige = null; // variable de stockage de l'image de la tige
 	var imgCotyle = null; // variable de stockage de l'image du cotyle
 
+	var indexTige = 11;
+	var indexCotyle = 17;
+
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
 		function() {
@@ -48,7 +51,40 @@ $(document).ready(function () {
 									"DICOM", // to do DICOM
 									coteChirurgie.options[coteChirurgie.selectedIndex].value);
 								console.log(patient);
+								if (patient.GetOperationGuide()=="Non guider") {
+									var newTige=getTige(indexTige);
+									imgTige = new Image;
+									var canvasTige = document.getElementById("canvasTige");
+									var m_canvasWidth=900;
+									var m_canvasHeight=800;
+									canvasTige.width=m_canvasWidth;
+									canvasTige.height=m_canvasHeight;
+									canvasTige.style.zIndex = "26";
+									var contextetige = canvasTige.getContext("2d");
+									console.log("contextetige",contextetige)
+									imgTige.onload=function () {
+										console.log("imgTige",imgTige)
+										var imgTigeWidth=imgTige.width;
+										var imgTigeHeight=imgTige.height;
+										var dicomCanvas = document.getElementById("dwv-imageLayer");
 
+										//position zéro
+										var dicomWidth = sessionStorage.getItem("imageLargeur");
+										var dicomHeight = sessionStorage.getItem("imageHauteur");
+										var Position = {'x' : dicomCanvas.width/2/*dicomWidth*/, 'y' : dicomCanvas.height/2/*dicomHeight*/};
+										
+										newTige.Placement(imgTigeWidth, imgTigeHeight, Position, 0);
+										tige=newTige;
+										contextetige.save();
+										contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+										contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+										contextetige.rotate(newTige.GetOrientation());
+										contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+										contextetige.restore();
+									}
+									//Source des images
+									imgTige.src=newTige.GetUrl();
+								}
 								$('.informationPatient *').prop('disabled',true);
 								document.getElementById("informationPatient").style.display = "";
 
@@ -131,8 +167,8 @@ $(document).ready(function () {
 				if(onPeutValider==true)
 				{
 					// récupération tige et cotyle
-					tige=getTige(11);
-					cotyle=getCotyle(17);
+					tige=getTige(indexTige);
+					cotyle=getCotyle(indexCotyle);
 					//Initialisation des images
 					imgTige = new Image;
 					imgCotyle = new Image;
@@ -183,9 +219,10 @@ $(document).ready(function () {
 					document.getElementById("implants").style.display = "none";
 					$('.outilsDessin *').prop('disabled',true);
 					document.getElementById("outilsDessin").style.display = "";
+
+					document.getElementById('labelTailleTige').innerHTML = tige.GetNom();
+					document.getElementById('labelTailleCotyle').innerHTML = cotyle.GetNom();
 				}
-				
-				
 			};
 			ValiderDessin()
 	}, false);
@@ -223,5 +260,369 @@ $(document).ready(function () {
 				document.getElementById("informationPatient").style.display = "none";
 			};
 			RetourDessin()
+	}, false);
+
+	var buttonPlusTige = document.getElementById("buttonPlusTige");
+	buttonPlusTige.addEventListener('click', 
+		function() {
+			function PlusTailleTige(){
+				if (indexTige+1>16) {
+					indexTige=9;
+				} else {
+					indexTige++;
+				}
+				var coteTige = document.getElementById("coteTige");
+				if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {//Tige coté gauche
+					if (patient.GetCoteOperation()=="Gauche") {//Opération coté gauche
+						if (patient.GetOperationGuide()=="Guider") {//Opération guider
+							tige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								tige.Snap(imgTigeWidth, imgTigeHeight, patient);
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(tige.GetPosition().x,tige.GetPosition().y);
+								contextetige.rotate(tige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=tige.GetUrl();
+						} else {//Opération non guider
+							var newTige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+								tige=newTige;
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+								contextetige.rotate(newTige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=newTige.GetUrl();
+							
+						}
+					} else {//Opération coté droit
+						var newTige=getTige(indexTige);
+						imgTige = new Image;
+						var canvasTige = document.getElementById("canvasTige");
+						var m_canvasWidth=900;
+						var m_canvasHeight=800;
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex = "26";
+						var contextetige = canvasTige.getContext("2d");
+						console.log("contextetige",contextetige)
+						imgTige.onload=function () {
+							console.log("imgTige",imgTige)
+							var imgTigeWidth=imgTige.width;
+							var imgTigeHeight=imgTige.height;
+							newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+							tige=newTige; 
+							contextetige.save();
+							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+							contextetige.rotate(newTige.GetOrientation());
+							contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+							contextetige.restore();
+						}
+						//Source des images
+						imgTige.src=newTige.GetUrl();
+						
+					}
+				} else { //Tige coté droit
+					if (patient.GetCoteOperation()=="Droit") {
+						if (patient.GetOperationGuide()=="Guider") {//Opération guider
+							tige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								tige.Snap(imgTigeWidth, imgTigeHeight, patient);
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(tige.GetPosition().x,tige.GetPosition().y);
+								contextetige.rotate(tige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=tige.GetUrl();
+						} else {//Opération non guider
+							var newTige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+								tige=newTige;
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+								contextetige.rotate(newTige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=newTige.GetUrl();
+							
+						}
+					} else {
+						var newTige=getTige(indexTige);
+						imgTige = new Image;
+						var canvasTige = document.getElementById("canvasTige");
+						var m_canvasWidth=900;
+						var m_canvasHeight=800;
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex = "26";
+						var contextetige = canvasTige.getContext("2d");
+						console.log("contextetige",contextetige)
+						imgTige.onload=function () {
+							console.log("imgTige",imgTige)
+							var imgTigeWidth=imgTige.width;
+							var imgTigeHeight=imgTige.height;
+							newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+							tige=newTige;
+							contextetige.save();
+							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+							contextetige.rotate(newTige.GetOrientation());
+							contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+							contextetige.restore();
+						}
+						//Source des images
+						imgTige.src=newTige.GetUrl();
+						 
+					}
+				}
+				document.getElementById('labelTailleTige').innerHTML = tige.GetNom();
+			};
+			PlusTailleTige()
+	}, false);
+
+	var buttonMoinsTige = document.getElementById("buttonMoinsTige");
+	buttonMoinsTige.addEventListener('click', 
+		function() {
+			function MoinsTailleTige(){
+				if (indexTige-1<9) {
+					indexTige=16;
+				} else {
+					indexTige--;
+				}
+				var coteTige = document.getElementById("coteTige");
+				if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {//Tige coté gauche
+					if (patient.GetCoteOperation()=="Gauche") {//Opération coté gauche
+						if (patient.GetOperationGuide()=="Guider") {//Opération guider
+							tige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								tige.Snap(imgTigeWidth, imgTigeHeight, patient);
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(tige.GetPosition().x,tige.GetPosition().y);
+								contextetige.rotate(tige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=tige.GetUrl();
+						} else {//Opération non guider
+							var newTige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+								tige=newTige;
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+								contextetige.rotate(newTige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=newTige.GetUrl();
+							
+						}
+					} else {//Opération coté droit
+						var newTige=getTige(indexTige);
+						imgTige = new Image;
+						var canvasTige = document.getElementById("canvasTige");
+						var m_canvasWidth=900;
+						var m_canvasHeight=800;
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex = "26";
+						var contextetige = canvasTige.getContext("2d");
+						console.log("contextetige",contextetige)
+						imgTige.onload=function () {
+							console.log("imgTige",imgTige)
+							var imgTigeWidth=imgTige.width;
+							var imgTigeHeight=imgTige.height;
+							newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+							tige=newTige; 
+							contextetige.save();
+							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+							contextetige.rotate(newTige.GetOrientation());
+							contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+							contextetige.restore();
+						}
+						//Source des images
+						imgTige.src=newTige.GetUrl();
+						
+					}
+				} else { //Tige coté droit
+					if (patient.GetCoteOperation()=="Droit") {
+						if (patient.GetOperationGuide()=="Guider") {//Opération guider
+							tige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								tige.Snap(imgTigeWidth, imgTigeHeight, patient);
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(tige.GetPosition().x,tige.GetPosition().y);
+								contextetige.rotate(tige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tige.GetImageLargeur() / 2, -tige.GetImageHauteur() / 2, tige.GetImageLargeur(), tige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=tige.GetUrl();
+						} else {//Opération non guider
+							var newTige=getTige(indexTige);
+							imgTige = new Image;
+							var canvasTige = document.getElementById("canvasTige");
+							var m_canvasWidth=900;
+							var m_canvasHeight=800;
+							canvasTige.width=m_canvasWidth;
+							canvasTige.height=m_canvasHeight;
+							canvasTige.style.zIndex = "26";
+							var contextetige = canvasTige.getContext("2d");
+							console.log("contextetige",contextetige)
+							imgTige.onload=function () {
+								console.log("imgTige",imgTige)
+								var imgTigeWidth=imgTige.width;
+								var imgTigeHeight=imgTige.height;
+								newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+								tige=newTige;
+								contextetige.save();
+								contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+								contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+								contextetige.rotate(newTige.GetOrientation());
+								contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+								contextetige.restore();
+							}
+							//Source des images
+							imgTige.src=newTige.GetUrl();
+							
+						}
+					} else {
+						var newTige=getTige(indexTige);
+						imgTige = new Image;
+						var canvasTige = document.getElementById("canvasTige");
+						var m_canvasWidth=900;
+						var m_canvasHeight=800;
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex = "26";
+						var contextetige = canvasTige.getContext("2d");
+						console.log("contextetige",contextetige)
+						imgTige.onload=function () {
+							console.log("imgTige",imgTige)
+							var imgTigeWidth=imgTige.width;
+							var imgTigeHeight=imgTige.height;
+							newTige.Placement(imgTigeWidth, imgTigeHeight, tige.GetPosition(), tige.GetOrientation());
+							tige=newTige;
+							contextetige.save();
+							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+							contextetige.rotate(newTige.GetOrientation());
+							contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+							contextetige.restore();
+						}
+						//Source des images
+						imgTige.src=newTige.GetUrl();
+						 
+					}
+				}
+				document.getElementById('labelTailleTige').innerHTML = tige.GetNom();
+			};
+			MoinsTailleTige()
 	}, false);
 });

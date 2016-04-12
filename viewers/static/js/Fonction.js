@@ -37,6 +37,7 @@ function getTige(id) {
     xhr.responseText;
     var docXML= xhr.responseXML;
     var tigeIdBDD = docXML.getElementsByTagName("id");
+    var tigeNomBDD = docXML.getElementsByTagName("nom");
     var tigeUrlBDD = docXML.getElementsByTagName("url");
     var tigeDistOffsetXBDD = docXML.getElementsByTagName("distOffsetX");
     var tigeWidthPxBDD = docXML.getElementsByTagName("widthPx");
@@ -45,6 +46,7 @@ function getTige(id) {
     var tigeHeightCmBDD = docXML.getElementsByTagName("heightCm");
 
     var tigeId = tigeIdBDD.item(0).firstChild.data;
+    var tigeNom = tigeNomBDD.item(0).firstChild.data;
     var tigeUrl = tigeUrlBDD.item(0).firstChild.data;
     var tigeDistOffsetX = tigeDistOffsetXBDD.item(0).firstChild.data;
     var tigeWidthPx = tigeWidthPxBDD.item(0).firstChild.data;
@@ -52,7 +54,7 @@ function getTige(id) {
 	var tigeHeightPx = tigeHeightPxBDD.item(0).firstChild.data;
     var tigeHeightCm = tigeHeightCmBDD.item(0).firstChild.data;
 
-    var tige = new Tige(tigeId,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm);
+    var tige = new Tige(tigeId,tigeNom,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm);
 
     return tige;
 }
@@ -82,6 +84,7 @@ function getCotyle(id) {
     xhr.responseText;
     var docXML= xhr.responseXML;
     var cotyleIdBDD = docXML.getElementsByTagName("id");
+    var cotyleNomBDD = docXML.getElementsByTagName("nom");
     var cotyleUrlBDD = docXML.getElementsByTagName("url");
     var widthPxCotyleBDD = docXML.getElementsByTagName("sizeXPx");
     var widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm");
@@ -89,6 +92,7 @@ function getCotyle(id) {
     var heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm");
 
     var cotyleId = cotyleIdBDD.item(0).firstChild.data;
+    var cotyleNom = cotyleNomBDD.item(0).firstChild.data;
     var cotyleUrl = cotyleUrlBDD.item(0).firstChild.data;
     var widthPxCotyle = widthPxCotyleBDD.item(0).firstChild.data;
     var widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data;
@@ -96,7 +100,7 @@ function getCotyle(id) {
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
     
     
-    var cotyle = new Cotyle(cotyleId,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle);
+    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle);
 
     return cotyle;
 }
