@@ -1440,7 +1440,9 @@ dwv.App = function ()
         var buttonCalibrage = document.getElementById("buttonCalibrage");
         var taille_bille_mm = null;
         buttonCalibrage.addEventListener('click', function() {
-                taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
+                do {
+                    taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
+                }while(isNaN(taille_bille_mm));
                 console.log("calibrage");
                 console.log( toolbox );
                 toolbox.setSelectedTool("Draw");
