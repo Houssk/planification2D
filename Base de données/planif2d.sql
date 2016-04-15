@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 07 Avril 2016 à 09:11
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Généré le :  Ven 15 Avril 2016 à 16:46
+-- Version du serveur :  5.7.9
+-- Version de PHP :  5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `planif2d`
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `coordonnee`
 --
 
+DROP TABLE IF EXISTS `coordonnee`;
 CREATE TABLE IF NOT EXISTS `coordonnee` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `x1` double NOT NULL,
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `coordonnee` (
   `x2` double NOT NULL,
   `y2` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `coordonnee`
@@ -133,12 +134,13 @@ INSERT INTO `coordonnee` (`id`, `x1`, `y1`, `x2`, `y2`) VALUES
 -- Structure de la table `coordonnee_cercle`
 --
 
+DROP TABLE IF EXISTS `coordonnee_cercle`;
 CREATE TABLE IF NOT EXISTS `coordonnee_cercle` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `x` double NOT NULL,
   `y` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `coordonnee_cercle`
@@ -159,6 +161,7 @@ INSERT INTO `coordonnee_cercle` (`id`, `x`, `y`) VALUES
 -- Structure de la table `cotyles`
 --
 
+DROP TABLE IF EXISTS `cotyles`;
 CREATE TABLE IF NOT EXISTS `cotyles` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(200) NOT NULL,
@@ -170,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `cotyles` (
   `PosCenterX` float NOT NULL,
   `PosCenterY` float NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `cotyles`
@@ -201,7 +204,24 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 (22, 'Novae67', 'images/Novae67.png', 1136, 915, 0, 0, 0, 0),
 (23, 'Novae69', 'images/Novae69.png', 1136, 915, 0, 0, 0, 0),
 (24, 'Novae71', 'images/Novae71.png', 1136, 915, 0, 0, 0, 0),
-(25, 'Novae73', 'images/Novae73.png', 1136, 915, 0, 0, 0, 0);
+(25, 'Novae73', 'images/Novae73.png', 1136, 915, 0, 0, 0, 0),
+(26, 'Novae41', 'images/Novae41_R.png', 1136, 915, 0, 0, 0, 0),
+(27, 'Novae43', 'images/Novae43_R.png', 1136, 915, 0, 0, 0, 0),
+(28, 'Novae45', 'images/Novae45_R.png', 1136, 915, 0, 0, 0, 0),
+(29, 'Novae47', 'images/Novae47_R.png', 1136, 915, 0, 0, 0, 0),
+(30, 'Novae49', 'images/Novae49_R.png', 1136, 915, 0, 0, 0, 0),
+(31, 'Novae51', 'images/Novae51_R.png', 1136, 915, 0, 0, 0, 0),
+(32, 'Novae53', 'images/Novae53_R.png', 1136, 915, 0, 0, 0, 0),
+(33, 'Novae55', 'images/Novae55_R.png', 1136, 915, 0, 0, 0, 0),
+(34, 'Novae57', 'images/Novae57_R.png', 1136, 915, 0, 0, 0, 0),
+(35, 'Novae59', 'images/Novae59_R.png', 1136, 915, 0, 0, 0, 0),
+(36, 'Novae61', 'images/Novae61_R.png', 1136, 915, 0, 0, 0, 0),
+(37, 'Novae63', 'images/Novae63_R.png', 1136, 915, 0, 0, 0, 0),
+(38, 'Novae65', 'images/Novae65_R.png', 1136, 915, 0, 0, 0, 0),
+(39, 'Novae67', 'images/Novae67_R.png', 1136, 915, 0, 0, 0, 0),
+(40, 'Novae69', 'images/Novae69_R.png', 1136, 915, 0, 0, 0, 0),
+(41, 'Novae71', 'images/Novae71_R.png', 1136, 915, 0, 0, 0, 0),
+(42, 'Novae73', 'images/Novae73_R.png', 1136, 915, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -209,6 +229,7 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 -- Structure de la table `implant`
 --
 
+DROP TABLE IF EXISTS `implant`;
 CREATE TABLE IF NOT EXISTS `implant` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -229,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `implant`
@@ -251,7 +272,15 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (13, 'LibraT6', 'images/LibraT6.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 213, 0, 0),
 (14, 'LibraT7', 'images/LibraT7.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 214, 0, 0),
 (15, 'LibraT8', 'images/LibraT8.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, 135, 0),
-(16, 'LibraT9', 'images/LibraT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, 135, 0);
+(16, 'LibraT9', 'images/LibraT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, 135, 0),
+(17, 'LibraT2', 'images/LibraT2_R.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, -174.5, 0, 0),
+(18, 'LibraT3', 'images/LibraT3_R.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, -174.5, 0, 0),
+(19, 'LibraT4', 'images/LibraT4_R.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, -208.5, 0, 0),
+(20, 'LibraT5', 'images/LibraT5_R.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, -210.5, 0, 0),
+(21, 'LibraT6', 'images/LibraT6_R.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -213, 0, 0),
+(22, 'LibraT7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 0, 0),
+(23, 'LibraT8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 135, 0),
+(24, 'LibraT9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 135, 0);
 
 -- --------------------------------------------------------
 
@@ -259,13 +288,14 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 -- Structure de la table `patients`
 --
 
+DROP TABLE IF EXISTS `patients`;
 CREATE TABLE IF NOT EXISTS `patients` (
   `Nom` varchar(40) NOT NULL,
   `Prenom` varchar(40) NOT NULL,
   `Numero_carte_vitale` bigint(20) NOT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `patients`

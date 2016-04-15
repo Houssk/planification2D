@@ -157,16 +157,19 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 	}
 
 	var cercle = null;
+	var canvasCotyle = null;
 	var flip = null;
+
 	if (patient.GetCoteOperation()=="Droit") {
 		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
+		canvasCotyle = document.getElementById("canvasCotyleGauche");
 		flip=180;
 	} else {
 		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+		canvasCotyle = document.getElementById("canvasCotyleDroit");
 		flip=0;
 	}
 
-	var canvasCotyle = document.getElementById("canvasCotyle");
 	canvasCotyle.width=this.m_canvasWidth;
 	canvasCotyle.height=this.m_canvasHeight;
  
@@ -187,4 +190,56 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 	console.log("this.m_cotyleImageWidth",this.m_cotyleImageWidth,"this.m_cotyleImageHeight",this.m_cotyleImageHeight);
 	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
 
+};
+
+Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, coeffRedimensionnement) {
+	/**
+	*Cette fonction récupère les différentes taille de la dicom
+	*
+	*@author Quentin PETIT
+	*/
+	function getValeursImage() {
+		var dicomCanvas = document.getElementById("dwv-imageLayer");
+
+		// Taille de l'image réelle
+		var widthImageReelle = sessionStorage.getItem("imageLargeur");
+		var heightImageReelle = sessionStorage.getItem("imageHauteur");
+
+		// Taille de l'image affichée à l'écran
+		var widthImageCanvas = dicomCanvas.width;
+		var heightImageCanvas = dicomCanvas.height;
+
+		return {
+			widthImageReelle : widthImageReelle, 
+			heightImageReelle : heightImageReelle, 
+			widthImageCanvas : widthImageCanvas, 
+			heightImageCanvas : heightImageCanvas
+		};
+	}
+
+	/**
+	*Cette fonction calul les facteurs de redimensionnement de la dicom
+	*
+	*@author Quentin PETIT
+	*/
+	function facteurRedimensionnementImage() {
+		// On récupère les valeurs de l'image affichée et de l'image réelle
+		var image = getValeursImage();
+
+		// Calcul du coefficient réducteur de l'image
+		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
+		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
+
+		return {
+			coefWidth : coefWidthImage, 
+			coefHeight : coefHeightImage
+		};
+	}
+
+	var coeffDicom = facteurRedimensionnementImage();
+
+	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * coeffRedimensionnement;
+	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * coeffRedimensionnement;
+
+	this.m_Position=position;
 };
