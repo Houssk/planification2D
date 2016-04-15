@@ -207,22 +207,26 @@ dwv.tool.ShapeEditor = function (app)
                 }
             }
             else {
-                console.log("points[0]="+points[0]+"/ points[4]="+points[4]+"// points[1]="+points[1]+"/ points[7]="+points[7]);
-                if (points[0]==points[4]&&points[1]==points[7]) {
+                if (shape.id() =="petitroch") {
+                    console.log(shape.id());
+                    updateFunction = dwv.tool.UpdateMesurepetittroch;
                     var p0x = points[0] + shape.x();
                     var p0y = points[1] + shape.y();
                     var p1x = points[2] + shape.x();
                     var p1y = points[3] + shape.y();
                     var p2x = points[4] + shape.x();
                     var p2y = points[5] + shape.y();
-                    //var p3x = points[6] + shape.x();
-                    //var p3y = points[7] + shape.y();
+                    console.log("p0x p0y",p0x,p0y);
+                    var p3x = points[6] + shape.x();
+                    var p3y = points[7] + shape.y();
                     addAnchor(group, p0x, p0y, 'begin');
                     addAnchor(group, p1x, p1y, 'end');
                     addAnchor(group, p2x, p2y, 'left');
-                    //addAnchor(group, p3x, p3y, 'right');
-                    updateFunction = dwv.tool.UpdateMesurepetittroch;
+
+                    console.log("anchor",p0x, p0y,p1x, p1y,p2x, p2y);
+
                 } else {
+                    console.log("roi");
                     updateFunction = dwv.tool.UpdateRoi;
                     console.log("roi points "+points.length);
                     var px = 0;
@@ -308,6 +312,8 @@ dwv.tool.ShapeEditor = function (app)
      */
     function getClone( anchor ) {
         // create closure to properties
+
+        console.log("getClone");
         var parent = anchor.getParent();
         var id = anchor.id();
         var x = anchor.x();
@@ -345,6 +351,9 @@ dwv.tool.ShapeEditor = function (app)
             else if ( shape.points().length == 6 ) {
                 cmdName = "protractor";
             }
+            else if ( shape.id() == "petitroch" ) {
+                cmdName = "mesurepetittroch";
+            }
             else {
                 cmdName = "roi";
             }
@@ -361,6 +370,7 @@ dwv.tool.ShapeEditor = function (app)
         // drag start listener
         anchor.on('dragstart', function () {
             startAnchor = getClone(this);
+            console.log(cmdName);
         });
         // drag move listener
         anchor.on('dragmove', function () {
@@ -380,6 +390,8 @@ dwv.tool.ShapeEditor = function (app)
             // store the change command
             var chgcmd = new dwv.tool.ChangeGroupCommand(
                     cmdName, updateFunction, startAnchor, endAnchor, this.getLayer(), image);
+
+            console.log(cmdName);
             chgcmd.onExecute = drawEventCallback;
             chgcmd.onUndo = drawEventCallback;
             chgcmd.execute();

@@ -852,6 +852,7 @@ dwv.App = function ()
         if ( event.keyCode === 90 && event.ctrlKey ) // ctrl-z
         {
             undoStack.undo();
+
         }
         else if ( event.keyCode === 89 && event.ctrlKey ) // ctrl-y
         {
@@ -1440,6 +1441,7 @@ dwv.App = function ()
         var buttonCalibrage = document.getElementById("buttonCalibrage");
         var taille_bille_mm = null;
         buttonCalibrage.addEventListener('click', function() {
+                console.log();
                 do {
                     taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
                 }while(isNaN(taille_bille_mm));
@@ -1473,6 +1475,7 @@ dwv.App = function ()
                 }
                window.addEventListener("keydown", onMouch, false);
                 toolbox.display(false);
+                self.resetLayout();
                 toolbox.setSelectedTool("Scroll");
             }
         );
@@ -1485,9 +1488,11 @@ dwv.App = function ()
         var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
         buttonRetourOutilsDessin.addEventListener('click', 
             function() {
+                sessionStorage.setItem("nbPetitTroch", 0);
                 for(var i = 0 ; i<100 ; i++){
                     undoStack.undo();
                 }
+
         }, false);
         // stop box listening to drag (after first drag)
         var box = self.getElement("dropBox");
@@ -1521,8 +1526,8 @@ dwv.App = function ()
             var plot = self.getElement("plot");
             plotInfo = new dwv.info.Plot(plot, self);
             plotInfo.create();
-
             addImageInfoListeners();
+
         }
 
         // init W/L display: triggers a wlchange event

@@ -19,7 +19,7 @@ $(document).ready( function()
         "fitToWindow": true,
         "gui": ["tool", "load", "help", "undo", "version", "tags"],
         "loaders": ["File", "Url"],
-        "tools": ["Scroll", "Window/Level", "Zoom/Pan", "Draw", "Livewire", "Filter"],
+        "tools": [ "Zoom/Pan","Scroll", "Window/Level", "Draw", "Livewire", "Filter"],
         "filters": ["Threshold", "Sharpen", "Sobel"],
         "shapes": ["Cercle","Line", "Protractor", "Rectangle", "Roi", "Ellipse", "Mesure Petit Troch"],
         "isMobile": false
