@@ -113,6 +113,7 @@ Cotyle.prototype.GetPosition = function() {
 
 Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, coeffRedimensionnement, patient) {
 
+	console.log("patient",patient);
 	/**
 	*Cette fonction récupère les différentes taille de la dicom
 	*
