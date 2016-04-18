@@ -86,6 +86,12 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
     }
 
     if (onPeutTraceCercle == true) {
+        var tempNbCercle = sessionStorage.getItem("nbCercle") ;
+        console.log(tempNbCercle);
+        if(parseInt(tempNbCercle)==2){
+            console.log("je suis la ");
+            document.getElementById("buttonDeleteCercle").style.display = "inline";
+        }
         var x = points[0].getX();
         var y = points[0].getY();
         lastCenterPos = { 'x': points[0].getX(), 'y': points[0].getY() };
@@ -102,7 +108,8 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             radius: circle.getRadius(),
             stroke: style.getLineColour(),
             strokeWidth: style.getScaledStrokeWidth(),
-            name: "shape"
+            name: "shape",
+            id : "cercle"
         });
         var kcentreCercle = new Kinetic.Circle({
             x: circle.getCenter().getX(),

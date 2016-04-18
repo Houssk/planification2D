@@ -190,25 +190,41 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
             tempNbTrapeze--;
             sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
+            if(tempNbTrapeze==1){
+                document.getElementById("buttonDeleteTrapeze").style.display = "none";
+            }
         }
         if ("circle"==name) {
             var tempNbCercle = sessionStorage.getItem("nbCercle");
             tempNbCercle--;
             sessionStorage.setItem("nbCercle", tempNbCercle);
+            if(tempNbCercle==1){
+                document.getElementById("buttonDeleteCercle").style.display = "none";
+            }
         }
         if ("mesurepetittroch"==name) {
             var tempNbPetitTroch = sessionStorage.getItem("nbPetitTroch");
             tempNbPetitTroch--;
             sessionStorage.setItem("nbPetitTroch", tempNbPetitTroch);
+            document.getElementById("buttonDeletePetitTroch").style.display = "none";
         }
+        if ("line"==name) {
+            var tempNbPetitTroch = sessionStorage.getItem("nbPetitTroch");
+            tempNbPetitTroch--;
+            sessionStorage.setItem("nbPetitTroch", tempNbPetitTroch);
+            document.getElementById("buttonDeletePetitTroch").style.display = "none";
+        }
+
         //
         // remove the group from the parent layer
         group.remove();
-        console.log('remove');
         // draw
         layer.draw();
         // callback
         this.onExecute({'type': 'draw-delete', 'id': group.id()});
+
+
+
     };
     /**
      * Undo the command.
@@ -230,6 +246,7 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
 dwv.tool.DeleteGroupCommand.prototype.onExecute = function (/*event*/)
 {
     // default does nothing.
+
 };
 /**
  * Handle an undo event.
@@ -461,7 +478,27 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             var shape = group.getChildren( function (node) {
                 return node.name() === 'shape';
             })[0];
+
+
             self.setShapeOn( shape );
+            console.log("shape2",shape);
+            if(shape.id()=="petitroch"){
+
+                var shapeVerticaleLeft = group.getChildren( function (node) {
+                    return node.name() === 'verticalCoteShapeLeft';
+                })[0];
+                var shapeHorizontal = group.getChildren( function (node) {
+                    return node.name() === 'horizontalCoteShape';
+                })[0];
+                var shapeVeriticalRight = group.getChildren( function (node) {
+                    return node.name() === 'verticalCoteShapeRight';
+                })[0];
+                self.setShapeOn( shapeVerticaleLeft );
+                self.setShapeOn( shapeHorizontal );
+                self.setShapeOn( shapeVeriticalRight );
+
+            }
+
         }
         // reset flag
         started = false;
@@ -658,6 +695,73 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             // draw
             drawLayer.draw();
         });
+
+        // remove trapeze
+        var buttonDeleteTrapeze = document.getElementById("buttonDeleteTrapeze");
+        buttonDeleteTrapeze.addEventListener('click',
+            function() {
+
+              //  if ( shape instanceof Kinetic.Line ) {
+                  if(shape.id()=="trapeze"){
+
+                    var group = shape.getParent();
+                      console.log(group);
+                    console.log("buttondelete");
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "roi", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                      sessionStorage.setItem("nbTrapeze", 1);
+
+                  }
+               // }
+                document.getElementById("buttonDeleteTrapeze").style.display = "none";
+
+            }, false);
+        // remove mesure petit troche
+        var buttonDeletePetitTroch = document.getElementById("buttonDeletePetitTroch");
+        buttonDeletePetitTroch.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                if(shape.id()=="petitroch"){
+                    var group = shape.getParent();
+                    console.log(group);
+                    console.log("delete mesure petit troche");
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "mesurepetittroch", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                    sessionStorage.setItem("nbPetitTroch", 0);
+                }
+                // }
+                document.getElementById("buttonDeletePetitTroch").style.display = "none";
+            }, false);
+
+        // remove circle
+        var buttonDeleteCercle = document.getElementById("buttonDeleteCercle");
+        buttonDeleteCercle.addEventListener('click',
+            function() {
+
+                //  if ( shape instanceof Kinetic.Line ) {
+                if(shape.id()=="cercle"){
+
+                    var group = shape.getParent();
+                    console.log(group);
+                    console.log("buttondelete");
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                    sessionStorage.setItem("nbCercle", 1);
+
+                }
+                // }
+                document.getElementById("buttonDeleteCercle").style.display = "none";
+
+            }, false);
         // drag move event handling
         shape.on('dragmove', function (event) {
             console.log("dragmove");

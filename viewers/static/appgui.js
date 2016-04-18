@@ -205,15 +205,15 @@ dwv.gui.setup = function () {
     });
     // create dialogs
     $(".informationPatient").dialog({ position:
-        {my: "left top", at: "left top", of: "#pageMain"},
+        {my: "left top+5", at: "left top", of: "#pageMain"},
         appendTo: "#dwv"
     });
     $(".outilsDessin").dialog({ position:
-        {my: "left top+290", at: "left top", of: "#pageMain"},
+        {my: "left top+340", at: "left top", of: "#pageMain"},
         appendTo: "#dwv"
     });
     $(".implants").dialog({ position:
-        {my: "left top+445", at: "left top", of: "#pageMain"},
+        {my: "left top+580", at: "left top", of: "#pageMain"},
         appendTo: "#dwv",
     });
     $(".toolList").dialog({ position:

@@ -59,6 +59,13 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
     }
 
     if (onPeutTraceTrapeze == true) {
+
+        var tempNbTrapeze = sessionStorage.getItem("nbTrapeze") ;
+        console.log(tempNbTrapeze);
+        if(parseInt(tempNbTrapeze)==2){
+            console.log("je suis la ");
+            document.getElementById("buttonDeleteTrapeze").style.display = "inline";
+        }
         // physical shape
         var roi = new dwv.math.ROI();
         // add input points to the ROI
@@ -80,6 +87,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
             stroke: style.getLineColour(),
             strokeWidth: style.getScaledStrokeWidth(),
             name: "shape",
+            id : "trapeze",
             closed: true
         });
 

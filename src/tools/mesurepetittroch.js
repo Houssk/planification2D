@@ -60,6 +60,12 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
     }
 
     if(onPeutTracePetitRoch == true) {
+
+        var tempNbPetitTroch = sessionStorage.getItem("nbPetitTroch") ;
+        if(parseInt(tempNbPetitTroch)==1){
+            console.log("je suis la ");
+            document.getElementById("buttonDeletePetitTroch").style.display = "inline";
+        }
         console.log("MesurepetittrochFactory");
         // physical shape
         //var line = new dwv.math.Mesurepetittroch(points[0], points[1], points[2], points[3], points[4], points[5], points[6], points[7]);
