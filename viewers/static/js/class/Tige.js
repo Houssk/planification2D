@@ -365,3 +365,9 @@ Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientati
 	this.m_Position=position;
 	this.m_angleAlignement=orientation;
 };
+
+Tige.prototype.Monter = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	this.m_Position.x-=((1/coeffBille)/this.m_coeffDirecteur);
+	this.m_Position.y-=(1/coeffBille);
+};
