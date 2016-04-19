@@ -22,8 +22,8 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_OffsetX=OffsetX;
 	this.m_coeffDirecteur=null;
 	this.m_Position={'x' : null, 'y' : null};
-	this.m_canvasWidth=900;
-	this.m_canvasHeight=800;
+	this.m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+	this.m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 	this.m_tigeWidthPx=tigeWidthPx;
 	this.m_tigeWidthCm=tigeWidthCm;
 	this.m_tigeHeightPx=tigeHeightPx;

@@ -20,8 +20,8 @@ function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, coty
 	this.m_Url=Url;
 	this.m_coeffDirecteur=null;
 	this.m_Position={'x' : null, 'y' : null};
-	this.m_canvasWidth=900;
-	this.m_canvasHeight=800;
+	this.m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+	this.m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 	this.m_cotyleWidthPx=cotyleWidthPx;
 	this.m_cotyleWidthCm=cotyleWidthCm;
 	this.m_cotyleHeightPx=cotyleHeightPx;

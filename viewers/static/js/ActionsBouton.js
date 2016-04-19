@@ -18,6 +18,9 @@ $(document).ready(function () {
 	var indexTigeGauche = 11;
 	var indexCotyleGauche = 17;
 
+	var m_canvasWidth = null;
+	var m_canvasHeight = null;
+
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
 		function() {
@@ -73,16 +76,16 @@ $(document).ready(function () {
 										canvasTige = document.getElementById("canvasTigeGauche");
 										canvasCotyle = document.getElementById("canvasCotyleGauche");
 									}
-									var m_canvasWidth=900;
-									var m_canvasHeight=800;
+									m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 									canvasTige.width=m_canvasWidth;
 									canvasTige.height=m_canvasHeight;
 									canvasTige.style.zIndex = "26";
 									var contextetige = canvasTige.getContext("2d");
-									/*canvasCotyle.width=m_canvasWidth;
+									canvasCotyle.width=m_canvasWidth;
 									canvasCotyle.height=m_canvasHeight;
 									canvasCotyle.style.zIndex = "27";
-									var contextecotyle = canvasCotyle.getContext("2d");*/
+									var contextecotyle = canvasCotyle.getContext("2d");
 									//console.log("contextetige",contextetige)
 									imgTige.onload=function () {
 										console.log("imgTige",imgTige);
@@ -281,8 +284,8 @@ $(document).ready(function () {
 						canvasTige = document.getElementById("canvasTigeGauche");
 					}
 					console.log("canvasTige.id",canvasTige.id);
-					var m_canvasWidth=900;
-					var m_canvasHeight=800;
+					/*var m_canvasWidth=900;
+					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -441,8 +444,8 @@ $(document).ready(function () {
 	function DrawTige() {
 		var contexteTigeDrawTige=null;
 		var canvasTige = null;
-		var m_canvasWidth=900;
-		var m_canvasHeight=800;
+		/*var m_canvasWidth=900;
+		var m_canvasHeight=800;*/
 		var coteTige = document.getElementById("coteTige");
 		if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {
 			canvasTige=document.getElementById("canvasTigeDroit");
@@ -568,8 +571,8 @@ $(document).ready(function () {
 	function DrawCotyle() {
 		var contexteCotyleDrawCotyle=null;
 		var canvasCotyle = null;
-		var m_canvasWidth=900;
-		var m_canvasHeight=800;
+		/*var m_canvasWidth=900;
+		var m_canvasHeight=800;*/
 		var coteCotyle = document.getElementById("coteCotyle");
 		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
 			canvasCotyle=document.getElementById("canvasCotyleDroit");
@@ -784,14 +787,17 @@ $(document).ready(function () {
 			MoinsTailleCotyle()
 	}, false);
 
+	
+
 	var buttonMonterTige = document.getElementById("buttonMonterTige");
 	buttonMonterTige.addEventListener('click', 
 		function() {
 			function MonterTige(){
+				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
-					var m_canvasWidth=900;
-					var m_canvasHeight=800;
+					/*var m_canvasWidth=900;
+					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -803,10 +809,12 @@ $(document).ready(function () {
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
+
+					//UpTige(canvasTige, tigeDroit);
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
-					var m_canvasWidth=900;
-					var m_canvasHeight=800;
+					//var m_canvasWidth=900;
+					//var m_canvasHeight=800;
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -818,6 +826,8 @@ $(document).ready(function () {
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.drawImage(imgTige, 0, 0, imgTige.width, imgTige.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
+
+					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			MonterTige()
@@ -827,10 +837,11 @@ $(document).ready(function () {
 	buttonDescendreTige.addEventListener('click', 
 		function() {
 			function DescendreTige(){
+				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
-					var m_canvasWidth=900;
-					var m_canvasHeight=800;
+					/*var m_canvasWidth=900;
+					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -844,8 +855,8 @@ $(document).ready(function () {
 					contextetige.restore();
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
-					var m_canvasWidth=900;
-					var m_canvasHeight=800;
+					/*var m_canvasWidth=900;
+					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
