@@ -371,3 +371,9 @@ Tige.prototype.Monter = function() {
 	this.m_Position.x-=((1/coeffBille)/this.m_coeffDirecteur);
 	this.m_Position.y-=(1/coeffBille);
 };
+
+Tige.prototype.Descendre = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	this.m_Position.x+=((1/coeffBille)/this.m_coeffDirecteur);
+	this.m_Position.y+=(1/coeffBille);
+};
