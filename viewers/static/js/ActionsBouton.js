@@ -421,9 +421,14 @@ $(document).ready(function () {
 
 				$('.outilsDessin *').prop('disabled',true);
 				document.getElementById("outilsDessin").style.display = "";
-
 				$('.informationPatient *').prop('disabled',false);
 				document.getElementById("informationPatient").style.display = "none";
+				document.getElementById("informationPatient").style.display = "none";
+				document.getElementById("informationPatient").style.display = "none";
+				document.getElementById("informationPatient").style.display = "none";
+				document.getElementById("buttonDeletePetitTroch").style.display = "none";
+				document.getElementById("buttonDeleteCercle").style.display = "none";
+				document.getElementById("buttonDeleteTrapeze").style.display = "none";
 			};
 			RetourDessin()
 	}, false);
