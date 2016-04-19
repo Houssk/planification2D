@@ -178,7 +178,8 @@ $(document).ready(function () {
 
 									document.getElementById("buttonMonterTige").style.display="none";
 									document.getElementById("buttonDescendreTige").style.display="none";
-
+									document.getElementById("buttonMonterCotyle").style.display="none";
+									document.getElementById("buttonDescendreCotyle").style.display="none";
 								}
 								if (patient.GetCoteOperation()=="Gauche") {
 									document.getElementById("coteTige").value="Gauche";
@@ -872,4 +873,89 @@ $(document).ready(function () {
 			};
 			DescendreTige()
 	}, false);
+
+	
+
+	var buttonMonterCotyle = document.getElementById("buttonMonterCotyle");
+	buttonMonterCotyle.addEventListener('click', 
+		function() {
+			function MonterCotyle(){
+				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
+				if (patient.GetCoteOperation()=="Gauche") {
+					var canvasCotyle = document.getElementById("canvasCotyleDroit");
+					/*var m_canvasWidth=900;
+					var m_canvasHeight=800;*/
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextetige = canvasCotyle.getContext("2d");
+					cotyleDroit.Monter();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+					contextecotyle.rotate(tigeDroit.GetOrientation());
+					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+					contextecotyle.restore();
+
+				} else {
+					var canvasCotyle = document.getElementById("canvasCotyleGauche");
+					//var m_canvasWidth=900;
+					//var m_canvasHeight=800;
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextetige = canvasCotyle.getContext("2d");
+					cotyleGauche.Monter();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+					contextecotyle.rotate(tigeGauche.GetOrientation());
+					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+					contextecotyle.restore();
+				}
+			};
+			MonterCotyle()
+	}, false);
+
+	var buttonDescendreCotyle = document.getElementById("buttonDescendreCotyle");
+	buttonDescendreCotyle.addEventListener('click', 
+		function() {
+			function DescendreCotyle(){
+				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
+				if (patient.GetCoteOperation()=="Gauche") {
+					var canvasCotyle = document.getElementById("canvasCotyleDroit");
+					/*var m_canvasWidth=900;
+					var m_canvasHeight=800;*/
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextetige = canvasCotyle.getContext("2d");
+					cotyleDroit.Descendre();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+					contextecotyle.rotate(tigeDroit.GetOrientation());
+					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+					contextecotyle.restore();
+
+				} else {
+					var canvasCotyle = document.getElementById("canvasCotyleGauche");
+					//var m_canvasWidth=900;
+					//var m_canvasHeight=800;
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextetige = canvasCotyle.getContext("2d");
+					cotyleGauche.Descendre();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+					contextecotyle.rotate(tigeGauche.GetOrientation());
+					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+					contextecotyle.restore();
+				}
+			};
+			DescendreCotyle()
+	}, false);
+	
 });
