@@ -58,6 +58,10 @@ $(document).ready(function () {
 									"DICOM", // to do DICOM
 									coteChirurgie.options[coteChirurgie.selectedIndex].value);
 								console.log(patient);
+								
+								m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+								m_canvasHeight=document.getElementById("dwv-imageLayer").height;
+
 								if (patient.GetOperationGuide()=="Non guider") {
 									var newTigeGauche=getTige(indexTigeGauche+8);
 									var newTigeDroit=getTige(indexTigeDroit);
@@ -76,8 +80,7 @@ $(document).ready(function () {
 										canvasTige = document.getElementById("canvasTigeGauche");
 										canvasCotyle = document.getElementById("canvasCotyleGauche");
 									}
-									m_canvasWidth=document.getElementById("dwv-imageLayer").width;
-									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
+									
 									canvasTige.width=m_canvasWidth;
 									canvasTige.height=m_canvasHeight;
 									canvasTige.style.zIndex = "26";
@@ -888,7 +891,7 @@ $(document).ready(function () {
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
-					var contextetige = canvasCotyle.getContext("2d");
+					var contextecotyle = canvasCotyle.getContext("2d");
 					cotyleDroit.Monter();
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
@@ -904,7 +907,7 @@ $(document).ready(function () {
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
-					var contextetige = canvasCotyle.getContext("2d");
+					var contextecotyle = canvasCotyle.getContext("2d");
 					cotyleGauche.Monter();
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
@@ -929,7 +932,7 @@ $(document).ready(function () {
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
-					var contextetige = canvasCotyle.getContext("2d");
+					var contextecotyle = canvasCotyle.getContext("2d");
 					cotyleDroit.Descendre();
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
@@ -945,7 +948,7 @@ $(document).ready(function () {
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
-					var contextetige = canvasCotyle.getContext("2d");
+					var contextecotyle = canvasCotyle.getContext("2d");
 					cotyleGauche.Descendre();
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
