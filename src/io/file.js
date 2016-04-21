@@ -143,6 +143,7 @@ dwv.io.File.createProgressHandler = function (n, calculator, baseHandler) {
     return function (event) {
         if( event.lengthComputable )
         {
+            sessionStorage.setItem("dataImage",event.loaded);
             var percent = Math.round((event.loaded / event.total) * 100);
             var ev = {type: "load-progress", lengthComputable: true,
                 loaded: calculator(n, percent), total: 100};

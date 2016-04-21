@@ -75,6 +75,7 @@
 		<script type="text/javascript" src="js/class/Patient.js"></script>
 		<script type="text/javascript" src="js/class/Tige.js"></script>
 		<script type="text/javascript" src="js/class/Cotyle.js"></script>
+		<script type="text/javascript" src="../../ext/progressbar/progressbar.js"></script>
 
 		<!-- Launch the app -->
 
@@ -119,19 +120,17 @@
 					<option value="Non guider">CHIRURGIE NON GUIDEE</option>
 				</select>
 				<div class="loaderlist"></div>
-				<div id="progressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+				<div id="barprogress"></div>
 				<input  type="button" id="buttonCalibrage" class="btn btn-default" value="Calibrer"></input>
 				<div id="divNbHanche" style="display: none;">
 					<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche:</label>
-					<label class="blackColor">Oui :  </label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio"></input>
-					<label class="blackColor">Non :  </label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true"></input>
+					<label class="blackColor">Oui  </label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio"></input>
+					<label class="blackColor">Non  </label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true"></input>
 				</div>
 				<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-left: 180px;" value="VALIDER"></input>
 				<div id="informationPatient" class="darkClass" style="display:none"></div>
 			</form>
-				
 			</div>
-
 			<!-- OUTILS DESSIN -->
 			<div class="outilsDessin" title="OUTILS DESSIN">
 				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE"></input>

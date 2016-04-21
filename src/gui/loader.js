@@ -20,18 +20,13 @@ dwv.gui.base.Loadbox = function (app, loaders)
      */
     this.setup = function ()
     {
-        // loader select
-        loaderSelector = dwv.html.createHtmlSelect("loaderSelect", loaders);
-        loaderSelector.onchange = app.onChangeLoader;
 
-        // node
         var node = app.getElement("loaderlist");
         // clear it
         while(node.hasChildNodes()) {
             node.removeChild(node.firstChild);
         }
-        // append
-        node.appendChild(loaderSelector);
+
         // refresh
         dwv.gui.refreshElement(node);
     };

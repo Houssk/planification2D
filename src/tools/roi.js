@@ -21,7 +21,7 @@ dwv.tool.RoiFactory = function ()
      * Get the timeout between point storage.
      * @return {Number} The timeout in milliseconds.
      */
-    this.getTimeout = function () { return 20; };
+    this.getTimeout = function () { return 200; };
 };
 
 /**

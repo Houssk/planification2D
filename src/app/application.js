@@ -494,6 +494,34 @@ dwv.App = function ()
         // clear variables
         self.reset();
         nSlicesToLoad = files.length;
+        var percent = parseInt(sessionStorage.getItem("dataImage"))/71;
+        var bar = new ProgressBar.Line(barprogress, {
+            strokeWidth: 10,
+            easing: 'easeInOut',
+            duration: percent,
+            color: '#FF6600',
+            trailColor: '#eee',
+            trailWidth: 1,
+            svgStyle: {width: '100%', height: '100%'},
+            text: {
+                style: {
+                    // Text color.
+                    // Default: same as stroke color (options.color)
+                    color: '#999',
+                    position: 'absolute',
+                    right: '0',
+                    top: '30px',
+                    padding: 0,
+                    margin: 0,
+                    transform: null
+                },
+                autoStyleContainer: false
+            },
+            from: {color: '#FFEA82'},
+            to: {color: '#ED6A5A'},
+
+        });
+        bar.animate(1.0);
         // create IO
         var fileIO = new dwv.io.File();
         fileIO.setDecoderScripts(decoderScripts);
