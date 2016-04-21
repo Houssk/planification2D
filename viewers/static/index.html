@@ -105,6 +105,7 @@
 
 		<!-- Open file -->
 			<div class="informationPatient" title="INFORMATIONS">
+			<form>
 				<input id="nomPatient" type="text" placeholder="NOM" class="form-control" style="float: left;"></input>
 				<input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></input>
 				<select class="form-control" id="coteChirurgie" >
@@ -120,8 +121,15 @@
 				<div class="loaderlist"></div>
 				<div id="progressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 				<input  type="button" id="buttonCalibrage" class="btn btn-default" value="Calibrer"></input>
+				<div id="divNbHanche" style="display: none;">
+					<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche:</label>
+					<label class="blackColor">Oui :  </label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio"></input>
+					<label class="blackColor">Non :  </label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true"></input>
+				</div>
 				<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-left: 180px;" value="VALIDER"></input>
 				<div id="informationPatient" class="darkClass" style="display:none"></div>
+			</form>
+				
 			</div>
 
 			<!-- OUTILS DESSIN -->

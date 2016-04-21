@@ -127,18 +127,25 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 
             diametre_mm = Math.round((radiusCircle)*2*coefficient);
             str = diametre_mm + "mm";
-
-            if (x>(sessionStorage.getItem("imageLargeur")/2)) {
+            if (document.getElementById("RadioOuiHanche").checked) {
                 var centrePosition = [];
                 centrePosition.push(x);
                 centrePosition.push(y);
-                sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
+                sessionStorage.setItem("cerclePosition", JSON.stringify(centrePosition));
             } else {
-                var centrePosition = [];
-                centrePosition.push(x);
-                centrePosition.push(y);
-                sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
+                if (x>(sessionStorage.getItem("imageLargeur")/2)) {
+                    var centrePosition = [];
+                    centrePosition.push(x);
+                    centrePosition.push(y);
+                    sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
+                } else {
+                    var centrePosition = [];
+                    centrePosition.push(x);
+                    centrePosition.push(y);
+                    sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
+                }
             }
+            
         }
         else {
             str = diametre_px  + " px";
@@ -228,8 +235,25 @@ dwv.tool.UpdateCircle = function (anchor, image)
 
         diametre_mm = Math.round((radiusCircle)*2*coefficient);
         str = diametre_mm + "mm";
-
-        if (x>(sessionStorage.getItem("imageLargeur")/2)) {
+        if (document.getElementById("RadioOuiHanche").checked) {
+            var centrePosition = [];
+            centrePosition.push(x);
+            centrePosition.push(y);
+            sessionStorage.setItem("cerclePosition", JSON.stringify(centrePosition));
+        } else {
+            if (x>(sessionStorage.getItem("imageLargeur")/2)) {
+                var centrePosition = [];
+                centrePosition.push(x);
+                centrePosition.push(y);
+                sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
+            } else {
+                var centrePosition = [];
+                centrePosition.push(x);
+                centrePosition.push(y);
+                sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
+            }
+        }
+        /*if (x>(sessionStorage.getItem("imageLargeur")/2)) {
             var centrePosition = [];
             centrePosition.push(x);
             centrePosition.push(y);
@@ -239,7 +263,7 @@ dwv.tool.UpdateCircle = function (anchor, image)
             centrePosition.push(x);
             centrePosition.push(y);
             sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
-        }
+        }*/
     }
     else {
         diametre_px = Math.round((radiusCircle))*2;

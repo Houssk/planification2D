@@ -108,28 +108,39 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
 
         coeffDirect=(y2-y1)/(x2-x1);
 
-        //test pour savoir de quel cote est le trapeze sauvegarde
-        if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+        if (document.getElementById("RadioOuiHanche").checked) {
             var trapezeAxePosition=[];
             trapezeAxePosition.push(x1);
             trapezeAxePosition.push(y1);
             trapezeAxePosition.push(x2);
             trapezeAxePosition.push(y2);
-            sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
-            sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
-            //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
-            //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
+            sessionStorage.setItem("trapezePosition", JSON.stringify(trapezeAxePosition));
+            sessionStorage.setItem("trapezecoeffDirect", coeffDirect);
         } else {
-            var trapezeAxePosition=[];
-            trapezeAxePosition.push(x1);
-            trapezeAxePosition.push(y1);
-            trapezeAxePosition.push(x2);
-            trapezeAxePosition.push(y2);
-            sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
-            sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
-            //console.log("trapezeGauchePosition "+sessionStorage.getItem("trapezeGauchePosition"));
-            //console.log("trapezeGauchecoeffDirect "+sessionStorage.getItem("trapezeGauchecoeffDirect"));
+            //test pour savoir de quel cote est le trapeze sauvegarde
+            if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+                var trapezeAxePosition=[];
+                trapezeAxePosition.push(x1);
+                trapezeAxePosition.push(y1);
+                trapezeAxePosition.push(x2);
+                trapezeAxePosition.push(y2);
+                sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
+                //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
+                //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
+            } else {
+                var trapezeAxePosition=[];
+                trapezeAxePosition.push(x1);
+                trapezeAxePosition.push(y1);
+                trapezeAxePosition.push(x2);
+                trapezeAxePosition.push(y2);
+                sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
+                //console.log("trapezeGauchePosition "+sessionStorage.getItem("trapezeGauchePosition"));
+                //console.log("trapezeGauchecoeffDirect "+sessionStorage.getItem("trapezeGauchecoeffDirect"));
+            }
         }
+        
 
         x1=x1+(tailleDépassementDroite/coeffDirect);
         y1=y1+tailleDépassementDroite;
@@ -224,8 +235,40 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
     x2=x2-(tailleDépassementDroite/coeffDirect);
     y2=y2-tailleDépassementDroite;
 
+    if (document.getElementById("RadioOuiHanche").checked) {
+        var trapezeAxePosition=[];
+        trapezeAxePosition.push(x1);
+        trapezeAxePosition.push(y1);
+        trapezeAxePosition.push(x2);
+        trapezeAxePosition.push(y2);
+        sessionStorage.setItem("trapezePosition", JSON.stringify(trapezeAxePosition));
+        sessionStorage.setItem("trapezecoeffDirect", coeffDirect);
+    } else {
+        //test pour savoir de quel cote est le trapeze sauvegarde
+        if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+            var trapezeAxePosition=[];
+            trapezeAxePosition.push(x1);
+            trapezeAxePosition.push(y1);
+            trapezeAxePosition.push(x2);
+            trapezeAxePosition.push(y2);
+            sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+            sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
+            //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
+            //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
+        } else {
+            var trapezeAxePosition=[];
+            trapezeAxePosition.push(x1);
+            trapezeAxePosition.push(y1);
+            trapezeAxePosition.push(x2);
+            trapezeAxePosition.push(y2);
+            sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+            sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
+            //console.log("trapezeGauchePosition "+sessionStorage.getItem("trapezeGauchePosition"));
+            //console.log("trapezeGauchecoeffDirect "+sessionStorage.getItem("trapezeGauchecoeffDirect"));
+        }
+    }
     //test pour savoir de quel cote est le trapeze sauvegarde
-    if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+    /*if(x1>(sessionStorage.getItem("imageLargeur")/2)){
         var trapezeAxePosition=[];
         trapezeAxePosition.push(x1);
         trapezeAxePosition.push(y1);
@@ -241,7 +284,7 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
         trapezeAxePosition.push(y2);
         sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
         sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
-    }
+    }*/
     //console.log("x1 "+x1+", y1 "+y1+", x2 "+x2+", y2 "+y2);
 
     kAxe.points( [x1,y1,x2,y2] );

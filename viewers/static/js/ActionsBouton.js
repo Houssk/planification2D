@@ -256,7 +256,38 @@ $(document).ready(function () {
 			function ValiderDessin(){
 				var onPeutValider = false;
 
-				switch(parseInt(sessionStorage.getItem("nbTrapeze")))
+				if (document.getElementById("RadioOuiHanche").checked) {
+					if (sessionStorage.getItem("cerclePosition")===null||sessionStorage.getItem("trapezePosition")===null) {
+						alert("Veuillez tracer un cercle et un trapèze sur la hanche du patient");
+					} else {
+						if (patient.GetCoteOperation()=="Gauche") {
+							sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezePosition"))));
+							sessionStorage.setItem("cercleDroitPosition", JSON.stringify(JSON.parse(sessionStorage.getItem("cerclePosition"))));
+						}
+						if (patient.GetCoteOperation()=="Droit") {
+							sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezePosition"))));
+							sessionStorage.setItem("cercleGauchePosition", JSON.stringify(JSON.parse(sessionStorage.getItem("cerclePosition"))));
+						}
+						onPeutValider = true;
+					}
+				} else {
+					if (patient.GetCoteOperation()=="Droit") {
+							if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
+								alert("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
+							} else {
+								onPeutValider = true;
+							}
+						}
+						if (patient.GetCoteOperation()=="Gauche") {
+							if(sessionStorage.getItem("cercleDroitPosition")===null||sessionStorage.getItem("trapezeDroitPosition")===null){
+								alert("Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient");
+							} else {
+								onPeutValider = true;
+							}
+						}
+				}
+
+				/*switch(parseInt(sessionStorage.getItem("nbTrapeze")))
 				{
 					case 0 :
 					{
@@ -341,7 +372,7 @@ $(document).ready(function () {
 
 						break;
 					}
-				}
+				}*/
 
 				/*if (patient.GetCoteOperation()=="Gauche") {
 					if (sessionStorage.getItem("trapezeDroitPosition")!==null) {

@@ -29,6 +29,8 @@ dwv.image.getViewFromDOMImage = function (image)
     sessionStorage.setItem("imageLargeur", image.width);
     sessionStorage.setItem("imageHauteur", image.height);
 
+    document.getElementById("divNbHanche").style.display="";
+
     var ctx = canvas.getContext('2d');
     ctx.drawImage(image, 0, 0, image.width, image.height);
     // get the image data
