@@ -58,7 +58,7 @@ $(document).ready(function () {
 									"DICOM", // to do DICOM
 									coteChirurgie.options[coteChirurgie.selectedIndex].value);
 								console.log(patient);
-								
+
 								m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 								m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
@@ -217,7 +217,7 @@ $(document).ready(function () {
 			function DessinTrapeze(){
 				console.log("dessin trapèze");
 				if(sessionStorage.getItem("nbTrapeze")===null){
-					sessionStorage.setItem("nbTrapeze", 1);
+					sessionStorage.setItem("nbTrapeze", 0);
 				}
 				DrawShape("Roi");
 			};
@@ -230,7 +230,7 @@ $(document).ready(function () {
 			function DessinCercle(){
 				console.log("dessin cercle");
 				if(sessionStorage.getItem("nbCercle")===null){
-					sessionStorage.setItem("nbCercle", 1);
+					sessionStorage.setItem("nbCercle", 0);
 				}
 				DrawShape("Circle");
 			};
@@ -255,7 +255,144 @@ $(document).ready(function () {
 		function() {
 			function ValiderDessin(){
 				var onPeutValider = false;
+
+				switch(parseInt(sessionStorage.getItem("nbTrapeze")))
+				{
+					case 0 :
+					{
+						alert("Veuillez tracer un trapèze");
+						break;
+					}
+
+					case 1 :
+					{
+						if (patient.GetCoteOperation()=="Gauche") {
+							if (sessionStorage.getItem("trapezeDroitPosition")!==null) {
+								if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+									onPeutValider=true;
+								} else {
+									if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+										onPeutValider=true;
+										sessionStorage.setItem("cercleDroitPosition", sessionStorage.getItem("cercleGauchePosition"));
+									} else {
+										alert("Veuillez tracer un cercle");
+									}
+								}
+							} else {
+								sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezeGauchePosition"))));
+								if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+									onPeutValider=true;
+								} else {
+									if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+										onPeutValider=true;
+										sessionStorage.setItem("cercleDroitPosition", sessionStorage.getItem("cercleGauchePosition"));
+									} else {
+										alert("Veuillez tracer un cercle");
+									}
+								}
+							}
+						}
+
+						if (patient.GetCoteOperation()=="Droit") {
+							if (sessionStorage.getItem("trapezeGauchePosition")!==null) {
+								if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+									onPeutValider=true;
+								} else {
+									if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+										onPeutValider=true;
+										sessionStorage.setItem("cercleGauchePosition", sessionStorage.getItem("cercleDroitPosition"));
+									} else {
+										alert("Veuillez tracer un cercle");
+									}
+								}
+							} else {
+								sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezeDroitPosition"))));
+								if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+									onPeutValider=true;
+								} else {
+									if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+										onPeutValider=true;
+										sessionStorage.setItem("cercleGauchePosition", sessionStorage.getItem("cercleDroitPosition"));
+									} else {
+										alert("Veuillez tracer un cercle");
+									}
+								}
+							}
+						}
+						break;
+					}
+
+					case 2 :
+					{
+						if (patient.GetCoteOperation()=="Droit") {
+							if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
+								alert("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
+							} else {
+								onPeutValider = true;
+							}
+						}
+						if (patient.GetCoteOperation()=="Gauche") {
+							if(sessionStorage.getItem("cercleDroitPosition")===null||sessionStorage.getItem("trapezeDroitPosition")===null){
+								alert("Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient");
+							} else {
+								onPeutValider = true;
+							}
+						}
+
+						break;
+					}
+				}
+
+				/*if (patient.GetCoteOperation()=="Gauche") {
+					if (sessionStorage.getItem("trapezeDroitPosition")!==null) {
+						if (sessionStorage.getItem("trapezeGauchecoeffDirect")!=null) {
+							if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+								onPeutValider=true;
+							} else {
+								alert("Veuillez tracer un cercle du coté gauche patient");
+							}
+						} else {
+							if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+								onPeutValider=true;
+							} else {
+								if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+									onPeutValider=true;
+									sessionStorage.setItem("cercleDroitPosition", sessionStorage.getItem("cercleGauchePosition"));
+								} else {
+									alert("Veuillez tracer un cercle du coté gauche patient");
+								}
+							}
+						}
+					} else {
+						alert("Veuillez tracer un trapèze du coté gauche patient");
+					}
+				}
+
 				if (patient.GetCoteOperation()=="Droit") {
+					if (sessionStorage.getItem("trapezeGauchePosition")!==null) {
+						if (sessionStorage.getItem("trapezeDroitcoeffDirect")!=null) {
+							if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+								onPeutValider=true;
+							} else {
+								alert("Veuillez tracer un cercle du coté droit du patient");
+							}
+						} else {
+							if (sessionStorage.getItem("cercleGauchePosition")!==null) {
+								onPeutValider=true;
+							} else {
+								if (sessionStorage.getItem("cercleDroitPosition")!==null) {
+									onPeutValider=true;
+									sessionStorage.setItem("cercleGauchePosition", sessionStorage.getItem("cercleDroitPosition"))
+								} else {
+									alert("Veuillez tracer un cercle ");//du coté droit du patient
+								}
+							}
+						}
+					} else {
+						alert("Veuillez tracer un trapèze du coté droit du patient");
+					}
+				}*/
+				/*if (patient.GetCoteOperation()=="Droit") {
 					if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
 						alert("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
 					} else {
@@ -268,7 +405,7 @@ $(document).ready(function () {
 					} else {
 						onPeutValider = true;
 					}
-				}
+				}*/
 
 				if(onPeutValider==true)
 				{

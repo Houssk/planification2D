@@ -57,7 +57,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         } else {
             if (sessionStorage.getItem("centreCercle")!=points[0]) {
                 sessionStorage.setItem("centreCercle", points[0]);
-                if (sessionStorage.getItem("nbCercle")<=2) {
+                if (sessionStorage.getItem("nbCercle")<2) {
                     var tempNbCercle = sessionStorage.getItem("nbCercle");
                     tempNbCercle++;
                     sessionStorage.setItem("nbCercle", tempNbCercle);
@@ -87,7 +87,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 
     if (onPeutTraceCercle == true) {
         var tempNbCercle = sessionStorage.getItem("nbCercle") ;
-        console.log(tempNbCercle);
+        //console.log(tempNbCercle);
         if(parseInt(tempNbCercle)==2){
             console.log("je suis la ");
             document.getElementById("buttonDeleteCercle").style.display = "inline";

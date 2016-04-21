@@ -190,7 +190,7 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
             tempNbTrapeze--;
             sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
-            if(tempNbTrapeze==1){
+            if(tempNbTrapeze==0){
                 document.getElementById("buttonDeleteTrapeze").style.display = "none";
             }
         }
@@ -198,7 +198,7 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             var tempNbCercle = sessionStorage.getItem("nbCercle");
             tempNbCercle--;
             sessionStorage.setItem("nbCercle", tempNbCercle);
-            if(tempNbCercle==1){
+            if(tempNbCercle==0){
                 document.getElementById("buttonDeleteCercle").style.display = "none";
             }
         }
@@ -628,8 +628,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         // mouse over styling
         shape.on('mouseover', function () {
             document.body.style.cursor = 'pointer';
-            console.log("pointer");
-            console.log(shape.id());
+            //console.log("pointer");
+            //console.log(shape.id());
         });
         // mouse out styling
         shape.on('mouseout', function () {
@@ -670,7 +670,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         else if (shape instanceof Kinetic.Circle){
 
             cmdName= "circle";
-            console.log("je suis la ");
+            //console.log("je suis la ");
         }
         // shape colour
         var colour = shape.stroke();
@@ -712,7 +712,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-                      sessionStorage.setItem("nbTrapeze", 1);
+                      sessionStorage.setItem("nbTrapeze", 0);
 
                   }
                // }
@@ -755,7 +755,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-                    sessionStorage.setItem("nbCercle", 1);
+                    sessionStorage.setItem("nbCercle", 0);
 
                 }
                 // }

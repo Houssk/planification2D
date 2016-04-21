@@ -46,7 +46,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         if (sessionStorage.getItem("premierPointTrapeze")!=points[0]) {
             sessionStorage.setItem("premierPointTrapeze", points[0]);
             //console.log("sessionStorage.getItem(nbTrapeze) "+ sessionStorage.getItem("nbTrapeze"));
-            if (sessionStorage.getItem("nbTrapeze")<=2) {
+            if (sessionStorage.getItem("nbTrapeze")<2) {
                 var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
                 tempNbTrapeze++;
                 sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
@@ -240,7 +240,7 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
         trapezeAxePosition.push(x2);
         trapezeAxePosition.push(y2);
         sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
-        sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
+        sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
     }
     //console.log("x1 "+x1+", y1 "+y1+", x2 "+x2+", y2 "+y2);
 
