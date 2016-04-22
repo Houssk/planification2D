@@ -20,6 +20,7 @@ $(document).ready(function () {
 
 	var m_canvasWidth = null;
 	var m_canvasHeight = null;
+	
 
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
@@ -191,6 +192,7 @@ $(document).ready(function () {
 									document.getElementById("coteTige").value="Droit";
 									document.getElementById("coteCotyle").value="Droit";
 								}
+
 								$('.informationPatient *').prop('disabled',true);
 								document.getElementById("informationPatient").style.display = "";
 
@@ -287,157 +289,6 @@ $(document).ready(function () {
 						}
 				}
 
-				/*switch(parseInt(sessionStorage.getItem("nbTrapeze")))
-				{
-					case 0 :
-					{
-						alert("Veuillez tracer un trapèze");
-						break;
-					}
-
-					case 1 :
-					{
-						if (patient.GetCoteOperation()=="Gauche") {
-							if (sessionStorage.getItem("trapezeDroitPosition")!==null) {
-								if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-									onPeutValider=true;
-								} else {
-									if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-										onPeutValider=true;
-										sessionStorage.setItem("cercleDroitPosition", sessionStorage.getItem("cercleGauchePosition"));
-									} else {
-										alert("Veuillez tracer un cercle");
-									}
-								}
-							} else {
-								sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezeGauchePosition"))));
-								if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-									onPeutValider=true;
-								} else {
-									if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-										onPeutValider=true;
-										sessionStorage.setItem("cercleDroitPosition", sessionStorage.getItem("cercleGauchePosition"));
-									} else {
-										alert("Veuillez tracer un cercle");
-									}
-								}
-							}
-						}
-
-						if (patient.GetCoteOperation()=="Droit") {
-							if (sessionStorage.getItem("trapezeGauchePosition")!==null) {
-								if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-									onPeutValider=true;
-								} else {
-									if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-										onPeutValider=true;
-										sessionStorage.setItem("cercleGauchePosition", sessionStorage.getItem("cercleDroitPosition"));
-									} else {
-										alert("Veuillez tracer un cercle");
-									}
-								}
-							} else {
-								sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezeDroitPosition"))));
-								if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-									onPeutValider=true;
-								} else {
-									if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-										onPeutValider=true;
-										sessionStorage.setItem("cercleGauchePosition", sessionStorage.getItem("cercleDroitPosition"));
-									} else {
-										alert("Veuillez tracer un cercle");
-									}
-								}
-							}
-						}
-						break;
-					}
-
-					case 2 :
-					{
-						if (patient.GetCoteOperation()=="Droit") {
-							if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
-								alert("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
-							} else {
-								onPeutValider = true;
-							}
-						}
-						if (patient.GetCoteOperation()=="Gauche") {
-							if(sessionStorage.getItem("cercleDroitPosition")===null||sessionStorage.getItem("trapezeDroitPosition")===null){
-								alert("Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient");
-							} else {
-								onPeutValider = true;
-							}
-						}
-
-						break;
-					}
-				}*/
-
-				/*if (patient.GetCoteOperation()=="Gauche") {
-					if (sessionStorage.getItem("trapezeDroitPosition")!==null) {
-						if (sessionStorage.getItem("trapezeGauchecoeffDirect")!=null) {
-							if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-								onPeutValider=true;
-							} else {
-								alert("Veuillez tracer un cercle du coté gauche patient");
-							}
-						} else {
-							if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-								onPeutValider=true;
-							} else {
-								if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-									onPeutValider=true;
-									sessionStorage.setItem("cercleDroitPosition", sessionStorage.getItem("cercleGauchePosition"));
-								} else {
-									alert("Veuillez tracer un cercle du coté gauche patient");
-								}
-							}
-						}
-					} else {
-						alert("Veuillez tracer un trapèze du coté gauche patient");
-					}
-				}
-
-				if (patient.GetCoteOperation()=="Droit") {
-					if (sessionStorage.getItem("trapezeGauchePosition")!==null) {
-						if (sessionStorage.getItem("trapezeDroitcoeffDirect")!=null) {
-							if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-								onPeutValider=true;
-							} else {
-								alert("Veuillez tracer un cercle du coté droit du patient");
-							}
-						} else {
-							if (sessionStorage.getItem("cercleGauchePosition")!==null) {
-								onPeutValider=true;
-							} else {
-								if (sessionStorage.getItem("cercleDroitPosition")!==null) {
-									onPeutValider=true;
-									sessionStorage.setItem("cercleGauchePosition", sessionStorage.getItem("cercleDroitPosition"))
-								} else {
-									alert("Veuillez tracer un cercle ");//du coté droit du patient
-								}
-							}
-						}
-					} else {
-						alert("Veuillez tracer un trapèze du coté droit du patient");
-					}
-				}*/
-				/*if (patient.GetCoteOperation()=="Droit") {
-					if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
-						alert("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
-					} else {
-						onPeutValider = true;
-					}
-				}
-				if (patient.GetCoteOperation()=="Gauche") {
-					if(sessionStorage.getItem("cercleDroitPosition")===null||sessionStorage.getItem("trapezeDroitPosition")===null){
-						alert("Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient");
-					} else {
-						onPeutValider = true;
-					}
-				}*/
-
 				if(onPeutValider==true)
 				{
 					// récupération tige et cotyle
@@ -531,7 +382,7 @@ $(document).ready(function () {
 							contextecotyle.save();
 							contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 							contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
-							contextecotyle.rotate(tigeDroit.GetOrientation());
+							contextecotyle.rotate(cotyleDroit.GetOrientation());
 							contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 							contextecotyle.restore();
 
@@ -548,7 +399,7 @@ $(document).ready(function () {
 							contextecotyle.save();
 							contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 							contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
-							contextecotyle.rotate(tigeGauche.GetOrientation());
+							contextecotyle.rotate(cotyleGauche.GetOrientation());
 							contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 							contextecotyle.restore();
 
@@ -581,6 +432,73 @@ $(document).ready(function () {
 						document.getElementById('labelTailleCotyle').innerHTML = cotyleGauche.GetNom();
 					}
 					
+					document.addEventListener('keydown', 
+						function(event) {
+						    if(event.keyCode == 38) { //fleche haut
+						        if (patient.GetCoteOperation()=="Gauche") {
+									var canvasCotyle = document.getElementById("canvasCotyleDroit");
+									canvasCotyle.width=m_canvasWidth;
+									canvasCotyle.height=m_canvasHeight;
+									canvasCotyle.style.zIndex = "26";
+									var contextecotyle = canvasCotyle.getContext("2d");
+									cotyleDroit.TournerHaut();
+									contextecotyle.save();
+									contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+									contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+									contextecotyle.rotate(cotyleDroit.GetOrientation());
+									contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+									contextecotyle.restore();
+
+								} else {
+									var canvasCotyle = document.getElementById("canvasCotyleGauche");
+									//var m_canvasWidth=900;
+									//var m_canvasHeight=800;
+									canvasCotyle.width=m_canvasWidth;
+									canvasCotyle.height=m_canvasHeight;
+									canvasCotyle.style.zIndex = "26";
+									var contextecotyle = canvasCotyle.getContext("2d");
+									cotyleGauche.TournerHaut();
+									contextecotyle.save();
+									contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+									contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+									contextecotyle.rotate(cotyleGauche.GetOrientation());
+									contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+									contextecotyle.restore();
+								}
+						    }
+						    else if(event.keyCode == 40) { //fleche bas
+						        if (patient.GetCoteOperation()=="Gauche") {
+									var canvasCotyle = document.getElementById("canvasCotyleDroit");
+									canvasCotyle.width=m_canvasWidth;
+									canvasCotyle.height=m_canvasHeight;
+									canvasCotyle.style.zIndex = "26";
+									var contextecotyle = canvasCotyle.getContext("2d");
+									cotyleDroit.TournerBas();
+									contextecotyle.save();
+									contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+									contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+									contextecotyle.rotate(cotyleDroit.GetOrientation());
+									contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+									contextecotyle.restore();
+
+								} else {
+									var canvasCotyle = document.getElementById("canvasCotyleGauche");
+									//var m_canvasWidth=900;
+									//var m_canvasHeight=800;
+									canvasCotyle.width=m_canvasWidth;
+									canvasCotyle.height=m_canvasHeight;
+									canvasCotyle.style.zIndex = "26";
+									var contextecotyle = canvasCotyle.getContext("2d");
+									cotyleGauche.TournerBas();
+									contextecotyle.save();
+									contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+									contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+									contextecotyle.rotate(cotyleGauche.GetOrientation());
+									contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+									contextecotyle.restore();
+								}
+						    }
+						});
 				}
 			};
 			ValiderDessin()
@@ -764,7 +682,7 @@ $(document).ready(function () {
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 						contexteCotyleDrawCotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
-						contexteCotyleDrawCotyle.rotate(tigeDroit.GetOrientation());
+						contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
 						contexteCotyleDrawCotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
 					}
@@ -775,11 +693,11 @@ $(document).ready(function () {
 					imgCotyle.onload=function () {
 						var imgCotyleWidth=imgCotyle.width;
 						var imgCotyleHeight=imgCotyle.height;
-						newCotyleDroit.Placement(imgCotyleWidth, imgCotyleHeight, cotyleDroit.GetPosition(), tigeDroit.GetCoeffRedimensionnement());
+						newCotyleDroit.Placement(imgCotyleWidth, imgCotyleHeight, cotyleDroit.GetPosition(), cotyleDroit.GetOrientation(), tigeDroit.GetCoeffRedimensionnement());
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 						contexteCotyleDrawCotyle.translate(newCotyleDroit.GetPosition().x,newCotyleDroit.GetPosition().y);
-						contexteCotyleDrawCotyle.rotate(tigeDroit.GetOrientation());
+						contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
 						contexteCotyleDrawCotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -newCotyleDroit.GetImageLargeur() / 2, -newCotyleDroit.GetImageHauteur() / 2, newCotyleDroit.GetImageLargeur(), newCotyleDroit.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
 						cotyleDroit=newCotyleDroit;
@@ -792,11 +710,11 @@ $(document).ready(function () {
 				imgCotyle.onload=function () {
 					var imgCotyleWidth=imgCotyle.width;
 					var imgCotyleHeight=imgCotyle.height;
-					newCotyleDroit.Placement(imgCotyleWidth, imgCotyleHeight, cotyleDroit.GetPosition(), tigeDroit.GetCoeffRedimensionnement());
+					newCotyleDroit.Placement(imgCotyleWidth, imgCotyleHeight, cotyleDroit.GetPosition(), cotyleDroit.GetOrientation(), tigeDroit.GetCoeffRedimensionnement());
 					contexteCotyleDrawCotyle.save();
 					contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 					contexteCotyleDrawCotyle.translate(newCotyleDroit.GetPosition().x,newCotyleDroit.GetPosition().y);
-					contexteCotyleDrawCotyle.rotate(tigeDroit.GetOrientation());
+					contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
 					contexteCotyleDrawCotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -newCotyleDroit.GetImageLargeur() / 2, -newCotyleDroit.GetImageHauteur() / 2, newCotyleDroit.GetImageLargeur(), newCotyleDroit.GetImageHauteur());
 					contexteCotyleDrawCotyle.restore();
 					cotyleDroit=newCotyleDroit;
@@ -819,11 +737,11 @@ $(document).ready(function () {
 						var imgCotyleWidth=imgCotyle.width;
 						var imgCotyleHeight=imgCotyle.height;
 						console.log("patient cotyle draw droit",patient);
-						cotyleGauche.Snap(imgCotyleWidth, imgCotyleHeight, tigeDroit.GetOrientation(), tigeGauche.GetCoeffRedimensionnement(), patient);
+						cotyleGauche.Snap(imgCotyleWidth, imgCotyleHeight, tigeGauche.GetOrientation(), tigeGauche.GetCoeffRedimensionnement(), patient);
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 						contexteCotyleDrawCotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
-						contexteCotyleDrawCotyle.rotate(tigeGauche.GetOrientation());
+						contexteCotyleDrawCotyle.rotate(cotyleGauche.GetOrientation());
 						contexteCotyleDrawCotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
 					}
@@ -834,11 +752,11 @@ $(document).ready(function () {
 					imgCotyle.onload=function () {
 						var imgCotyleWidth=imgCotyle.width;
 						var imgCotyleHeight=imgCotyle.height;
-						newCotyleGauche.Placement(imgCotyleWidth, imgCotyleHeight, cotyleGauche.GetPosition(), tigeGauche.GetCoeffRedimensionnement());
+						newCotyleGauche.Placement(imgCotyleWidth, imgCotyleHeight, cotyleGauche.GetPosition(), cotyleGauche.GetOrientation(), tigeGauche.GetCoeffRedimensionnement());
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 						contexteCotyleDrawCotyle.translate(newCotyleGauche.GetPosition().x,newCotyleGauche.GetPosition().y);
-						contexteCotyleDrawCotyle.rotate(tigeGauche.GetOrientation());
+						contexteCotyleDrawCotyle.rotate(cotyleGauche.GetOrientation());
 						contexteCotyleDrawCotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -newCotyleGauche.GetImageLargeur() / 2, -newCotyleGauche.GetImageHauteur() / 2, newCotyleGauche.GetImageLargeur(), newCotyleGauche.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
 						cotyleGauche=newCotyleGauche;
@@ -851,11 +769,11 @@ $(document).ready(function () {
 				imgCotyle.onload=function () {
 					var imgCotyleWidth=imgCotyle.width;
 					var imgCotyleHeight=imgCotyle.height;
-					newCotyleGauche.Placement(imgCotyleWidth, imgCotyleHeight, cotyleGauche.GetPosition(), tigeGauche.GetCoeffRedimensionnement());
+					newCotyleGauche.Placement(imgCotyleWidth, imgCotyleHeight, cotyleGauche.GetPosition(), cotyleGauche.GetOrientation(), tigeGauche.GetCoeffRedimensionnement());
 					contexteCotyleDrawCotyle.save();
 					contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 					contexteCotyleDrawCotyle.translate(newCotyleGauche.GetPosition().x,newCotyleGauche.GetPosition().y);
-					contexteCotyleDrawCotyle.rotate(tigeGauche.GetOrientation());
+					contexteCotyleDrawCotyle.rotate(cotyleGauche.GetOrientation());
 					contexteCotyleDrawCotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -newCotyleGauche.GetImageLargeur() / 2, -newCotyleGauche.GetImageHauteur() / 2, newCotyleGauche.GetImageLargeur(), newCotyleGauche.GetImageHauteur());
 					contexteCotyleDrawCotyle.restore();
 					cotyleGauche=newCotyleGauche;
@@ -1064,7 +982,7 @@ $(document).ready(function () {
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
-					contextecotyle.rotate(tigeDroit.GetOrientation());
+					contextecotyle.rotate(cotyleDroit.GetOrientation());
 					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 					contextecotyle.restore();
 
@@ -1080,7 +998,7 @@ $(document).ready(function () {
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
-					contextecotyle.rotate(tigeGauche.GetOrientation());
+					contextecotyle.rotate(cotyleGauche.GetOrientation());
 					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contextecotyle.restore();
 				}
@@ -1105,7 +1023,7 @@ $(document).ready(function () {
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
-					contextecotyle.rotate(tigeDroit.GetOrientation());
+					contextecotyle.rotate(cotyleDroit.GetOrientation());
 					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 					contextecotyle.restore();
 
@@ -1121,7 +1039,7 @@ $(document).ready(function () {
 					contextecotyle.save();
 					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
-					contextecotyle.rotate(tigeGauche.GetOrientation());
+					contextecotyle.rotate(cotyleGauche.GetOrientation());
 					contextecotyle.drawImage(imgCotyle, 0, 0, imgCotyle.width, imgCotyle.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contextecotyle.restore();
 				}

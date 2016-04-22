@@ -20,13 +20,14 @@ function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, coty
 	this.m_Url=Url;
 	this.m_coeffDirecteur=null;
 	this.m_Position={'x' : null, 'y' : null};
+	this.m_Orientation=null;
 	this.m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 	this.m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 	this.m_cotyleWidthPx=cotyleWidthPx;
 	this.m_cotyleWidthCm=cotyleWidthCm;
 	this.m_cotyleHeightPx=cotyleHeightPx;
 	this.m_cotyleHeightCm=cotyleHeightCm;
-	this.m_angle=(40*2*Math.PI)/360;
+	this.m_angle=null;
 	this.m_cotyleImageWidth=null;
 	this.m_cotyleImageHeight=null;
 	console.log("cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm",cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm);
@@ -101,6 +102,9 @@ Cotyle.prototype.GetPosition = function() {
 };
 
 
+Cotyle.prototype.GetOrientation = function() {
+	return this.m_Orientation;
+};
 /**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
 *
@@ -164,10 +168,12 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 	if (patient.GetCoteOperation()=="Droit") {
 		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
 		canvasCotyle = document.getElementById("canvasCotyleGauche");
+		this.m_angle = (140*2*Math.PI)/360;
 		flip=180;
 	} else {
 		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
 		canvasCotyle = document.getElementById("canvasCotyleDroit");
+		this.m_angle = (40*2*Math.PI)/360;
 		flip=0;
 	}
 
@@ -183,7 +189,9 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 	this.m_Position.x = ((cercle[0]*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y = ((cercle[1]*dicomCanvas.height)/dicomHeight);
 
-	this.m_coeffDirecteur=Math.tan(this.m_angle+angleAlignementTige);
+
+	this.m_Orientation=angleAlignementTige;
+	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 
 	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * coeffRedimensionnement;
 	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * coeffRedimensionnement;
@@ -193,7 +201,7 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 
 };
 
-Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, coeffRedimensionnement) {
+Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orientation, coeffRedimensionnement) {
 	/**
 	*Cette fonction récupère les différentes taille de la dicom
 	*
@@ -243,6 +251,7 @@ Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, coeffRe
 	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * coeffRedimensionnement;
 
 	this.m_Position=position;
+	this.m_Orientation=orientation
 };
 
 Cotyle.prototype.Monter = function() {
@@ -255,4 +264,14 @@ Cotyle.prototype.Descendre = function() {
 	var coeffBille = sessionStorage.getItem("coefficient");
 	this.m_Position.x+=((1/coeffBille)/this.m_coeffDirecteur);
 	this.m_Position.y+=(1/coeffBille);
+};
+
+Cotyle.prototype.TournerHaut = function() {
+	this.m_Orientation+=(1*2*Math.PI)/360;
+	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
+};
+
+Cotyle.prototype.TournerBas = function() {
+	this.m_Orientation-=(1*2*Math.PI)/360;
+	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 };
