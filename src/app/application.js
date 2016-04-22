@@ -1517,7 +1517,7 @@ dwv.App = function ()
         var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
         buttonRetourOutilsDessin.addEventListener('click', 
             function() {
-                sessionStorage.clear();
+                //sessionStorage.clear();
                 sessionStorage.setItem("calibrage",false);
                 sessionStorage.setItem("nbCercle",0);
                 sessionStorage.setItem("retour",0);
@@ -1568,6 +1568,10 @@ dwv.App = function ()
    
 };
  function DrawShape(typeShape) {
-        toolbox.setSelectedTool("Draw");
-        toolboxController.setSelectedShape(typeShape);
-    }
+    toolbox.setSelectedTool("Draw");
+    toolboxController.setSelectedShape(typeShape);
+}
+
+function ZoomMode(){
+    toolbox.setSelectedTool("Zoom/Pan");
+}

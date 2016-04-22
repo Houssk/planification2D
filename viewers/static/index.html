@@ -22,6 +22,15 @@
 		<script type="text/javascript" src="../../ext/pdfjs/arithmetic_decoder.js"></script>
 		<script type="text/javascript" src="../../ext/rii-mango/lossless-min.js"></script>
 		<script type="text/javascript" src="../../ext/notmasteryet/jpg.js"></script>
+		<!-- PDF 
+		<script type="text/javascript" src="../../ext/jsPDF/jspdf.debug.js"></script>
+		<script type="text/javascript" src="../../ext/jsPDF/jspdf.js"></script>
+		<script type="text/javascript" src="../../ext/jsPDF/jspdf.min.js"></script>
+		<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/png.js"></script>
+		<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/zlib.js"></script>
+		<script type="text/javascript" src="../../ext/jsPDF/plugins/addimage.js"></script>
+		<script type="text/javascript" src="../../ext/jsPDF/plugins/png_support.js"></script>
+		<script type="text/javascript" src="../../ext/Html2canvas/html2canvas.js"></script>-->
 		<!-- Local -->
 		<script type="text/javascript" src="../../src/app/application.js"></script>
 		<script type="text/javascript" src="../../src/app/toolboxController.js"></script>
@@ -155,8 +164,8 @@
 				<input id="buttonMoinsTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
 				<label id="labelTailleTige" class="blackColor"></label>
 				<input id="buttonPlusTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+"></input>
-				<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Monter la tige"></input>
-				<input id="buttonDescendreTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Descendre la tige"></input>
+				<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+"></input>
+				<input id="buttonDescendreTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
 				<select id="coteCotyle" class="form-control">
 					<option>COTE DU COTYLE</option>
 					<option value="Gauche">COTE GAUCHE</option>
@@ -165,9 +174,12 @@
 				<input id="buttonMoinsCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
 				<label id="labelTailleCotyle" class="blackColor"></label>
 				<input id="buttonPlusCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+"></input>
-				<input id="buttonMonterCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Monter le cotyle"></input>
-				<input id="buttonDescendreCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Descendre le cotyle"></input>
+				<input id="buttonMonterCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+"></input>
+				<input id="buttonDescendreCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
+				<input id="buttonTournerHautCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+"></input>
+				<input id="buttonTournerBasCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-"></input>
 				<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
+				<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR"></input>
 				<div id="implants" class="darkClass"></div>
 			</div>
 

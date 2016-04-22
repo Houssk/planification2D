@@ -810,7 +810,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     app.addToUndoStack(delcmd);
 
                 }
-                sessionStorage.clear();
+                //sessionStorage.clear();
                 sessionStorage.setItem("calibrage", false);
                 sessionStorage.setItem("nbCercle",0);
                 sessionStorage.setItem("retour",0);
