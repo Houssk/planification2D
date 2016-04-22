@@ -1520,6 +1520,8 @@ dwv.App = function ()
                 //sessionStorage.clear();
                 sessionStorage.setItem("calibrage",false);
                 sessionStorage.setItem("nbCercle",0);
+                sessionStorage.setItem("nbTrapeze", 0);
+                sessionStorage.setItem("nbPetitTroch", 0);
                 sessionStorage.setItem("retour",0);
                 toolbox.setSelectedTool("Zoom/Pan");
 

@@ -813,6 +813,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 //sessionStorage.clear();
                 sessionStorage.setItem("calibrage", false);
                 sessionStorage.setItem("nbCercle",0);
+                sessionStorage.setItem("nbTrapeze", 0);
+                sessionStorage.setItem("nbPetitTroch", 0);
                 sessionStorage.setItem("retour",0);
 
 
