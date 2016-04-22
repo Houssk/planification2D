@@ -746,7 +746,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
 
                 //  if ( shape instanceof Kinetic.Line ) {
                 if(shape.id()=="cercle"){
-
                     var group = shape.getParent();
                     console.log(group);
                     console.log("buttondelete");
@@ -762,6 +761,66 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 document.getElementById("buttonDeleteCercle").style.display = "none";
 
             }, false);
+        var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
+        buttonValideInformationPatient.addEventListener('click', function() {
+                if(shape.id()=="cercle"){
+                    var group = shape.getParent();
+                    console.log(group);
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                    sessionStorage.setItem("nbCercle", 0);
+                    sessionStorage.setItem("retour",1);
+
+                }
+            }
+         );
+        var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
+        buttonRetourOutilsDessin.addEventListener('click',
+            function() {
+                if(shape.id()=="cercle"){
+
+                    var group = shape.getParent();
+                    console.log(group);
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+
+                }
+                else  if(shape.id()=="petitroch"){
+                    var group = shape.getParent();
+                    console.log(group);
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "mesurepetittroch", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="trapeze"){
+                    var group = shape.getParent();
+                    console.log(group);
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "roi", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+
+                }
+                sessionStorage.clear();
+                sessionStorage.setItem("calibrage", false);
+                sessionStorage.setItem("nbCercle",0);
+                sessionStorage.setItem("retour",0);
+
+
+            }, false);
+
+
+
+
         // drag move event handling
         shape.on('dragmove', function (event) {
             console.log("dragmove");

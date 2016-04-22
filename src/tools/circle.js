@@ -85,10 +85,15 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         }
     }
 
+    if(sessionStorage.getItem("retour")==0){
+       console.log( sessionStorage.getItem("retour"));
+        onPeutTraceCercle = true;
+    }
+    console.log("onPeutTraceCercle",onPeutTraceCercle);
     if (onPeutTraceCercle == true) {
         var tempNbCercle = sessionStorage.getItem("nbCercle") ;
         //console.log(tempNbCercle);
-        if(parseInt(tempNbCercle)==2){
+        if(parseInt(tempNbCercle)==1){
             console.log("je suis la ");
             document.getElementById("buttonDeleteCercle").style.display = "inline";
         }

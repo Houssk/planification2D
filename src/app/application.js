@@ -7,6 +7,7 @@ var Kinetic = Kinetic || {};
     var toolbox = null;
     // Toolbox controller
     var toolboxController = null;
+
 /**
  * Main application class.
  * @constructor
@@ -87,6 +88,7 @@ dwv.App = function ()
     sessionStorage.clear();
     // Calibrage
     sessionStorage.setItem("calibrage",false);
+    sessionStorage.setItem("onPeutTraceCercle",false);
 
 
     /**
@@ -1458,6 +1460,7 @@ dwv.App = function ()
 
             toolbox.init();
             toolbox.display(true);
+
         }
 
         /**
@@ -1469,14 +1472,15 @@ dwv.App = function ()
         var buttonCalibrage = document.getElementById("buttonCalibrage");
         var taille_bille_mm = null;
         buttonCalibrage.addEventListener('click', function() {
-                console.log();
                 do {
                     taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
                 }while(isNaN(taille_bille_mm));
                 console.log("calibrage");
-                console.log( toolbox );
                 toolbox.setSelectedTool("Draw");
                 toolboxController.setSelectedShape("Circle");
+                console.log(window.event);
+
+
             }
         );
         /**
@@ -1497,14 +1501,11 @@ dwv.App = function ()
                 console.log(coeff);
                 sessionStorage.setItem("coefficient",coeff);
                 sessionStorage.setItem("calibrage",true);
+
+
                 alert(string);
-                for(var i = 0 ; i<10 ; i++){
-                    undoStack.undo();
-                }
-               window.addEventListener("keydown", onMouch, false);
-                toolbox.display(false);
                 self.resetLayout();
-                toolbox.setSelectedTool("Scroll");
+
             }
         );
 
@@ -1516,10 +1517,11 @@ dwv.App = function ()
         var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
         buttonRetourOutilsDessin.addEventListener('click', 
             function() {
-                sessionStorage.setItem("nbPetitTroch", 0);
-                for(var i = 0 ; i<100 ; i++){
-                    undoStack.undo();
-                }
+                sessionStorage.clear();
+                sessionStorage.setItem("calibrage",false);
+                sessionStorage.setItem("nbCercle",0);
+                sessionStorage.setItem("retour",0);
+                toolbox.setSelectedTool("Zoom/Pan");
 
         }, false);
         // stop box listening to drag (after first drag)

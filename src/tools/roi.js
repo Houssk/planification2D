@@ -62,7 +62,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
 
         var tempNbTrapeze = sessionStorage.getItem("nbTrapeze") ;
         console.log(tempNbTrapeze);
-        if(parseInt(tempNbTrapeze)==2){
+        if(parseInt(tempNbTrapeze)==1){
             console.log("je suis la ");
             document.getElementById("buttonDeleteTrapeze").style.display = "inline";
         }
