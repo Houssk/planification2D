@@ -14,9 +14,9 @@ $(document).ready(function () {
 	var imgCotyle = null; // variable de stockage de l'image du cotyle
 
 	var indexTigeDroit = 11;
-	var indexCotyleDroit = 17;
+	var indexCotyleDroit = 43;
 	var indexTigeGauche = 11;
-	var indexCotyleGauche = 17;
+	var indexCotyleGauche = 43;
 
 	var m_canvasWidth = null;
 	var m_canvasHeight = null;
@@ -117,7 +117,7 @@ $(document).ready(function () {
 									var newTigeGauche=getTige(indexTigeGauche+8);
 									var newTigeDroit=getTige(indexTigeDroit);
 									var newTige=null;
-									var newCotyleGauche=getCotyle(indexCotyleGauche+17);
+									var newCotyleGauche=getCotyle(indexCotyleGauche+13);
 									var newCotyleDroit=getCotyle(indexCotyleDroit);
 									var newCotyle=null;
 									var canvasTige=null;
@@ -348,7 +348,7 @@ $(document).ready(function () {
 					tigeDroit = getTige(indexTigeDroit);
 					cotyleDroit = getCotyle(indexCotyleDroit);
 					tigeGauche = getTige(indexTigeGauche+8);
-					cotyleGauche = getCotyle(indexCotyleGauche+17);
+					cotyleGauche = getCotyle(indexCotyleGauche+13);
 					
 					//Initialisation des images
 					imgTige = new Image;
@@ -716,7 +716,7 @@ $(document).ready(function () {
 			contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					cotyleGauche=getCotyle(indexCotyleGauche+17);
+					cotyleGauche=getCotyle(indexCotyleGauche+13);
 					imgCotyle = new Image;
 					imgCotyle.onload=function () {
 						var imgCotyleWidth=imgCotyle.width;
@@ -732,7 +732,7 @@ $(document).ready(function () {
 					}
 					imgCotyle.src=cotyleGauche.GetUrl();
 				} else {
-					var newCotyleGauche = getCotyle(indexCotyleGauche+17);
+					var newCotyleGauche = getCotyle(indexCotyleGauche+13);
 					imgCotyle = new Image;
 					imgCotyle.onload=function () {
 						var imgCotyleWidth=imgCotyle.width;
@@ -749,7 +749,7 @@ $(document).ready(function () {
 					imgCotyle.src=newCotyleGauche.GetUrl();
 				}
 			} else {
-				var newCotyleGauche = getCotyle(indexCotyleGauche+17);
+				var newCotyleGauche = getCotyle(indexCotyleGauche+13);
 				imgCotyle = new Image;
 				imgCotyle.onload=function () {
 					var imgCotyleWidth=imgCotyle.width;
@@ -822,14 +822,14 @@ $(document).ready(function () {
 			function PlusTailleCotyle(){
 				var coteCotyleBtn = document.getElementById("coteCotyle");
 				if (coteCotyleBtn.options[coteCotyleBtn.selectedIndex].value == "Gauche") {
-					if (indexCotyleDroit+1>25) {
-						indexCotyleDroit=25;
+					if (indexCotyleDroit+1>55) {
+						indexCotyleDroit=55;
 					} else {
 						indexCotyleDroit++;
 					}
 				} else {
-					if (indexCotyleGauche+1>25) {
-						indexCotyleGauche=25;
+					if (indexCotyleGauche+1>55) {
+						indexCotyleGauche=55;
 					} else {
 						indexCotyleGauche++;
 					}
@@ -845,14 +845,14 @@ $(document).ready(function () {
 			var coteCotyleBtn = document.getElementById("coteCotyle");
 			function MoinsTailleCotyle(){
 				if (coteCotyleBtn.options[coteCotyleBtn.selectedIndex].value == "Gauche") {
-					if (indexCotyleDroit-1<9) {
-						indexCotyleDroit=9;
+					if (indexCotyleDroit-1<43) {
+						indexCotyleDroit=43;
 					} else {
 						indexCotyleDroit--;
 					}
 				} else {
-					if (indexCotyleGauche-1<9) {
-						indexCotyleGauche=9;
+					if (indexCotyleGauche-1<43) {
+						indexCotyleGauche=43;
 					} else {
 						indexCotyleGauche--;
 					}
