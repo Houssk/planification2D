@@ -166,7 +166,18 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
 
         return group;
     }
-    else return null;
+    else {
+        var group = new Kinetic.Group();
+        var kshape = new Kinetic.Line({
+            points: [0,0],
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            opacity: 0.0,
+            name: "shape",
+        });
+        group.add(kshape);
+        return group;
+    }
 };
 
 /**
@@ -178,8 +189,6 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
  */
 dwv.tool.UpdateMesurepetittroch = function (anchor, image)
 {
-    console.log("MesurepetittrochUpdate");
-
     // parent group
     var group = anchor.getParent();
     // associated shape
@@ -295,11 +304,6 @@ dwv.tool.UpdateMesurepetittroch = function (anchor, image)
     var strDeltaX = deltaX + " mm";
     var strDeltaY = deltaY + " mm";
     var strDeltaZ = deltaZ + " mm";
-
-    console.log();
-
-
-
 
     ktextHorizontal.position( textPosHor );
     ktextHorizontal.text(strDeltaX);

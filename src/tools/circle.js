@@ -69,9 +69,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             }
         }
     } else {
-        //console.log("calibrageAFaire "+calibrageAFaire);
-        //console.log("lastPoint "+lastPoint);
-        //console.log("onPeutTraceCercle "+onPeutTraceCercle);
+
         if (calibrageAFaire==true) {
             if (lastPoint == null) {
                 lastPoint=points[0];
@@ -86,25 +84,19 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
     }
 
     if(sessionStorage.getItem("retour")==0){
-       console.log( sessionStorage.getItem("retour"));
         onPeutTraceCercle = true;
     }
-    console.log("onPeutTraceCercle",onPeutTraceCercle);
     if (onPeutTraceCercle == true) {
         var tempNbCercle = sessionStorage.getItem("nbCercle") ;
-        //console.log(tempNbCercle);
         if(parseInt(tempNbCercle)==1){
-            console.log("je suis la ");
             document.getElementById("buttonDeleteCercle").style.display = "inline";
         }
         var x = points[0].getX();
         var y = points[0].getY();
         lastCenterPos = { 'x': points[0].getX(), 'y': points[0].getY() };
-        //console.log("CircleFactory OK");
         // calculate radius
         var radiusCircle = Math.sqrt(Math.pow(points[1].getX()-points[0].getX(),2)+Math.pow(points[1].getY()-points[0].getY(),2));
         // physical shape
-        //console.log(radiusCircle);
         var circle = new dwv.math.Circle(points[0], radiusCircle);
         // draw shape
         var kshape = new Kinetic.Circle({
@@ -174,13 +166,21 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         group.add(ktext);
         return group;      
     } else {
-        return null;
+        var group = new Kinetic.Group();
+        var kshape = new Kinetic.Line({
+            points: [0,0],
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            opacity: 0.0,
+            name: "shape",
+        });
+        group.add(kshape);
+        return group;
     }
     
 };
 dwv.tool.UpdateCircle = function (anchor, image)
 {
-    //console.log("UpdateCircle OK")
     // parent group
     var group = anchor.getParent();
     // associated shape
@@ -206,7 +206,6 @@ dwv.tool.UpdateCircle = function (anchor, image)
 
     // update 'self' (undo case) and special points
     var radiusCircle = ( radiusPoint.x() - centerCircleAnchor.x() );
-    console.log(radiusCircle)
     var radiusCircleAbs = Math.abs(radiusCircle);
     switch ( anchor.id() ) {
         case 'radiusPoint':

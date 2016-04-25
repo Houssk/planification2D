@@ -61,9 +61,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
     if (onPeutTraceTrapeze == true) {
 
         var tempNbTrapeze = sessionStorage.getItem("nbTrapeze") ;
-        console.log(tempNbTrapeze);
         if(parseInt(tempNbTrapeze)==1){
-            console.log("je suis la ");
             document.getElementById("buttonDeleteTrapeze").style.display = "inline";
         }
         // physical shape
@@ -152,8 +150,6 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         pointsAxeCentre.push(x2);
         pointsAxeCentre.push(y2);
 
-        //console.log("x1 "+x1+", y1 "+y1+", x2 "+x2+", y2 "+y2);
-
         var kAxeCentre = new Kinetic.Line({
            points: pointsAxeCentre,
            stroke: "red",
@@ -170,7 +166,16 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         group.add(kAxeCentre);
         return group;
     } else {
-        return null;
+        var group = new Kinetic.Group();
+        var kshape = new Kinetic.Line({
+            points: [0,0],
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            opacity: 0.0,
+            name: "shape",
+        });
+        group.add(kshape);
+        return group;
     }
     
 };
@@ -182,7 +187,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
  */
 dwv.tool.UpdateRoi = function (anchor /*, image*/)
 {
-    //console.log("roi update");
+
     // parent group
     var group = anchor.getParent();
     // associated shape
@@ -253,8 +258,7 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
             trapezeAxePosition.push(y2);
             sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
             sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
-            //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
-            //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
+
         } else {
             var trapezeAxePosition=[];
             trapezeAxePosition.push(x1);
@@ -263,8 +267,6 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
             trapezeAxePosition.push(y2);
             sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
             sessionStorage.setItem("trapezeGauchecoeffDirect", coeffDirect);
-            //console.log("trapezeGauchePosition "+sessionStorage.getItem("trapezeGauchePosition"));
-            //console.log("trapezeGauchecoeffDirect "+sessionStorage.getItem("trapezeGauchecoeffDirect"));
         }
     }
     //test pour savoir de quel cote est le trapeze sauvegarde

@@ -1475,7 +1475,6 @@ dwv.App = function ()
                 do {
                     taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
                 }while(isNaN(taille_bille_mm));
-                console.log("calibrage");
                 toolbox.setSelectedTool("Draw");
                 toolboxController.setSelectedShape("Circle");
                 console.log(window.event);
@@ -1492,20 +1491,15 @@ dwv.App = function ()
         var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
         buttonValideInformationPatient.addEventListener('click', function() {
                 var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille"));
-                console.log(sessionStorage.getItem("taille_bille"));
                 // var taille_bille_mm = parseInt(document.getElementById("taille_bille_mm").value);
                 taille_bille_mm = parseInt(taille_bille_mm);
-                console.log("taille_bille_mm",taille_bille_mm);
                 var coeff =  taille_bille_mm / taille_bille_px;
                 var string = "coefficient de redimensionnement des implants est : " + coeff;
-                console.log(coeff);
                 sessionStorage.setItem("coefficient",coeff);
                 sessionStorage.setItem("calibrage",true);
-
-
                 alert(string);
                 self.resetLayout();
-
+                toolbox.setSelectedTool("Scroll");
             }
         );
 

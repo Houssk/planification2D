@@ -405,7 +405,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * @param {Object} event The mouse move event.
      */
     this.mousemove = function(event){
-        //console.log("mousemove");
         if (!started)
         {
             return;
@@ -481,7 +480,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
 
 
             self.setShapeOn( shape );
-            console.log("shape2",shape);
             if(shape.id()=="petitroch"){
 
                 var shapeVerticaleLeft = group.getChildren( function (node) {
@@ -614,8 +612,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      */
     function getRealPosition( index ) {
         var stage = app.getDrawStage();
-
-        console.log("stage",stage);
         return { 'x': stage.offset().x + index.x / stage.scale().x,
             'y': stage.offset().y + index.y / stage.scale().y };
     }
@@ -628,8 +624,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         // mouse over styling
         shape.on('mouseover', function () {
             document.body.style.cursor = 'pointer';
-            //console.log("pointer");
-            //console.log(shape.id());
+
         });
         // mouse out styling
         shape.on('mouseout', function () {
@@ -652,9 +647,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             }
             else {
                 if (shape.id()=="petitroch") {
-                    console.log(shape.id());
                     cmdName = "mesurepetittroch";
-                    console.log("draggable");
 
                 } else {
                     cmdName = "roi";
@@ -668,16 +661,13 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             cmdName = "ellipse";
         }
         else if (shape instanceof Kinetic.Circle){
-
             cmdName= "circle";
-            //console.log("je suis la ");
         }
         // shape colour
         var colour = shape.stroke();
 
         // drag start event handling
         shape.on('dragstart', function (event) {
-            console.log("dragstart");
             // save start position
             var offset = dwv.html.getEventOffset( event.evt )[0];
             dragStartPos = getRealPosition( offset );
@@ -686,7 +676,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             var scale = stage.scale();
             var invscale = {'x': 1/scale.x, 'y': 1/scale.y};
             trash.x( stage.offset().x + ( 256 / scale.x ) );
-            console.log("trash");
             trash.y( stage.offset().y + ( 20 / scale.y ) );
             trash.scale( invscale );
             drawLayer.add( trash );
@@ -705,8 +694,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                   if(shape.id()=="trapeze"){
 
                     var group = shape.getParent();
-                      console.log(group);
-                    console.log("buttondelete");
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "roi", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -726,8 +713,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 //  if ( shape instanceof Kinetic.Line ) {
                 if(shape.id()=="petitroch"){
                     var group = shape.getParent();
-                    console.log(group);
-                    console.log("delete mesure petit troche");
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "mesurepetittroch", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -747,8 +732,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 //  if ( shape instanceof Kinetic.Line ) {
                 if(shape.id()=="cercle"){
                     var group = shape.getParent();
-                    console.log(group);
-                    console.log("buttondelete");
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -765,7 +748,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         buttonValideInformationPatient.addEventListener('click', function() {
                 if(shape.id()=="cercle"){
                     var group = shape.getParent();
-                    console.log(group);
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -783,7 +765,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 if(shape.id()=="cercle"){
 
                     var group = shape.getParent();
-                    console.log(group);
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -793,7 +774,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 }
                 else  if(shape.id()=="petitroch"){
                     var group = shape.getParent();
-                    console.log(group);
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "mesurepetittroch", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -802,7 +782,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 }
                 else if(shape.id()=="trapeze"){
                     var group = shape.getParent();
-                    console.log(group);
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "roi", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
@@ -825,7 +804,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
 
         // drag move event handling
         shape.on('dragmove', function (event) {
-            console.log("dragmove");
             var offset = dwv.html.getEventOffset( event.evt )[0];
             var pos = getRealPosition( offset );
             var translation;
@@ -867,7 +845,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             var pos = dragLastPos;
             dragLastPos = null;
 
-            console.log("dragend");
+
             //  case
             if ( Math.abs( pos.x - trash.x() ) < 10 &&
                     Math.abs( pos.y - trash.y() ) < 10   ) {
@@ -899,7 +877,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 var translation = {'x': pos.x - dragStartPos.x,
                         'y': pos.y - dragStartPos.y};
                 if ( translation.x !== 0 || translation.y !== 0 ) {
-                    //console.log("save drag move");
                     if(cmdName == "roi"){
                         if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
                             var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
