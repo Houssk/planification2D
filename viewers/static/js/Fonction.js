@@ -104,3 +104,13 @@ function getCotyle(id) {
 
     return cotyle;
 }
+
+function desactivationListe() {
+
+    if (document.getElementById("RadioOuiHanche").checked) {
+        var coteCotyle = document.getElementById("coteCotyle");
+        var coteTige = document.getElementById("coteTige");
+        coteCotyle.style.display = "none";
+        coteTige.style.display = "none";
+    }
+}

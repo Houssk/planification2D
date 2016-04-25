@@ -262,6 +262,7 @@ $(document).ready(function () {
 					}
 				}
 			};
+			desactivationListe();
 			ValiderPatient()
 		},false);
 
