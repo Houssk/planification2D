@@ -320,14 +320,20 @@ Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orienta
 
 Cotyle.prototype.Monter = function() {
 	var coeffBille = sessionStorage.getItem("coefficient");
-	this.m_Position.x-=((1/coeffBille)/this.m_coeffDirecteur);
-	this.m_Position.y-=(1/coeffBille);
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 };
 
 Cotyle.prototype.Descendre = function() {
 	var coeffBille = sessionStorage.getItem("coefficient");
-	this.m_Position.x+=((1/coeffBille)/this.m_coeffDirecteur);
-	this.m_Position.y+=(1/coeffBille);
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 };
 
 Cotyle.prototype.TournerHaut = function() {

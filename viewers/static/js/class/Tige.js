@@ -254,7 +254,7 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
 
-	var deltaCercleTrapeze = (((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
+	//var deltaCercleTrapeze = (((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
 	var deltaX = trapeze[2]-trapeze[0];
 	var deltaY = trapeze[3]-trapeze[1];
@@ -264,8 +264,8 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	this.m_angleAlignement=atan;
 
 	this.m_coeffDirecteur=deltaY/deltaX;
-	this.m_Position.x=this.m_Position.x-(deltaCercleTrapeze/this.m_coeffDirecteur);
-	this.m_Position.y=this.m_Position.y-deltaCercleTrapeze;
+	this.m_Position.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
+	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
 
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
@@ -368,12 +368,18 @@ Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientati
 
 Tige.prototype.Monter = function() {
 	var coeffBille = sessionStorage.getItem("coefficient");
-	this.m_Position.x-=((1/coeffBille)/this.m_coeffDirecteur);
-	this.m_Position.y-=(1/coeffBille);
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 };
 
 Tige.prototype.Descendre = function() {
 	var coeffBille = sessionStorage.getItem("coefficient");
-	this.m_Position.x+=((1/coeffBille)/this.m_coeffDirecteur);
-	this.m_Position.y+=(1/coeffBille);
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 };
