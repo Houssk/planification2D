@@ -1189,13 +1189,19 @@ $(document).ready(function () {
 						console.log("canvas",canvas);
 						var now = new Date();
 						var nowMonth = now.getMonth() + 1;
+						var nowMonthString = null;
+						if (nowMonth<10) {
+							nowMonthString="0"+nowMonth;
+						} else {
+							nowMonthString=nowMonth;
+						}
 
 						var divData = canvas.toDataURL("image/jpeg");
 
 						var docPDF = new jsPDF();
 						docPDF.setFontSize(12);
 						docPDF.addImage(imageSerf, 'JPEG', 15, 20, 45, 12);
-						docPDF.text(160, 30, now.getDate() + "/" + nowMonth + "/" + now.getFullYear());
+						docPDF.text(160, 30, now.getDate() + "/" + nowMonthString + "/" + now.getFullYear());
 						docPDF.setFontType("bold");
 						docPDF.setFontSize(18);
 						docPDF.text(30, 50, "Planification pour la chirurgie de la hanche du patient :");
@@ -1204,8 +1210,8 @@ $(document).ready(function () {
 						docPDF.text(15, 70, "Nom : " + patient.GetNom());
 						docPDF.text(15, 75, "Prénom : " + patient.GetPrenom());
 						docPDF.setFontType("bold");
-						docPDF.text(15, 105, "Votre image DICOM d'origine :");
-						docPDF.addImage(dicomImage, 'JPEG', 15, 110, 180, ((180*m_canvasHeight)/m_canvasWidth));
+						docPDF.text(15, 85, "Votre image DICOM d'origine :");
+						docPDF.addImage(dicomImage, 'JPEG', 15, 90, 180, ((180*m_canvasHeight)/m_canvasWidth));
 						docPDF.addPage();
 						docPDF.text(15, 20, "Votre planification :");
 						docPDF.setFontSize(12);
