@@ -175,6 +175,7 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
 		unCmEgalCbPxHeightImage = image.heightImageReelle / heightReelleImageCm;
 
 		var unCmEgalCbPxWidthImp = wCotylePx / wCotyleCm;
+		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 		var unCmEgalCbPxHeightImp = hCotylePx / hCotyleCm;
 
 		// Faut-il faire la moyenne des deux ? Non, il faut prendre l'équivalent en cm pour la largeur et la longueur
