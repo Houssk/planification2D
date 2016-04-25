@@ -27,6 +27,7 @@ function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, coty
 	this.m_cotyleWidthCm=cotyleWidthCm;
 	this.m_cotyleHeightPx=cotyleHeightPx;
 	this.m_cotyleHeightCm=cotyleHeightCm;
+	this.m_coeffRedimensionnement=null;
 	this.m_angle=null;
 	this.m_cotyleImageWidth=null;
 	this.m_cotyleImageHeight=null;
@@ -115,7 +116,7 @@ Cotyle.prototype.GetOrientation = function() {
 *@author Quentin PETIT
 */
 
-Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, coeffRedimensionnement, patient) {
+Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
 
 	console.log("patient",patient);
 	/**
@@ -161,16 +162,44 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 		};
 	}
 
+	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
+		// On récupère les valeurs de l'image affichée et de l'image réelle
+		var image = getValeursImage();
+
+		var coeffBille = sessionStorage.getItem("coefficient");
+
+		var widthReelleImageCm = image.widthImageReelle * coeffBille;
+		var heightReelleImageCm = image.heightImageReelle * coeffBille;
+
+		unCmEgalCbPxWidthImage = image.widthImageReelle / widthReelleImageCm;
+		unCmEgalCbPxHeightImage = image.heightImageReelle / heightReelleImageCm;
+
+		var unCmEgalCbPxWidthImp = wCotylePx / wCotyleCm;
+		var unCmEgalCbPxHeightImp = hCotylePx / hCotyleCm;
+
+		// Faut-il faire la moyenne des deux ? Non, il faut prendre l'équivalent en cm pour la largeur et la longueur
+
+		// tailleImplant * X = tailleImage
+		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
+		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
+		coef=coef*10;
+		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
+
+	    return coef;
+	}
+	var trapeze = null;
 	var cercle = null;
 	var canvasCotyle = null;
 	var flip = null;
 
 	if (patient.GetCoteOperation()=="Droit") {
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
 		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
 		canvasCotyle = document.getElementById("canvasCotyleGauche");
 		this.m_angle = (140*2*Math.PI)/360;
 		flip=180;
 	} else {
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
 		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
 		canvasCotyle = document.getElementById("canvasCotyleDroit");
 		this.m_angle = (40*2*Math.PI)/360;
@@ -189,19 +218,26 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, angleAlignementTige, c
 	this.m_Position.x = ((cercle[0]*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y = ((cercle[1]*dicomCanvas.height)/dicomHeight);
 
+	this.m_coeffRedimensionnement=CoefRedimensionnementCotyle(this.m_cotyleWidthPx,this.m_cotyleWidthCm,this.m_cotyleHeightPx,this.m_cotyleHeightCm);
 
-	this.m_Orientation=angleAlignementTige;
+	var deltaX = trapeze[2]-trapeze[0];
+	var deltaY = trapeze[3]-trapeze[1];
+
+	var tan = deltaX/deltaY;
+	var atan = Math.atan(tan)*-1;
+
+	this.m_Orientation=atan;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 
-	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * coeffRedimensionnement;
-	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * coeffRedimensionnement;
+	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
+	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
 
 	console.log("this.m_cotyleImageWidth",this.m_cotyleImageWidth,"this.m_cotyleImageHeight",this.m_cotyleImageHeight);
 	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
 
 };
 
-Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orientation, coeffRedimensionnement) {
+Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {
 	/**
 	*Cette fonction récupère les différentes taille de la dicom
 	*
@@ -245,10 +281,37 @@ Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orienta
 		};
 	}
 
+	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
+		// On récupère les valeurs de l'image affichée et de l'image réelle
+		var image = getValeursImage();
+
+		var coeffBille = sessionStorage.getItem("coefficient");
+
+		var widthReelleImageCm = image.widthImageReelle * coeffBille;
+		var heightReelleImageCm = image.heightImageReelle * coeffBille;
+
+		unCmEgalCbPxWidthImage = image.widthImageReelle / widthReelleImageCm;
+		unCmEgalCbPxHeightImage = image.heightImageReelle / heightReelleImageCm;
+
+		var unCmEgalCbPxWidthImp = wCotylePx / wCotyleCm;
+		var unCmEgalCbPxHeightImp = hCotylePx / hCotyleCm;
+
+		// Faut-il faire la moyenne des deux ? Non, il faut prendre l'équivalent en cm pour la largeur et la longueur
+
+		// tailleImplant * X = tailleImage
+		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
+		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
+		coef=coef*10;
+		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
+
+	    return coef;
+	}
 	var coeffDicom = facteurRedimensionnementImage();
 
-	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * coeffRedimensionnement;
-	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * coeffRedimensionnement;
+	this.m_coeffRedimensionnement=CoefRedimensionnementCotyle(this.m_cotyleWidthPx,this.m_cotyleWidthCm,this.m_cotyleHeightPx,this.m_cotyleHeightCm);
+
+	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
+	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
 
 	this.m_Position=position;
 	this.m_Orientation=orientation

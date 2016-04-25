@@ -221,7 +221,7 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
 		coef=coef*10;
-		console.log("coef",coef);
+		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
 	    return coef;
 	}
