@@ -109,6 +109,10 @@ dwv.gui.Toolbox = function (app)
         implants.appendChild(document.createTextNode("IMPLANTS"));
         implants.onclick = function() {toggle(".implants"); };
 
+        var couleurArrierePlan = document.createElement("button");
+        couleurArrierePlan.appendChild(document.createTextNode("COULEUR ARRIÈRE PLAN"));
+        couleurArrierePlan.onclick = function() {toggle(".couleurArrierePlan"); };
+
         var toolbox = document.createElement("button");
         toolbox.appendChild(document.createTextNode("Toolbox"));
         toolbox.onclick = function() { toggle(".toolList"); };
@@ -137,6 +141,7 @@ dwv.gui.Toolbox = function (app)
         node.appendChild(open);
         node.appendChild(outilsDessin);
         node.appendChild(implants);
+        node.appendChild(couleurArrierePlan);
         node.appendChild(toolbox);
         node.appendChild(history);
         node.appendChild(tags);
@@ -214,6 +219,10 @@ dwv.gui.setup = function () {
     });
     $(".implants").dialog({ position:
         {my: "left top+580", at: "left top", of: "#pageMain"},
+        appendTo: "#dwv",
+    });
+    $(".couleurArrierePlan").dialog({ position:
+        {my: "right top+5", at: "right top", of: "#pageMain"},
         appendTo: "#dwv",
     });
     $(".toolList").dialog({ position:
