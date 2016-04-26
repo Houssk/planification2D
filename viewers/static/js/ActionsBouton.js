@@ -1396,4 +1396,22 @@ $(document).ready(function () {
 			ValiderImplant()
 	}, false);
 	
+	var buttonZoom = document.getElementById("buttonZoom");
+	buttonZoom.addEventListener('click', 
+		function() {
+			function Zoom(){
+				ZoomMode();
+			};
+			Zoom()
+	}, false);
+
+	var buttonSeuil = document.getElementById("buttonSeuil");
+	buttonSeuil.addEventListener('click', 
+		function() {
+			function Seuil(){
+				SeuilMode();
+			};
+			Seuil()
+	}, false);
+
 });

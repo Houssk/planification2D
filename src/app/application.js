@@ -1571,3 +1571,7 @@ dwv.App = function ()
 function ZoomMode(){
     toolbox.setSelectedTool("Zoom/Pan");
 }
+
+function SeuilMode() {
+    toolbox.setSelectedTool("Window/Level");
+}
