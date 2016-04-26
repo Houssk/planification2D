@@ -416,12 +416,66 @@ $(document).ready(function () {
 
 				if(onPeutValider==true)
 				{
+
+					$('.implants *').prop('disabled',false);
+					document.getElementById("implants").style.display = "none";
+					$('.outilsDessin *').prop('disabled',true);
+					document.getElementById("outilsDessin").style.display = "";
+
+
+				}
+			};
+			ValiderDessin()
+	}, false);
+
+	var buttonValideGamme = document.getElementById("buttonValideGamme");
+	buttonValideGamme.addEventListener('click',
+		function() {
+			function validerGamme(){
+
+				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
+				var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
+				var valeurGammeVariseOuPas = gammeVariseOuPas.options[gammeVariseOuPas.selectedIndex].value;
+				var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
+				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
+				var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
+
+                // Condition pour le choix des bons index
+				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
+					 console.log("1er cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
+					console.log("2eme cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
+					console.log("3eme cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
+					console.log("4eme cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
+					console.log("5eme cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
+					console.log("6eme cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
+					console.log("7 eme cas ");
+				}
+				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
+					console.log("8 eme cas ");
+				}
+
+
+				////////////////////////////////////////////////////// snap /////////////////////////////
+
+
 					// récupération tige et cotyle
 					tigeDroit = getTige(indexTigeDroit);
 					cotyleDroit = getCotyle(indexCotyleDroit);
 					tigeGauche = getTige(indexTigeGauche+8);
 					cotyleGauche = getCotyle(indexCotyleGauche+13);
-					
+
 					//Initialisation des images
 					imgTigeDroit = new Image;
 					imgCotyleDroit = new Image;
@@ -435,7 +489,7 @@ $(document).ready(function () {
 					}
 					console.log("canvasTige.id",canvasTige.id);
 					/*var m_canvasWidth=900;
-					var m_canvasHeight=800;*/
+					 var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -455,7 +509,7 @@ $(document).ready(function () {
 							contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 							contextetige.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -472,7 +526,7 @@ $(document).ready(function () {
 							contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 							contextetige.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -481,11 +535,11 @@ $(document).ready(function () {
 
 							tigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 						}
-						
+
 					}
 
 					imgTigeGauche.onload=function () {
-						console.log("imgTigeGauche",imgTigeGauche)
+						console.log("imgTigeGauche",imgTigeGauche);
 						var imgTigeGaucheWidth=imgTigeGauche.width;
 						var imgTigeGaucheHeight=imgTigeGauche.height;
 						if (patient.GetCoteOperation()=="Gauche") {
@@ -497,7 +551,7 @@ $(document).ready(function () {
 							contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 							contextetige.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -514,7 +568,7 @@ $(document).ready(function () {
 							contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 							contextetige.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -523,7 +577,7 @@ $(document).ready(function () {
 
 							tigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 						}
-						
+
 					}
 					//Source des images
 					if (patient.GetCoteOperation()=="Gauche") {
@@ -531,7 +585,7 @@ $(document).ready(function () {
 					} else {
 						imgTigeGauche.src=tigeGauche.GetUrl();
 					}
-					
+
 					var canvasCotyle=null;
 					if (patient.GetCoteOperation()=="Gauche") {
 						canvasCotyle = document.getElementById("canvasCotyleDroit");
@@ -556,7 +610,7 @@ $(document).ready(function () {
 							contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 							contextecotyle.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -573,7 +627,7 @@ $(document).ready(function () {
 							contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 							contextecotyle.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -582,7 +636,7 @@ $(document).ready(function () {
 
 							cotyleDroit.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
 						}
-						
+
 					}
 
 					imgCotyleGauche.onload=function () {
@@ -597,13 +651,12 @@ $(document).ready(function () {
 							contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 							contextecotyle.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
 							var dicomHeight = sessionStorage.getItem("imageHauteur");
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
-
 							cotyleGauche.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 						} else {
 							cotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, patient);
@@ -614,7 +667,7 @@ $(document).ready(function () {
 							contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 							contextecotyle.restore();
 
-							//positionnement de la tige du coté opposé a la chirurgie 
+							//positionnement de la tige du coté opposé a la chirurgie
 							var dicomCanvas = document.getElementById("dwv-imageLayer");
 							//position zéro
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
@@ -623,7 +676,7 @@ $(document).ready(function () {
 
 							cotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 						}
-						
+
 					}
 
 					if (patient.GetCoteOperation()=="Gauche") {
@@ -631,10 +684,6 @@ $(document).ready(function () {
 					} else {
 						imgCotyleGauche.src=cotyleGauche.GetUrl();
 					}
-					$('.implants *').prop('disabled',false);
-					document.getElementById("implants").style.display = "none";
-					$('.outilsDessin *').prop('disabled',true);
-					document.getElementById("outilsDessin").style.display = "";
 
 					if (patient.GetCoteOperation()=="Gauche") {
 						document.getElementById('labelTailleTige').innerHTML = tigeDroit.GetNom();
@@ -643,10 +692,21 @@ $(document).ready(function () {
 						document.getElementById('labelTailleTige').innerHTML = tigeGauche.GetNom();
 						document.getElementById('labelTailleCotyle').innerHTML = cotyleGauche.GetNom();
 					}
-				}
+
+
+
+				/////////////////////////////////////////////////////////////////////////////////////////
+
+
+				document.getElementById("gammeCimenteOuPas").style.display = "none";
+				document.getElementById("gammeVariseOuPas").style.display = "none";
+				document.getElementById("gammeColleretteOuPas").style.display = "none";
+				document.getElementById("buttonValideGamme").style.display = "none";
+
+				console.log(valeurGammeCimenteOuPas,valeurGammeVariseOuPas,valeurGammeColleretteOuPas);
 			};
-			ValiderDessin()
-	}, false);
+			validerGamme();
+		}, false);
 
 	var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
 	buttonRetourOutilsDessin.addEventListener('click', 
@@ -670,6 +730,7 @@ $(document).ready(function () {
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
+
 			};
 			RetourDessin()
 	}, false);
@@ -1311,6 +1372,10 @@ $(document).ready(function () {
 
 				$('.implants *').prop('disabled',true);
 				document.getElementById("implants").style.display = "";
+				document.getElementById("gammeCimenteOuPas").style.display = "";
+				document.getElementById("gammeVariseOuPas").style.display = "";
+				document.getElementById("gammeColleretteOuPas").style.display = "";
+				document.getElementById("buttonValideGamme").style.display = "";
 
 				if (patient.GetOperationGuide() == "Guider") {
 					$('.outilsDessin *').prop('disabled',false);
