@@ -211,45 +211,45 @@ dwv.gui.setup = function () {
     // create dialogs
     $(".informationPatient").dialog({ position:
         {my: "left top+5", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv"
+        appendTo: "#dwv", draggable : false
     });
     $(".outilsDessin").dialog({ position:
         {my: "left top+340", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv"
+        appendTo: "#dwv", draggable : false
     });
     $(".implants").dialog({ position:
         {my: "left top+580", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv",
+        appendTo: "#dwv",  draggable : false
     });
     $(".couleurArrierePlan").dialog({ position:
         {my: "right top+5", at: "right top", of: "#pageMain"},
-        appendTo: "#dwv",
+        appendTo: "#dwv", draggable : false
     });
     $(".toolList").dialog({ position:
         {my: "left top+160", at: "left top", of: "#pageMain"},
         autoOpen: false,
-        appendTo: "#dwv"
+        appendTo: "#dwv" , draggable : false
     });
     $(".history").dialog({ position:
         {my: "left top+350", at: "left top", of: "#pageMain"},
         autoOpen: false,
-        appendTo: "#dwv"
+        appendTo: "#dwv", draggable : false
     });
     $(".tags").dialog({ position:
         {my: "right top", at: "right top", of: "#pageMain"},
         autoOpen: false, width: 500, height: 590,
-        appendTo: "#dwv"
+        appendTo: "#dwv" , draggable : false
     });
     $(".help").dialog({ position:
         {my: "right top", at: "right top", of: "#pageMain"},
         autoOpen: false, width: 500, height: 590,
-        appendTo: "#dwv"
+        appendTo: "#dwv" , draggable : false
     });
 
     // image dialog
     $(".layerDialog").dialog({ position:
         {my: "left+320 top", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv"
+        appendTo: "#dwv", draggable : false
     });
     // default size
     $(".layerDialog").dialog({ width: "auto", resizable: false });
