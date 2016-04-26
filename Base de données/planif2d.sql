@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 26 Avril 2016 à 15:40
+-- Généré le :  Mar 26 Avril 2016 à 17:11
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `implant`
@@ -213,7 +213,27 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (41, 'ax_cem_std 7', 'images/ax_cem_std_T7_R.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 0, 0),
 (42, 'ax_cem_std 8', 'images/ax_cem_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -249.163, 0, 0),
 (43, 'ax_cem_std 9', 'images/ax_cem_std_T9_R.png', 813, 6.88, 1877, 15.89, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 0, 0),
-(44, 'ax_cem_std 10', 'images/ax_cem_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -256.176, 0, 0);
+(44, 'ax_cem_std 10', 'images/ax_cem_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -256.176, 0, 0),
+(45, 'ax_cem_var 1', 'images/ax_cem_var_T1.png', 661, 5.6, 1284, 10.87, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, 0, 0),
+(46, 'ax_cem_var 2', 'images/ax_cem_var_T2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 238.569, 0, 0),
+(47, 'ax_cem_var 3', 'images/ax_cem_var_T3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, 0, 0),
+(48, 'ax_cem_var 4', 'images/ax_cem_var_T4.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, 0, 0),
+(49, 'ax_cem_var 5', 'images/ax_cem_var_T5.png', 760, 6.43, 1550, 13.12, 0, 0, 0, 0, 0, 0, 0, 0, 254.121, 0, 0),
+(50, 'ax_cem_var 6', 'images/ax_cem_var_T6.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, 260.03, 0, 0),
+(51, 'ax_cem_var 7', 'images/ax_cem_var_T7.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, 0, 0),
+(52, 'ax_cem_var 8', 'images/ax_cem_var_T8.png', 834, 7.06, 1739, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, 0, 0),
+(53, 'ax_cem_var 9', 'images/ax_cem_var_T9.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 276.429, 0, 0),
+(54, 'ax_cem_var 10', 'images/ax_cem_var_T10.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, 0, 0),
+(55, 'ax_cem_var 1', 'images/ax_cem_var_T1_R.png', 661, 5.6, 1284, 10.87, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 0, 0),
+(56, 'ax_cem_var 2', 'images/ax_cem_var_T2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -238.569, 0, 0),
+(57, 'ax_cem_var 3', 'images/ax_cem_var_T3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 0, 0),
+(58, 'ax_cem_var 4', 'images/ax_cem_var_T4_R.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 0, 0),
+(59, 'ax_cem_var 5', 'images/ax_cem_var_T5_R.png', 760, 6.43, 1550, 13.12, 0, 0, 0, 0, 0, 0, 0, 0, -254.121, 0, 0),
+(60, 'ax_cem_var 6', 'images/ax_cem_var_T6_R.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, -260.03, 0, 0),
+(61, 'ax_cem_var 7', 'images/ax_cem_var_T7_R.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 0, 0),
+(62, 'ax_cem_var 8', 'images/ax_cem_var_T8_R.png', 834, 7.06, 1739, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 0, 0),
+(63, 'ax_cem_var 9', 'images/ax_cem_var_T9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 0, 0),
+(64, 'ax_cem_var 10', 'images/ax_cem_var_T10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
