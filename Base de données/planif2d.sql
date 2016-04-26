@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 25 Avril 2016 à 15:04
+-- Généré le :  Mar 26 Avril 2016 à 13:25
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `cotyles` (
   `PosCenterX` float NOT NULL,
   `PosCenterY` float NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `cotyles`
@@ -112,7 +112,29 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 (65, 'Cup DM 62', 'images/ax_dm_cem_62_R.png', 1136, 915, 9.62, 7.75, 0, 0),
 (66, 'Cup DM 64', 'images/ax_dm_cem_64_R.png', 1136, 915, 9.62, 7.75, 0, 0),
 (67, 'Cup DM 66', 'images/ax_dm_cem_66_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(68, 'Cup DM 68', 'images/ax_dm_cem_68_R.png', 1136, 915, 9.62, 7.75, 0, 0);
+(68, 'Cup DM 68', 'images/ax_dm_cem_68_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(69, 'Cup NA 44', 'images/ax_sm_ne_44.png', 1136, 915, 9.62, 7.75, 0, 0),
+(70, 'Cup NA 46', 'images/ax_sm_ne_46.png', 1136, 915, 9.62, 7.75, 0, 0),
+(71, 'Cup NA 48', 'images/ax_sm_ne_48.png', 1136, 915, 9.62, 7.75, 0, 0),
+(72, 'Cup NA 50', 'images/ax_sm_ne_50.png', 1136, 915, 9.62, 7.75, 0, 0),
+(73, 'Cup NA 52', 'images/ax_sm_ne_52.png', 1136, 915, 9.62, 7.75, 0, 0),
+(74, 'Cup NA 54', 'images/ax_sm_ne_54.png', 1136, 915, 9.62, 7.75, 0, 0),
+(75, 'Cup NA 56', 'images/ax_sm_ne_56.png', 1136, 915, 9.62, 7.75, 0, 0),
+(76, 'Cup NA 58', 'images/ax_sm_ne_58.png', 1136, 915, 9.62, 7.75, 0, 0),
+(77, 'Cup NA 60', 'images/ax_sm_ne_60.png', 1136, 915, 9.62, 7.75, 0, 0),
+(78, 'Cup NA 62', 'images/ax_sm_ne_62.png', 1136, 915, 9.62, 7.75, 0, 0),
+(79, 'Cup NA 64', 'images/ax_sm_ne_64.png', 1136, 915, 9.62, 7.75, 0, 0),
+(80, 'Cup NA 44', 'images/ax_sm_ne_44_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(81, 'Cup NA 46', 'images/ax_sm_ne_46_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(82, 'Cup NA 48', 'images/ax_sm_ne_48_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(83, 'Cup NA 50', 'images/ax_sm_ne_50_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(84, 'Cup NA 52', 'images/ax_sm_ne_52_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(85, 'Cup NA 54', 'images/ax_sm_ne_54_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(86, 'Cup NA 56', 'images/ax_sm_ne_56_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(87, 'Cup NA 58', 'images/ax_sm_ne_58_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(88, 'Cup NA 60', 'images/ax_sm_ne_60_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(89, 'Cup NA 62', 'images/ax_sm_ne_62_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(90, 'Cup NA 64', 'images/ax_sm_ne_64_R.png', 1136, 915, 9.62, 7.75, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -172,29 +194,6 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (22, 'LibraT7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 0, 0),
 (23, 'LibraT8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 135, 0),
 (24, 'LibraT9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 135, 0);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `patients`
---
-
-DROP TABLE IF EXISTS `patients`;
-CREATE TABLE IF NOT EXISTS `patients` (
-  `Nom` varchar(40) NOT NULL,
-  `Prenom` varchar(40) NOT NULL,
-  `Numero_carte_vitale` bigint(20) NOT NULL,
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `patients`
---
-
-INSERT INTO `patients` (`Nom`, `Prenom`, `Numero_carte_vitale`, `ID`) VALUES
-('DUPOND', 'Jacques', 123456789123400, 1),
-('CHARLES', 'Adrien', 123456789123403, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
