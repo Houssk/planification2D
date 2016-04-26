@@ -1575,3 +1575,5 @@ function ZoomMode(){
 function SeuilMode() {
     toolbox.setSelectedTool("Window/Level");
 }
+
+

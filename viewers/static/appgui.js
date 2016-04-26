@@ -142,12 +142,12 @@ dwv.gui.Toolbox = function (app)
         node.appendChild(outilsDessin);
         node.appendChild(implants);
         node.appendChild(couleurArrierePlan);
-        node.appendChild(toolbox);
-        node.appendChild(history);
-        node.appendChild(tags);
+        //node.appendChild(toolbox);
+        //node.appendChild(history);
+        //node.appendChild(tags);
         node.appendChild(image);
-        node.appendChild(info);
-        node.appendChild(help);
+        //node.appendChild(info);
+        //node.appendChild(help);
 
         // apply button style
         $("button").button();
@@ -209,6 +209,11 @@ dwv.gui.setup = function () {
         appendTo: "#dwv"
     });
     // create dialogs
+    $(".toolbar").dialog({ position:
+        {my: "right top+5", at: "right top", of: "#pageMain"},
+        appendTo: "#dwv", draggable : false, closeOnEscape: false,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide()}
+    });
     $(".informationPatient").dialog({ position:
         {my: "left top+5", at: "left top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false
@@ -222,7 +227,7 @@ dwv.gui.setup = function () {
         appendTo: "#dwv",  draggable : false
     });
     $(".couleurArrierePlan").dialog({ position:
-        {my: "right top+5", at: "right top", of: "#pageMain"},
+        {my: "right top+200", at: "right top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false
     });
     $(".toolList").dialog({ position:

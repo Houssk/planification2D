@@ -102,16 +102,16 @@
 	<!-- DWV -->
 		<div id="dwv">
 
-			<div id="pageHeader">
+			<!--<div id="pageHeader">-->
 
-			<div id="logo"></div>
+			<!--<div id="logo"></div>-->
 
 			<!-- Toolbar -->
-			<div class="toolbar"></div>
 
-			</div><!-- /pageHeader -->
+			<!--</div> /pageHeader -->
 
 		<div id="pageMain">
+		<div class="toolbar" title="MENU"></div>
 
 		<!-- Open file -->
 			<div class="informationPatient" title="INFORMATIONS">
@@ -131,9 +131,9 @@
 				<div class="loaderlist"></div>
 				<div id="barprogress"></div>
 				<input  type="button" id="buttonCalibrage" class="btn btn-default" value="Calibrer"></input>
-				<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="ZOOM"></input>
-				<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="SEUILLAGE"></input>
 				<div id="divNbHanche" style="display: none;">
+					<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="ZOOM"></input>
+					<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="SEUILLAGE"></input>
 					<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche:</label>
 					<label class="blackColor">Oui  </label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio"></input>
 					<label class="blackColor">Non  </label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true"></input>
