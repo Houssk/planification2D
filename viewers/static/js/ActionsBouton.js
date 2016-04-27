@@ -126,8 +126,8 @@ $(document).ready(function () {
 									var canvasCotyle = null;
 									imgTigeDroit = new Image;
 									imgCotyleGauche = new Image;
-									imgTigeDroit = new Image;
-									imgCotyleGauche = new Image;
+									imgTigeGauche = new Image;
+									imgCotyleDroit = new Image;
 									if (patient.GetCoteOperation()=="Gauche") {
 										canvasTige = document.getElementById("canvasTigeDroit");
 										canvasCotyle = document.getElementById("canvasCotyleDroit");
@@ -648,27 +648,6 @@ $(document).ready(function () {
 			ValiderDessin()
 	}, false);
 
-	var buttonValideGamme = document.getElementById("buttonValideGamme");
-	buttonValideGamme.addEventListener('click',
-		function() {
-			function validerGamme(){
-
-				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
-				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
-				var gammeVariseOuPas = document.getElementById("gammeVariseOuPas").innerHTML;
-				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
-				var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas").innerHTML;
-				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
-
-
-
-				document.getElementById("gammeCimenteOuPas").style.display = "none";
-				document.getElementById("gammeVariseOuPas").style.display = "none";
-				document.getElementById("gammeColleretteOuPas").style.display = "none";
-				document.getElementById("buttonValideGamme").style.display = "none";
-			};
-			validerGamme();
-		}, false);
 
 	var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
 	buttonRetourOutilsDessin.addEventListener('click', 
