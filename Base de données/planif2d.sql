@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 27 Avril 2016 à 08:17
+-- Généré le :  Mer 27 Avril 2016 à 12:27
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `implant`
@@ -253,7 +253,67 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (81, 'ax_ha_std 7', 'images/ax_ha_std_T7_R.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 0, 0),
 (82, 'ax_ha_std 8', 'images/ax_ha_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -247.982, 0, 0),
 (83, 'ax_ha_std 9', 'images/ax_ha_std_T9_R.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 0, 0),
-(84, 'ax_ha_std 10', 'images/ax_ha_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -247.176, 0, 0);
+(84, 'ax_ha_std 10', 'images/ax_ha_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -247.176, 0, 0),
+(85, 'ax_ha_std_col 1', 'images/ax_ha_std_col_T1.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, 217.486, 0, 0),
+(86, 'ax_ha_std_col 2', 'images/ax_ha_std_col_T2.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, 0, 0),
+(87, 'ax_ha_std_col 3', 'images/ax_ha_std_col_T3.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, 222.092, 0, 0),
+(88, 'ax_ha_std_col 4', 'images/ax_ha_std_col_T4.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, 230.245, 0, 0),
+(89, 'ax_ha_std_col 5', 'images/ax_ha_std_col_T5.png', 721, 6.1, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, 235.211, 0, 0),
+(90, 'ax_ha_std_col 6', 'images/ax_ha_std_col_T6.png', 746, 6.32, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.437, 0, 0),
+(91, 'ax_ha_std_col 7', 'images/ax_ha_std_col_T7.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, 0, 0),
+(92, 'ax_ha_std_col 8', 'images/ax_ha_std_col_T8.png', 790, 6.69, 1808, 15.31, 0, 0, 0, 0, 0, 0, 0, 0, 246.801, 0, 0),
+(93, 'ax_ha_std_col 9', 'images/ax_ha_std_col_T9.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, 252.824, 0, 0),
+(94, 'ax_ha_std_col 10', 'images/ax_ha_std_col_T10.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, 257.357, 0, 0),
+(95, 'ax_ha_std_col 1', 'images/ax_ha_std_col_T1_R.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, -217.486, 0, 0),
+(96, 'ax_ha_std_col 2', 'images/ax_ha_std_col_T2_R.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -221.996, 0, 0),
+(97, 'ax_ha_std_col 3', 'images/ax_ha_std_col_T3_R.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, -222.092, 0, 0),
+(98, 'ax_ha_std_col 4', 'images/ax_ha_std_col_T4_R.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, -230.245, 0, 0),
+(99, 'ax_ha_std_col 5', 'images/ax_ha_std_col_T5_R.png', 721, 6.1, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, -235.211, 0, 0),
+(100, 'ax_ha_std_col 6', 'images/ax_ha_std_col_T6_R.png', 746, 6.32, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.437, 0, 0),
+(101, 'ax_ha_std_col 7', 'images/ax_ha_std_col_T7_R.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 0, 0),
+(102, 'ax_ha_std_col 8', 'images/ax_ha_std_col_T8_R.png', 790, 6.69, 1808, 15.31, 0, 0, 0, 0, 0, 0, 0, 0, -246.801, 0, 0),
+(103, 'ax_ha_std_col 9', 'images/ax_ha_std_col_T9_R.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.824, 0, 0),
+(104, 'ax_ha_std_col 10', 'images/ax_ha_std_col_T10_R.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, -257.357, 0, 0),
+(105, 'ax_ha_var 1', 'images/ax_ha_varT1.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, 0, 0),
+(106, 'ax_ha_var 2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 375.388, 0, 0),
+(107, 'ax_ha_var 3', 'images/ax_ha_varT3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, 0, 0),
+(108, 'ax_ha_var 4', 'images/ax_ha_varT4.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, 0, 0),
+(109, 'ax_ha_var 5', 'images/ax_ha_varT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 252.939, 0, 0),
+(110, 'ax_ha_var 6', 'images/ax_ha_varT6.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, 258.848, 0, 0),
+(111, 'ax_ha_var 7', 'images/ax_ha_varT7.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, 0, 0),
+(112, 'ax_ha_var 8', 'images/ax_ha_varT8.png', 834, 7.06, 1740, 14.73, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, 0, 0),
+(113, 'ax_ha_var 9', 'images/ax_ha_varT9.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 275.247, 0, 0),
+(114, 'ax_ha_var 10', 'images/ax_ha_varT10.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, 280.033, 0, 0),
+(115, 'ax_ha_var 1', 'images/ax_ha_varT1_R.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 0, 0),
+(116, 'ax_ha_var 2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -375.388, 0, 0),
+(117, 'ax_ha_var 3', 'images/ax_ha_varT3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 0, 0),
+(118, 'ax_ha_var 4', 'images/ax_ha_varT4_R.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 0, 0),
+(119, 'ax_ha_var 5', 'images/ax_ha_varT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -252.939, 0, 0),
+(120, 'ax_ha_var 6', 'images/ax_ha_varT6_R.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, -258.848, 0, 0),
+(121, 'ax_ha_var 7', 'images/ax_ha_varT7_R.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 0, 0),
+(122, 'ax_ha_var 8', 'images/ax_ha_varT8_R.png', 834, 7.06, 1740, 14.73, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 0, 0),
+(123, 'ax_ha_var 9', 'images/ax_ha_varT9_R.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -275.247, 0, 0),
+(124, 'ax_ha_var 10', 'images/ax_ha_varT10_R.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, -280.033, 0, 0),
+(125, 'ax_ha_var_col 1', 'images/ax_ha_var_colT1.png', 660, 5.59, 1285, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.594, 0, 0),
+(126, 'ax_ha_var_col 2', 'images/ax_ha_var_colT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 237.388, 0, 0),
+(127, 'ax_ha_var_col 3', 'images/ax_ha_var_colT3.png', 705, 5.97, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.724, 0, 0),
+(128, 'ax_ha_var_col 4', 'images/ax_ha_var_colT4.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, 0, 0),
+(129, 'ax_ha_var_col 5', 'images/ax_ha_var_colT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 254.121, 0, 0),
+(130, 'ax_ha_var_col 6', 'images/ax_ha_var_colT6.png', 785, 6.65, 1612, 13.65, 0, 0, 0, 0, 0, 0, 0, 0, 258.519, 0, 0),
+(131, 'ax_ha_var_col 7', 'images/ax_ha_var_colT7.png', 810, 6.86, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, 0, 0),
+(132, 'ax_ha_var_col 8', 'images/ax_ha_var_colT8.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, 0, 0),
+(133, 'ax_ha_var_col 9', 'images/ax_ha_var_colT9.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 276.429, 0, 0),
+(134, 'ax_ha_var_col 10', 'images/ax_ha_var_colT10.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, 0, 0),
+(135, 'ax_ha_var_col 1', 'images/ax_ha_var_colT1_R.png', 660, 5.59, 1285, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.594, 0, 0),
+(136, 'ax_ha_var_col 2', 'images/ax_ha_var_colT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -237.388, 0, 0),
+(137, 'ax_ha_var_col 3', 'images/ax_ha_var_colT3_R.png', 705, 5.97, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.724, 0, 0),
+(138, 'ax_ha_var_col 4', 'images/ax_ha_var_colT4_R.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 0, 0),
+(139, 'ax_ha_var_col 5', 'images/ax_ha_var_colT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -254.121, 0, 0),
+(140, 'ax_ha_var_col 6', 'images/ax_ha_var_colT6_R.png', 785, 6.65, 1612, 13.65, 0, 0, 0, 0, 0, 0, 0, 0, -258.519, 0, 0),
+(141, 'ax_ha_var_col 7', 'images/ax_ha_var_colT7_R.png', 810, 6.86, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 0, 0),
+(142, 'ax_ha_var_col 8', 'images/ax_ha_var_colT8_R.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 0, 0),
+(143, 'ax_ha_var_col 9', 'images/ax_ha_var_colT9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 0, 0),
+(144, 'ax_ha_var_col 10', 'images/ax_ha_var_colT10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
