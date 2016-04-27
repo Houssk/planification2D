@@ -3,7 +3,7 @@
 <html>
 
 	<head>
-		<title>DICOM Web Viewer</title>
+		<title>Planification 2D</title>
 		<meta charset="UTF-8">
 		<meta name="description" content="DICOM Web Viewer (DWV) static version">
 		<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
@@ -115,32 +115,62 @@
 
 		<!-- Open file -->
 			<div class="informationPatient" title="INFORMATIONS">
-			<form>
-				<input id="nomPatient" type="text" placeholder="NOM" class="form-control" style="float: left;"></input>
-				<input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></input>
-				<select class="form-control" id="coteChirurgie" >
-					<option>COTE DE CHIRURGIE</option>
-					<option value="Gauche">COTE GAUCHE</option>
-					<option value="Droit">COTE DROIT</option>
-				</select>
-				<select class="form-control" id="typeChirurgie">
-					<option>TYPE DE CHIRURGIE</option>
-					<option value="Guider">CHIRURGIE GUIDEE</option>
-					<option value="Non guider">CHIRURGIE NON GUIDEE</option>
-				</select>
-				<div class="loaderlist"></div>
-				<div id="barprogress"></div>
-				<input  type="button" id="buttonCalibrage" class="btn btn-default" value="Calibrer"></input>
-				<div id="divNbHanche" style="display: none;">
-					<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="ZOOM"></input>
-					<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="SEUILLAGE"></input>
-					<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche:</label>
-					<label class="blackColor">Oui  </label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio"></input>
-					<label class="blackColor">Non  </label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true"></input>
-				</div>
-				<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-left: 180px;" value="VALIDER"></input>
-				<div id="informationPatient" class="darkClass" style="display:none"></div>
-			</form>
+				<form>
+					<div class="row">
+						<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
+						<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
+					</div>
+					<div class="row">
+						<!-- col-md-offset-2 -->
+						<div class="col-md-6">
+							<select class="form-control" id="coteChirurgie">
+								<option disabled selected>COTE</option>
+								<option value="Gauche">GAUCHE</option>
+								<option value="Droit">DROIT</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" id="typeChirurgie">
+								<option disabled selected>CHIRURGIE</option>
+								<option value="Guider">GUIDEE</option>
+								<option value="Non guider">NON GUIDEE</option>
+							</select>
+						</div>
+					</div>
+					<div class="loaderlist"></div>
+					<div id="barprogress"></div>
+
+					<div id="divNbHanche" style="display: none; margin-top:2%;">
+						<div class="row">
+							<div class="col-md-6 centered">
+								<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-onlyt" value="SEUILLAGE" style="width: 110px;">
+							</div>
+							<div class="col-md-6">
+								<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="ZOOM" style="width: 110px; float: right;">
+							</div>
+						</div>
+						<div class="row centered" style="margin-top:2%;">
+							<div class="col-md-6 centered">
+								<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CALIBRER" style="width: 110px;">
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-12 centered">
+								<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche</label>
+								<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
+								<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-offset-3 col-md-6 centered">
+								<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin-top:2%; width: 110px;">
+							</div>
+						</div>
+					</div>
+					
+					<div id="informationPatient" class="darkClass" style="display:none"></div>
+				</form>
 			</div>
 			<!-- OUTILS DESSIN -->
 			<div class="outilsDessin" title="OUTILS DESSIN">
