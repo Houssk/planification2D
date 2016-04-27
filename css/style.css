@@ -44,7 +44,8 @@ table.tagList td {
 	color: #ddf; 
 }
 #pageHeader #toolbar {
- 	display: inline-block; float: right;
+ 	display: inline-block;
+  float: right;
 }
 #logo {
 	background: url(../viewers/static/images/dedienne.png) no-repeat;

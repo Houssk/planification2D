@@ -120,7 +120,7 @@
 						<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
 						<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
 					</div>
-					<div class="row">
+					<div class="row" style="margin-top: 2%">
 						<!-- col-md-offset-2 -->
 						<div class="col-md-6">
 							<select class="form-control" id="coteChirurgie">
@@ -137,10 +137,10 @@
 							</select>
 						</div>
 					</div>
-					<div class="loaderlist"></div>
-					<div id="barprogress"></div>
+					<div class="loaderlist" style="margin-top: 2%"></div>
+					<div id="barprogress" style="margin-top: 2%"></div>
 
-					<div id="divNbHanche" style="display: none; margin-top:2%;">
+					<div id="divNbHanche" style="display: none; margin-top:5%;">
 						<div class="row">
 							<div class="col-md-6 centered">
 								<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-onlyt" value="SEUILLAGE" style="width: 110px;">
@@ -176,12 +176,12 @@
 			</div>
 			<!-- OUTILS DESSIN -->
 			<div class="outilsDessin" title="OUTILS DESSIN">
-				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE" style="width: 110px;"></input>
+				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE" style="width: 110px;">
 					<img id="buttonDeleteTrapeze" src="images/delete.jpg" alt="" style="display: none; width: 30px;height: 30px; float: right"></p>
-				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH" style="width: 110px;"></input>
+				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH" style="width: 110px;">
 					<img id="buttonDeletePetitTroch" src="images/delete.jpg" alt="" style="display: none; width: 30px; height: 30px; float: right"></p>
 
-				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CERCLE" style="width: 110px;"></input>
+				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CERCLE" style="width: 110px;">
 					<img id="buttonDeleteCercle" src="images/delete.jpg" alt="" style="display: none; width: 30px; height: 30px; float: right"></p>
 
 				<div class="row">
@@ -189,8 +189,7 @@
 						<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="width: 110px;">
 					</div>
 					<div class="col-md-6 centered">
-						
-						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px;">
+						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px; float: right;">
 					</div>
 				</div>
 				<div id="outilsDessin" class="darkClass"></div>
@@ -233,52 +232,83 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<input id="buttonValideGamme" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin: 4% 0%; width: 110px;">
+						<input id="buttonValideGamme" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin: 8% 0%; width: 110px;">
 					</div>
 				</div>
 
 				<div id="actionImplant" style="display: none">
-				<select id="coteTige" class="form-control">
-					<option disabled selected>COTE DE LA TIGE</option>
-					<option value="Gauche">GAUCHE</option>
-					<option value="Droit">DROIT</option>
-				</select>
-				<input id="buttonMoinsTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
-				<label id="labelTailleTige" class="blackColor"></label>
-				<input id="buttonPlusTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
-				<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
-				<input id="buttonDescendreTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
-				<select id="coteCotyle" class="form-control">
-					<option disabled selected>COTE DU COTYLE</option>
-					<option value="Gauche">GAUCHE</option>
-					<option value="Droit">DROIT</option>
-				</select>
-				<input id="buttonMoinsCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
-				<label id="labelTailleCotyle" class="blackColor"></label>
-				<input id="buttonPlusCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
-				<input id="buttonMonterCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
-				<input id="buttonDescendreCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
+					<div class="row">
+						<select id="coteTige" class="form-control">
+							<option disabled selected>COTE DE LA TIGE</option>
+							<option value="Gauche">GAUCHE</option>
+							<option value="Droit">DROIT</option>
+						</select>
+					</div>
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>Taille</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonMoinsTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
+							<label id="labelTailleTige" class="blackColor"></label>
+							<input id="buttonPlusTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
+						</div>
+					</div>
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>D&eacute;placer</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
+							<input id="buttonDescendreTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
+						</div>
+					</div>
 
-				<div class="row" style="margin: 2% 0%;">
-					<div class="col-md-6">
-						<h5>Rotation</h5>
+					<div class="row" style="margin-top: 2%;">
+						<select id="coteCotyle" class="form-control">
+							<option disabled selected>COTE DU COTYLE</option>
+							<option value="Gauche">GAUCHE</option>
+							<option value="Droit">DROIT</option>
+						</select>
 					</div>
-					<div class="col-md-3">
-						<input id="buttonTournerHautCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+">
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>Taille</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonMoinsCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
+							<label id="labelTailleCotyle" class="blackColor"></label>
+							<input id="buttonPlusCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
+						</div>
 					</div>
-					<div class="col-md-3">
-						<input id="buttonTournerBasCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-">
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>D&eacute;placer</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonMonterCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+">
+							<input id="buttonDescendreCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-">
+						</div>
 					</div>
-				</div>
 
-				<div class="row">
-					<div class="col-md-6 centered">
-						<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TERMINER" style="width: 110px;">
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>Rotation</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonTournerHautCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+">
+							<input id="buttonTournerBasCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-">
+						</div>
 					</div>
-					<div class="col-md-6 centered">
-						<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px; float: right;">
+
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-6 centered">
+							<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TERMINER" style="width: 110px;">
+						</div>
+						<div class="col-md-6 centered">
+							<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px; float: right;">
+						</div>
 					</div>
-				</div>
 				</div>
 				<div id="implants" class="darkClass"></div>
 			</div>
