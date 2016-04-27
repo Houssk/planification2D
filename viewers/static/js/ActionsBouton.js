@@ -130,47 +130,64 @@ $(document).ready(function () {
 							if (typeChirurgie.selectedIndex == 0) {// Test si l'option sélectionnée n'est pas l'option par défaut
 								alert("Veuillez sélectionner le type de chirurgie que vous voulez effectué");
 							} else { // Cas ou toute les données entrée sont valides
-								console.log(typeChirurgie.options[typeChirurgie.selectedIndex].value);// Récupère la valeur de l'option sélectionnée
-								patient = new Patient(nomPatient.value, 
-									prenomPatient.value, 
-									typeChirurgie.options[typeChirurgie.selectedIndex].value, 
-									"DICOM", // to do DICOM
-									coteChirurgie.options[coteChirurgie.selectedIndex].value);
-								console.log(patient);
-
-								m_canvasWidth=document.getElementById("dwv-imageLayer").width;
-								m_canvasHeight=document.getElementById("dwv-imageLayer").height;
-
-								if (patient.GetOperationGuide()=="Non guider") {
-
-
-									document.getElementById("buttonMonterTige").style.display="none";
-									document.getElementById("buttonDescendreTige").style.display="none";
-									document.getElementById("buttonMonterCotyle").style.display="none";
-									document.getElementById("buttonDescendreCotyle").style.display="none";
-									document.getElementById("buttonTournerHautCotyle").style.display="none";
-									document.getElementById("buttonTournerBasCotyle").style.display="none";
-								}
-								if (patient.GetCoteOperation()=="Gauche") {
-									document.getElementById("coteTige").value="Gauche";
-									document.getElementById("coteCotyle").value="Gauche";
+								var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille_px"));
+								var taille_bille_mm = parseInt(sessionStorage.getItem("taille_bille_mm"));
+								var coeff =  taille_bille_mm / taille_bille_px;
+								var string = "coefficient de redimensionnement des implants est : " + coeff;
+								if (!isNaN(coeff)) {
+									console.log("coeff", coeff);
+									sessionStorage.setItem("coefficient",coeff);
+									sessionStorage.setItem("calibrage",true);
+									alert(string);
 								} else {
-									document.getElementById("coteTige").value="Droit";
-									document.getElementById("coteCotyle").value="Droit";
+									console.log("coeff application.js", coeff);
+									sessionStorage.setItem("calibrage",false);
 								}
+								var calibrage = sessionStorage.getItem("calibrage");
+								if (calibrage=="true") {
+									console.log(typeChirurgie.options[typeChirurgie.selectedIndex].value);// Récupère la valeur de l'option sélectionnée
+									patient = new Patient(nomPatient.value, 
+										prenomPatient.value, 
+										typeChirurgie.options[typeChirurgie.selectedIndex].value, 
+										"DICOM", // to do DICOM
+										coteChirurgie.options[coteChirurgie.selectedIndex].value);
+									console.log(patient);
 
-								$('.informationPatient *').prop('disabled',true);
-								document.getElementById("informationPatient").style.display = "";
+									m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
-								if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
-									$('.outilsDessin *').prop('disabled',false);
-									document.getElementById("outilsDessin").style.display = "none";
+									if (patient.GetOperationGuide()=="Non guider") {
+										document.getElementById("buttonMonterTige").style.display="none";
+										document.getElementById("buttonDescendreTige").style.display="none";
+										document.getElementById("buttonMonterCotyle").style.display="none";
+										document.getElementById("buttonDescendreCotyle").style.display="none";
+										document.getElementById("buttonTournerHautCotyle").style.display="none";
+										document.getElementById("buttonTournerBasCotyle").style.display="none";
+									}
+									if (patient.GetCoteOperation()=="Gauche") {
+										document.getElementById("coteTige").value="Gauche";
+										document.getElementById("coteCotyle").value="Gauche";
+									} else {
+										document.getElementById("coteTige").value="Droit";
+										document.getElementById("coteCotyle").value="Droit";
+									}
+
+									$('.informationPatient *').prop('disabled',true);
+									document.getElementById("informationPatient").style.display = "";
+
+									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
+										$('.outilsDessin *').prop('disabled',false);
+										document.getElementById("outilsDessin").style.display = "none";
+									}
+
+									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
+										$('.implants *').prop('disabled',false);
+										document.getElementById("implants").style.display = "none";
+									}
+								} else {
+									alert("Veuillez calibrer votre DICOM");
 								}
-
-								if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
-									$('.implants *').prop('disabled',false);
-									document.getElementById("implants").style.display = "none";
-								}
+								
 							}
 						}
 					}
