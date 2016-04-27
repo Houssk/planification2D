@@ -23,6 +23,22 @@ $(document).ready(function () {
 	var m_canvasWidth = null;
 	var m_canvasHeight = null;
 
+	var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
+	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
+	var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
+	document.getElementById("gammeColleretteOuPas").style.display = "none";
+	var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
+	gammeCimenteOuPas.addEventListener("change",function(){
+		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
+		console.log("Element select");
+		if(valeurGammeCimenteOuPas=="cimente" ){
+			document.getElementById("gammeColleretteOuPas").style.display = "none";
+		}
+		else if(valeurGammeCimenteOuPas=="sansCiment") {
+			document.getElementById("gammeColleretteOuPas").style.display = "";
+		}
+	});
+
 	var NoirColor = document.getElementById("couleurNoir");
 	NoirColor.addEventListener('click', function() {
 		function changeBackgroundColorToBlack(){
@@ -126,8 +142,10 @@ $(document).ready(function () {
 									var canvasCotyle = null;
 									imgTigeDroit = new Image;
 									imgCotyleGauche = new Image;
-									imgTigeDroit = new Image;
-									imgCotyleGauche = new Image;
+									imgTigeGauche = new Image;
+									imgCotyleDroit = new Image;
+
+
 									if (patient.GetCoteOperation()=="Gauche") {
 										canvasTige = document.getElementById("canvasTigeDroit");
 										canvasCotyle = document.getElementById("canvasCotyleDroit");
@@ -441,29 +459,25 @@ $(document).ready(function () {
 				var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
 
                 // Condition pour le choix des bons index
-				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
+				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
 					 console.log("1er cas ");
 				}
-				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
+
+				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
 					console.log("2eme cas ");
 				}
-				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
+
+				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
 					console.log("3eme cas ");
 				}
-				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
+				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
 					console.log("4eme cas ");
 				}
-				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
-					console.log("5eme cas ");
-				}
-				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
-					console.log("6eme cas ");
-				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
-					console.log("7 eme cas ");
+					console.log("5 eme cas ");
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
-					console.log("8 eme cas ");
+					console.log("6 eme cas ");
 				}
 
 
