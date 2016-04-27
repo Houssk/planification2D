@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e9476e0-b24e-4ba4-a34d-4bf253e6f648" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" afterPath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewers/static/index.html" afterPath="$PROJECT_DIR$/viewers/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="planification2D.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +36,8 @@
       <file leaf-file-name="ActionsBouton.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viewers/static/js/ActionsBouton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44959444">
-              <caret line="1377" column="80" selection-start-line="1377" selection-start-column="80" selection-end-line="1377" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.86210895">
+              <caret line="1410" column="111" selection-start-line="1410" selection-start-column="111" selection-end-line="1410" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -92,8 +90,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/viewers/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4905663">
-              <caret line="170" column="35" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="250" column="0" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -197,6 +195,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,8 +327,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -705,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="222" column="19" selection-start-line="222" selection-start-column="12" selection-end-line="222" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -713,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,7 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.019036954">
           <caret line="55" column="68" selection-start-line="55" selection-start-column="68" selection-end-line="109" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,16 +799,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/viewers/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4905663">
-          <caret line="170" column="35" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="250" column="0" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/viewers/static/js/ActionsBouton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44959444">
-          <caret line="1377" column="80" selection-start-line="1377" selection-start-column="80" selection-end-line="1377" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.86210895">
+          <caret line="1410" column="111" selection-start-line="1410" selection-start-column="111" selection-end-line="1410" selection-end-column="111" />
           <folding />
         </state>
       </provider>
