@@ -213,16 +213,22 @@ dwv.gui.setup = function () {
         appendTo: "#dwv", draggable : false
     });
     $(".outilsDessin").dialog({ position:
-        {my: "left top+350", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false
+        {my: "left bottom", at: "left bottom", of: "#pageMain"},
+        appendTo: "#dwv", draggable : false,
+        closeOnEscape: false,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     $(".implants").dialog({ position:
-        {my: "left top+590", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv",  draggable : false
+        {my: "right top+5", at: "right top", of: "#pageMain"},
+        appendTo: "#dwv",  draggable : false,
+        closeOnEscape: false, width: 300,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     $(".couleurArrierePlan").dialog({ position:
-        {my: "right top+5", at: "right top", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false
+        {my: "right bottom", at: "right bottom", of: "#pageMain"},
+        appendTo: "#dwv", draggable : false,
+        closeOnEscape: false,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     $(".toolList").dialog({ position:
         {my: "left top+160", at: "left top", of: "#pageMain"},
@@ -248,10 +254,13 @@ dwv.gui.setup = function () {
     // image dialog
     $(".layerDialog").dialog({ position:
         {my: "left+320 top", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false
+        appendTo: "#dwv", draggable : false,
+        closeOnEscape: false,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     // default size
     $(".layerDialog").dialog({ width: "auto", resizable: false });
+    $(".informationPatient").dialog({ resizable: false });
     // Resizable but keep aspect ratio
     // TODO it seems to add a border that bothers getting the cursor position...
     //$("#layerContainer").resizable({ aspectRatio: true });
