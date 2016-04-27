@@ -501,7 +501,7 @@ dwv.App = function ()
             strokeWidth: 10,
             easing: 'easeInOut',
             duration: percent,
-            color: '#FF6600',
+            color: '#934896',
             trailColor: '#eee',
             trailWidth: 1,
             svgStyle: {width: '100%', height: '100%'},
