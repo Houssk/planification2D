@@ -102,16 +102,16 @@
 	<!-- DWV -->
 		<div id="dwv">
 
-			<!--<div id="pageHeader">-->
+			<div id="pageHeader">
 
-			<!--<div id="logo"></div>-->
+			<div id="logo"></div>
+			<div class="toolbar" title="MENU"></div>
 
 			<!-- Toolbar -->
 
-			<!--</div> /pageHeader -->
+			</div>
 
 		<div id="pageMain">
-		<div class="toolbar" title="MENU"></div>
 
 		<!-- Open file -->
 			<div class="informationPatient" title="INFORMATIONS">
@@ -158,8 +158,10 @@
 						<div class="row">
 							<div class="col-md-12 centered">
 								<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche</label>
-								<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
-								<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+								<div style="text-align: center;">
+									<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
+									<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -174,15 +176,23 @@
 			</div>
 			<!-- OUTILS DESSIN -->
 			<div class="outilsDessin" title="OUTILS DESSIN">
-				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE"></input>
-					<img id="buttonDeleteTrapeze" src="images/delete.jpg" alt="" style="display: none ; width: 38px;height: 38px ; float: right"></p>
-				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH"></input>
-					<img id="buttonDeletePetitTroch" src="images/delete.jpg" alt="" style="display: none ; width: 38px;height: 38px;float: right"></p>
+				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE" style="width: 110px;"></input>
+					<img id="buttonDeleteTrapeze" src="images/delete.jpg" alt="" style="display: none; width: 38px;height: 38px; float: right"></p>
+				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH" style="width: 110px;"></input>
+					<img id="buttonDeletePetitTroch" src="images/delete.jpg" alt="" style="display: none; width: 38px; height: 38px; float: right"></p>
 
-				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CERCLE"></input>
+				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CERCLE" style="width: 110px;"></input>
 					<img id="buttonDeleteCercle" src="images/delete.jpg" alt="" style="display: none ; width: 38px;height: 38px;float: right"></p>
-				<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
-				<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR"></input>
+
+				<div class="row">
+					<div class="col-md-6 centered">
+						<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="width: 110px;">
+					</div>
+					<div class="col-md-6 centered">
+						
+						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px;">
+					</div>
+				</div>
 				<div id="outilsDessin" class="darkClass"></div>
 			</div>
 
@@ -203,9 +213,9 @@
 				<input id="buttonValideGamme" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER"></input>
 
 				<select id="coteTige" class="form-control">
-					<option>COTE DE LA TIGE</option>
-					<option value="Gauche">COTE GAUCHE</option>
-					<option value="Droit">COTE DROIT</option>
+					<option disabled selected>COTE DE LA TIGE</option>
+					<option value="Gauche">GAUCHE</option>
+					<option value="Droit">DROIT</option>
 				</select>
 				<input id="buttonMoinsTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
 				<label id="labelTailleTige" class="blackColor"></label>
@@ -213,9 +223,9 @@
 				<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+"></input>
 				<input id="buttonDescendreTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
 				<select id="coteCotyle" class="form-control">
-					<option>COTE DU COTYLE</option>
-					<option value="Gauche">COTE GAUCHE</option>
-					<option value="Droit">COTE DROIT</option>
+					<option disabled selected>COTE DU COTYLE</option>
+					<option value="Gauche">GAUCHE</option>
+					<option value="Droit">DROIT</option>
 				</select>
 				<input id="buttonMoinsCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-"></input>
 				<label id="labelTailleCotyle" class="blackColor"></label>

@@ -47,7 +47,7 @@ table.tagList td {
  	display: inline-block; float: right;
 }
 #logo {
-	background: url(../viewers/static/images/serf.jpg) no-repeat;
+	background: url(../viewers/static/images/dedienne.png) no-repeat;
 	width: 170px;
 	height: 45px;
 	float: left;
@@ -64,7 +64,7 @@ table.tagList td {
 }
 #pageMain {
 	position: absolute; 
-	height: 100%; 
+	height: 92%; 
 	width: 99%; 
 	bottom: 5px; 
 	left: 5px; 

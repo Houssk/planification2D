@@ -138,14 +138,14 @@ dwv.gui.Toolbox = function (app)
         help.onclick = function() { toggle(".help"); };
 
         var node = app.getElement("toolbar");
-        node.appendChild(open);
-        node.appendChild(outilsDessin);
-        node.appendChild(implants);
-        node.appendChild(couleurArrierePlan);
+        //node.appendChild(open);
+        //node.appendChild(outilsDessin);
+        //node.appendChild(implants);
+        //node.appendChild(couleurArrierePlan);
         //node.appendChild(toolbox);
         //node.appendChild(history);
         //node.appendChild(tags);
-        node.appendChild(image);
+        //node.appendChild(image);
         //node.appendChild(info);
         //node.appendChild(help);
 
@@ -208,26 +208,20 @@ dwv.gui.setup = function () {
         { primary: "ui-icon-comment" }, text: false,
         appendTo: "#dwv"
     });
-    // create dialogs
-    $(".toolbar").dialog({ position:
-        {my: "right top+5", at: "right top", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false, closeOnEscape: false,
-        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide()}
-    });
     $(".informationPatient").dialog({ position:
         {my: "left top+5", at: "left top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false
     });
     $(".outilsDessin").dialog({ position:
-        {my: "left top+360", at: "left top", of: "#pageMain"},
+        {my: "left top+350", at: "left top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false
     });
     $(".implants").dialog({ position:
-        {my: "left top+570", at: "left top", of: "#pageMain"},
+        {my: "left top+590", at: "left top", of: "#pageMain"},
         appendTo: "#dwv",  draggable : false
     });
     $(".couleurArrierePlan").dialog({ position:
-        {my: "right top+200", at: "right top", of: "#pageMain"},
+        {my: "right top+5", at: "right top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false
     });
     $(".toolList").dialog({ position:
