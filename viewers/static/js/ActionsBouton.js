@@ -290,7 +290,7 @@ $(document).ready(function () {
 
                 // Condition pour le choix des bons index
 				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
-					 console.log("1er cas ");
+					 console.log(" cimenté + varise  ");
 					indexTigeDroit = 45;
 					indexTigeGauche = 55;
 					maximumTigeDroit =54;
@@ -804,6 +804,8 @@ $(document).ready(function () {
 				document.getElementById("gammeVariseOuPas").style.display = "none";
 				document.getElementById("gammeColleretteOuPas").style.display = "none";
 				document.getElementById("gammeCimenteOuNe").style.display = "none";
+				document.getElementById("choix_cotyle").style.display = "none";
+				document.getElementById("choix_tige").style.display = "none";
 				document.getElementById("buttonValideGamme").style.display = "none";
 
 
@@ -1480,7 +1482,10 @@ $(document).ready(function () {
 				document.getElementById("gammeVariseOuPas").style.display = "";
 				document.getElementById("gammeColleretteOuPas").style.display = "";
 				document.getElementById("gammeCimenteOuNe").style.display = "";
+				document.getElementById("choix_cotyle").style.display = "";
+				document.getElementById("choix_tige").style.display = "";
 				document.getElementById("buttonValideGamme").style.display = "";
+
 				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
 				if(valeurGammeCimenteOuPas=="cimente" ){
