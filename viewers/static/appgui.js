@@ -219,11 +219,11 @@ dwv.gui.setup = function () {
         appendTo: "#dwv", draggable : false
     });
     $(".outilsDessin").dialog({ position:
-        {my: "left top+340", at: "left top", of: "#pageMain"},
+        {my: "left top+360", at: "left top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false
     });
     $(".implants").dialog({ position:
-        {my: "left top+580", at: "left top", of: "#pageMain"},
+        {my: "left top+570", at: "left top", of: "#pageMain"},
         appendTo: "#dwv",  draggable : false
     });
     $(".couleurArrierePlan").dialog({ position:
