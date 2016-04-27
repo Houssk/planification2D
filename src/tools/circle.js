@@ -146,7 +146,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         }
         else {
             str = diametre_px  + " px";
-            sessionStorage.setItem("taille_bille",diametre_px);
+            sessionStorage.setItem("taille_bille_px",diametre_px);
            }
         // quantification text
         var ktext = new Kinetic.Text({
@@ -272,7 +272,7 @@ dwv.tool.UpdateCircle = function (anchor, image)
     else {
         diametre_px = Math.round((radiusCircle))*2;
         str = diametre_px  + " px";
-        sessionStorage.setItem("taille_bille",diametre_px);
+        sessionStorage.setItem("taille_bille_px",diametre_px);
     }
     var textPos = centerCircle;
     ktext.position(textPos);
