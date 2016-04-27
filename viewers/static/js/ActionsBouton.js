@@ -17,8 +17,19 @@ $(document).ready(function () {
 
 	var indexTigeDroit = 11;
 	var indexCotyleDroit = 43;
-	var indexTigeGauche = 11;
-	var indexCotyleGauche = 43;
+	var indexTigeGauche = 11 +8;
+	var indexCotyleGauche = 43 +13;
+
+	var maximumTigeDroit= null;
+	var minimumTigeDroit=null;
+	var maximumTigeGauche= null;
+	var minimumTigeGauche=null;
+
+	var maximumCotyleDroit = null;
+	var maximumCotyleGauche = null;
+	var minimumCotyleDroit = null;
+	var minimumCotyleGauche = null;
+
 
 	var m_canvasWidth = null;
 	var m_canvasHeight = null;
@@ -270,31 +281,91 @@ $(document).ready(function () {
 				var tailleBille = document.getElementById("tailleBille");
 				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 				var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
+				var gammeCimenteOuNe = document.getElementById("gammeCimenteOuNe");
 				var valeurGammeVariseOuPas = gammeVariseOuPas.options[gammeVariseOuPas.selectedIndex].value;
 				var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
 				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
 				var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
+				var valeurGammeCimenteOuNe = gammeCimenteOuNe.options[gammeCimenteOuNe.selectedIndex].value;
 
                 // Condition pour le choix des bons index
 				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
 					 console.log("1er cas ");
+					indexTigeDroit = 45;
+					indexTigeGauche = 55;
+					maximumTigeDroit =54;
+					minimumTigeDroit = 45;
+					maximumTigeGauche =64;
+					minimumTigeGauche= 55;
+
 				}
 
 				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
-					console.log("2eme cas ");
+					 console.log("2eme cas ");
+					 indexTigeDroit = 25;
+					 indexTigeGauche = 35;
+					 maximumTigeDroit =34;
+					 minimumTigeDroit = 25;
+					 maximumTigeGauche =44;
+					 minimumTigeGauche= 35;
+
 				}
 
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
 					console.log("3eme cas ");
+					indexTigeDroit =  125;
+					indexTigeGauche =  135;
+					maximumTigeDroit =134;
+					minimumTigeDroit = 125;
+					maximumTigeGauche = 144;
+					minimumTigeGauche= 135;
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
 					console.log("4eme cas ");
+					indexTigeDroit =  105;
+					indexTigeGauche =  115;
+					maximumTigeDroit =114;
+					minimumTigeDroit = 105;
+					maximumTigeGauche = 124;
+					minimumTigeGauche= 115;
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
 					console.log("5 eme cas ");
+					indexTigeDroit =  85;
+					indexTigeGauche =  95;
+					maximumTigeDroit =94;
+					minimumTigeDroit = 85;
+					maximumTigeGauche = 104;
+					minimumTigeGauche= 95;
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
 					console.log("6 eme cas ");
+
+					indexTigeDroit = 65;
+					indexTigeGauche = 75;
+					maximumTigeDroit =74;
+					minimumTigeDroit = 65;
+					maximumTigeGauche =84;
+					minimumTigeGauche= 75;
+
+				}
+				if(valeurGammeCimenteOuNe=="cimente" ) {
+					console.log("1er cas ");
+
+					indexCotyleDroit = 43;
+					indexCotyleGauche = 56;
+					maximumCotyleDroit = 55;
+					maximumCotyleGauche = 68;
+					minimumCotyleDroit = 43;
+					minimumCotyleGauche = 56;
+				}
+				else {
+					indexCotyleDroit = 69;
+					indexCotyleGauche = 80;
+					maximumCotyleDroit = 79;
+					maximumCotyleGauche = 90;
+					minimumCotyleDroit = 69;
+					minimumCotyleGauche = 80;
 				}
 
 
@@ -303,10 +374,10 @@ $(document).ready(function () {
 				m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 				m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 				if (patient.GetOperationGuide()=="Non guider") {
-					var newTigeGauche=getTige(indexTigeGauche+8);
+					var newTigeGauche=getTige(indexTigeGauche);
 					var newTigeDroit=getTige(indexTigeDroit);
 					var newTige=null;
-					var newCotyleGauche=getCotyle(indexCotyleGauche+13);
+					var newCotyleGauche=getCotyle(indexCotyleGauche);
 					var newCotyleDroit=getCotyle(indexCotyleDroit);
 					var newCotyle=null;
 					var canvasTige=null;
@@ -504,8 +575,8 @@ $(document).ready(function () {
 					// récupération tige et cotyle
 					tigeDroit = getTige(indexTigeDroit);
 					cotyleDroit = getCotyle(indexCotyleDroit);
-					tigeGauche = getTige(indexTigeGauche+8);
-					cotyleGauche = getCotyle(indexCotyleGauche+13);
+					tigeGauche = getTige(indexTigeGauche);
+					cotyleGauche = getCotyle(indexCotyleGauche);
 
 					//Initialisation des images
 					imgTigeDroit = new Image;
@@ -732,7 +803,9 @@ $(document).ready(function () {
 				document.getElementById("gammeCimenteOuPas").style.display = "none";
 				document.getElementById("gammeVariseOuPas").style.display = "none";
 				document.getElementById("gammeColleretteOuPas").style.display = "none";
+				document.getElementById("gammeCimenteOuNe").style.display = "none";
 				document.getElementById("buttonValideGamme").style.display = "none";
+
 
 				console.log(valeurGammeCimenteOuPas,valeurGammeVariseOuPas,valeurGammeColleretteOuPas);
 			};
@@ -840,7 +913,7 @@ $(document).ready(function () {
 			contexteTigeDrawTige=canvasTige.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					tigeGauche=getTige(indexTigeGauche+8);
+					tigeGauche=getTige(indexTigeGauche);
 					imgTigeGauche = new Image;
 					imgTigeGauche.onload=function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
@@ -855,7 +928,7 @@ $(document).ready(function () {
 					}
 					imgTigeGauche.src=tigeGauche.GetUrl();
 				} else {
-					var newTigeGauche = getTige(indexTigeGauche+8);
+					var newTigeGauche = getTige(indexTigeGauche);
 					imgTigeGauche = new Image;
 					imgTigeGauche.onload=function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
@@ -873,7 +946,7 @@ $(document).ready(function () {
 			} 
 
 		}	else {
-				var newTigeGauche = getTige(indexTigeGauche+8);
+				var newTigeGauche = getTige(indexTigeGauche);
 				imgTigeGauche = new Image;
 				imgTigeGauche.onload=function () {
 					var imgTigeGaucheWidth=imgTigeGauche.width;
@@ -1026,14 +1099,14 @@ $(document).ready(function () {
 			function PlusTailleTige(){
 				var coteTigeBtn = document.getElementById("coteTige");
 				if (coteTigeBtn.options[coteTigeBtn.selectedIndex].value == "Gauche") {
-					if (indexTigeDroit+1>16) {
-						indexTigeDroit=16;
+					if (indexTigeDroit+1>maximumTigeDroit) {
+						indexTigeDroit=maximumTigeDroit;
 					} else {
 						indexTigeDroit++;
 					}
 				} else {
-					if (indexTigeGauche+1>16) {
-						indexTigeGauche=16;
+					if (indexTigeGauche+1>maximumTigeGauche) {
+						indexTigeGauche=maximumTigeGauche;
 					} else {
 						indexTigeGauche++;
 					}
@@ -1050,14 +1123,14 @@ $(document).ready(function () {
 			function MoinsTailleTige(){
 				var coteTigeBtn = document.getElementById("coteTige");
 				if (coteTigeBtn.options[coteTigeBtn.selectedIndex].value == "Gauche") {
-					if (indexTigeDroit-1<9) {
-						indexTigeDroit=9;
+					if (indexTigeDroit-1<minimumTigeDroit) {
+						indexTigeDroit=minimumTigeDroit;
 					} else {
 						indexTigeDroit--;
 					}
 				} else {
-					if (indexTigeGauche-1<9) {
-						indexTigeGauche=9;
+					if (indexTigeGauche-1<minimumTigeGauche) {
+						indexTigeGauche=minimumTigeGauche;
 					} else {
 						indexTigeGauche--;
 					}
@@ -1073,14 +1146,14 @@ $(document).ready(function () {
 			function PlusTailleCotyle(){
 				var coteCotyleBtn = document.getElementById("coteCotyle");
 				if (coteCotyleBtn.options[coteCotyleBtn.selectedIndex].value == "Gauche") {
-					if (indexCotyleDroit+1>55) {
-						indexCotyleDroit=55;
+					if (indexCotyleDroit+1>maximumCotyleDroit) {
+						indexCotyleDroit=maximumCotyleDroit;
 					} else {
 						indexCotyleDroit++;
 					}
 				} else {
-					if (indexCotyleGauche+1>55) {
-						indexCotyleGauche=55;
+					if (indexCotyleGauche+1>maximumCotyleGauche) {
+						indexCotyleGauche=maximumCotyleGauche;
 					} else {
 						indexCotyleGauche++;
 					}
@@ -1096,14 +1169,14 @@ $(document).ready(function () {
 			var coteCotyleBtn = document.getElementById("coteCotyle");
 			function MoinsTailleCotyle(){
 				if (coteCotyleBtn.options[coteCotyleBtn.selectedIndex].value == "Gauche") {
-					if (indexCotyleDroit-1<43) {
-						indexCotyleDroit=43;
+					if (indexCotyleDroit-1<minimumCotyleDroit) {
+						indexCotyleDroit=minimumCotyleDroit;
 					} else {
 						indexCotyleDroit--;
 					}
 				} else {
-					if (indexCotyleGauche-1<43) {
-						indexCotyleGauche=43;
+					if (indexCotyleGauche-1<minimumCotyleGauche) {
+						indexCotyleGauche=minimumCotyleGauche;
 					} else {
 						indexCotyleGauche--;
 					}
@@ -1406,6 +1479,7 @@ $(document).ready(function () {
 				document.getElementById("gammeCimenteOuPas").style.display = "";
 				document.getElementById("gammeVariseOuPas").style.display = "";
 				document.getElementById("gammeColleretteOuPas").style.display = "";
+				document.getElementById("gammeCimenteOuNe").style.display = "";
 				document.getElementById("buttonValideGamme").style.display = "";
 				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
