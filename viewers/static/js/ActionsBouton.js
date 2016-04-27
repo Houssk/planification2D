@@ -568,6 +568,8 @@ $(document).ready(function () {
 					document.getElementById("buttonDescendreCotyle").style.display="none";
 					document.getElementById("buttonTournerHautCotyle").style.display="none";
 					document.getElementById("buttonTournerBasCotyle").style.display="none";
+
+
 				}
               else {
 
@@ -807,6 +809,7 @@ $(document).ready(function () {
 				document.getElementById("choix_cotyle").style.display = "none";
 				document.getElementById("choix_tige").style.display = "none";
 				document.getElementById("buttonValideGamme").style.display = "none";
+				document.getElementById("actionImplant").style.display="";
 
 
 				console.log(valeurGammeCimenteOuPas,valeurGammeVariseOuPas,valeurGammeColleretteOuPas);
@@ -1485,6 +1488,7 @@ $(document).ready(function () {
 				document.getElementById("choix_cotyle").style.display = "";
 				document.getElementById("choix_tige").style.display = "";
 				document.getElementById("buttonValideGamme").style.display = "";
+				document.getElementById("actionImplant").style.display="none";
 
 				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 				var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
