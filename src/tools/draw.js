@@ -914,6 +914,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         var calibrage = sessionStorage.getItem("calibrage");
                         if (calibrage == "true") {
                             if (dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)) {
+                                if(sessionStorage.getItem("cercleDroitPosition")!=null){
                                 var centrePosition = JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
                                 var x = centrePosition[0];
                                 var y = centrePosition[1];
@@ -922,7 +923,10 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 centrePosition[0] = x ;
                                 centrePosition[1] = y ;
                                 sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
+                                }
+
                             } else {
+                                if(sessionStorage.getItem("cercleGauchePosition")!=null){
                                 var centrePosition = JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
                                 var x = centrePosition[0];
                                 var y = centrePosition[1];
@@ -931,6 +935,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 centrePosition[0] = x ;
                                 centrePosition[1] = y ;
                                 sessionStorage.setItem("cercleGauchePosition", centrePosition);
+                                }
+
                             }
                         }
                     }
