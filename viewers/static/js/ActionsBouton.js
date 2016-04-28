@@ -376,7 +376,7 @@ $(document).ready(function () {
 					minimumCotyleDroit = 43;
 					minimumCotyleGauche = 56;
 				}
-				else if (valeurGammeCimenteOuNe=="ne" ) {
+				else if (valeurGammeCimenteOuNe=="sansCiment" ) {
 					indexCotyleDroit = 69;
 					indexCotyleGauche = 80;
 					maximumCotyleDroit = 79;
