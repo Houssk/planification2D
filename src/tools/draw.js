@@ -962,7 +962,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                         y = y+translation.y;
                                         centrePosition[0] = x ;
                                         centrePosition[1] = y ;
-                                        sessionStorage.setItem("cercleGauchePosition", centrePosition);
+                                        sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
                                     }
                                 }
                             }
