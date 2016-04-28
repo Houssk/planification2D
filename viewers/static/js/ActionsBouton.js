@@ -1,3 +1,9 @@
+// namespaces
+var dwv = dwv || {};
+dwv.tool = dwv.tool || {};
+//external
+var Kinetic = Kinetic || {};
+
 /**
 * Created by Quentin PETIT on 31/03/2016
 **/

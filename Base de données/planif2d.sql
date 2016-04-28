@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 27 Avril 2016 à 12:27
+-- Généré le :  Jeu 28 Avril 2016 à 15:43
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `planif2d`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cercle`
+--
+
+DROP TABLE IF EXISTS `cercle`;
+CREATE TABLE IF NOT EXISTS `cercle` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `X` double NOT NULL,
+  `Y` double NOT NULL,
+  `Cote` varchar(10) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -314,6 +329,23 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (142, 'ax_ha_var_col 8', 'images/ax_ha_var_colT8_R.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 0, 0),
 (143, 'ax_ha_var_col 9', 'images/ax_ha_var_colT9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 0, 0),
 (144, 'ax_ha_var_col 10', 'images/ax_ha_var_colT10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `trapeze`
+--
+
+DROP TABLE IF EXISTS `trapeze`;
+CREATE TABLE IF NOT EXISTS `trapeze` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `X1` float NOT NULL,
+  `Y1` float NOT NULL,
+  `X2` float NOT NULL,
+  `Y2` float NOT NULL,
+  `Cote` varchar(10) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
