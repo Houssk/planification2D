@@ -883,7 +883,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             var x1 = trapezeAxePosition[0] ;
                             var y1 = trapezeAxePosition[1] ;
                             var x2 = trapezeAxePosition[2] ;
-                            var y2 = trapezeAxePosition[2] ;
+                            var y2 = trapezeAxePosition[3] ;
                             x1 = x1+translation.x;
                             y1 = y1+translation.y;
                             x2 = x2+translation.x;
@@ -891,7 +891,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             trapezeAxePosition[0] = x1 ;
                             trapezeAxePosition[1] = y1 ;
                             trapezeAxePosition[2] = x2 ;
-                            trapezeAxePosition[2] = y2 ;
+                            trapezeAxePosition[3] = y2 ;
                             sessionStorage.setItem("trapezePosition", JSON.stringify(trapezeAxePosition));
                         } else {
                             if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
@@ -899,7 +899,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 var x1 = trapezeAxePosition[0] ;
                                 var y1 = trapezeAxePosition[1] ;
                                 var x2 = trapezeAxePosition[2] ;
-                                var y2 = trapezeAxePosition[2] ;
+                                var y2 = trapezeAxePosition[3] ;
                                 x1 = x1+translation.x;
                                 y1 = y1+translation.y;
                                 x2 = x2+translation.x;
@@ -907,14 +907,14 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 trapezeAxePosition[0] = x1 ;
                                 trapezeAxePosition[1] = y1 ;
                                 trapezeAxePosition[2] = x2 ;
-                                trapezeAxePosition[2] = y2 ;
+                                trapezeAxePosition[3] = y2 ;
                                 sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
                             } else {
                                 var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
                                 var x1 = trapezeAxePosition[0] ;
                                 var y1 = trapezeAxePosition[1] ;
                                 var x2 = trapezeAxePosition[2] ;
-                                var y2 = trapezeAxePosition[2] ;
+                                var y2 = trapezeAxePosition[3] ;
                                 x1 = x1+translation.x;
                                 y1 = y1+translation.y;
                                 x2 = x2+translation.x;
@@ -922,7 +922,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 trapezeAxePosition[0] = x1 ;
                                 trapezeAxePosition[1] = y1 ;
                                 trapezeAxePosition[2] = x2 ;
-                                trapezeAxePosition[2] = y2 ;
+                                trapezeAxePosition[3] = y2 ;
                                 sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
                             }
                         }

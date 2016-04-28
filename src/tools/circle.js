@@ -82,7 +82,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             }
         }
     }
-
+   console.log("onpeuttracercercle",onPeutTraceCercle);
     if(sessionStorage.getItem("retour")==0){
         onPeutTraceCercle = true;
     }
