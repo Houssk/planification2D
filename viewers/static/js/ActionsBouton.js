@@ -376,7 +376,7 @@ $(document).ready(function () {
 					minimumCotyleDroit = 43;
 					minimumCotyleGauche = 56;
 				}
-				else {
+				else if (valeurGammeCimenteOuNe=="ne" ) {
 					indexCotyleDroit = 69;
 					indexCotyleGauche = 80;
 					maximumCotyleDroit = 79;
@@ -1062,7 +1062,7 @@ $(document).ready(function () {
 			contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					cotyleGauche=getCotyle(indexCotyleGauche+13);
+					cotyleGauche=getCotyle(indexCotyleGauche);
 					imgCotyleGauche = new Image;
 					imgCotyleGauche.onload=function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
@@ -1078,7 +1078,7 @@ $(document).ready(function () {
 					}
 					imgCotyleGauche.src=cotyleGauche.GetUrl();
 				} else {
-					var newCotyleGauche = getCotyle(indexCotyleGauche+13);
+					var newCotyleGauche = getCotyle(indexCotyleGauche);
 					imgCotyleGauche = new Image;
 					imgCotyleGauche.onload=function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
@@ -1095,7 +1095,7 @@ $(document).ready(function () {
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 				}
 			} else {
-				var newCotyleGauche = getCotyle(indexCotyleGauche+13);
+				var newCotyleGauche = getCotyle(indexCotyleGauche);
 				imgCotyleGauche = new Image;
 				imgCotyleGauche.onload=function () {
 					var imgCotyleGaucheWidth=imgCotyleGauche.width;

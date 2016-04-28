@@ -231,13 +231,13 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	var canvasTige = null;
 	var flip = null;
 	if (patient.GetCoteOperation()=="Droit") {
-		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
-		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition").toString());
+		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition").toString());
 		canvasTige = document.getElementById("canvasTigeGauche");
 		flip=180
 	} else {
-		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
-		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition").toString());
+		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition").toString());
 		canvasTige = document.getElementById("canvasTigeDroit");
 		flip=0;
 	}

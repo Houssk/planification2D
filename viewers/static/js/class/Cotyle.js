@@ -194,14 +194,14 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	var flip = null;
 
 	if (patient.GetCoteOperation()=="Droit") {
-		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
-		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition").toString());
+		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition").toString());
 		canvasCotyle = document.getElementById("canvasCotyleGauche");
 		this.m_angle = (140*2*Math.PI)/360;
 		flip=180;
 	} else {
-		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
-		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition").toString());
+		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition").toString());
 		canvasCotyle = document.getElementById("canvasCotyleDroit");
 		this.m_angle = (40*2*Math.PI)/360;
 		flip=0;
