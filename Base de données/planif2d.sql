@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.2.8
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 27 Avril 2016 à 12:27
--- Version du serveur :  5.7.9
--- Version de PHP :  5.6.16
+-- Client :  localhost
+-- Généré le :  Ven 29 Avril 2016 à 10:46
+-- Version du serveur :  5.6.19
+-- Version de PHP :  5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `planif2d`
@@ -26,9 +26,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `cotyles`
 --
 
-DROP TABLE IF EXISTS `cotyles`;
 CREATE TABLE IF NOT EXISTS `cotyles` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+`ID` int(11) NOT NULL,
   `Nom` varchar(200) NOT NULL,
   `URL` varchar(200) NOT NULL,
   `SizeXPixel` float NOT NULL,
@@ -36,8 +35,7 @@ CREATE TABLE IF NOT EXISTS `cotyles` (
   `SizeXCm` float NOT NULL,
   `SizeYCm` float NOT NULL,
   `PosCenterX` float NOT NULL,
-  `PosCenterY` float NOT NULL,
-  PRIMARY KEY (`ID`)
+  `PosCenterY` float NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
@@ -142,9 +140,8 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 -- Structure de la table `implant`
 --
 
-DROP TABLE IF EXISTS `implant`;
 CREATE TABLE IF NOT EXISTS `implant` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nom` varchar(200) NOT NULL,
   `url` varchar(200) NOT NULL,
   `widthPx` float NOT NULL,
@@ -161,8 +158,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
   `axeTeteHancheBasPxY` int(11) NOT NULL,
   `distOffsetX` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
-  `enabled` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
+  `enabled` tinyint(1) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1;
 
 --
@@ -194,7 +190,7 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (22, 'LibraT7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 0, 0),
 (23, 'LibraT8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 135, 0),
 (24, 'LibraT9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 135, 0),
-(25, 'ax_cem_std 1\r\n', 'images/ax_cem_std_T1.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, 182.026, 0, 0),
+(25, 'ax_cem_std 1\r\n', 'images/ax_cem_std_T1.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, 217.485, 0, 0),
 (26, 'ax_cem_std 2', 'images/ax_cem_std_T2.png', 653, 5.53, 1392, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, 0, 0),
 (27, 'ax_cem_std 3', 'images/ax_cem_std_T3.png', 671, 5.68, 1447, 12.25, 0, 0, 0, 0, 0, 0, 0, 0, 224.454, 0, 0),
 (28, 'ax_cem_std 4', 'images/ax_cem_std_T4.png', 699, 5.92, 1538, 13.02, 0, 0, 0, 0, 0, 0, 0, 0, 231.426, 0, 0),
@@ -204,7 +200,7 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (32, 'ax_cem_std 8', 'images/ax_cem_std_T8.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 249.163, 0, 0),
 (33, 'ax_cem_std 9', 'images/ax_cem_std_T9.png', 813, 6.88, 1877, 15.89, 0, 0, 0, 0, 0, 0, 0, 0, 252.881, 0, 0),
 (34, 'ax_cem_std 10', 'images/ax_cem_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 256.176, 0, 0),
-(35, 'ax_cem_std 1\r\n', 'images/ax_cem_std_T1_R.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, -182.026, 0, 0),
+(35, 'ax_cem_std 1\r\n', 'images/ax_cem_std_T1_R.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, -217.485, 0, 0),
 (36, 'ax_cem_std 2', 'images/ax_cem_std_T2_R.png', 653, 5.53, 1392, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -221.996, 0, 0),
 (37, 'ax_cem_std 3', 'images/ax_cem_std_T3_R.png', 671, 5.68, 1447, 12.25, 0, 0, 0, 0, 0, 0, 0, 0, -224.454, 0, 0),
 (38, 'ax_cem_std 4', 'images/ax_cem_std_T4_R.png', 699, 5.92, 1538, 13.02, 0, 0, 0, 0, 0, 0, 0, 0, -231.426, 0, 0),
@@ -243,7 +239,7 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (71, 'ax_ha_std 7', 'images/ax_ha_std_T7.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, 0, 0),
 (72, 'ax_ha_std 8', 'images/ax_ha_std_T8.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 247.982, 0, 0),
 (73, 'ax_ha_std 9', 'images/ax_ha_std_T9.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, 252.881, 0, 0),
-(74, 'ax_ha_std 10', 'images/ax_ha_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 247.176, 0, 0),
+(74, 'ax_ha_std 10', 'images/ax_ha_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 256.176, 0, 0),
 (75, 'ax_ha_std 1', 'images/ax_ha_std_T1_R.png', 630, 5.33, 1333, 11.29, 0, 0, 0, 0, 0, 0, 0, 0, -217.486, 0, 0),
 (76, 'ax_ha_std 2', 'images/ax_ha_std_T2_R.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -220.816, 0, 0),
 (77, 'ax_ha_std 3', 'images/ax_ha_std_T3_R.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, -223.273, 0, 0),
@@ -253,7 +249,7 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (81, 'ax_ha_std 7', 'images/ax_ha_std_T7_R.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 0, 0),
 (82, 'ax_ha_std 8', 'images/ax_ha_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -247.982, 0, 0),
 (83, 'ax_ha_std 9', 'images/ax_ha_std_T9_R.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 0, 0),
-(84, 'ax_ha_std 10', 'images/ax_ha_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -247.176, 0, 0),
+(84, 'ax_ha_std 10', 'images/ax_ha_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -256.176, 0, 0),
 (85, 'ax_ha_std_col 1', 'images/ax_ha_std_col_T1.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, 217.486, 0, 0),
 (86, 'ax_ha_std_col 2', 'images/ax_ha_std_col_T2.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, 0, 0),
 (87, 'ax_ha_std_col 3', 'images/ax_ha_std_col_T3.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, 222.092, 0, 0),
@@ -275,7 +271,7 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (103, 'ax_ha_std_col 9', 'images/ax_ha_std_col_T9_R.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.824, 0, 0),
 (104, 'ax_ha_std_col 10', 'images/ax_ha_std_col_T10_R.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, -257.357, 0, 0),
 (105, 'ax_ha_var 1', 'images/ax_ha_varT1.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, 0, 0),
-(106, 'ax_ha_var 2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 375.388, 0, 0),
+(106, 'ax_ha_var 2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 237.387, 0, 0),
 (107, 'ax_ha_var 3', 'images/ax_ha_varT3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, 0, 0),
 (108, 'ax_ha_var 4', 'images/ax_ha_varT4.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, 0, 0),
 (109, 'ax_ha_var 5', 'images/ax_ha_varT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 252.939, 0, 0),
@@ -285,7 +281,7 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (113, 'ax_ha_var 9', 'images/ax_ha_varT9.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 275.247, 0, 0),
 (114, 'ax_ha_var 10', 'images/ax_ha_varT10.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, 280.033, 0, 0),
 (115, 'ax_ha_var 1', 'images/ax_ha_varT1_R.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 0, 0),
-(116, 'ax_ha_var 2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -375.388, 0, 0),
+(116, 'ax_ha_var 2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -237.387, 0, 0),
 (117, 'ax_ha_var 3', 'images/ax_ha_varT3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 0, 0),
 (118, 'ax_ha_var 4', 'images/ax_ha_varT4_R.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 0, 0),
 (119, 'ax_ha_var 5', 'images/ax_ha_varT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -252.939, 0, 0),
@@ -315,6 +311,36 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 (143, 'ax_ha_var_col 9', 'images/ax_ha_var_colT9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 0, 0),
 (144, 'ax_ha_var_col 10', 'images/ax_ha_var_colT10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 0, 0);
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `cotyles`
+--
+ALTER TABLE `cotyles`
+ ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `implant`
+--
+ALTER TABLE `implant`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `cotyles`
+--
+ALTER TABLE `cotyles`
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=91;
+--
+-- AUTO_INCREMENT pour la table `implant`
+--
+ALTER TABLE `implant`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=145;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

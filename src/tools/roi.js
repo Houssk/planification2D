@@ -128,7 +128,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
                 //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
                 //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
             } else if(x1<(sessionStorage.getItem("imageLargeur")/2)){
-                console.log("je suis au coté trapeze coeff droit");git 
+                console.log("je suis au coté trapeze coeff droit");
                 var trapezeAxePosition=[];
                 trapezeAxePosition.push(x1);
                 trapezeAxePosition.push(y1);
