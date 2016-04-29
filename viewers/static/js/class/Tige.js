@@ -383,3 +383,8 @@ Tige.prototype.Descendre = function() {
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 };
+
+Tige.prototype.Deplacement = function(offsetX, offsetY) {
+	this.m_Position.x+=offsetX;
+	this.m_Position.y+=offsetY;
+};

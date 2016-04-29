@@ -114,3 +114,37 @@ function desactivationListe() {
         coteTige.style.display = "none";
     }
 }
+
+function draggerTige (value, canvas){
+    $( ".tigeDraggable" ).draggable({
+        disabled: value,
+        drag: function(canvas){
+            console.log("canvas draggerTige",canvas);
+            var canvasOffset = canvas.offset();
+
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".draggable2" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
+function draggerCotyle (value, canvas){
+    $( ".cotyleDraggable" ).draggable({
+        disabled: value,
+        drag: function(canvas){
+            var canvasOffset = canvas.offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+
+    $( ".draggable3" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
