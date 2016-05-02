@@ -282,8 +282,9 @@
 							<h5>Positionner</h5>
 						</div>
 						<div class="col-md-9">
-							<input id="buttonDeplacerTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="width:35px; display: none;">
-							<input id="buttonOrienterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Orienter" style="width:35px; display: none;">
+							<input id="buttonDeplacerTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
+							<input id="buttonTournerHautTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+" style="width:35px;display: none;">
+							<input id="buttonTournerBasTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-" style="width:35px; display: none;">
 						</div>
 					</div>
 					<div class="row" style="margin-top: 2%;">
@@ -331,6 +332,15 @@
 					</div>
 
 					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>Positionner</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonDeplacerCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
+						</div>
+					</div>
+
+					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-6 centered">
 							<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TERMINER" style="width: 110px;">
 						</div>
@@ -367,10 +377,10 @@
 				<div class="dropBox"></div>
 				<div class="layerContainer">
 					<div class="drop" style="z-index: 1">
-						<canvas id="canvasTigeDroit" class="tigeDraggable"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleDroit" class="cotyleDraggable"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-						<canvas id="canvasTigeGauche" class="tigeDraggable"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleGauche" class="cotyleDraggable"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+						<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+						<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+						<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+						<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
 						<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
 					</div>
 					<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>

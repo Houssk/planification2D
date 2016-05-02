@@ -115,35 +115,63 @@ function desactivationListe() {
     }
 }
 
-function draggerTige (value, canvas){
-    $( ".tigeDraggable" ).draggable({
+function draggerTigeDroit (value){
+    $( ".tigeDraggableDroit" ).draggable({
         disabled: value,
-        drag: function(canvas){
-            console.log("canvas draggerTige",canvas);
-            var canvasOffset = canvas.offset();
-
+        drag: function(){
+            var canvasOffset = $('#canvasTigeDroit').offset();//$('#'+canvas.id+'').offset();
             // Offset permet d'enregistrer le déplacement
             var offsetX = canvasOffset.left;
             var offsetY = canvasOffset.top;
         }
     });
-    $( ".draggable2" ).draggable( "option", "disabled", value );
+    $( ".tigeDraggableDroit" ).draggable( "option", "disabled", value );
     $("body").droppable({
         accept: ".draggable"
     });
 }
-function draggerCotyle (value, canvas){
-    $( ".cotyleDraggable" ).draggable({
+function draggerTigeGauche (value){
+    $( ".tigeDraggableGauche" ).draggable({
         disabled: value,
-        drag: function(canvas){
-            var canvasOffset = canvas.offset();
+        drag: function(){
+            var canvasOffset = $('#canvasTigeGauche').offset();//$('#'+canvas.id+'').offset();
             // Offset permet d'enregistrer le déplacement
             var offsetX = canvasOffset.left;
             var offsetY = canvasOffset.top;
         }
     });
+    $( ".tigeDraggableGauche" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
 
-    $( ".draggable3" ).draggable( "option", "disabled", value );
+function draggerCotyleDroit (value){
+    $( ".cotyleDraggableDroit" ).draggable({
+        disabled: value,
+        drag: function(){
+            var canvasOffset = $('#canvasCotyleDroit').offset();//$('#'+canvas.id+'').offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".cotyleDraggableDroit" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
+function draggerCotyleGauche (value){
+    $( ".cotyleDraggableGauche" ).draggable({
+        disabled: value,
+        drag: function(){
+            var canvasOffset = $('#canvasCotyleGauche').offset();//$('#'+canvas.id+'').offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".cotyleDraggableGauche" ).draggable( "option", "disabled", value );
     $("body").droppable({
         accept: ".draggable"
     });

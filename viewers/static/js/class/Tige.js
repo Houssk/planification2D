@@ -384,7 +384,10 @@ Tige.prototype.Descendre = function() {
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 };
 
-Tige.prototype.Deplacement = function(offsetX, offsetY) {
-	this.m_Position.x+=offsetX;
-	this.m_Position.y+=offsetY;
+Tige.prototype.TournerHaut = function() {
+	this.m_angleAlignement+=(1*2*Math.PI)/360;
+};
+
+Tige.prototype.TournerBas = function() {
+	this.m_angleAlignement-=(1*2*Math.PI)/360;
 };
