@@ -55,54 +55,41 @@ $(document).ready(function () {
 		}
 	});
 
-	var NoirColor = document.getElementById("couleurNoir");
-	NoirColor.addEventListener('click', function() {
-		function changeBackgroundColorToBlack(){
+couleurBlanc
+	var couleurGris = document.getElementById("couleurGris");
+	couleurGris.addEventListener('click', function() {
+		function CouleurGris(){
+			var div = document.getElementById('pageMain');
+			div.style.backgroundColor = '#333333';
+		};
+		CouleurGris()
+	},false);
+
+	var couleurGrisClaire = document.getElementById("couleurGrisClaire");
+	couleurGrisClaire.addEventListener('click', function() {
+		function CouleurGrisClaire(){
+			var div = document.getElementById('pageMain');
+			div.style.backgroundColor = '#717171';
+		};
+		CouleurGrisClaire()
+	},false);
+
+	var couleurNoir = document.getElementById("couleurNoir");
+	couleurNoir.addEventListener('click', function() {
+		function CouleurNoir(){
 			var div = document.getElementById('pageMain');
 			div.style.backgroundColor = 'black';
-			console.log("Couleur changer : black");
 		};
-		changeBackgroundColorToBlack()
+		CouleurNoir()
 	},false);
 
-	var BlancColor = document.getElementById("couleurBlanc");
-	BlancColor.addEventListener('click', function() {
-		function changeBackgroundColorToWhite(){
+	var couleurBlanc = document.getElementById("couleurBlanc");
+	couleurBlanc.addEventListener('click', function() {
+		function CouleurBlanc(){
 			var div = document.getElementById('pageMain');
 			div.style.backgroundColor = 'white';
-			console.log("Couleur changer : white");
 		};
-		changeBackgroundColorToWhite()
-	},false);
-
-	var VertColor = document.getElementById("couleurVert");
-	VertColor.addEventListener('click', function() {
-		function changeBackgroundColorToGreen(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = 'green';
-			console.log("Couleur changer : green");
-		};
-		changeBackgroundColorToGreen()
-	},false);
-
-	var RougeColor = document.getElementById("couleurRouge");
-	RougeColor.addEventListener('click', function() {
-		function changeBackgroundColorToRed(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = 'red';
-			console.log("Couleur changer : red");
-		};
-		changeBackgroundColorToRed()
-	},false);
-
-	var BleuColor = document.getElementById("couleurBleu");
-	BleuColor.addEventListener('click', function() {
-		function changeBackgroundColorToBlue(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = 'blue';
-			console.log("Couleur changer : blue");
-		};
-		changeBackgroundColorToBlue()
+		CouleurBlanc()
 	},false);
 	
 
