@@ -210,23 +210,23 @@ dwv.gui.setup = function () {
     });
     $(".informationPatient").dialog({ position:
         {my: "left top+5", at: "left top", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false
+        appendTo: "#dwv", draggable : true
     });
     $(".outilsDessin").dialog({ position:
         {my: "left bottom", at: "left bottom", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false,
+        appendTo: "#dwv", draggable : true,
         closeOnEscape: false,
         open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     $(".implants").dialog({ position:
         {my: "right top+5", at: "right top", of: "#pageMain"},
-        appendTo: "#dwv",  draggable : false,
+        appendTo: "#dwv",  draggable : true,
         closeOnEscape: false, width: 300,
         open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     $(".couleurArrierePlan").dialog({ position:
         {my: "right bottom", at: "right bottom", of: "#pageMain"},
-        appendTo: "#dwv", draggable : false,
+        appendTo: "#dwv", draggable : true,
         closeOnEscape: false,
         open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
