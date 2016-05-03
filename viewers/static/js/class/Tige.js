@@ -32,6 +32,7 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_tigeImageWidth=null;
 	this.m_tigeImageHeight=null;
 	this.m_coeffRedimensionnement=null;
+	this.m_deltaDeplacement=0;
 }
 
 /**
@@ -128,12 +129,23 @@ Tige.prototype.GetOrientation = function() {
 /**
 *Cette fonction permet de récupérer le nouveau coefficient de redimensionnement après calcul de snap.
 *
-*@return m_angleAlignement	Représente le nouveau coefficient de redimensionnement après calcul de snap.
+*@return m_coeffRedimensionnement	Représente le nouveau coefficient de redimensionnement après calcul de snap.
 *
 *@author Quentin PETIT
 */
 Tige.prototype.GetCoeffRedimensionnement = function() {
 	return this.m_coeffRedimensionnement;
+};
+
+/**
+*Cette fonction permet de récupérer le déplacement de la tige.
+*
+*@return m_deltaDeplacement	Représente le déplacement de la tige.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetDeltaDeplacement = function() {
+	return this.m_deltaDeplacement;
 };
 
 /**
@@ -145,7 +157,7 @@ Tige.prototype.GetCoeffRedimensionnement = function() {
 *
 *@author Quentin PETIT
 */
-Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
+Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patient) {
 
 	/**
 	*Cette fonction récupère les différentes taille de la dicom
@@ -263,9 +275,13 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	var atan = Math.atan(tan)*-1;
 	this.m_angleAlignement=atan;
 
+	this.m_deltaDeplacement=deltaDeplacement;
+
 	this.m_coeffDirecteur=deltaY/deltaX;
 	this.m_Position.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
+	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
 
 
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
@@ -373,6 +389,7 @@ Tige.prototype.Monter = function() {
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
 	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	this.m_deltaDeplacement-=1/coeffBille;
 };
 
 Tige.prototype.Descendre = function() {
@@ -382,6 +399,7 @@ Tige.prototype.Descendre = function() {
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	this.m_deltaDeplacement+=1/coeffBille;
 };
 
 Tige.prototype.TournerHaut = function() {

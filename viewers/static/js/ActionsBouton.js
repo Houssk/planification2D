@@ -634,7 +634,7 @@ $(document).ready(function () {
 						var imgTigeDroitWidth=imgTigeDroit.width;
 						var imgTigeDroitHeight=imgTigeDroit.height;
 						if (patient.GetCoteOperation()=="Gauche") {
-							tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
+							tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
@@ -651,7 +651,7 @@ $(document).ready(function () {
 
 							tigeGauche.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 						} else {
-							tigeGauche.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
+							tigeGauche.Snap(imgTigeDroitWidth, imgTigeDroitHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
@@ -676,7 +676,7 @@ $(document).ready(function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
 						var imgTigeGaucheHeight=imgTigeGauche.height;
 						if (patient.GetCoteOperation()=="Gauche") {
-							tigeDroit.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+							tigeDroit.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
@@ -693,7 +693,7 @@ $(document).ready(function () {
 
 							tigeGauche.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 						} else {
-							tigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+							tigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
@@ -735,7 +735,7 @@ $(document).ready(function () {
 						var imgCotyleDroitWidth=imgCotyleDroit.width;
 						var imgCotyleDroitHeight=imgCotyleDroit.height;
 						if (patient.GetCoteOperation()=="Gauche") {
-							cotyleDroit.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, patient);
+							cotyleDroit.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, 0, 0, patient);
 							contextecotyle.save();
 							contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 							contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
@@ -752,7 +752,7 @@ $(document).ready(function () {
 
 							cotyleGauche.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
 						} else {
-							cotyleGauche.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, patient);
+							cotyleGauche.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, 0, 0, patient);
 							contextecotyle.save();
 							contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 							contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
@@ -776,7 +776,7 @@ $(document).ready(function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
 						var imgCotyleGaucheHeight=imgCotyleGauche.height;
 						if (patient.GetCoteOperation()=="Gauche") {
-							cotyleDroit.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, patient);
+							cotyleDroit.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, 0, 0, patient);
 							contextecotyle.save();
 							contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 							contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
@@ -792,7 +792,7 @@ $(document).ready(function () {
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
 							cotyleGauche.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 						} else {
-							cotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, patient);
+							cotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, 0, 0, patient);
 							contextecotyle.save();
 							contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
 							contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
@@ -888,20 +888,21 @@ $(document).ready(function () {
 			contexteTigeDrawTige=canvasTige.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Gauche") {
-					tigeDroit=getTige(indexTigeDroit);
+					var newTigeDroit=getTige(indexTigeDroit);
 					imgTigeDroit = new Image;
 					imgTigeDroit.onload=function () {
 						var imgTigeDroitWidth=imgTigeDroit.width;
 						var imgTigeDroitHeight=imgTigeDroit.height;
-						tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
+						newTigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, tigeDroit.GetDeltaDeplacement(), patient);
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-						contexteTigeDrawTige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
-						contexteTigeDrawTige.rotate(tigeDroit.GetOrientation());
-						contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
+						contexteTigeDrawTige.translate(newTigeDroit.GetPosition().x,newTigeDroit.GetPosition().y);
+						contexteTigeDrawTige.rotate(newTigeDroit.GetOrientation());
+						contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -newTigeDroit.GetImageLargeur() / 2, -newTigeDroit.GetImageHauteur() / 2, newTigeDroit.GetImageLargeur(), newTigeDroit.GetImageHauteur());
 						contexteTigeDrawTige.restore();
+						tigeDroit=newTigeDroit;
 					}
-					imgTigeDroit.src=tigeDroit.GetUrl();
+					imgTigeDroit.src=newTigeDroit.GetUrl();
 				} else {
 					var newTigeDroit = getTige(indexTigeDroit);
 					imgTigeDroit = new Image;
@@ -947,20 +948,21 @@ $(document).ready(function () {
 			contexteTigeDrawTige=canvasTige.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					tigeGauche=getTige(indexTigeGauche);
+					var newTigeGauche=getTige(indexTigeGauche);
 					imgTigeGauche = new Image;
 					imgTigeGauche.onload=function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
 						var imgTigeGaucheHeight=imgTigeGauche.height;
-						tigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+						newTigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, tigeGauche.GetDeltaDeplacement(), patient);
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-						contexteTigeDrawTige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
-						contexteTigeDrawTige.rotate(tigeGauche.GetOrientation());
-						contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
+						contexteTigeDrawTige.translate(newTigeGauche.GetPosition().x,newTigeGauche.GetPosition().y);
+						contexteTigeDrawTige.rotate(newTigeGauche.GetOrientation());
+						contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTigeGauche.GetImageLargeur() / 2, -newTigeGauche.GetImageHauteur() / 2, newTigeGauche.GetImageLargeur(), newTigeGauche.GetImageHauteur());
 						contexteTigeDrawTige.restore();
+						tigeGauche=newTigeGauche;
 					}
-					imgTigeGauche.src=tigeGauche.GetUrl();
+					imgTigeGauche.src=newTigeGauche.GetUrl();
 				} else {
 					var newTigeGauche = getTige(indexTigeGauche);
 					imgTigeGauche = new Image;
@@ -1015,21 +1017,22 @@ $(document).ready(function () {
 			contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Gauche") {
-					cotyleDroit=getCotyle(indexCotyleDroit);
+					var newCotyleDroit=getCotyle(indexCotyleDroit);
 					imgCotyleDroit = new Image;
 					imgCotyleDroit.onload=function () {
 						var imgCotyleDroitWidth=imgCotyleDroit.width;
 						var imgCotyleDroitHeight=imgCotyleDroit.height;
 						console.log("patient cotyle draw gauche",patient);
-						cotyleDroit.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, patient);
+						newCotyleDroit.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, cotyleDroit.GetDeltaDeplacement(), cotyleDroit.GetDeltaRotation(), patient);
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
-						contexteCotyleDrawCotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+						contexteCotyleDrawCotyle.translate(newCotyleDroit.GetPosition().x,newCotyleDroit.GetPosition().y);
 						contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
-						contexteCotyleDrawCotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+						contexteCotyleDrawCotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -newCotyleDroit.GetImageLargeur() / 2, -newCotyleDroit.GetImageHauteur() / 2, newCotyleDroit.GetImageLargeur(), newCotyleDroit.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
+						cotyleDroit=newCotyleDroit;
 					}
-					imgCotyleDroit.src=cotyleDroit.GetUrl();
+					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 				} else {
 					var newCotyleDroit = getCotyle(indexCotyleDroit);
 					imgCotyleDroit = new Image;
@@ -1074,21 +1077,22 @@ $(document).ready(function () {
 			contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					cotyleGauche=getCotyle(indexCotyleGauche);
+					var newCotyleGauche=getCotyle(indexCotyleGauche);
 					imgCotyleGauche = new Image;
 					imgCotyleGauche.onload=function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
 						var imgCotyleGaucheHeight=imgCotyleGauche.height;
 						console.log("patient cotyle draw droit",patient);
-						cotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, patient);
+						newCotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, cotyleGauche.GetDeltaDeplacement(), cotyleGauche.GetDeltaRotation(), patient);
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
-						contexteCotyleDrawCotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+						contexteCotyleDrawCotyle.translate(newCotyleGauche.GetPosition().x,newCotyleGauche.GetPosition().y);
 						contexteCotyleDrawCotyle.rotate(cotyleGauche.GetOrientation());
-						contexteCotyleDrawCotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+						contexteCotyleDrawCotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -newCotyleGauche.GetImageLargeur() / 2, -newCotyleGauche.GetImageHauteur() / 2, newCotyleGauche.GetImageLargeur(), newCotyleGauche.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
+						cotyleGauche=newCotyleGauche;
 					}
-					imgCotyleGauche.src=cotyleGauche.GetUrl();
+					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 				} else {
 					var newCotyleGauche = getCotyle(indexCotyleGauche);
 					imgCotyleGauche = new Image;
