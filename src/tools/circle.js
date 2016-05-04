@@ -10,7 +10,6 @@ dwv.tool = dwv.tool || {};
 var Kinetic = Kinetic || {};
 
 var onPeutTraceCercle=false;
-var calibrageAFaire=true;
 var lastPoint = null;
 var lastCenterPos = null;
 /**
@@ -70,14 +69,14 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         }
     } else {
 
-        if (calibrageAFaire==true) {
-            if (lastPoint == null) {
-                lastPoint=points[0];
+        if (sessionStorage.getItem("calibrageAFaire")=="true") {
+            if (sessionStorage.getItem("lastPoint")===null) {
+                sessionStorage.setItem("lastPoint", points[0]);
                 onPeutTraceCercle=true;
             } else {
-                if (lastPoint!=points[0]) {
+                if (sessionStorage.getItem("lastPoint")!=points[0]) {
                     onPeutTraceCercle=false;
-                    calibrageAFaire=false;
+                    sessionStorage.setItem("calibrageAFaire", false);
                 }
             }
         }

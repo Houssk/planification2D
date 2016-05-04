@@ -89,6 +89,8 @@ dwv.App = function ()
     // Calibrage
     sessionStorage.setItem("calibrage",false);
     sessionStorage.setItem("onPeutTraceCercle",false);
+    sessionStorage.setItem("calibrageAFaire", true);
+
 
 
     /**
