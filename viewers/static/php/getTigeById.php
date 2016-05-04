@@ -24,6 +24,8 @@
 	    echo "<widthCm>" . $row[4] . "</widthCm>\n";
 	    echo "<heightPx>" . $row[5] . "</heightPx>\n";
 	    echo "<heightCm>" . $row[6] . "</heightCm>\n";
+	    echo "<PtMecaHautXPx>" . $row[16] ."</PtMecaHautXPx>";
+	    echo "<PtMecaHautYPx>" . $row[17] ."</PtMecaHautYPx>";
 	}
 	echo "</exemple>\n";
 	

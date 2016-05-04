@@ -808,6 +808,7 @@ couleurBlanc
 					if (patient.GetCoteOperation()=="Gauche") {
 						document.getElementById('labelTailleTige').innerHTML = tigeDroit.GetNom();
 						document.getElementById('labelTailleCotyle').innerHTML = cotyleDroit.GetNom();
+						//var offset = Math.sqrt(Math.pow((coteCotyle.GetPosition().x - (tigeDroit.GetPosition().x - tigeDroit.GetPtMecaHaut().x + )))
 					} else {
 						document.getElementById('labelTailleTige').innerHTML = tigeGauche.GetNom();
 						document.getElementById('labelTailleCotyle').innerHTML = cotyleGauche.GetNom();

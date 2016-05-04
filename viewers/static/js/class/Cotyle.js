@@ -141,49 +141,6 @@ Cotyle.prototype.GetOrientation = function() {
 
 Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, deltaRotation, patient) {
 
-	console.log("patient",patient);
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
 
 	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
 		// On récupère les valeurs de l'image affichée et de l'image réelle
@@ -211,6 +168,7 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 
 	    return coef;
 	}
+
 	var trapeze = null;
 	var cercle = null;
 	var canvasCotyle = null;
@@ -269,48 +227,7 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 };
 
 Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
+	
 
 	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
 		// On récupère les valeurs de l'image affichée et de l'image réelle

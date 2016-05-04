@@ -15,7 +15,7 @@
 *
 *@author Quentin PETIT
 */
-function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm) {
+function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm, ptMecaHautXPx, ptMecaHautYPx) {
 	this.m_ID=ID;
 	this.m_Nom=Nom;
 	this.m_Url=Url;
@@ -33,6 +33,7 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_tigeImageHeight=null;
 	this.m_coeffRedimensionnement=null;
 	this.m_deltaDeplacement=0;
+	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
 }
 
 /**
@@ -77,11 +78,20 @@ Tige.prototype.GetNom = function() {
 *
 *@author Quentin PETIT
 */
-
 Tige.prototype.GetOffsetX = function() {
 	return this.m_OffsetX;
 };
 
+/**
+*Cette fonction permet de récupérer la position du point mécanique.
+*
+*@return m_ptMecaHaut 			Représente la position du point mécanique.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetPtMecaHaut = function() {
+	return this.m_ptMecaHaut;
+};
 /**
 *Cette fonction permet de récupérer la nouvelle largeur de l'image après calcul du snap.
 *
@@ -160,49 +170,6 @@ Tige.prototype.GetDeltaDeplacement = function() {
 Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patient) {
 
 	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
-
-	/**
 	*Cette fonction calul le facteur de redimensionnement de la tige
 	*
 	*@param tigeWidthPx	 	Représente la largeur de la tige en pixel.
@@ -233,7 +200,7 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
 		coef=coef*10;
-		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
+		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
 	    return coef;
 	}
@@ -287,54 +254,11 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
 	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
 
-	console.log("this.m_tigeImageWidth",this.m_tigeImageWidth,"this.m_tigeImageHeight",this.m_tigeImageHeight);
-	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
+	console.log("this.m_Position",this.m_Position);
 
 };
 
 Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
 
 	/**
 	*Cette fonction calul le facteur de redimensionnement de la tige
@@ -367,7 +291,7 @@ Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientati
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
 		coef=coef*10;
-		console.log("coef",coef);
+		//console.log("coef",coef);
 
 	    return coef;
 	}
@@ -390,6 +314,7 @@ Tige.prototype.Monter = function() {
 	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 	this.m_deltaDeplacement-=1/coeffBille;
+	console.log("this.m_Position",this.m_Position);
 };
 
 Tige.prototype.Descendre = function() {
@@ -400,6 +325,7 @@ Tige.prototype.Descendre = function() {
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 	this.m_deltaDeplacement+=1/coeffBille;
+	console.log("this.m_Position",this.m_Position);
 };
 
 Tige.prototype.TournerHaut = function() {
