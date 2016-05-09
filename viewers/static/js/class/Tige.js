@@ -34,6 +34,7 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_coeffRedimensionnement=null;
 	this.m_deltaDeplacement=0;
 	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
+	this.m_PositionPtMeca={'x' : null, 'y' : null};
 }
 
 /**
@@ -85,12 +86,12 @@ Tige.prototype.GetOffsetX = function() {
 /**
 *Cette fonction permet de récupérer la position du point mécanique.
 *
-*@return m_ptMecaHaut 			Représente la position du point mécanique.
+*@return m_PositionPtMeca	Représente la position du point mécanique.
 *
 *@author Quentin PETIT
 */
-Tige.prototype.GetPtMecaHaut = function() {
-	return this.m_ptMecaHaut;
+Tige.prototype.GetPositionPtMecaHaut = function() {
+	return this.m_PositionPtMeca;
 };
 /**
 *Cette fonction permet de récupérer la nouvelle largeur de l'image après calcul du snap.
@@ -233,6 +234,9 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
 
+	this.m_PositionPtMeca.x=this.m_Position.x+(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth)-(this.m_ptMecaHaut.x*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
+	this.m_PositionPtMeca.y=this.m_Position.y-(this.m_ptMecaHaut.y*this.m_coeffRedimensionnement*coeffDicom.coefHeight);
+
 	//var deltaCercleTrapeze = (((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
 	var deltaX = trapeze[2]-trapeze[0];
@@ -249,6 +253,11 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
+	this.m_PositionPtMeca.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
+	this.m_PositionPtMeca.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionPtMeca.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
 
 
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
@@ -311,8 +320,13 @@ Tige.prototype.Monter = function() {
 	var dicomCanvas = document.getElementById("dwv-imageLayer");
 	var dicomWidth = sessionStorage.getItem("imageLargeur");
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
 	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionPtMeca.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
 	this.m_deltaDeplacement-=1/coeffBille;
 	console.log("this.m_Position",this.m_Position);
 };
@@ -322,8 +336,13 @@ Tige.prototype.Descendre = function() {
 	var dicomCanvas = document.getElementById("dwv-imageLayer");
 	var dicomWidth = sessionStorage.getItem("imageLargeur");
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionPtMeca.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
 	this.m_deltaDeplacement+=1/coeffBille;
 	console.log("this.m_Position",this.m_Position);
 };
