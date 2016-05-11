@@ -113,15 +113,15 @@
 
 		<div id="pageMain">
 
-		<!-- Open file -->
-			<div class="informationPatient" title="INFORMATIONS">
+		<div id="accordeon" style="width: 350px;">
+			<h3>INFORMATIONS</h3>
+			<div class="informationPatient">
 				<form>
 					<div class="row">
 						<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
 						<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
 					</div>
 					<div class="row" style="margin-top: 2%">
-						<!-- col-md-offset-2 -->
 						<div class="col-md-6">
 							<select class="form-control" id="coteChirurgie">
 								<option disabled selected>COTE</option>
@@ -139,7 +139,6 @@
 					</div>
 					<div class="loaderlist" style="margin-top: 2%"></div>
 					<div id="barprogress" style="margin-top: 2%"></div>
-
 					<div id="divNbHanche" style="display: none; margin-top:5%;">
 						<div class="row">
 							<div class="col-md-6 centered">
@@ -169,18 +168,12 @@
 								<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin-top:2%; width: 110px;">
 							</div>
 						</div>
-						<!--<div class="row centered" style="margin-top:2%;">
-							<div class="col-md-6 centered">
-								<input type="button" id="trait" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="trait" style="width: 110px;">
-							</div>
-						</div>-->
 					</div>
-					
-					<div id="informationPatient" class="darkClass" style="display:none"></div>
 				</form>
 			</div>
+			<h3>OUTILS DESSIN</h3>
 			<!-- OUTILS DESSIN -->
-			<div class="outilsDessin" title="OUTILS DESSIN">
+			<div class="outilsDessin">
 				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE" style="width: 110px;">
 					<img id="buttonDeleteTrapeze" src="images/delete.jpg" alt="" style="display: none; width: 30px;height: 30px; float: right"></p>
 				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH" style="width: 110px;">
@@ -197,11 +190,10 @@
 						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px; float: right;">
 					</div>
 				</div>
-				<div id="outilsDessin" class="darkClass"></div>
 			</div>
-
+			<h3>IMPLANTS</h3>
 			<!-- IMPLANTS -->
-			<div class="implants" title="IMPLANTS">
+			<div class="implants">
 				<h4 id="choix_tige">Tige</h4>
 				<div class="row">
 					<div class="col-md-6">
@@ -349,16 +341,17 @@
 						</div>
 					</div>
 				</div>
-				<div id="implants" class="darkClass"></div>
+				
 			</div>
-
-			<div class="couleurArrierePlan" title="COULEUR ARRIÈRE PLAN">
+			<h3>COULEUR ARRIÈRE PLAN</h3>
+			<div class="couleurArrierePlan">
 				<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:#333333;">
 				<input type="button" id="couleurGrisClaire" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#717171;">
 				<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left  margin-right: 12px; background-color:black;">
 				<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
 				<label id="labelOffsetTigeCotyle" class="blackColor"></label>
 			</div>
+		</div>		
 
 			<!-- Toolbox -->
 			<div class="toolList" title="Toolbox"></div>
@@ -401,6 +394,8 @@
 
 	</body>
   <script>
+  	$("#accordeon").accordion({heightStyle: 'panel'});
 
+       
   </script>
 </html>
