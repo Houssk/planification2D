@@ -172,16 +172,16 @@ couleurBlanc
 									}
 
 									$('.informationPatient *').prop('disabled',true);
-									document.getElementById("informationPatient").style.display = "";
+									//document.getElementById("informationPatient").style.display = "";
 
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
-										document.getElementById("outilsDessin").style.display = "none";
+										$("#accordeon").accordion({active : 1});
 									}
 
 									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
 										$('.implants *').prop('disabled',false);
-										document.getElementById("implants").style.display = "none";
+										$("#accordeon").accordion({active : 2});
 									}
 								} else {
 									alert("Veuillez calibrer votre DICOM");
@@ -276,11 +276,8 @@ couleurBlanc
 				{
 
 					$('.implants *').prop('disabled',false);
-					document.getElementById("implants").style.display = "none";
 					$('.outilsDessin *').prop('disabled',true);
-					document.getElementById("outilsDessin").style.display = "";
-
-
+					$("#accordeon").accordion({active : 2});
 				}
 			};
 			ValiderDessin()

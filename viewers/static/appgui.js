@@ -97,7 +97,7 @@ dwv.gui.Toolbox = function (app)
         base.setup(list);
 
         // toolbar
-        var open = document.createElement("button");
+        /*var open = document.createElement("button");
         open.appendChild(document.createTextNode("INFORMATIONS"));
         open.onclick = function() { toggle(".informationPatient"); };
 
@@ -111,7 +111,7 @@ dwv.gui.Toolbox = function (app)
 
         var couleurArrierePlan = document.createElement("button");
         couleurArrierePlan.appendChild(document.createTextNode("COULEUR ARRIÈRE PLAN"));
-        couleurArrierePlan.onclick = function() {toggle(".couleurArrierePlan"); };
+        couleurArrierePlan.onclick = function() {toggle(".couleurArrierePlan"); };*/
 
         var toolbox = document.createElement("button");
         toolbox.appendChild(document.createTextNode("Toolbox"));
@@ -162,7 +162,7 @@ dwv.gui.Toolbox = function (app)
         //toggleSaveState.id = "download-state";
         //toggleSaveState.appendChild(saveButton);
         // add to informationPatient window
-        node = app.getElement("informationPatient");
+        //node = app.getElement("informationPatient");
         //node.appendChild(toggleSaveState);
     };
     this.display = function (bool)
@@ -208,7 +208,7 @@ dwv.gui.setup = function () {
         { primary: "ui-icon-comment" }, text: false,
         appendTo: "#dwv"
     });
-    $(".informationPatient").dialog({ position:
+    /*$(".informationPatient").dialog({ position:
         {my: "left top+5", at: "left top", of: "#pageMain"},
         appendTo: "#dwv", draggable : true
     });
@@ -229,7 +229,7 @@ dwv.gui.setup = function () {
         appendTo: "#dwv", draggable : true,
         closeOnEscape: false,
         open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
-    });
+    });*/
     $(".toolList").dialog({ position:
         {my: "left top+160", at: "left top", of: "#pageMain"},
         autoOpen: false,
@@ -253,14 +253,14 @@ dwv.gui.setup = function () {
 
     // image dialog
     $(".layerDialog").dialog({ position:
-        {my: "left+320 top", at: "left top", of: "#pageMain"},
+        {my: "left+350 top", at: "left top", of: "#pageMain"},
         appendTo: "#dwv", draggable : false,
         closeOnEscape: false,
         open: function(event, ui) { $(".ui-dialog-titlebar-close").hide() }
     });
     // default size
     $(".layerDialog").dialog({ width: "auto", resizable: false });
-    $(".informationPatient").dialog({ resizable: false });
+    //$(".informationPatient").dialog({ resizable: false });
     // Resizable but keep aspect ratio
     // TODO it seems to add a border that bothers getting the cursor position...
     //$("#layerContainer").resizable({ aspectRatio: true });

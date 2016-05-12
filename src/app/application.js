@@ -75,8 +75,6 @@ dwv.App = function ()
     // Generic style
     var style = new dwv.html.Style();
 
-    
-
     // Loadbox
     var loadbox = null;
     // UndoStack
@@ -498,7 +496,22 @@ dwv.App = function ()
         // clear variables
         self.reset();
         nSlicesToLoad = files.length;
-        var percent = parseInt(sessionStorage.getItem("dataImage"))/71;
+        //var barShape = ProgressBar.Line;
+        /*var time = parseInt(sessionStorage.getItem("dataImage"))/71;
+        if (window.Worker){
+            var lineBarWorker = new Worker("js/loadBar.js");
+            var progressBarDiv = document.getElementById("barprogress");
+            lineBarWorker.postMessage(time);
+        }*/
+        var time = parseInt(sessionStorage.getItem("dataImage"))/71;
+        var progressBarDiv = document.getElementById("barprogress");
+        var lineBar = new ProgressBar.Line(progressBarDiv,{
+            easing: 'easeInOut',
+            duration: time,
+            color: '#934896',
+        });
+        lineBar.animate(1);
+        /*var percent = parseInt(sessionStorage.getItem("dataImage"))/71;
         var bar = new ProgressBar.Line(barprogress, {
             strokeWidth: 10,
             easing: 'easeInOut',
@@ -525,7 +538,7 @@ dwv.App = function ()
             to: {color: '#ED6A5A'},
 
         });
-        bar.animate(1.0);
+        bar.animate(1.0);*/
         // create IO
         var fileIO = new dwv.io.File();
         fileIO.setDecoderScripts(decoderScripts);
@@ -1359,8 +1372,6 @@ dwv.App = function ()
         if( event.lengthComputable )
 
         {
-
-
             var percent = Math.round((event.loaded / event.total) * 100);
             dwv.gui.displayProgress(percent);
         }
