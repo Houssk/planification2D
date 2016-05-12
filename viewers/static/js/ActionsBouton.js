@@ -796,7 +796,6 @@ couleurBlanc
 							var dicomWidth = sessionStorage.getItem("imageLargeur");
 							var dicomHeight = sessionStorage.getItem("imageHauteur");
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
-
 							cotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 						}
 
@@ -805,6 +804,8 @@ couleurBlanc
 
 						var offset = Math.sqrt(Math.pow((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y),2))*coefficient;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+						document.getElementById('labelTailleTige').innerHTML = tigeDroit.GetNom();
+						document.getElementById('labelTailleCotyle').innerHTML = cotyleDroit.GetNom();
 						
 
 					} else {
@@ -812,6 +813,8 @@ couleurBlanc
 						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						console.log("offset Droit", offset);
+						document.getElementById('labelTailleTige').innerHTML = tigeGauche.GetNom();
+						document.getElementById('labelTailleCotyle').innerHTML = cotyleGauche.GetNom();
 
 					}
 					if (patient.GetCoteOperation()=="Gauche") {
