@@ -858,12 +858,8 @@ couleurBlanc
 				sessionStorage.removeItem("trapezeDroitPosition");
 
 				$('.outilsDessin *').prop('disabled',true);
-				document.getElementById("outilsDessin").style.display = "";
+				$("#accordeon").accordion({active : 0});
 				$('.informationPatient *').prop('disabled',false);
-				document.getElementById("informationPatient").style.display = "none";
-				document.getElementById("informationPatient").style.display = "none";
-				document.getElementById("informationPatient").style.display = "none";
-				document.getElementById("informationPatient").style.display = "none";
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
@@ -1552,7 +1548,6 @@ couleurBlanc
 				contextetige.restore();
 
 				$('.implants *').prop('disabled',true);
-				document.getElementById("implants").style.display = "";
 				document.getElementById("gammeCimenteOuPas").style.display = "";
 				document.getElementById("gammeVariseOuPas").style.display = "";
 				document.getElementById("gammeColleretteOuPas").style.display = "";
@@ -1570,16 +1565,17 @@ couleurBlanc
 
 				if (patient.GetOperationGuide() == "Guider") {
 					$('.outilsDessin *').prop('disabled',false);
-					document.getElementById("outilsDessin").style.display = "none";
+					$("#accordeon").accordion({active : 1});
+
 				} else {
 					$('.informationPatient *').prop('disabled',false);
-					document.getElementById("informationPatient").style.display = "none";
 					sessionStorage.setItem("calibrage", false);
 	                sessionStorage.setItem("nbCercle",0);
 	                sessionStorage.setItem("nbTrapeze", 0);
                 	sessionStorage.setItem("nbPetitTroch", 0);
 	                sessionStorage.setItem("retour",0);
 					ZoomMode();
+					$("#accordeon").accordion({active : 0});
 				}
 
 			};
