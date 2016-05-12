@@ -809,7 +809,7 @@ couleurBlanc
 
 					} else {
 
-						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						console.log("offset Droit", offset);
 
@@ -960,7 +960,7 @@ couleurBlanc
 						contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTigeGauche.GetImageLargeur() / 2, -newTigeGauche.GetImageHauteur() / 2, newTigeGauche.GetImageLargeur(), newTigeGauche.GetImageHauteur());
 						contexteTigeDrawTige.restore();
 						tigeGauche=newTigeGauche;
-						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					}
 					imgTigeGauche.src=newTigeGauche.GetUrl();
@@ -1095,7 +1095,7 @@ couleurBlanc
 						contexteCotyleDrawCotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -newCotyleGauche.GetImageLargeur() / 2, -newCotyleGauche.GetImageHauteur() / 2, newCotyleGauche.GetImageLargeur(), newCotyleGauche.GetImageHauteur());
 						contexteCotyleDrawCotyle.restore();
 						cotyleGauche=newCotyleGauche;
-						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+						var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					}
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
@@ -1273,7 +1273,7 @@ couleurBlanc
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
-					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 
 					//UpTige(canvasTige, tigeGauche);
@@ -1323,7 +1323,7 @@ couleurBlanc
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
 
-					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 				}
 			};
@@ -1374,7 +1374,7 @@ couleurBlanc
 					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contextecotyle.restore();
 
-					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 				}
 			};
@@ -1423,7 +1423,7 @@ couleurBlanc
 					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contextecotyle.restore();
 
-					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPosition().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPosition().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
+					var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 				}
 			};
