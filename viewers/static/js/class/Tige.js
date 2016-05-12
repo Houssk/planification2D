@@ -217,6 +217,7 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	 *
 	 *@author Houssam KARRACH
 	 */
+
 	function rotate(cx, cy, x, y, angle) {
 		var radians =  angle,
 			cos = Math.cos(radians),
