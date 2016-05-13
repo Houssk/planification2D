@@ -36,9 +36,15 @@ $(document).ready(function () {
 	var minimumCotyleDroit = null;
 	var minimumCotyleGauche = null;
 
-
 	var m_canvasWidth = null;
 	var m_canvasHeight = null;
+
+
+	sessionStorage.setItem("boolNom",false);
+	sessionStorage.setItem("boolPrenom",false);
+	sessionStorage.setItem("boolCoteOperation",false);
+	sessionStorage.setItem("boolTypeOperation",false);
+
 
 	var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
@@ -55,7 +61,6 @@ $(document).ready(function () {
 		}
 	});
 
-couleurBlanc
 	var couleurGris = document.getElementById("couleurGris");
 	couleurGris.addEventListener('click', function() {
 		function CouleurGris(){
@@ -91,7 +96,61 @@ couleurBlanc
 		};
 		CouleurBlanc()
 	},false);
-	
+
+	function ApparitionBoutonValiderPatient() {
+		console.log("ApparitionBoutonValiderPatient");
+		if (sessionStorage.getItem("boolPrenom")=="true" &&
+			sessionStorage.getItem("boolNom")=="true" &&
+			sessionStorage.getItem("boolTypeOperation")=="true" &&
+			sessionStorage.getItem("boolCoteOperation")=="true" &&
+			sessionStorage.getItem("taille_bille_px")!=null) {
+			document.getElementById("buttonValideInformationPatient").style.display="";
+			console.log("ApparitionBoutonValiderPatient display : _");
+		} else {
+			document.getElementById("buttonValideInformationPatient").style.display="none";
+			console.log("ApparitionBoutonValiderPatient display : none");
+		}
+	}
+
+	var textBoxNom = document.getElementById("nomPatient");
+	textBoxNom.addEventListener('change',function(){
+		if (textBoxNom.value!="") {
+			sessionStorage.setItem("boolNom",true);
+		} else {
+			sessionStorage.setItem("boolNom",false);
+		}
+		ApparitionBoutonValiderPatient();
+	});
+
+	var textBoxPrenom = document.getElementById("prenomPatient");
+	textBoxPrenom.addEventListener('change',function(){
+		if (textBoxPrenom.value!="") {
+			sessionStorage.setItem("boolPrenom",true);
+		} else {
+			sessionStorage.setItem("boolPrenom",false);
+		}
+		ApparitionBoutonValiderPatient();
+	});
+
+	var listBoxTypeOperation = document.getElementById("typeChirurgie");
+	listBoxTypeOperation.addEventListener('change',function(){
+		if (listBoxTypeOperation.selectedIndex != 0) {
+			sessionStorage.setItem("boolCoteOperation",true);
+		} else {
+			sessionStorage.setItem("boolCoteOperation",false);
+		}
+		ApparitionBoutonValiderPatient();
+	});
+
+	var listBoxCoteOperation = document.getElementById("coteChirurgie");
+	listBoxCoteOperation.addEventListener('change',function(){
+		if (listBoxCoteOperation.selectedIndex != 0) {
+			sessionStorage.setItem("boolTypeOperation",true);
+		} else {
+			sessionStorage.setItem("boolTypeOperation",false);
+		}
+		ApparitionBoutonValiderPatient();
+	});
 
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 

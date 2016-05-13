@@ -12,6 +12,20 @@ var Kinetic = Kinetic || {};
 var onPeutTraceCercle=false;
 var lastPoint = null;
 var lastCenterPos = null;
+function ApparitionBoutonValiderPatient() {
+    console.log("ApparitionBoutonValiderPatient");
+    if (sessionStorage.getItem("boolPrenom")=="true" &&
+        sessionStorage.getItem("boolNom")=="true" &&
+        sessionStorage.getItem("boolTypeOperation")=="true" &&
+        sessionStorage.getItem("boolCoteOperation")=="true" &&
+        sessionStorage.getItem("taille_bille_px")!=null) {
+        document.getElementById("buttonValideInformationPatient").style.display="";
+        console.log("ApparitionBoutonValiderPatient display : _");
+    } else {
+        document.getElementById("buttonValideInformationPatient").style.display="none";
+        console.log("ApparitionBoutonValiderPatient display : none");
+    }
+}
 /**
  * Circle factory.
  * @class CircleFactory
@@ -146,6 +160,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         else {
             str = diametre_px  + " px";
             sessionStorage.setItem("taille_bille_px",diametre_px);
+            ApparitionBoutonValiderPatient();
            }
         // quantification text
         var ktext = new Kinetic.Text({
