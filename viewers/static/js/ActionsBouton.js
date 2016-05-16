@@ -714,6 +714,11 @@ $(document).ready(function () {
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
 
 							tigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
+
+							var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+							var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+							document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						}
 
 					}
@@ -759,6 +764,10 @@ $(document).ready(function () {
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
 
 							tigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
+							var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+							var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+							document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						}
 
 					}
@@ -823,6 +832,11 @@ $(document).ready(function () {
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
 
 							cotyleDroit.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
+
+							var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+							var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+							document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						}
 
 					}
@@ -867,9 +881,21 @@ $(document).ready(function () {
 							var dicomHeight = sessionStorage.getItem("imageHauteur");
 							var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
 							cotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
+
+							var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+							var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+							document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						}
 
 					}
+					
+					if (patient.GetCoteOperation()=="Gauche") {
+						imgCotyleDroit.src=cotyleDroit.GetUrl();
+					} else {
+						imgCotyleGauche.src=cotyleGauche.GetUrl();
+					}
+
 					if (patient.GetCoteOperation()=="Gauche") {
 
 						var offset = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
@@ -891,13 +917,6 @@ $(document).ready(function () {
 						document.getElementById('labelTailleCotyle').innerHTML = cotyleGauche.GetNom();
 
 					}
-					if (patient.GetCoteOperation()=="Gauche") {
-						imgCotyleDroit.src=cotyleDroit.GetUrl();
-					} else {
-						imgCotyleGauche.src=cotyleGauche.GetUrl();
-					}
-
-
 				}
 
 
