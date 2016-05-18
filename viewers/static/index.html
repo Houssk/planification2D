@@ -113,15 +113,15 @@
 
 		<div id="pageMain">
 
-		<!-- Open file -->
-			<div class="informationPatient" title="INFORMATIONS">
+		<div id="accordeon" style="width: 350px;">
+			<h3>INFORMATIONS</h3>
+			<div class="informationPatient">
 				<form>
 					<div class="row">
 						<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
 						<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
 					</div>
 					<div class="row" style="margin-top: 2%">
-						<!-- col-md-offset-2 -->
 						<div class="col-md-6">
 							<select class="form-control" id="coteChirurgie">
 								<option disabled selected>COTE</option>
@@ -138,8 +138,9 @@
 						</div>
 					</div>
 					<div class="loaderlist" style="margin-top: 2%"></div>
-					<div id="barprogress" style="margin-top: 2%"></div>
-
+					<div id="dialog-message" title="Téléchargement en cours">
+						<div id="barprogress" style="margin-top: 2%"></div>
+					</div>
 					<div id="divNbHanche" style="display: none; margin-top:5%;">
 						<div class="row">
 							<div class="col-md-6 centered">
@@ -166,16 +167,15 @@
 						</div>
 						<div class="row">
 							<div class="col-md-offset-3 col-md-6 centered">
-								<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin-top:2%; width: 110px;">
+								<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
 							</div>
 						</div>
 					</div>
-					
-					<div id="informationPatient" class="darkClass" style="display:none"></div>
 				</form>
 			</div>
+			<h3>OUTILS DESSIN</h3>
 			<!-- OUTILS DESSIN -->
-			<div class="outilsDessin" title="OUTILS DESSIN">
+			<div class="outilsDessin">
 				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE" style="width: 110px;">
 					<img id="buttonDeleteTrapeze" src="images/delete.jpg" alt="" style="display: none; width: 30px;height: 30px; float: right"></p>
 				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH" style="width: 110px;">
@@ -192,11 +192,10 @@
 						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="RETOUR" style="width: 110px; float: right;">
 					</div>
 				</div>
-				<div id="outilsDessin" class="darkClass"></div>
 			</div>
-
+			<h3>IMPLANTS</h3>
 			<!-- IMPLANTS -->
-			<div class="implants" title="IMPLANTS">
+			<div class="implants">
 				<h4 id="choix_tige">Tige</h4>
 				<div class="row">
 					<div class="col-md-6">
@@ -272,7 +271,16 @@
 							<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+" style="width:35px;">
 						</div>
 					</div>
-
+					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>Positionner</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonDeplacerTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
+							<input id="buttonTournerHautTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+" style="width:35px;display: none;">
+							<input id="buttonTournerBasTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-" style="width:35px; display: none;">
+						</div>
+					</div>
 					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3"><h4>Cotyle</h4></div>
 					</div>
@@ -318,6 +326,16 @@
 					</div>
 
 					<div class="row" style="margin-top: 2%;">
+						<div class="col-md-3">
+							<h5>Positionner</h5>
+						</div>
+						<div class="col-md-9">
+							<input id="buttonDeplacerCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
+						</div>
+					</div>
+					<label id="labelOffsetTigeCotyle" class="blackColor"></label>
+					<label id="labelHauteurTigeCotyle" class="blackColor"></label>
+					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-6 centered">
 							<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TERMINER" style="width: 110px;">
 						</div>
@@ -326,16 +344,17 @@
 						</div>
 					</div>
 				</div>
-				<div id="implants" class="darkClass"></div>
+				
 			</div>
-
-			<div class="couleurArrierePlan" title="COULEUR ARRIÈRE PLAN">
-				<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:black;">
+			<h3>COULEUR ARRIÈRE PLAN</h3>
+			<div class="couleurArrierePlan">
+				<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:#333333;">
+				<input type="button" id="couleurGrisClaire" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#717171;">
+				<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left  margin-right: 12px; background-color:black;">
 				<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
-				<input type="button" id="couleurVert" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left  margin-right: 12px; background-color:green;">
-				<input type="button" id="couleurRouge" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:red;">
-				<input type="button" id="couleurBleu" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:blue;">
+				<label id="labelOffsetTigeCotyle" class="blackColor"></label>
 			</div>
+		</div>		
 
 			<!-- Toolbox -->
 			<div class="toolList" title="Toolbox"></div>
@@ -354,10 +373,10 @@
 				<div class="dropBox"></div>
 				<div class="layerContainer">
 					<div class="drop" style="z-index: 1">
-						<canvas id="canvasTigeDroit" class="draggable2"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleDroit" class="draggable2"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-						<canvas id="canvasTigeGauche" class="draggable2"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleGauche" class="draggable2"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+						<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+						<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+						<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+						<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
 						<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
 					</div>
 					<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
@@ -378,6 +397,8 @@
 
 	</body>
   <script>
+  	$("#accordeon").accordion({heightStyle: 'panel'});
 
+       
   </script>
 </html>

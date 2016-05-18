@@ -75,8 +75,6 @@ dwv.App = function ()
     // Generic style
     var style = new dwv.html.Style();
 
-    
-
     // Loadbox
     var loadbox = null;
     // UndoStack
@@ -89,6 +87,8 @@ dwv.App = function ()
     // Calibrage
     sessionStorage.setItem("calibrage",false);
     sessionStorage.setItem("onPeutTraceCercle",false);
+    sessionStorage.setItem("calibrageAFaire", true);
+
 
 
     /**
@@ -493,49 +493,47 @@ dwv.App = function ()
      */
     function loadImageFiles(files)
     {
+        console.log("start loadImageFiles");
         // clear variables
         self.reset();
         nSlicesToLoad = files.length;
-        var percent = parseInt(sessionStorage.getItem("dataImage"))/71;
-        var bar = new ProgressBar.Line(barprogress, {
+        //var barShape = ProgressBar.Line;
+        /*var time = parseInt(sessionStorage.getItem("dataImage"))/71;
+        if (window.Worker){
+            var lineBarWorker = new Worker("js/loadBar.js");
+            var progressBarDiv = document.getElementById("barprogress");
+            lineBarWorker.postMessage(time);
+        }*/
+        var time = parseInt(sessionStorage.getItem("dataImage"))/71;
+        var progressBarDiv = document.getElementById("barprogress");
+        var lineBar = new ProgressBar.Line(progressBarDiv,{
             strokeWidth: 10,
             easing: 'easeInOut',
-            duration: percent,
+            duration: time,
             color: '#934896',
             trailColor: '#eee',
             trailWidth: 1,
             svgStyle: {width: '100%', height: '100%'},
-            text: {
-                style: {
-                    // Text color.
-                    // Default: same as stroke color (options.color)
-                    color: '#999',
-                    position: 'absolute',
-                    right: '0',
-                    top: '30px',
-                    padding: 0,
-                    margin: 0,
-                    transform: null
-                },
-                autoStyleContainer: false
-            },
-            from: {color: '#FFEA82'},
-            to: {color: '#ED6A5A'},
-
         });
-        bar.animate(1.0);
+        lineBar.animate(1);
+        //console.log("lineBar.animate(1);");
         // create IO
         var fileIO = new dwv.io.File();
         fileIO.setDecoderScripts(decoderScripts);
         fileIO.onload = function (data) {
-
+            console.log("start fileIO.onload");
             var isFirst = true;
             if ( image ) {
                 view.append( data.view );
                 isFirst = false;
             }
+
+            console.log("start postLoadInit(data);");
             postLoadInit(data);
+            console.log("end postLoadInit(data);");
+
             if ( drawStage ) {
+
                 // create slice draw layer
                 var drawLayer = new Kinetic.Layer({
                     listening: false,
@@ -547,6 +545,8 @@ dwv.App = function ()
                 // add the layer to the stage
                 drawStage.add(drawLayer);
             }
+            console.log("end fileIO.onload");
+
         };
         fileIO.onerror = function (error) { handleError(error); };
         fileIO.onloadend = function (/*event*/) { fireEvent({ 'type': 'load-end' }); };
@@ -554,6 +554,8 @@ dwv.App = function ()
         // main load (asynchronous)
         fireEvent({ 'type': 'load-start' });
         fileIO.load(files);
+        console.log("end loadImageFiles");
+
     }
 
     /**
@@ -1357,8 +1359,6 @@ dwv.App = function ()
         if( event.lengthComputable )
 
         {
-
-
             var percent = Math.round((event.loaded / event.total) * 100);
             dwv.gui.displayProgress(percent);
         }

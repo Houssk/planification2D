@@ -44,6 +44,8 @@ function getTige(id) {
     var tigeWidthCmBDD = docXML.getElementsByTagName("widthCm");
 	var tigeHeightPxBDD = docXML.getElementsByTagName("heightPx");
     var tigeHeightCmBDD = docXML.getElementsByTagName("heightCm");
+    var tigePtMecaHautXPxBDD = docXML.getElementsByTagName("PtMecaHautXPx");
+    var tigePtMecaHautYPxBDD = docXML.getElementsByTagName("PtMecaHautYPx");
 
     var tigeId = tigeIdBDD.item(0).firstChild.data;
     var tigeNom = tigeNomBDD.item(0).firstChild.data;
@@ -53,8 +55,10 @@ function getTige(id) {
     var tigeWidthCm = tigeWidthCmBDD.item(0).firstChild.data;
 	var tigeHeightPx = tigeHeightPxBDD.item(0).firstChild.data;
     var tigeHeightCm = tigeHeightCmBDD.item(0).firstChild.data;
+    var tigePtMecaHautXPx = tigePtMecaHautXPxBDD.item(0).firstChild.data;
+    var tigePtMecaHautYPx = tigePtMecaHautYPxBDD.item(0).firstChild.data;
 
-    var tige = new Tige(tigeId,tigeNom,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm);
+    var tige = new Tige(tigeId,tigeNom,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm,tigePtMecaHautXPx,tigePtMecaHautYPx);
 
     return tige;
 }
@@ -113,4 +117,110 @@ function desactivationListe() {
         coteCotyle.style.display = "none";
         coteTige.style.display = "none";
     }
+}
+
+function draggerTigeDroit (value){
+    $( ".tigeDraggableDroit" ).draggable({
+        disabled: value,
+        drag: function(){
+            var canvasOffset = $('#canvasTigeDroit').offset();//$('#'+canvas.id+'').offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".tigeDraggableDroit" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
+function draggerTigeGauche (value){
+    $( ".tigeDraggableGauche" ).draggable({
+        disabled: value,
+        drag: function(){
+            var canvasOffset = $('#canvasTigeGauche').offset();//$('#'+canvas.id+'').offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".tigeDraggableGauche" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
+
+function draggerCotyleDroit (value){
+    $( ".cotyleDraggableDroit" ).draggable({
+        disabled: value,
+        drag: function(){
+            var canvasOffset = $('#canvasCotyleDroit').offset();//$('#'+canvas.id+'').offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".cotyleDraggableDroit" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
+function draggerCotyleGauche (value){
+    $( ".cotyleDraggableGauche" ).draggable({
+        disabled: value,
+        drag: function(){
+            var canvasOffset = $('#canvasCotyleGauche').offset();//$('#'+canvas.id+'').offset();
+            // Offset permet d'enregistrer le déplacement
+            var offsetX = canvasOffset.left;
+            var offsetY = canvasOffset.top;
+        }
+    });
+    $( ".cotyleDraggableGauche" ).draggable( "option", "disabled", value );
+    $("body").droppable({
+        accept: ".draggable"
+    });
+}
+
+//console.log("patient",patient);
+/**
+*Cette fonction récupère les différentes taille de la dicom
+*
+*@author Quentin PETIT
+*/
+function getValeursImage() {
+    var dicomCanvas = document.getElementById("dwv-imageLayer");
+
+    // Taille de l'image réelle
+    var widthImageReelle = sessionStorage.getItem("imageLargeur");
+    var heightImageReelle = sessionStorage.getItem("imageHauteur");
+
+    // Taille de l'image affichée à l'écran
+    var widthImageCanvas = dicomCanvas.width;
+    var heightImageCanvas = dicomCanvas.height;
+
+    return {
+        widthImageReelle : widthImageReelle, 
+        heightImageReelle : heightImageReelle, 
+        widthImageCanvas : widthImageCanvas, 
+        heightImageCanvas : heightImageCanvas
+    };
+}
+
+/**
+*Cette fonction calul les facteurs de redimensionnement de la dicom
+*
+*@author Quentin PETIT
+*/
+function facteurRedimensionnementImage() {
+    // On récupère les valeurs de l'image affichée et de l'image réelle
+    var image = getValeursImage();
+
+    // Calcul du coefficient réducteur de l'image
+    var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
+    var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
+
+    return {
+        coefWidth : coefWidthImage, 
+        coefHeight : coefHeightImage
+    };
 }

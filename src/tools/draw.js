@@ -195,6 +195,10 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             }
         }
         if ("circle"==name) {
+            if (sessionStorage.getItem("calibrage")=="false") {
+                sessionStorage.setItem("calibrageAFaire", true);
+                sessionStorage.removeItem("lastPoint");
+            }
             var tempNbCercle = sessionStorage.getItem("nbCercle");
             tempNbCercle--;
             sessionStorage.setItem("nbCercle", tempNbCercle);

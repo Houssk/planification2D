@@ -39,12 +39,16 @@ dwv.image.getViewFromDOMImage = function (image)
     // TODO support passing the full image data
     var buffer = [];
     var j = 0;
+    var cpt = 0;
+    console.log("imageData.data.length",imageData.data.length);
     for( var i = 0; i < imageData.data.length; i+=4 ) {
         buffer[j] = imageData.data[i];
         buffer[j+1] = imageData.data[i+1];
         buffer[j+2] = imageData.data[i+2];
         j+=3;
+        cpt++;
     }
+    console.log("cpt",cpt);
     // create dwv Image
     var imageSize = new dwv.image.Size(image.width, image.height);
     // TODO: wrong info...

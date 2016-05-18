@@ -31,6 +31,9 @@ function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, coty
 	this.m_angle=null;
 	this.m_cotyleImageWidth=null;
 	this.m_cotyleImageHeight=null;
+	this.m_deltaDeplacement=0;
+	this.m_deltaRotation=0;
+	this.m_PositionPtMeca={'x' : null, 'y' : null};
 	console.log("cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm",cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm);
 }
 
@@ -102,9 +105,33 @@ Cotyle.prototype.GetPosition = function() {
 	return this.m_Position;
 };
 
+/**
+*Cette fonction permet de récupérer le déplacement du cotyle.
+*
+*@return m_deltaDeplacement	Représente le déplacement du cotyle.
+*
+*@author Quentin PETIT
+*/
+Cotyle.prototype.GetDeltaDeplacement = function() {
+	return this.m_deltaDeplacement;
+};
+
+/**
+*Cette fonction permet de récupérer la rotation du cotyle.
+*
+*@return m_deltaRotation	Représente la rotation du cotyle.
+*
+*@author Quentin PETIT
+*/
+Cotyle.prototype.GetDeltaRotation = function() {
+	return this.m_deltaRotation;
+};
 
 Cotyle.prototype.GetOrientation = function() {
 	return this.m_Orientation;
+};
+Cotyle.prototype.GetPositionPtMeca = function() {
+	return this.m_PositionPtMeca;
 };
 /**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
@@ -116,51 +143,8 @@ Cotyle.prototype.GetOrientation = function() {
 *@author Quentin PETIT
 */
 
-Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
+Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, deltaRotation, patient) {
 
-	console.log("patient",patient);
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
 
 	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
 		// On récupère les valeurs de l'image affichée et de l'image réelle
@@ -188,6 +172,7 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
 
 	    return coef;
 	}
+
 	var trapeze = null;
 	var cercle = null;
 	var canvasCotyle = null;
@@ -219,6 +204,8 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	this.m_Position.x = ((cercle[0]*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y = ((cercle[1]*dicomCanvas.height)/dicomHeight);
 
+	this.m_deltaDeplacement=deltaDeplacement;
+
 	this.m_coeffRedimensionnement=CoefRedimensionnementCotyle(this.m_cotyleWidthPx,this.m_cotyleWidthCm,this.m_cotyleHeightPx,this.m_cotyleHeightCm);
 
 	var deltaX = trapeze[2]-trapeze[0];
@@ -228,59 +215,32 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	var atan = Math.atan(tan)*-1;
 
 	this.m_Orientation=atan;
+	this.m_Orientation+=deltaRotation;
+	this.m_deltaRotation=deltaRotation;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 
 	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
 	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
 
+	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+	this.m_PositionPtMeca.x = cercle[0];
+	this.m_PositionPtMeca.y = cercle[1];
+	this.m_PositionPtMeca.x += this.m_deltaDeplacement/this.m_coeffDirecteur;
+	this.m_PositionPtMeca.y += this.m_deltaDeplacement;
+
 	console.log("this.m_cotyleImageWidth",this.m_cotyleImageWidth,"this.m_cotyleImageHeight",this.m_cotyleImageHeight);
 	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
+	var canvas  = document.querySelector('#dwv-imageLayer');
+	var context = canvas.getContext('2d');
+	context.strokeStyle = "rgb(200,0,0)";
+
+	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 50, 40);
 
 };
 
 Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
+	
 
 	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
 		// On récupère les valeurs de l'image affichée et de l'image réelle
@@ -325,6 +285,13 @@ Cotyle.prototype.Monter = function() {
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
 	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	this.m_deltaDeplacement-=1/coeffBille;
+	this.m_PositionPtMeca.x-=((((1/coeffBille)/this.m_coeffDirecteur)));
+	this.m_PositionPtMeca.y-=((1/coeffBille));
+	var canvas  = document.querySelector('#dwv-imageLayer');
+	var context = canvas.getContext('2d');
+	context.strokeStyle = "rgb(200,120,20)";
+//	context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 50, 40);
 };
 
 Cotyle.prototype.Descendre = function() {
@@ -334,14 +301,23 @@ Cotyle.prototype.Descendre = function() {
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	this.m_deltaDeplacement+=1/coeffBille;
+	this.m_PositionPtMeca.x+=((((1/coeffBille)/this.m_coeffDirecteur)));
+	this.m_PositionPtMeca.y+=((1/coeffBille));
+	var canvas  = document.querySelector('#dwv-imageLayer');
+	var context = canvas.getContext('2d');
+	context.strokeStyle = "rgb(200,150,10)";
+//	context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 50, 40);
 };
 
 Cotyle.prototype.TournerHaut = function() {
 	this.m_Orientation+=(1*2*Math.PI)/360;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
+	this.m_deltaRotation+=(1*2*Math.PI)/360;
 };
 
 Cotyle.prototype.TournerBas = function() {
 	this.m_Orientation-=(1*2*Math.PI)/360;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
+	this.m_deltaRotation-=(1*2*Math.PI)/360;
 };
