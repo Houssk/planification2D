@@ -12,6 +12,7 @@ dwv.image = dwv.image || {};
  */
 dwv.image.View = function(image, isSigned)
 {
+    console.log("start dwv.image.View");
     /**
      * Window lookup tables, indexed per Rescale Slope and Intercept (RSI).
      * @private
@@ -246,6 +247,8 @@ dwv.image.View = function(image, isSigned)
      * @param {Object} list The view listeners.
      */
     this.setListeners = function(list) { listeners = list; };
+    console.log("end dwv.image.View");
+
 };
 
 /**

@@ -77,6 +77,7 @@ dwv.image.RescaleSlopeAndIntercept.prototype.toString = function () {
  */
 dwv.image.Image = function(geometry, buffer)
 {
+    console.log("start dwv.image.Image");
     /**
      * Rescale slope and intercept.
      * @private
@@ -337,6 +338,7 @@ dwv.image.Image = function(geometry, buffer)
         }
         return histogram;
     };
+    console.log("end dwv.image.Image")
 };
 
 /**
@@ -743,6 +745,7 @@ dwv.image.ImageFactory.prototype.create = function (dicomElements, pixelBuffer)
         // unsigned to signed data
         buffer = new Int16Array(pixelBuffer.length);
         for ( var i=0; i<pixelBuffer.length; ++i ) {
+            cptImage++;
             buffer[i] = pixelBuffer[i];
             if ( buffer[i] >= Math.pow(2, 15) ) {
                 buffer[i] -= Math.pow(2, 16);
