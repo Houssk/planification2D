@@ -195,6 +195,10 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             }
         }
         if ("circle"==name) {
+            if (sessionStorage.getItem("calibrage")=="false") {
+                sessionStorage.setItem("calibrageAFaire", true);
+                sessionStorage.removeItem("lastPoint");
+            }
             var tempNbCercle = sessionStorage.getItem("nbCercle");
             tempNbCercle--;
             sessionStorage.setItem("nbCercle", tempNbCercle);
@@ -878,60 +882,95 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         'y': pos.y - dragStartPos.y};
                 if ( translation.x !== 0 || translation.y !== 0 ) {
                     if(cmdName == "roi"){
-                        if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
-                            var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
+                        if (document.getElementById("RadioOuiHanche").checked) {
+                            var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezePosition"));
                             var x1 = trapezeAxePosition[0] ;
                             var y1 = trapezeAxePosition[1] ;
                             var x2 = trapezeAxePosition[2] ;
-                            var y2 = trapezeAxePosition[2] ;
+                            var y2 = trapezeAxePosition[3] ;
                             x1 = x1+translation.x;
-                            y1 = x1+translation.y;
+                            y1 = y1+translation.y;
                             x2 = x2+translation.x;
-                            y2 = x2+translation.y;
+                            y2 = y2+translation.y;
                             trapezeAxePosition[0] = x1 ;
                             trapezeAxePosition[1] = y1 ;
                             trapezeAxePosition[2] = x2 ;
-                            trapezeAxePosition[2] = y2 ;
-                            sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                            trapezeAxePosition[3] = y2 ;
+                            sessionStorage.setItem("trapezePosition", JSON.stringify(trapezeAxePosition));
                         } else {
-                            var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
-                            var x1 = trapezeAxePosition[0] ;
-                            var y1 = trapezeAxePosition[1] ;
-                            var x2 = trapezeAxePosition[2] ;
-                            var y2 = trapezeAxePosition[2] ;
-                            x1 = x1+translation.x;
-                            y1 = x1+translation.y;
-                            x2 = x2+translation.x;
-                            y2 = x2+translation.y;
-                            trapezeAxePosition[0] = x1 ;
-                            trapezeAxePosition[1] = y1 ;
-                            trapezeAxePosition[2] = x2 ;
-                            trapezeAxePosition[2] = y2 ;
-                            sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                            if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
+                                var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
+                                var x1 = trapezeAxePosition[0] ;
+                                var y1 = trapezeAxePosition[1] ;
+                                var x2 = trapezeAxePosition[2] ;
+                                var y2 = trapezeAxePosition[3] ;
+                                x1 = x1+translation.x;
+                                y1 = y1+translation.y;
+                                x2 = x2+translation.x;
+                                y2 = y2+translation.y;
+                                trapezeAxePosition[0] = x1 ;
+                                trapezeAxePosition[1] = y1 ;
+                                trapezeAxePosition[2] = x2 ;
+                                trapezeAxePosition[3] = y2 ;
+                                sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                            } else {
+                                var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
+                                var x1 = trapezeAxePosition[0] ;
+                                var y1 = trapezeAxePosition[1] ;
+                                var x2 = trapezeAxePosition[2] ;
+                                var y2 = trapezeAxePosition[3] ;
+                                x1 = x1+translation.x;
+                                y1 = y1+translation.y;
+                                x2 = x2+translation.x;
+                                y2 = y2+translation.y;
+                                trapezeAxePosition[0] = x1 ;
+                                trapezeAxePosition[1] = y1 ;
+                                trapezeAxePosition[2] = x2 ;
+                                trapezeAxePosition[3] = y2 ;
+                                sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                            }
                         }
+                        
                     }
                     if (cmdName == "circle") {
                         var calibrage = sessionStorage.getItem("calibrage");
                         if (calibrage == "true") {
-                            if (dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)) {
-                                var centrePosition = JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+                            if (document.getElementById("RadioOuiHanche").checked) {
+                                var centrePosition = JSON.parse(sessionStorage.getItem("cerclePosition"));
                                 var x = centrePosition[0];
                                 var y = centrePosition[1];
                                 x = x+translation.x;
                                 y = y+translation.y;
                                 centrePosition[0] = x ;
                                 centrePosition[1] = y ;
-                                sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
+                                sessionStorage.setItem("cerclePosition", JSON.stringify(centrePosition));
                             } else {
-                                var centrePosition = JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
-                                var x = centrePosition[0];
-                                var y = centrePosition[1];
-                                x = x+translation.x;
-                                y = y+translation.y;
-                                centrePosition[0] = x ;
-                                centrePosition[1] = y ;
-                                sessionStorage.setItem("cercleGauchePosition", centrePosition);
+                                if (dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)) {
+                                    if(sessionStorage.getItem("cercleDroitPosition")!=null){
+                                        var centrePosition = JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+                                        var x = centrePosition[0];
+                                        var y = centrePosition[1];
+                                        x = x+translation.x;
+                                        y = y+translation.y;
+                                        centrePosition[0] = x ;
+                                        centrePosition[1] = y ;
+                                        sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
+                                        }
+
+                                } else {
+                                    if(sessionStorage.getItem("cercleGauchePosition")!=null){
+                                        var centrePosition = JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
+                                        var x = centrePosition[0];
+                                        var y = centrePosition[1];
+                                        x = x+translation.x;
+                                        y = y+translation.y;
+                                        centrePosition[0] = x ;
+                                        centrePosition[1] = y ;
+                                        sessionStorage.setItem("cercleGauchePosition", JSON.stringify(centrePosition));
+                                    }
+                                }
                             }
+                            
                         }
                     }
                     var mvcmd = new dwv.tool.MoveGroupCommand(this.getParent(), cmdName, translation, drawLayer);

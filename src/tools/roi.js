@@ -117,6 +117,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         } else {
             //test pour savoir de quel cote est le trapeze sauvegarde
             if(x1>(sessionStorage.getItem("imageLargeur")/2)){
+                console.log("je suis au coté trapeze coeff droit");
                 var trapezeAxePosition=[];
                 trapezeAxePosition.push(x1);
                 trapezeAxePosition.push(y1);
@@ -126,7 +127,8 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
                 sessionStorage.setItem("trapezeDroitcoeffDirect", coeffDirect);
                 //console.log("trapezeDroitPosition "+sessionStorage.getItem("trapezeDroitPosition"));
                 //console.log("trapezeDroitcoeffDirect "+sessionStorage.getItem("trapezeDroitcoeffDirect"));
-            } else {
+            } else if(x1<(sessionStorage.getItem("imageLargeur")/2)){
+                console.log("je suis au coté trapeze coeff droit");
                 var trapezeAxePosition=[];
                 trapezeAxePosition.push(x1);
                 trapezeAxePosition.push(y1);
@@ -137,6 +139,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
                 //console.log("trapezeGauchePosition "+sessionStorage.getItem("trapezeGauchePosition"));
                 //console.log("trapezeGauchecoeffDirect "+sessionStorage.getItem("trapezeGauchecoeffDirect"));
             }
+
         }
         
 

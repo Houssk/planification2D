@@ -15,7 +15,7 @@
 *
 *@author Quentin PETIT
 */
-function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm) {
+function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm, ptMecaHautXPx, ptMecaHautYPx) {
 	this.m_ID=ID;
 	this.m_Nom=Nom;
 	this.m_Url=Url;
@@ -32,6 +32,9 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_tigeImageWidth=null;
 	this.m_tigeImageHeight=null;
 	this.m_coeffRedimensionnement=null;
+	this.m_deltaDeplacement=0;
+	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
+	this.m_PositionPtMeca={'x' : null, 'y' : null};
 }
 
 /**
@@ -76,11 +79,20 @@ Tige.prototype.GetNom = function() {
 *
 *@author Quentin PETIT
 */
-
 Tige.prototype.GetOffsetX = function() {
 	return this.m_OffsetX;
 };
 
+/**
+*Cette fonction permet de récupérer la position du point mécanique.
+*
+*@return m_PositionPtMeca	Représente la position du point mécanique.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetPositionPtMecaHaut = function() {
+	return this.m_PositionPtMeca;
+};
 /**
 *Cette fonction permet de récupérer la nouvelle largeur de l'image après calcul du snap.
 *
@@ -128,12 +140,23 @@ Tige.prototype.GetOrientation = function() {
 /**
 *Cette fonction permet de récupérer le nouveau coefficient de redimensionnement après calcul de snap.
 *
-*@return m_angleAlignement	Représente le nouveau coefficient de redimensionnement après calcul de snap.
+*@return m_coeffRedimensionnement	Représente le nouveau coefficient de redimensionnement après calcul de snap.
 *
 *@author Quentin PETIT
 */
 Tige.prototype.GetCoeffRedimensionnement = function() {
 	return this.m_coeffRedimensionnement;
+};
+
+/**
+*Cette fonction permet de récupérer le déplacement de la tige.
+*
+*@return m_deltaDeplacement	Représente le déplacement de la tige.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetDeltaDeplacement = function() {
+	return this.m_deltaDeplacement;
 };
 
 /**
@@ -145,50 +168,7 @@ Tige.prototype.GetCoeffRedimensionnement = function() {
 *
 *@author Quentin PETIT
 */
-Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
-
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
+Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patient) {
 
 	/**
 	*Cette fonction calul le facteur de redimensionnement de la tige
@@ -221,9 +201,30 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
 		coef=coef*10;
-		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
+		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
 	    return coef;
+	}
+
+	/**
+	 *Cette fonction permet de réaliser une rotation autour d'un point donné
+	 *
+	 *@param cx			origine X de la rotation
+	 *@param cy			origine y de la rotation
+	 *@param x		    le point x l'objet de rotation
+	 *@param y			le point y l'objet de rotation
+	 *@param angle		angle de rotation en radian
+	 *
+	 *@author Houssam KARRACH
+	 */
+
+	function rotate(cx, cy, x, y, angle) {
+		var radians =  angle,
+			cos = Math.cos(radians),
+			sin = Math.sin(radians),
+			nx = (cos * (x - cx)) + (sin * (y - cy)) + cx,
+			ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
+		return [nx, ny];
 	}
 
 	var trapeze = null;
@@ -231,19 +232,19 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	var canvasTige = null;
 	var flip = null;
 	if (patient.GetCoteOperation()=="Droit") {
-		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
-		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition"));
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeGauchePosition").toString());
+		cercle=JSON.parse(sessionStorage.getItem("cercleGauchePosition").toString());
 		canvasTige = document.getElementById("canvasTigeGauche");
 		flip=180
 	} else {
-		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
-		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition"));
+		trapeze=JSON.parse(sessionStorage.getItem("trapezeDroitPosition").toString());
+		cercle=JSON.parse(sessionStorage.getItem("cercleDroitPosition").toString());
 		canvasTige = document.getElementById("canvasTigeDroit");
 		flip=0;
 	}
 	canvasTige.width=this.m_canvasWidth;
 	canvasTige.height=this.m_canvasHeight;
-	
+
 	var coeffDicom = facteurRedimensionnementImage();
 	this.m_coeffRedimensionnement = CoefRedimensionnementImplant(this.m_tigeWidthPx,this.m_tigeWidthCm,this.m_tigeHeightPx,this.m_tigeHeightCm);
 
@@ -254,71 +255,61 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient) {
 	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
 
+
+
+
 	//var deltaCercleTrapeze = (((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
 	var deltaX = trapeze[2]-trapeze[0];
 	var deltaY = trapeze[3]-trapeze[1];
 
 	var tan = deltaX/deltaY;
+	var acos = Math.atan(tan);
 	var atan = Math.atan(tan)*-1;
 	this.m_angleAlignement=atan;
+
+	this.m_deltaDeplacement=deltaDeplacement;
 
 	this.m_coeffDirecteur=deltaY/deltaX;
 	this.m_Position.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
+	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+
+/*
+	this.m_PositionPtMeca.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
+	this.m_PositionPtMeca.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
+	this.m_PositionPtMeca.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionPtMeca.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;*/
 
 
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
 	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
+	var canvas  = document.querySelector('#dwv-imageLayer');
+	var context = canvas.getContext('2d');
+	context.strokeStyle = "green";
+	console.log("this_manglealignement",this.m_angleAlignement);
+	var trapezeX = trapeze[0] - ((trapeze[1]-cercle[1])/this.m_coeffDirecteur)/2- this.m_OffsetX*this.m_coeffRedimensionnement;
+	var trapezeY = trapeze[1]  - (trapeze[1]-cercle[1])/2;
+	    trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
+		trapezeY += this.m_deltaDeplacement ;
+	var pointMx =  trapezeX + this.m_ptMecaHaut.x*this.m_coeffRedimensionnement  ;
+	var pointMy = trapezeY - this.m_ptMecaHaut.y*this.m_coeffRedimensionnement;
 
-	console.log("this.m_tigeImageWidth",this.m_tigeImageWidth,"this.m_tigeImageHeight",this.m_tigeImageHeight);
-	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
+	var rotation = rotate(trapezeX,trapezeY,pointMx,pointMy,acos);
+	this.m_PositionPtMeca.x = rotation[0];
+	this.m_PositionPtMeca.y = rotation[1];
+	console.log(" xrot, y rot ", rotation[0],rotation[1]);
+	console.log("pointmx pointmy",pointMx,pointMy);
+	//context.strokeRect(rotation[0],rotation[1], 20, 80);
+	console.log("this.m_Position",this.m_Position);
+
+
+
 
 };
 
 Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {
-	/**
-	*Cette fonction récupère les différentes taille de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function getValeursImage() {
-		var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-		// Taille de l'image réelle
-		var widthImageReelle = sessionStorage.getItem("imageLargeur");
-		var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-		// Taille de l'image affichée à l'écran
-		var widthImageCanvas = dicomCanvas.width;
-		var heightImageCanvas = dicomCanvas.height;
-
-		return {
-			widthImageReelle : widthImageReelle, 
-			heightImageReelle : heightImageReelle, 
-			widthImageCanvas : widthImageCanvas, 
-			heightImageCanvas : heightImageCanvas
-		};
-	}
-
-	/**
-	*Cette fonction calul les facteurs de redimensionnement de la dicom
-	*
-	*@author Quentin PETIT
-	*/
-	function facteurRedimensionnementImage() {
-		// On récupère les valeurs de l'image affichée et de l'image réelle
-		var image = getValeursImage();
-
-		// Calcul du coefficient réducteur de l'image
-		var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-		var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
-
-		return {
-			coefWidth : coefWidthImage, 
-			coefHeight : coefHeightImage
-		};
-	}
 
 	/**
 	*Cette fonction calul le facteur de redimensionnement de la tige
@@ -351,7 +342,7 @@ Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientati
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
 		coef=coef*10;
-		console.log("coef",coef);
+		//console.log("coef",coef);
 
 	    return coef;
 	}
@@ -371,8 +362,19 @@ Tige.prototype.Monter = function() {
 	var dicomCanvas = document.getElementById("dwv-imageLayer");
 	var dicomWidth = sessionStorage.getItem("imageLargeur");
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
 	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.x-=((((1/coeffBille)/this.m_coeffDirecteur)));
+	this.m_PositionPtMeca.y-=((1/coeffBille));
+
+	this.m_deltaDeplacement-=1/coeffBille;
+	console.log("this.m_Position",this.m_Position);
+	var canvas  = document.querySelector('#dwv-imageLayer');
+	var context = canvas.getContext('2d');
+	context.strokeStyle = "blue";
+//	context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
 };
 
 Tige.prototype.Descendre = function() {
@@ -380,6 +382,25 @@ Tige.prototype.Descendre = function() {
 	var dicomCanvas = document.getElementById("dwv-imageLayer");
 	var dicomWidth = sessionStorage.getItem("imageLargeur");
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.x+=((((1/coeffBille)/this.m_coeffDirecteur)));
+	this.m_PositionPtMeca.y+=((1/coeffBille));
+
+	this.m_deltaDeplacement+=1/coeffBille;
+	console.log("this.m_Position",this.m_Position);
+	var canvas  = document.querySelector('#dwv-imageLayer');
+	var context = canvas.getContext('2d');
+	context.strokeStyle = "grey";
+	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
+};
+
+Tige.prototype.TournerHaut = function() {
+	this.m_angleAlignement+=(1*2*Math.PI)/360;
+};
+
+Tige.prototype.TournerBas = function() {
+	this.m_angleAlignement-=(1*2*Math.PI)/360;
 };

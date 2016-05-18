@@ -10,9 +10,22 @@ dwv.tool = dwv.tool || {};
 var Kinetic = Kinetic || {};
 
 var onPeutTraceCercle=false;
-var calibrageAFaire=true;
 var lastPoint = null;
 var lastCenterPos = null;
+function ApparitionBoutonValiderPatient() {
+    console.log("ApparitionBoutonValiderPatient");
+    if (sessionStorage.getItem("boolPrenom")=="true" &&
+        sessionStorage.getItem("boolNom")=="true" &&
+        sessionStorage.getItem("boolTypeOperation")=="true" &&
+        sessionStorage.getItem("boolCoteOperation")=="true" &&
+        sessionStorage.getItem("taille_bille_px")!=null) {
+        document.getElementById("buttonValideInformationPatient").style.display="";
+        console.log("ApparitionBoutonValiderPatient display : _");
+    } else {
+        document.getElementById("buttonValideInformationPatient").style.display="none";
+        console.log("ApparitionBoutonValiderPatient display : none");
+    }
+}
 /**
  * Circle factory.
  * @class CircleFactory
@@ -70,19 +83,19 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         }
     } else {
 
-        if (calibrageAFaire==true) {
-            if (lastPoint == null) {
-                lastPoint=points[0];
+        if (sessionStorage.getItem("calibrageAFaire")=="true") {
+            if (sessionStorage.getItem("lastPoint")===null) {
+                sessionStorage.setItem("lastPoint", points[0]);
                 onPeutTraceCercle=true;
             } else {
-                if (lastPoint!=points[0]) {
+                if (sessionStorage.getItem("lastPoint")!=points[0]) {
                     onPeutTraceCercle=false;
-                    calibrageAFaire=false;
+                    sessionStorage.setItem("calibrageAFaire", false);
                 }
             }
         }
     }
-
+   console.log("onpeuttracercercle",onPeutTraceCercle);
     if(sessionStorage.getItem("retour")==0){
         onPeutTraceCercle = true;
     }
@@ -147,6 +160,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         else {
             str = diametre_px  + " px";
             sessionStorage.setItem("taille_bille_px",diametre_px);
+            ApparitionBoutonValiderPatient();
            }
         // quantification text
         var ktext = new Kinetic.Text({
