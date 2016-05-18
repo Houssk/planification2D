@@ -4,7 +4,7 @@ $(document).ready(function () {
     var lineBar = new ProgressBar.Line(progressBarDiv,{
         easing: 'easeInOut',
         duration: time,
-        color: '#934896',
+        color: '#FF6600',
     });
 
     lineBar.animate(1);

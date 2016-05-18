@@ -48,7 +48,7 @@ table.tagList td {
   float: right;
 }
 #logo {
-	background: url(../viewers/static/images/dedienne.png) no-repeat;
+	background: url(../viewers/static/images/serf.jpg) no-repeat;
 	width: 170px;
 	height: 45px;
 	float: left;
@@ -69,7 +69,7 @@ table.tagList td {
 	width: 99%; 
 	bottom: 5px; 
 	left: 5px; 
-	background-color: #333333; 
+	background-color: #000; 
 }
 #infotl { 
 	color: #333; 
@@ -160,10 +160,3 @@ table.tagList td {
     top: 0px;
     left: 0px;
 }
-<<<<<<< HEAD
-=======
-
-.imagefiles {
-  width: 100%;
-}
->>>>>>> c3593fb5b3fbf59e3245988bfe9b7d4d997367cd

@@ -4,7 +4,7 @@ onmessage = function(e) {
 	var lineBar = new ProgressBar.Line(progressBarDiv,{
 		easing: 'easeInOut',
 		duration: e.data[0],
-		color: '#934896',
+		color: '#FF6600',
 	});
 	lineBar.animate(1);
 }
