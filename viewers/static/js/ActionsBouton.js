@@ -348,11 +348,6 @@ $(document).ready(function () {
 		function() {
 			var coefficient = sessionStorage.getItem("coefficient");
 			function validerGamme(){
-				var nomPatient = document.getElementById("nomPatient");
-				var prenomPatient = document.getElementById("prenomPatient");
-				var coteChirurgie = document.getElementById("coteChirurgie");
-				var typeChirurgie = document.getElementById("typeChirurgie");
-				var tailleBille = document.getElementById("tailleBille");
 				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 				var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
 				var gammeCimenteOuNe = document.getElementById("gammeCimenteOuNe");
@@ -362,9 +357,10 @@ $(document).ready(function () {
 				var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
 				var valeurGammeCimenteOuNe = gammeCimenteOuNe.options[gammeCimenteOuNe.selectedIndex].value;
 
+				var gammeTige
                 // Condition pour le choix des bons index
 				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
-					 console.log(" cimenté + varise  ");
+					console.log(" cimenté + varise  ");
 					indexTigeDroit = 45;
 					indexTigeGauche = 55;
 					maximumTigeDroit =54;
