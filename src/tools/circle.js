@@ -85,9 +85,11 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 
         if (sessionStorage.getItem("calibrageAFaire")=="true") {
             if (sessionStorage.getItem("lastPoint")===null) {
+                console.log("sessionStorage.getItem(lastPoint) calibrageAFaire=true",sessionStorage.getItem("lastPoint"));
                 sessionStorage.setItem("lastPoint", points[0]);
                 onPeutTraceCercle=true;
             } else {
+                console.log("sessionStorage.getItem(lastPoint) calibrageAFaire=true",sessionStorage.getItem("lastPoint"));
                 if (sessionStorage.getItem("lastPoint")!=points[0]) {
                     onPeutTraceCercle=false;
                     sessionStorage.setItem("calibrageAFaire", false);
@@ -95,10 +97,10 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             }
         }
     }
-   console.log("onpeuttracercercle",onPeutTraceCercle);
-    if(sessionStorage.getItem("retour")==0){
+   //console.log("onpeuttracercercle",onPeutTraceCercle);
+    /*if(sessionStorage.getItem("retour")==0){
         onPeutTraceCercle = true;
-    }
+    }*/
     if (onPeutTraceCercle == true) {
         var tempNbCercle = sessionStorage.getItem("nbCercle") ;
         if(parseInt(tempNbCercle)==1){

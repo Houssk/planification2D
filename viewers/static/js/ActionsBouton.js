@@ -204,27 +204,20 @@ $(document).ready(function () {
 										"DICOM", // to do DICOM
 										coteChirurgie.options[coteChirurgie.selectedIndex].value);
 									console.log(patient);
+									sessionStorage.setItem("calibrageAFaire", false);
 
 									m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
 									if (patient.GetOperationGuide()=="Non guider") {
-										document.getElementById("buttonMonterTige").style.display="none";
-										document.getElementById("buttonDescendreTige").style.display="none";
-										document.getElementById("buttonMonterCotyle").style.display="none";
-										document.getElementById("buttonDescendreCotyle").style.display="none";
+										document.getElementById("deplacerTige").style.display="none";
+										document.getElementById("deplacerCotyle").style.display="none";
 										document.getElementById("labelOffsetTigeCotyle").style.display="none";
 										document.getElementById("labelHauteurTigeCotyle").style.display="none";
 										//document.getElementById("buttonTournerHautCotyle").style.display="none";
 										//document.getElementById("buttonTournerBasCotyle").style.display="none";
-										document.getElementById("buttonDeplacerTige").style.display="";
-										document.getElementById("buttonTournerHautTige").style.display="";
-										document.getElementById("buttonTournerBasTige").style.display="";
-										document.getElementById("buttonDeplacerCotyle").style.display="";
-										
-
-
-
+										document.getElementById("positionTige").style.display="";
+										document.getElementById("positionCotyle").style.display="";
 									}
 									if (patient.GetCoteOperation()=="Gauche") {
 										document.getElementById("coteTige").value="Gauche";
