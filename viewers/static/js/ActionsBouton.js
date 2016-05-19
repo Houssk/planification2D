@@ -213,12 +213,16 @@ $(document).ready(function () {
 										document.getElementById("buttonDescendreTige").style.display="none";
 										document.getElementById("buttonMonterCotyle").style.display="none";
 										document.getElementById("buttonDescendreCotyle").style.display="none";
+										document.getElementById("labelOffsetTigeCotyle").style.display="none";
+										document.getElementById("labelHauteurTigeCotyle").style.display="none";
 										//document.getElementById("buttonTournerHautCotyle").style.display="none";
 										//document.getElementById("buttonTournerBasCotyle").style.display="none";
 										document.getElementById("buttonDeplacerTige").style.display="";
 										document.getElementById("buttonTournerHautTige").style.display="";
 										document.getElementById("buttonTournerBasTige").style.display="";
 										document.getElementById("buttonDeplacerCotyle").style.display="";
+										
+
 
 
 									}
