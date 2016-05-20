@@ -5,5 +5,5 @@
 	$dbpass="";
 
 	$dblink=mysql_connect($dbhost,$dbuser,$dbpass);
-	mysql_select_db("planif2d",$dblink);
+	mysql_select_db("planif2d_serf",$dblink);
 ?>

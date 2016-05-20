@@ -22,7 +22,9 @@ function VerrouillageBoiteDialogue() {
 *@author Quentin PETIT
 */
 
-function getTige(id) {
+function getTige(table, id) {
+    console.log("getTige");
+    console.log("table",table,"id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -32,7 +34,7 @@ function getTige(id) {
 		}
 	}
 
-	xhr.open("GET", 'php/getTigeById.php?idTige='+id+'', false);
+	xhr.open("GET", 'php/getTigeById.php?idTige='+id+'&tableTige='+table+'', false);
     xhr.send(null);
     xhr.responseText;
     var docXML= xhr.responseXML;
@@ -73,7 +75,9 @@ function getTige(id) {
 *@author Quentin PETIT
 */
 
-function getCotyle(id) {
+function getCotyle(table, id) {
+    console.log("getCotyle");
+    console.log("table",table,"id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -83,7 +87,7 @@ function getCotyle(id) {
 		}
 	}
 
-	xhr.open("GET", 'php/getCotyleById.php?idCotyle='+id+'', false);
+	xhr.open("GET", 'php/getCotyleById.php?idCotyle='+id+'&tableCotyle='+table+'', false);
     xhr.send(null);
     xhr.responseText;
     var docXML= xhr.responseXML;
@@ -103,7 +107,7 @@ function getCotyle(id) {
     var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
     
-    
+    console.log("cotyleUrl",cotyleUrl);
     var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle);
 
     return cotyle;

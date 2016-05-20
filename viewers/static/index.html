@@ -194,31 +194,33 @@
 			<h3>IMPLANTS</h3>
 			<!-- IMPLANTS -->
 			<div class="implants">
-				<h4 id="choix_tige">Tige</h4>
-				<div class="row">
-					<div class="col-md-6">
-						<select class="form-control" id="gammeTige">
-							<option value="implant_hype">HYPE</option>
-							<option value="implant_hype">LIBRA</option>
-						</select>
+				<div id="choix_gamme">
+					<h4 id="choix_tige">Tige</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<select class="form-control" id="gammeTige">
+								<option value="implant_hype">HYPE</option>
+								<option value="implant_libra">LIBRA</option>
+							</select>
+						</div>
 					</div>
-				</div>
 
-				<h4 id="choix_cotyle">Cotyle</h4>
-				<div class="row">
-					<div class="col-md-6">
-						<select class="form-control" id="gammeCotyle">
-							<option value="cotyle_hype">HYPE</option>
-							<option value="cotyles_novae">NOVAE</option>
-						</select>
+					<h4 id="choix_cotyle">Cotyle</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<select class="form-control" id="gammeCotyle">
+								<option value="cotyle_hype">HYPE</option>
+								<option value="cotyle_novae">NOVAE</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<input id="buttonValideGamme" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin: 8% 0%; width: 110px;">
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<input id="buttonValideGamme" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="VALIDER" style="margin: 8% 0%; width: 110px;">
-					</div>
-				</div>
-
+				
 
 
 				<div id="actionImplant" style="display: none">
@@ -246,7 +248,7 @@
 							<input id="buttonPlusTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+" style="width:35px;">
 						</div>
 					</div>
-					<div class="row" style="margin-top: 2%;">
+					<div id="deplacerTige" class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
 							<h5>D&eacute;placer</h5>
 						</div>
@@ -255,14 +257,14 @@
 							<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+" style="width:35px;">
 						</div>
 					</div>
-					<div class="row" style="margin-top: 2%;">
+					<div id="positionTige" class="row" style="margin-top: 2%; display: none;">
 						<div class="col-md-3">
 							<h5>Positionner</h5>
 						</div>
 						<div class="col-md-9">
-							<input id="buttonDeplacerTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
-							<input id="buttonTournerHautTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+" style="width:35px;display: none;">
-							<input id="buttonTournerBasTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-" style="width:35px; display: none;">
+							<input id="buttonDeplacerTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" >
+							<input id="buttonTournerHautTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+" style="width:35px;">
+							<input id="buttonTournerBasTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-" style="width:35px;">
 						</div>
 					</div>
 					<div class="row" style="margin-top: 2%;">
@@ -289,7 +291,7 @@
 							<input id="buttonPlusCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+" style="width:35px;">
 						</div>
 					</div>
-					<div class="row" style="margin-top: 2%;">
+					<div id="deplacerCotyle" class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
 							<h5>D&eacute;placer</h5>
 						</div>
@@ -309,12 +311,12 @@
 						</div>
 					</div>
 
-					<div class="row" style="margin-top: 2%;">
+					<div id="positionCotyle" class="row" style="margin-top: 2%; display: none;">
 						<div class="col-md-3">
 							<h5>Positionner</h5>
 						</div>
 						<div class="col-md-9">
-							<input id="buttonDeplacerCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
+							<input id="buttonDeplacerCotyle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer">
 						</div>
 					</div>
 					<label id="labelOffsetTigeCotyle" class="blackColor"></label>
