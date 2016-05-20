@@ -1712,7 +1712,15 @@ $(document).ready(function () {
 				
 				//docPDF.addImage(divData, 'JPEG', 15, 35, 180, ((180*hImageLayer)/wImageLayer));
 				//docPDF.save(patient.GetNom()+" "+patient.GetPrenom());
-
+				var coefficient = sessionStorage.getItem("coefficient");
+				if (patient.GetCoteOperation()=="Gauche") {
+					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+				}
+				if (patient.GetCoteOperation()=="Droit") {
+					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+				}
 				html2canvas(divLayer,{
 					onrendered: function (canvas) {
 						console.log("canvas",canvas);
@@ -1755,7 +1763,14 @@ $(document).ready(function () {
 							docPDF.text(15, 30, "Cotyle utilisé pour cette planification : "+cotyleGauche.GetNom());
 						}
 						
-						docPDF.addImage(divData, 'JPEG', 15, 35, 180, ((180*m_canvasHeight)/m_canvasWidth));
+						if(patient.GetOperationGuide()=="Guider")
+						{
+							docPDF.text(15, 35, "Offset = "+offset+" mm");
+							docPDF.text(15, 40, "Hauteur = "+hauteur+" mm");
+							docPDF.addImage(divData, 'JPEG', 15, 45, 180, ((180*m_canvasHeight)/m_canvasWidth));
+						} else if (patient.GetOperationGuide()=="Non guider") {
+							docPDF.addImage(divData, 'JPEG', 15, 35, 180, ((180*m_canvasHeight)/m_canvasWidth));
+						}
 						docPDF.save(patient.GetNom()+" "+patient.GetPrenom());
 						
 					},
