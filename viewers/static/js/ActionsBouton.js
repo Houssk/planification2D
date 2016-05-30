@@ -1022,6 +1022,7 @@ $(document).ready(function () {
 						var imgTigeDroitWidth=imgTigeDroit.width;
 						var imgTigeDroitHeight=imgTigeDroit.height;
 						newTigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, tigeDroit.GetDeltaDeplacement(), patient);
+						console.log("imagetige guche",newTigeDroit)
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 						contexteTigeDrawTige.translate(newTigeDroit.GetPosition().x,newTigeDroit.GetPosition().y);
@@ -1034,6 +1035,7 @@ $(document).ready(function () {
 						var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+						document.getElementById('labelTailleTige').innerHTML = tigeDroit.GetNom();
 					}
 					imgTigeDroit.src=newTigeDroit.GetUrl();
 				} else {
@@ -1099,6 +1101,8 @@ $(document).ready(function () {
 						var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+						document.getElementById('labelTailleTige').innerHTML = tigeGauche.GetNom();
+
 
 					}
 					imgTigeGauche.src=newTigeGauche.GetUrl();
@@ -1175,6 +1179,7 @@ $(document).ready(function () {
 						var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+						document.getElementById('labelTailleCotyle').innerHTML = cotyleDroit.GetNom();
 					}
 					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 				} else {
@@ -1239,6 +1244,7 @@ $(document).ready(function () {
 						var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+						document.getElementById('labelTailleCotyle').innerHTML = cotyleGauche.GetNom();
 					}
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 				} else {
@@ -1285,16 +1291,22 @@ $(document).ready(function () {
 			function PlusTailleTige(){
 				var coteTigeBtn = document.getElementById("coteTige");
 				if (coteTigeBtn.options[coteTigeBtn.selectedIndex].value == "Gauche") {
-					if (indexTigeDroit+1>maximumTigeDroit) {
+                       console.log("debut", indexTigeDroit);
+					if ((indexTigeDroit+1)>maximumTigeDroit) {
 						indexTigeDroit= maximumTigeDroit;
-					} else {
+						console.log("indexTigeDroit, maximumTigeDroit", indexTigeDroit, maximumTigeDroit);
+					} else if(indexTigeDroit<maximumTigeDroit) {
 						indexTigeDroit++;
+						console.log("indexTigeDroit, maximumTigeDroit",indexTigeDroit, maximumTigeDroit);
 					}
 				} else {
-					if (indexTigeGauche+1>maximumTigeGauche) {
+					if ((indexTigeGauche+1)>maximumTigeGauche) {
+
 						indexTigeGauche=maximumTigeGauche;
+						console.log("indexTigeGauche maximumTigeGauche",indexTigeGauche, maximumTigeGauche);
 					} else {
 						indexTigeGauche++;
+						console.log("indexTigeGauche maximumTigeGauche",indexTigeGauche, maximumTigeGauche);
 					}
 				}
 
@@ -1309,7 +1321,7 @@ $(document).ready(function () {
 			function MoinsTailleTige(){
 				var coteTigeBtn = document.getElementById("coteTige");
 				if (coteTigeBtn.options[coteTigeBtn.selectedIndex].value == "Gauche") {
-					if (indexTigeDroit-1<minimumTigeDroit) {
+					if ((indexTigeDroit-1)<minimumTigeDroit) {
 						indexTigeDroit=minimumTigeDroit;
 					} else {
 						indexTigeDroit--;
