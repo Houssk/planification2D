@@ -22,7 +22,8 @@ function VerrouillageBoiteDialogue() {
 *@author Quentin PETIT
 */
 
-function getTige(id) {
+function getTige(table,id) {
+    console.log("table", table, "id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -32,7 +33,7 @@ function getTige(id) {
 		}
 	}
 
-	xhr.open("GET", 'php/getTigeById.php?idTige='+id+'', false);
+	xhr.open("GET", 'php/getTigeById.php?idTige='+id+'&tableTige='+table+'', false);
     xhr.send(null);
     xhr.responseText;
     var docXML= xhr.responseXML;
@@ -73,7 +74,7 @@ function getTige(id) {
 *@author Quentin PETIT
 */
 
-function getCotyle(id) {
+function getCotyle(table,id) {
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -83,7 +84,7 @@ function getCotyle(id) {
 		}
 	}
 
-	xhr.open("GET", 'php/getCotyleById.php?idCotyle='+id+'', false);
+	xhr.open("GET", 'php/getCotyleById.php?idCotyle='+id+'&tableCotyle='+table+'', false);
     xhr.send(null);
     xhr.responseText;
     var docXML= xhr.responseXML;

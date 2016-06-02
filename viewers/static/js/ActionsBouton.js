@@ -21,20 +21,24 @@ $(document).ready(function () {
 	var imgTigeGauche = null; // variable de stockage de l'image de la tige
 	var imgCotyleGauche = null; // variable de stockage de l'image du cotyle
 
-	var indexTigeDroit = 11;
-	var indexCotyleDroit = 43;
-	var indexTigeGauche = 11 +8;
-	var indexCotyleGauche = 43 +13;
+	var indexTigeDroit = null;
+	var maximumTigeDroit = null;
+	var minimumTigeDroit = null;
 
-	var maximumTigeDroit= null;
-	var minimumTigeDroit=null;
-	var maximumTigeGauche= null;
-	var minimumTigeGauche=null;
+	var indexTigeGauche = null;
+	var maximumTigeGauche = null;
+	var minimumTigeGauche = null;
 
+	var indexCotyleGauche = null;
 	var maximumCotyleDroit = null;
-	var maximumCotyleGauche = null;
 	var minimumCotyleDroit = null;
+
+	var indexCotyleDroit = null;
+	var maximumCotyleGauche = null;
 	var minimumCotyleGauche = null;
+
+	var tableTige = null;
+	var tableCotyle = null;
 
 	var m_canvasWidth = null;
 	var m_canvasHeight = null;
@@ -359,83 +363,114 @@ $(document).ready(function () {
 				var valeurGammeCimenteOuNe = gammeCimenteOuNe.options[gammeCimenteOuNe.selectedIndex].value;
 
                 // Condition pour le choix des bons index
+                // Choix tige
 				if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
-					 console.log(" cimenté + varise  ");
-					indexTigeDroit = 45;
-					indexTigeGauche = 55;
-					maximumTigeDroit =54;
-					minimumTigeDroit = 45;
-					maximumTigeGauche =64;
-					minimumTigeGauche= 55;
+					console.log(" cimenté , varise : implant_ax_cem_var");
+
+					tableTige ="implant_ax_cem_var";
+					
+					indexTigeDroit = 4;
+					maximumTigeDroit =10;
+					minimumTigeDroit = 1;
+
+					indexTigeGauche = 14;
+					maximumTigeGauche =20;
+					minimumTigeGauche= 11;
 
 				}
-
 				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
-					 console.log("2eme cas ");
-					 indexTigeDroit = 25;
-					 indexTigeGauche = 35;
-					 maximumTigeDroit =34;
-					 minimumTigeDroit = 25;
-					 maximumTigeGauche =44;
-					 minimumTigeGauche= 35;
+					console.log("cimenté , standard : implant_ax_cem_std");
+
+					tableTige ="implant_ax_cem_std";
+					
+					indexTigeDroit = 4;
+					maximumTigeDroit =10;
+					minimumTigeDroit = 1;
+
+					indexTigeGauche = 14;
+					maximumTigeGauche =20;
+					minimumTigeGauche= 11;
 
 				}
-
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
-					console.log("3eme cas ");
-					indexTigeDroit =  125;
-					indexTigeGauche =  135;
-					maximumTigeDroit =134;
-					minimumTigeDroit = 125;
-					maximumTigeGauche = 144;
-					minimumTigeGauche= 135;
+					console.log("sansCiment , varise , collerette : implant_ax_ha_var_col");
+					
+					tableTige ="implant_ax_ha_var_col";
+					
+					indexTigeDroit = 4;
+					maximumTigeDroit =10;
+					minimumTigeDroit = 1;
+
+					indexTigeGauche = 14;
+					maximumTigeGauche =20;
+					minimumTigeGauche= 11;
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
-					console.log("4eme cas ");
-					indexTigeDroit =  105;
-					indexTigeGauche =  115;
-					maximumTigeDroit =114;
-					minimumTigeDroit = 105;
-					maximumTigeGauche = 124;
-					minimumTigeGauche= 115;
+					console.log("sansCiment , varise , sansCollerette : implant_ax_ha_var");
+
+					tableTige ="implant_ax_ha_var";
+					
+					indexTigeDroit = 4;
+					maximumTigeDroit =10;
+					minimumTigeDroit = 1;
+
+					indexTigeGauche = 14;
+					maximumTigeGauche =20;
+					minimumTigeGauche= 11;
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
-					console.log("5 eme cas ");
-					indexTigeDroit =  85;
-					indexTigeGauche =  95;
-					maximumTigeDroit =94;
-					minimumTigeDroit = 85;
-					maximumTigeGauche = 104;
-					minimumTigeGauche= 95;
+					console.log("sansCiment , standard , collerette : implant_ax_ha_std_col");
+
+					tableTige ="implant_ax_ha_std_col";
+					
+					indexTigeDroit = 4;
+					maximumTigeDroit =10;
+					minimumTigeDroit = 1;
+
+					indexTigeGauche = 14;
+					maximumTigeGauche =20;
+					minimumTigeGauche= 11;
 				}
 				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
-					console.log("6 eme cas ");
+					console.log("sansCiment , standard , sansCollerette : implant_ax_ha_std");
+					
+					tableTige ="implant_ax_ha_std";
+					
+					indexTigeDroit = 4;
+					maximumTigeDroit =10;
+					minimumTigeDroit = 1;
 
-					indexTigeDroit = 65;
-					indexTigeGauche = 75;
-					maximumTigeDroit =74;
-					minimumTigeDroit = 65;
-					maximumTigeGauche =84;
-					minimumTigeGauche= 75;
-
+					indexTigeGauche = 14;
+					maximumTigeGauche =20;
+					minimumTigeGauche= 11;
 				}
-				if(valeurGammeCimenteOuNe=="cimente" ) {
-					console.log("1er cas ");
 
-					indexCotyleDroit = 43;
-					indexCotyleGauche = 56;
-					maximumCotyleDroit = 55;
-					maximumCotyleGauche = 68;
-					minimumCotyleDroit = 43;
-					minimumCotyleGauche = 56;
+				//Choix Cotyle
+				if(valeurGammeCimenteOuNe=="cimente" ) {
+					console.log("cimente : cotyle_ax_dm_cem");
+
+					tableCotyle = "cotyle_ax_dm_cem";
+
+					indexCotyleDroit = 6;
+					maximumCotyleDroit = 13;
+					minimumCotyleDroit = 1;
+					
+					indexCotyleGauche = 19;
+					maximumCotyleGauche = 14;
+					minimumCotyleGauche = 25;
 				}
 				else if (valeurGammeCimenteOuNe=="sansCiment" ) {
-					indexCotyleDroit = 69;
-					indexCotyleGauche = 80;
-					maximumCotyleDroit = 79;
-					maximumCotyleGauche = 90;
-					minimumCotyleDroit = 69;
-					minimumCotyleGauche = 80;
+					console.log("sansCiment : cotyle_ax_sm_ne");
+
+					tableCotyle = "cotyle_ax_sm_ne";
+
+					indexCotyleDroit = 5;
+					maximumCotyleDroit = 11;
+					minimumCotyleDroit = 1;
+					
+					indexCotyleGauche = 16;
+					maximumCotyleGauche = 12;
+					minimumCotyleGauche = 22;
 				}
 
 
@@ -444,11 +479,11 @@ $(document).ready(function () {
 				m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 				m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 				if (patient.GetOperationGuide()=="Non guider") {
-					var newTigeGauche=getTige(indexTigeGauche);
-					var newTigeDroit=getTige(indexTigeDroit);
+					var newTigeGauche=getTige(tableTige, indexTigeGauche);
+					var newTigeDroit=getTige(tableTige, indexTigeDroit);
 					var newTige=null;
-					var newCotyleGauche=getCotyle(indexCotyleGauche);
-					var newCotyleDroit=getCotyle(indexCotyleDroit);
+					var newCotyleGauche=getCotyle(tableCotyle, indexCotyleGauche);
+					var newCotyleDroit=getCotyle(tableCotyle, indexCotyleDroit);
 					var newCotyle=null;
 					var canvasTige=null;
 					var canvasCotyle = null;
@@ -645,10 +680,10 @@ $(document).ready(function () {
 
 
 					// récupération tige et cotyle
-					tigeDroit = getTige(indexTigeDroit);
-					cotyleDroit = getCotyle(indexCotyleDroit);
-					tigeGauche = getTige(indexTigeGauche);
-					cotyleGauche = getCotyle(indexCotyleGauche);
+					tigeDroit = getTige(tableTige, indexTigeDroit);
+					cotyleDroit = getCotyle(tableCotyle, indexCotyleDroit);
+					tigeGauche = getTige(tableTige, indexTigeGauche);
+					cotyleGauche = getCotyle(tableCotyle, indexCotyleGauche);
 
 					//Initialisation des images
 					imgTigeDroit = new Image;
@@ -984,7 +1019,7 @@ $(document).ready(function () {
 			contexteTigeDrawTige=canvasTige.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Gauche") {
-					var newTigeDroit=getTige(indexTigeDroit);
+					var newTigeDroit=getTige(tableTige, indexTigeDroit);
 					imgTigeDroit = new Image;
 					imgTigeDroit.onload=function () {
 						var imgTigeDroitWidth=imgTigeDroit.width;
@@ -1007,7 +1042,7 @@ $(document).ready(function () {
 					imgTigeDroit.src=newTigeDroit.GetUrl();
 
 				} else {
-					var newTigeDroit = getTige(indexTigeDroit);
+					var newTigeDroit = getTige(tableTige, indexTigeDroit);
 					imgTigeDroit = new Image;
 					imgTigeDroit.onload=function () {
 						var imgTigeDroitWidth=imgTigeDroit.width;
@@ -1025,7 +1060,7 @@ $(document).ready(function () {
 					document.getElementById('labelTailleTige').innerHTML = newTigeDroit.GetNom();
 				}
 			} else {
-				var newTigeDroit = getTige(indexTigeDroit);
+				var newTigeDroit = getTige(tableTige, indexTigeDroit);
 				imgTigeDroit = new Image;
 				imgTigeDroit.onload=function () {
 					var imgTigeDroitWidth=imgTigeDroit.width;
@@ -1052,7 +1087,7 @@ $(document).ready(function () {
 			contexteTigeDrawTige=canvasTige.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					var newTigeGauche=getTige(indexTigeGauche);
+					var newTigeGauche=getTige(tableTige, indexTigeGauche);
 					imgTigeGauche = new Image;
 					imgTigeGauche.onload=function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
@@ -1076,7 +1111,7 @@ $(document).ready(function () {
 					imgTigeGauche.src=newTigeGauche.GetUrl();
 					document.getElementById('labelTailleTige').innerHTML = newTigeGauche.GetNom();
 				} else {
-					var newTigeGauche = getTige(indexTigeGauche);
+					var newTigeGauche = getTige(tableTige, indexTigeGauche);
 					imgTigeGauche = new Image;
 					imgTigeGauche.onload=function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
@@ -1095,7 +1130,7 @@ $(document).ready(function () {
 			}
 
 		}	else {
-				var newTigeGauche = getTige(indexTigeGauche);
+				var newTigeGauche = getTige(tableTige, indexTigeGauche);
 				imgTigeGauche = new Image;
 				imgTigeGauche.onload=function () {
 					var imgTigeGaucheWidth=imgTigeGauche.width;
@@ -1131,7 +1166,7 @@ $(document).ready(function () {
 			contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Gauche") {
-					var newCotyleDroit=getCotyle(indexCotyleDroit);
+					var newCotyleDroit=getCotyle(tableCotyle, indexCotyleDroit);
 					imgCotyleDroit = new Image;
 					imgCotyleDroit.onload=function () {
 						var imgCotyleDroitWidth=imgCotyleDroit.width;
@@ -1154,7 +1189,7 @@ $(document).ready(function () {
 					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 					document.getElementById('labelTailleCotyle').innerHTML = newCotyleDroit.GetNom();
 				} else {
-					var newCotyleDroit = getCotyle(indexCotyleDroit);
+					var newCotyleDroit = getCotyle(tableCotyle, indexCotyleDroit);
 					imgCotyleDroit = new Image;
 					imgCotyleDroit.onload=function () {
 						var imgCotyleDroitWidth=imgCotyleDroit.width;
@@ -1172,7 +1207,7 @@ $(document).ready(function () {
 					document.getElementById('labelTailleCotyle').innerHTML = newCotyleDroit.GetNom();
 				}
 			} else {
-				var newCotyleDroit = getCotyle(indexCotyleDroit);
+				var newCotyleDroit = getCotyle(tableCotyle, indexCotyleDroit);
 				imgCotyleDroit = new Image;
 				imgCotyleDroit.onload=function () {
 					var imgCotyleDroitWidth=imgCotyleDroit.width;
@@ -1199,7 +1234,7 @@ $(document).ready(function () {
 			contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
 			if (patient.GetOperationGuide()=="Guider") {
 				if (patient.GetCoteOperation()=="Droit") {
-					var newCotyleGauche=getCotyle(indexCotyleGauche);
+					var newCotyleGauche=getCotyle(tableCotyle, indexCotyleGauche);
 					imgCotyleGauche = new Image;
 					imgCotyleGauche.onload=function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
@@ -1222,7 +1257,7 @@ $(document).ready(function () {
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 					document.getElementById('labelTailleCotyle').innerHTML = newCotyleGauche.GetNom();
 				} else {
-					var newCotyleGauche = getCotyle(indexCotyleGauche);
+					var newCotyleGauche = getCotyle(tableCotyle, indexCotyleGauche);
 					imgCotyleGauche = new Image;
 					imgCotyleGauche.onload=function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
@@ -1240,7 +1275,7 @@ $(document).ready(function () {
 					document.getElementById('labelTailleCotyle').innerHTML = newCotyleGauche.GetNom();
 				}
 			} else {
-				var newCotyleGauche = getCotyle(indexCotyleGauche);
+				var newCotyleGauche = getCotyle(tableCotyle, indexCotyleGauche);
 				imgCotyleGauche = new Image;
 				imgCotyleGauche.onload=function () {
 					var imgCotyleGaucheWidth=imgCotyleGauche.width;
