@@ -22,6 +22,7 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_OffsetX=OffsetX;
 	this.m_coeffDirecteur=null;
 	this.m_Position={'x' : null, 'y' : null};
+	this.m_PositionAvtOffset={'x' : null, 'y' : null};
 	this.m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 	this.m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 	this.m_tigeWidthPx=tigeWidthPx;
@@ -160,6 +161,17 @@ Tige.prototype.GetDeltaDeplacement = function() {
 };
 
 /**
+*Cette fonction retourne la position sans l'offset
+*
+*@return m_PositionAvtOffset	Représente la position de la tige sans l'offset
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetPositionAvtOffset = function() {
+	return this.m_PositionAvtOffset;
+};
+
+/**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
 *
 *@param imageWidth			largeur de l'image associés à la tige
@@ -254,7 +266,8 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 
 	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
-
+	this.m_PositionAvtOffset.x=((trapeze[0]*dicomCanvas.width)/dicomWidth);
+	this.m_PositionAvtOffset.y=((trapeze[1]*dicomCanvas.height)/dicomHeight);
 
 
 
@@ -275,7 +288,10 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
-
+	this.m_PositionAvtOffset.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
+	this.m_PositionAvtOffset.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
+	this.m_PositionAvtOffset.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
 /*
 	this.m_PositionPtMeca.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_PositionPtMeca.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
@@ -366,6 +382,9 @@ Tige.prototype.Monter = function() {
 	this.m_Position.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 
+	this.m_PositionAvtOffset.x-=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionAvtOffset.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
 	this.m_PositionPtMeca.x-=((((1/coeffBille)/this.m_coeffDirecteur)));
 	this.m_PositionPtMeca.y-=((1/coeffBille));
 
@@ -385,6 +404,9 @@ Tige.prototype.Descendre = function() {
 
 	this.m_Position.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionAvtOffset.x+=((((1/coeffBille)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionAvtOffset.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 
 	this.m_PositionPtMeca.x+=((((1/coeffBille)/this.m_coeffDirecteur)));
 	this.m_PositionPtMeca.y+=((1/coeffBille));

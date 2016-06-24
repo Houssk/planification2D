@@ -59,6 +59,12 @@ dwv.tool.CircleFactory = function ()
  */
 dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 {
+    var nbMaxDraw
+    if (document.getElementById("RadioOuiHanche").checked) {
+        nbMaxDraw=1;
+    } else {
+        nbMaxDraw=2;
+    }
     var calibrage = sessionStorage.getItem("calibrage");
     if (calibrage=="true") {
         if (sessionStorage.getItem("centreCercle")===null) {
@@ -70,7 +76,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
         } else {
             if (sessionStorage.getItem("centreCercle")!=points[0]) {
                 sessionStorage.setItem("centreCercle", points[0]);
-                if (sessionStorage.getItem("nbCercle")<2) {
+                if (sessionStorage.getItem("nbCercle")<nbMaxDraw) {
                     var tempNbCercle = sessionStorage.getItem("nbCercle");
                     tempNbCercle++;
                     sessionStorage.setItem("nbCercle", tempNbCercle);

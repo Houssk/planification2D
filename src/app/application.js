@@ -506,6 +506,7 @@ dwv.App = function ()
         }*/
         var time = parseInt(sessionStorage.getItem("dataImage"))/71;
         var progressBarDiv = document.getElementById("barprogress");
+        progressBarDiv.innerHTML = "";
         var lineBar = new ProgressBar.Line(progressBarDiv,{
             strokeWidth: 10,
             easing: 'easeInOut',

@@ -764,7 +764,8 @@ dwv.dicom.DicomParser.prototype.parse = function(buffer)
     // default readers
     var metaReader = new dwv.dicom.DataReader(buffer);
     var dataReader = new dwv.dicom.DataReader(buffer);
-
+    
+    //console.log("metaReader", metaReader);
     // 128 -> 132: magic word
     offset = 128;
     var magicword = metaReader.readString( offset, 4 );

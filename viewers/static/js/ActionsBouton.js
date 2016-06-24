@@ -332,7 +332,6 @@ $(document).ready(function () {
 
 				if(onPeutValider==true)
 				{
-
 					$('.implants *').prop('disabled',false);
 					$('.outilsDessin *').prop('disabled',true);
 					$("#accordeon").accordion({active : 2});
@@ -409,85 +408,6 @@ $(document).ready(function () {
 						break;
 					}
 				}
-                // Condition pour le choix des bons index
-				/*if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
-					console.log(" cimenté + varise  ");
-					indexTigeDroit = 45;
-					indexTigeGauche = 55;
-					maximumTigeDroit =54;
-					minimumTigeDroit = 45;
-					maximumTigeGauche =64;
-					minimumTigeGauche= 55;
-
-				}
-
-				else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
-					 console.log("2eme cas ");
-					 indexTigeDroit = 25;
-					 indexTigeGauche = 35;
-					 maximumTigeDroit =34;
-					 minimumTigeDroit = 25;
-					 maximumTigeGauche =44;
-					 minimumTigeGauche= 35;
-
-				}
-
-				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
-					console.log("3eme cas ");
-					indexTigeDroit =  125;
-					indexTigeGauche =  135;
-					maximumTigeDroit =134;
-					minimumTigeDroit = 125;
-					maximumTigeGauche = 144;
-					minimumTigeGauche= 135;
-				}
-				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
-					console.log("4eme cas ");
-					indexTigeDroit =  105;
-					indexTigeGauche =  115;
-					maximumTigeDroit =114;
-					minimumTigeDroit = 105;
-					maximumTigeGauche = 124;
-					minimumTigeGauche= 115;
-				}
-				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
-					console.log("5 eme cas ");
-					indexTigeDroit =  85;
-					indexTigeGauche =  95;
-					maximumTigeDroit =94;
-					minimumTigeDroit = 85;
-					maximumTigeGauche = 104;
-					minimumTigeGauche= 95;
-				}
-				else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
-					console.log("6 eme cas ");
-
-					indexTigeDroit = 65;
-					indexTigeGauche = 75;
-					maximumTigeDroit =74;
-					minimumTigeDroit = 65;
-					maximumTigeGauche =84;
-					minimumTigeGauche= 75;
-
-				}
-				if(valeurGammeCimenteOuNe=="cimente" ) {
-					console.log("1er cas ");
-
-					indexCotyleDroit = 43;
-					indexCotyleGauche = 56;
-					maximumCotyleDroit = 55;
-					maximumCotyleGauche = 68;
-					minimumCotyleDroit = 43;
-					minimumCotyleGauche = 56;
-				}
-				else if (valeurGammeCimenteOuNe=="sansCiment" ) {
-					indexCotyleDroit = 69;
-					indexCotyleGauche = 80;
-					maximumCotyleDroit = 79;
-					maximumCotyleGauche = 90;
-					minimumCotyleDroit = 69;
-					minimumCotyleGauche = 80;
-				}*/
 
 				////////////////////////////////////////////////////// snap /////////////////////////////
 
@@ -728,8 +648,9 @@ $(document).ready(function () {
 							tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-							contextetige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
+							contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeDroit.GetOrientation());
+							contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
 							contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 							contextetige.restore();
 
@@ -748,8 +669,9 @@ $(document).ready(function () {
 							tigeGauche.Snap(imgTigeDroitWidth, imgTigeDroitHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-							contextetige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
+							contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeGauche.GetOrientation());
+							contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
 							contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 							contextetige.restore();
 
@@ -778,8 +700,9 @@ $(document).ready(function () {
 							tigeDroit.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-							contextetige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
+							contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeDroit.GetOrientation());
+							contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
 							contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 							contextetige.restore();
 
@@ -798,8 +721,9 @@ $(document).ready(function () {
 							tigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, 0, patient);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-							contextetige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
+							contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeGauche.GetOrientation());
+							contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
 							contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 							contextetige.restore();
 
@@ -1025,8 +949,9 @@ $(document).ready(function () {
 						console.log("imagetige guche",newTigeDroit)
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-						contexteTigeDrawTige.translate(newTigeDroit.GetPosition().x,newTigeDroit.GetPosition().y);
+						contexteTigeDrawTige.translate(newTigeDroit.GetPositionAvtOffset().x,newTigeDroit.GetPositionAvtOffset().y);
 						contexteTigeDrawTige.rotate(newTigeDroit.GetOrientation());
+						contexteTigeDrawTige.translate(newTigeDroit.GetPosition().x-newTigeDroit.GetPositionAvtOffset().x,newTigeDroit.GetPosition().y-newTigeDroit.GetPositionAvtOffset().y);
 						contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -newTigeDroit.GetImageLargeur() / 2, -newTigeDroit.GetImageHauteur() / 2, newTigeDroit.GetImageLargeur(), newTigeDroit.GetImageHauteur());
 						contexteTigeDrawTige.restore();
 						tigeDroit=newTigeDroit;
@@ -1091,8 +1016,9 @@ $(document).ready(function () {
 						newTigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, tigeGauche.GetDeltaDeplacement(), patient);
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-						contexteTigeDrawTige.translate(newTigeGauche.GetPosition().x,newTigeGauche.GetPosition().y);
+						contexteTigeDrawTige.translate(newTigeGauche.GetPositionAvtOffset().x,newTigeGauche.GetPositionAvtOffset().y);
 						contexteTigeDrawTige.rotate(newTigeGauche.GetOrientation());
+						contexteTigeDrawTige.translate(newTigeGauche.GetPosition().x-newTigeGauche.GetPositionAvtOffset().x,newTigeGauche.GetPosition().y-newTigeGauche.GetPositionAvtOffset().y);
 						contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTigeGauche.GetImageLargeur() / 2, -newTigeGauche.GetImageHauteur() / 2, newTigeGauche.GetImageLargeur(), newTigeGauche.GetImageHauteur());
 						contexteTigeDrawTige.restore();
 						tigeGauche=newTigeGauche;
@@ -1403,8 +1329,9 @@ $(document).ready(function () {
 					tigeDroit.Monter();
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-					contextetige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
+					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
+					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
@@ -1425,8 +1352,9 @@ $(document).ready(function () {
 					tigeGauche.Monter();
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-					contextetige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
+					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
+					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
 					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
@@ -1457,8 +1385,9 @@ $(document).ready(function () {
 					tigeDroit.Descendre();
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-					contextetige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
+					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
+					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
 
@@ -1478,8 +1407,9 @@ $(document).ready(function () {
 					tigeGauche.Descendre();
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-					contextetige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
+					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
+					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
 

@@ -708,6 +708,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                   }
                // }
                 document.getElementById("buttonDeleteTrapeze").style.display = "none";
+                sessionStorage.removeItem("nbTrapeze"); 
+                sessionStorage.removeItem("trapezeGauchePosition");
+                sessionStorage.removeItem("trapezeDroitPosition");
 
             }, false);
         // remove mesure petit troche
@@ -746,6 +749,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 }
                 // }
                 document.getElementById("buttonDeleteCercle").style.display = "none";
+                sessionStorage.removeItem("nbCercle");
+                sessionStorage.removeItem("cercleGauchePosition");
+                sessionStorage.removeItem("cercleDroitPosition");
 
             }, false);
         var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
@@ -882,6 +888,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         'y': pos.y - dragStartPos.y};
                 if ( translation.x !== 0 || translation.y !== 0 ) {
                     if(cmdName == "roi"){
+                        console.log("translation", translation);
                         if (document.getElementById("RadioOuiHanche").checked) {
                             var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezePosition"));
                             var x1 = trapezeAxePosition[0] ;
@@ -897,8 +904,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             trapezeAxePosition[2] = x2 ;
                             trapezeAxePosition[3] = y2 ;
                             sessionStorage.setItem("trapezePosition", JSON.stringify(trapezeAxePosition));
-                        } else {
+                        } else { 
                             if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
+                                console.log("dragStartPos.x>(sessionStorage.getItem(imageLargeur)/2)")
                                 var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
                                 var x1 = trapezeAxePosition[0] ;
                                 var y1 = trapezeAxePosition[1] ;
@@ -913,21 +921,30 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 trapezeAxePosition[2] = x2 ;
                                 trapezeAxePosition[3] = y2 ;
                                 sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                                if(x1<(sessionStorage.getItem("imageLargeur")/2)){
+                                    sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                                }
                             } else {
-                                var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
-                                var x1 = trapezeAxePosition[0] ;
-                                var y1 = trapezeAxePosition[1] ;
-                                var x2 = trapezeAxePosition[2] ;
-                                var y2 = trapezeAxePosition[3] ;
-                                x1 = x1+translation.x;
-                                y1 = y1+translation.y;
-                                x2 = x2+translation.x;
-                                y2 = y2+translation.y;
-                                trapezeAxePosition[0] = x1 ;
-                                trapezeAxePosition[1] = y1 ;
-                                trapezeAxePosition[2] = x2 ;
-                                trapezeAxePosition[3] = y2 ;
-                                sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                                    if (dragStartPos.x<(sessionStorage.getItem("imageLargeur")/2)) {
+                                    console.log("dragStartPos.x>(sessionStorage.getItem(imageLargeur)/2)")
+                                    var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
+                                    var x1 = trapezeAxePosition[0] ;
+                                    var y1 = trapezeAxePosition[1] ;
+                                    var x2 = trapezeAxePosition[2] ;
+                                    var y2 = trapezeAxePosition[3] ;
+                                    x1 = x1+translation.x;
+                                    y1 = y1+translation.y;
+                                    x2 = x2+translation.x;
+                                    y2 = y2+translation.y;
+                                    trapezeAxePosition[0] = x1 ;
+                                    trapezeAxePosition[1] = y1 ;
+                                    trapezeAxePosition[2] = x2 ;
+                                    trapezeAxePosition[3] = y2 ;
+                                    sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                                    if (x1>(sessionStorage.getItem("imageLargeur")/2)) {
+                                        sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                                    }
+                                }
                             }
                         }
                         
