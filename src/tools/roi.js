@@ -32,6 +32,12 @@ dwv.tool.RoiFactory = function ()
  */
 dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
 {
+    var nbMaxDraw;
+    if (document.getElementById("RadioOuiHanche").checked) {
+        nbMaxDraw=1;
+    } else {
+        nbMaxDraw=2;
+    }
     //console.log("RoiFactory");
     //console.log("RoiFactory nb points "+points);
     if (sessionStorage.getItem("premierPointTrapeze")===null) {
@@ -46,7 +52,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         if (sessionStorage.getItem("premierPointTrapeze")!=points[0]) {
             sessionStorage.setItem("premierPointTrapeze", points[0]);
             //console.log("sessionStorage.getItem(nbTrapeze) "+ sessionStorage.getItem("nbTrapeze"));
-            if (sessionStorage.getItem("nbTrapeze")<2) {
+            if (sessionStorage.getItem("nbTrapeze")<nbMaxDraw) {
                 var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
                 tempNbTrapeze++;
                 sessionStorage.setItem("nbTrapeze", tempNbTrapeze);

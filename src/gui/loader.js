@@ -93,6 +93,7 @@ dwv.gui.base.FileLoad = function (app)
         var fileLoadInput = document.createElement("input");
         fileLoadInput.onchange = onchangeinternal;
         fileLoadInput.type = "file";
+        fileLoadInput.accept = ".jpg,.jpeg,.png";
         fileLoadInput.multiple = true;
         fileLoadInput.className = "imagefiles";
         fileLoadInput.setAttribute("data-clear-btn","true");

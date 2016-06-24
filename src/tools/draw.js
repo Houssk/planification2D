@@ -708,6 +708,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                   }
                // }
                 document.getElementById("buttonDeleteTrapeze").style.display = "none";
+                sessionStorage.removeItem("nbTrapeze");
+                sessionStorage.removeItem("trapezeGauchePosition");
+                sessionStorage.removeItem("trapezeDroitPosition");
 
             }, false);
         // remove mesure petit troche
@@ -726,6 +729,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 }
                 // }
                 document.getElementById("buttonDeletePetitTroch").style.display = "none";
+                sessionStorage.removeItem("nbCercle");
+                sessionStorage.removeItem("cercleGauchePosition");
+                sessionStorage.removeItem("cercleDroitPosition");
             }, false);
 
         // remove circle
@@ -913,6 +919,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 trapezeAxePosition[2] = x2 ;
                                 trapezeAxePosition[3] = y2 ;
                                 sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                                if (x1<(sessionStorage.getItem("imageLargeur")/2)) {
+                                    sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                                }
                             } else {
                                 var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
                                 var x1 = trapezeAxePosition[0] ;
@@ -928,6 +937,9 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 trapezeAxePosition[2] = x2 ;
                                 trapezeAxePosition[3] = y2 ;
                                 sessionStorage.setItem("trapezeGauchePosition", JSON.stringify(trapezeAxePosition));
+                                if (x1>(sessionStorage.getItem("imageLargeur")/2)) {
+                                    sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(trapezeAxePosition));
+                                }
                             }
                         }
                         

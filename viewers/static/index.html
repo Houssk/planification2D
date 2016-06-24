@@ -177,12 +177,12 @@
 			<!-- OUTILS DESSIN -->
 			<div class="outilsDessin">
 				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="TRAPEZE" style="width: 110px;">
-					<img id="buttonDeleteTrapeze" src="images/delete.jpg" alt="" style="display: none; width: 30px;height: 30px; float: right"></p>
+					<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class="ui-widget ui-state-default ui-corner-all" style="display: none; width: 30px; height: 30px; float: right"></input></p>
 				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="PETIT TROCH" style="width: 110px;">
-					<img id="buttonDeletePetitTroch" src="images/delete.jpg" alt="" style="display: none; width: 30px; height: 30px; float: right"></p>
+					<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class="ui-widget ui-state-default ui-corner-all" style="display: none; width: 30px; height: 30px; float: right"></input></p>
 
 				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="CERCLE" style="width: 110px;">
-					<img id="buttonDeleteCercle" src="images/delete.jpg" alt="" style="display: none; width: 30px; height: 30px; float: right"></p>
+					<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class="ui-widget ui-state-default ui-corner-all" style="display: none; width: 30px; height: 30px; float: right"></input></p>
 
 				<div class="row">
 					<div class="col-md-6 centered">
@@ -241,7 +241,7 @@
 					<div class="row">
 						<div class="col-md-3"><h4>Tige</h4></div>
 					</div>
-					<div class="row">
+					<div id="coteTigeDisplay" class="row">
 						<div class="col-md-3">
 							<h5>Côté</h5>
 						</div>
@@ -284,7 +284,7 @@
 					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3"><h4>Cotyle</h4></div>
 					</div>
-					<div class="row" style="margin-top: 2%;">
+					<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
 							<h5>Côté</h5>
 						</div>

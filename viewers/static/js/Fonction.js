@@ -113,10 +113,10 @@ function getCotyle(table,id) {
 function desactivationListe() {
 
     if (document.getElementById("RadioOuiHanche").checked) {
-        var coteCotyle = document.getElementById("coteCotyle");
-        var coteTige = document.getElementById("coteTige");
-        coteCotyle.style.display = "none";
-        coteTige.style.display = "none";
+        var coteCotyleDisplay = document.getElementById("coteCotyleDisplay");
+        var coteTigeDisplay = document.getElementById("coteTigeDisplay");
+        coteCotyleDisplay.style.display = "none";
+        coteTigeDisplay.style.display = "none";
     }
 }
 
