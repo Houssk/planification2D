@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 20 Mai 2016 à 15:26
+-- Généré le :  Lun 27 Juin 2016 à 15:32
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -161,22 +161,22 @@ CREATE TABLE IF NOT EXISTS `cotyle_hype` (
 --
 
 INSERT INTO `cotyle_hype` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
-(1, 'Cup49', 'images/Cup49.png', 1136, 915, 9.62, 7.75, 0, 0),
-(2, 'Cup51', 'images/Cup51.png', 1136, 915, 9.62, 7.75, 0, 0),
-(3, 'Cup53', 'images/Cup53.png', 1136, 915, 9.62, 7.75, 0, 0),
-(4, 'Cup55', 'images/Cup55.png', 1136, 915, 9.62, 7.75, 0, 0),
-(5, 'Cup57', 'images/Cup57.png', 1136, 915, 9.62, 7.75, 0, 0),
-(6, 'Cup59', 'images/Cup59.png', 1136, 915, 9.62, 7.75, 0, 0),
-(7, 'Cup61', 'images/Cup61.png', 1136, 915, 9.62, 7.75, 0, 0),
-(8, 'Cup63', 'images/Cup63.png', 1136, 915, 9.62, 7.75, 0, 0),
-(9, 'Cup49', 'images/Cup49_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(10, 'Cup51', 'images/Cup51_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(11, 'Cup53', 'images/Cup53_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(12, 'Cup55', 'images/Cup55_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(13, 'Cup57', 'images/Cup57_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(14, 'Cup59', 'images/Cup59_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(15, 'Cup61', 'images/Cup61_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(16, 'Cup63', 'images/Cup63_R.png', 1136, 915, 9.62, 7.75, 0, 0);
+(1, 'Cup-49', 'images/Cup49.png', 1136, 915, 9.62, 7.75, 0, 0),
+(2, 'Cup-51', 'images/Cup51.png', 1136, 915, 9.62, 7.75, 0, 0),
+(3, 'Cup-53', 'images/Cup53.png', 1136, 915, 9.62, 7.75, 0, 0),
+(4, 'Cup-55', 'images/Cup55.png', 1136, 915, 9.62, 7.75, 0, 0),
+(5, 'Cup-57', 'images/Cup57.png', 1136, 915, 9.62, 7.75, 0, 0),
+(6, 'Cup-59', 'images/Cup59.png', 1136, 915, 9.62, 7.75, 0, 0),
+(7, 'Cup-61', 'images/Cup61.png', 1136, 915, 9.62, 7.75, 0, 0),
+(8, 'Cup-63', 'images/Cup63.png', 1136, 915, 9.62, 7.75, 0, 0),
+(9, 'Cup-49', 'images/Cup49_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(10, 'Cup-51', 'images/Cup51_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(11, 'Cup-53', 'images/Cup53_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(12, 'Cup-55', 'images/Cup55_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(13, 'Cup-57', 'images/Cup57_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(14, 'Cup-59', 'images/Cup59_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(15, 'Cup-61', 'images/Cup61_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(16, 'Cup-63', 'images/Cup63_R.png', 1136, 915, 9.62, 7.75, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -203,40 +203,40 @@ CREATE TABLE IF NOT EXISTS `cotyle_novae` (
 --
 
 INSERT INTO `cotyle_novae` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
-(1, 'Novae41', 'images/Novae41.png', 1136, 915, 9.62, 7.75, 0, 0),
-(2, 'Novae43', 'images/Novae43.png', 1136, 915, 9.62, 7.75, 0, 0),
-(3, 'Novae45', 'images/Novae45.png', 1136, 915, 9.62, 7.75, 0, 0),
-(4, 'Novae47', 'images/Novae47.png', 1136, 915, 9.62, 7.75, 0, 0),
-(5, 'Novae49', 'images/Novae49.png', 1136, 915, 9.62, 7.75, 0, 0),
-(6, 'Novae51', 'images/Novae51.png', 1136, 915, 9.62, 7.75, 0, 0),
-(7, 'Novae53', 'images/Novae53.png', 1136, 915, 9.62, 7.75, 0, 0),
-(8, 'Novae55', 'images/Novae55.png', 1136, 915, 9.62, 7.75, 0, 0),
-(9, 'Novae57', 'images/Novae57.png', 1136, 915, 9.62, 7.75, 0, 0),
-(10, 'Novae59', 'images/Novae59.png', 1136, 915, 9.62, 7.75, 0, 0),
-(11, 'Novae61', 'images/Novae61.png', 1136, 915, 9.62, 7.75, 0, 0),
-(12, 'Novae63', 'images/Novae63.png', 1136, 915, 9.62, 7.75, 0, 0),
-(13, 'Novae65', 'images/Novae65.png', 1136, 915, 9.62, 7.75, 0, 0),
-(14, 'Novae67', 'images/Novae67.png', 1136, 915, 9.62, 7.75, 0, 0),
-(15, 'Novae69', 'images/Novae69.png', 1136, 915, 9.62, 7.75, 0, 0),
-(16, 'Novae71', 'images/Novae71.png', 1136, 915, 9.62, 7.75, 0, 0),
-(17, 'Novae73', 'images/Novae73.png', 1136, 915, 9.62, 7.75, 0, 0),
-(18, 'Novae41', 'images/Novae41_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(19, 'Novae43', 'images/Novae43_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(20, 'Novae45', 'images/Novae45_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(21, 'Novae47', 'images/Novae47_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(22, 'Novae49', 'images/Novae49_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(23, 'Novae51', 'images/Novae51_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(24, 'Novae53', 'images/Novae53_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(25, 'Novae55', 'images/Novae55_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(26, 'Novae57', 'images/Novae57_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(27, 'Novae59', 'images/Novae59_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(28, 'Novae61', 'images/Novae61_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(29, 'Novae63', 'images/Novae63_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(30, 'Novae65', 'images/Novae65_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(31, 'Novae67', 'images/Novae67_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(32, 'Novae69', 'images/Novae69_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(33, 'Novae71', 'images/Novae71_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(34, 'Novae73', 'images/Novae73_R.png', 1136, 915, 9.62, 7.75, 0, 0);
+(1, 'Novae-41', 'images/Novae41.png', 1136, 915, 9.62, 7.75, 0, 0),
+(2, 'Novae-43', 'images/Novae43.png', 1136, 915, 9.62, 7.75, 0, 0),
+(3, 'Novae-45', 'images/Novae45.png', 1136, 915, 9.62, 7.75, 0, 0),
+(4, 'Novae-47', 'images/Novae47.png', 1136, 915, 9.62, 7.75, 0, 0),
+(5, 'Novae-49', 'images/Novae49.png', 1136, 915, 9.62, 7.75, 0, 0),
+(6, 'Novae-51', 'images/Novae51.png', 1136, 915, 9.62, 7.75, 0, 0),
+(7, 'Novae-53', 'images/Novae53.png', 1136, 915, 9.62, 7.75, 0, 0),
+(8, 'Novae-55', 'images/Novae55.png', 1136, 915, 9.62, 7.75, 0, 0),
+(9, 'Novae-57', 'images/Novae57.png', 1136, 915, 9.62, 7.75, 0, 0),
+(10, 'Novae-59', 'images/Novae59.png', 1136, 915, 9.62, 7.75, 0, 0),
+(11, 'Novae-61', 'images/Novae61.png', 1136, 915, 9.62, 7.75, 0, 0),
+(12, 'Novae-63', 'images/Novae63.png', 1136, 915, 9.62, 7.75, 0, 0),
+(13, 'Novae-65', 'images/Novae65.png', 1136, 915, 9.62, 7.75, 0, 0),
+(14, 'Novae-67', 'images/Novae67.png', 1136, 915, 9.62, 7.75, 0, 0),
+(15, 'Novae-69', 'images/Novae69.png', 1136, 915, 9.62, 7.75, 0, 0),
+(16, 'Novae-71', 'images/Novae71.png', 1136, 915, 9.62, 7.75, 0, 0),
+(17, 'Novae-73', 'images/Novae73.png', 1136, 915, 9.62, 7.75, 0, 0),
+(18, 'Novae-41', 'images/Novae41_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(19, 'Novae-43', 'images/Novae43_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(20, 'Novae-45', 'images/Novae45_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(21, 'Novae-47', 'images/Novae47_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(22, 'Novae-49', 'images/Novae49_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(23, 'Novae-51', 'images/Novae51_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(24, 'Novae-53', 'images/Novae53_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(25, 'Novae-55', 'images/Novae55_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(26, 'Novae-57', 'images/Novae57_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(27, 'Novae-59', 'images/Novae59_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(28, 'Novae-61', 'images/Novae61_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(29, 'Novae-63', 'images/Novae63_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(30, 'Novae-65', 'images/Novae65_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(31, 'Novae-67', 'images/Novae67_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(32, 'Novae-69', 'images/Novae69_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(33, 'Novae-71', 'images/Novae71_R.png', 1136, 915, 9.62, 7.75, 0, 0),
+(34, 'Novae-73', 'images/Novae73_R.png', 1136, 915, 9.62, 7.75, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -455,22 +455,22 @@ CREATE TABLE IF NOT EXISTS `implant_hype` (
 --
 
 INSERT INTO `implant_hype` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'HypeT2', 'images/HypeT2.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, 276, -256, 813, 135, 0),
-(2, 'HypeT3', 'images/HypeT3.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, 276.5, -267.5, 873.5, 135, 0),
-(3, 'HypeT4', 'images/HypeT4.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, 278.5, -275.5, 902, 135, 0),
-(4, 'HypeT5', 'images/HypeT5.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, 282.5, -285.5, 933, 135, 0),
-(5, 'HypeT6', 'images/HypeT6.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 283, -293, 957.5, 135, 0),
-(6, 'HypeT7', 'images/HypeT7.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 286, -304, 981.5, 135, 0),
-(7, 'HypeT8', 'images/HypeT8.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, 287.5, -314.5, 1014.5, 135, 0),
-(8, 'HypeT9', 'images/HypeT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 289.5, -323.5, 1049.5, 135, 0),
-(9, 'HypeT2', 'images/HypeT2_R.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, -276, 256, 813, 135, 0),
-(10, 'HypeT3', 'images/HypeT3_R.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, -276.5, 267.5, 873.5, 135, 0),
-(11, 'HypeT4', 'images/HypeT4_R.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, -278.5, 275.5, 902, 135, 0),
-(12, 'HypeT5', 'images/HypeT5_R.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, -282.5, 285.5, 933, 135, 0),
-(13, 'HypeT6', 'images/HypeT6_R.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -283, 293, 957.5, 135, 0),
-(14, 'HypeT7', 'images/HypeT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -286, 304, 981.5, 135, 0),
-(15, 'HypeT8', 'images/HypeT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -287.5, 314.5, 1014.5, 135, 0),
-(16, 'HypeT9', 'images/HypeT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -289.5, 323.5, 1049.5, 135, 0);
+(1, 'Hype-T2', 'images/HypeT2.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, 276, -256, 813, 135, 0),
+(2, 'Hype-T3', 'images/HypeT3.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, 276.5, -267.5, 873.5, 135, 0),
+(3, 'Hype-T4', 'images/HypeT4.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, 278.5, -275.5, 902, 135, 0),
+(4, 'Hype-T5', 'images/HypeT5.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, 282.5, -285.5, 933, 135, 0),
+(5, 'Hype-T6', 'images/HypeT6.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 283, -293, 957.5, 135, 0),
+(6, 'Hype-T7', 'images/HypeT7.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 286, -304, 981.5, 135, 0),
+(7, 'Hype-T8', 'images/HypeT8.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, 287.5, -314.5, 1014.5, 135, 0),
+(8, 'Hype-T9', 'images/HypeT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 289.5, -323.5, 1049.5, 135, 0),
+(9, 'Hype-T2', 'images/HypeT2_R.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, -276, 256, 813, 135, 0),
+(10, 'Hype-T3', 'images/HypeT3_R.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, -276.5, 267.5, 873.5, 135, 0),
+(11, 'Hype-T4', 'images/HypeT4_R.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, -278.5, 275.5, 902, 135, 0),
+(12, 'Hype-T5', 'images/HypeT5_R.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, -282.5, 285.5, 933, 135, 0),
+(13, 'Hype-T6', 'images/HypeT6_R.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -283, 293, 957.5, 135, 0),
+(14, 'Hype-T7', 'images/HypeT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -286, 304, 981.5, 135, 0),
+(15, 'Hype-T8', 'images/HypeT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -287.5, 314.5, 1014.5, 135, 0),
+(16, 'Hype-T9', 'images/HypeT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -289.5, 323.5, 1049.5, 135, 0);
 
 -- --------------------------------------------------------
 
@@ -508,22 +508,22 @@ CREATE TABLE IF NOT EXISTS `implant_libra` (
 --
 
 INSERT INTO `implant_libra` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'LibraT2', 'images/LibraT2.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, 206, -255, 813, 0, 0),
-(2, 'LibraT3', 'images/LibraT3.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, 205, -267.5, 873.5, 0, 0),
-(3, 'LibraT4', 'images/LibraT4.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, 208.5, -276.5, 903, 0, 0),
-(4, 'LibraT5', 'images/LibraT5.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, 210.5, -286.5, 934, 0, 0),
-(5, 'LibraT6', 'images/LibraT6.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 213, -296, 955.5, 0, 0),
-(6, 'LibraT7', 'images/LibraT7.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 214, -305, 983.5, 0, 0),
-(7, 'LibraT8', 'images/LibraT8.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, -315.5, 1014.5, 135, 0),
-(8, 'LibraT9', 'images/LibraT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, -327.5, 1050.5, 135, 0),
-(9, 'LibraT2', 'images/LibraT2_R.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, -206, 255, 813, 0, 0),
-(10, 'LibraT3', 'images/LibraT3_R.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, -205, 267.5, 873.5, 0, 0),
-(11, 'LibraT4', 'images/LibraT4_R.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, -208.5, 276.5, 903, 0, 0),
-(12, 'LibraT5', 'images/LibraT5_R.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, -210.5, 286.5, 934, 0, 0),
-(13, 'LibraT6', 'images/LibraT6_R.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -213, 296, 955.5, 0, 0),
-(14, 'LibraT7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 305, 983.5, 0, 0),
-(15, 'LibraT8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 315.5, 1014.5, 135, 0),
-(16, 'LibraT9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 327.5, 1050.5, 135, 0);
+(1, 'Libra-T2', 'images/LibraT2.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, 206, -255, 813, 0, 0),
+(2, 'Libra-T3', 'images/LibraT3.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, 205, -267.5, 873.5, 0, 0),
+(3, 'Libra-T4', 'images/LibraT4.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, 208.5, -276.5, 903, 0, 0),
+(4, 'Libra-T5', 'images/LibraT5.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, 210.5, -286.5, 934, 0, 0),
+(5, 'Libra-T6', 'images/LibraT6.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 213, -296, 955.5, 0, 0),
+(6, 'Libra-T7', 'images/LibraT7.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 214, -305, 983.5, 0, 0),
+(7, 'Libra-T8', 'images/LibraT8.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, -315.5, 1014.5, 135, 0),
+(8, 'Libra-T9', 'images/LibraT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 216.5, -327.5, 1050.5, 135, 0),
+(9, 'Libra-T2', 'images/LibraT2_R.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, -206, 255, 813, 0, 0),
+(10, 'Libra-T3', 'images/LibraT3_R.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, -205, 267.5, 873.5, 0, 0),
+(11, 'Libra-T4', 'images/LibraT4_R.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, -208.5, 276.5, 903, 0, 0),
+(12, 'Libra-T5', 'images/LibraT5_R.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, -210.5, 286.5, 934, 0, 0),
+(13, 'Libra-T6', 'images/LibraT6_R.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -213, 296, 955.5, 0, 0),
+(14, 'Libra-T7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 305, 983.5, 0, 0),
+(15, 'Libra-T8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 315.5, 1014.5, 135, 0),
+(16, 'Libra-T9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 327.5, 1050.5, 135, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
