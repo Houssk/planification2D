@@ -34,6 +34,8 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_tigeImageHeight=null;
 	this.m_coeffRedimensionnement=null;
 	this.m_deltaDeplacement=0;
+	this.m_deltaDeplacementX=0;
+	this.m_deltaDeplacementY=0;
 	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
 	this.m_PositionPtMeca={'x' : null, 'y' : null};
 }
@@ -172,15 +174,41 @@ Tige.prototype.GetPositionAvtOffset = function() {
 };
 
 /**
+*Cette fonction permet de récupérer le déplacement de la tige.
+*
+*@return m_deltaDeplacement	Représente le déplacement en x de la tige.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetDeltaDeplacementX = function() {
+	return this.m_deltaDeplacementX;
+};
+
+/**
+*Cette fonction permet de récupérer le déplacement de la tige.
+*
+*@return m_deltaDeplacement	Représente le déplacement en y de la tige.
+*
+*@author Quentin PETIT
+*/
+Tige.prototype.GetDeltaDeplacementY = function() {
+	return this.m_deltaDeplacementY;
+};
+
+/**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
 *
 *@param imageWidth			largeur de l'image associés à la tige
 *@param imageHeight			hauteur de l'image associés à la tige
+*@param deltaDeplacement 	déplacement suivant l'axe de la tige
+*@param deltaDeplacementX 	déplacement latérale de la tige
+*@param deltaDeplacementY 	déplacement vertical de la tige
 *@param patient				Données patient
+*
 *
 *@author Quentin PETIT
 */
-Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patient) {
+Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacement, deltaDeplacementX, deltaDeplacementY ) {
 
 	/**
 	*Cette fonction calul le facteur de redimensionnement de la tige
@@ -281,17 +309,24 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	var atan = Math.atan(tan)*-1;
 	this.m_angleAlignement=atan;
 
-	this.m_deltaDeplacement=deltaDeplacement;
+	this.m_deltaDeplacement=deltaDeplacement || 0;
+	this.m_deltaDeplacementX=deltaDeplacementX || 0;
+	this.m_deltaDeplacementY=deltaDeplacementY || 0;
 
 	this.m_coeffDirecteur=deltaY/deltaX;
 	this.m_Position.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+	this.m_Position.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
+	this.m_Position.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
+
 	this.m_PositionAvtOffset.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_PositionAvtOffset.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 	this.m_PositionAvtOffset.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+	this.m_PositionAvtOffset.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
 /*
 	this.m_PositionPtMeca.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_PositionPtMeca.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
@@ -308,13 +343,17 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, patien
 	var trapezeX = trapeze[0] - ((trapeze[1]-cercle[1])/this.m_coeffDirecteur)/2- this.m_OffsetX*this.m_coeffRedimensionnement;
 	var trapezeY = trapeze[1]  - (trapeze[1]-cercle[1])/2;
 	    trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
-		trapezeY += this.m_deltaDeplacement ;
+		trapezeY += this.m_deltaDeplacement;
+		trapezeX += this.m_deltaDeplacementX;
+		trapezeY += this.m_deltaDeplacementY;
+
 	var pointMx =  trapezeX + this.m_ptMecaHaut.x*this.m_coeffRedimensionnement  ;
 	var pointMy = trapezeY - this.m_ptMecaHaut.y*this.m_coeffRedimensionnement;
 
 	var rotation = rotate(trapezeX,trapezeY,pointMx,pointMy,acos);
 	this.m_PositionPtMeca.x = rotation[0];
 	this.m_PositionPtMeca.y = rotation[1];
+
 	console.log(" xrot, y rot ", rotation[0],rotation[1]);
 	console.log("pointmx pointmy",pointMx,pointMy);
 	//context.strokeRect(rotation[0],rotation[1], 20, 80);
@@ -425,4 +464,64 @@ Tige.prototype.TournerHaut = function() {
 
 Tige.prototype.TournerBas = function() {
 	this.m_angleAlignement-=(1*2*Math.PI)/360;
+};
+
+Tige.prototype.MouvementDroit = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
+	this.m_Position.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+	
+	this.m_PositionAvtOffset.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_PositionPtMeca.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_deltaDeplacementX+=1/coeffBille;
+};
+
+Tige.prototype.MouvementGauche = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
+	this.m_Position.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+	
+	this.m_PositionAvtOffset.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_PositionPtMeca.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_deltaDeplacementX-=1/coeffBille;
+};
+
+Tige.prototype.MouvementHaut = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
+	this.m_Position.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	
+	this.m_PositionAvtOffset.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_deltaDeplacementY-=1/coeffBille;
+};
+
+Tige.prototype.MouvementBas = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
+	this.m_Position.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	
+	this.m_PositionAvtOffset.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+
+	this.m_deltaDeplacementY+=1/coeffBille;
 };

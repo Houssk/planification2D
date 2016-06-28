@@ -32,6 +32,7 @@ function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, coty
 	this.m_cotyleImageWidth=null;
 	this.m_cotyleImageHeight=null;
 	this.m_deltaDeplacement=0;
+	this.m_deltaDeplacementX=0;
 	this.m_deltaRotation=0;
 	this.m_PositionPtMeca={'x' : null, 'y' : null};
 	console.log("cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm",cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm);
@@ -133,6 +134,18 @@ Cotyle.prototype.GetOrientation = function() {
 Cotyle.prototype.GetPositionPtMeca = function() {
 	return this.m_PositionPtMeca;
 };
+
+/**
+*Cette fonction permet de récupérer le déplacement du cotyle.
+*
+*@return m_deltaDeplacement	Représente le déplacement en x du cotyle.
+*
+*@author Quentin PETIT
+*/
+Cotyle.prototype.GetDeltaDeplacementX = function() {
+	return this.m_deltaDeplacementX;
+};
+
 /**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
 *
@@ -143,7 +156,7 @@ Cotyle.prototype.GetPositionPtMeca = function() {
 *@author Quentin PETIT
 */
 
-Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, deltaRotation, patient) {
+Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, deltaRotation, patient, deltaDeplacementX) {
 
 
 	function CoefRedimensionnementCotyle(wCotylePx,wCotyleCm,hCotylePx,hCotyleCm) {
@@ -217,6 +230,8 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 	this.m_Orientation=atan;
 	this.m_Orientation+=deltaRotation;
 	this.m_deltaRotation=deltaRotation;
+	this.m_deltaDeplacementX=deltaDeplacementX || 0;
+
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 
 	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
@@ -224,10 +239,12 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 
 	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+	this.m_Position.x+=((this.m_deltaDeplacementX)*dicomCanvas.height)/dicomHeight;
 	this.m_PositionPtMeca.x = cercle[0];
 	this.m_PositionPtMeca.y = cercle[1];
 	this.m_PositionPtMeca.x += this.m_deltaDeplacement/this.m_coeffDirecteur;
 	this.m_PositionPtMeca.y += this.m_deltaDeplacement;
+	this.m_PositionPtMeca.x += this.m_deltaDeplacementX;
 
 	console.log("this.m_cotyleImageWidth",this.m_cotyleImageWidth,"this.m_cotyleImageHeight",this.m_cotyleImageHeight);
 	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
@@ -320,4 +337,30 @@ Cotyle.prototype.TournerBas = function() {
 	this.m_Orientation-=(1*2*Math.PI)/360;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 	this.m_deltaRotation-=(1*2*Math.PI)/360;
+};
+
+Cotyle.prototype.MouvementDroit = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
+	this.m_Position.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_PositionPtMeca.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_deltaDeplacementX+=1/coeffBille;
+};
+
+Cotyle.prototype.MouvementGauche = function() {
+	var coeffBille = sessionStorage.getItem("coefficient");
+	var dicomCanvas = document.getElementById("dwv-imageLayer");
+	var dicomWidth = sessionStorage.getItem("imageLargeur");
+	var dicomHeight = sessionStorage.getItem("imageHauteur");
+
+	this.m_Position.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_PositionPtMeca.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+
+	this.m_deltaDeplacementX-=1/coeffBille;
 };
