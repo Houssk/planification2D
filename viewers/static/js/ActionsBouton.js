@@ -48,6 +48,7 @@ $(document).ready(function () {
 	sessionStorage.setItem("boolCoteOperation",false);
 	sessionStorage.setItem("boolTypeOperation",false);
 
+	document.getElementById("dwv-drawDiv").style.zIndex = "30";
 
 	/*var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
@@ -235,11 +236,14 @@ $(document).ready(function () {
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
 										$("#accordeon").accordion({active : 1});
+										document.getElementById("dwv-drawDiv").style.zIndex = "30";
+										document.getElementById("buttonDessinRapporteur").style.display = "";
 									}
 
 									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
 										$('.implants *').prop('disabled',false);
 										$("#accordeon").accordion({active : 2});
+										document.getElementById("buttonDessinRapporteur").style.display = "none";
 									}
 								} else {
 									alert("Veuillez calibrer votre DICOM");
@@ -265,6 +269,17 @@ $(document).ready(function () {
 				DrawShape("Roi");
 			};
 			DessinTrapeze()
+	}, false);
+
+	var buttonDessinRapporteur = document.getElementById("buttonDessinRapporteur");
+	buttonDessinRapporteur.addEventListener('click', 
+		function() {
+			function DessinRapporteur(){
+				console.log("dessin rapporteur");
+				DrawShape("Protractor");
+
+			};
+			DessinRapporteur()
 	}, false);
 
 	var buttonDessinCercle = document.getElementById("buttonDessinCercle");
