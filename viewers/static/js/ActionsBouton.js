@@ -237,11 +237,14 @@ $(document).ready(function () {
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
 										$("#accordeon").accordion({active : 1});
+										document.getElementById("dwv-drawDiv").style.zIndex = "30";
+										document.getElementById("buttonDessinRapporteur").style.display = "";
 									}
 
 									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
 										$('.implants *').prop('disabled',false);
 										$("#accordeon").accordion({active : 2});
+										document.getElementById("buttonDessinRapporteur").style.display = "none";
 									}
 								} else {
 									alert("Veuillez calibrer votre DICOM");

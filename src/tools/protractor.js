@@ -19,7 +19,7 @@ dwv.tool.ProtractorFactory = function ()
      * Get the timeout between point storage.
      * @return {Number} The timeout in milliseconds.
      */
-    this.getTimeout = function () { return 500; };
+    this.getTimeout = function () { return 200; };
 };
 
 /**
