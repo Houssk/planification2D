@@ -48,8 +48,6 @@ $(document).ready(function () {
 	sessionStorage.setItem("boolCoteOperation",false);
 	sessionStorage.setItem("boolTypeOperation",false);
 
-	document.getElementById("dwv-drawDiv").style.zIndex = "30";
-
 	/*var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
 	var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
