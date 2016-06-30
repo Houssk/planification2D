@@ -344,8 +344,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var trapezeY = trapeze[1]  - (trapeze[1]-cercle[1])/2;
 	    trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
 		trapezeY += this.m_deltaDeplacement;
-		trapezeX += this.m_deltaDeplacementX;
-		trapezeY += this.m_deltaDeplacementY;
 
 	var pointMx =  trapezeX + this.m_ptMecaHaut.x*this.m_coeffRedimensionnement  ;
 	var pointMy = trapezeY - this.m_ptMecaHaut.y*this.m_coeffRedimensionnement;
@@ -353,6 +351,8 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var rotation = rotate(trapezeX,trapezeY,pointMx,pointMy,acos);
 	this.m_PositionPtMeca.x = rotation[0];
 	this.m_PositionPtMeca.y = rotation[1];
+	this.m_PositionPtMeca.x += this.m_deltaDeplacementX;
+	this.m_PositionPtMeca.y += this.m_deltaDeplacementY;
 
 	console.log(" xrot, y rot ", rotation[0],rotation[1]);
 	console.log("pointmx pointmy",pointMx,pointMy);
@@ -476,7 +476,7 @@ Tige.prototype.MouvementDroit = function() {
 	
 	this.m_PositionAvtOffset.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
 
-	this.m_PositionPtMeca.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionPtMeca.x+=1/coeffBille;
 
 	this.m_deltaDeplacementX+=1/coeffBille;
 };
@@ -491,7 +491,7 @@ Tige.prototype.MouvementGauche = function() {
 	
 	this.m_PositionAvtOffset.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
 
-	this.m_PositionPtMeca.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionPtMeca.x-=1/coeffBille;
 
 	this.m_deltaDeplacementX-=1/coeffBille;
 };
@@ -506,7 +506,7 @@ Tige.prototype.MouvementHaut = function() {
 	
 	this.m_PositionAvtOffset.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 
-	this.m_PositionPtMeca.y-=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	this.m_PositionPtMeca.y-=1/coeffBille;
 
 	this.m_deltaDeplacementY-=1/coeffBille;
 };
@@ -521,7 +521,7 @@ Tige.prototype.MouvementBas = function() {
 	
 	this.m_PositionAvtOffset.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
 
-	this.m_PositionPtMeca.y+=((1/coeffBille)*dicomCanvas.height)/dicomHeight;
+	this.m_PositionPtMeca.y+=1/coeffBille;
 
 	this.m_deltaDeplacementY+=1/coeffBille;
 };

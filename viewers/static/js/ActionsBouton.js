@@ -234,14 +234,11 @@ $(document).ready(function () {
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
 										$("#accordeon").accordion({active : 1});
-										document.getElementById("dwv-drawDiv").style.zIndex = "30";
-										document.getElementById("buttonDessinRapporteur").style.display = "";
 									}
 
 									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
 										$('.implants *').prop('disabled',false);
 										$("#accordeon").accordion({active : 2});
-										document.getElementById("buttonDessinRapporteur").style.display = "none";
 									}
 								} else {
 									alert("Veuillez calibrer votre DICOM");
@@ -275,7 +272,7 @@ $(document).ready(function () {
 			function DessinRapporteur(){
 				console.log("dessin rapporteur");
 				DrawShape("Protractor");
-
+				document.getElementById("dwv-drawDiv").style.zIndex = "200";
 			};
 			DessinRapporteur()
 	}, false);
@@ -1827,6 +1824,7 @@ $(document).ready(function () {
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
 				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
 				var coteTige = document.getElementById("coteTige");
+				document.getElementById("dwv-drawDiv").style.zIndex = "10";
 
 				if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {
 					canvasTigeDroit.style.zIndex=100;
@@ -1880,10 +1878,12 @@ $(document).ready(function () {
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
 				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
 				var coteCotyle = document.getElementById("coteCotyle");
+				document.getElementById("dwv-drawDiv").style.zIndex = "10";
 				//console.log("imgCotyleGauche",imgCotyleGauche);
 				//console.log("imgCotyleDroit",imgCotyleDroit);
 
 				if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+
 					canvasTigeDroit.style.zIndex=25;
 					canvasTigeGauche.style.zIndex=30;
 					canvasCotyleDroit.style.zIndex=100;

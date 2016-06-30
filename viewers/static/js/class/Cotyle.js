@@ -347,7 +347,7 @@ Cotyle.prototype.MouvementDroit = function() {
 
 	this.m_Position.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
 
-	this.m_PositionPtMeca.x+=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionPtMeca.x+=1/coeffBille;
 
 	this.m_deltaDeplacementX+=1/coeffBille;
 };
@@ -360,7 +360,7 @@ Cotyle.prototype.MouvementGauche = function() {
 
 	this.m_Position.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
 
-	this.m_PositionPtMeca.x-=((1/coeffBille)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionPtMeca.x-=1/coeffBille;
 
 	this.m_deltaDeplacementX-=1/coeffBille;
 };
