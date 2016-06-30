@@ -272,6 +272,17 @@ $(document).ready(function () {
 			DessinTrapeze()
 	}, false);
 
+	var buttonDessinRapporteur = document.getElementById("buttonDessinRapporteur");
+	buttonDessinRapporteur.addEventListener('click', 
+		function() {
+			function DessinRapporteur(){
+				console.log("dessin rapporteur");
+				DrawShape("Protractor");
+
+			};
+			DessinRapporteur()
+	}, false);
+
 	var buttonDessinCercle = document.getElementById("buttonDessinCercle");
 	buttonDessinCercle.addEventListener('click', 
 		function() {
