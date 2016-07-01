@@ -211,13 +211,21 @@ $(document).ready(function () {
 									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
 									if (patient.GetOperationGuide()=="Non guider") {
-										document.getElementById("deplacerTige").style.display="none";
+										//document.getElementById("deplacerTige").style.display="none";
 										document.getElementById("deplacerCotyle").style.display="none";
 										document.getElementById("labelOffsetTigeCotyle").style.display="none";
 										document.getElementById("labelHauteurTigeCotyle").style.display="none";
 										//document.getElementById("buttonTournerHautCotyle").style.display="none";
 										//document.getElementById("buttonTournerBasCotyle").style.display="none";
-										document.getElementById("positionTige").style.display="";
+										var elements = document.getElementsByClassName("positionTige");
+										for (var i = 0; i < elements.length; i++) {
+											elements[i].style.display="";
+										}
+										var elements = document.getElementsByClassName("deplacerTige");
+										for (var i = 0; i < elements.length; i++) {
+											elements[i].style.display="none";
+										}
+										//document.getElementById("positionTige").style.display="";
 										document.getElementById("positionCotyle").style.display="";
 									}
 									if (patient.GetCoteOperation()=="Gauche") {
@@ -926,6 +934,16 @@ $(document).ready(function () {
 
 				document.getElementById("choix_gamme").style.display = "none";
 				document.getElementById("actionImplant").style.display="";
+
+				if(patient.GetOperationGuide()=="Guider"){
+					$('.deplacerTige').prop('disabled',false);
+					$('.positionTige').prop('disabled',true);
+				}
+
+				if (patient.GetOperationGuide()=="Non guider") {
+					$('.deplacerTige').prop('disabled',true);
+					$('.positionTige').prop('disabled',false);
+				}
 			};
 			validerGamme();
 		}, false);

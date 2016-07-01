@@ -145,6 +145,11 @@ table.tagList td {
 	color: black;
 }
 
+.backgroundColor
+{
+  background-color: #f47d30;
+}
+
 .darkClass
 {
     background-color: grey;
