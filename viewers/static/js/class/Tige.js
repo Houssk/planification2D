@@ -351,16 +351,13 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var rotation = rotate(trapezeX,trapezeY,pointMx,pointMy,acos);
 	this.m_PositionPtMeca.x = rotation[0];
 	this.m_PositionPtMeca.y = rotation[1];
-	this.m_PositionPtMeca.x += this.m_deltaDeplacementX;
-	this.m_PositionPtMeca.y += this.m_deltaDeplacementY;
+	//this.m_PositionPtMeca.x += this.m_deltaDeplacementX;
+	//this.m_PositionPtMeca.y += this.m_deltaDeplacementY;
 
 	console.log(" xrot, y rot ", rotation[0],rotation[1]);
 	console.log("pointmx pointmy",pointMx,pointMy);
 	//context.strokeRect(rotation[0],rotation[1], 20, 80);
 	console.log("this.m_Position",this.m_Position);
-
-
-
 
 };
 

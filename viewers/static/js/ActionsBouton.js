@@ -1672,6 +1672,84 @@ $(document).ready(function () {
 			TournerBasCotyle()
 	}, false);
 
+	var buttonTournerHautCotyleNG = document.getElementById("buttonTournerHautCotyleNG");
+	buttonTournerHautCotyleNG.addEventListener('click', 
+		function() {
+			function TournerHautCotyleNG(){
+				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
+				if (patient.GetCoteOperation()=="Gauche") {
+					var canvasCotyle = document.getElementById("canvasCotyleDroit");
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextecotyle = canvasCotyle.getContext("2d");
+					cotyleDroit.TournerHaut();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+					contextecotyle.rotate(cotyleDroit.GetOrientation());
+					contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+					contextecotyle.restore();
+
+				} else {
+					var canvasCotyle = document.getElementById("canvasCotyleGauche");
+					//var m_canvasWidth=900;
+					//var m_canvasHeight=800;
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextecotyle = canvasCotyle.getContext("2d");
+					cotyleGauche.TournerHaut();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+					contextecotyle.rotate(cotyleGauche.GetOrientation());
+					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+					contextecotyle.restore();
+				}
+			};
+			TournerHautCotyleNG()
+	}, false);
+
+	var buttonTournerBasCotyleNG = document.getElementById("buttonTournerBasCotyleNG");
+	buttonTournerBasCotyleNG.addEventListener('click', 
+		function() {
+			function TournerBasCotyleNG(){
+				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
+				if (patient.GetCoteOperation()=="Gauche") {
+					var canvasCotyle = document.getElementById("canvasCotyleDroit");
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextecotyle = canvasCotyle.getContext("2d");
+					cotyleDroit.TournerBas();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+					contextecotyle.rotate(cotyleDroit.GetOrientation());
+					contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+					contextecotyle.restore();
+
+				} else {
+					var canvasCotyle = document.getElementById("canvasCotyleGauche");
+					//var m_canvasWidth=900;
+					//var m_canvasHeight=800;
+					canvasCotyle.width=m_canvasWidth;
+					canvasCotyle.height=m_canvasHeight;
+					canvasCotyle.style.zIndex = "26";
+					var contextecotyle = canvasCotyle.getContext("2d");
+					cotyleGauche.TournerBas();
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+					contextecotyle.rotate(cotyleGauche.GetOrientation());
+					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+					contextecotyle.restore();
+				}
+			};
+			TournerBasCotyleNG()
+	}, false);
+
 	var buttonRetourImplant = document.getElementById("buttonRetourImplant");
 	buttonRetourImplant.addEventListener('click', 
 		function() {
