@@ -214,13 +214,21 @@ $(document).ready(function () {
 									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
 									if (patient.GetOperationGuide()=="Non guider") {
-										document.getElementById("deplacerTige").style.display="none";
+										//document.getElementById("deplacerTige").style.display="none";
+										var elements = document.getElementsByClassName("positionTige");
+										for (var i = 0; i < elements.length; i++) {
+											elements[i].style.display="";
+										}
+										var elements = document.getElementsByClassName("deplacerTige");
+										for (var i = 0; i < elements.length; i++) {
+											elements[i].style.display="none";
+										}
 										document.getElementById("deplacerCotyle").style.display="none";
 										document.getElementById("labelOffsetTigeCotyle").style.display="none";
 										document.getElementById("labelHauteurTigeCotyle").style.display="none";
 										//document.getElementById("buttonTournerHautCotyle").style.display="none";
 										//document.getElementById("buttonTournerBasCotyle").style.display="none";
-										document.getElementById("positionTige").style.display="";
+										//document.getElementById("positionTige").style.display="";
 										document.getElementById("positionCotyle").style.display="";
 									}
 									if (patient.GetCoteOperation()=="Gauche") {
@@ -237,14 +245,11 @@ $(document).ready(function () {
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
 										$("#accordeon").accordion({active : 1});
-										document.getElementById("dwv-drawDiv").style.zIndex = "30";
-										document.getElementById("buttonDessinRapporteur").style.display = "";
 									}
 
 									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
 										$('.implants *').prop('disabled',false);
 										$("#accordeon").accordion({active : 2});
-										document.getElementById("buttonDessinRapporteur").style.display = "none";
 									}
 								} else {
 									alert("Veuillez calibrer votre DICOM");
@@ -278,7 +283,7 @@ $(document).ready(function () {
 			function DessinRapporteur(){
 				console.log("dessin rapporteur");
 				DrawShape("Protractor");
-
+				document.getElementById("dwv-drawDiv").style.zIndex="200";
 			};
 			DessinRapporteur()
 	}, false);
@@ -1043,6 +1048,16 @@ $(document).ready(function () {
 
 
 				console.log(valeurGammeCimenteOuPas,valeurGammeVariseOuPas,valeurGammeColleretteOuPas);
+
+				if(patient.GetOperationGuide()=="Guider"){
+					$('.deplacerTige').prop('disabled',false);
+					$('.positionTige').prop('disabled',true);
+				}
+
+				if (patient.GetOperationGuide()=="Non guider") {
+					$('.deplacerTige').prop('disabled',true);
+					$('.positionTige').prop('disabled',false);
+				}
 			};
 			validerGamme();
 		}, false);
@@ -1969,13 +1984,13 @@ $(document).ready(function () {
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
 				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
 				var coteTige = document.getElementById("coteTige");
-
+				document.getElementById("dwv-drawDiv").style.zIndex="10";
 				if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {
 					canvasTigeDroit.style.zIndex=100;
 					canvasTigeGauche.style.zIndex=30;
 					canvasCotyleDroit.style.zIndex=35;
 					canvasCotyleGauche.style.zIndex=40;
-
+					
 					draggerTigeDroit(true);
 
 					var contexteTigeMoveTige=canvasTigeDroit.getContext("2d");
@@ -1995,7 +2010,6 @@ $(document).ready(function () {
 					canvasTigeGauche.style.zIndex=100;
 					canvasCotyleDroit.style.zIndex=35;
 					canvasCotyleGauche.style.zIndex=40;
-
 					draggerTigeGauche(true);
 
            			var contexteTigeMoveTige=canvasTigeGauche.getContext("2d");
@@ -2022,6 +2036,7 @@ $(document).ready(function () {
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
 				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
 				var coteCotyle = document.getElementById("coteCotyle");
+				document.getElementById("dwv-drawDiv").style.zIndex="10";
 				//console.log("imgCotyleGauche",imgCotyleGauche);
 				//console.log("imgCotyleDroit",imgCotyleDroit);
 
@@ -2030,7 +2045,7 @@ $(document).ready(function () {
 					canvasTigeGauche.style.zIndex=30;
 					canvasCotyleDroit.style.zIndex=100;
 					canvasCotyleGauche.style.zIndex=40;
-
+					
 					draggerCotyleDroit(true);
 
 					var contexteCotyleMoveCotyleD=canvasCotyleDroit.getContext("2d");
@@ -2050,7 +2065,6 @@ $(document).ready(function () {
 					canvasTigeGauche.style.zIndex=30;
 					canvasCotyleDroit.style.zIndex=35;
 					canvasCotyleGauche.style.zIndex=100;
-
 					draggerCotyleGauche(true);
 					
 					var contexteCotyleMoveCotyleG=canvasCotyleGauche.getContext("2d");

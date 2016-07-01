@@ -263,27 +263,44 @@
 							<input id="buttonPlusTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+" style="width:35px;">
 						</div>
 					</div>
-					<div id="deplacerTige" class="row" style="margin-top: 2%;">
+					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
 							<h5>D&eacute;placer</h5>
 						</div>
 						<div class="col-md-9">
-							<input id="buttonDescendreTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="-" style="width:35px;">
-							<input id="buttonMonterTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="+" style="width:35px;">
-							<input id="buttonGaucheTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="<-" style="width:35px;">
-							<input id="buttonDroitTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="->" style="width:35px;">
-							<input id="buttonHautTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="H" style="width:35px;">
-							<input id="buttonBasTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="B" style="width:35px;">
-						</div>
-					</div>
-					<div id="positionTige" class="row" style="margin-top: 2%; display: none;">
-						<div class="col-md-3">
-							<h5>Positionner</h5>
-						</div>
-						<div class="col-md-9">
-							<input id="buttonDeplacerTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" >
-							<input id="buttonTournerHautTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R+" style="width:35px;">
-							<input id="buttonTournerBasTige" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="R-" style="width:35px;">
+							<div class="row backgroundColor">
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonMonterTige" type="image" src="images/Plus.png" class="deplacerTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px">
+								</div>
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonHautTige" type="image" src="images/Haut.png" class="deplacerTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px">
+								</div>
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonTournerBasTige" type="image" src="images/flecheGauche.png" class="positionTige ui-widget ui-state-default ui-corner-all"  style="width:35px; height: 35px; display: none;" >
+								</div>
+							</div>
+							<div class="row backgroundColor">
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonGaucheTige" type="image" src="images/Gauche.png" class="deplacerTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px">
+								</div>
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonDeplacerTige" type="button" class="positionTige ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Déplacer" style="display: none;">
+								</div>
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonDroitTige" type="image" src="images/Droit.png" class="deplacerTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px">
+								</div>
+							</div>
+							<div class="row backgroundColor">
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonTournerHautTige" type="image" src="images/flecheDroit.png" class="positionTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px ; display: none;">
+								</div>
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonBasTige" type="image" src="images/Bas.png" class="deplacerTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px">
+								</div>
+								<div class="col-md-4 backgroundColor">
+									<input id="buttonDescendreTige" type="image" src="images/Moins.png" class="deplacerTige ui-widget ui-state-default ui-corner-all" style="width:35px; height: 35px">
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row" style="margin-top: 2%;">
@@ -363,7 +380,7 @@
 					<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
 				</div>
 				<div class="row">
-					<input type="button" id="buttonDessinRapporteur" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="ANGLE" style="margin: 8% 0%; width: 110px; display: none;">
+					<input type="button" id="buttonDessinRapporteur" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="ANGLE" style="margin: 8% 0%; width: 110px;">
 				</div>
 				<label id="labelOffsetTigeCotyle" class="blackColor"></label>
 			</div>
