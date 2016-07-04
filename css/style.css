@@ -145,10 +145,6 @@ table.tagList td {
 	color: black;
 }
 
-.backgroundColor
-{
-  background-color: #a54996;
-}
 .darkClass
 {
     background-color: grey;
@@ -164,10 +160,7 @@ table.tagList td {
     top: 0px;
     left: 0px;
 }
-<<<<<<< HEAD
-=======
 
 .imagefiles {
   width: 100%;
 }
->>>>>>> c3593fb5b3fbf59e3245988bfe9b7d4d997367cd
