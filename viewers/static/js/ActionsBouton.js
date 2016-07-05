@@ -598,13 +598,13 @@ $(document).ready(function () {
 					if (patient.GetCoteOperation()=="Gauche") {
 						imgTigeDroit.src=newTigeDroit.GetUrl();
 						var tailleTige = newTigeDroit.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 						//console.log("newTigeDroit.GetUrl()",newTigeDroit.GetUrl());
 					} else {
 						imgTigeGauche.src=newTigeGauche.GetUrl();
 						var tailleTige = newTigeGauche.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 						//console.log("newTigeGauche.GetUrl()",newTigeGauche.GetUrl());
 					}
@@ -685,12 +685,12 @@ $(document).ready(function () {
 					if (patient.GetCoteOperation()=="Gauche") {
 						imgCotyleDroit.src=newCotyleDroit.GetUrl();
 						var tailleCotyle = newCotyleDroit.GetNom().split("-");
-						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+						document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 					} else {
 						imgCotyleGauche.src=newCotyleGauche.GetUrl();
 						var tailleCotyle = newCotyleDroit.GetNom().split("-");
-						document.getElementById('labelTailleCotyle').innerHTML = newCotyleGauche.GetNom();tailleCotyle.slice(-1)[0];
+						document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 					}
 
@@ -838,12 +838,12 @@ $(document).ready(function () {
 					if (patient.GetCoteOperation()=="Gauche") {
 						imgTigeDroit.src=tigeDroit.GetUrl();
 						var tailleTige = tigeDroit.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 					} else {
 						imgTigeGauche.src=tigeGauche.GetUrl();
 						var tailleTige = tigeGauche.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 					}
 
@@ -885,11 +885,11 @@ $(document).ready(function () {
 							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 							var tailleTige = tigeDroit.GetNom().split("-");
-							document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+							document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 							//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 							var tailleCotyle = cotyleDroit.GetNom().split("-");
-							document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+							document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 							//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 
 						} else {
@@ -916,11 +916,11 @@ $(document).ready(function () {
 							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 							var tailleTige = tigeGauche.GetNom().split("-");
-							document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+							document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 							//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 							var tailleCotyle = cotyleGauche.GetNom().split("-");
-							document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+							document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 							//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 						}
 
@@ -952,11 +952,11 @@ $(document).ready(function () {
 							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 							var tailleTige = tigeDroit.GetNom().split("-");
-							document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+							document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 							//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 							var tailleCotyle = cotyleDroit.GetNom().split("-");
-							document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+							document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 							//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 
 						} else {
@@ -982,11 +982,11 @@ $(document).ready(function () {
 							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 							var tailleTige = tigeDroit.GetNom().split("-");
-							document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+							document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 							//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 							var tailleCotyle = cotyleDroit.GetNom().split("-");
-							document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+							document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 							//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 						}
 
@@ -1006,11 +1006,11 @@ $(document).ready(function () {
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 						var tailleTige = tigeDroit.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 						var tailleCotyle = cotyleDroit.GetNom().split("-");
-						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+						document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 
 
@@ -1022,11 +1022,11 @@ $(document).ready(function () {
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 						var tailleTige = tigeGauche.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 						var tailleCotyle = cotyleGauche.GetNom().split("-");
-						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+						document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 
 
@@ -1122,7 +1122,7 @@ $(document).ready(function () {
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 
 						var tailleTige = tigeDroit.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 					}
 					imgTigeDroit.src=newTigeDroit.GetUrl();
@@ -1144,7 +1144,7 @@ $(document).ready(function () {
 					}
 					imgTigeDroit.src=newTigeDroit.GetUrl();
 					var tailleTige = newTigeDroit.GetNom().split("-");
-					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 				}
 			} else {
@@ -1165,7 +1165,7 @@ $(document).ready(function () {
 				imgTigeDroit.src=newTigeDroit.GetUrl();
 			}
 			var tailleTige = tigeDroit.GetNom().split("-");
-			document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+			document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 		}
 
@@ -1197,13 +1197,13 @@ $(document).ready(function () {
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleTige = tigeGauche.GetNom().split("-");
-						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+						document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 
 					}
 					imgTigeGauche.src=newTigeGauche.GetUrl();
 					var tailleTige = newTigeGauchenewTigeDroit.GetNom().split("-");
-					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 				} else {
 					var newTigeGauche = getTige(tableTige, indexTigeGauche);
@@ -1222,7 +1222,7 @@ $(document).ready(function () {
 					}
 					imgTigeGauche.src=newTigeGauche.GetUrl();
 					var tailleTige = newTigeGauche.GetNom().split("-");
-					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 			}
 
@@ -1244,7 +1244,7 @@ $(document).ready(function () {
 				imgTigeGauche.src=newTigeGauche.GetUrl();
 			}
 			var tailleTige = tigeGauche.GetNom().split("-");
-			document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+			document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 		}
 
@@ -1284,12 +1284,12 @@ $(document).ready(function () {
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleCotyle = cotyleDroit.GetNom().split("-");
-						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+						document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 					}
 					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 					var tailleCotyle = newCotyleDroit.GetNom().split("-");
-					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				} else {
 					var newCotyleDroit = getCotyle(tableCotyle, indexCotyleDroit);
@@ -1308,7 +1308,7 @@ $(document).ready(function () {
 					}
 					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 					var tailleCotyle = newCotyleDroit.GetNom().split("-");
-					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				}
 			} else {
@@ -1330,7 +1330,7 @@ $(document).ready(function () {
 
 			}
 			var tailleCotyle = cotyleDroit.GetNom().split("-");
-			document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+			document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 			//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 		}
 		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
@@ -1360,12 +1360,12 @@ $(document).ready(function () {
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleCotyle = cotyleGauche.GetNom().split("-");
-						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+						document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 					}
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 					var tailleCotyle = newCotyleGauche.GetNom().split("-");
-					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				} else {
 					var newCotyleGauche = getCotyle(tableCotyle, indexCotyleGauche);
@@ -1384,7 +1384,7 @@ $(document).ready(function () {
 					}
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 					var tailleCotyle = newCotyleGauche.GetNom().split("-");
-					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				}
 			} else {
@@ -1405,7 +1405,7 @@ $(document).ready(function () {
 				imgCotyleGauche.src=newCotyleGauche.GetUrl();
 			}
 			var tailleCotyle = cotyleGauche.GetNom().split("-");
-			document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+			document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 			//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 		}
 	}
