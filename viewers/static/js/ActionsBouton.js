@@ -473,10 +473,9 @@ $(document).ready(function () {
 					indexCotyleDroit = 6;
 					maximumCotyleDroit = 13;
 					minimumCotyleDroit = 1;
-					
 					indexCotyleGauche = 19;
-					maximumCotyleGauche = 14;
-					minimumCotyleGauche = 25;
+					maximumCotyleGauche = 25;
+					minimumCotyleGauche = 14;
 				}
 				else if (valeurGammeCimenteOuNe=="sansCiment" ) {
 					console.log("sansCiment : cotyle_ax_sm_ne");
@@ -488,8 +487,8 @@ $(document).ready(function () {
 					minimumCotyleDroit = 1;
 					
 					indexCotyleGauche = 16;
-					maximumCotyleGauche = 12;
-					minimumCotyleGauche = 22;
+					maximumCotyleGauche = 22;
+					minimumCotyleGauche = 12;
 				}
 
 
@@ -1202,7 +1201,7 @@ $(document).ready(function () {
 
 					}
 					imgTigeGauche.src=newTigeGauche.GetUrl();
-					var tailleTige = newTigeGauchenewTigeDroit.GetNom().split("-");
+					var tailleTige = newTigeGauche.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 				} else {
