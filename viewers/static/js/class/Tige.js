@@ -356,7 +356,7 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_PositionPtMeca.y += this.m_deltaDeplacementY;
 	console.log(" xrot, y rot ", rotation[0],rotation[1]);
 	console.log("pointmx pointmy",pointMx,pointMy);
-	//context.strokeRect(rotation[0],rotation[1], 20, 80);
+	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
 	console.log("this.m_Position",this.m_Position);
 
 
@@ -432,7 +432,7 @@ Tige.prototype.Monter = function() {
 	var canvas  = document.querySelector('#dwv-imageLayer');
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "blue";
-//	context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
+	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
 };
 
 Tige.prototype.Descendre = function() {

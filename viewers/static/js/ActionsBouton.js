@@ -737,11 +737,16 @@ $(document).ready(function () {
 						var imgTigeDroitHeight=imgTigeDroit.height;
 						if (patient.GetCoteOperation()=="Gauche") {
 							tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient );
+							var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+							var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+							var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+							console.log("delta",delta);
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeDroit.GetOrientation());
 							contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+							contextetige.translate(0,delta);
 							contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 							contextetige.restore();
 
@@ -758,11 +763,15 @@ $(document).ready(function () {
 							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						} else {
 							tigeGauche.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
+							var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+							var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+							var delta = posyr-tigeGauche.GetPosition().y;
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeGauche.GetOrientation());
 							contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+							contextetige.translate(0,delta);
 							contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 							contextetige.restore();
 
@@ -788,12 +797,16 @@ $(document).ready(function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
 						var imgTigeGaucheHeight=imgTigeGauche.height;
 						if (patient.GetCoteOperation()=="Gauche") {
-							tigeDroit.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient); 
+							tigeDroit.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+							var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+							var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+							var delta = posyr-tigeDroit.GetPosition().y;
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeDroit.GetOrientation());
 							contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+							contextetige.translate(0,delta);
 							contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 							contextetige.restore();
 
@@ -810,11 +823,15 @@ $(document).ready(function () {
 							document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						} else {
 							tigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+							var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+							var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+							var delta = posyr-tigeGauche.GetPosition().y;
 							contextetige.save();
 							contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 							contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 							contextetige.rotate(tigeGauche.GetOrientation());
 							contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+							contextetige.translate(0,delta);
 							contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 							contextetige.restore();
 
@@ -1106,11 +1123,15 @@ $(document).ready(function () {
 						var imgTigeDroitWidth=imgTigeDroit.width;
 						var imgTigeDroitHeight=imgTigeDroit.height;
 						newTigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient, tigeDroit.GetDeltaDeplacement(), tigeDroit.GetDeltaDeplacementX(), tigeDroit.GetDeltaDeplacementY());
+						var b=newTigeDroit.GetPosition().y-(Math.tan(newTigeDroit.GetOrientation())*newTigeDroit.GetPosition().x);
+						var posyr=(Math.tan(newTigeDroit.GetOrientation())*newTigeDroit.GetPositionAvtOffset().x)+b;
+						var delta = posyr-newTigeDroit.GetPosition().y;
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 						contexteTigeDrawTige.translate(newTigeDroit.GetPositionAvtOffset().x,newTigeDroit.GetPositionAvtOffset().y);
 						contexteTigeDrawTige.rotate(newTigeDroit.GetOrientation());
 						contexteTigeDrawTige.translate(newTigeDroit.GetPosition().x-newTigeDroit.GetPositionAvtOffset().x,newTigeDroit.GetPosition().y-newTigeDroit.GetPositionAvtOffset().y);
+						contexteTigeDrawTige.translate(0,delta);
 						contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -newTigeDroit.GetImageLargeur() / 2, -newTigeDroit.GetImageHauteur() / 2, newTigeDroit.GetImageLargeur(), newTigeDroit.GetImageHauteur());
 						contexteTigeDrawTige.restore();
 						tigeDroit=newTigeDroit;
@@ -1182,11 +1203,15 @@ $(document).ready(function () {
 						var imgTigeGaucheWidth=imgTigeGauche.width;
 						var imgTigeGaucheHeight=imgTigeGauche.height;
 						newTigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient, tigeGauche.GetDeltaDeplacement(), tigeGauche.GetDeltaDeplacementX(), tigeGauche.GetDeltaDeplacementY());
+						var b=newTigeGauche.GetPosition().y-(Math.tan(newTigeGauche.GetOrientation())*newTigeGauche.GetPosition().x);
+						var posyr=(Math.tan(newTigeGauche.GetOrientation())*newTigeGauche.GetPositionAvtOffset().x)+b;
+						var delta = posyr-newTigeGauche.GetPosition().y;
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 						contexteTigeDrawTige.translate(newTigeGauche.GetPositionAvtOffset().x,newTigeGauche.GetPositionAvtOffset().y);
 						contexteTigeDrawTige.rotate(newTigeGauche.GetOrientation());
 						contexteTigeDrawTige.translate(newTigeGauche.GetPosition().x-newTigeGauche.GetPositionAvtOffset().x,newTigeGauche.GetPosition().y-newTigeGauche.GetPositionAvtOffset().y);
+						contexteTigeDrawTige.translate(0,delta);
 						contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTigeGauche.GetImageLargeur() / 2, -newTigeGauche.GetImageHauteur() / 2, newTigeGauche.GetImageLargeur(), newTigeGauche.GetImageHauteur());
 						contexteTigeDrawTige.restore();
 						tigeGauche=newTigeGauche;
@@ -1512,41 +1537,44 @@ $(document).ready(function () {
 				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
-					/*var m_canvasWidth=900;
-					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeDroit.Monter();
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
-
-					//UpTige(canvasTige, tigeDroit);
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeGauche.Monter();
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
 					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
@@ -1568,47 +1596,52 @@ $(document).ready(function () {
 				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
-					/*var m_canvasWidth=900;
-					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeDroit.Descendre();
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
-
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
-					/*var m_canvasWidth=900;
-					var m_canvasHeight=800;*/
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeGauche.Descendre();
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
-
-					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+
+					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			DescendreTige()
@@ -2295,19 +2328,22 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeDroit.MouvementDroit();
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
-
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
 					canvasTige.width=m_canvasWidth;
@@ -2315,18 +2351,24 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeGauche.MouvementDroit();
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
-
-					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+
+					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			DeplacementDroitTige()
@@ -2345,19 +2387,22 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeDroit.MouvementGauche();
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
-
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
 					canvasTige.width=m_canvasWidth;
@@ -2365,18 +2410,24 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeGauche.MouvementGauche();
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
-
-					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+
+					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			DeplacementGaucheTige()
@@ -2491,19 +2542,22 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeDroit.MouvementHaut();
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
-
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
 					canvasTige.width=m_canvasWidth;
@@ -2511,18 +2565,24 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeGauche.MouvementHaut();
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
-
-					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+
+					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			DeplacementHautTige()
@@ -2541,19 +2601,22 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeDroit.MouvementBas();
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeDroit.GetOrientation());
 					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contextetige.restore();
-
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
 					canvasTige.width=m_canvasWidth;
@@ -2561,18 +2624,24 @@ $(document).ready(function () {
 					canvasTige.style.zIndex = "26";
 					var contextetige = canvasTige.getContext("2d");
 					tigeGauche.MouvementBas();
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
+					console.log("delta",delta);
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
 					contextetige.rotate(tigeGauche.GetOrientation());
 					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
-
-					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+
+					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			DeplacementBasTige()
