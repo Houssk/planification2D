@@ -1183,10 +1183,9 @@ $(document).ready(function () {
 					tigeDroit=newTigeDroit;
 				}
 				imgTigeDroit.src=newTigeDroit.GetUrl();
+				var tailleTige = newTigeDroit.GetNom().split("-");
+				document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			}
-			var tailleTige = tigeDroit.GetNom().split("-");
-			document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
-			//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 		}
 
 		if (coteTige.options[coteTige.selectedIndex].value == "Droit") {
@@ -1266,10 +1265,9 @@ $(document).ready(function () {
 					tigeGauche=newTigeGauche;
 				}
 				imgTigeGauche.src=newTigeGauche.GetUrl();
+				var tailleTige = newTigeGauche.GetNom().split("-");
+				document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			}
-			var tailleTige = tigeGauche.GetNom().split("-");
-			document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
-			//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 		}
 
 	}
@@ -1351,11 +1349,9 @@ $(document).ready(function () {
 					cotyleDroit=newCotyleDroit;
 				}
 				imgCotyleDroit.src=newCotyleDroit.GetUrl();
-
+				var tailleCotyle = newCotyleDroit.GetNom().split("-");
+				document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 			}
-			var tailleCotyle = cotyleDroit.GetNom().split("-");
-			document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
-			//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 		}
 		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
 			canvasCotyle=document.getElementById("canvasCotyleGauche");
@@ -1427,10 +1423,9 @@ $(document).ready(function () {
 					cotyleGauche=newCotyleGauche;
 				}
 				imgCotyleGauche.src=newCotyleGauche.GetUrl();
+				var tailleCotyle = newCotyleGauche.GetNom().split("-");
+				document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 			}
-			var tailleCotyle = cotyleGauche.GetNom().split("-");
-			document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
-			//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 		}
 	}
 
