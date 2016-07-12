@@ -41,8 +41,10 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
         name: "shape"
     });
     // quantification
-    var quant = image.quantifyLine( line );
-    var str = quant.length.toPrecision(4) + " mm";
+    var coeff=sessionStorage.getItem("coefficient");
+    var distPx = Math.sqrt(Math.pow(line.getEnd().getX()-line.getBegin().getX(),2)+Math.pow(line.getEnd().getY()-line.getBegin().getY(),2));
+    var distMm = Math.round(distPx*coeff) ;
+    var str = distMm + " mm";
     // quantification text
     var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
     var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
@@ -109,8 +111,10 @@ dwv.tool.UpdateLine = function (anchor, image)
     var p2d0 = new dwv.math.Point2D(begin.x(), begin.y());
     var p2d1 = new dwv.math.Point2D(end.x(), end.y());
     var line = new dwv.math.Line(p2d0, p2d1);
-    var quant = image.quantifyLine( line );
-    var str = quant.length.toPrecision(4) + " mm";
+    var coeff=sessionStorage.getItem("coefficient");
+    var distPx = Math.sqrt(Math.pow(line.getEnd().getX()-line.getBegin().getX(),2)+Math.pow(line.getEnd().getY()-line.getBegin().getY(),2));
+    var distMm = Math.round(distPx*coeff) ;
+    var str = distMm + " mm";
     var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
     var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
     var textPos = {

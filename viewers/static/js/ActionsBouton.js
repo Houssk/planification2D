@@ -285,6 +285,17 @@ $(document).ready(function () {
 			DessinRapporteur()
 	}, false);
 
+	var buttonDessinRegle = document.getElementById("buttonDessinRegle");
+	buttonDessinRegle.addEventListener('click', 
+		function() {
+			function DessinRegle(){
+				console.log("dessin regle");
+				DrawShape("Line");
+				document.getElementById("dwv-drawDiv").style.zIndex = "200";
+			};
+			DessinRegle()
+	}, false);
+
 	var buttonDessinCercle = document.getElementById("buttonDessinCercle");
 	buttonDessinCercle.addEventListener('click', 
 		function() {
