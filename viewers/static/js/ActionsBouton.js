@@ -1023,7 +1023,7 @@ $(document).ready(function () {
 						newTigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient, tigeDroit.GetDeltaDeplacement(), tigeDroit.GetDeltaDeplacementX(), tigeDroit.GetDeltaDeplacementY());
 						var b=newTigeDroit.GetPosition().y-(Math.tan(newTigeDroit.GetOrientation())*newTigeDroit.GetPosition().x);
 						var posyr=(Math.tan(newTigeDroit.GetOrientation())*newTigeDroit.GetPositionAvtOffset().x)+b;
-						var delta = posyr-newTigeDroit.GetPosition().y;						console.log("imagetige guche",newTigeDroit)
+						var delta = posyr-newTigeDroit.GetPosition().y;
 						contexteTigeDrawTige.save();
 						contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 						contexteTigeDrawTige.translate(newTigeDroit.GetPositionAvtOffset().x,newTigeDroit.GetPositionAvtOffset().y);
