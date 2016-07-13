@@ -294,10 +294,9 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 
 	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
+
 	this.m_PositionAvtOffset.x=((trapeze[0]*dicomCanvas.width)/dicomWidth);
 	this.m_PositionAvtOffset.y=((trapeze[1]*dicomCanvas.height)/dicomHeight);
-
-
 
 	//var deltaCercleTrapeze = (((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
@@ -316,22 +315,9 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_coeffDirecteur=deltaY/deltaX;
 	this.m_Position.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
-	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
-	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
-	this.m_Position.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
-	this.m_Position.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
 
 	this.m_PositionAvtOffset.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
 	this.m_PositionAvtOffset.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
-	this.m_PositionAvtOffset.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
-	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
-	this.m_PositionAvtOffset.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
-	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
-/*
-	this.m_PositionPtMeca.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
-	this.m_PositionPtMeca.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
-	this.m_PositionPtMeca.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
-	this.m_PositionPtMeca.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;*/
 
 
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
@@ -342,8 +328,8 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	console.log("this_manglealignement",this.m_angleAlignement);
 	var trapezeX = trapeze[0] - ((trapeze[1]-cercle[1])/this.m_coeffDirecteur)/2- this.m_OffsetX*this.m_coeffRedimensionnement;
 	var trapezeY = trapeze[1]  - (trapeze[1]-cercle[1])/2;
-	    trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
-		trapezeY += this.m_deltaDeplacement;
+	    //trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
+		//trapezeY += this.m_deltaDeplacement;
 		
 
 	var pointMx =  trapezeX + this.m_ptMecaHaut.x*this.m_coeffRedimensionnement  ;
@@ -352,8 +338,39 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var rotation = rotate(trapezeX,trapezeY,pointMx,pointMy,acos);
 	this.m_PositionPtMeca.x = rotation[0];
 	this.m_PositionPtMeca.y = rotation[1];
+
+	var delta=this.m_PositionPtMeca.y-cercle[1];
+	console.log("delta cercle ptmeca", delta);
+
+	this.m_Position.x-=((delta/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth;
+	this.m_Position.y-=(delta*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionAvtOffset.x-=((delta/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionAvtOffset.y-=(delta*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionPtMeca.x-=delta/this.m_coeffDirecteur;
+	this.m_PositionPtMeca.y-=delta;
+
+	console.log("m_deltaDeplacement", this.m_deltaDeplacement);
+	console.log("m_deltaDeplacementX",this.m_deltaDeplacementX);
+	console.log("m_deltaDeplacementY",this.m_deltaDeplacementY);
+
+	this.m_PositionPtMeca.x += this.m_deltaDeplacement/this.m_coeffDirecteur;
+	this.m_PositionPtMeca.y += this.m_deltaDeplacement;
+
 	this.m_PositionPtMeca.x += this.m_deltaDeplacementX;
 	this.m_PositionPtMeca.y += this.m_deltaDeplacementY;
+
+	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+	this.m_Position.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
+	this.m_Position.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
+
+	this.m_PositionAvtOffset.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
+	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
+	this.m_PositionAvtOffset.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
+	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
+
 	console.log(" xrot, y rot ", rotation[0],rotation[1]);
 	console.log("pointmx pointmy",pointMx,pointMy);
 	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
