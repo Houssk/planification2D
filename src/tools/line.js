@@ -49,8 +49,8 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
     var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
     var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
     var ktext = new Kinetic.Text({
-        x: line.getEnd().getX() + dX * 25,
-        y: line.getEnd().getY() + dY * 15,
+        x: line.getEnd().getX() + dX * 25+10,
+        y: line.getEnd().getY() + dY * 15+10,
         text: str,
         fontSize: style.getScaledFontSize(),
         fontFamily: style.getFontFamily(),
@@ -118,8 +118,8 @@ dwv.tool.UpdateLine = function (anchor, image)
     var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
     var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
     var textPos = {
-        'x': line.getEnd().getX() + dX * 25,
-        'y': line.getEnd().getY() + dY * 15, };
+        'x': line.getEnd().getX() + dX * 25+10,
+        'y': line.getEnd().getY() + dY * 15+10, };
     ktext.position( textPos );
     ktext.text(str);
 };

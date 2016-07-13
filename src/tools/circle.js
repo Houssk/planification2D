@@ -59,7 +59,7 @@ dwv.tool.CircleFactory = function ()
  */
 dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 {
-    var nbMaxDraw;
+    var nbMaxDraw
     if (document.getElementById("RadioOuiHanche").checked) {
         nbMaxDraw=1;
     } else {
@@ -91,11 +91,9 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
 
         if (sessionStorage.getItem("calibrageAFaire")=="true") {
             if (sessionStorage.getItem("lastPoint")===null) {
-                console.log("sessionStorage.getItem(lastPoint) calibrageAFaire=true",sessionStorage.getItem("lastPoint"));
                 sessionStorage.setItem("lastPoint", points[0]);
                 onPeutTraceCercle=true;
             } else {
-                console.log("sessionStorage.getItem(lastPoint) calibrageAFaire=true",sessionStorage.getItem("lastPoint"));
                 if (sessionStorage.getItem("lastPoint")!=points[0]) {
                     onPeutTraceCercle=false;
                     sessionStorage.setItem("calibrageAFaire", false);
@@ -103,7 +101,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             }
         }
     }
-   //console.log("onpeuttracercercle",onPeutTraceCercle);
+    //console.log("onpeuttracercercle",onPeutTraceCercle);
     /*if(sessionStorage.getItem("retour")==0){
         onPeutTraceCercle = true;
     }*/
@@ -172,8 +170,8 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
            }
         // quantification text
         var ktext = new Kinetic.Text({
-            x: circle.getCenter().getX(),
-            y: circle.getCenter().getY()+10,
+            x: circle.getCenter().getX()+10,
+            y: circle.getCenter().getY()+20,
             text: str,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -297,6 +295,8 @@ dwv.tool.UpdateCircle = function (anchor, image)
         sessionStorage.setItem("taille_bille_px",diametre_px);
     }
     var textPos = centerCircle;
+        textPos.x+=10;
+        textPos.y+=10;
     ktext.position(textPos);
     ktext.text(str);
 };

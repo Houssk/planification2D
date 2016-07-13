@@ -125,8 +125,8 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
 
         // quantification text
         var horizontalCoteText = new Kinetic.Text({
-            x: line.getBegin().getX() + ((line.getEnd().getX() - line.getBegin().getX()) / 2),
-            y: line.getBegin().getY() + 10,
+            x: line.getBegin().getX() + ((line.getEnd().getX() - line.getBegin().getX()) / 2)+10,
+            y: line.getBegin().getY() + 20,
             text: strDeltaX,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -135,8 +135,8 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
         });
 
         var verticalCoteLeftText = new Kinetic.Text({
-            x: line.getBegin().getX() + 10,
-            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2),
+            x: line.getBegin().getX() + 20,
+            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2)+10,
             text: strDeltaY,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -145,8 +145,8 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
         });
 
         var verticalCoteRightText = new Kinetic.Text({
-            x: line.getEnd().getX() + 10,
-            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2),
+            x: line.getEnd().getX() + 20,
+            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2)+10,
             text: strDeltaZ,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -293,13 +293,13 @@ dwv.tool.UpdateMesurepetittroch = function (anchor, image)
     var deltaX = Math.round(Math.abs(points[2]-points[0])*coefficient);
     var textPosHor = {
         'x': (line.getBegin().getX() + dX * 25) + (points[2]-points[0])/2,
-        'y': (line.getBegin().getY() + dY * 15)+20, };
+        'y': (line.getBegin().getY() + dY * 15)+30, };
     var textPosVerRight = {
-        'x': line.getEnd().getX() + dX * 25 +20,
-        'y': line.getEnd().getY() + dY * 15  , };
+        'x': line.getEnd().getX() + dX * 25 +30,
+        'y': line.getEnd().getY() + dY * 15 +10 , };
     var textPosVerLeft = {
-        'x': line.getBegin().getX() + dX * 25+20,
-        'y': line.getLeft().getY() + dz * 15, };
+        'x': line.getBegin().getX() + dX * 25+30,
+        'y': line.getLeft().getY() + dz * 15 +10, };
 
     var strDeltaX = deltaX + " mm";
     var strDeltaY = deltaY + " mm";
