@@ -170,8 +170,8 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
            }
         // quantification text
         var ktext = new Kinetic.Text({
-            x: circle.getCenter().getX(),
-            y: circle.getCenter().getY()+10,
+            x: circle.getCenter().getX()+10,
+            y: circle.getCenter().getY()+20,
             text: str,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -295,6 +295,8 @@ dwv.tool.UpdateCircle = function (anchor, image)
         sessionStorage.setItem("taille_bille_px",diametre_px);
     }
     var textPos = centerCircle;
+        textPos.x+=10;
+        textPos.y+=10;
     ktext.position(textPos);
     ktext.text(str);
 };
