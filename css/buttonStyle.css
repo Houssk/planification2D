@@ -7,3 +7,8 @@
   padding: 0px;
   text-align: center;
 }
+
+.btnHover:hover
+{
+  background: #181617;
+}
