@@ -1,9 +1,14 @@
 .backgroundColor
 {
-  background-color: #a54996;
+  background-color: #f47d30;
   margin-right: 2%;
   height: 25px;
   width: 25px;
   padding: 0px;
   text-align: center;
+}
+
+.btnHover:hover
+{
+  background: #004563;
 }
