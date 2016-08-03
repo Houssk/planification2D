@@ -48,9 +48,12 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
     // quantification text
     var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
     var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
+    var dicomCanvas = document.getElementById("dwv-imageLayer");
+    var dicomWidth = sessionStorage.getItem("imageLargeur");
+    var dicomHeight = sessionStorage.getItem("imageHauteur");
     var ktext = new Kinetic.Text({
-        x: line.getEnd().getX() + dX * 25+10,
-        y: line.getEnd().getY() + dY * 15+10,
+        x: line.getEnd().getX() + dX * 25+(10*(dicomWidth/dicomCanvas.width)),
+        y: line.getEnd().getY() + dY * 15+(10*(dicomHeight/dicomCanvas.height)),
         text: str,
         fontSize: style.getScaledFontSize(),
         fontFamily: style.getFontFamily(),
@@ -117,9 +120,14 @@ dwv.tool.UpdateLine = function (anchor, image)
     var str = distMm + " mm";
     var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
     var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
+    var dicomCanvas = document.getElementById("dwv-imageLayer");
+    var dicomWidth = sessionStorage.getItem("imageLargeur");
+    var dicomHeight = sessionStorage.getItem("imageHauteur");
+    
+    
     var textPos = {
-        'x': line.getEnd().getX() + dX * 25+10,
-        'y': line.getEnd().getY() + dY * 15+10, };
+        'x': line.getEnd().getX() + dX * 25+(10*(dicomWidth/dicomCanvas.width)),
+        'y': line.getEnd().getY() + dY * 15+(10*(dicomHeight/dicomCanvas.height)), };
     ktext.position( textPos );
     ktext.text(str);
 };

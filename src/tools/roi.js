@@ -105,6 +105,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
             };
         };
 
+        //console.log("Yarr",Yarr);
         var x1 = Xarr[2] / 2 + Xarr[3] / 2 ;
         var y1 = Yarr[2] / 2 + Yarr[3] / 2 ;
         var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;

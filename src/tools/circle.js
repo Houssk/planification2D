@@ -169,9 +169,15 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             ApparitionBoutonValiderPatient();
            }
         // quantification text
+        /*var coeffBille = sessionStorage.getItem("coefficient");*/
+        var dicomCanvas = document.getElementById("dwv-imageLayer");
+        var dicomWidth = sessionStorage.getItem("imageLargeur");
+        var dicomHeight = sessionStorage.getItem("imageHauteur");
+        var posx=circle.getCenter().getX()+(10*(dicomWidth/dicomCanvas.width))+radiusCircle;
+        var posy=circle.getCenter().getY();
         var ktext = new Kinetic.Text({
-            x: circle.getCenter().getX()+10,
-            y: circle.getCenter().getY()+20,
+            x: posx,
+            y: posy,
             text: str,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -294,9 +300,14 @@ dwv.tool.UpdateCircle = function (anchor, image)
         str = diametre_px  + " px";
         sessionStorage.setItem("taille_bille_px",diametre_px);
     }
+    var dicomCanvas = document.getElementById("dwv-imageLayer");
+    var dicomWidth = sessionStorage.getItem("imageLargeur");
+    var dicomHeight = sessionStorage.getItem("imageHauteur");
+    var posx=(10*(dicomWidth/dicomCanvas.width))+radiusCircle;
+    var posy=0;
     var textPos = centerCircle;
-        textPos.x+=10;
-        textPos.y+=10;
+        textPos.x+=posx;
+        textPos.y+=posy;
     ktext.position(textPos);
     ktext.text(str);
 };
