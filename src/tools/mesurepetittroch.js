@@ -123,9 +123,12 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
         var strDeltaY = deltaY + " mm";
         var strDeltaZ = deltaZ + " mm";
 
+        var dicomCanvas = document.getElementById("dwv-imageLayer");
+        var dicomWidth = sessionStorage.getItem("imageLargeur");
+        var dicomHeight = sessionStorage.getItem("imageHauteur");
         // quantification text
         var horizontalCoteText = new Kinetic.Text({
-            x: line.getBegin().getX() + ((line.getEnd().getX() - line.getBegin().getX()) / 2)+10,
+            x: line.getBegin().getX() + ((line.getEnd().getX() - line.getBegin().getX()) / 2)+(10*(dicomWidth/dicomCanvas.width)),
             y: line.getBegin().getY() + 20,
             text: strDeltaX,
             fontSize: style.getScaledFontSize(),
@@ -135,8 +138,8 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
         });
 
         var verticalCoteLeftText = new Kinetic.Text({
-            x: line.getBegin().getX() + 20,
-            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2)+10,
+            x: line.getBegin().getX() + (20*(dicomWidth/dicomCanvas.width)),
+            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2)+(10*(dicomHeight/dicomCanvas.height)),
             text: strDeltaY,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -145,8 +148,8 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
         });
 
         var verticalCoteRightText = new Kinetic.Text({
-            x: line.getEnd().getX() + 20,
-            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2)+10,
+            x: line.getEnd().getX() + (20*(dicomWidth/dicomCanvas.width)),
+            y: line.getBegin().getY() + ((line.getEnd().getY() - line.getBegin().getY()) / 2)+(10*(dicomHeight/dicomCanvas.height)),
             text: strDeltaZ,
             fontSize: style.getScaledFontSize(),
             fontFamily: style.getFontFamily(),
@@ -291,15 +294,18 @@ dwv.tool.UpdateMesurepetittroch = function (anchor, image)
     var deltaZ = Math.round(Math.abs(pointsVerticalLeft[3]- pointsVerticalLeft[1])*coefficient);
     var deltaY = Math.round(Math.abs(pointsVerticalRight[3]-pointsVerticalRight[1])*coefficient);
     var deltaX = Math.round(Math.abs(points[2]-points[0])*coefficient);
+    var dicomCanvas = document.getElementById("dwv-imageLayer");
+    var dicomWidth = sessionStorage.getItem("imageLargeur");
+    var dicomHeight = sessionStorage.getItem("imageHauteur");
     var textPosHor = {
         'x': (line.getBegin().getX() + dX * 25) + (points[2]-points[0])/2,
-        'y': (line.getBegin().getY() + dY * 15)+30, };
+        'y': (line.getBegin().getY() + dY * 15 +(30*(dicomHeight/dicomCanvas.height))), };
     var textPosVerRight = {
-        'x': line.getEnd().getX() + dX * 25 +30,
-        'y': line.getEnd().getY() + dY * 15 +10 , };
+        'x': line.getEnd().getX() + dX * 25 +(30*(dicomWidth/dicomCanvas.width)),
+        'y': line.getEnd().getY() +  dY * 15 +(10*(dicomHeight/dicomCanvas.height)), };
     var textPosVerLeft = {
-        'x': line.getBegin().getX() + dX * 25+30,
-        'y': line.getLeft().getY() + dz * 15 +10, };
+        'x': line.getBegin().getX() + dX * 25+(30*(dicomWidth/dicomCanvas.width)),
+        'y': line.getLeft().getY() + dz * 15 +(10*(dicomHeight/dicomCanvas.height)), };
 
     var strDeltaX = deltaX + " mm";
     var strDeltaY = deltaY + " mm";
