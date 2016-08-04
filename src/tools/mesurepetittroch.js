@@ -53,7 +53,7 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
                 sessionStorage.setItem("nbPetitTroch", tempNbPetitTroch);
                 onPeutTracePetitRoch=true;
             } else {
-                alert("Veuillez supprimez mesure petitroch pour en recreer un nouveau");
+                swal("Veuillez supprimer mesure petitroch pour en recreer un nouveau","Seul 1 mesure petitroch est autorisé");
                 onPeutTracePetitRoch=false;
             }
         }
