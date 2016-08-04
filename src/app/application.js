@@ -1473,13 +1473,34 @@ dwv.App = function ()
         var buttonCalibrage = document.getElementById("buttonCalibrage");
         var taille_bille_mm = null;
         buttonCalibrage.addEventListener('click', function() {
-                do {
+            swal({
+                title: "Calibrage!",
+                text: "Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille:",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: true,
+                animation: "slide-from-top",
+                inputPlaceholder: "Taille en mm."
+            },
+            function(inputValue){
+                if (inputValue === false)
+                    return false;
+                if (inputValue === "") {
+                    swal.showInputError("Veuillez renseigner le champs!");
+                    return false;
+                }
+                sessionStorage.setItem("taille_bille_mm",inputValue);
+                toolbox.setSelectedTool("Draw");
+                toolboxController.setSelectedShape("Circle");
+            });
+
+                /*do {
                     taille_bille_mm = prompt("Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille");
                 }while(isNaN(taille_bille_mm));
                 sessionStorage.setItem("taille_bille_mm",taille_bille_mm);
                 toolbox.setSelectedTool("Draw");
                 toolboxController.setSelectedShape("Circle");
-                console.log(window.event);
+                console.log(window.event);*/
 
 
             }

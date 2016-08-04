@@ -58,7 +58,7 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
                 sessionStorage.setItem("nbTrapeze", tempNbTrapeze);
                 onPeutTraceTrapeze=true;
             } else {
-                alert("Veuillez supprimez un trapèze pour en recréer un nouveau");
+                swal("Veuillez supprimer un trapèze pour en recréer un nouveau","Seul "+nbMaxDraw+" trapèze(s) est/sont autorisé(s)","warning");
                 onPeutTraceTrapeze=false;
             }
         }
@@ -105,7 +105,9 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
             };
         };
 
-        //console.log("Yarr",Yarr);
+        console.log("arr",arr);
+        console.log("Xarr",Xarr);
+        console.log("Yarr",Yarr);
         var x1 = Xarr[2] / 2 + Xarr[3] / 2 ;
         var y1 = Yarr[2] / 2 + Yarr[3] / 2 ;
         var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;

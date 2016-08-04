@@ -82,7 +82,7 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
                     sessionStorage.setItem("nbCercle", tempNbCercle);
                     onPeutTraceCercle=true; 
                 } else {
-                    alert("Veuillez supprimez un cercle pour en recréer un nouveau");
+                    swal("Veuillez supprimer un cercle pour en recréer un nouveau","Seul "+nbMaxDraw+" cercle(s) est/sont autorisé(s)","warning");
                     onPeutTraceCercle=false;
                 }
             }
