@@ -228,3 +228,16 @@ function facteurRedimensionnementImage() {
         coefHeight : coefHeightImage
     };
 }
+
+$(document).ready(function () {
+    $('input[type="button"]').click(function(){
+        $('input[type="button"].activeBtn').removeClass('activeBtn')
+        $(this).addClass('activeBtn');
+        console.log("toto");
+    });
+    $('input[type="image"]').click(function(){
+        $('input[type="image"].activeBtn').removeClass('activeBtn')
+        $(this).addClass('activeBtn');
+        console.log("toto");
+    });
+})

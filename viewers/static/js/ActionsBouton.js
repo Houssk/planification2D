@@ -192,7 +192,7 @@ $(document).ready(function () {
 									console.log("coeff", coeff);
 									sessionStorage.setItem("coefficient",coeff);
 									sessionStorage.setItem("calibrage",true);
-									swal(string);
+									swal("",string);
 								} else {
 									console.log("coeff application.js", coeff);
 									sessionStorage.setItem("calibrage",false);

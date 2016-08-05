@@ -161,11 +161,13 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         pointsAxeCentre.push(y1);
         pointsAxeCentre.push(x2);
         pointsAxeCentre.push(y2);
-
+        var dicomCanvas = document.getElementById("dwv-imageLayer");
+        var dicomWidth = sessionStorage.getItem("imageLargeur");
+        var dicomHeight = sessionStorage.getItem("imageHauteur");
         var kAxeCentre = new Kinetic.Line({
            points: pointsAxeCentre,
            stroke: "red",
-           strokeWidth: 5,
+           strokeWidth: 5*(dicomWidth/dicomCanvas.width),
            lineJoin: 'round',
            name: "AxeCentre"
         });
