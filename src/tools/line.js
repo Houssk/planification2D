@@ -51,7 +51,7 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
         }
     }
     if (onPeutTraceRegle==true) {
-        var tempNbRegle = sessionStorage.getItem("nbAngle");
+        var tempNbRegle = sessionStorage.getItem("nbRegle");
         if(parseInt(tempNbRegle)==1){
             document.getElementById("buttonDeleteRegle").style.display = "";
         }
