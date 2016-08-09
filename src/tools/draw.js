@@ -816,7 +816,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-
                 }
                 else  if(shape.id()=="petitroch"){
                     var group = shape.getParent();
