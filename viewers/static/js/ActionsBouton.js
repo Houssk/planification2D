@@ -239,6 +239,9 @@ $(document).ready(function () {
 										document.getElementById("coteCotyle").value="Droit";
 									}
 
+									document.getElementById("buttonDessinRapporteur").style.display="";
+                                    document.getElementById("buttonDessinRegle").style.display="";
+
 									$('.informationPatient *').prop('disabled',true);
 									//document.getElementById("informationPatient").style.display = "";
 
@@ -1107,6 +1110,11 @@ $(document).ready(function () {
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
+				document.getElementById("buttonDessinRegle").style.display="none";
+                document.getElementById("buttonDeleteRapporteur").style.display="none";
+                document.getElementById("buttonDeleteRegle").style.display="none";
+                sessionStorage.setItem("nbRegle",0);
+                sessionStorage.setItem("nbAngle",0);
 
 			};
 			RetourDessin()
@@ -1984,6 +1992,11 @@ $(document).ready(function () {
 	                sessionStorage.setItem("nbTrapeze", 0);
                 	sessionStorage.setItem("nbPetitTroch", 0);
 	                sessionStorage.setItem("retour",0);
+	                document.getElementById("buttonDessinRegle").style.display="none";
+	                document.getElementById("buttonDeleteRapporteur").style.display="none";
+	                document.getElementById("buttonDeleteRegle").style.display="none";
+	                sessionStorage.setItem("nbRegle",0);
+	                sessionStorage.setItem("nbAngle",0);
 					ZoomMode();
 					$("#accordeon").accordion({active : 0});
 				}
