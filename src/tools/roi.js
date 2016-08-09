@@ -76,15 +76,13 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
         roi.addPoints(points);
         // points stored the kineticjs way
         var arr = [];
-        var Yarr = [];
-        var Xarr = [];
+        var pointsArr = [];
         for( var i = 0; i < roi.getLength(); ++i )
         {
             arr.push( roi.getPoint(i).getX() );
             arr.push( roi.getPoint(i).getY() );
-            Yarr.push( roi.getPoint(i).getY() );
+            pointsArr.push({x:roi.getPoint(i).getX(), y:roi.getPoint(i).getY()});
         }
-
         // draw shape
         var kshape = new Kinetic.Line({
             points: arr,
@@ -95,24 +93,23 @@ dwv.tool.RoiFactory.prototype.create = function (points, style /*, image*/)
             closed: true
         });
 
-        Yarr.sort(function(a, b){return a-b});
-        for (var i = 0; i < Yarr.length; i++) {
-            for (var j = 1; j < arr.length; j+=2) {
-                if(Yarr[i]==arr[j])
-                {
-                    Xarr.push(arr[j-1]);
-                }
-            };
-        };
+        pointsArr.sort(function(a, b) {
+            return a.y-b.y;
+        });
 
         console.log("arr",arr);
-        console.log("Xarr",Xarr);
-        console.log("Yarr",Yarr);
-        var x1 = Xarr[2] / 2 + Xarr[3] / 2 ;
-        var y1 = Yarr[2] / 2 + Yarr[3] / 2 ;
-        var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;
-        var y2 = Yarr[0] / 2 + Yarr[1] / 2 ;
-
+        console.log("pointsArr",pointsArr);
+        var x1 = 0;//Xarr[2] / 2 + Xarr[3] / 2 ;
+        var y1 = 0;//Yarr[2] / 2 + Yarr[3] / 2 ;
+        var x2 = 0;//Xarr[0] / 2 + Xarr[1] / 2 ;
+        var y2 = 0;//Yarr[0] / 2 + Yarr[1] / 2 ;
+        if (pointsArr.length==4) {
+            console.log("pointsArr[2].x",pointsArr[2].x);
+            x1 = pointsArr[2].x / 2 + pointsArr[3].x / 2 ;
+            y1 = pointsArr[2].y / 2 + pointsArr[3].y / 2 ;
+            x2 = pointsArr[0].x / 2 + pointsArr[1].x / 2 ;
+            y2 = pointsArr[0].y / 2 + pointsArr[1].y / 2 ;
+        }
         coeffDirect=(y2-y1)/(x2-x1);
 
         if (document.getElementById("RadioOuiHanche").checked) {
@@ -226,27 +223,24 @@ dwv.tool.UpdateRoi = function (anchor /*, image*/)
     })[0];
 
     //update axe
-    var Xarr = [];
-    var Yarr = [];
-
+    var pointsArr = [];
     for (var i = 1; i < points.length; i+=2) {
-        Yarr.push(points[i]);
+        pointsArr.push({x:points[i-1], y:points[i]});
     };
-
-    Yarr.sort(function(a, b){return a-b});
-    for (var i = 0; i < Yarr.length; i++) {
-        for (var j = 1; j < points.length; j+=2) {
-            if(Yarr[i]==points[j])
-            {
-                Xarr.push(points[j-1]);
-            }
-        };
-    };
-    
-    var x1 = Xarr[2] / 2 + Xarr[3] / 2 ;
-    var y1 = Yarr[2] / 2 + Yarr[3] / 2 ;
-    var x2 = Xarr[0] / 2 + Xarr[1] / 2 ;
-    var y2 = Yarr[0] / 2 + Yarr[1] / 2 ;
+    pointsArr.sort(function(a, b) {
+        return a.y-b.y;
+    });
+    var x1 = 0;//Xarr[2] / 2 + Xarr[3] / 2 ;
+    var y1 = 0;//Yarr[2] / 2 + Yarr[3] / 2 ;
+    var x2 = 0;//Xarr[0] / 2 + Xarr[1] / 2 ;
+    var y2 = 0;//Yarr[0] / 2 + Yarr[1] / 2 ;
+    if (pointsArr.length==4) {
+        console.log("pointsArr[2].x",pointsArr[2].x);
+        x1 = pointsArr[2].x / 2 + pointsArr[3].x / 2 ;
+        y1 = pointsArr[2].y / 2 + pointsArr[3].y / 2 ;
+        x2 = pointsArr[0].x / 2 + pointsArr[1].x / 2 ;
+        y2 = pointsArr[0].y / 2 + pointsArr[1].y / 2 ;
+    }
 
     coeffDirect=(y2-y1)/(x2-x1);
     x1=x1+(tailleDépassementDroite/coeffDirect);

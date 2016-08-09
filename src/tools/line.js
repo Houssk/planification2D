@@ -3,7 +3,7 @@ var dwv = dwv || {};
 dwv.tool = dwv.tool || {};
 //external
 var Kinetic = Kinetic || {};
-
+var onPeutTraceRegle=false;
 /**
  * Line factory.
  * @constructor
@@ -30,42 +30,82 @@ dwv.tool.LineFactory = function ()
  */
 dwv.tool.LineFactory.prototype.create = function (points, style, image)
 {
-    // physical shape
-    var line = new dwv.math.Line(points[0], points[1]);
-    // draw shape
-    var kshape = new Kinetic.Line({
-        points: [line.getBegin().getX(), line.getBegin().getY(),
-                 line.getEnd().getX(), line.getEnd().getY() ],
-        stroke: style.getLineColour(),
-        strokeWidth: style.getScaledStrokeWidth(),
-        name: "shape"
-    });
-    // quantification
-    var coeff=sessionStorage.getItem("coefficient");
-    var distPx = Math.sqrt(Math.pow(line.getEnd().getX()-line.getBegin().getX(),2)+Math.pow(line.getEnd().getY()-line.getBegin().getY(),2));
-    var distMm = Math.round(distPx*coeff) ;
-    var str = distMm + " mm";
-    // quantification text
-    var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
-    var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
-    var dicomCanvas = document.getElementById("dwv-imageLayer");
-    var dicomWidth = sessionStorage.getItem("imageLargeur");
-    var dicomHeight = sessionStorage.getItem("imageHauteur");
-    var ktext = new Kinetic.Text({
-        x: line.getEnd().getX() + dX * 25+(10*(dicomWidth/dicomCanvas.width)),
-        y: line.getEnd().getY() + dY * 15+(10*(dicomHeight/dicomCanvas.height)),
-        text: str,
-        fontSize: style.getScaledFontSize(),
-        fontFamily: style.getFontFamily(),
-        fill: style.getLineColour(),
-        name: "text"
-    });
-    // return group
-    var group = new Kinetic.Group();
-    group.name("line-group");
-    group.add(kshape);
-    group.add(ktext);
-    return group;
+    if (sessionStorage.getItem("premierPointRegle")===null) {
+        sessionStorage.setItem("premierPointRegle", points[0]);
+        var tempNbRegle = sessionStorage.getItem("nbRegle");
+        tempNbRegle++;
+        sessionStorage.setItem("nbRegle", tempNbRegle);
+        onPeutTraceRegle=true;
+    } else {
+        if (sessionStorage.getItem("premierPointRegle")!=points[0]) {
+            sessionStorage.setItem("premierPointRegle", points[0]);
+            if (sessionStorage.getItem("nbRegle")<3) {
+                var  tempNbRegle = sessionStorage.getItem("nbRegle");
+                tempNbRegle++;
+                sessionStorage.setItem("nbRegle", tempNbRegle);
+                onPeutTraceRegle=true;
+            } else {
+                swal("Veuillez supprimer les régles pour en recreer un nouveau","Seul 3 régles sont autorisé");
+                onPeutTraceRegle=false;
+            }
+        }
+    }
+    if (onPeutTraceRegle==true) {
+        var tempNbRegle = sessionStorage.getItem("nbAngle");
+        if(parseInt(tempNbRegle)==1){
+            document.getElementById("buttonDeleteRegle").style.display = "";
+        }
+        // physical shape
+        var line = new dwv.math.Line(points[0], points[1]);
+        // draw shape
+        var kshape = new Kinetic.Line({
+            points: [line.getBegin().getX(), line.getBegin().getY(),
+            line.getEnd().getX(), line.getEnd().getY() ],
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            id: "regle",
+            name: "shape"
+        });
+        // quantification
+        var coeff=sessionStorage.getItem("coefficient");
+        var distPx = Math.sqrt(Math.pow(line.getEnd().getX()-line.getBegin().getX(),2)+Math.pow(line.getEnd().getY()-line.getBegin().getY(),2));
+        var distMm = Math.round(distPx*coeff) ;
+        var str = distMm + " mm";
+        // quantification text
+        var dX = line.getBegin().getX() > line.getEnd().getX() ? 0 : -1;
+        var dY = line.getBegin().getY() > line.getEnd().getY() ? -1 : 0.5;
+        var dicomCanvas = document.getElementById("dwv-imageLayer");
+        var dicomWidth = sessionStorage.getItem("imageLargeur");
+        var dicomHeight = sessionStorage.getItem("imageHauteur");
+        var ktext = new Kinetic.Text({
+            x: line.getEnd().getX() + dX * 25+(10*(dicomWidth/dicomCanvas.width)),
+            y: line.getEnd().getY() + dY * 15+(10*(dicomHeight/dicomCanvas.height)),
+            text: str,
+            fontSize: style.getScaledFontSize(),
+            fontFamily: style.getFontFamily(),
+            fill: style.getLineColour(),
+            name: "text"
+        });
+        // return group
+        var group = new Kinetic.Group();
+        group.name("line-group");
+        group.add(kshape);
+        group.add(ktext);
+        return group;
+    } 
+    else {
+        var group = new Kinetic.Group();
+        var kshape = new Kinetic.Line({
+            points: [0,0],
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            opacity: 0.0,
+            name: "shape",
+        });
+        group.add(kshape);
+        return group;
+    }
+    
 };
 
 /**

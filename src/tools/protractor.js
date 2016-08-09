@@ -3,7 +3,7 @@ var dwv = dwv || {};
 dwv.tool = dwv.tool || {};
 //external
 var Kinetic = Kinetic || {};
-
+var onPeutTraceAngle=false;
 /**
  * Protractor factory.
  * @constructor
@@ -30,67 +30,105 @@ dwv.tool.ProtractorFactory = function ()
  */
 dwv.tool.ProtractorFactory.prototype.create = function (points, style/*, image*/)
 {
-    // physical shape
-    var line0 = new dwv.math.Line(points[0], points[1]);
-    // points stored the kineticjs way
-    var pointsArray = [];
-    for( var i = 0; i < points.length; ++i )
-    {
-        pointsArray.push( points[i].getX() );
-        pointsArray.push( points[i].getY() );
-    }
-    // draw shape
-    var kshape = new Kinetic.Line({
-        points: pointsArray,
-        stroke: style.getLineColour(),
-        strokeWidth: style.getScaledStrokeWidth(),
-        name: "shape"
-    });
-    var group = new Kinetic.Group();
-    group.name("protractor-group");
-    group.add(kshape);
-    // text and decoration
-    if ( points.length == 3 ) {
-        var line1 = new dwv.math.Line(points[1], points[2]);
-        // quantification
-        var angle = dwv.math.getAngle(line0, line1);
-        var inclination = line0.getInclination();
-        if ( angle > 180 ) {
-            angle = 360 - angle;
-            inclination += angle;
+    if (sessionStorage.getItem("premierPointAngle")===null) {
+        sessionStorage.setItem("premierPointAngle", points[0]);
+        var tempNbAngle = sessionStorage.getItem("nbAngle");
+        tempNbAngle++;
+        sessionStorage.setItem("nbAngle", tempNbAngle);
+        onPeutTraceAngle=true;
+    } else {
+        if (sessionStorage.getItem("premierPointAngle")!=points[0]) {
+            sessionStorage.setItem("premierPointAngle", points[0]);
+            if (sessionStorage.getItem("nbAngle")<3) {
+                var tempNbAngle = sessionStorage.getItem("nbAngle");
+                tempNbAngle++;
+                sessionStorage.setItem("nbAngle", tempNbAngle);
+                onPeutTraceAngle=true;
+            } else {
+                swal("Veuillez supprimer les rapporteurs pour en recreer un nouveau","Seul 3 rapporteurs sont autorisé");
+                onPeutTraceAngle=false;
+            }
         }
-        var angleStr = angle.toPrecision(4) + "\u00B0";
-        // quantification text
-        var midX = ( line0.getMidpoint().getX() + line1.getMidpoint().getX() ) / 2;
-        var midY = ( line0.getMidpoint().getY() + line1.getMidpoint().getY() ) / 2;
-        var ktext = new Kinetic.Text({
-            x: midX,
-            y: midY - 15,
-            text: angleStr,
-            fontSize: style.getScaledFontSize(),
-            fontFamily: style.getFontFamily(),
-            fill: style.getLineColour(),
-            name: "text"
-        });
-        // arc
-        var radius = Math.min(line0.getLength(), line1.getLength()) * 33 / 100;
-        var karc = new Kinetic.Arc({
-            innerRadius: radius,
-            outerRadius: radius,
+    }
+    if (onPeutTraceAngle==true) {
+        var tempNbAngle = sessionStorage.getItem("nbAngle");
+        if(parseInt(tempNbAngle)==1){
+            document.getElementById("buttonDeleteRapporteur").style.display = "";
+        }
+        var line0 = new dwv.math.Line(points[0], points[1]);
+        // points stored the kineticjs way
+        var pointsArray = [];
+        for( var i = 0; i < points.length; ++i )
+        {
+            pointsArray.push( points[i].getX() );
+            pointsArray.push( points[i].getY() );
+        }
+        // draw shape
+        var kshape = new Kinetic.Line({
+            points: pointsArray,
             stroke: style.getLineColour(),
             strokeWidth: style.getScaledStrokeWidth(),
-            angle: angle,
-            rotationDeg: -inclination,
-            x: points[1].getX(),
-            y: points[1].getY(),
-            name: "arc"
-         });
-        // add to group
-        group.add(ktext);
-        group.add(karc);
+            id: "angle",
+            name: "shape"
+        });
+        var group = new Kinetic.Group();
+        group.name("protractor-group");
+        group.add(kshape);
+        // text and decoration
+        if ( points.length == 3 ) {
+            var line1 = new dwv.math.Line(points[1], points[2]);
+            // quantification
+            var angle = dwv.math.getAngle(line0, line1);
+            var inclination = line0.getInclination();
+            if ( angle > 180 ) {
+                angle = 360 - angle;
+                inclination += angle;
+            }
+            var angleStr = angle.toPrecision(4) + "\u00B0";
+            // quantification text
+            var midX = ( line0.getMidpoint().getX() + line1.getMidpoint().getX() ) / 2;
+            var midY = ( line0.getMidpoint().getY() + line1.getMidpoint().getY() ) / 2;
+            var ktext = new Kinetic.Text({
+                x: midX,
+                y: midY - 15,
+                text: angleStr,
+                fontSize: style.getScaledFontSize(),
+                fontFamily: style.getFontFamily(),
+                fill: style.getLineColour(),
+                name: "text"
+            });
+            // arc
+            var radius = Math.min(line0.getLength(), line1.getLength()) * 33 / 100;
+            var karc = new Kinetic.Arc({
+                innerRadius: radius,
+                outerRadius: radius,
+                stroke: style.getLineColour(),
+                strokeWidth: style.getScaledStrokeWidth(),
+                angle: angle,
+                rotationDeg: -inclination,
+                x: points[1].getX(),
+                y: points[1].getY(),
+                name: "arc"
+             });
+            // add to group
+            group.add(ktext);
+            group.add(karc);
+        }
+        // return group
+        return group;
+    } 
+    else {
+        var group = new Kinetic.Group();
+        var kshape = new Kinetic.Line({
+            points: [0,0],
+            stroke: style.getLineColour(),
+            strokeWidth: style.getScaledStrokeWidth(),
+            opacity: 0.0,
+            name: "shape",
+        });
+        group.add(kshape);
+        return group;
     }
-    // return group
-    return group;
 };
 
 /**

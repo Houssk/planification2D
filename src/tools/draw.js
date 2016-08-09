@@ -754,6 +754,42 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 sessionStorage.removeItem("cercleDroitPosition");
 
             }, false);
+        // remove regle
+        var buttonDeleteRegle = document.getElementById("buttonDeleteRegle");
+        buttonDeleteRegle.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                if(shape.id()=="regle"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                // }
+                document.getElementById("buttonDeleteRegle").style.display = "none";
+                sessionStorage.removeItem("nbRegle");
+
+            }, false);
+        // remove angle
+        var buttonDeleteRapporteur = document.getElementById("buttonDeleteRapporteur");
+        buttonDeleteRapporteur.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                if(shape.id()=="angle"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                // }
+                document.getElementById("buttonDeleteRapporteur").style.display = "none";
+                sessionStorage.removeItem("nbAngle");
+
+            }, false);
         var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
         buttonValideInformationPatient.addEventListener('click', function() {
                 if(shape.id()=="cercle"){
@@ -797,16 +833,58 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-
+                }
+                else if(shape.id()=="regle"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
                 }
                 //sessionStorage.clear();
                 sessionStorage.setItem("calibrage", false);
                 sessionStorage.setItem("nbCercle",0);
                 sessionStorage.setItem("nbTrapeze", 0);
                 sessionStorage.setItem("nbPetitTroch", 0);
+                sessionStorage.setItem("nbRegle",0);
+                sessionStorage.setItem("nbAngle",0);
                 sessionStorage.setItem("retour",0);
 
 
+            }, false);
+
+        var buttonRetourImplant = document.getElementById("buttonRetourImplant");
+        buttonRetourImplant.addEventListener('click',
+            function() {
+                var typeChirurgie = document.getElementById("typeChirurgie");
+                var typeChirurgieVal = typeChirurgie.options[typeChirurgie.selectedIndex].value;
+                if (typeChirurgieVal == "Non guider") {
+                    if(shape.id()=="regle"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="angle"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                }
             }, false);
 
 

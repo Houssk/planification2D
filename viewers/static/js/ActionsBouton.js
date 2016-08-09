@@ -236,6 +236,8 @@ $(document).ready(function () {
 										document.getElementById("coteCotyle").value="Droit";
 									}
 
+									document.getElementById("buttonDessinRapporteur").style.display="";
+									document.getElementById("buttonDessinRegle").style.display="";
 									$('.informationPatient *').prop('disabled',true);
 									//document.getElementById("informationPatient").style.display = "";
 
@@ -994,6 +996,8 @@ $(document).ready(function () {
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
+				document.getElementById("buttonDessinRapporteur").style.display="none";
+				document.getElementById("buttonDessinRegle").style.display="none";
 
 			};
 			RetourDessin()
@@ -1858,6 +1862,8 @@ $(document).ready(function () {
 	                sessionStorage.setItem("nbTrapeze", 0);
                 	sessionStorage.setItem("nbPetitTroch", 0);
 	                sessionStorage.setItem("retour",0);
+					document.getElementById("buttonDessinRapporteur").style.display="none";
+					document.getElementById("buttonDessinRegle").style.display="none";
 					ZoomMode();
 					$("#accordeon").accordion({active : 0});
 				}
