@@ -316,12 +316,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_deltaDeplacementY=deltaDeplacementY || 0;
 
 	this.m_coeffDirecteur=deltaY/deltaX;
-	this.m_Position.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
-	this.m_Position.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
-
-	this.m_PositionAvtOffset.x-=(((((trapeze[1]-cercle[1])/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth)/2);
-	this.m_PositionAvtOffset.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
-
 
 	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement.coefWidth;
 	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement.coefHeight;
@@ -329,8 +323,8 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "green";
 	console.log("this_manglealignement",this.m_angleAlignement);
-	var trapezeX = trapeze[0] - ((trapeze[1]-cercle[1])/this.m_coeffDirecteur)/2- this.m_OffsetX*this.m_coeffRedimensionnement.coefWidth;
-	var trapezeY = trapeze[1]  - (trapeze[1]-cercle[1])/2;
+	var trapezeX = trapeze[0] - this.m_OffsetX*this.m_coeffRedimensionnement.coefWidth;
+	var trapezeY = trapeze[1];
 	    //trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
 		//trapezeY += this.m_deltaDeplacement;
 		
