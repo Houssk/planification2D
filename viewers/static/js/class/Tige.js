@@ -239,11 +239,14 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 
 		// tailleImplant * X = tailleImage
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
-		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
-		coef=coef*10;
+		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
+		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
 		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
-	    return coef;
+		return {
+			coefWidth : coefWidth,
+			coefHeight : coefHeight
+		};
 	}
 
 	/**
@@ -292,7 +295,7 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var dicomWidth = sessionStorage.getItem("imageLargeur");
 	var dicomHeight = sessionStorage.getItem("imageHauteur");
 
-	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement*coeffDicom.coefWidth);
+	this.m_Position.x = ((trapeze[0]*dicomCanvas.width)/dicomWidth)-(this.m_OffsetX*this.m_coeffRedimensionnement.coefWidth*coeffDicom.coefWidth);
 	this.m_Position.y = ((trapeze[1]*dicomCanvas.height)/dicomHeight);
 
 	this.m_PositionAvtOffset.x=((trapeze[0]*dicomCanvas.width)/dicomWidth);
@@ -320,20 +323,20 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_PositionAvtOffset.y-=(((trapeze[1]-cercle[1])*dicomCanvas.height)/dicomHeight)/2;
 
 
-	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
-	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
+	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement.coefWidth;
+	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement.coefHeight;
 	var canvas  = document.querySelector('#dwv-imageLayer');
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "green";
 	console.log("this_manglealignement",this.m_angleAlignement);
-	var trapezeX = trapeze[0] - ((trapeze[1]-cercle[1])/this.m_coeffDirecteur)/2- this.m_OffsetX*this.m_coeffRedimensionnement;
+	var trapezeX = trapeze[0] - ((trapeze[1]-cercle[1])/this.m_coeffDirecteur)/2- this.m_OffsetX*this.m_coeffRedimensionnement.coefWidth;
 	var trapezeY = trapeze[1]  - (trapeze[1]-cercle[1])/2;
 	    //trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
 		//trapezeY += this.m_deltaDeplacement;
 		
 
-	var pointMx =  trapezeX + this.m_ptMecaHaut.x*this.m_coeffRedimensionnement  ;
-	var pointMy = trapezeY - this.m_ptMecaHaut.y*this.m_coeffRedimensionnement;
+	var pointMx =  trapezeX + this.m_ptMecaHaut.x*this.m_coeffRedimensionnement.coefWidth;
+	var pointMy = trapezeY - this.m_ptMecaHaut.y*this.m_coeffRedimensionnement.coefHeight;
 
 	var rotation = rotate(trapezeX,trapezeY,pointMx,pointMy,acos);
 	this.m_PositionPtMeca.x = rotation[0];
@@ -412,18 +415,21 @@ Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientati
 
 		// tailleImplant * X = tailleImage
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
-		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
-		coef=coef*10;
-		//console.log("coef",coef);
+		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
+		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
+		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
-	    return coef;
+		return {
+			coefWidth : coefWidth,
+			coefHeight : coefHeight
+		};
 	}
 
 	var coeffDicom = facteurRedimensionnementImage();
 	this.m_coeffRedimensionnement = CoefRedimensionnementImplant(this.m_tigeWidthPx,this.m_tigeWidthCm,this.m_tigeHeightPx,this.m_tigeHeightCm);
 
-	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
-	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
+	this.m_tigeImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement.coefWidth;
+	this.m_tigeImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement.coefHeight;
 
 	this.m_Position=position;
 	this.m_angleAlignement=orientation;
