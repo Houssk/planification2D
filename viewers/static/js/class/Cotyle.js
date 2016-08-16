@@ -172,18 +172,20 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 		unCmEgalCbPxHeightImage = image.heightImageReelle / heightReelleImageCm;
 
 		var unCmEgalCbPxWidthImp = wCotylePx / wCotyleCm;
-		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 		var unCmEgalCbPxHeightImp = hCotylePx / hCotyleCm;
 
 		// Faut-il faire la moyenne des deux ? Non, il faut prendre l'équivalent en cm pour la largeur et la longueur
 
 		// tailleImplant * X = tailleImage
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
-		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
-		coef=coef*10;
-		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
+		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
+		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
+		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
-	    return coef;
+		return {
+			coefWidth : coefWidth,
+			coefHeight : coefHeight
+		};
 	}
 
 	var trapeze = null;
@@ -234,8 +236,8 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
 
-	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
-	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
+	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement.coefWidth;
+	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement.coefHeight;
 
 	this.m_Position.x+=((((this.m_deltaDeplacement)/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth);
 	this.m_Position.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
@@ -278,18 +280,20 @@ Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orienta
 
 		// tailleImplant * X = tailleImage
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
-		var coef = unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp;
-		coef=coef*10;
-		console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
-
-	    return coef;
+		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
+		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
+		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
+		return {
+			coefWidth : coefWidth,
+			coefHeight : coefHeight
+		};
 	}
 	var coeffDicom = facteurRedimensionnementImage();
 
 	this.m_coeffRedimensionnement=CoefRedimensionnementCotyle(this.m_cotyleWidthPx,this.m_cotyleWidthCm,this.m_cotyleHeightPx,this.m_cotyleHeightCm);
 
-	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement;
-	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement;
+	this.m_cotyleImageWidth = imageWidth * coeffDicom.coefWidth * this.m_coeffRedimensionnement.coefWidth;
+	this.m_cotyleImageHeight = imageHeight * coeffDicom.coefHeight * this.m_coeffRedimensionnement.coefHeight;
 
 	this.m_Position=position;
 	this.m_Orientation=orientation
