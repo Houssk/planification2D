@@ -212,12 +212,12 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
             sessionStorage.setItem("nbPetitTroch", tempNbPetitTroch);
             document.getElementById("buttonDeletePetitTroch").style.display = "none";
         }
-        if ("line"==name) {
+        /*if ("line"==name) {
             var tempNbPetitTroch = sessionStorage.getItem("nbPetitTroch");
             tempNbPetitTroch--;
             sessionStorage.setItem("nbPetitTroch", tempNbPetitTroch);
             document.getElementById("buttonDeletePetitTroch").style.display = "none";
-        }
+        }*/
 
         //
         // remove the group from the parent layer
@@ -755,11 +755,22 @@ dwv.tool.Draw = function (app, shapeFactoryList)
 
             }, false);
         // remove regle
-        var buttonDeleteRegle = document.getElementById("buttonDeleteRegle");
-        buttonDeleteRegle.addEventListener('click',
+        var buttonDeleteRegle1 = document.getElementById("buttonDeleteRegle1");
+        buttonDeleteRegle1.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                if(shape.id()=="regle"){
+                console.log("shape.id()",shape.id());
+                if (shape.id()=="regle_1") {
+                    var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                    if (tempIdActive.regle_1==true) {
+                        document.getElementById("buttonDeleteRegle1").style.display = "none";
+                        tempIdActive.regle_1=false;
+                        sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                        var tempNbRegle = sessionStorage.getItem("nbRegle");
+                        var tempNbRegleInt = parseInt(tempNbRegle);
+                        tempNbRegleInt--;
+                        sessionStorage.setItem("nbRegle", tempNbRegleInt);
+                    }
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -768,16 +779,75 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     app.addToUndoStack(delcmd);
                 }
                 // }
-                document.getElementById("buttonDeleteRegle").style.display = "none";
-                sessionStorage.removeItem("nbRegle");
-
             }, false);
-        // remove angle
-        var buttonDeleteRapporteur = document.getElementById("buttonDeleteRapporteur");
-        buttonDeleteRapporteur.addEventListener('click',
+        var buttonDeleteRegle2 = document.getElementById("buttonDeleteRegle2");
+        buttonDeleteRegle2.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                if(shape.id()=="angle"){
+                console.log("shape.id()",shape.id());
+                if (shape.id()=="regle_2") {
+                    var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                    if (tempIdActive.regle_2==true) {
+                        document.getElementById("buttonDeleteRegle2").style.display = "none";
+                        tempIdActive.regle_2=false;
+                        sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                        var  tempNbRegle = sessionStorage.getItem("nbRegle");
+                        var tempNbRegleInt = parseInt(tempNbRegle);
+                        tempNbRegleInt--;
+                        sessionStorage.setItem("nbRegle", tempNbRegleInt);
+                    }
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                    
+                }
+
+            }, false);
+        var buttonDeleteRegle3 = document.getElementById("buttonDeleteRegle3");
+        buttonDeleteRegle3.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                console.log("shape.id()",shape.id());
+                if (shape.id()=="regle_3") {
+                    var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                    if (tempIdActive.regle_3==true) {
+                        document.getElementById("buttonDeleteRegle3").style.display = "none";
+                        tempIdActive.regle_3=false;
+                        sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                        var  tempNbRegle = sessionStorage.getItem("nbRegle");
+                        var tempNbRegleInt = parseInt(tempNbRegle);
+                        tempNbRegleInt--;
+                        sessionStorage.setItem("nbRegle", tempNbRegleInt);
+                    }
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                // }
+            }, false);
+
+        var buttonDeleteRapporteur1 = document.getElementById("buttonDeleteRapporteur1");
+        buttonDeleteRapporteur1.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                console.log("shape.id()",shape.id());
+                if (shape.id()=="angle_1") {
+                    var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                    if (tempIdActive.angle_1==true) {
+                        document.getElementById("buttonDeleteRapporteur1").style.display = "none";
+                        tempIdActive.angle_1=false;
+                        sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                        var tempNbAngle = sessionStorage.getItem("nbAngle");
+                        var tempNbAngleInt = parseInt(tempNbAngle);
+                        tempNbAngleInt--;
+                        sessionStorage.setItem("nbAngle", tempNbAngleInt);
+                    }
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -786,12 +856,61 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     app.addToUndoStack(delcmd);
                 }
                 // }
-                document.getElementById("buttonDeleteRapporteur").style.display = "none";
-                sessionStorage.removeItem("nbAngle");
-
             }, false);
+         var buttonDeleteRapporteur2 = document.getElementById("buttonDeleteRapporteur2");
+         buttonDeleteRapporteur2.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                console.log("shape.id()",shape.id());
+                if (shape.id()=="angle_2") {
+                    var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                    if (tempIdActive.angle_2==true) {
+                        document.getElementById("buttonDeleteRapporteur2").style.display = "none";
+                        tempIdActive.angle_2=false;
+                        sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                        var tempNbAngle = sessionStorage.getItem("nbAngle");
+                        var tempNbAngleInt = parseInt(tempNbAngle);
+                        tempNbAngleInt--;
+                        sessionStorage.setItem("nbAngle", tempNbAngleInt);
+                    }
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                // }
+            }, false);
+         var buttonDeleteRapporteur3 = document.getElementById("buttonDeleteRapporteur3");
+         buttonDeleteRapporteur3.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                console.log("shape.id()",shape.id());
+                if (shape.id()=="angle_3") {
+                    var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                    if (tempIdActive.angle_3==true) {
+                        document.getElementById("buttonDeleteRapporteur3").style.display = "none";
+                        tempIdActive.angle_3=false;
+                        sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                        var tempNbAngle = sessionStorage.getItem("nbAngle");
+                        var tempNbAngleInt = parseInt(tempNbAngle);
+                        tempNbAngleInt--;
+                        sessionStorage.setItem("nbAngle", tempNbAngleInt);
+                    }
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                // }
+            }, false);
+        // remove angle
         var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
         buttonValideInformationPatient.addEventListener('click', function() {
+                console.log("shape.id()",shape.id());
                 if(shape.id()=="cercle"){
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
@@ -809,7 +928,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         buttonRetourOutilsDessin.addEventListener('click',
             function() {
                 if(shape.id()=="cercle"){
-
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -833,7 +951,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
                 }
-                else if(shape.id()=="regle"){
+                else if(shape.id()=="regle_1"){
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -841,7 +959,39 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
                 }
-                else if(shape.id()=="angle"){
+                else if(shape.id()=="regle_2"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="regle_3"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle_1"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle_2"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle_3"){
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -855,7 +1005,19 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 sessionStorage.setItem("nbTrapeze", 0);
                 sessionStorage.setItem("nbPetitTroch", 0);
                 sessionStorage.setItem("nbRegle",0);
+                var idRegleActive = {
+                    regle_1 : false,
+                    regle_2 : false,
+                    regle_3 : false
+                };
+                sessionStorage.setItem("idRegleActive",JSON.stringify(idRegleActive));
                 sessionStorage.setItem("nbAngle",0);
+                var idAngleActive = {
+                    angle_1 : false,
+                    angle_2 : false,
+                    angle_3 : false
+                };
+                sessionStorage.setItem("idAngleActive",JSON.stringify(idAngleActive));
                 sessionStorage.setItem("retour",0);
 
 
@@ -867,7 +1029,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 var typeChirurgie = document.getElementById("typeChirurgie");
                 var typeChirurgieVal = typeChirurgie.options[typeChirurgie.selectedIndex].value;
                 if (typeChirurgieVal == "Non guider") {
-                    if(shape.id()=="regle"){
+                    if(shape.id()=="regle_1"){
                         var group = shape.getParent();
                         var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
                         delcmd.onExecute = fireEvent;
@@ -875,7 +1037,23 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         delcmd.execute();
                         app.addToUndoStack(delcmd);
                     }
-                    else if(shape.id()=="angle"){
+                    else if(shape.id()=="regle_2"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="regle_3"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="angle_1"){
                         var group = shape.getParent();
                         var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
                         delcmd.onExecute = fireEvent;
@@ -883,6 +1061,38 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         delcmd.execute();
                         app.addToUndoStack(delcmd);
                     }
+                    else if(shape.id()=="angle_2"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="angle_3"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    sessionStorage.setItem("nbRegle",0);
+                    var idRegleActive = {
+                        regle_1 : false,
+                        regle_2 : false,
+                        regle_3 : false
+                    };
+                    sessionStorage.setItem("idRegleActive",JSON.stringify(idRegleActive));
+
+                    sessionStorage.setItem("nbAngle",0);
+                    var idAngleActive = {
+                        angle_1 : false,
+                        angle_2 : false,
+                        angle_3 : false
+                    };
+                    sessionStorage.setItem("idAngleActive",JSON.stringify(idAngleActive));
+                    
                 }
             }, false);
 

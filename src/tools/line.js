@@ -4,6 +4,12 @@ dwv.tool = dwv.tool || {};
 //external
 var Kinetic = Kinetic || {};
 var onPeutTraceRegle=false;
+var idRegleActive = {
+    regle_1 : false,
+    regle_2 : false,
+    regle_3 : false
+};
+var shapeId = null;
 /**
  * Line factory.
  * @constructor
@@ -31,11 +37,29 @@ dwv.tool.LineFactory = function ()
 dwv.tool.LineFactory.prototype.create = function (points, style, image)
 {
     if (sessionStorage.getItem("premierPointRegle")===null) {
+        sessionStorage.setItem("idRegleActive",JSON.stringify(idRegleActive));
         sessionStorage.setItem("premierPointRegle", points[0]);
         var tempNbRegle = sessionStorage.getItem("nbRegle");
         tempNbRegle++;
         sessionStorage.setItem("nbRegle", tempNbRegle);
         onPeutTraceRegle=true;
+        var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+        if(tempIdActive.regle_1==false){
+            document.getElementById("buttonDeleteRegle1").style.display = "";
+            tempIdActive.regle_1=true;
+            sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+            shapeId="regle_1";
+        } else if (tempIdActive.regle_2==false) {
+            document.getElementById("buttonDeleteRegle2").style.display = "";
+            tempIdActive.regle_2=true;
+            sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+            shapeId="regle_2";
+        } else if (tempIdActive.regle_3==false) {
+            document.getElementById("buttonDeleteRegle3").style.display = "";
+            tempIdActive.regle_3=true;
+            sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+            shapeId="regle_3";
+        }
     } else {
         if (sessionStorage.getItem("premierPointRegle")!=points[0]) {
             sessionStorage.setItem("premierPointRegle", points[0]);
@@ -44,6 +68,23 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
                 tempNbRegle++;
                 sessionStorage.setItem("nbRegle", tempNbRegle);
                 onPeutTraceRegle=true;
+                var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                if(tempIdActive.regle_1==false){
+                    document.getElementById("buttonDeleteRegle1").style.display = "";
+                    tempIdActive.regle_1=true;
+                    sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                    shapeId="regle_1";
+                } else if (tempIdActive.regle_2==false) {
+                    document.getElementById("buttonDeleteRegle2").style.display = "";
+                    tempIdActive.regle_2=true;
+                    sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                    shapeId="regle_2";
+                } else if (tempIdActive.regle_3==false) {
+                    document.getElementById("buttonDeleteRegle3").style.display = "";
+                    tempIdActive.regle_3=true;
+                    sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                    shapeId="regle_3";
+                }
             } else {
                 swal("Veuillez supprimer les régles pour en recreer un nouveau","Seul 3 régles sont autorisé");
                 onPeutTraceRegle=false;
@@ -51,10 +92,6 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
         }
     }
     if (onPeutTraceRegle==true) {
-        var tempNbRegle = sessionStorage.getItem("nbRegle");
-        if(parseInt(tempNbRegle)==1){
-            document.getElementById("buttonDeleteRegle").style.display = "";
-        }
         // physical shape
         var line = new dwv.math.Line(points[0], points[1]);
         // draw shape
@@ -63,7 +100,7 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
             line.getEnd().getX(), line.getEnd().getY() ],
             stroke: style.getLineColour(),
             strokeWidth: style.getScaledStrokeWidth(),
-            id: "regle",
+            id: shapeId,
             name: "shape"
         });
         // quantification
