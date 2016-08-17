@@ -4,6 +4,12 @@ dwv.tool = dwv.tool || {};
 //external
 var Kinetic = Kinetic || {};
 var onPeutTraceAngle=false;
+var idAngleActive = {
+    angle_1 : false,
+    angle_2 : false,
+    angle_3 : false
+};
+var shapeId = null;
 /**
  * Protractor factory.
  * @constructor
@@ -31,30 +37,62 @@ dwv.tool.ProtractorFactory = function ()
 dwv.tool.ProtractorFactory.prototype.create = function (points, style/*, image*/)
 {
     if (sessionStorage.getItem("premierPointAngle")===null) {
+        sessionStorage.setItem("idAngleActive",JSON.stringify(idAngleActive));
         sessionStorage.setItem("premierPointAngle", points[0]);
         var tempNbAngle = sessionStorage.getItem("nbAngle");
         tempNbAngle++;
         sessionStorage.setItem("nbAngle", tempNbAngle);
         onPeutTraceAngle=true;
+        var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+        if(tempIdActive.angle_1==false){
+            document.getElementById("buttonDeleteRapporteur1").style.display = "";
+            tempIdActive.angle_1=true;
+            sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+            shapeId="angle_1";
+        } else if (tempIdActive.angle_2==false) {
+            document.getElementById("buttonDeleteRapporteur2").style.display = "";
+            tempIdActive.angle_2=true;
+            sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+            shapeId="angle_2";
+        } else if (tempIdActive.angle_3==false) {
+            document.getElementById("buttonDeleteRapporteur3").style.display = "";
+            tempIdActive.angle_3=true;
+            sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+            shapeId="angle_3";
+        }
     } else {
         if (sessionStorage.getItem("premierPointAngle")!=points[0]) {
             sessionStorage.setItem("premierPointAngle", points[0]);
             if (sessionStorage.getItem("nbAngle")<3) {
-                var tempNbAngle = sessionStorage.getItem("nbAngle");
+                var  tempNbAngle = sessionStorage.getItem("nbAngle");
                 tempNbAngle++;
                 sessionStorage.setItem("nbAngle", tempNbAngle);
                 onPeutTraceAngle=true;
+                var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                if(tempIdActive.angle_1==false){
+                    document.getElementById("buttonDeleteRapporteur1").style.display = "";
+                    tempIdActive.angle_1=true;
+                    sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                    shapeId="angle_1";
+                } else if (tempIdActive.angle_2==false) {
+                    document.getElementById("buttonDeleteRapporteur2").style.display = "";
+                    tempIdActive.angle_2=true;
+                    sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                    shapeId="angle_2";
+                } else if (tempIdActive.angle_3==false) {
+                    document.getElementById("buttonDeleteRapporteur3").style.display = "";
+                    tempIdActive.angle_3=true;
+                    sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                    shapeId="angle_3";
+                }
             } else {
-                swal("Veuillez supprimer les rapporteurs pour en recreer un nouveau","Seul 3 rapporteurs sont autorisé");
+                swal("Veuillez supprimer les régles pour en recreer un nouveau","Seul 3 régles sont autorisé");
                 onPeutTraceAngle=false;
             }
         }
     }
     if (onPeutTraceAngle==true) {
         var tempNbAngle = sessionStorage.getItem("nbAngle");
-        if(parseInt(tempNbAngle)==1){
-            document.getElementById("buttonDeleteRapporteur").style.display = "";
-        }
         var line0 = new dwv.math.Line(points[0], points[1]);
         // points stored the kineticjs way
         var pointsArray = [];
@@ -68,7 +106,7 @@ dwv.tool.ProtractorFactory.prototype.create = function (points, style/*, image*/
             points: pointsArray,
             stroke: style.getLineColour(),
             strokeWidth: style.getScaledStrokeWidth(),
-            id: "angle",
+            id: shapeId,
             name: "shape"
         });
         var group = new Kinetic.Group();

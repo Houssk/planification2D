@@ -9,17 +9,17 @@ var Kinetic = Kinetic || {};
  * Draw group command.
  * @constructor
  */
-dwv.tool.DrawGroupCommand = function (group, name, layer)
-{
+ dwv.tool.DrawGroupCommand = function (group, name, layer)
+ {
     /**
      * Get the command name.
      * @return {String} The command name.
      */
-    this.getName = function () { return "Draw-"+name; };
+     this.getName = function () { return "Draw-"+name; };
     /**
      * Execute the command.
      */
-    this.execute = function () {
+     this.execute = function () {
         // add the group to the layer
         layer.add(group);
         // draw
@@ -30,7 +30,7 @@ dwv.tool.DrawGroupCommand = function (group, name, layer)
     /**
      * Undo the command.
      */
-    this.undo = function () {
+     this.undo = function () {
         // remove the group from the parent layer
         group.remove();
         // draw
@@ -46,16 +46,16 @@ dwv.tool.DrawGroupCommand = function (group, name, layer)
  * Handle an execute event.
  * @param {Object} event The execute event with type and id.
  */
-dwv.tool.DrawGroupCommand.prototype.onExecute = function (/*event*/)
-{
+ dwv.tool.DrawGroupCommand.prototype.onExecute = function (/*event*/)
+ {
     // default does nothing.
 };
 /**
  * Handle an undo event.
  * @param {Object} event The undo event with type and id.
  */
-dwv.tool.DrawGroupCommand.prototype.onUndo = function (/*event*/)
-{
+ dwv.tool.DrawGroupCommand.prototype.onUndo = function (/*event*/)
+ {
     // default does nothing.
 };
 
@@ -63,18 +63,18 @@ dwv.tool.DrawGroupCommand.prototype.onUndo = function (/*event*/)
  * Move group command.
  * @constructor
  */
-dwv.tool.MoveGroupCommand = function (group, name, translation, layer)
-{
+ dwv.tool.MoveGroupCommand = function (group, name, translation, layer)
+ {
     /**
      * Get the command name.
      * @return {String} The command name.
      */
-    this.getName = function () { return "Move-"+name; };
+     this.getName = function () { return "Move-"+name; };
 
     /**
      * Execute the command.
      */
-    this.execute = function () {
+     this.execute = function () {
         // translate all children of group
         group.getChildren().each( function (shape) {
             shape.x( shape.x() + translation.x );
@@ -88,7 +88,7 @@ dwv.tool.MoveGroupCommand = function (group, name, translation, layer)
     /**
      * Undo the command.
      */
-    this.undo = function () {
+     this.undo = function () {
         // invert translate all children of group
         group.getChildren().each( function (shape) {
             shape.x( shape.x() - translation.x );
@@ -105,16 +105,16 @@ dwv.tool.MoveGroupCommand = function (group, name, translation, layer)
  * Handle an execute event.
  * @param {Object} event The execute event with type and id.
  */
-dwv.tool.MoveGroupCommand.prototype.onExecute = function (/*event*/)
-{
+ dwv.tool.MoveGroupCommand.prototype.onExecute = function (/*event*/)
+ {
     // default does nothing.
 };
 /**
  * Handle an undo event.
  * @param {Object} event The undo event with type and id.
  */
-dwv.tool.MoveGroupCommand.prototype.onUndo = function (/*event*/)
-{
+ dwv.tool.MoveGroupCommand.prototype.onUndo = function (/*event*/)
+ {
     // default does nothing.
 };
 
@@ -122,18 +122,18 @@ dwv.tool.MoveGroupCommand.prototype.onUndo = function (/*event*/)
  * Change group command.
  * @constructor
  */
-dwv.tool.ChangeGroupCommand = function (name, func, startAnchor, endAnchor, layer, image)
-{
+ dwv.tool.ChangeGroupCommand = function (name, func, startAnchor, endAnchor, layer, image)
+ {
     /**
      * Get the command name.
      * @return {String} The command name.
      */
-    this.getName = function () { return "Change-"+name; };
+     this.getName = function () { return "Change-"+name; };
 
     /**
      * Execute the command.
      */
-    this.execute = function () {
+     this.execute = function () {
         // change shape
         func( endAnchor, image );
         // draw
@@ -144,7 +144,7 @@ dwv.tool.ChangeGroupCommand = function (name, func, startAnchor, endAnchor, laye
     /**
      * Undo the command.
      */
-    this.undo = function () {
+     this.undo = function () {
         // invert change shape
         func( startAnchor, image );
         // draw
@@ -158,16 +158,16 @@ dwv.tool.ChangeGroupCommand = function (name, func, startAnchor, endAnchor, laye
  * Handle an execute event.
  * @param {Object} event The execute event with type and id.
  */
-dwv.tool.ChangeGroupCommand.prototype.onExecute = function (/*event*/)
-{
+ dwv.tool.ChangeGroupCommand.prototype.onExecute = function (/*event*/)
+ {
     // default does nothing.
 };
 /**
  * Handle an undo event.
  * @param {Object} event The undo event with type and id.
  */
-dwv.tool.ChangeGroupCommand.prototype.onUndo = function (/*event*/)
-{
+ dwv.tool.ChangeGroupCommand.prototype.onUndo = function (/*event*/)
+ {
     // default does nothing.
 };
 
@@ -175,17 +175,17 @@ dwv.tool.ChangeGroupCommand.prototype.onUndo = function (/*event*/)
  * Delete group command.
  * @constructor
  */
-dwv.tool.DeleteGroupCommand = function (group, name, layer)
-{
+ dwv.tool.DeleteGroupCommand = function (group, name, layer)
+ {
     /**
      * Get the command name.
      * @return {String} The command name.
      */
-    this.getName = function () { return "Delete-"+name; };
+     this.getName = function () { return "Delete-"+name; };
     /**
      * Execute the command.
      */
-    this.execute = function () {
+     this.execute = function () {
         if("roi"==name){
             var tempNbTrapeze = sessionStorage.getItem("nbTrapeze");
             tempNbTrapeze--;
@@ -233,7 +233,7 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
     /**
      * Undo the command.
      */
-    this.undo = function () {
+     this.undo = function () {
         // add the group to the layer
         layer.add(group);
         // draw
@@ -247,8 +247,8 @@ dwv.tool.DeleteGroupCommand = function (group, name, layer)
  * Handle an execute event.
  * @param {Object} event The execute event with type and id.
  */
-dwv.tool.DeleteGroupCommand.prototype.onExecute = function (/*event*/)
-{
+ dwv.tool.DeleteGroupCommand.prototype.onExecute = function (/*event*/)
+ {
     // default does nothing.
 
 };
@@ -256,8 +256,8 @@ dwv.tool.DeleteGroupCommand.prototype.onExecute = function (/*event*/)
  * Handle an undo event.
  * @param {Object} event The undo event with type and id.
  */
-dwv.tool.DeleteGroupCommand.prototype.onUndo = function (/*event*/)
-{
+ dwv.tool.DeleteGroupCommand.prototype.onUndo = function (/*event*/)
+ {
     // default does nothing.
 };
 
@@ -266,70 +266,70 @@ dwv.tool.DeleteGroupCommand.prototype.onUndo = function (/*event*/)
  * @constructor
  * @param {Object} app The associated application.
  */
-dwv.tool.Draw = function (app, shapeFactoryList)
-{
+ dwv.tool.Draw = function (app, shapeFactoryList)
+ {
     /**
      * Closure to self: to be used by event handlers.
      * @private
      * @type WindowLevel
      */
-    var self = this;
+     var self = this;
     /**
      * Draw GUI.
      * @type Object
      */
-    var gui = null;
+     var gui = null;
     /**
      * Interaction start flag.
      * @private
      * @type Boolean
      */
-    var started = false;
+     var started = false;
 
     /**
      * Shape factory list
      * @type Object
      */
-    this.shapeFactoryList = shapeFactoryList;
+     this.shapeFactoryList = shapeFactoryList;
     /**
      * Draw command.
      * @private
      * @type Object
      */
-    var command = null;
+     var command = null;
     /**
      * Current shape group.
      * @private
      * @type Object
      */
-    var shapeGroup = null;
+     var shapeGroup = null;
 
     /**
      * Shape name.
      * @type String
      */
-    this.shapeName = 0;
+     this.shapeName = 0;
 
     /**
      * List of points.
      * @private
      * @type Array
      */
-    var points = [];
+     var points = [];
 
     /**
      * Last selected point.
      * @private
      * @type Object
      */
-    var lastPoint = null;
+     var lastPoint = null;
 
     /**
      * Shape editor.
      * @private
      * @type Object
      */
-    var shapeEditor = new dwv.tool.ShapeEditor(app);
+     var shapeEditor = new dwv.tool.ShapeEditor(app);
 
     // associate the event listeners of the editor
     //  with those of the draw tool
@@ -340,7 +340,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * @private
      * @type Object
      */
-    var trash = new Kinetic.Group();
+     var trash = new Kinetic.Group();
 
     // first line of the cross
     var trashLine1 = new Kinetic.Line({
@@ -363,13 +363,13 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * @private
      * @type Object
      */
-    var drawLayer = null;
+     var drawLayer = null;
 
     /**
      * Handle mouse down event.
      * @param {Object} event The mouse down event.
      */
-    this.mousedown = function(event){
+     this.mousedown = function(event){
         // determine if the click happened in an existing shape
         var stage = app.getDrawStage();
         var kshape = stage.getIntersection({
@@ -408,13 +408,13 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle mouse move event.
      * @param {Object} event The mouse move event.
      */
-    this.mousemove = function(event){
+     this.mousemove = function(event){
         if (!started)
         {
             return;
         }
         if ( Math.abs( event._x - lastPoint.getX() ) > 0 ||
-                Math.abs( event._y - lastPoint.getY() ) > 0 )
+            Math.abs( event._y - lastPoint.getY() ) > 0 )
         {
             // current point
             lastPoint = new dwv.math.Point2D(event._x, event._y);
@@ -455,7 +455,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle mouse up event.
      * @param {Object} event The mouse up event.
      */
-    this.mouseup = function (/*event*/){
+     this.mouseup = function (/*event*/){
         if (started && points.length > 1 )
         {
             // reset shape group
@@ -510,7 +510,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle mouse out event.
      * @param {Object} event The mouse out event.
      */
-    this.mouseout = function(event){
+     this.mouseout = function(event){
         self.mouseup(event);
     };
 
@@ -518,7 +518,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle touch start event.
      * @param {Object} event The touch start event.
      */
-    this.touchstart = function(event){
+     this.touchstart = function(event){
         self.mousedown(event);
     };
 
@@ -526,7 +526,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle touch move event.
      * @param {Object} event The touch move event.
      */
-    this.touchmove = function(event){
+     this.touchmove = function(event){
         self.mousemove(event);
     };
 
@@ -534,7 +534,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle touch end event.
      * @param {Object} event The touch end event.
      */
-    this.touchend = function(event){
+     this.touchend = function(event){
         self.mouseup(event);
     };
 
@@ -542,15 +542,15 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Handle key down event.
      * @param {Object} event The key down event.
      */
-    this.keydown = function(event){
+     this.keydown = function(event){
         app.onKeydown(event);
     };
 
     /**
      * Setup the tool GUI.
      */
-    this.setup = function ()
-    {
+     this.setup = function ()
+     {
         gui = new dwv.gui.Draw(app);
         gui.setup(this.shapeFactoryList);
     };
@@ -559,7 +559,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Enable the tool.
      * @param {Boolean} flag The flag to enable or not.
      */
-    this.display = function ( flag ){
+     this.display = function ( flag ){
         if ( gui ) {
             gui.display( flag );
         }
@@ -600,7 +600,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Set shape off properties.
      * @param {Object} shape The shape to set off.
      */
-    function setShapeOff( shape ) {
+     function setShapeOff( shape ) {
         // mouse styling
         shape.off('mouseover');
         shape.off('mouseout');
@@ -614,17 +614,17 @@ dwv.tool.Draw = function (app, shapeFactoryList)
     /**
      * Get the real position from an event.
      */
-    function getRealPosition( index ) {
+     function getRealPosition( index ) {
         var stage = app.getDrawStage();
         return { 'x': stage.offset().x + index.x / stage.scale().x,
-            'y': stage.offset().y + index.y / stage.scale().y };
+        'y': stage.offset().y + index.y / stage.scale().y };
     }
 
     /**
      * Set shape on properties.
      * @param {Object} shape The shape to set on.
      */
-    this.setShapeOn = function ( shape ) {
+     this.setShapeOn = function ( shape ) {
         // mouse over styling
         shape.on('mouseover', function () {
             document.body.style.cursor = 'pointer';
@@ -703,30 +703,30 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-                      sessionStorage.setItem("nbTrapeze", 0);
+                    sessionStorage.setItem("nbTrapeze", 0);
 
-                  }
+                }
                // }
-                document.getElementById("buttonDeleteTrapeze").style.display = "none";
-                sessionStorage.removeItem("nbTrapeze");
-                sessionStorage.removeItem("trapezeGauchePosition");
-                sessionStorage.removeItem("trapezeDroitPosition");
+               document.getElementById("buttonDeleteTrapeze").style.display = "none";
+               sessionStorage.removeItem("nbTrapeze");
+               sessionStorage.removeItem("trapezeGauchePosition");
+               sessionStorage.removeItem("trapezeDroitPosition");
 
-            }, false);
+           }, false);
         // remove mesure petit troche
         var buttonDeletePetitTroch = document.getElementById("buttonDeletePetitTroch");
         buttonDeletePetitTroch.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                if(shape.id()=="petitroch"){
-                    var group = shape.getParent();
-                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "mesurepetittroch", drawLayer);
-                    delcmd.onExecute = fireEvent;
-                    delcmd.onUndo = fireEvent;
-                    delcmd.execute();
-                    app.addToUndoStack(delcmd);
-                    sessionStorage.setItem("nbPetitTroch", 0);
-                }
+                    if(shape.id()=="petitroch"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "mesurepetittroch", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                        sessionStorage.setItem("nbPetitTroch", 0);
+                    }
                 // }
                 document.getElementById("buttonDeletePetitTroch").style.display = "none";
                 sessionStorage.removeItem("nbCercle");
@@ -740,83 +740,199 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             function() {
 
                 //  if ( shape instanceof Kinetic.Line ) {
-                if(shape.id()=="cercle"){
-                    var group = shape.getParent();
-                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
-                    delcmd.onExecute = fireEvent;
-                    delcmd.onUndo = fireEvent;
-                    delcmd.execute();
-                    app.addToUndoStack(delcmd);
-                    sessionStorage.setItem("nbCercle", 0);
+                    if(shape.id()=="cercle"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                        sessionStorage.setItem("nbCercle", 0);
 
-                }
+                    }
                 // }
                 document.getElementById("buttonDeleteCercle").style.display = "none";
 
             }, false);
         // remove regle
-        var buttonDeleteRegle = document.getElementById("buttonDeleteRegle");
-        buttonDeleteRegle.addEventListener('click',
+        var buttonDeleteRegle1 = document.getElementById("buttonDeleteRegle1");
+        buttonDeleteRegle1.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                if(shape.id()=="regle"){
-                    var group = shape.getParent();
-                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
-                    delcmd.onExecute = fireEvent;
-                    delcmd.onUndo = fireEvent;
-                    delcmd.execute();
-                    app.addToUndoStack(delcmd);
-                }
+                    console.log("shape.id()",shape.id());
+                    if (shape.id()=="regle_1") {
+                        var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                        if (tempIdActive.regle_1==true) {
+                            document.getElementById("buttonDeleteRegle1").style.display = "none";
+                            tempIdActive.regle_1=false;
+                            sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                            var tempNbRegle = sessionStorage.getItem("nbRegle");
+                            var tempNbRegleInt = parseInt(tempNbRegle);
+                            tempNbRegleInt--;
+                            sessionStorage.setItem("nbRegle", tempNbRegleInt);
+                        }
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
                 // }
-                document.getElementById("buttonDeleteRegle").style.display = "none";
-                sessionStorage.removeItem("nbRegle");
-
             }, false);
-        // remove angle
-        var buttonDeleteRapporteur = document.getElementById("buttonDeleteRapporteur");
-        buttonDeleteRapporteur.addEventListener('click',
+        var buttonDeleteRegle2 = document.getElementById("buttonDeleteRegle2");
+        buttonDeleteRegle2.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                if(shape.id()=="angle"){
-                    var group = shape.getParent();
-                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
-                    delcmd.onExecute = fireEvent;
-                    delcmd.onUndo = fireEvent;
-                    delcmd.execute();
-                    app.addToUndoStack(delcmd);
-                }
+                    console.log("shape.id()",shape.id());
+                    if (shape.id()=="regle_2") {
+                        var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                        if (tempIdActive.regle_2==true) {
+                            document.getElementById("buttonDeleteRegle2").style.display = "none";
+                            tempIdActive.regle_2=false;
+                            sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                            var  tempNbRegle = sessionStorage.getItem("nbRegle");
+                            var tempNbRegleInt = parseInt(tempNbRegle);
+                            tempNbRegleInt--;
+                            sessionStorage.setItem("nbRegle", tempNbRegleInt);
+                        }
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+
+                    }
+
+                }, false);
+        var buttonDeleteRegle3 = document.getElementById("buttonDeleteRegle3");
+        buttonDeleteRegle3.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                    console.log("shape.id()",shape.id());
+                    if (shape.id()=="regle_3") {
+                        var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
+                        if (tempIdActive.regle_3==true) {
+                            document.getElementById("buttonDeleteRegle3").style.display = "none";
+                            tempIdActive.regle_3=false;
+                            sessionStorage.setItem("idRegleActive",JSON.stringify(tempIdActive));
+                            var  tempNbRegle = sessionStorage.getItem("nbRegle");
+                            var tempNbRegleInt = parseInt(tempNbRegle);
+                            tempNbRegleInt--;
+                            sessionStorage.setItem("nbRegle", tempNbRegleInt);
+                        }
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
                 // }
-                document.getElementById("buttonDeleteRapporteur").style.display = "none";
-                sessionStorage.removeItem("nbAngle");
+            }, false);
+
+        var buttonDeleteRapporteur1 = document.getElementById("buttonDeleteRapporteur1");
+        buttonDeleteRapporteur1.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                    console.log("shape.id()",shape.id());
+                    if (shape.id()=="angle_1") {
+                        var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                        if (tempIdActive.angle_1==true) {
+                            document.getElementById("buttonDeleteRapporteur1").style.display = "none";
+                            tempIdActive.angle_1=false;
+                            sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                            var tempNbAngle = sessionStorage.getItem("nbAngle");
+                            var tempNbAngleInt = parseInt(tempNbAngle);
+                            tempNbAngleInt--;
+                            sessionStorage.setItem("nbAngle", tempNbAngleInt);
+                        }
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                // }
+            }, false);
+        var buttonDeleteRapporteur2 = document.getElementById("buttonDeleteRapporteur2");
+        buttonDeleteRapporteur2.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                    console.log("shape.id()",shape.id());
+                    if (shape.id()=="angle_2") {
+                        var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                        if (tempIdActive.angle_2==true) {
+                            document.getElementById("buttonDeleteRapporteur2").style.display = "none";
+                            tempIdActive.angle_2=false;
+                            sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                            var tempNbAngle = sessionStorage.getItem("nbAngle");
+                            var tempNbAngleInt = parseInt(tempNbAngle);
+                            tempNbAngleInt--;
+                            sessionStorage.setItem("nbAngle", tempNbAngleInt);
+                        }
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                // }
+            }, false);
+        var buttonDeleteRapporteur3 = document.getElementById("buttonDeleteRapporteur3");
+        buttonDeleteRapporteur3.addEventListener('click',
+            function() {
+                //  if ( shape instanceof Kinetic.Line ) {
+                    console.log("shape.id()",shape.id());
+                    if (shape.id()=="angle_3") {
+                        var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
+                        if (tempIdActive.angle_3==true) {
+                            document.getElementById("buttonDeleteRapporteur3").style.display = "none";
+                            tempIdActive.angle_3=false;
+                            sessionStorage.setItem("idAngleActive",JSON.stringify(tempIdActive));
+                            var tempNbAngle = sessionStorage.getItem("nbAngle");
+                            var tempNbAngleInt = parseInt(tempNbAngle);
+                            tempNbAngleInt--;
+                            sessionStorage.setItem("nbAngle", tempNbAngleInt);
+                        }
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                // }
             }, false);
 
         var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
         buttonValideInformationPatient.addEventListener('click', function() {
-                if(shape.id()=="cercle"){
-                    var group = shape.getParent();
-                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
-                    delcmd.onExecute = fireEvent;
-                    delcmd.onUndo = fireEvent;
-                    delcmd.execute();
-                    app.addToUndoStack(delcmd);
-                    sessionStorage.setItem("nbCercle", 0);
-                    sessionStorage.setItem("retour",1);
+            if(shape.id()=="cercle"){
+                var group = shape.getParent();
+                var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
+                delcmd.onExecute = fireEvent;
+                delcmd.onUndo = fireEvent;
+                delcmd.execute();
+                app.addToUndoStack(delcmd);
+                sessionStorage.setItem("nbCercle", 0);
+                sessionStorage.setItem("retour",1);
 
-                }
             }
-         );
+        }
+        );
         var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
         buttonRetourOutilsDessin.addEventListener('click',
             function() {
                 if(shape.id()=="cercle"){
-
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
                     delcmd.onExecute = fireEvent;
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-
                 }
                 else  if(shape.id()=="petitroch"){
                     var group = shape.getParent();
@@ -833,9 +949,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.onUndo = fireEvent;
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
-
                 }
-                else if(shape.id()=="regle"){
+                else if(shape.id()=="regle_1"){
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -843,7 +958,39 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                     delcmd.execute();
                     app.addToUndoStack(delcmd);
                 }
-                else if(shape.id()=="angle"){
+                else if(shape.id()=="regle_2"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="regle_3"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle_1"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle_2"){
+                    var group = shape.getParent();
+                    var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                    delcmd.onExecute = fireEvent;
+                    delcmd.onUndo = fireEvent;
+                    delcmd.execute();
+                    app.addToUndoStack(delcmd);
+                }
+                else if(shape.id()=="angle_3"){
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
                     delcmd.onExecute = fireEvent;
@@ -857,12 +1004,23 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 sessionStorage.setItem("nbTrapeze", 0);
                 sessionStorage.setItem("nbPetitTroch", 0);
                 sessionStorage.setItem("nbRegle",0);
+                var idRegleActive = {
+                    regle_1 : false,
+                    regle_2 : false,
+                    regle_3 : false
+                };
+                sessionStorage.setItem("idRegleActive",JSON.stringify(idRegleActive));
                 sessionStorage.setItem("nbAngle",0);
+                var idAngleActive = {
+                    angle_1 : false,
+                    angle_2 : false,
+                    angle_3 : false
+                };
+                sessionStorage.setItem("idAngleActive",JSON.stringify(idAngleActive));
                 sessionStorage.setItem("retour",0);
 
 
             }, false);
-
 
         var buttonRetourImplant = document.getElementById("buttonRetourImplant");
         buttonRetourImplant.addEventListener('click',
@@ -870,7 +1028,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                 var typeChirurgie = document.getElementById("typeChirurgie");
                 var typeChirurgieVal = typeChirurgie.options[typeChirurgie.selectedIndex].value;
                 if (typeChirurgieVal == "Non guider") {
-                    if(shape.id()=="regle"){
+                    if(shape.id()=="regle_1"){
                         var group = shape.getParent();
                         var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
                         delcmd.onExecute = fireEvent;
@@ -878,7 +1036,23 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         delcmd.execute();
                         app.addToUndoStack(delcmd);
                     }
-                    else if(shape.id()=="angle"){
+                    else if(shape.id()=="regle_2"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="regle_3"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "line", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="angle_1"){
                         var group = shape.getParent();
                         var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
                         delcmd.onExecute = fireEvent;
@@ -886,6 +1060,37 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         delcmd.execute();
                         app.addToUndoStack(delcmd);
                     }
+                    else if(shape.id()=="angle_2"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    else if(shape.id()=="angle_3"){
+                        var group = shape.getParent();
+                        var delcmd = new dwv.tool.DeleteGroupCommand(group, "protractor", drawLayer);
+                        delcmd.onExecute = fireEvent;
+                        delcmd.onUndo = fireEvent;
+                        delcmd.execute();
+                        app.addToUndoStack(delcmd);
+                    }
+                    sessionStorage.setItem("nbRegle",0);
+                    var idRegleActive = {
+                        regle_1 : false,
+                        regle_2 : false,
+                        regle_3 : false
+                    };
+                    sessionStorage.setItem("idRegleActive",JSON.stringify(idRegleActive));
+
+                    sessionStorage.setItem("nbAngle",0);
+                    var idAngleActive = {
+                        angle_1 : false,
+                        angle_2 : false,
+                        angle_3 : false
+                    };
+                    sessionStorage.setItem("idAngleActive",JSON.stringify(idAngleActive));
                 }
             }, false);
 
@@ -896,23 +1101,23 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             var translation;
             if ( dragLastPos ) {
                 translation = {'x': pos.x - dragLastPos.x,
-                    'y': pos.y - dragLastPos.y};
+                'y': pos.y - dragLastPos.y};
             }
             else {
                 translation = {'x': pos.x - dragStartPos.x,
-                        'y': pos.y - dragStartPos.y};
+                'y': pos.y - dragStartPos.y};
             }
             dragLastPos = pos;
             // highlight trash when on it
             if ( Math.abs( pos.x - trash.x() ) < 10 &&
-                    Math.abs( pos.y - trash.y() ) < 10   ) {
+                Math.abs( pos.y - trash.y() ) < 10   ) {
                 trash.getChildren().each( function (tshape){ tshape.stroke('orange'); });
-                shape.stroke('red');
-            }
-            else {
-                trash.getChildren().each( function (tshape){ tshape.stroke('red'); });
-                shape.stroke(colour);
-            }
+            shape.stroke('red');
+        }
+        else {
+            trash.getChildren().each( function (tshape){ tshape.stroke('red'); });
+            shape.stroke(colour);
+        }
             // update group but not 'this' shape
             var group = this.getParent();
             group.getChildren().each( function (shape) {
@@ -935,16 +1140,16 @@ dwv.tool.Draw = function (app, shapeFactoryList)
 
             //  case
             if ( Math.abs( pos.x - trash.x() ) < 10 &&
-                    Math.abs( pos.y - trash.y() ) < 10   ) {
+                Math.abs( pos.y - trash.y() ) < 10   ) {
                 // compensate for the drag translation
-                var delTranslation = {'x': pos.x - dragStartPos.x,
-                        'y': pos.y - dragStartPos.y};
-                var group = this.getParent();
-                group.getChildren().each( function (shape) {
+            var delTranslation = {'x': pos.x - dragStartPos.x,
+            'y': pos.y - dragStartPos.y};
+            var group = this.getParent();
+            group.getChildren().each( function (shape) {
 
-                    shape.x( shape.x() - delTranslation.x );
-                    shape.y( shape.y() - delTranslation.y );
-                });
+                shape.x( shape.x() - delTranslation.x );
+                shape.y( shape.y() - delTranslation.y );
+            });
                 // restore colour
                 shape.stroke(colour);
                 // disable editor
@@ -962,7 +1167,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             else {
                 // save drag move
                 var translation = {'x': pos.x - dragStartPos.x,
-                        'y': pos.y - dragStartPos.y};
+                'y': pos.y - dragStartPos.y};
                 if ( translation.x !== 0 || translation.y !== 0 ) {
                     if(cmdName == "roi"){
                         if (document.getElementById("RadioOuiHanche").checked) {
@@ -1044,7 +1249,7 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                         centrePosition[0] = x ;
                                         centrePosition[1] = y ;
                                         sessionStorage.setItem("cercleDroitPosition", JSON.stringify(centrePosition));
-                                        }
+                                    }
 
                                 } else {
                                     if(sessionStorage.getItem("cercleGauchePosition")!=null){
@@ -1078,12 +1283,12 @@ dwv.tool.Draw = function (app, shapeFactoryList)
             // draw
             drawLayer.draw();
         });
-    };
+};
 
     /**
      * Initialise the tool.
      */
-    this.init = function() {
+     this.init = function() {
         // set the default to the first in the list
         var shapeName = 0;
         for( var key in this.shapeFactoryList ){
@@ -1106,8 +1311,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * @param {String} type The event type.
      * @param {Object} listener The method associated with the provided event type.
      */
-    this.addEventListener = function (type, listener)
-    {
+     this.addEventListener = function (type, listener)
+     {
         if ( typeof listeners[type] === "undefined" ) {
             listeners[type] = [];
         }
@@ -1119,8 +1324,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * @param {String} type The event type.
      * @param {Object} listener The method associated with the provided event type.
      */
-    this.removeEventListener = function (type, listener)
-    {
+     this.removeEventListener = function (type, listener)
+     {
         if( typeof listeners[type] === "undefined" ) {
             return;
         }
@@ -1136,8 +1341,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Set the line colour of the drawing.
      * @param {String} colour The colour to set.
      */
-    this.setLineColour = function (colour)
-    {
+     this.setLineColour = function (colour)
+     {
         app.getStyle().setLineColour(colour);
     };
 
@@ -1147,8 +1352,8 @@ dwv.tool.Draw = function (app, shapeFactoryList)
      * Fire an event: call all associated listeners.
      * @param {Object} event The event to fire.
      */
-    function fireEvent (event)
-    {
+     function fireEvent (event)
+     {
         if ( typeof listeners[event.type] === "undefined" ) {
             return;
         }
@@ -1164,14 +1369,14 @@ dwv.tool.Draw = function (app, shapeFactoryList)
  * Help for this tool.
  * @return {Object} The help content.
  */
-dwv.tool.Draw.prototype.getHelp = function()
-{
+ dwv.tool.Draw.prototype.getHelp = function()
+ {
     return {
         'title': "Draw",
         'brief': "Allows to draw shapes on the image. " +
-            "Choose the shape and its colour from the drop down menus. Once created, shapes " +
-            "can be edited by selecting them. Anchors will appear and allow specific shape edition. " +
-            "Drag the shape on the top red cross to delete it. All actions are undoable. ",
+        "Choose the shape and its colour from the drop down menus. Once created, shapes " +
+        "can be edited by selecting them. Anchors will appear and allow specific shape edition. " +
+        "Drag the shape on the top red cross to delete it. All actions are undoable. ",
         'mouse': {
             'mouse_drag': "A single mouse drag draws the desired shape.",
         },
@@ -1185,8 +1390,8 @@ dwv.tool.Draw.prototype.getHelp = function()
  * Set the shape name of the drawing.
  * @param {String} name The name of the shape.
  */
-dwv.tool.Draw.prototype.setShapeName = function(name)
-{
+ dwv.tool.Draw.prototype.setShapeName = function(name)
+ {
     // check if we have it
     if( !this.hasShape(name) )
     {
@@ -1199,6 +1404,6 @@ dwv.tool.Draw.prototype.setShapeName = function(name)
  * Check if the shape is in the shape list.
  * @param {String} name The name of the shape.
  */
-dwv.tool.Draw.prototype.hasShape = function(name) {
+ dwv.tool.Draw.prototype.hasShape = function(name) {
     return this.shapeFactoryList[name];
 };

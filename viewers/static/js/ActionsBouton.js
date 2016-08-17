@@ -1111,8 +1111,13 @@ $(document).ready(function () {
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
 				document.getElementById("buttonDessinRegle").style.display="none";
-                document.getElementById("buttonDeleteRapporteur").style.display="none";
-                document.getElementById("buttonDeleteRegle").style.display="none";
+				document.getElementById("buttonDessinRapporteur").style.display="none";
+                document.getElementById("buttonDeleteRegle1").style.display="none";
+                document.getElementById("buttonDeleteRegle2").style.display="none";
+                document.getElementById("buttonDeleteRegle3").style.display="none";
+                document.getElementById("buttonDeleteRapporteur1").style.display="none";
+                document.getElementById("buttonDeleteRapporteur2").style.display="none";
+                document.getElementById("buttonDeleteRapporteur3").style.display="none";
                 sessionStorage.setItem("nbRegle",0);
                 sessionStorage.setItem("nbAngle",0);
 
@@ -1993,8 +1998,13 @@ $(document).ready(function () {
                 	sessionStorage.setItem("nbPetitTroch", 0);
 	                sessionStorage.setItem("retour",0);
 	                document.getElementById("buttonDessinRegle").style.display="none";
-	                document.getElementById("buttonDeleteRapporteur").style.display="none";
-	                document.getElementById("buttonDeleteRegle").style.display="none";
+	                document.getElementById("buttonDessinRapporteur").style.display="none";
+	                document.getElementById("buttonDeleteRegle1").style.display="none";
+	                document.getElementById("buttonDeleteRegle2").style.display="none";
+	                document.getElementById("buttonDeleteRegle3").style.display="none";
+	                document.getElementById("buttonDeleteRapporteur1").style.display="none";
+	                document.getElementById("buttonDeleteRapporteur2").style.display="none";
+	                document.getElementById("buttonDeleteRapporteur3").style.display="none";
 	                sessionStorage.setItem("nbRegle",0);
 	                sessionStorage.setItem("nbAngle",0);
 					ZoomMode();
