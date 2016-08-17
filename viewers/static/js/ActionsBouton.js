@@ -998,7 +998,6 @@ $(document).ready(function () {
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
 				document.getElementById("buttonDessinRapporteur").style.display="none";
 				document.getElementById("buttonDessinRegle").style.display="none";
-				document.getElementById("buttonDeleteRapporteur").style.display="none";
 				document.getElementById("buttonDeleteRegle1").style.display="none";
 				document.getElementById("buttonDeleteRegle2").style.display="none";
 				document.getElementById("buttonDeleteRegle3").style.display="none";
