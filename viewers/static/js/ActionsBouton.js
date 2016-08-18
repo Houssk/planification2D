@@ -42,6 +42,9 @@ $(document).ready(function () {
 	var tableImplant = null;
 	var tableCotyle = null;
 
+	var firstSideChangedTige = true;
+	var firstSideChangedCotyle = true;
+
 
 	sessionStorage.setItem("boolNom",false);
 	sessionStorage.setItem("boolPrenom",false);
@@ -371,6 +374,331 @@ $(document).ready(function () {
 			ValiderDessin()
 	}, false);
 
+	var gammeTige = document.getElementById("gammeTige");
+	gammeTige.addEventListener('change',function(){
+		if (gammeTige.options[gammeTige.selectedIndex].value == "implant_hype") {
+			document.getElementById("implantHypeSousGamme").style.display="";
+			document.getElementById("implantLibraSousGamme").style.display="none";
+		} else if (gammeTige.options[gammeTige.selectedIndex].value == "implant_libra") {
+			document.getElementById("implantHypeSousGamme").style.display="none";
+			document.getElementById("implantLibraSousGamme").style.display="";
+		}
+	});
+	var gammeCotyle = document.getElementById("gammeCotyle");
+	gammeCotyle.addEventListener('change',function(){
+		if (gammeCotyle.options[gammeCotyle.selectedIndex].value == "cotyle_hype") {
+			document.getElementById("cotyleNovaeSousGamme").style.display="none";
+		} else if (gammeCotyle.options[gammeCotyle.selectedIndex].value == "cotyle_novae") {
+			document.getElementById("cotyleNovaeSousGamme").style.display="";
+		}
+	});
+	var coteTige = document.getElementById("coteTige");
+	coteTige.addEventListener('change',function(){
+		if(patient.GetOperationGuide()=="Guider"){
+			if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {
+				if (patient.GetCoteOperation()=="Gauche") {
+					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
+					for (var i = 0; i < elementDeplacerTige.length; i++) {
+						elementDeplacerTige[i].style.display="";
+					}
+					var elementPositionTige = document.getElementsByClassName("positionTige");
+					for (var i = 0; i < elementPositionTige.length; i++) {
+						elementPositionTige[i].style.display="none";
+					}
+					var tailleTige = tigeDroit.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+				} else if (patient.GetCoteOperation()=="Droit") {
+					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
+					for (var i = 0; i < elementDeplacerTige.length; i++) {
+						elementDeplacerTige[i].style.display="none";
+					}
+					var elementPositionTige = document.getElementsByClassName("positionTige");
+					for (var i = 0; i < elementPositionTige.length; i++) {
+						elementPositionTige[i].style.display="";
+					}
+					var tailleTige = tigeDroit.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+					if (firstSideChangedTige == true) {
+						firstSideChangedTige = false;
+						canvasTige=document.getElementById("canvasTigeDroit");
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex="26";
+						var contexteTigeDrawTige=canvasTige.getContext("2d");
+						imgTigeDroit = new Image;
+						imgTigeDroit.onload=function () {
+							var imgTigeDroitWidth=imgTigeDroit.width;
+							var imgTigeDroitHeight=imgTigeDroit.height;
+							contexteTigeDrawTige.save();
+							contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contexteTigeDrawTige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
+							contexteTigeDrawTige.rotate(tigeDroit.GetOrientation());
+							contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
+							contexteTigeDrawTige.restore();
+						}
+						imgTigeDroit.src=tigeDroit.GetUrl();
+					}
+				}
+			} else if (coteTige.options[coteTige.selectedIndex].value == "Droit") {
+				if (patient.GetCoteOperation()=="Droit") {
+					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
+					for (var i = 0; i < elementDeplacerTige.length; i++) {
+						elementDeplacerTige[i].style.display="";
+					}
+					var elementPositionTige = document.getElementsByClassName("positionTige");
+					for (var i = 0; i < elementPositionTige.length; i++) {
+						elementPositionTige[i].style.display="none";
+					}
+					var tailleTige = tigeGauche.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+				} else if (patient.GetCoteOperation()=="Gauche") {
+					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
+					for (var i = 0; i < elementDeplacerTige.length; i++) {
+						elementDeplacerTige[i].style.display="none";
+					}
+					var elementPositionTige = document.getElementsByClassName("positionTige");
+					for (var i = 0; i < elementPositionTige.length; i++) {
+						elementPositionTige[i].style.display="";
+					}
+					var tailleTige = tigeGauche.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+					if (firstSideChangedTige == true) {
+						firstSideChangedTige = false;
+						canvasTige=document.getElementById("canvasTigeGauche");
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex="27";
+						var contexteTigeDrawTige=canvasTige.getContext("2d");
+						imgTigeGauche = new Image;
+						imgTigeGauche.onload=function () {
+							var imgTigeGaucheWidth=imgTigeGauche.width;
+							var imgTigeGaucheHeight=imgTigeGauche.height;
+							contexteTigeDrawTige.save();
+							contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contexteTigeDrawTige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
+							contexteTigeDrawTige.rotate(tigeGauche.GetOrientation());
+							contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
+							contexteTigeDrawTige.restore();
+						}
+					imgTigeGauche.src=tigeGauche.GetUrl();
+					}
+					/*
+					*/
+				}
+			}
+			$('.deplacerTige').prop('disabled',false);
+			$('.positionTige').prop('disabled',false);
+		}
+		if (patient.GetOperationGuide()=="Non guider") {
+			if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {
+				if (patient.GetCoteOperation()=="Gauche") {
+					var tailleTige = tigeDroit.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+				} else if (patient.GetCoteOperation()=="Droit") {
+					var tailleTige = tigeDroit.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+					if (firstSideChangedTige == true) {
+						firstSideChangedTige = false;
+						canvasTige=document.getElementById("canvasTigeDroit");
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex="26";
+						var contexteTigeDrawTige=canvasTige.getContext("2d");
+						imgTigeDroit = new Image;
+						imgTigeDroit.onload=function () {
+							var imgTigeDroitWidth=imgTigeDroit.width;
+							var imgTigeDroitHeight=imgTigeDroit.height;
+							contexteTigeDrawTige.save();
+							contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contexteTigeDrawTige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
+							contexteTigeDrawTige.rotate(tigeDroit.GetOrientation());
+							contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
+							contexteTigeDrawTige.restore();
+						}
+						imgTigeDroit.src=tigeDroit.GetUrl();
+					}
+				}
+			} else if (coteTige.options[coteTige.selectedIndex].value == "Droit") {
+				if (patient.GetCoteOperation()=="Droit") {
+					var tailleTige = tigeGauche.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+				} else if (patient.GetCoteOperation()=="Gauche") {
+					var tailleTige = tigeGauche.GetNom().split("-");
+					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
+					document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
+					if (firstSideChangedTige == true) {
+						firstSideChangedTige = false;
+						canvasTige=document.getElementById("canvasTigeGauche");
+						canvasTige.width=m_canvasWidth;
+						canvasTige.height=m_canvasHeight;
+						canvasTige.style.zIndex="27";
+						var contexteTigeDrawTige=canvasTige.getContext("2d");
+						imgTigeGauche = new Image;
+						imgTigeGauche.onload=function () {
+							var imgTigeGaucheWidth=imgTigeGauche.width;
+							var imgTigeGaucheHeight=imgTigeGauche.height;
+							contexteTigeDrawTige.save();
+							contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+							contexteTigeDrawTige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
+							contexteTigeDrawTige.rotate(tigeGauche.GetOrientation());
+							contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
+							contexteTigeDrawTige.restore();
+						}
+					imgTigeGauche.src=tigeGauche.GetUrl();
+					}
+					/*
+					*/
+				}
+			}
+		}
+		
+	});
+	var coteCotyle = document.getElementById("coteCotyle");
+	coteCotyle.addEventListener('change',function(){
+		if(patient.GetOperationGuide()=="Guider"){
+			if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+				if (patient.GetCoteOperation()=="Gauche") {
+					document.getElementById("deplacerCotyle").style.display="";
+					document.getElementById("positionCotyle").style.display="none";
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+				} else if (patient.GetCoteOperation()=="Droit") {
+					document.getElementById("deplacerCotyle").style.display="none";
+					document.getElementById("positionCotyle").style.display="";
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+					if (firstSideChangedCotyle == true) {
+						firstSideChangedCotyle = false;
+						canvasCotyle=document.getElementById("canvasCotyleDroit");
+						canvasCotyle.width=m_canvasWidth;
+						canvasCotyle.height=m_canvasHeight;
+						canvasCotyle.style.zIndex="28";
+						var contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
+						imgCotyleDroit = new Image;
+						imgCotyleDroit.onload=function () {
+							var imgCotyleDroitWidth=imgCotyleDroit.width;
+							var imgCotyleDroitHeight=imgCotyleDroit.height;
+							contexteCotyleDrawCotyle.save();
+							contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+							contexteCotyleDrawCotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+							contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
+							contexteCotyleDrawCotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+							contexteCotyleDrawCotyle.restore();
+						}
+						imgCotyleDroit.src=cotyleDroit.GetUrl();
+					}
+				}
+			} else if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
+				if (patient.GetCoteOperation()=="Droit") {
+					document.getElementById("deplacerCotyle").style.display="";
+					document.getElementById("positionCotyle").style.display="none";
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+				} else if (patient.GetCoteOperation()=="Gauche") {
+					document.getElementById("deplacerCotyle").style.display="none";
+					document.getElementById("positionCotyle").style.display="";
+					var tailleCotyle = cotyleGauche.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+					if (firstSideChangedCotyle == true) {
+						firstSideChangedCotyle = false;
+						canvasCotyle=document.getElementById("canvasCotyleGauche");
+						canvasCotyle.width=m_canvasWidth;
+						canvasCotyle.height=m_canvasHeight;
+						canvasCotyle.style.zIndex="28";
+						var contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
+						imgCotyleGauche = new Image;
+						imgCotyleGauche.onload=function () {
+							var imgCotyleGaucheWidth=imgCotyleGauche.width;
+							var imgCotyleGaucheHeight=imgCotyleGauche.height;
+							contexteCotyleDrawCotyle.save();
+							contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+							contexteCotyleDrawCotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+							contexteCotyleDrawCotyle.rotate(cotyleGauche.GetOrientation());
+							contexteCotyleDrawCotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+							contexteCotyleDrawCotyle.restore();
+						}
+						imgCotyleGauche.src=cotyleGauche.GetUrl();
+					}
+				}
+			}
+			$('.deplacerCotyle').prop('disabled',false);
+			$('.positionCotyle').prop('disabled',false);
+		}
+		if (patient.GetOperationGuide()=="Non guider") {
+			if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+				if (patient.GetCoteOperation()=="Gauche") {
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+				} else if (patient.GetCoteOperation()=="Droit") {
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+					if (firstSideChangedCotyle == true) {
+						firstSideChangedCotyle = false;
+						canvasCotyle=document.getElementById("canvasCotyleDroit");
+						canvasCotyle.width=m_canvasWidth;
+						canvasCotyle.height=m_canvasHeight;
+						canvasCotyle.style.zIndex="28";
+						var contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
+						imgCotyleDroit = new Image;
+						imgCotyleDroit.onload=function () {
+							var imgCotyleDroitWidth=imgCotyleDroit.width;
+							var imgCotyleDroitHeight=imgCotyleDroit.height;
+							contexteCotyleDrawCotyle.save();
+							contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+							contexteCotyleDrawCotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+							contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
+							contexteCotyleDrawCotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+							contexteCotyleDrawCotyle.restore();
+						}
+						imgCotyleDroit.src=cotyleDroit.GetUrl();
+					}
+				}
+			} else if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
+				if (patient.GetCoteOperation()=="Droit") {
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+				} else if (patient.GetCoteOperation()=="Gauche") {
+					var tailleCotyle = cotyleGauche.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+					document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
+					if (firstSideChangedCotyle == true) {
+						firstSideChangedCotyle = false;
+						canvasCotyle=document.getElementById("canvasCotyleGauche");
+						canvasCotyle.width=m_canvasWidth;
+						canvasCotyle.height=m_canvasHeight;
+						canvasCotyle.style.zIndex="28";
+						var contexteCotyleDrawCotyle=canvasCotyle.getContext("2d");
+						imgCotyleGauche = new Image;
+						imgCotyleGauche.onload=function () {
+							var imgCotyleGaucheWidth=imgCotyleGauche.width;
+							var imgCotyleGaucheHeight=imgCotyleGauche.height;
+							contexteCotyleDrawCotyle.save();
+							contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+							contexteCotyleDrawCotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+							contexteCotyleDrawCotyle.rotate(cotyleGauche.GetOrientation());
+							contexteCotyleDrawCotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+							contexteCotyleDrawCotyle.restore();
+						}
+						imgCotyleGauche.src=cotyleGauche.GetUrl();
+					}
+				}
+			}
+		}
+	});
 	var buttonValideGamme = document.getElementById("buttonValideGamme");
 	buttonValideGamme.addEventListener('click',
 		function() {
@@ -386,11 +714,162 @@ $(document).ready(function () {
 				var valeurGammeCimenteOuNe = gammeCimenteOuNe.options[gammeCimenteOuNe.selectedIndex].value;*/
 
 				var gammeTige = document.getElementById("gammeTige");
-				var gammeCotyle = document.getElementById("gammeCotyle");
-
 				var valeurGammeTige = gammeTige.options[gammeTige.selectedIndex].value;
-				var valeurGammeCotyle = gammeCotyle.options[gammeCotyle.selectedIndex].value;
-				switch(valeurGammeTige)
+
+				/*if (valeurGammeTige == "implant_hype") {
+					var gammeTigeHype = document.getElementById("gammeTigeHype");
+					var valeurGammeTigeHype = gammeTigeHype.options[gammeTigeHype.selectedIndex].value;
+					switch(valeurGammeTigeHype)
+					{
+						case "implant_scs_std" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_scc_std_col" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_scl_lat" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_scv_coxa_vara" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_scho_high_offset" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_scc_mini_std" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_scla_mini_lat" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_acs_cim_std" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_acs_cim_lat" : {
+							tableImplant = valeurGammeTigeHype;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+					}
+				} else if (valeurGammeTige == "implant_libra") {
+					var gammeTigeLibra = document.getElementById("gammeTigeLibra");
+					var valeurGammeTigeLibra = gammeTigeLibra.options[gammeTigeLibra.selectedIndex].value;
+					switch(valeurGammeTigeLibra)
+					{
+						case "implant_ha_std" : {
+							tableImplant = valeurGammeTigeLibra;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_ha_offset" : {
+							tableImplant = valeurGammeTigeLibra;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_ha_std_appui" : {
+							tableImplant = valeurGammeTigeLibra;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_cim_offset" : {
+							tableImplant = valeurGammeTigeLibra;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+						case "implant_cim_std_appui" : {
+							tableImplant = valeurGammeTigeLibra;
+							indexTigeDroit = 0;
+							indexTigeGauche = 0;
+							maximumTigeDroit = 0;
+							minimumTigeDroit = 0;
+							maximumTigeGauche = 0;
+							minimumTigeGauche= 0;
+							break;
+						}
+					}
+				}*/
+				/**/switch(valeurGammeTige)
 				{
 					case "implant_hype" : {
 						tableImplant = valeurGammeTige;
@@ -414,8 +893,65 @@ $(document).ready(function () {
 						break;
 					}
 				}
+				var gammeCotyle = document.getElementById("gammeCotyle");
+				var valeurGammeCotyle = gammeCotyle.options[gammeCotyle.selectedIndex].value;
+				/*if (valeurGammeCotyle == "cotyle_hype") {
+					tableCotyle = valeurGammeCotyle;
+					indexCotyleDroit = 0;
+					indexCotyleGauche = 0;
+					maximumCotyleDroit = 0;
+					minimumCotyleDroit = 0;
+					maximumCotyleGauche = 0;
+					minimumCotyleGauche= 0;
+				} else if (valeurGammeCotyle == "cotyle_novae") {
+					var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
+					var valeurGammeCotyleNovae = gammeCotyleNovae.options[gammeCotyleNovae.selectedIndex].value;
+					switch(valeurGammeCotyleNovae)
+					{
+						case "cotyle_sunfit_th" : {
+							tableCotyle = valeurGammeCotyleNovae;
+							indexCotyleDroit = 0;
+							indexCotyleGauche = 0;
+							maximumCotyleDroit = 0;
+							minimumCotyleDroit = 0;
+							maximumCotyleGauche = 0;
+							minimumCotyleGauche= 0;
+							break;
+						}
+						case "cotyle_novae_e_th" : {
+							tableCotyle = valeurGammeCotyleNovae;
+							indexCotyleDroit = 0;
+							indexCotyleGauche = 0;
+							maximumCotyleDroit = 0;
+							minimumCotyleDroit = 0;
+							maximumCotyleGauche = 0;
+							minimumCotyleGauche= 0;
+							break;
+						}
+						case "cotyle_coptos_th" : {
+							tableCotyle = valeurGammeCotyleNovae;
+							indexCotyleDroit = 0;
+							indexCotyleGauche = 0;
+							maximumCotyleDroit = 0;
+							minimumCotyleDroit = 0;
+							maximumCotyleGauche = 0;
+							minimumCotyleGauche= 0;
+							break;
+						}
+						case "cotyle_stick" : {
+							tableCotyle = valeurGammeCotyleNovae;
+							indexCotyleDroit = 0;
+							indexCotyleGauche = 0;
+							maximumCotyleDroit = 0;
+							minimumCotyleDroit = 0;
+							maximumCotyleGauche = 0;
+							minimumCotyleGauche= 0;
+							break;
+						}
+					}
+				}*/
 
-				switch(valeurGammeCotyle)
+				/**/switch(valeurGammeCotyle)
 				{
 					case "cotyle_hype" : {
 						tableCotyle = valeurGammeCotyle;
@@ -961,7 +1497,7 @@ $(document).ready(function () {
 				/////////////////////////////////////////////////////////////////////////////////////////
 
 
-				document.getElementById("choix_gamme").style.display = "none";
+				//document.getElementById("choix_gamme").style.display = "none";
 				document.getElementById("actionImplant").style.display="";
 
 				if(patient.GetOperationGuide()=="Guider"){
@@ -1743,7 +2279,8 @@ $(document).ready(function () {
 		function() {
 			function TournerHautCotyleNG(){
 				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
-				if (patient.GetCoteOperation()=="Gauche") {
+				var coteCotyle = document.getElementById("coteCotyle");
+				if (coteCotyle.options[coteCotyle.selectedIndex].value=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
@@ -1782,7 +2319,8 @@ $(document).ready(function () {
 		function() {
 			function TournerBasCotyleNG(){
 				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
-				if (patient.GetCoteOperation()=="Gauche") {
+				var coteCotyle = document.getElementById("coteCotyle");
+				if (coteCotyle.options[coteCotyle.selectedIndex].value=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
@@ -2103,8 +2641,9 @@ $(document).ready(function () {
 		function() {
 			function TournerHautTige(){
 				console.log("TournerHautTige");
+				var coteTige = document.getElementById("coteTige");
 				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
-				if (patient.GetCoteOperation()=="Gauche") {
+				if (coteTige.options[coteTige.selectedIndex].value=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
@@ -2143,8 +2682,9 @@ $(document).ready(function () {
 		function() {
 			function TournerBasTige(){
 				console.log("TournerBasTige");
+				var coteTige = document.getElementById("coteTige");
 				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
-				if (patient.GetCoteOperation()=="Gauche") {
+				if (coteTige.options[coteTige.selectedIndex].value=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;

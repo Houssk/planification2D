@@ -203,20 +203,55 @@
 				<div id="choix_gamme">
 					<h4 id="choix_tige">Tige</h4>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<select class="form-control" id="gammeTige">
 								<option value="implant_hype">HYPE</option>
 								<option value="implant_libra">LIBRA</option>
 							</select>
 						</div>
 					</div>
-
+					<div id="implantHypeSousGamme" class="row">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeTigeHype">
+								<option value="implant_scs_std">SCS Std</option>
+								<option value="implant_scc_std_col">SCC Std à colerette</option>
+								<option value="implant_scl_lat">SCL Latéralisée</option>
+								<option value="implant_scv_coxa_vara">SCV coxa vara</option>
+								<option value="implant_scho_high_offset">SCHO High Offset</option>
+								<option value="implant_scc_mini_std">SCC MINI Std</option>
+								<option value="implant_scla_mini_lat">SCLA MINI Latéralisée</option>
+								<option value="implant_acs_cim_std">ACS A cimenter Std</option>
+								<option value="implant_acs_cim_lat">ACL A cimenter Latéralisée</option>
+							</select>
+						</div>
+					</div>
+					<div id="implantLibraSousGamme" class="row" style="display:none;">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeTigeLibra">
+								<option value="implant_ha_std">HA Std</option>
+								<option value="implant_ha_offset">HA Offset</option>
+								<option value="implant_ha_std_appui">HA Std Appui</option>
+								<option value="implant_cim_offset">Cimentées Offset</option>
+								<option value="implant_cim_std_appui">Cimentées Std Appui</option>
+							</select>
+						</div>
+					</div>
 					<h4 id="choix_cotyle">Cotyle</h4>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<select class="form-control" id="gammeCotyle">
 								<option value="cotyle_hype">HYPE</option>
 								<option value="cotyle_novae">NOVAE</option>
+							</select>
+						</div>
+					</div>
+					<div id="cotyleNovaeSousGamme" class="row" style="display:none;">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeCotyleNovae">
+								<option value="cotyle_sunfit_th">SUNFIT TH</option>
+								<option value="cotyle_novae_e_th">NOVAE E TH</option>
+								<option value="cotyle_coptos_th">COPTOS TH</option>
+								<option value="cotyle_stick">STICK</option>
 							</select>
 						</div>
 					</div>
@@ -260,7 +295,7 @@
 							<h5>D&eacute;placer</h5>
 						</div>
 						<div class="col-md-6">
-							<div class="row ">
+							<div class="row " style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
 								<div class="col-md-2 backgroundColor">
 									<input id="buttonMonterTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
 								</div>
@@ -270,7 +305,7 @@
 								<div class="col-md-2 backgroundColor">
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
 								<div class="col-md-2 backgroundColor">
 									<input id="buttonGaucheTige" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
 								</div>
@@ -280,7 +315,7 @@
 									<input id="buttonDroitTige" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
 								<div class="col-md-2 backgroundColor">
 								</div>
 								<div class="col-md-2 backgroundColor">
