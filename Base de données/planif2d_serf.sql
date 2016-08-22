@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 27 Juin 2016 à 15:32
+-- Généré le :  Lun 22 Août 2016 à 12:10
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -139,6 +139,54 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cotyle_coptos_th`
+--
+
+DROP TABLE IF EXISTS `cotyle_coptos_th`;
+CREATE TABLE IF NOT EXISTS `cotyle_coptos_th` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(200) NOT NULL,
+  `URL` varchar(200) NOT NULL,
+  `SizeXPixel` float NOT NULL,
+  `SizeYPixel` float NOT NULL,
+  `SizeXCm` float NOT NULL,
+  `SizeYCm` float NOT NULL,
+  `PosCenterX` float NOT NULL,
+  `PosCenterY` float NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cotyle_coptos_th`
+--
+
+INSERT INTO `cotyle_coptos_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
+(1, 'Novae COPTOS Th-45', 'images/Novae_T45.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(2, 'Novae COPTOS Th-47', 'images/Novae_T47.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(3, 'Novae COPTOS Th-49', 'images/Novae_T49.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(4, 'Novae COPTOS Th-51', 'images/Novae_T51.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(5, 'Novae COPTOS Th-53', 'images/Novae_T53.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(6, 'Novae COPTOS Th-55', 'images/Novae_T55.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(7, 'Novae COPTOS Th-57', 'images/Novae_T57.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(8, 'Novae COPTOS Th-59', 'images/Novae_T59.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(9, 'Novae COPTOS Th-61', 'images/Novae_T61.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(10, 'Novae COPTOS Th-63', 'images/Novae_T63.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(11, 'Novae COPTOS Th-65', 'images/Novae_T65.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(12, 'Novae COPTOS Th-45', 'images/Novae_T45_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(13, 'Novae COPTOS Th-47', 'images/Novae_T47_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(14, 'Novae COPTOS Th-49', 'images/Novae_T49_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(15, 'Novae COPTOS Th-51', 'images/Novae_T51_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(16, 'Novae COPTOS Th-53', 'images/Novae_T53_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(17, 'Novae COPTOS Th-55', 'images/Novae_T55_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(18, 'Novae COPTOS Th-57', 'images/Novae_T57_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(19, 'Novae COPTOS Th-59', 'images/Novae_T59_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(20, 'Novae COPTOS Th-61', 'images/Novae_T61_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(21, 'Novae COPTOS Th-63', 'images/Novae_T63_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(22, 'Novae COPTOS Th-65', 'images/Novae_T65_R.png', 1500, 1500, 12.7, 12.7, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `cotyle_hype`
 --
 
@@ -237,6 +285,152 @@ INSERT INTO `cotyle_novae` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `Siz
 (32, 'Novae-69', 'images/Novae69_R.png', 1136, 915, 9.62, 7.75, 0, 0),
 (33, 'Novae-71', 'images/Novae71_R.png', 1136, 915, 9.62, 7.75, 0, 0),
 (34, 'Novae-73', 'images/Novae73_R.png', 1136, 915, 9.62, 7.75, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cotyle_novae_e_th`
+--
+
+DROP TABLE IF EXISTS `cotyle_novae_e_th`;
+CREATE TABLE IF NOT EXISTS `cotyle_novae_e_th` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(200) NOT NULL,
+  `URL` varchar(200) NOT NULL,
+  `SizeXPixel` float NOT NULL,
+  `SizeYPixel` float NOT NULL,
+  `SizeXCm` float NOT NULL,
+  `SizeYCm` float NOT NULL,
+  `PosCenterX` float NOT NULL,
+  `PosCenterY` float NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cotyle_novae_e_th`
+--
+
+INSERT INTO `cotyle_novae_e_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
+(1, 'Novae E Th-45', 'images/Novae_T45.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(2, 'Novae E Th-47', 'images/Novae_T47.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(3, 'Novae E Th-49', 'images/Novae_T49.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(4, 'Novae E Th-51', 'images/Novae_T51.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(5, 'Novae E Th-53', 'images/Novae_T53.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(6, 'Novae E Th-55', 'images/Novae_T55.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(7, 'Novae E Th-57', 'images/Novae_T57.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(8, 'Novae E Th-59', 'images/Novae_T59.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(9, 'Novae E Th-61', 'images/Novae_T61.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(10, 'Novae E Th-63', 'images/Novae_T63.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(11, 'Novae E Th-65', 'images/Novae_T65.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(12, 'Novae E Th-45', 'images/Novae_T45_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(13, 'Novae E Th-47', 'images/Novae_T47_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(14, 'Novae E Th-49', 'images/Novae_T49_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(15, 'Novae E Th-51', 'images/Novae_T51_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(16, 'Novae E Th-53', 'images/Novae_T53_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(17, 'Novae E Th-55', 'images/Novae_T55_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(18, 'Novae E Th-57', 'images/Novae_T57_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(19, 'Novae E Th-59', 'images/Novae_T59_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(20, 'Novae E Th-61', 'images/Novae_T61_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(21, 'Novae E Th-63', 'images/Novae_T63_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(22, 'Novae E Th-65', 'images/Novae_T65_R.png', 1500, 1500, 12.7, 12.7, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cotyle_stick`
+--
+
+DROP TABLE IF EXISTS `cotyle_stick`;
+CREATE TABLE IF NOT EXISTS `cotyle_stick` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(200) NOT NULL,
+  `URL` varchar(200) NOT NULL,
+  `SizeXPixel` float NOT NULL,
+  `SizeYPixel` float NOT NULL,
+  `SizeXCm` float NOT NULL,
+  `SizeYCm` float NOT NULL,
+  `PosCenterX` float NOT NULL,
+  `PosCenterY` float NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cotyle_stick`
+--
+
+INSERT INTO `cotyle_stick` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
+(1, 'Novae STICK-45', 'images/Novae_T45.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(2, 'Novae STICK-47', 'images/Novae_T47.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(3, 'Novae STICK-49', 'images/Novae_T49.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(4, 'Novae STICK-51', 'images/Novae_T51.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(5, 'Novae STICK-53', 'images/Novae_T53.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(6, 'Novae STICK-55', 'images/Novae_T55.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(7, 'Novae STICK-57', 'images/Novae_T57.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(8, 'Novae STICK-59', 'images/Novae_T59.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(9, 'Novae STICK-61', 'images/Novae_T61.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(10, 'Novae STICK-63', 'images/Novae_T63.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(11, 'Novae STICK-65', 'images/Novae_T65.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(12, 'Novae STICK-45', 'images/Novae_T45_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(13, 'Novae STICK-47', 'images/Novae_T47_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(14, 'Novae STICK-49', 'images/Novae_T49_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(15, 'Novae STICK-51', 'images/Novae_T51_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(16, 'Novae STICK-53', 'images/Novae_T53_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(17, 'Novae STICK-55', 'images/Novae_T55_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(18, 'Novae STICK-57', 'images/Novae_T57_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(19, 'Novae STICK-59', 'images/Novae_T59_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(20, 'Novae STICK-61', 'images/Novae_T61_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(21, 'Novae STICK-63', 'images/Novae_T63_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(22, 'Novae STICK-65', 'images/Novae_T65_R.png', 1500, 1500, 12.7, 12.7, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cotyle_sunfit_th`
+--
+
+DROP TABLE IF EXISTS `cotyle_sunfit_th`;
+CREATE TABLE IF NOT EXISTS `cotyle_sunfit_th` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(200) NOT NULL,
+  `URL` varchar(200) NOT NULL,
+  `SizeXPixel` float NOT NULL,
+  `SizeYPixel` float NOT NULL,
+  `SizeXCm` float NOT NULL,
+  `SizeYCm` float NOT NULL,
+  `PosCenterX` float NOT NULL,
+  `PosCenterY` float NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cotyle_sunfit_th`
+--
+
+INSERT INTO `cotyle_sunfit_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
+(1, 'Novae SUNFIT Th-43', 'images/Novae_T43.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(2, 'Novae SUNFIT Th-45', 'images/Novae_T45.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(3, 'Novae SUNFIT Th-47', 'images/Novae_T47.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(4, 'Novae SUNFIT Th-49', 'images/Novae_T49.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(5, 'Novae SUNFIT Th-51', 'images/Novae_T51.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(6, 'Novae SUNFIT Th-53', 'images/Novae_T53.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(7, 'Novae SUNFIT Th-55', 'images/Novae_T55.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(8, 'Novae SUNFIT Th-57', 'images/Novae_T57.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(9, 'Novae SUNFIT Th-59', 'images/Novae_T59.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(10, 'Novae SUNFIT Th-61', 'images/Novae_T61.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(11, 'Novae SUNFIT Th-63', 'images/Novae_T63.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(12, 'Novae SUNFIT Th-65', 'images/Novae_T65.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(13, 'Novae SUNFIT Th-43', 'images/Novae_T43_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(14, 'Novae SUNFIT Th-45', 'images/Novae_T45_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(15, 'Novae SUNFIT Th-47', 'images/Novae_T47_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(16, 'Novae SUNFIT Th-49', 'images/Novae_T49_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(17, 'Novae SUNFIT Th-51', 'images/Novae_T51_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(18, 'Novae SUNFIT Th-53', 'images/Novae_T53_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(19, 'Novae SUNFIT Th-55', 'images/Novae_T55_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(20, 'Novae SUNFIT Th-57', 'images/Novae_T57_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(21, 'Novae SUNFIT Th-59', 'images/Novae_T59_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(22, 'Novae SUNFIT Th-61', 'images/Novae_T61_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(23, 'Novae SUNFIT Th-63', 'images/Novae_T63_R.png', 1500, 1500, 12.7, 12.7, 0, 0),
+(24, 'Novae SUNFIT Th-65', 'images/Novae_T65_R.png', 1500, 1500, 12.7, 12.7, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -422,6 +616,271 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `implant_acs_cim_lat`
+--
+
+DROP TABLE IF EXISTS `implant_acs_cim_lat`;
+CREATE TABLE IF NOT EXISTS `implant_acs_cim_lat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_acs_cim_std`
+--
+
+DROP TABLE IF EXISTS `implant_acs_cim_std`;
+CREATE TABLE IF NOT EXISTS `implant_acs_cim_std` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_cim_offset`
+--
+
+DROP TABLE IF EXISTS `implant_cim_offset`;
+CREATE TABLE IF NOT EXISTS `implant_cim_offset` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_cim_std_appui`
+--
+
+DROP TABLE IF EXISTS `implant_cim_std_appui`;
+CREATE TABLE IF NOT EXISTS `implant_cim_std_appui` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_ha_offset`
+--
+
+DROP TABLE IF EXISTS `implant_ha_offset`;
+CREATE TABLE IF NOT EXISTS `implant_ha_offset` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `implant_ha_offset`
+--
+
+INSERT INTO `implant_ha_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
+(1, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, 262, -269, 931.5, 0, 0),
+(2, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, 264.5, -278.5, 984.5, 0, 0),
+(3, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, 265.5, -288.5, 999, 0, 0),
+(4, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 267.5, -299.5, 876.5, 0, 0),
+(5, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 271, -307, 881.5, 0, 0),
+(6, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, 270, -320, 1085.5, 0, 0),
+(7, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, 274.5, -327.5, 1003.5, 0, 0),
+(8, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, 276, -338, 1065, 0, 0),
+(9, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2_R.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, -262, 269, 931.5, 0, 0),
+(10, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3_R.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, -264.5, 278.5, 984.5, 0, 0),
+(11, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4_R.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, -265.5, 288.5, 999, 0, 0),
+(12, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5_R.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -267.5, 299.5, 876.5, 0, 0),
+(13, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6_R.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -271, 307, 881.5, 0, 0),
+(14, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7_R.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, -270, 320, 1085.5, 0, 0),
+(15, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8_R.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 327.5, 1003.5, 0, 0),
+(16, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9_R.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, -276, 338, 1065, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_ha_std`
+--
+
+DROP TABLE IF EXISTS `implant_ha_std`;
+CREATE TABLE IF NOT EXISTS `implant_ha_std` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `implant_ha_std`
+--
+
+INSERT INTO `implant_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
+(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 224.5, -224.5, 943, 0, 0),
+(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 226.5, -233.5, 1027.5, 0, 0),
+(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230, -243, 1030, 0, 0),
+(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230.5, -253.5, 1032, 0, 0),
+(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 232, -264, 1034.5, 0, 0),
+(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 235, -272, 1039.5, 0, 0),
+(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 237, -283, 1042, 0, 0),
+(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 240, -292, 1051.5, 0, 0),
+(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, 240.5, -301.5, 1100.5, 0, 0),
+(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, 243.5, -311.5, 1129.5, 0, 0),
+(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -224.5, 224.5, 943, 0, 0),
+(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -226.5, 233.5, 1027.5, 0, 0),
+(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230, 243, 1030, 0, 0),
+(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230.5, 253.5, 1032, 0, 0),
+(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -232, 264, 1034.5, 0, 0),
+(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -235, 272, 1039.5, 0, 0),
+(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -237, 283, 1042, 0, 0),
+(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -240, 292, 1051.5, 0, 0),
+(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, -240.5, 301.5, 1100.5, 0, 0),
+(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, -243.5, 311.5, 1129.5, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_ha_std_appui`
+--
+
+DROP TABLE IF EXISTS `implant_ha_std_appui`;
+CREATE TABLE IF NOT EXISTS `implant_ha_std_appui` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `implant_hype`
 --
 
@@ -524,6 +983,223 @@ INSERT INTO `implant_libra` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx
 (14, 'Libra-T7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 305, 983.5, 0, 0),
 (15, 'Libra-T8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 315.5, 1014.5, 135, 0),
 (16, 'Libra-T9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 327.5, 1050.5, 135, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scc_mini_std`
+--
+
+DROP TABLE IF EXISTS `implant_scc_mini_std`;
+CREATE TABLE IF NOT EXISTS `implant_scc_mini_std` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scc_std_col`
+--
+
+DROP TABLE IF EXISTS `implant_scc_std_col`;
+CREATE TABLE IF NOT EXISTS `implant_scc_std_col` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scho_high_offset`
+--
+
+DROP TABLE IF EXISTS `implant_scho_high_offset`;
+CREATE TABLE IF NOT EXISTS `implant_scho_high_offset` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scla_mini_lat`
+--
+
+DROP TABLE IF EXISTS `implant_scla_mini_lat`;
+CREATE TABLE IF NOT EXISTS `implant_scla_mini_lat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scl_lat`
+--
+
+DROP TABLE IF EXISTS `implant_scl_lat`;
+CREATE TABLE IF NOT EXISTS `implant_scl_lat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scs_std`
+--
+
+DROP TABLE IF EXISTS `implant_scs_std`;
+CREATE TABLE IF NOT EXISTS `implant_scs_std` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_scv_coxa_vara`
+--
+
+DROP TABLE IF EXISTS `implant_scv_coxa_vara`;
+CREATE TABLE IF NOT EXISTS `implant_scv_coxa_vara` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

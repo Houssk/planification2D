@@ -716,7 +716,7 @@ $(document).ready(function () {
 				var gammeTige = document.getElementById("gammeTige");
 				var valeurGammeTige = gammeTige.options[gammeTige.selectedIndex].value;
 
-				/*if (valeurGammeTige == "implant_hype") {
+				/**/if (valeurGammeTige == "implant_hype") {
 					var gammeTigeHype = document.getElementById("gammeTigeHype");
 					var valeurGammeTigeHype = gammeTigeHype.options[gammeTigeHype.selectedIndex].value;
 					switch(valeurGammeTigeHype)
@@ -819,22 +819,22 @@ $(document).ready(function () {
 					{
 						case "implant_ha_std" : {
 							tableImplant = valeurGammeTigeLibra;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 11;
+							maximumTigeDroit = 10;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 20;
+							minimumTigeGauche= 11;
 							break;
 						}
 						case "implant_ha_offset" : {
 							tableImplant = valeurGammeTigeLibra;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 9;
+							maximumTigeDroit = 8;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 16;
+							minimumTigeGauche= 9;
 							break;
 						}
 						case "implant_ha_std_appui" : {
@@ -868,8 +868,8 @@ $(document).ready(function () {
 							break;
 						}
 					}
-				}*/
-				/**/switch(valeurGammeTige)
+				}
+				/*switch(valeurGammeTige)
 				{
 					case "implant_hype" : {
 						tableImplant = valeurGammeTige;
@@ -892,17 +892,17 @@ $(document).ready(function () {
 						minimumTigeGauche= 9;
 						break;
 					}
-				}
+				}*/
 				var gammeCotyle = document.getElementById("gammeCotyle");
 				var valeurGammeCotyle = gammeCotyle.options[gammeCotyle.selectedIndex].value;
-				/*if (valeurGammeCotyle == "cotyle_hype") {
+				/**/if (valeurGammeCotyle == "cotyle_hype") {
 					tableCotyle = valeurGammeCotyle;
-					indexCotyleDroit = 0;
-					indexCotyleGauche = 0;
-					maximumCotyleDroit = 0;
-					minimumCotyleDroit = 0;
-					maximumCotyleGauche = 0;
-					minimumCotyleGauche= 0;
+					indexCotyleDroit = 1;
+					indexCotyleGauche = 9;
+					maximumCotyleDroit = 8;
+					minimumCotyleDroit = 1;
+					maximumCotyleGauche = 16;
+					minimumCotyleGauche= 9;
 				} else if (valeurGammeCotyle == "cotyle_novae") {
 					var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
 					var valeurGammeCotyleNovae = gammeCotyleNovae.options[gammeCotyleNovae.selectedIndex].value;
@@ -910,48 +910,48 @@ $(document).ready(function () {
 					{
 						case "cotyle_sunfit_th" : {
 							tableCotyle = valeurGammeCotyleNovae;
-							indexCotyleDroit = 0;
-							indexCotyleGauche = 0;
-							maximumCotyleDroit = 0;
-							minimumCotyleDroit = 0;
-							maximumCotyleGauche = 0;
-							minimumCotyleGauche= 0;
+							indexCotyleDroit = 1;
+							indexCotyleGauche = 13;
+							maximumCotyleDroit = 12;
+							minimumCotyleDroit = 1;
+							maximumCotyleGauche = 24;
+							minimumCotyleGauche= 13;
 							break;
 						}
 						case "cotyle_novae_e_th" : {
 							tableCotyle = valeurGammeCotyleNovae;
-							indexCotyleDroit = 0;
-							indexCotyleGauche = 0;
-							maximumCotyleDroit = 0;
-							minimumCotyleDroit = 0;
-							maximumCotyleGauche = 0;
-							minimumCotyleGauche= 0;
+							indexCotyleDroit = 1;
+							indexCotyleGauche = 12;
+							maximumCotyleDroit = 11;
+							minimumCotyleDroit = 1;
+							maximumCotyleGauche = 22;
+							minimumCotyleGauche= 12;
 							break;
 						}
 						case "cotyle_coptos_th" : {
 							tableCotyle = valeurGammeCotyleNovae;
-							indexCotyleDroit = 0;
-							indexCotyleGauche = 0;
-							maximumCotyleDroit = 0;
-							minimumCotyleDroit = 0;
-							maximumCotyleGauche = 0;
-							minimumCotyleGauche= 0;
+							indexCotyleDroit = 1;
+							indexCotyleGauche = 12;
+							maximumCotyleDroit = 11;
+							minimumCotyleDroit = 1;
+							maximumCotyleGauche = 22;
+							minimumCotyleGauche= 12;
 							break;
 						}
 						case "cotyle_stick" : {
 							tableCotyle = valeurGammeCotyleNovae;
-							indexCotyleDroit = 0;
-							indexCotyleGauche = 0;
-							maximumCotyleDroit = 0;
-							minimumCotyleDroit = 0;
-							maximumCotyleGauche = 0;
-							minimumCotyleGauche= 0;
+							indexCotyleDroit = 1;
+							indexCotyleGauche = 12;
+							maximumCotyleDroit = 11;
+							minimumCotyleDroit = 1;
+							maximumCotyleGauche = 22;
+							minimumCotyleGauche= 12;
 							break;
 						}
 					}
-				}*/
+				}
 
-				/**/switch(valeurGammeCotyle)
+				/*switch(valeurGammeCotyle)
 				{
 					case "cotyle_hype" : {
 						tableCotyle = valeurGammeCotyle;
@@ -974,7 +974,7 @@ $(document).ready(function () {
 						minimumCotyleGauche= 18;
 						break;
 					}
-				}
+				}*/
 
 				////////////////////////////////////////////////////// snap /////////////////////////////
 
