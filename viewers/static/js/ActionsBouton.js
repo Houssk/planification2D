@@ -723,92 +723,92 @@ $(document).ready(function () {
 					{
 						case "implant_scs_std" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 12;
+							maximumTigeDroit = 11;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 22;
+							minimumTigeGauche= 12;
 							break;
 						}
 						case "implant_scc_std_col" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 12;
+							maximumTigeDroit = 11;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 22;
+							minimumTigeGauche= 12;
 							break;
 						}
 						case "implant_scl_lat" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 10;
+							maximumTigeDroit = 9;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 18;
+							minimumTigeGauche= 10;
 							break;
 						}
 						case "implant_scv_coxa_vara" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 9;
+							maximumTigeDroit = 8;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 16;
+							minimumTigeGauche= 9;
 							break;
 						}
 						case "implant_scho_high_offset" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 10;
+							maximumTigeDroit = 9;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 18;
+							minimumTigeGauche= 10;
 							break;
 						}
 						case "implant_scc_mini_std" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 7;
+							maximumTigeDroit = 6;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 12;
+							minimumTigeGauche= 7;
 							break;
 						}
 						case "implant_scla_mini_lat" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 7;
+							maximumTigeDroit = 6;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 12;
+							minimumTigeGauche= 7;
 							break;
 						}
 						case "implant_acs_cim_std" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 12;
+							maximumTigeDroit = 11;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 22;
+							minimumTigeGauche= 12;
 							break;
 						}
-						case "implant_acs_cim_lat" : {
+						case "implant_acl_cim_lat" : {
 							tableImplant = valeurGammeTigeHype;
-							indexTigeDroit = 0;
-							indexTigeGauche = 0;
-							maximumTigeDroit = 0;
-							minimumTigeDroit = 0;
-							maximumTigeGauche = 0;
-							minimumTigeGauche= 0;
+							indexTigeDroit = 1;
+							indexTigeGauche = 9;
+							maximumTigeDroit = 8;
+							minimumTigeDroit = 1;
+							maximumTigeGauche = 16;
+							minimumTigeGauche= 9;
 							break;
 						}
 					}
