@@ -2,205 +2,205 @@
 <!-- <html manifest="cache.manifest"> -->
 <html>
 
-	<head>
-		<title>SERF - Planification 2D</title>
-		<meta charset="UTF-8">
-		<meta name="description" content="DICOM Web Viewer (DWV) static version">
-		<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
+<head>
+	<title>SERF - Planification 2D</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="DICOM Web Viewer (DWV) static version">
+	<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
 
-		<link type="text/css" rel="stylesheet" href="../../css/style.css">
-		<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
-		<link type="text/css" rel="stylesheet" href="../../ext/jquery-ui/themes/ui-darkness/jquery-ui-1.11.2.min.css">
-		<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
-		<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
-		
+	<link type="text/css" rel="stylesheet" href="../../css/style.css">
+	<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+	<link type="text/css" rel="stylesheet" href="../../ext/jquery-ui/themes/ui-darkness/jquery-ui-1.11.2.min.css">
+	<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
+	<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
 
-		<!-- Third party -->
-		<script type="text/javascript" src="../../ext/jquery/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="../../ext/jquery-ui/jquery-ui-1.11.4.min.js"></script>
-		<script type="text/javascript" src="../../ext/flot/jquery.flot.min.js"></script>
-		<script type="text/javascript" src="../../ext/kinetic/kinetic-v5.1.1-06.10.min.js"></script>
-		<!-- decoders -->
-		<script type="text/javascript" src="../../ext/pdfjs/jpx.js"></script>
-		<script type="text/javascript" src="../../ext/pdfjs/util.js"></script>
-		<script type="text/javascript" src="../../ext/pdfjs/arithmetic_decoder.js"></script>
-		<script type="text/javascript" src="../../ext/rii-mango/lossless-min.js"></script>
-		<script type="text/javascript" src="../../ext/notmasteryet/jpg.js"></script>
-		<!-- PDF -->
-		<!-- <script type="text/javascript" src="../../ext/jsPDF/jspdf.debug.js"></script> -->
-		<script type="text/javascript" src="../../ext/jsPDF/jspdf.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/jspdf.min.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/png.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/zlib.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/plugins/addimage.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/plugins/png_support.js"></script>
-		<script type="text/javascript" src="../../ext/Html2canvas/html2canvas.js"></script>
-		<!--Alert-->
-		<script src="../../ext/sweetalert-master/dist/sweetalert.min.js"></script>
-		<!-- Local -->
-		<script type="text/javascript" src="../../src/app/application.js"></script>
-		<script type="text/javascript" src="../../src/app/toolboxController.js"></script>
-		<script type="text/javascript" src="../../src/app/viewController.js"></script>
-		<script type="text/javascript" src="../../src/app/state.js"></script>
-		<script type="text/javascript" src="../../src/dicom/dicomParser.js"></script>
-		<script type="text/javascript" src="../../src/dicom/dictionary.js"></script>
-		<script type="text/javascript" src="../../src/gui/browser.js"></script>
-		<script type="text/javascript" src="../../src/gui/filter.js"></script>
-		<script type="text/javascript" src="../../src/gui/generic.js"></script>
-		<script type="text/javascript" src="../../src/gui/help.js"></script>
-		<script type="text/javascript" src="../../src/gui/html.js"></script>
-		<script type="text/javascript" src="../../src/gui/layer.js"></script>
-		<script type="text/javascript" src="../../src/gui/loader.js"></script>
-		<script type="text/javascript" src="../../src/gui/style.js"></script>
-		<script type="text/javascript" src="../../src/gui/tools.js"></script>
-		<script type="text/javascript" src="../../src/gui/undo.js"></script>
-		<script type="text/javascript" src="../../src/image/filter.js"></script>
-		<script type="text/javascript" src="../../src/image/geometry.js"></script>
-		<script type="text/javascript" src="../../src/image/image.js"></script>
-		<script type="text/javascript" src="../../src/image/luts.js"></script>
-		<script type="text/javascript" src="../../src/image/reader.js"></script>
-		<script type="text/javascript" src="../../src/image/view.js"></script>
-		<script type="text/javascript" src="../../src/io/file.js"></script>
-		<script type="text/javascript" src="../../src/io/url.js"></script>
-		<script type="text/javascript" src="../../src/math/bucketQueue.js"></script>
-		<script type="text/javascript" src="../../src/math/point.js"></script>
-		<script type="text/javascript" src="../../src/math/scissors.js"></script>
-		<script type="text/javascript" src="../../src/math/shapes.js"></script>
-		<script type="text/javascript" src="../../src/math/stats.js"></script>
-		<script type="text/javascript" src="../../src/tools/draw.js"></script>
-		<script type="text/javascript" src="../../src/tools/editor.js"></script>
-		<script type="text/javascript" src="../../src/tools/ellipse.js"></script>
-		<script type="text/javascript" src="../../src/tools/filter.js"></script>
-		<script type="text/javascript" src="../../src/tools/info.js"></script>
-		<script type="text/javascript" src="../../src/tools/line.js"></script>
-		<script type="text/javascript" src="../../src/tools/livewire.js"></script>
-		<script type="text/javascript" src="../../src/tools/protractor.js"></script>
-		<script type="text/javascript" src="../../src/tools/rectangle.js"></script>
-		<script type="text/javascript" src="../../src/tools/roi.js"></script>
-		<script type="text/javascript" src="../../src/tools/scroll.js"></script>
-		<script type="text/javascript" src="../../src/tools/toolbox.js"></script>
-		<script type="text/javascript" src="../../src/tools/circle.js"></script>
-		<script type="text/javascript" src="../../src/tools/mesurepetittroch.js"></script>
-		<script type="text/javascript" src="../../src/tools/undo.js"></script>
-		<script type="text/javascript" src="../../src/tools/windowLevel.js"></script>
-		<script type="text/javascript" src="../../src/tools/zoomPan.js"></script>
-		<script type="text/javascript" src="../../src/utils/string.js"></script>
-		<script type="text/javascript" src="../../src/utils/uri.js"></script>
-		<script type="text/javascript" src="../../src/utils/thread.js"></script>
-		<script type="text/javascript" src="js/class/Patient.js"></script>
-		<script type="text/javascript" src="js/class/Tige.js"></script>
-		<script type="text/javascript" src="js/class/Cotyle.js"></script>
-		<script type="text/javascript" src="../../ext/progressbar/progressbar.js"></script>
 
-		<!-- Launch the app -->
+	<!-- Third party -->
+	<script type="text/javascript" src="../../ext/jquery/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../../ext/jquery-ui/jquery-ui-1.11.4.min.js"></script>
+	<script type="text/javascript" src="../../ext/flot/jquery.flot.min.js"></script>
+	<script type="text/javascript" src="../../ext/kinetic/kinetic-v5.1.1-06.10.min.js"></script>
+	<!-- decoders -->
+	<script type="text/javascript" src="../../ext/pdfjs/jpx.js"></script>
+	<script type="text/javascript" src="../../ext/pdfjs/util.js"></script>
+	<script type="text/javascript" src="../../ext/pdfjs/arithmetic_decoder.js"></script>
+	<script type="text/javascript" src="../../ext/rii-mango/lossless-min.js"></script>
+	<script type="text/javascript" src="../../ext/notmasteryet/jpg.js"></script>
+	<!-- PDF -->
+	<!-- <script type="text/javascript" src="../../ext/jsPDF/jspdf.debug.js"></script> -->
+	<script type="text/javascript" src="../../ext/jsPDF/jspdf.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/jspdf.min.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/png.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/zlib.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/plugins/addimage.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/plugins/png_support.js"></script>
+	<script type="text/javascript" src="../../ext/Html2canvas/html2canvas.js"></script>
+	<!--Alert-->
+	<script src="../../ext/sweetalert-master/dist/sweetalert.min.js"></script>
+	<!-- Local -->
+	<script type="text/javascript" src="../../src/app/application.js"></script>
+	<script type="text/javascript" src="../../src/app/toolboxController.js"></script>
+	<script type="text/javascript" src="../../src/app/viewController.js"></script>
+	<script type="text/javascript" src="../../src/app/state.js"></script>
+	<script type="text/javascript" src="../../src/dicom/dicomParser.js"></script>
+	<script type="text/javascript" src="../../src/dicom/dictionary.js"></script>
+	<script type="text/javascript" src="../../src/gui/browser.js"></script>
+	<script type="text/javascript" src="../../src/gui/filter.js"></script>
+	<script type="text/javascript" src="../../src/gui/generic.js"></script>
+	<script type="text/javascript" src="../../src/gui/help.js"></script>
+	<script type="text/javascript" src="../../src/gui/html.js"></script>
+	<script type="text/javascript" src="../../src/gui/layer.js"></script>
+	<script type="text/javascript" src="../../src/gui/loader.js"></script>
+	<script type="text/javascript" src="../../src/gui/style.js"></script>
+	<script type="text/javascript" src="../../src/gui/tools.js"></script>
+	<script type="text/javascript" src="../../src/gui/undo.js"></script>
+	<script type="text/javascript" src="../../src/image/filter.js"></script>
+	<script type="text/javascript" src="../../src/image/geometry.js"></script>
+	<script type="text/javascript" src="../../src/image/image.js"></script>
+	<script type="text/javascript" src="../../src/image/luts.js"></script>
+	<script type="text/javascript" src="../../src/image/reader.js"></script>
+	<script type="text/javascript" src="../../src/image/view.js"></script>
+	<script type="text/javascript" src="../../src/io/file.js"></script>
+	<script type="text/javascript" src="../../src/io/url.js"></script>
+	<script type="text/javascript" src="../../src/math/bucketQueue.js"></script>
+	<script type="text/javascript" src="../../src/math/point.js"></script>
+	<script type="text/javascript" src="../../src/math/scissors.js"></script>
+	<script type="text/javascript" src="../../src/math/shapes.js"></script>
+	<script type="text/javascript" src="../../src/math/stats.js"></script>
+	<script type="text/javascript" src="../../src/tools/draw.js"></script>
+	<script type="text/javascript" src="../../src/tools/editor.js"></script>
+	<script type="text/javascript" src="../../src/tools/ellipse.js"></script>
+	<script type="text/javascript" src="../../src/tools/filter.js"></script>
+	<script type="text/javascript" src="../../src/tools/info.js"></script>
+	<script type="text/javascript" src="../../src/tools/line.js"></script>
+	<script type="text/javascript" src="../../src/tools/livewire.js"></script>
+	<script type="text/javascript" src="../../src/tools/protractor.js"></script>
+	<script type="text/javascript" src="../../src/tools/rectangle.js"></script>
+	<script type="text/javascript" src="../../src/tools/roi.js"></script>
+	<script type="text/javascript" src="../../src/tools/scroll.js"></script>
+	<script type="text/javascript" src="../../src/tools/toolbox.js"></script>
+	<script type="text/javascript" src="../../src/tools/circle.js"></script>
+	<script type="text/javascript" src="../../src/tools/mesurepetittroch.js"></script>
+	<script type="text/javascript" src="../../src/tools/undo.js"></script>
+	<script type="text/javascript" src="../../src/tools/windowLevel.js"></script>
+	<script type="text/javascript" src="../../src/tools/zoomPan.js"></script>
+	<script type="text/javascript" src="../../src/utils/string.js"></script>
+	<script type="text/javascript" src="../../src/utils/uri.js"></script>
+	<script type="text/javascript" src="../../src/utils/thread.js"></script>
+	<script type="text/javascript" src="js/class/Patient.js"></script>
+	<script type="text/javascript" src="js/class/Tige.js"></script>
+	<script type="text/javascript" src="js/class/Cotyle.js"></script>
+	<script type="text/javascript" src="../../ext/progressbar/progressbar.js"></script>
 
-		<script type="text/javascript" src="appgui.js"></script>
-		<script type="text/javascript" src="applauncher.js"></script>
+	<!-- Launch the app -->
 
-		<!--<script type="text/javascript" src="js/tests.js"></script>-->
-		<script type="text/javascript" src="js/Fonction.js"></script>
-		<script type="text/javascript" src="js/ActionsBouton.js"></script>
-		
-	</head>
+	<script type="text/javascript" src="appgui.js"></script>
+	<script type="text/javascript" src="applauncher.js"></script>
 
-	<body id="body" onload="VerrouillageBoiteDialogue()">
+	<!--<script type="text/javascript" src="js/tests.js"></script>-->
+	<script type="text/javascript" src="js/Fonction.js"></script>
+	<script type="text/javascript" src="js/ActionsBouton.js"></script>
+
+</head>
+
+<body id="body" onload="VerrouillageBoiteDialogue()">
 
 	<!-- DWV -->
-		<div id="dwv">
+	<div id="dwv">
 
-			<div id="pageHeader">
+		<div id="pageHeader">
 			<div id="logo"></div>
 			<div class="toolbar" title="MENU"></div>
 
 			<!-- Toolbar -->
 
-			</div>
+		</div>
 
 		<div id="pageMain">
 
-		<div id="accordeon" style="width: 350px;">
-			<h3>INFORMATIONS</h3>
-			<div class="informationPatient">
-				<form>
-					<div class="row">
-						<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
-						<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
-					</div>
-					<div class="row" style="margin-top: 2%">
-						<div class="col-md-6">
-							<select class="form-control" id="coteChirurgie">
-								<option disabled selected>COTE</option>
-								<option value="Gauche">GAUCHE</option>
-								<option value="Droit">DROIT</option>
-							</select>
-						</div>
-						<div class="col-md-6">
-							<select class="form-control" id="typeChirurgie">
-								<option disabled selected>CHIRURGIE</option>
-								<option value="Guider">GUIDEE</option>
-								<option value="Non guider">NON GUIDEE</option>
-							</select>
-						</div>
-					</div>
-					<div class="loaderlist" style="margin-top: 2%"></div>
-					<div id="dialog-message" title="Téléchargement en cours">
-						<div id="barprogress" style="margin-top: 2%"></div>
-					</div>
-					<div id="divNbHanche" style="display: none; margin-top:5%;">
+			<div id="accordeon" style="width: 350px;">
+				<h3>INFORMATIONS</h3>
+				<div class="informationPatient">
+					<form>
 						<div class="row">
-							<div class="col-md-6 centered">
-								<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="SEUILLAGE" style="width: 110px;">
+							<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
+							<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
+						</div>
+						<div class="row" style="margin-top: 2%">
+							<div class="col-md-6">
+								<select class="form-control" id="coteChirurgie">
+									<option disabled selected>COTE</option>
+									<option value="Gauche">GAUCHE</option>
+									<option value="Droit">DROIT</option>
+								</select>
 							</div>
 							<div class="col-md-6">
-								<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ZOOM" style="width: 110px; float: right;">
+								<select class="form-control" id="typeChirurgie">
+									<option disabled selected>CHIRURGIE</option>
+									<option value="Guider">GUIDEE</option>
+									<option value="Non guider">NON GUIDEE</option>
+								</select>
 							</div>
 						</div>
-						<div class="row centered" style="margin-top:2%;">
-							<div class="col-md-6 centered">
-								<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
-							</div>
+						<div class="loaderlist" style="margin-top: 2%"></div>
+						<div id="dialog-message" title="Téléchargement en cours">
+							<div id="barprogress" style="margin-top: 2%"></div>
 						</div>
-						
-						<div class="row">
-							<div class="col-md-12 centered">
-								<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche</label>
-								<div style="text-align: center;">
-									<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
-									<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+						<div id="divNbHanche" style="display: none; margin-top:5%;">
+							<div class="row">
+								<div class="col-md-6 centered">
+									<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="SEUILLAGE" style="width: 110px;">
+								</div>
+								<div class="col-md-6">
+									<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ZOOM" style="width: 110px; float: right;">
+								</div>
+							</div>
+							<div class="row centered" style="margin-top:2%;">
+								<div class="col-md-6 centered">
+									<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12 centered">
+									<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche</label>
+									<div style="text-align: center;">
+										<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
+										<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-offset-3 col-md-6 centered">
+									<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-offset-3 col-md-6 centered">
-								<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
+					</form>
+				</div>
+				<h3>OUTILS DESSIN</h3>
+				<!-- OUTILS DESSIN -->
+				<div class="outilsDessin">
+					<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
+						<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+					</p>
+					<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
+						<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
+						<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
+							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
+							<div class="row">
+								<div class="col-md-6 centered">
+									<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="width: 110px;">
+								</div>
+								<div class="col-md-6 centered">
+									<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
+								</div>
 							</div>
 						</div>
-					</div>
-				</form>
-			</div>
-			<h3>OUTILS DESSIN</h3>
-			<!-- OUTILS DESSIN -->
-			<div class="outilsDessin">
-				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
-					<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-					</p>
-				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
-					<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
-				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
-					<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
-				<div class="row">
-					<div class="col-md-6 centered">
-						<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="width: 110px;">
-					</div>
-					<div class="col-md-6 centered">
-						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
-					</div>
-				</div>
-			</div>
-			<h3>IMPLANTS</h3>
-			<!-- IMPLANTS -->
-			<div class="implants">
-				<div id="choix_gamme">
+						<h3>IMPLANTS</h3>
+						<!-- IMPLANTS -->
+						<div class="implants">
+				<!--<div id="choix_gamme">
 					<h4 id="choix_tige">Tige</h4>
 					<div class="row">
 						<div class="col-md-8">
@@ -260,14 +260,48 @@
 							<input id="buttonValideGamme" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin: 8% 0%; width: 110px;">
 						</div>
 					</div>
-				</div>
+				</div>-->
 				
 
 
-				<div id="actionImplant" style="display: none">
+				<div id="actionImplant" ><!--style="display: none"-->
 					<div class="row">
 						<div class="col-md-3"><h4>Tige</h4></div>
-						<div class="col-md-9"><h4 id="labelGammeTige" style="text-align: center;"></h4></div>
+						<!--<div class="col-md-9"><h4 id="labelGammeTige" style="text-align: center;"></h4></div>-->
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeTige">
+								<option value="implant_hype">HYPE</option>
+								<option value="implant_libra">LIBRA</option>
+							</select>
+						</div>
+					</div>
+					<div id="implantHypeSousGamme" class="row">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeTigeHype">
+								<option value="implant_scs_std">SCS Standard</option>
+								<option value="implant_scc_std_col">SCC Standard à colerette</option>
+								<option value="implant_scl_lat">SCL Latéralisée</option>
+								<option value="implant_scv_coxa_vara">SCV Coxa vara</option>
+								<option value="implant_scho_high_offset">SCHO High Offset</option>
+								<option value="implant_scc_mini_std">SCC MINI Standard</option>
+								<option value="implant_scla_mini_lat">SCLA MINI Latéralisée</option>
+								<option value="implant_acs_cim_std">ACS A cimenter Standard</option>
+								<option value="implant_acl_cim_lat">ACL A cimenter Latéralisée</option>
+							</select>
+						</div>
+					</div>
+					<div id="implantLibraSousGamme" class="row" style="display:none;">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeTigeLibra">
+								<option value="implant_ha_std">HA Standard</option>
+								<option value="implant_ha_offset">HA Offset</option>
+								<option value="implant_ha_std_appui">HA Standard Appui</option>
+								<option value="implant_cim_offset">Cimentée Offset</option>
+								<option value="implant_cim_std_appui">Cimentée Standard Appui</option>
+							</select>
+						</div>
 					</div>
 					<div id="coteTigeDisplay" class="row">
 						<div class="col-md-3">
@@ -339,7 +373,25 @@
 					</div>
 					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3"><h4>Cotyle</h4></div>
-						<div class="col-md-9"><h4 id="labelGammeCotyle" style="text-align: center;"></h4></div>
+						<!--<div class="col-md-9"><h4 id="labelGammeCotyle" style="text-align: center;"></h4></div>-->
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeCotyle">
+								<option value="cotyle_hype">HYPE</option>
+								<option value="cotyle_novae">NOVAE</option>
+							</select>
+						</div>
+					</div>
+					<div id="cotyleNovaeSousGamme" class="row" style="display:none;">
+						<div class="col-md-8">
+							<select class="form-control" id="gammeCotyleNovae">
+								<option value="cotyle_sunfit_th">SUNFIT TH</option>
+								<option value="cotyle_novae_e_th">NOVAE E TH</option>
+								<option value="cotyle_coptos_th">COPTOS TH</option>
+								<option value="cotyle_stick">STICK</option>
+							</select>
+						</div>
 					</div>
 					<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
@@ -472,49 +524,49 @@
 			</div>
 		</div>		
 
-			<!-- Toolbox -->
-			<div class="toolList" title="Toolbox"></div>
+		<!-- Toolbox -->
+		<div class="toolList" title="Toolbox"></div>
 
-			<!-- History -->
-			<div class="history" title="History"></div>
+		<!-- History -->
+		<div class="history" title="History"></div>
 
-			<!-- Tags -->
-			<div class="tags" title="Tags"></div>
+		<!-- Tags -->
+		<div class="tags" title="Tags"></div>
 
-			<!-- Help -->
-			<div class="help" title="Help"></div>
+		<!-- Help -->
+		<div class="help" title="Help"></div>
 
-			<!-- Layer Container -->
-			<div id="dwv-layerDialog" class="layerDialog" title="Image">
-				<div class="dropBox"></div>
-				<div class="layerContainer">
-					<div class="drop" style="z-index: 1">
-						<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-						<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-						<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
+		<!-- Layer Container -->
+		<div id="dwv-layerDialog" class="layerDialog" title="Image">
+			<div class="dropBox"></div>
+			<div class="layerContainer">
+				<div class="drop" style="z-index: 1">
+					<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+					<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+					<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+					<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+					<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
+				</div>
+				<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
+				<div class="infoLayer">
+					<div class="infotl"></div>
+					<div class="infotr"></div>
+					<div class="infobl"></div>
+					<div class="infobr">
+						<div class="plot"></div>
 					</div>
-					<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
-					<div class="infoLayer">
-						<div class="infotl"></div>
-						<div class="infotr"></div>
-						<div class="infobl"></div>
-						<div class="infobr">
-							<div class="plot"></div>
-						</div>
-					</div><!-- /infoLayer -->
-				</div><!-- /layerContainer -->
-			</div><!-- /layerDialog -->
+				</div><!-- /infoLayer -->
+			</div><!-- /layerContainer -->
+		</div><!-- /layerDialog -->
 
-		</div><!-- /pageMain -->
+	</div><!-- /pageMain -->
 
-		</div><!-- /dwv -->
+</div><!-- /dwv -->
 
-	</body>
-  <script>
-  	$("#accordeon").accordion({heightStyle: 'panel'});
+</body>
+<script>
+	$("#accordeon").accordion({heightStyle: 'panel'});
 
-       
-  </script>
+
+</script>
 </html>
