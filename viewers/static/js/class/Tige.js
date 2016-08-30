@@ -15,7 +15,7 @@
 *
 *@author Quentin PETIT
 */
-function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm, ptMecaHautXPx, ptMecaHautYPx) {
+function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tigeHeightCm, ptMecaHautXPx, ptMecaHautYPx, Taille) {
 	this.m_ID=ID;
 	this.m_Nom=Nom;
 	this.m_Url=Url;
@@ -38,6 +38,7 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_deltaDeplacementY=0;
 	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
 	this.m_PositionPtMeca={'x' : null, 'y' : null};
+	this.m_Taille=Taille;
 }
 
 /**
@@ -193,6 +194,18 @@ Tige.prototype.GetDeltaDeplacementX = function() {
 */
 Tige.prototype.GetDeltaDeplacementY = function() {
 	return this.m_deltaDeplacementY;
+};
+
+/**
+*Cette fonction permet de récupérer la taille de la tige
+*
+*@return m_Taille 				Taille de la tige
+*
+*@author Quentin PETIT
+*/
+
+Tige.prototype.GetTaille = function() {
+	return this.m_Taille;
 };
 
 /**

@@ -24,6 +24,7 @@
 	    echo "<sizeYPx>" . $row[4] . "</sizeYPx>\n";
 	    echo "<sizeXCm>" . $row[5] . "</sizeXCm>\n";
 	    echo "<sizeYCm>" . $row[6] . "</sizeYCm>\n";
+	    echo "<taille>" . $row[9] . "</taille>\n";
 	}
 	echo "</exemple>\n";
 	
