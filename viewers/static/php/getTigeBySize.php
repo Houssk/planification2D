@@ -62,7 +62,7 @@
 		}
 	} else {
 		if ($cote=='D'){
-			$query = "SELECT * , MIN('id') FROM ".$table." WHERE taille=".$size."";
+			$query = "SELECT * FROM ".$table." WHERE taille=".$size." ORDER BY id ASC LIMIT 1";
 			$result = mysql_query($query, $dblink);
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 			    echo "<id>" . $row[0] . "</id>\n";
@@ -79,7 +79,7 @@
 			}
 		}
 		if ($cote=='G') {
-			$query = "SELECT * , MAX('id') FROM ".$table." WHERE taille=".$size."";
+			$query = "SELECT * FROM ".$table." WHERE taille=".$size." ORDER BY id DESC LIMIT 1";
 			$result = mysql_query($query, $dblink);
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 			    echo "<id>" . $row[0] . "</id>\n";

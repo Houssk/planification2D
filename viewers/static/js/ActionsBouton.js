@@ -348,8 +348,10 @@ $(document).ready(function () {
 			} else {
 				newTigeGauche=getTigeBySize(tableImplant, tigeGauche.GetTaille(), "G");
 				indexTigeGauche=parseInt(newTigeGauche.GetID());
+				console.log("indexTigeGauche",indexTigeGauche);
 				newTigeDroit=getTigeBySize(tableImplant, tigeDroit.GetTaille(), "D");
 				indexTigeDroit=parseInt(newTigeDroit.GetID());
+				console.log("indexTigeDroit",indexTigeDroit);
 			}
 			
 			var newTige=null;
@@ -446,8 +448,10 @@ $(document).ready(function () {
 			} else {
 				tigeGauche=getTigeBySize(tableImplant, tigeGauche.GetTaille(), "G");
 				indexTigeGauche=parseInt(tigeGauche.GetID());
+				console.log("indexTigeGauche",indexTigeGauche);
 				tigeDroit=getTigeBySize(tableImplant, tigeDroit.GetTaille(), "D");
 				indexTigeDroit=parseInt(tigeDroit.GetID());
+				console.log("indexTigeDroit",indexTigeDroit);
 			}
 			
 			imgTigeDroit = new Image;

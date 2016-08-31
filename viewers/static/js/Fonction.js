@@ -156,6 +156,7 @@ function getCotyle(table, id) {
     var widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm");
     var heightPxCotyleBDD = docXML.getElementsByTagName("sizeYPx");
     var heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm");
+    var tailleCotyleBDD = docXML.getElementsByTagName("taille");
 
     var cotyleId = cotyleIdBDD.item(0).firstChild.data;
     var cotyleNom = cotyleNomBDD.item(0).firstChild.data;
@@ -164,9 +165,10 @@ function getCotyle(table, id) {
     var widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data;
     var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
+    var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
     
     console.log("cotyleUrl",cotyleUrl);
-    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle);
+    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
 
     return cotyle;
 }
