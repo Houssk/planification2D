@@ -52,21 +52,6 @@ $(document).ready(function () {
 	sessionStorage.setItem("boolTypeOperation",false);
 
 
-	var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
-	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
-	var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
-	document.getElementById("gammeColleretteOuPas").style.display = "none";
-	gammeCimenteOuPas.addEventListener("change",function(){
-		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
-		console.log("Element select");
-		if(valeurGammeCimenteOuPas=="cimente" ){
-			document.getElementById("gammeColleretteOuPas").style.display = "none";
-		}
-		else if(valeurGammeCimenteOuPas=="sansCiment") {
-			document.getElementById("gammeColleretteOuPas").style.display = "";
-		}
-	});
-
 	var couleurGris = document.getElementById("couleurGris");
 	couleurGris.addEventListener('click', function() {
 		function CouleurGris(){
@@ -464,6 +449,647 @@ $(document).ready(function () {
 		}
 	});
 
+	function CalculOffset() {
+		var coefficient = sessionStorage.getItem("coefficient");
+		if (patient.GetCoteOperation()=="Gauche") {
+			var offset = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+			var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+			document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+			document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+		} else {
+			var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+			var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+			document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+			document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+		}
+	}
+	
+	function TigeSelection() {
+		var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
+		var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
+		var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
+
+		var valeurGammeVariseOuPas = gammeVariseOuPas.options[gammeVariseOuPas.selectedIndex].value;
+		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
+		var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
+
+		if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
+			console.log(" cimenté , varise : implant_ax_cem_var");
+
+			tableTige ="implant_ax_cem_var";
+			
+			indexTigeDroit = 4;
+			maximumTigeDroit =10;
+			minimumTigeDroit = 1;
+
+			indexTigeGauche = 14;
+			maximumTigeGauche =20;
+			minimumTigeGauche= 11;
+		}
+		else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
+			console.log("cimenté , standard : implant_ax_cem_std");
+
+			tableTige ="implant_ax_cem_std";
+			
+			indexTigeDroit = 4;
+			maximumTigeDroit =10;
+			minimumTigeDroit = 1;
+
+			indexTigeGauche = 14;
+			maximumTigeGauche =20;
+			minimumTigeGauche= 11;
+		}
+		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
+			console.log("sansCiment , varise , collerette : implant_ax_ha_var_col");
+			
+			tableTige ="implant_ax_ha_var_col";
+			
+			indexTigeDroit = 4;
+			maximumTigeDroit =10;
+			minimumTigeDroit = 1;
+
+			indexTigeGauche = 14;
+			maximumTigeGauche =20;
+			minimumTigeGauche= 11;
+		}
+		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
+			console.log("sansCiment , varise , sansCollerette : implant_ax_ha_var");
+
+			tableTige ="implant_ax_ha_var";
+			
+			indexTigeDroit = 4;
+			maximumTigeDroit =10;
+			minimumTigeDroit = 1;
+
+			indexTigeGauche = 14;
+			maximumTigeGauche =20;
+			minimumTigeGauche= 11;
+		}
+		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
+			console.log("sansCiment , standard , collerette : implant_ax_ha_std_col");
+
+			tableTige ="implant_ax_ha_std_col";
+			
+			indexTigeDroit = 4;
+			maximumTigeDroit =10;
+			minimumTigeDroit = 1;
+
+			indexTigeGauche = 14;
+			maximumTigeGauche =20;
+			minimumTigeGauche= 11;
+		}
+		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
+			console.log("sansCiment , standard , sansCollerette : implant_ax_ha_std");
+			
+			tableTige ="implant_ax_ha_std";
+			
+			indexTigeDroit = 4;
+			maximumTigeDroit =10;
+			minimumTigeDroit = 1;
+
+			indexTigeGauche = 14;
+			maximumTigeGauche =20;
+			minimumTigeGauche= 11;
+		}
+
+		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
+		
+		if (patient.GetOperationGuide()=="Non guider") {
+			var newTigeGauche=null;
+			var newTigeDroit=null;
+			if (tigeDroit==null && tigeGauche==null) {
+				newTigeGauche=getTige(tableTige, indexTigeGauche);
+				newTigeDroit=getTige(tableTige, indexTigeDroit);
+			} else {
+				newTigeGauche=getTigeBySize(tableTige, tigeGauche.GetTaille(), "G");
+				indexTigeGauche=parseInt(newTigeGauche.GetID());
+				console.log("indexTigeGauche",indexTigeGauche);
+				newTigeDroit=getTigeBySize(tableTige, tigeDroit.GetTaille(), "D");
+				indexTigeDroit=parseInt(newTigeDroit.GetID());
+				console.log("indexTigeDroit",indexTigeDroit);
+			}
+			
+			var newTige=null;
+			var canvasTige=null;
+			imgTigeDroit = new Image;
+			imgTigeGauche = new Image;
+			if (patient.GetCoteOperation()=="Gauche") {
+				canvasTige = document.getElementById("canvasTigeDroit");
+			} else {
+				canvasTige = document.getElementById("canvasTigeGauche");
+			}
+			canvasTige.width=m_canvasWidth;
+			canvasTige.height=m_canvasHeight;
+			canvasTige.style.zIndex = "26";
+			var contextetige = canvasTige.getContext("2d");
+			//console.log("contextetige",contextetige)
+			imgTigeDroit.onload=function () {
+				console.log("imgTigeDroit",imgTigeDroit);
+				var imgTigeDroitWidth=imgTigeDroit.width;
+				var imgTigeDroitHeight=imgTigeDroit.height;
+				var dicomCanvas = document.getElementById("dwv-imageLayer");
+
+				//position zéro
+				var dicomWidth = sessionStorage.getItem("imageLargeur");
+				var dicomHeight = sessionStorage.getItem("imageHauteur");
+				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+
+				newTigeGauche.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
+				newTigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
+				tigeGauche=newTigeGauche;
+				tigeDroit=newTigeDroit;
+
+				//console.log("newTige",newTige);
+				//console.log("tigeGauche",tigeGauche);
+				//console.log("tigeDroit",tigeDroit);
+				if (patient.GetCoteOperation()=="Gauche") {
+					newTige=newTigeDroit;
+				} else {
+					newTige=newTigeGauche;
+				}
+				contextetige.save();
+				contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+				contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+				contextetige.rotate(newTige.GetOrientation());
+				contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+				contextetige.restore();
+				console.log("newTige",newTige);
+			}
+
+			imgTigeGauche.onload=function () {
+				console.log("imgTigeGauche",imgTigeGauche);
+				var imgTigeGaucheWidth=imgTigeGauche.width;
+				var imgTigeGaucheHeight=imgTigeGauche.height;
+				var dicomCanvas = document.getElementById("dwv-imageLayer");
+
+				//position zéro
+				var dicomWidth = sessionStorage.getItem("imageLargeur");
+				var dicomHeight = sessionStorage.getItem("imageHauteur");
+				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+
+				newTigeGauche.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
+				newTigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
+				tigeGauche=newTigeGauche;
+				tigeDroit=newTigeDroit;
+
+				//console.log("newTige",newTige);
+				//console.log("tigeGauche",tigeGauche);
+				//console.log("tigeDroit",tigeDroit);
+				if (patient.GetCoteOperation()=="Gauche") {
+					newTige=newTigeDroit;
+				} else {
+					newTige=newTigeGauche;
+				}
+				contextetige.save();
+				contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+				contextetige.translate(newTige.GetPosition().x,newTige.GetPosition().y);
+				contextetige.rotate(newTige.GetOrientation());
+				contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
+				contextetige.restore();
+				console.log("newTige",newTige);
+			}
+			//Source des images
+			if (patient.GetCoteOperation()=="Gauche") {
+				imgTigeDroit.src=newTigeDroit.GetUrl();
+				tigeDroit=newTigeDroit;
+			} else {
+				imgTigeGauche.src=newTigeGauche.GetUrl();
+				tigeGauche=newTigeGauche;
+			}
+		} else {
+			if (tigeDroit==null && tigeGauche==null) {
+				tigeDroit = getTige(tableTige, indexTigeDroit);
+				tigeGauche = getTige(tableTige, indexTigeGauche);
+			} else {
+				tigeGauche=getTigeBySize(tableTige, tigeGauche.GetTaille(), "G");
+				indexTigeGauche=parseInt(tigeGauche.GetID());
+				console.log("indexTigeGauche",indexTigeGauche);
+				tigeDroit=getTigeBySize(tableTige, tigeDroit.GetTaille(), "D");
+				indexTigeDroit=parseInt(tigeDroit.GetID());
+				console.log("indexTigeDroit",indexTigeDroit);
+			}
+			
+			imgTigeDroit = new Image;
+			imgTigeGauche = new Image;
+			var canvasTige=null;
+			if (patient.GetCoteOperation()=="Gauche") {
+				canvasTige = document.getElementById("canvasTigeDroit");
+			} else {
+				canvasTige = document.getElementById("canvasTigeGauche");
+			}
+			canvasTige.width=m_canvasWidth;
+			canvasTige.height=m_canvasHeight;
+			canvasTige.style.zIndex = "26";
+			var contextetige = canvasTige.getContext("2d");
+			imgTigeDroit.onload=function () {
+				console.log("imgTigeDroit",imgTigeDroit)
+				var imgTigeDroitWidth=imgTigeDroit.width;
+				var imgTigeDroitHeight=imgTigeDroit.height;
+				if (patient.GetCoteOperation()=="Gauche") {
+					tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;
+					contextetige.save();
+					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
+					contextetige.rotate(tigeDroit.GetOrientation());
+					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
+					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
+					contextetige.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					tigeGauche.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
+					if (cotyleDroit!=null) {
+						CalculOffset();
+					}
+				} else {
+					tigeGauche.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;
+					contextetige.save();
+					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
+					contextetige.rotate(tigeGauche.GetOrientation());
+					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
+					contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
+					contextetige.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+
+					tigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
+					if (cotyleGauche!=null) {
+						CalculOffset();
+					}
+					/*var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";*/
+				}
+			}
+			imgTigeGauche.onload=function () {
+				console.log("imgTigeGauche",imgTigeGauche);
+				var imgTigeGaucheWidth=imgTigeGauche.width;
+				var imgTigeGaucheHeight=imgTigeGauche.height;
+				if (patient.GetCoteOperation()=="Gauche") {
+					tigeDroit.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
+					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeDroit.GetPosition().y;
+					contextetige.save();
+					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
+					contextetige.rotate(tigeDroit.GetOrientation());
+					contextetige.translate(tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPosition().y-tigeDroit.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
+					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
+					contextetige.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					tigeGauche.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
+					if (cotyleDroit!=null) {
+						CalculOffset();
+					}
+					/*var offset = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";*/
+				} else {
+					tigeGauche.Snap(imgTigeGaucheWidth, imgTigeGaucheHeight, patient);
+					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
+					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
+					var delta = posyr-tigeGauche.GetPosition().y;
+					contextetige.save();
+					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
+					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
+					contextetige.rotate(tigeGauche.GetOrientation());
+					contextetige.translate(tigeGauche.GetPosition().x-tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPosition().y-tigeGauche.GetPositionAvtOffset().y);
+					contextetige.translate(0,delta);
+					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
+					contextetige.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+
+					tigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
+					if (cotyleGauche!=null) {
+						CalculOffset();
+					}
+					/*var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
+					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";*/
+				}
+			}
+			//Source des images
+			if (patient.GetCoteOperation()=="Gauche") {
+				imgTigeDroit.src=tigeDroit.GetUrl();
+			} else {
+				imgTigeGauche.src=tigeGauche.GetUrl();
+			}
+		}
+		if (patient.GetCoteOperation()=="Gauche") {
+			var tailleTige = tigeDroit.GetNom().split("-");
+			document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
+			//console.log("newTigeDroit.GetUrl()",newTigeDroit.GetUrl());
+		} else {
+			var tailleTige = tigeGauche.GetNom().split("-");
+			document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
+			//console.log("newTigeGauche.GetUrl()",newTigeGauche.GetUrl());
+		}
+	}
+
+	function CotyleSelection() {
+		var gammeCimenteOuNe = document.getElementById("gammeCimenteOuNe");
+		var valeurGammeCimenteOuNe = gammeCimenteOuNe.options[gammeCimenteOuNe.selectedIndex].value;
+		if(valeurGammeCimenteOuNe=="cimente" ) {
+			console.log("cimente : cotyle_ax_dm_cem");
+
+			tableCotyle = "cotyle_ax_dm_cem";
+
+			indexCotyleDroit = 6;
+			maximumCotyleDroit = 13;
+			minimumCotyleDroit = 1;
+			indexCotyleGauche = 19;
+			maximumCotyleGauche = 25;
+			minimumCotyleGauche = 14;
+		}
+		else if (valeurGammeCimenteOuNe=="sansCiment" ) {
+			console.log("sansCiment : cotyle_ax_sm_ne");
+
+			tableCotyle = "cotyle_ax_sm_ne";
+
+			indexCotyleDroit = 5;
+			maximumCotyleDroit = 11;
+			minimumCotyleDroit = 1;
+			
+			indexCotyleGauche = 16;
+			maximumCotyleGauche = 22;
+			minimumCotyleGauche = 12;
+		}
+		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
+		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
+		if (patient.GetOperationGuide()=="Non guider") {
+			var newCotyleGauche = null;
+			var newCotyleDroit = null;
+			if (cotyleDroit==null && cotyleGauche==null) {
+				newCotyleGauche=getCotyle(tableCotyle, indexCotyleGauche);
+				newCotyleDroit=getCotyle(tableCotyle, indexCotyleDroit);
+			} else {
+				newCotyleGauche=getCotyleBySize(tableCotyle, cotyleGauche.GetTaille(), "G");
+				indexCotyleGauche=parseInt(cotyleGauche.GetID());
+				newCotyleDroit=getCotyleBySize(tableCotyle, cotyleDroit.GetTaille(), "D");
+				indexCotyleDroit=parseInt(cotyleDroit.GetID());
+			}
+			var newCotyle=null;
+			var canvasCotyle = null;
+			imgCotyleGauche = new Image;
+			imgCotyleDroit = new Image;
+			if (patient.GetCoteOperation()=="Gauche") {
+				canvasCotyle = document.getElementById("canvasCotyleDroit");
+			} else {
+				canvasCotyle = document.getElementById("canvasCotyleGauche");
+			}
+			canvasCotyle.width=m_canvasWidth;
+			canvasCotyle.height=m_canvasHeight;
+			canvasCotyle.style.zIndex = "27";
+			var contextecotyle = canvasCotyle.getContext("2d");
+			imgCotyleDroit.onload=function () {
+				console.log("imgCotyleDroit",imgCotyleDroit);
+				var imgCotyleDroitWidth=imgCotyleDroit.width;
+				var imgCotyleDroitHeight=imgCotyleDroit.height;
+				var dicomCanvas = document.getElementById("dwv-imageLayer");
+				//position zéro
+				var dicomWidth = sessionStorage.getItem("imageLargeur");
+				var dicomHeight = sessionStorage.getItem("imageHauteur");
+				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+				newCotyleGauche.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
+				newCotyleDroit.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
+				cotyleGauche=newCotyleGauche;
+				cotyleDroit=newCotyleDroit;
+				if (patient.GetCoteOperation()=="Gauche") {
+					newCotyle=newCotyleDroit;
+				} else {
+					newCotyle=newCotyleGauche;
+				}
+				contextecotyle.save();
+				contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+				contextecotyle.translate(newCotyle.GetPosition().x,newCotyle.GetPosition().y);
+				contextecotyle.rotate(0);
+				contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -newCotyle.GetImageLargeur() / 2, -newCotyle.GetImageHauteur() / 2, newCotyle.GetImageLargeur(), newCotyle.GetImageHauteur());
+				contextecotyle.restore();
+				console.log("newCotyle.GetImageLargeur()",newCotyle.GetImageLargeur(),"newCotyle.GetImageHauteur()",newCotyle.GetImageHauteur())
+				console.log("load img cotyleDroit");
+			}
+			imgCotyleGauche.onload=function () {
+				var imgCotyleGaucheWidth=imgCotyleGauche.width;
+				var imgCotyleGaucheHeight=imgCotyleGauche.height;
+				var dicomCanvas = document.getElementById("dwv-imageLayer");
+				//position zéro
+				var dicomWidth = sessionStorage.getItem("imageLargeur");
+				var dicomHeight = sessionStorage.getItem("imageHauteur");
+				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+				newCotyleGauche.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
+				newCotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
+				cotyleGauche=newCotyleGauche;
+				cotyleDroit=newCotyleDroit;
+				if (patient.GetCoteOperation()=="Gauche") {
+					newCotyle=newCotyleDroit;
+				} else {
+					newCotyle=newCotyleGauche;
+				}
+				contextecotyle.save();
+				contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+				contextecotyle.translate(newCotyle.GetPosition().x,newCotyle.GetPosition().y);
+				contextecotyle.rotate(0);
+				contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -newCotyle.GetImageLargeur() / 2, -newCotyle.GetImageHauteur() / 2, newCotyle.GetImageLargeur(), newCotyle.GetImageHauteur());
+				contextecotyle.restore();
+				console.log("newCotyle.GetImageLargeur()",newCotyle.GetImageLargeur(),"newCotyle.GetImageHauteur()",newCotyle.GetImageHauteur())
+				console.log("load img cotyleDroit");
+			}
+			if (patient.GetCoteOperation()=="Gauche") {
+				imgCotyleDroit.src=newCotyleDroit.GetUrl();
+				cotyleDroit=newCotyleDroit;
+			} else {
+				imgCotyleGauche.src=newCotyleGauche.GetUrl();
+				cotyleGauche=newCotyleGauche;
+			}
+		} else {
+			// récupération tige et cotyle
+			if (cotyleDroit==null && cotyleGauche==null) {
+				cotyleGauche=getCotyle(tableCotyle, indexCotyleGauche);
+				cotyleDroit=getCotyle(tableCotyle, indexCotyleDroit);
+			} else {
+				cotyleGauche=getCotyleBySize(tableCotyle, cotyleGauche.GetTaille(), "G");
+				indexCotyleGauche=parseInt(cotyleGauche.GetID());
+				cotyleDroit=getCotyleBySize(tableCotyle, cotyleDroit.GetTaille(), "D");
+				indexCotyleDroit=parseInt(cotyleDroit.GetID());
+			}
+			//Initialisation des images
+			imgCotyleDroit = new Image;
+			imgCotyleGauche = new Image;
+			var canvasCotyle=null;
+			if (patient.GetCoteOperation()=="Gauche") {
+				canvasCotyle = document.getElementById("canvasCotyleDroit");
+			} else {
+				canvasCotyle = document.getElementById("canvasCotyleGauche");
+			}
+			canvasCotyle.width=m_canvasWidth;
+			canvasCotyle.height=m_canvasHeight;
+			canvasCotyle.style.zIndex = "25";
+			var contextecotyle = canvasCotyle.getContext("2d");
+			imgCotyleDroit.onload=function () {
+				var imgCotyleDroitWidth=imgCotyleDroit.width;
+				var imgCotyleDroitHeight=imgCotyleDroit.height;
+				if (patient.GetCoteOperation()=="Gauche") {
+					cotyleDroit.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, 0, 0, patient);
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+					contextecotyle.rotate(cotyleDroit.GetOrientation());
+					contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+					contextecotyle.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					cotyleGauche.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
+					if (tigeDroit!=null) {
+						CalculOffset();
+					}
+
+				} else {
+					cotyleGauche.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, 0, 0, patient);
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+					contextecotyle.rotate(cotyleGauche.GetOrientation());
+					contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+					contextecotyle.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+
+					cotyleDroit.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
+					if (tigeGauche!=null) {
+						CalculOffset();
+					}
+				}
+			}
+			imgCotyleGauche.onload=function () {
+				var imgCotyleGaucheWidth=imgCotyleGauche.width;
+				var imgCotyleGaucheHeight=imgCotyleGauche.height;
+				if (patient.GetCoteOperation()=="Gauche") {
+					cotyleDroit.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, 0, 0, patient);
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+					contextecotyle.rotate(cotyleDroit.GetOrientation());
+					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+					contextecotyle.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					cotyleGauche.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
+					if (tigeDroit!=null) {
+						CalculOffset();
+					}
+				} else {
+					cotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, 0, 0, patient);
+					contextecotyle.save();
+					contextecotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+					contextecotyle.translate(cotyleGauche.GetPosition().x,cotyleGauche.GetPosition().y);
+					contextecotyle.rotate(cotyleGauche.GetOrientation());
+					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
+					contextecotyle.restore();
+
+					//positionnement de la tige du coté opposé a la chirurgie
+					var dicomCanvas = document.getElementById("dwv-imageLayer");
+					//position zéro
+					var dicomWidth = sessionStorage.getItem("imageLargeur");
+					var dicomHeight = sessionStorage.getItem("imageHauteur");
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					cotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
+					if (tigeGauche!=null) {
+						CalculOffset();
+					}
+				}
+			}
+			if (patient.GetCoteOperation()=="Gauche") {
+				imgCotyleDroit.src=cotyleDroit.GetUrl();
+			} else {
+				imgCotyleGauche.src=cotyleGauche.GetUrl();
+			}
+		}
+		if (patient.GetCoteOperation()=="Gauche") {
+			var tailleCotyle = cotyleDroit.GetNom().split("-");
+			document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
+		} else {
+			var tailleCotyle = cotyleGauche.GetNom().split("-");
+			document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
+		}
+	}
+
+	
+	var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
+	document.getElementById("gammeColleretteOuPas").style.display = "none";
+	gammeCimenteOuPas.addEventListener("change",function(){
+		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
+		console.log("Element select");
+		if(valeurGammeCimenteOuPas=="cimente" ){
+			document.getElementById("gammeColleretteOuPas").style.display = "none";
+		}
+		else if(valeurGammeCimenteOuPas=="sansCiment") {
+			document.getElementById("gammeColleretteOuPas").style.display = "";
+		}
+		TigeSelection();
+	});
+	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
+	gammeVariseOuPas.addEventListener("change", function () {
+		TigeSelection();
+	});
+	var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
+	gammeColleretteOuPas.addEventListener("change", function () {
+		TigeSelection();
+	});
+	var gammeCimenteOuNe = document.getElementById("gammeCimenteOuNe");
+	gammeCimenteOuNe.addEventListener("change", function () {
+		CotyleSelection();
+	});
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
 		function() {
@@ -538,6 +1164,8 @@ $(document).ready(function () {
 										//document.getElementById("buttonTournerBasCotyle").style.display="none";
 										//document.getElementById("positionTige").style.display="";
 										document.getElementById("positionCotyle").style.display="";
+										TigeSelection();
+										CotyleSelection();
 									}
 									if (patient.GetCoteOperation()=="Gauche") {
 										document.getElementById("coteTige").value="Gauche";
@@ -675,10 +1303,11 @@ $(document).ready(function () {
 
 				if(onPeutValider==true)
 				{
-
 					$('.implants *').prop('disabled',false);
 					$('.outilsDessin *').prop('disabled',true);
 					$("#accordeon").accordion({active : 2});
+					TigeSelection();
+					CotyleSelection();
 				}
 			};
 			ValiderDessin()

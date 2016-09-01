@@ -18,15 +18,17 @@
 	// On boucle sur le résultat
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	    echo "<id>" . $row[0] . "</id>\n";
-	    echo "<nom> ". $row[1] . " </nom>";
+	    echo "<nom> ". utf8_encode($row[1]) . " </nom>";
 	    echo "<url>" . $row[2] . "</url>\n";
-	    echo "<distOffsetX>".$row[15]."</distOffsetX>";
+	    echo "<distOffsetX>".$row[15]."</distOffsetX>\n";
 	    echo "<widthPx>" . $row[3] . "</widthPx>\n";
 	    echo "<widthCm>" . $row[4] . "</widthCm>\n";
 	    echo "<heightPx>" . $row[5] . "</heightPx>\n";
 	    echo "<heightCm>" . $row[6] . "</heightCm>\n";
-	    echo "<PtMecaHautXPx>" . $row[16] ."</PtMecaHautXPx>";
-	    echo "<PtMecaHautYPx>" . $row[17] ."</PtMecaHautYPx>";
+	    echo "<PtMecaHautXPx>" . $row[16] ."</PtMecaHautXPx>\n";
+	    echo "<PtMecaHautYPx>" . $row[17] ."</PtMecaHautYPx>\n";
+	    echo "<taille>" . $row[20] ."</taille>";
+
 	}
 	echo "</exemple>\n";
 	

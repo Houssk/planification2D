@@ -14,7 +14,7 @@
 *@author Quentin PETIT
 */
 
-function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm) {
+function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm, Taille) {
 	this.m_ID=ID;
 	this.m_Nom=Nom;
 	this.m_Url=Url;
@@ -35,7 +35,7 @@ function Cotyle(ID, Nom, Url, cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, coty
 	this.m_deltaDeplacementX=0;
 	this.m_deltaRotation=0;
 	this.m_PositionPtMeca={'x' : null, 'y' : null};
-	console.log("cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm",cotyleWidthPx, cotyleWidthCm, cotyleHeightPx, cotyleHeightCm);
+	this.m_Taille=Taille;
 }
 
 /**
@@ -147,14 +147,27 @@ Cotyle.prototype.GetDeltaDeplacementX = function() {
 };
 
 /**
-*Cette fonction permet de snaper la tige sur le trapèze correspondant
+*Cette fonction permet de récupérer la taille de la cotyle
 *
-*@param imageWidth			largeur de l'image associés à la tige
-*@param imageHeight			hauteur de l'image associés à la tige
+*@return m_Taille 				Taille de la cotyle
+*
+*@author Quentin PETIT
+*/
+
+Cotyle.prototype.GetTaille = function() {
+	return this.m_Taille;
+};
+
+/**
+*Cette fonction permet de snaper la cotyle sur le trapèze correspondant
+*
+*@param imageWidth			largeur de l'image associés à la cotyle
+*@param imageHeight			hauteur de l'image associés à la cotyle
 *@param patient				Données patient
 *
 *@author Quentin PETIT
 */
+
 
 Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, deltaRotation, patient, deltaDeplacementX) {
 

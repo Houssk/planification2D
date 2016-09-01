@@ -22,8 +22,9 @@ function VerrouillageBoiteDialogue() {
 *@author Quentin PETIT
 */
 
-function getTige(table,id) {
-    console.log("table", table, "id",id);
+function getTige(table, id) {
+    console.log("getTige");
+    console.log("table",table,"id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -47,6 +48,7 @@ function getTige(table,id) {
     var tigeHeightCmBDD = docXML.getElementsByTagName("heightCm");
     var tigePtMecaHautXPxBDD = docXML.getElementsByTagName("PtMecaHautXPx");
     var tigePtMecaHautYPxBDD = docXML.getElementsByTagName("PtMecaHautYPx");
+    var tigeTailleBDD = docXML.getElementsByTagName("taille");
 
     var tigeId = tigeIdBDD.item(0).firstChild.data;
     var tigeNom = tigeNomBDD.item(0).firstChild.data;
@@ -58,8 +60,65 @@ function getTige(table,id) {
     var tigeHeightCm = tigeHeightCmBDD.item(0).firstChild.data;
     var tigePtMecaHautXPx = tigePtMecaHautXPxBDD.item(0).firstChild.data;
     var tigePtMecaHautYPx = tigePtMecaHautYPxBDD.item(0).firstChild.data;
+    var tigeTaille = tigeTailleBDD.item(0).firstChild.data;
 
-    var tige = new Tige(tigeId,tigeNom,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm,tigePtMecaHautXPx,tigePtMecaHautYPx);
+    var tige = new Tige(tigeId,tigeNom,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm,tigePtMecaHautXPx,tigePtMecaHautYPx,tigeTaille);
+
+    return tige;
+}
+
+/**
+*Cette fonction retourne une tige créée avec les informations de la base de données
+*
+*@param     size      Taille de la tige souhaitée
+*
+*@return    tige    Tige créée avec les informations de la base de données
+*
+*@author Quentin PETIT
+*/
+
+function getTigeBySize(table, size, cote) {
+    console.log("getTigeBySize");
+    console.log("table",table,"size",size,"cote",cote);
+    var xhr;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+
+    xhr.open("GET", 'php/getTigeBySize.php?sizeTige='+size+'&tableTige='+table+'&coteTige='+cote+'', false);
+    xhr.send(null);
+    xhr.responseText;
+    var docXML= xhr.responseXML;
+    console.log("docXML",docXML);
+    var tigeIdBDD = docXML.getElementsByTagName("id");
+    var tigeNomBDD = docXML.getElementsByTagName("nom");
+    var tigeUrlBDD = docXML.getElementsByTagName("url");
+    var tigeDistOffsetXBDD = docXML.getElementsByTagName("distOffsetX");
+    var tigeWidthPxBDD = docXML.getElementsByTagName("widthPx");
+    var tigeWidthCmBDD = docXML.getElementsByTagName("widthCm");
+    var tigeHeightPxBDD = docXML.getElementsByTagName("heightPx");
+    var tigeHeightCmBDD = docXML.getElementsByTagName("heightCm");
+    var tigePtMecaHautXPxBDD = docXML.getElementsByTagName("PtMecaHautXPx");
+    var tigePtMecaHautYPxBDD = docXML.getElementsByTagName("PtMecaHautYPx");
+    var tigeTailleBDD = docXML.getElementsByTagName("taille");
+
+    var tigeId = tigeIdBDD.item(0).firstChild.data;
+    var tigeNom = tigeNomBDD.item(0).firstChild.data;
+    var tigeUrl = tigeUrlBDD.item(0).firstChild.data;
+    var tigeDistOffsetX = tigeDistOffsetXBDD.item(0).firstChild.data;
+    var tigeWidthPx = tigeWidthPxBDD.item(0).firstChild.data;
+    var tigeWidthCm = tigeWidthCmBDD.item(0).firstChild.data;
+    var tigeHeightPx = tigeHeightPxBDD.item(0).firstChild.data;
+    var tigeHeightCm = tigeHeightCmBDD.item(0).firstChild.data;
+    var tigePtMecaHautXPx = tigePtMecaHautXPxBDD.item(0).firstChild.data;
+    var tigePtMecaHautYPx = tigePtMecaHautYPxBDD.item(0).firstChild.data;
+    var tigeTaille = tigeTailleBDD.item(0).firstChild.data;
+
+    var tige = new Tige(tigeId,tigeNom,tigeUrl,tigeDistOffsetX,tigeWidthPx,tigeWidthCm,tigeHeightPx,tigeHeightCm,tigePtMecaHautXPx,tigePtMecaHautYPx,tigeTaille);
 
     return tige;
 }
@@ -74,7 +133,9 @@ function getTige(table,id) {
 *@author Quentin PETIT
 */
 
-function getCotyle(table,id) {
+function getCotyle(table, id) {
+    console.log("getCotyle");
+    console.log("table",table,"id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -95,6 +156,7 @@ function getCotyle(table,id) {
     var widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm");
     var heightPxCotyleBDD = docXML.getElementsByTagName("sizeYPx");
     var heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm");
+    var tailleCotyleBDD = docXML.getElementsByTagName("taille");
 
     var cotyleId = cotyleIdBDD.item(0).firstChild.data;
     var cotyleNom = cotyleNomBDD.item(0).firstChild.data;
@@ -103,13 +165,61 @@ function getCotyle(table,id) {
     var widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data;
     var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
+    var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
     
-    
-    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle);
+    console.log("cotyleUrl",cotyleUrl);
+    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
 
     return cotyle;
 }
 
+/**
+*Cette fonction retourne un cotyle créé avec les informations de la base de données
+*
+*@param     size      Taille  de la cotyle souhaitée
+*
+*@return    cotyle  cotyle créé avec les informations de la base de données
+*
+*@author Quentin PETIT
+*/
+
+function getCotyleBySize(table, size, cote) {
+    var xhr;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+
+    xhr.open("GET", 'php/getCotyleBySize.php?sizeCotyle='+size+'&tableCotyle='+table+'&coteCotyle='+cote+'', false);
+    xhr.send(null);
+    xhr.responseText;
+    var docXML= xhr.responseXML;
+    var cotyleIdBDD = docXML.getElementsByTagName("id");
+    var cotyleNomBDD = docXML.getElementsByTagName("nom");
+    var cotyleUrlBDD = docXML.getElementsByTagName("url");
+    var widthPxCotyleBDD = docXML.getElementsByTagName("sizeXPx");
+    var widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm");
+    var heightPxCotyleBDD = docXML.getElementsByTagName("sizeYPx");
+    var heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm");
+    var tailleCotyleBDD = docXML.getElementsByTagName("taille");
+
+    var cotyleId = cotyleIdBDD.item(0).firstChild.data;
+    var cotyleNom = cotyleNomBDD.item(0).firstChild.data;
+    var cotyleUrl = cotyleUrlBDD.item(0).firstChild.data;
+    var widthPxCotyle = widthPxCotyleBDD.item(0).firstChild.data;
+    var widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data;
+    var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
+    var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
+    var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
+    
+    console.log("cotyleUrl",cotyleUrl);
+    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
+
+    return cotyle;
+}
 function desactivationListe() {
 
     if (document.getElementById("RadioOuiHanche").checked) {

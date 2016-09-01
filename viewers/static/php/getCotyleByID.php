@@ -18,12 +18,13 @@
 	// On boucle sur le résultat
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	    echo "<id>" . $row[0] . "</id>\n";
-	    echo "<nom> ". $row[1] . " </nom>";
+	    echo "<nom> ". utf8_encode($row[1]) . " </nom>";
 	    echo "<url>" . $row[2] . "</url>\n";
 	    echo "<sizeXPx>" . $row[3] . "</sizeXPx>\n";
 	    echo "<sizeYPx>" . $row[4] . "</sizeYPx>\n";
 	    echo "<sizeXCm>" . $row[5] . "</sizeXCm>\n";
 	    echo "<sizeYCm>" . $row[6] . "</sizeYCm>\n";
+	    echo "<taille>" . $row[9] . "</taille>\n";
 	}
 	echo "</exemple>\n";
 	

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 28 Juin 2016 à 08:21
+-- Généré le :  Jeu 01 Septembre 2016 à 08:31
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `planif2d_dedidenne`
+-- Base de données :  `planif2d_dedienne`
 --
 
 -- --------------------------------------------------------
@@ -153,6 +153,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_dm_cem` (
   `SizeYCm` float NOT NULL,
   `PosCenterX` float NOT NULL,
   `PosCenterY` float NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
@@ -160,33 +161,33 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_dm_cem` (
 -- Contenu de la table `cotyle_ax_dm_cem`
 --
 
-INSERT INTO `cotyle_ax_dm_cem` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
-(1, 'Cup DM-44', 'images/ax_dm_cem_44.png', 1136, 915, 9.62, 7.75, 0, 0),
-(2, 'Cup DM-46', 'images/ax_dm_cem_46.png', 1136, 915, 9.62, 7.75, 0, 0),
-(3, 'Cup DM-48', 'images/ax_dm_cem_48.png', 1136, 915, 9.62, 7.75, 0, 0),
-(4, 'Cup DM-50', 'images/ax_dm_cem_50.png', 1136, 915, 9.62, 7.75, 0, 0),
-(5, 'Cup DM-52', 'images/ax_dm_cem_52.png', 1136, 915, 9.62, 7.75, 0, 0),
-(6, 'Cup DM-54', 'images/ax_dm_cem_54.png', 1136, 915, 9.62, 7.75, 0, 0),
-(7, 'Cup DM-56', 'images/ax_dm_cem_56.png', 1136, 915, 9.62, 7.75, 0, 0),
-(8, 'Cup DM-58', 'images/ax_dm_cem_58.png', 1136, 915, 9.62, 7.75, 0, 0),
-(9, 'Cup DM-60', 'images/ax_dm_cem_60.png', 1136, 915, 9.62, 7.75, 0, 0),
-(10, 'Cup DM-62', 'images/ax_dm_cem_62.png', 1136, 915, 9.62, 7.75, 0, 0),
-(11, 'Cup DM-64', 'images/ax_dm_cem_64.png', 1136, 915, 9.62, 7.75, 0, 0),
-(12, 'Cup DM-66', 'images/ax_dm_cem_66.png', 1136, 915, 9.62, 7.75, 0, 0),
-(13, 'Cup DM-68', 'images/ax_dm_cem_68.png', 1136, 915, 9.62, 7.75, 0, 0),
-(14, 'Cup DM-44', 'images/ax_dm_cem_44_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(15, 'Cup DM-46', 'images/ax_dm_cem_46_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(16, 'Cup DM-48', 'images/ax_dm_cem_48_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(17, 'Cup DM-50', 'images/ax_dm_cem_50_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(18, 'Cup DM-52', 'images/ax_dm_cem_52_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(19, 'Cup DM-54', 'images/ax_dm_cem_54_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(20, 'Cup DM-56', 'images/ax_dm_cem_56_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(21, 'Cup DM-58', 'images/ax_dm_cem_58_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(22, 'Cup DM-60', 'images/ax_dm_cem_60_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(23, 'Cup DM-62', 'images/ax_dm_cem_62_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(24, 'Cup DM-64', 'images/ax_dm_cem_64_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(25, 'Cup DM-66', 'images/ax_dm_cem_66_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(26, 'Cup DM-68', 'images/ax_dm_cem_68_R.png', 1136, 915, 9.62, 7.75, 0, 0);
+INSERT INTO `cotyle_ax_dm_cem` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
+(1, 'Cup DM-44', 'images/ax_dm_cem_44.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
+(2, 'Cup DM-46', 'images/ax_dm_cem_46.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
+(3, 'Cup DM-48', 'images/ax_dm_cem_48.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
+(4, 'Cup DM-50', 'images/ax_dm_cem_50.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
+(5, 'Cup DM-52', 'images/ax_dm_cem_52.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
+(6, 'Cup DM-54', 'images/ax_dm_cem_54.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
+(7, 'Cup DM-56', 'images/ax_dm_cem_56.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
+(8, 'Cup DM-58', 'images/ax_dm_cem_58.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
+(9, 'Cup DM-60', 'images/ax_dm_cem_60.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
+(10, 'Cup DM-62', 'images/ax_dm_cem_62.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
+(11, 'Cup DM-64', 'images/ax_dm_cem_64.png', 1136, 915, 9.62, 7.75, 0, 0, 64),
+(12, 'Cup DM-66', 'images/ax_dm_cem_66.png', 1136, 915, 9.62, 7.75, 0, 0, 66),
+(13, 'Cup DM-68', 'images/ax_dm_cem_68.png', 1136, 915, 9.62, 7.75, 0, 0, 68),
+(14, 'Cup DM-44', 'images/ax_dm_cem_44_R.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
+(15, 'Cup DM-46', 'images/ax_dm_cem_46_R.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
+(16, 'Cup DM-48', 'images/ax_dm_cem_48_R.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
+(17, 'Cup DM-50', 'images/ax_dm_cem_50_R.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
+(18, 'Cup DM-52', 'images/ax_dm_cem_52_R.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
+(19, 'Cup DM-54', 'images/ax_dm_cem_54_R.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
+(20, 'Cup DM-56', 'images/ax_dm_cem_56_R.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
+(21, 'Cup DM-58', 'images/ax_dm_cem_58_R.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
+(22, 'Cup DM-60', 'images/ax_dm_cem_60_R.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
+(23, 'Cup DM-62', 'images/ax_dm_cem_62_R.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
+(24, 'Cup DM-64', 'images/ax_dm_cem_64_R.png', 1136, 915, 9.62, 7.75, 0, 0, 64),
+(25, 'Cup DM-66', 'images/ax_dm_cem_66_R.png', 1136, 915, 9.62, 7.75, 0, 0, 66),
+(26, 'Cup DM-68', 'images/ax_dm_cem_68_R.png', 1136, 915, 9.62, 7.75, 0, 0, 68);
 
 -- --------------------------------------------------------
 
@@ -205,6 +206,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_sm_ne` (
   `SizeYCm` float NOT NULL,
   `PosCenterX` float NOT NULL,
   `PosCenterY` float NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
@@ -212,29 +214,29 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_sm_ne` (
 -- Contenu de la table `cotyle_ax_sm_ne`
 --
 
-INSERT INTO `cotyle_ax_sm_ne` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
-(1, 'Cup NA-44', 'images/ax_sm_ne_44.png', 1136, 915, 9.62, 7.75, 0, 0),
-(2, 'Cup NA-46', 'images/ax_sm_ne_46.png', 1136, 915, 9.62, 7.75, 0, 0),
-(3, 'Cup NA-48', 'images/ax_sm_ne_48.png', 1136, 915, 9.62, 7.75, 0, 0),
-(4, 'Cup NA-50', 'images/ax_sm_ne_50.png', 1136, 915, 9.62, 7.75, 0, 0),
-(5, 'Cup NA-52', 'images/ax_sm_ne_52.png', 1136, 915, 9.62, 7.75, 0, 0),
-(6, 'Cup NA-54', 'images/ax_sm_ne_54.png', 1136, 915, 9.62, 7.75, 0, 0),
-(7, 'Cup NA-56', 'images/ax_sm_ne_56.png', 1136, 915, 9.62, 7.75, 0, 0),
-(8, 'Cup NA-58', 'images/ax_sm_ne_58.png', 1136, 915, 9.62, 7.75, 0, 0),
-(9, 'Cup NA-60', 'images/ax_sm_ne_60.png', 1136, 915, 9.62, 7.75, 0, 0),
-(10, 'Cup NA-62', 'images/ax_sm_ne_62.png', 1136, 915, 9.62, 7.75, 0, 0),
-(11, 'Cup NA-64', 'images/ax_sm_ne_64.png', 1136, 915, 9.62, 7.75, 0, 0),
-(12, 'Cup NA-44', 'images/ax_sm_ne_44_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(13, 'Cup NA-46', 'images/ax_sm_ne_46_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(14, 'Cup NA-48', 'images/ax_sm_ne_48_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(15, 'Cup NA-50', 'images/ax_sm_ne_50_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(16, 'Cup NA-52', 'images/ax_sm_ne_52_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(17, 'Cup NA-54', 'images/ax_sm_ne_54_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(18, 'Cup NA-56', 'images/ax_sm_ne_56_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(19, 'Cup NA-58', 'images/ax_sm_ne_58_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(20, 'Cup NA-60', 'images/ax_sm_ne_60_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(21, 'Cup NA-62', 'images/ax_sm_ne_62_R.png', 1136, 915, 9.62, 7.75, 0, 0),
-(22, 'Cup NA-64', 'images/ax_sm_ne_64_R.png', 1136, 915, 9.62, 7.75, 0, 0);
+INSERT INTO `cotyle_ax_sm_ne` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
+(1, 'Cup NA-44', 'images/ax_sm_ne_44.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
+(2, 'Cup NA-46', 'images/ax_sm_ne_46.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
+(3, 'Cup NA-48', 'images/ax_sm_ne_48.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
+(4, 'Cup NA-50', 'images/ax_sm_ne_50.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
+(5, 'Cup NA-52', 'images/ax_sm_ne_52.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
+(6, 'Cup NA-54', 'images/ax_sm_ne_54.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
+(7, 'Cup NA-56', 'images/ax_sm_ne_56.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
+(8, 'Cup NA-58', 'images/ax_sm_ne_58.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
+(9, 'Cup NA-60', 'images/ax_sm_ne_60.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
+(10, 'Cup NA-62', 'images/ax_sm_ne_62.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
+(11, 'Cup NA-64', 'images/ax_sm_ne_64.png', 1136, 915, 9.62, 7.75, 0, 0, 64),
+(12, 'Cup NA-44', 'images/ax_sm_ne_44_R.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
+(13, 'Cup NA-46', 'images/ax_sm_ne_46_R.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
+(14, 'Cup NA-48', 'images/ax_sm_ne_48_R.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
+(15, 'Cup NA-50', 'images/ax_sm_ne_50_R.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
+(16, 'Cup NA-52', 'images/ax_sm_ne_52_R.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
+(17, 'Cup NA-54', 'images/ax_sm_ne_54_R.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
+(18, 'Cup NA-56', 'images/ax_sm_ne_56_R.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
+(19, 'Cup NA-58', 'images/ax_sm_ne_58_R.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
+(20, 'Cup NA-60', 'images/ax_sm_ne_60_R.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
+(21, 'Cup NA-62', 'images/ax_sm_ne_62_R.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
+(22, 'Cup NA-64', 'images/ax_sm_ne_64_R.png', 1136, 915, 9.62, 7.75, 0, 0, 64);
 
 -- --------------------------------------------------------
 
@@ -445,6 +447,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_cem_std` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
@@ -452,27 +455,27 @@ CREATE TABLE IF NOT EXISTS `implant_ax_cem_std` (
 -- Contenu de la table `implant_ax_cem_std`
 --
 
-INSERT INTO `implant_ax_cem_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'ax_cem_std-1\r\n', 'images/ax_cem_std_T1.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, 182.026, -232, 580, 0, 0),
-(2, 'ax_cem_std-2', 'images/ax_cem_std_T2.png', 653, 5.53, 1392, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, -243.5, 610, 0, 0),
-(3, 'ax_cem_std-3', 'images/ax_cem_std_T3.png', 671, 5.68, 1447, 12.25, 0, 0, 0, 0, 0, 0, 0, 0, 224.454, -252.5, 610, 0, 0),
-(4, 'ax_cem_std-4', 'images/ax_cem_std_T4.png', 699, 5.92, 1538, 13.02, 0, 0, 0, 0, 0, 0, 0, 0, 231.426, -266.5, 683, 0, 0),
-(5, 'ax_cem_std-5', 'images/ax_cem_std_T5.png', 722, 6.11, 1609, 13.62, 0, 0, 0, 0, 0, 0, 0, 0, 235.152, -277, 718.5, 0, 0),
-(6, 'ax_cem_std-6', 'images/ax_cem_std_T6.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.494, -289.5, 752.5, 0, 0),
-(7, 'ax_cem_std-7', 'images/ax_cem_std_T7.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, -300.5, 785, 0, 0),
-(8, 'ax_cem_std-8', 'images/ax_cem_std_T8.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 249.163, -311, 818.5, 0, 0),
-(9, 'ax_cem_std-9', 'images/ax_cem_std_T9.png', 813, 6.88, 1877, 15.89, 0, 0, 0, 0, 0, 0, 0, 0, 252.881, -323.5, 852.5, 0, 0),
-(10, 'ax_cem_std-10', 'images/ax_cem_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 256.176, -334.5, 882, 0, 0),
-(11, 'ax_cem_std-1\r\n', 'images/ax_cem_std_T1_R.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, -182.026, 232, 580, 0, 0),
-(12, 'ax_cem_std-2', 'images/ax_cem_std_T2_R.png', 653, 5.53, 1392, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -221.996, 243.5, 610, 0, 0),
-(13, 'ax_cem_std-3', 'images/ax_cem_std_T3_R.png', 671, 5.68, 1447, 12.25, 0, 0, 0, 0, 0, 0, 0, 0, -224.454, 252.5, 637.5, 0, 0),
-(14, 'ax_cem_std-4', 'images/ax_cem_std_T4_R.png', 699, 5.92, 1538, 13.02, 0, 0, 0, 0, 0, 0, 0, 0, -231.426, 266.5, 683, 0, 0),
-(15, 'ax_cem_std-5', 'images/ax_cem_std_T5_R.png', 722, 6.11, 1609, 13.62, 0, 0, 0, 0, 0, 0, 0, 0, -235.152, 277, 718.5, 0, 0),
-(16, 'ax_cem_std-6', 'images/ax_cem_std_T6_R.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.494, 289.5, 752.5, 0, 0),
-(17, 'ax_cem_std-7', 'images/ax_cem_std_T7_R.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 300.5, 785, 0, 0),
-(18, 'ax_cem_std-8', 'images/ax_cem_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -249.163, 311, 818.5, 0, 0),
-(19, 'ax_cem_std-9', 'images/ax_cem_std_T9_R.png', 813, 6.88, 1877, 15.89, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 323.5, 852.5, 0, 0),
-(20, 'ax_cem_std-10', 'images/ax_cem_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -256.176, 334.5, 882, 0, 0);
+INSERT INTO `implant_ax_cem_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'ax_cem_std-1\r\n', 'images/ax_cem_std_T1.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, 182.026, -232, 580, 0, 0, 1),
+(2, 'ax_cem_std-2', 'images/ax_cem_std_T2.png', 653, 5.53, 1392, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, -243.5, 610, 0, 0, 2),
+(3, 'ax_cem_std-3', 'images/ax_cem_std_T3.png', 671, 5.68, 1447, 12.25, 0, 0, 0, 0, 0, 0, 0, 0, 224.454, -252.5, 610, 0, 0, 3),
+(4, 'ax_cem_std-4', 'images/ax_cem_std_T4.png', 699, 5.92, 1538, 13.02, 0, 0, 0, 0, 0, 0, 0, 0, 231.426, -266.5, 683, 0, 0, 4),
+(5, 'ax_cem_std-5', 'images/ax_cem_std_T5.png', 722, 6.11, 1609, 13.62, 0, 0, 0, 0, 0, 0, 0, 0, 235.152, -277, 718.5, 0, 0, 5),
+(6, 'ax_cem_std-6', 'images/ax_cem_std_T6.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.494, -289.5, 752.5, 0, 0, 6),
+(7, 'ax_cem_std-7', 'images/ax_cem_std_T7.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, -300.5, 785, 0, 0, 7),
+(8, 'ax_cem_std-8', 'images/ax_cem_std_T8.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 249.163, -311, 818.5, 0, 0, 8),
+(9, 'ax_cem_std-9', 'images/ax_cem_std_T9.png', 813, 6.88, 1877, 15.89, 0, 0, 0, 0, 0, 0, 0, 0, 252.881, -323.5, 852.5, 0, 0, 9),
+(10, 'ax_cem_std-10', 'images/ax_cem_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 256.176, -334.5, 882, 0, 0, 10),
+(11, 'ax_cem_std-1\r\n', 'images/ax_cem_std_T1_R.png', 630, 5.33, 1332, 11.28, 0, 0, 0, 0, 0, 0, 0, 0, -182.026, 232, 580, 0, 0, 1),
+(12, 'ax_cem_std-2', 'images/ax_cem_std_T2_R.png', 653, 5.53, 1392, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -221.996, 243.5, 610, 0, 0, 2),
+(13, 'ax_cem_std-3', 'images/ax_cem_std_T3_R.png', 671, 5.68, 1447, 12.25, 0, 0, 0, 0, 0, 0, 0, 0, -224.454, 252.5, 637.5, 0, 0, 3),
+(14, 'ax_cem_std-4', 'images/ax_cem_std_T4_R.png', 699, 5.92, 1538, 13.02, 0, 0, 0, 0, 0, 0, 0, 0, -231.426, 266.5, 683, 0, 0, 4),
+(15, 'ax_cem_std-5', 'images/ax_cem_std_T5_R.png', 722, 6.11, 1609, 13.62, 0, 0, 0, 0, 0, 0, 0, 0, -235.152, 277, 718.5, 0, 0, 5),
+(16, 'ax_cem_std-6', 'images/ax_cem_std_T6_R.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.494, 289.5, 752.5, 0, 0, 6),
+(17, 'ax_cem_std-7', 'images/ax_cem_std_T7_R.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 300.5, 785, 0, 0, 7),
+(18, 'ax_cem_std-8', 'images/ax_cem_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -249.163, 311, 818.5, 0, 0, 8),
+(19, 'ax_cem_std-9', 'images/ax_cem_std_T9_R.png', 813, 6.88, 1877, 15.89, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 323.5, 852.5, 0, 0, 9),
+(20, 'ax_cem_std-10', 'images/ax_cem_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -256.176, 334.5, 882, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -502,6 +505,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_cem_var` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
@@ -509,27 +513,27 @@ CREATE TABLE IF NOT EXISTS `implant_ax_cem_var` (
 -- Contenu de la table `implant_ax_cem_var`
 --
 
-INSERT INTO `implant_ax_cem_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'ax_cem_var-1', 'images/ax_cem_var_T1.png', 661, 5.6, 1284, 10.87, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, -251.5, 554, 0, 0),
-(2, 'ax_cem_var-2', 'images/ax_cem_var_T2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 238.569, -264.5, 582.5, 0, 0),
-(3, 'ax_cem_var-3', 'images/ax_cem_var_T3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, -273, 604.5, 0, 0),
-(4, 'ax_cem_var-4', 'images/ax_cem_var_T4.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -288.5, 652, 0, 0),
-(5, 'ax_cem_var-5', 'images/ax_cem_var_T5.png', 760, 6.43, 1550, 13.12, 0, 0, 0, 0, 0, 0, 0, 0, 254.121, -302, 687, 0, 0),
-(6, 'ax_cem_var-6', 'images/ax_cem_var_T6.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, 260.03, -315, 750, 0, 0),
-(7, 'ax_cem_var-7', 'images/ax_cem_var_T7.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, -326, 750, 0, 0),
-(8, 'ax_cem_var-8', 'images/ax_cem_var_T8.png', 834, 7.06, 1739, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, -339, 781.5, 0, 0),
-(9, 'ax_cem_var-9', 'images/ax_cem_var_T9.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 276.429, -352, 814, 0, 0),
-(10, 'ax_cem_var-10', 'images/ax_cem_var_T10.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, -363.5, 842, 0, 0),
-(11, 'ax_cem_var-1', 'images/ax_cem_var_T1_R.png', 661, 5.6, 1284, 10.87, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 251.5, 554, 0, 0),
-(12, 'ax_cem_var-2', 'images/ax_cem_var_T2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -238.569, 264.5, 582.5, 0, 0),
-(13, 'ax_cem_var-3', 'images/ax_cem_var_T3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 273, 604.5, 0, 0),
-(14, 'ax_cem_var-4', 'images/ax_cem_var_T4_R.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 288.5, 652, 0, 0),
-(15, 'ax_cem_var-5', 'images/ax_cem_var_T5_R.png', 760, 6.43, 1550, 13.12, 0, 0, 0, 0, 0, 0, 0, 0, -254.121, 302, 687, 0, 0),
-(16, 'ax_cem_var-6', 'images/ax_cem_var_T6_R.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, -260.03, 315, 750, 0, 0),
-(17, 'ax_cem_var-7', 'images/ax_cem_var_T7_R.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 326, 750, 0, 0),
-(18, 'ax_cem_var-8', 'images/ax_cem_var_T8_R.png', 834, 7.06, 1739, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 781.5, 0, 0),
-(19, 'ax_cem_var-9', 'images/ax_cem_var_T9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 352, 814, 0, 0),
-(20, 'ax_cem_var-10', 'images/ax_cem_var_T10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 363.5, 842, 0, 0);
+INSERT INTO `implant_ax_cem_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'ax_cem_var-1', 'images/ax_cem_var_T1.png', 661, 5.6, 1284, 10.87, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, -251.5, 554, 0, 0, 1),
+(2, 'ax_cem_var-2', 'images/ax_cem_var_T2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 238.569, -264.5, 582.5, 0, 0, 2),
+(3, 'ax_cem_var-3', 'images/ax_cem_var_T3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, -273, 604.5, 0, 0, 3),
+(4, 'ax_cem_var-4', 'images/ax_cem_var_T4.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -288.5, 652, 0, 0, 4),
+(5, 'ax_cem_var-5', 'images/ax_cem_var_T5.png', 760, 6.43, 1550, 13.12, 0, 0, 0, 0, 0, 0, 0, 0, 254.121, -302, 687, 0, 0, 5),
+(6, 'ax_cem_var-6', 'images/ax_cem_var_T6.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, 260.03, -315, 750, 0, 0, 6),
+(7, 'ax_cem_var-7', 'images/ax_cem_var_T7.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, -326, 750, 0, 0, 7),
+(8, 'ax_cem_var-8', 'images/ax_cem_var_T8.png', 834, 7.06, 1739, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, -339, 781.5, 0, 0, 8),
+(9, 'ax_cem_var-9', 'images/ax_cem_var_T9.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 276.429, -352, 814, 0, 0, 9),
+(10, 'ax_cem_var-10', 'images/ax_cem_var_T10.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, -363.5, 842, 0, 0, 10),
+(11, 'ax_cem_var-1', 'images/ax_cem_var_T1_R.png', 661, 5.6, 1284, 10.87, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 251.5, 554, 0, 0, 1),
+(12, 'ax_cem_var-2', 'images/ax_cem_var_T2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -238.569, 264.5, 582.5, 0, 0, 2),
+(13, 'ax_cem_var-3', 'images/ax_cem_var_T3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 273, 604.5, 0, 0, 3),
+(14, 'ax_cem_var-4', 'images/ax_cem_var_T4_R.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 288.5, 652, 0, 0, 4),
+(15, 'ax_cem_var-5', 'images/ax_cem_var_T5_R.png', 760, 6.43, 1550, 13.12, 0, 0, 0, 0, 0, 0, 0, 0, -254.121, 302, 687, 0, 0, 5),
+(16, 'ax_cem_var-6', 'images/ax_cem_var_T6_R.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, -260.03, 315, 750, 0, 0, 6),
+(17, 'ax_cem_var-7', 'images/ax_cem_var_T7_R.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 326, 750, 0, 0, 7),
+(18, 'ax_cem_var-8', 'images/ax_cem_var_T8_R.png', 834, 7.06, 1739, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 781.5, 0, 0, 8),
+(19, 'ax_cem_var-9', 'images/ax_cem_var_T9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 352, 814, 0, 0, 9),
+(20, 'ax_cem_var-10', 'images/ax_cem_var_T10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 363.5, 842, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -559,6 +563,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_std` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
@@ -566,27 +571,27 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_std` (
 -- Contenu de la table `implant_ax_ha_std`
 --
 
-INSERT INTO `implant_ax_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'ax_ha_std-1', 'images/ax_ha_std_T1.png', 630, 5.33, 1333, 11.29, 0, 0, 0, 0, 0, 0, 0, 0, 217.486, -232, 580.5, 0, 0),
-(2, 'ax_ha_std-2', 'images/ax_ha_std_T2.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 220.816, -243.5, 610.5, 0, 0),
-(3, 'ax_ha_std-3', 'images/ax_ha_std_T3.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, 223.273, -252.5, 683, 0, 0),
-(4, 'ax_ha_std-4', 'images/ax_ha_std_T4.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, 230.245, -266.5, 682.5, 0, 0),
-(5, 'ax_ha_std-5', 'images/ax_ha_std_T5.png', 722, 6.11, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, 235.152, -277, 719, 0, 0),
-(6, 'ax_ha_std-6', 'images/ax_ha_std_T6.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.494, -289.5, 752.5, 0, 0),
-(7, 'ax_ha_std-7', 'images/ax_ha_std_T7.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, -300.5, 785.5, 0, 0),
-(8, 'ax_ha_std-8', 'images/ax_ha_std_T8.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 247.982, -311, 818.5, 0, 0),
-(9, 'ax_ha_std-9', 'images/ax_ha_std_T9.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, 252.881, -323.5, 852, 0, 0),
-(10, 'ax_ha_std-10', 'images/ax_ha_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 247.176, -334.5, 882, 0, 0),
-(11, 'ax_ha_std-1', 'images/ax_ha_std_T1_R.png', 630, 5.33, 1333, 11.29, 0, 0, 0, 0, 0, 0, 0, 0, -217.486, 232, 580.5, 0, 0),
-(12, 'ax_ha_std-2', 'images/ax_ha_std_T2_R.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -220.816, 243.5, 610.5, 0, 0),
-(13, 'ax_ha_std-3', 'images/ax_ha_std_T3_R.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, -223.273, 252.5, 638, 0, 0),
-(14, 'ax_ha_std-4', 'images/ax_ha_std_T4_R.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, -230.245, 266.5, 682.5, 0, 0),
-(15, 'ax_ha_std-5', 'images/ax_ha_std_T5_R.png', 722, 6.11, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, -235.152, 277, 719, 0, 0),
-(16, 'ax_ha_std-6', 'images/ax_ha_std_T6_R.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.494, 289.5, 752.5, 0, 0),
-(17, 'ax_ha_std-7', 'images/ax_ha_std_T7_R.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 300.5, 785.5, 0, 0),
-(18, 'ax_ha_std-8', 'images/ax_ha_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -247.982, 311, 818.5, 0, 0),
-(19, 'ax_ha_std-9', 'images/ax_ha_std_T9_R.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 323.5, 852, 0, 0),
-(20, 'ax_ha_std-10', 'images/ax_ha_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -247.176, 334.5, 882, 0, 0);
+INSERT INTO `implant_ax_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'ax_ha_std-1', 'images/ax_ha_std_T1.png', 630, 5.33, 1333, 11.29, 0, 0, 0, 0, 0, 0, 0, 0, 217.486, -232, 580.5, 0, 0, 1),
+(2, 'ax_ha_std-2', 'images/ax_ha_std_T2.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 220.816, -243.5, 610.5, 0, 0, 2),
+(3, 'ax_ha_std-3', 'images/ax_ha_std_T3.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, 223.273, -252.5, 683, 0, 0, 3),
+(4, 'ax_ha_std-4', 'images/ax_ha_std_T4.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, 230.245, -266.5, 682.5, 0, 0, 4),
+(5, 'ax_ha_std-5', 'images/ax_ha_std_T5.png', 722, 6.11, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, 235.152, -277, 719, 0, 0, 5),
+(6, 'ax_ha_std-6', 'images/ax_ha_std_T6.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.494, -289.5, 752.5, 0, 0, 6),
+(7, 'ax_ha_std-7', 'images/ax_ha_std_T7.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, -300.5, 785.5, 0, 0, 7),
+(8, 'ax_ha_std-8', 'images/ax_ha_std_T8.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 247.982, -311, 818.5, 0, 0, 8),
+(9, 'ax_ha_std-9', 'images/ax_ha_std_T9.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, 252.881, -323.5, 852, 0, 0, 9),
+(10, 'ax_ha_std-10', 'images/ax_ha_std_T10.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, 247.176, -334.5, 882, 0, 0, 10),
+(11, 'ax_ha_std-1', 'images/ax_ha_std_T1_R.png', 630, 5.33, 1333, 11.29, 0, 0, 0, 0, 0, 0, 0, 0, -217.486, 232, 580.5, 0, 0, 1),
+(12, 'ax_ha_std-2', 'images/ax_ha_std_T2_R.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -220.816, 243.5, 610.5, 0, 0, 2),
+(13, 'ax_ha_std-3', 'images/ax_ha_std_T3_R.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, -223.273, 252.5, 638, 0, 0, 3),
+(14, 'ax_ha_std-4', 'images/ax_ha_std_T4_R.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, -230.245, 266.5, 682.5, 0, 0, 4),
+(15, 'ax_ha_std-5', 'images/ax_ha_std_T5_R.png', 722, 6.11, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, -235.152, 277, 719, 0, 0, 5),
+(16, 'ax_ha_std-6', 'images/ax_ha_std_T6_R.png', 745, 6.31, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.494, 289.5, 752.5, 0, 0, 6),
+(17, 'ax_ha_std-7', 'images/ax_ha_std_T7_R.png', 767, 6.49, 1743, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 300.5, 785.5, 0, 0, 7),
+(18, 'ax_ha_std-8', 'images/ax_ha_std_T8_R.png', 790, 6.69, 1809, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -247.982, 311, 818.5, 0, 0, 8),
+(19, 'ax_ha_std-9', 'images/ax_ha_std_T9_R.png', 813, 6.88, 1876, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.881, 323.5, 852, 0, 0, 9),
+(20, 'ax_ha_std-10', 'images/ax_ha_std_T10_R.png', 837, 7.09, 1936, 16.39, 0, 0, 0, 0, 0, 0, 0, 0, -247.176, 334.5, 882, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -616,6 +621,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_std_col` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
@@ -623,27 +629,27 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_std_col` (
 -- Contenu de la table `implant_ax_ha_std_col`
 --
 
-INSERT INTO `implant_ax_ha_std_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'ax_ha_std_col-1', 'images/ax_ha_std_col_T1.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, 217.486, -232, 598, 0, 0),
-(2, 'ax_ha_std_col-2', 'images/ax_ha_std_col_T2.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, -243.5, 609.5, 0, 0),
-(3, 'ax_ha_std_col-3', 'images/ax_ha_std_col_T3.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, 222.092, -252.5, 637, 0, 0),
-(4, 'ax_ha_std_col-4', 'images/ax_ha_std_col_T4.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, 230.245, -266.5, 681.5, 0, 0),
-(5, 'ax_ha_std_col-5', 'images/ax_ha_std_col_T5.png', 721, 6.1, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, 235.211, -276.5, 718, 0, 0),
-(6, 'ax_ha_std_col-6', 'images/ax_ha_std_col_T6.png', 746, 6.32, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.437, -289, 751.5, 0, 0),
-(7, 'ax_ha_std_col-7', 'images/ax_ha_std_col_T7.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, -300.5, 784, 0, 0),
-(8, 'ax_ha_std_col-8', 'images/ax_ha_std_col_T8.png', 790, 6.69, 1808, 15.31, 0, 0, 0, 0, 0, 0, 0, 0, 246.801, -312, 817, 0, 0),
-(9, 'ax_ha_std_col-9', 'images/ax_ha_std_col_T9.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, 252.824, -323, 850.5, 0, 0),
-(10, 'ax_ha_std_col-10', 'images/ax_ha_std_col_T10.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, 257.357, -334.5, 881, 0, 0),
-(11, 'ax_ha_std_col-1', 'images/ax_ha_std_col_T1_R.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, -217.486, 232, 598, 0, 0),
-(12, 'ax_ha_std_col-2', 'images/ax_ha_std_col_T2_R.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -221.996, 243.5, 609.5, 0, 0),
-(13, 'ax_ha_std_col-3', 'images/ax_ha_std_col_T3_R.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, -222.092, 252.5, 637, 0, 0),
-(14, 'ax_ha_std_col-4', 'images/ax_ha_std_col_T4_R.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, -230.245, 266.5, 681.5, 0, 0),
-(15, 'ax_ha_std_col-5', 'images/ax_ha_std_col_T5_R.png', 721, 6.1, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, -235.211, 276.5, 718, 0, 0),
-(16, 'ax_ha_std_col-6', 'images/ax_ha_std_col_T6_R.png', 746, 6.32, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.437, 289, 751.5, 0, 0),
-(17, 'ax_ha_std_col-7', 'images/ax_ha_std_col_T7_R.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 300.5, 784, 0, 0),
-(18, 'ax_ha_std_col-8', 'images/ax_ha_std_col_T8_R.png', 790, 6.69, 1808, 15.31, 0, 0, 0, 0, 0, 0, 0, 0, -246.801, 312, 817, 0, 0),
-(19, 'ax_ha_std_col-9', 'images/ax_ha_std_col_T9_R.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.824, 323, 850.5, 0, 0),
-(20, 'ax_ha_std_col-10', 'images/ax_ha_std_col_T10_R.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, -257.357, 334.5, 881, 0, 0);
+INSERT INTO `implant_ax_ha_std_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'ax_ha_std_col-1', 'images/ax_ha_std_col_T1.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, 217.486, -232, 598, 0, 0, 1),
+(2, 'ax_ha_std_col-2', 'images/ax_ha_std_col_T2.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, 221.996, -243.5, 609.5, 0, 0, 2),
+(3, 'ax_ha_std_col-3', 'images/ax_ha_std_col_T3.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, 222.092, -252.5, 637, 0, 0, 3),
+(4, 'ax_ha_std_col-4', 'images/ax_ha_std_col_T4.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, 230.245, -266.5, 681.5, 0, 0, 4),
+(5, 'ax_ha_std_col-5', 'images/ax_ha_std_col_T5.png', 721, 6.1, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, 235.211, -276.5, 718, 0, 0, 5),
+(6, 'ax_ha_std_col-6', 'images/ax_ha_std_col_T6.png', 746, 6.32, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 238.437, -289, 751.5, 0, 0, 6),
+(7, 'ax_ha_std_col-7', 'images/ax_ha_std_col_T7.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, 243.455, -300.5, 784, 0, 0, 7),
+(8, 'ax_ha_std_col-8', 'images/ax_ha_std_col_T8.png', 790, 6.69, 1808, 15.31, 0, 0, 0, 0, 0, 0, 0, 0, 246.801, -312, 817, 0, 0, 8),
+(9, 'ax_ha_std_col-9', 'images/ax_ha_std_col_T9.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, 252.824, -323, 850.5, 0, 0, 9),
+(10, 'ax_ha_std_col-10', 'images/ax_ha_std_col_T10.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, 257.357, -334.5, 881, 0, 0, 10),
+(11, 'ax_ha_std_col-1', 'images/ax_ha_std_col_T1_R.png', 630, 5.33, 1370, 11.6, 0, 0, 0, 0, 0, 0, 0, 0, -217.486, 232, 598, 0, 0, 1),
+(12, 'ax_ha_std_col-2', 'images/ax_ha_std_col_T2_R.png', 653, 5.53, 1393, 11.79, 0, 0, 0, 0, 0, 0, 0, 0, -221.996, 243.5, 609.5, 0, 0, 2),
+(13, 'ax_ha_std_col-3', 'images/ax_ha_std_col_T3_R.png', 671, 5.68, 1448, 12.26, 0, 0, 0, 0, 0, 0, 0, 0, -222.092, 252.5, 637, 0, 0, 3),
+(14, 'ax_ha_std_col-4', 'images/ax_ha_std_col_T4_R.png', 699, 5.92, 1537, 13.01, 0, 0, 0, 0, 0, 0, 0, 0, -230.245, 266.5, 681.5, 0, 0, 4),
+(15, 'ax_ha_std_col-5', 'images/ax_ha_std_col_T5_R.png', 721, 6.1, 1610, 13.63, 0, 0, 0, 0, 0, 0, 0, 0, -235.211, 276.5, 718, 0, 0, 5),
+(16, 'ax_ha_std_col-6', 'images/ax_ha_std_col_T6_R.png', 746, 6.32, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -238.437, 289, 751.5, 0, 0, 6),
+(17, 'ax_ha_std_col-7', 'images/ax_ha_std_col_T7_R.png', 767, 6.49, 1742, 14.75, 0, 0, 0, 0, 0, 0, 0, 0, -243.455, 300.5, 784, 0, 0, 7),
+(18, 'ax_ha_std_col-8', 'images/ax_ha_std_col_T8_R.png', 790, 6.69, 1808, 15.31, 0, 0, 0, 0, 0, 0, 0, 0, -246.801, 312, 817, 0, 0, 8),
+(19, 'ax_ha_std_col-9', 'images/ax_ha_std_col_T9_R.png', 814, 6.89, 1875, 15.88, 0, 0, 0, 0, 0, 0, 0, 0, -252.824, 323, 850.5, 0, 0, 9),
+(20, 'ax_ha_std_col-10', 'images/ax_ha_std_col_T10_R.png', 837, 7.09, 1936, 16.36, 0, 0, 0, 0, 0, 0, 0, 0, -257.357, 334.5, 881, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -673,6 +679,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
@@ -680,27 +687,27 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var` (
 -- Contenu de la table `implant_ax_ha_var`
 --
 
-INSERT INTO `implant_ax_ha_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'ax_ha_var-1', 'images/ax_ha_varT1.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, -252.5, 554.5, 0, 0),
-(2, 'ax_ha_var-2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 375.388, -263.5, 582.5, 0, 0),
-(3, 'ax_ha_var-3', 'images/ax_ha_varT3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, -273, 609.5, 0, 0),
-(4, 'ax_ha_var-4', 'images/ax_ha_varT4.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -288.5, 652.5, 0, 0),
-(5, 'ax_ha_var-5', 'images/ax_ha_varT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 252.939, -302, 686.5, 0, 0),
-(6, 'ax_ha_var-6', 'images/ax_ha_varT6.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, 258.848, -315, 719, 0, 0),
-(7, 'ax_ha_var-7', 'images/ax_ha_varT7.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, -326, 750, 0, 0),
-(8, 'ax_ha_var-8', 'images/ax_ha_varT8.png', 834, 7.06, 1740, 14.73, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, -339, 782, 0, 0),
-(9, 'ax_ha_var-9', 'images/ax_ha_varT9.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 275.247, -352, 813.5, 0, 0),
-(10, 'ax_ha_var-10', 'images/ax_ha_varT10.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, 280.033, -364.5, 842.5, 0, 0),
-(11, 'ax_ha_var-1', 'images/ax_ha_varT1_R.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 252.5, 554.5, 0, 0),
-(12, 'ax_ha_var-2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -375.388, 263.5, 582.5, 0, 0),
-(13, 'ax_ha_var-3', 'images/ax_ha_varT3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 273, 609.5, 0, 0),
-(14, 'ax_ha_var-4', 'images/ax_ha_varT4_R.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 288.5, 652.5, 0, 0),
-(15, 'ax_ha_var-5', 'images/ax_ha_varT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -252.939, 302, 686.5, 0, 0),
-(16, 'ax_ha_var-6', 'images/ax_ha_varT6_R.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, -258.848, 315, 719, 0, 0),
-(17, 'ax_ha_var-7', 'images/ax_ha_varT7_R.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 326, 750, 0, 0),
-(18, 'ax_ha_var-8', 'images/ax_ha_varT8_R.png', 834, 7.06, 1740, 14.73, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 782, 0, 0),
-(19, 'ax_ha_var-9', 'images/ax_ha_varT9_R.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -275.247, 352, 813.5, 0, 0),
-(20, 'ax_ha_var-10', 'images/ax_ha_varT10_R.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, -280.033, 364.5, 842.5, 0, 0);
+INSERT INTO `implant_ax_ha_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'ax_ha_var-1', 'images/ax_ha_varT1.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, -252.5, 554.5, 0, 0, 1),
+(2, 'ax_ha_var-2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 375.388, -263.5, 582.5, 0, 0, 2),
+(3, 'ax_ha_var-3', 'images/ax_ha_varT3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, -273, 609.5, 0, 0, 3),
+(4, 'ax_ha_var-4', 'images/ax_ha_varT4.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -288.5, 652.5, 0, 0, 4),
+(5, 'ax_ha_var-5', 'images/ax_ha_varT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 252.939, -302, 686.5, 0, 0, 5),
+(6, 'ax_ha_var-6', 'images/ax_ha_varT6.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, 258.848, -315, 719, 0, 0, 6),
+(7, 'ax_ha_var-7', 'images/ax_ha_varT7.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, -326, 750, 0, 0, 7),
+(8, 'ax_ha_var-8', 'images/ax_ha_varT8.png', 834, 7.06, 1740, 14.73, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, -339, 782, 0, 0, 8),
+(9, 'ax_ha_var-9', 'images/ax_ha_varT9.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 275.247, -352, 813.5, 0, 0, 9),
+(10, 'ax_ha_var-10', 'images/ax_ha_varT10.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, 280.033, -364.5, 842.5, 0, 0, 10),
+(11, 'ax_ha_var-1', 'images/ax_ha_varT1_R.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 252.5, 554.5, 0, 0, 1),
+(12, 'ax_ha_var-2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -375.388, 263.5, 582.5, 0, 0, 2),
+(13, 'ax_ha_var-3', 'images/ax_ha_varT3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 273, 609.5, 0, 0, 3),
+(14, 'ax_ha_var-4', 'images/ax_ha_varT4_R.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 288.5, 652.5, 0, 0, 4),
+(15, 'ax_ha_var-5', 'images/ax_ha_varT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -252.939, 302, 686.5, 0, 0, 5),
+(16, 'ax_ha_var-6', 'images/ax_ha_varT6_R.png', 786, 6.65, 1614, 13.67, 0, 0, 0, 0, 0, 0, 0, 0, -258.848, 315, 719, 0, 0, 6),
+(17, 'ax_ha_var-7', 'images/ax_ha_varT7_R.png', 810, 6.86, 1676, 14.19, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 326, 750, 0, 0, 7),
+(18, 'ax_ha_var-8', 'images/ax_ha_varT8_R.png', 834, 7.06, 1740, 14.73, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 782, 0, 0, 8),
+(19, 'ax_ha_var-9', 'images/ax_ha_varT9_R.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -275.247, 352, 813.5, 0, 0, 9),
+(20, 'ax_ha_var-10', 'images/ax_ha_varT10_R.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, -280.033, 364.5, 842.5, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -730,6 +737,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var_col` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
@@ -737,27 +745,27 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var_col` (
 -- Contenu de la table `implant_ax_ha_var_col`
 --
 
-INSERT INTO `implant_ax_ha_var_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
-(1, 'ax_ha_var_col-1', 'images/ax_ha_var_colT1.png', 660, 5.59, 1285, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.594, -251, 554.5, 0, 0),
-(2, 'ax_ha_var_col-2', 'images/ax_ha_var_colT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 237.388, -263.5, 582.5, 0, 0),
-(3, 'ax_ha_var_col-3', 'images/ax_ha_var_colT3.png', 705, 5.97, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.724, -273.5, 609.5, 0, 0),
-(4, 'ax_ha_var_col-4', 'images/ax_ha_var_colT4.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -289.5, 652, 0, 0),
-(5, 'ax_ha_var_col-5', 'images/ax_ha_var_colT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 254.121, -301, 686.5, 0, 0),
-(6, 'ax_ha_var_col-6', 'images/ax_ha_var_colT6.png', 785, 6.65, 1612, 13.65, 0, 0, 0, 0, 0, 0, 0, 0, 258.519, -314.5, 718, 0, 0),
-(7, 'ax_ha_var_col-7', 'images/ax_ha_var_colT7.png', 810, 6.86, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, -327, 750.5, 0, 0),
-(8, 'ax_ha_var_col-8', 'images/ax_ha_var_colT8.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, -339, 780, 0, 0),
-(9, 'ax_ha_var_col-9', 'images/ax_ha_var_colT9.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 276.429, -352, 814, 0, 0),
-(10, 'ax_ha_var_col-10', 'images/ax_ha_var_colT10.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, -363.5, 842, 0, 0),
-(11, 'ax_ha_var_col-1', 'images/ax_ha_var_colT1_R.png', 660, 5.59, 1285, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.594, 251, 554.5, 0, 0),
-(12, 'ax_ha_var_col-2', 'images/ax_ha_var_colT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -237.388, 263.5, 582.5, 0, 0),
-(13, 'ax_ha_var_col-3', 'images/ax_ha_var_colT3_R.png', 705, 5.97, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.724, 273.5, 609.5, 0, 0),
-(14, 'ax_ha_var_col-4', 'images/ax_ha_var_colT4_R.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 289.5, 652, 0, 0),
-(15, 'ax_ha_var_col-5', 'images/ax_ha_var_colT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -254.121, 301, 686.5, 0, 0),
-(16, 'ax_ha_var_col-6', 'images/ax_ha_var_colT6_R.png', 785, 6.65, 1612, 13.65, 0, 0, 0, 0, 0, 0, 0, 0, -258.519, 314.5, 718, 0, 0),
-(17, 'ax_ha_var_col-7', 'images/ax_ha_var_colT7_R.png', 810, 6.86, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 327, 750.5, 0, 0),
-(18, 'ax_ha_var_col-8', 'images/ax_ha_var_colT8_R.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 780, 0, 0),
-(19, 'ax_ha_var_col-9', 'images/ax_ha_var_colT9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 352, 814, 0, 0),
-(20, 'ax_ha_var_col-10', 'images/ax_ha_var_colT10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 363.5, 842, 0, 0);
+INSERT INTO `implant_ax_ha_var_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'ax_ha_var_col-1', 'images/ax_ha_var_colT1.png', 660, 5.59, 1285, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.594, -251, 554.5, 0, 0, 1),
+(2, 'ax_ha_var_col-2', 'images/ax_ha_var_colT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 237.388, -263.5, 582.5, 0, 0, 2),
+(3, 'ax_ha_var_col-3', 'images/ax_ha_var_colT3.png', 705, 5.97, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.724, -273.5, 609.5, 0, 0, 3),
+(4, 'ax_ha_var_col-4', 'images/ax_ha_var_colT4.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -289.5, 652, 0, 0, 4),
+(5, 'ax_ha_var_col-5', 'images/ax_ha_var_colT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 254.121, -301, 686.5, 0, 0, 5),
+(6, 'ax_ha_var_col-6', 'images/ax_ha_var_colT6.png', 785, 6.65, 1612, 13.65, 0, 0, 0, 0, 0, 0, 0, 0, 258.519, -314.5, 718, 0, 0, 6),
+(7, 'ax_ha_var_col-7', 'images/ax_ha_var_colT7.png', 810, 6.86, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, 264.49, -327, 750.5, 0, 0, 7),
+(8, 'ax_ha_var_col-8', 'images/ax_ha_var_colT8.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, 269.337, -339, 780, 0, 0, 8),
+(9, 'ax_ha_var_col-9', 'images/ax_ha_var_colT9.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 276.429, -352, 814, 0, 0, 9),
+(10, 'ax_ha_var_col-10', 'images/ax_ha_var_colT10.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, 281.215, -363.5, 842, 0, 0, 10),
+(11, 'ax_ha_var_col-1', 'images/ax_ha_var_colT1_R.png', 660, 5.59, 1285, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.594, 251, 554.5, 0, 0, 1),
+(12, 'ax_ha_var_col-2', 'images/ax_ha_var_colT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -237.388, 263.5, 582.5, 0, 0, 2),
+(13, 'ax_ha_var_col-3', 'images/ax_ha_var_colT3_R.png', 705, 5.97, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.724, 273.5, 609.5, 0, 0, 3),
+(14, 'ax_ha_var_col-4', 'images/ax_ha_var_colT4_R.png', 735, 6.22, 1480, 12.53, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 289.5, 652, 0, 0, 4),
+(15, 'ax_ha_var_col-5', 'images/ax_ha_var_colT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -254.121, 301, 686.5, 0, 0, 5),
+(16, 'ax_ha_var_col-6', 'images/ax_ha_var_colT6_R.png', 785, 6.65, 1612, 13.65, 0, 0, 0, 0, 0, 0, 0, 0, -258.519, 314.5, 718, 0, 0, 6),
+(17, 'ax_ha_var_col-7', 'images/ax_ha_var_colT7_R.png', 810, 6.86, 1677, 14.2, 0, 0, 0, 0, 0, 0, 0, 0, -264.49, 327, 750.5, 0, 0, 7),
+(18, 'ax_ha_var_col-8', 'images/ax_ha_var_colT8_R.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 780, 0, 0, 8),
+(19, 'ax_ha_var_col-9', 'images/ax_ha_var_colT9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 352, 814, 0, 0, 9),
+(20, 'ax_ha_var_col-10', 'images/ax_ha_var_colT10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 363.5, 842, 0, 0, 10);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
