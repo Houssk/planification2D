@@ -936,12 +936,9 @@ $(document).ready(function () {
 									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
 									if (patient.GetOperationGuide()=="Non guider") {
-										//document.getElementById("deplacerTige").style.display="none";
 										document.getElementById("deplacerCotyle").style.display="none";
 										document.getElementById("labelOffsetTigeCotyle").style.display="none";
 										document.getElementById("labelHauteurTigeCotyle").style.display="none";
-										//document.getElementById("buttonTournerHautCotyle").style.display="none";
-										//document.getElementById("buttonTournerBasCotyle").style.display="none";
 										var elements = document.getElementsByClassName("positionTige");
 										for (var i = 0; i < elements.length; i++) {
 											elements[i].style.display="";
@@ -950,10 +947,22 @@ $(document).ready(function () {
 										for (var i = 0; i < elements.length; i++) {
 											elements[i].style.display="none";
 										}
-										//document.getElementById("positionTige").style.display="";
 										document.getElementById("positionCotyle").style.display="";
 										TigeSelection();
 										CotyleSelection();
+									} else {
+										document.getElementById("deplacerCotyle").style.display="";
+										document.getElementById("labelOffsetTigeCotyle").style.display="";
+										document.getElementById("labelHauteurTigeCotyle").style.display="";
+										var elements = document.getElementsByClassName("positionTige");
+										for (var i = 0; i < elements.length; i++) {
+											elements[i].style.display="none";
+										}
+										var elements = document.getElementsByClassName("deplacerTige");
+										for (var i = 0; i < elements.length; i++) {
+											elements[i].style.display="";
+										}
+										document.getElementById("positionCotyle").style.display="none";
 									}
 									if (patient.GetCoteOperation()=="Gauche") {
 										document.getElementById("coteTige").value="Gauche";
@@ -977,6 +986,8 @@ $(document).ready(function () {
 										$('.implants *').prop('disabled',false);
 										$("#accordeon").accordion({active : 2});
 									}
+									firstSideChangedTige = true;
+									firstSideChangedCotyle = true;
 								} else {
 									alert("Veuillez calibrer votre DICOM");
 								}
@@ -1093,6 +1104,25 @@ $(document).ready(function () {
 					$('.implants *').prop('disabled',false);
 					$('.outilsDessin *').prop('disabled',true);
 					$("#accordeon").accordion({active : 2});
+					document.getElementById("deplacerCotyle").style.display="";
+					document.getElementById("labelOffsetTigeCotyle").style.display="";
+					document.getElementById("labelHauteurTigeCotyle").style.display="";
+					var elements = document.getElementsByClassName("positionTige");
+					for (var i = 0; i < elements.length; i++) {
+						elements[i].style.display="none";
+					}
+					var elements = document.getElementsByClassName("deplacerTige");
+					for (var i = 0; i < elements.length; i++) {
+						elements[i].style.display="";
+					}
+					document.getElementById("positionCotyle").style.display="none";
+					if (patient.GetCoteOperation()=="Gauche") {
+						document.getElementById("coteTige").value="Gauche";
+						document.getElementById("coteCotyle").value="Gauche";
+					} else {
+						document.getElementById("coteTige").value="Droit";
+						document.getElementById("coteCotyle").value="Droit";
+					}
 					TigeSelection();
 					CotyleSelection();
 				}
@@ -1470,8 +1500,8 @@ $(document).ready(function () {
 				document.getElementById("buttonDeleteRapporteur3").style.display="none";
 				sessionStorage.setItem("nbRegle",0);
             	sessionStorage.setItem("nbAngle",0);
-				
-
+				firstSideChangedTige = true;
+				firstSideChangedCotyle = true;
 			};
 			RetourDessin()
 	}, false);
@@ -2350,7 +2380,8 @@ $(document).ready(function () {
 					ZoomMode();
 					$("#accordeon").accordion({active : 0});
 				}
-
+				firstSideChangedTige = true;
+				firstSideChangedCotyle = true;
 			};
 			RetourImplant()
 	}, false);
