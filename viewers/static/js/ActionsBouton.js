@@ -350,7 +350,7 @@ $(document).ready(function () {
 				if (patient.GetCoteOperation()=="Droit") {
 					document.getElementById("deplacerCotyle").style.display="";
 					document.getElementById("positionCotyle").style.display="none";
-					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					var tailleCotyle = cotyleGauche.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				} else if (patient.GetCoteOperation()=="Gauche") {
@@ -417,7 +417,7 @@ $(document).ready(function () {
 				}
 			} else if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
-					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					var tailleCotyle = cotyleGauche.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = "T"+tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				} else if (patient.GetCoteOperation()=="Gauche") {
