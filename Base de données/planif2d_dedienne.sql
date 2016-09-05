@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 01 Septembre 2016 à 08:31
+-- Généré le :  Lun 05 Septembre 2016 à 14:47
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -162,32 +162,32 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_dm_cem` (
 --
 
 INSERT INTO `cotyle_ax_dm_cem` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
-(1, 'Cup DM-44', 'images/ax_dm_cem_44.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
-(2, 'Cup DM-46', 'images/ax_dm_cem_46.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
-(3, 'Cup DM-48', 'images/ax_dm_cem_48.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
-(4, 'Cup DM-50', 'images/ax_dm_cem_50.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
-(5, 'Cup DM-52', 'images/ax_dm_cem_52.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
-(6, 'Cup DM-54', 'images/ax_dm_cem_54.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
-(7, 'Cup DM-56', 'images/ax_dm_cem_56.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
-(8, 'Cup DM-58', 'images/ax_dm_cem_58.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
-(9, 'Cup DM-60', 'images/ax_dm_cem_60.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
-(10, 'Cup DM-62', 'images/ax_dm_cem_62.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
-(11, 'Cup DM-64', 'images/ax_dm_cem_64.png', 1136, 915, 9.62, 7.75, 0, 0, 64),
-(12, 'Cup DM-66', 'images/ax_dm_cem_66.png', 1136, 915, 9.62, 7.75, 0, 0, 66),
-(13, 'Cup DM-68', 'images/ax_dm_cem_68.png', 1136, 915, 9.62, 7.75, 0, 0, 68),
-(14, 'Cup DM-44', 'images/ax_dm_cem_44_R.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
-(15, 'Cup DM-46', 'images/ax_dm_cem_46_R.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
-(16, 'Cup DM-48', 'images/ax_dm_cem_48_R.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
-(17, 'Cup DM-50', 'images/ax_dm_cem_50_R.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
-(18, 'Cup DM-52', 'images/ax_dm_cem_52_R.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
-(19, 'Cup DM-54', 'images/ax_dm_cem_54_R.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
-(20, 'Cup DM-56', 'images/ax_dm_cem_56_R.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
-(21, 'Cup DM-58', 'images/ax_dm_cem_58_R.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
-(22, 'Cup DM-60', 'images/ax_dm_cem_60_R.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
-(23, 'Cup DM-62', 'images/ax_dm_cem_62_R.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
-(24, 'Cup DM-64', 'images/ax_dm_cem_64_R.png', 1136, 915, 9.62, 7.75, 0, 0, 64),
-(25, 'Cup DM-66', 'images/ax_dm_cem_66_R.png', 1136, 915, 9.62, 7.75, 0, 0, 66),
-(26, 'Cup DM-68', 'images/ax_dm_cem_68_R.png', 1136, 915, 9.62, 7.75, 0, 0, 68);
+(1, 'Cup DM-44', 'images/ax_dm_cem_44.png', 1500, 1500, 12.7, 12.7, 0, 0, 44),
+(2, 'Cup DM-46', 'images/ax_dm_cem_46.png', 1500, 1500, 12.7, 12.7, 0, 0, 46),
+(3, 'Cup DM-48', 'images/ax_dm_cem_48.png', 1500, 1500, 12.7, 12.7, 0, 0, 48),
+(4, 'Cup DM-50', 'images/ax_dm_cem_50.png', 1500, 1500, 12.7, 12.7, 0, 0, 50),
+(5, 'Cup DM-52', 'images/ax_dm_cem_52.png', 1500, 1500, 12.7, 12.7, 0, 0, 52),
+(6, 'Cup DM-54', 'images/ax_dm_cem_54.png', 1500, 1500, 12.7, 12.7, 0, 0, 54),
+(7, 'Cup DM-56', 'images/ax_dm_cem_56.png', 1500, 1500, 12.7, 12.7, 0, 0, 56),
+(8, 'Cup DM-58', 'images/ax_dm_cem_58.png', 1500, 1500, 12.7, 12.7, 0, 0, 58),
+(9, 'Cup DM-60', 'images/ax_dm_cem_60.png', 1500, 1500, 12.7, 12.7, 0, 0, 60),
+(10, 'Cup DM-62', 'images/ax_dm_cem_62.png', 1500, 1500, 12.7, 12.7, 0, 0, 62),
+(11, 'Cup DM-64', 'images/ax_dm_cem_64.png', 1500, 1500, 12.7, 12.7, 0, 0, 64),
+(12, 'Cup DM-66', 'images/ax_dm_cem_66.png', 1500, 1500, 12.7, 12.7, 0, 0, 66),
+(13, 'Cup DM-68', 'images/ax_dm_cem_68.png', 1500, 1500, 12.7, 12.7, 0, 0, 68),
+(14, 'Cup DM-44', 'images/ax_dm_cem_44_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 44),
+(15, 'Cup DM-46', 'images/ax_dm_cem_46_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 46),
+(16, 'Cup DM-48', 'images/ax_dm_cem_48_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 48),
+(17, 'Cup DM-50', 'images/ax_dm_cem_50_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 50),
+(18, 'Cup DM-52', 'images/ax_dm_cem_52_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 52),
+(19, 'Cup DM-54', 'images/ax_dm_cem_54_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 54),
+(20, 'Cup DM-56', 'images/ax_dm_cem_56_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 56),
+(21, 'Cup DM-58', 'images/ax_dm_cem_58_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 58),
+(22, 'Cup DM-60', 'images/ax_dm_cem_60_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 60),
+(23, 'Cup DM-62', 'images/ax_dm_cem_62_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 62),
+(24, 'Cup DM-64', 'images/ax_dm_cem_64_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 64),
+(25, 'Cup DM-66', 'images/ax_dm_cem_66_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 66),
+(26, 'Cup DM-68', 'images/ax_dm_cem_68_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 68);
 
 -- --------------------------------------------------------
 
@@ -215,28 +215,28 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_sm_ne` (
 --
 
 INSERT INTO `cotyle_ax_sm_ne` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
-(1, 'Cup NA-44', 'images/ax_sm_ne_44.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
-(2, 'Cup NA-46', 'images/ax_sm_ne_46.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
-(3, 'Cup NA-48', 'images/ax_sm_ne_48.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
-(4, 'Cup NA-50', 'images/ax_sm_ne_50.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
-(5, 'Cup NA-52', 'images/ax_sm_ne_52.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
-(6, 'Cup NA-54', 'images/ax_sm_ne_54.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
-(7, 'Cup NA-56', 'images/ax_sm_ne_56.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
-(8, 'Cup NA-58', 'images/ax_sm_ne_58.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
-(9, 'Cup NA-60', 'images/ax_sm_ne_60.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
-(10, 'Cup NA-62', 'images/ax_sm_ne_62.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
-(11, 'Cup NA-64', 'images/ax_sm_ne_64.png', 1136, 915, 9.62, 7.75, 0, 0, 64),
-(12, 'Cup NA-44', 'images/ax_sm_ne_44_R.png', 1136, 915, 9.62, 7.75, 0, 0, 44),
-(13, 'Cup NA-46', 'images/ax_sm_ne_46_R.png', 1136, 915, 9.62, 7.75, 0, 0, 46),
-(14, 'Cup NA-48', 'images/ax_sm_ne_48_R.png', 1136, 915, 9.62, 7.75, 0, 0, 48),
-(15, 'Cup NA-50', 'images/ax_sm_ne_50_R.png', 1136, 915, 9.62, 7.75, 0, 0, 50),
-(16, 'Cup NA-52', 'images/ax_sm_ne_52_R.png', 1136, 915, 9.62, 7.75, 0, 0, 52),
-(17, 'Cup NA-54', 'images/ax_sm_ne_54_R.png', 1136, 915, 9.62, 7.75, 0, 0, 54),
-(18, 'Cup NA-56', 'images/ax_sm_ne_56_R.png', 1136, 915, 9.62, 7.75, 0, 0, 56),
-(19, 'Cup NA-58', 'images/ax_sm_ne_58_R.png', 1136, 915, 9.62, 7.75, 0, 0, 58),
-(20, 'Cup NA-60', 'images/ax_sm_ne_60_R.png', 1136, 915, 9.62, 7.75, 0, 0, 60),
-(21, 'Cup NA-62', 'images/ax_sm_ne_62_R.png', 1136, 915, 9.62, 7.75, 0, 0, 62),
-(22, 'Cup NA-64', 'images/ax_sm_ne_64_R.png', 1136, 915, 9.62, 7.75, 0, 0, 64);
+(1, 'Cup NA-44', 'images/ax_sm_ne_44.png', 1500, 1500, 12.7, 12.7, 0, 0, 44),
+(2, 'Cup NA-46', 'images/ax_sm_ne_46.png', 1500, 1500, 12.7, 12.7, 0, 0, 46),
+(3, 'Cup NA-48', 'images/ax_sm_ne_48.png', 1500, 1500, 12.7, 12.7, 0, 0, 48),
+(4, 'Cup NA-50', 'images/ax_sm_ne_50.png', 1500, 1500, 12.7, 12.7, 0, 0, 50),
+(5, 'Cup NA-52', 'images/ax_sm_ne_52.png', 1500, 1500, 12.7, 12.7, 0, 0, 52),
+(6, 'Cup NA-54', 'images/ax_sm_ne_54.png', 1500, 1500, 12.7, 12.7, 0, 0, 54),
+(7, 'Cup NA-56', 'images/ax_sm_ne_56.png', 1500, 1500, 12.7, 12.7, 0, 0, 56),
+(8, 'Cup NA-58', 'images/ax_sm_ne_58.png', 1500, 1500, 12.7, 12.7, 0, 0, 58),
+(9, 'Cup NA-60', 'images/ax_sm_ne_60.png', 1500, 1500, 12.7, 12.7, 0, 0, 60),
+(10, 'Cup NA-62', 'images/ax_sm_ne_62.png', 1500, 1500, 12.7, 12.7, 0, 0, 62),
+(11, 'Cup NA-64', 'images/ax_sm_ne_64.png', 1500, 1500, 12.7, 12.7, 0, 0, 64),
+(12, 'Cup NA-44', 'images/ax_sm_ne_44_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 44),
+(13, 'Cup NA-46', 'images/ax_sm_ne_46_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 46),
+(14, 'Cup NA-48', 'images/ax_sm_ne_48_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 48),
+(15, 'Cup NA-50', 'images/ax_sm_ne_50_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 50),
+(16, 'Cup NA-52', 'images/ax_sm_ne_52_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 52),
+(17, 'Cup NA-54', 'images/ax_sm_ne_54_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 54),
+(18, 'Cup NA-56', 'images/ax_sm_ne_56_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 56),
+(19, 'Cup NA-58', 'images/ax_sm_ne_58_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 58),
+(20, 'Cup NA-60', 'images/ax_sm_ne_60_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 60),
+(21, 'Cup NA-62', 'images/ax_sm_ne_62_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 62),
+(22, 'Cup NA-64', 'images/ax_sm_ne_64_R.png', 1500, 1500, 12.7, 12.7, 0, 0, 64);
 
 -- --------------------------------------------------------
 
