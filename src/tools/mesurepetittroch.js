@@ -63,10 +63,8 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
 
         var tempNbPetitTroch = sessionStorage.getItem("nbPetitTroch") ;
         if(parseInt(tempNbPetitTroch)==1){
-            console.log("je suis la ");
             document.getElementById("buttonDeletePetitTroch").style.display = "inline";
         }
-        console.log("MesurepetittrochFactory");
         // physical shape
         //var line = new dwv.math.Mesurepetittroch(points[0], points[1], points[2], points[3], points[4], points[5], points[6], points[7]);
         var line = new dwv.math.Mesurepetittroch(points[0], points[1], points[2]);
@@ -82,8 +80,6 @@ dwv.tool.MesurepetittrochFactory.prototype.create = function (points, style/*, i
             name: "shape",
             id: "petitroch"
         });
-        console.log(kshape.id());
-        console.log(kshape.points());
 
         var horizontalCoteShape = new Kinetic.Line({
             points: [line.getBegin().getX(), line.getBegin().getY(),
@@ -269,7 +265,6 @@ dwv.tool.UpdateMesurepetittroch = function (anchor, image)
     var bVly = begin.y() - klineVerticalLeft.y();
     var eVlx = begin.x() - klineVerticalLeft.x();
     var eVly = left.y() - klineVerticalLeft.y();
-    console.log("klineVertical left",bVlx,bVly,eVly,eVly);
     klineVerticalLeft.points( [bVlx,bVly,eVlx,eVly] );
 
     var bVrx = end.x() - klineVerticalRight.x();

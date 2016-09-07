@@ -254,7 +254,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
 		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
-		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
 		return {
 			coefWidth : coefWidth,
@@ -335,7 +334,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	var canvas  = document.querySelector('#dwv-imageLayer');
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "green";
-	console.log("this_manglealignement",this.m_angleAlignement);
 	var trapezeX = trapeze[0] - this.m_OffsetX*this.m_coeffRedimensionnement.coefWidth;
 	var trapezeY = trapeze[1];
 	    //trapezeX += this.m_deltaDeplacement/this.m_coeffDirecteur;
@@ -350,7 +348,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_PositionPtMeca.y = rotation[1];
 
 	var delta=this.m_PositionPtMeca.y-cercle[1];
-	console.log("delta cercle ptmeca", delta);
 
 	this.m_Position.x-=((delta/this.m_coeffDirecteur)*dicomCanvas.width)/dicomWidth;
 	this.m_Position.y-=(delta*dicomCanvas.height)/dicomHeight;
@@ -360,10 +357,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 
 	this.m_PositionPtMeca.x-=delta/this.m_coeffDirecteur;
 	this.m_PositionPtMeca.y-=delta;
-
-	console.log("m_deltaDeplacement", this.m_deltaDeplacement);
-	console.log("m_deltaDeplacementX",this.m_deltaDeplacementX);
-	console.log("m_deltaDeplacementY",this.m_deltaDeplacementY);
 
 	this.m_PositionPtMeca.x += this.m_deltaDeplacement/this.m_coeffDirecteur;
 	this.m_PositionPtMeca.y += this.m_deltaDeplacement;
@@ -380,15 +373,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
 	this.m_PositionAvtOffset.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
 	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
-
-	console.log(" xrot, y rot ", rotation[0],rotation[1]);
-	console.log("pointmx pointmy",pointMx,pointMy);
-	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
-	console.log("this.m_Position",this.m_Position);
-
-
-
-
 };
 
 Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {
@@ -424,7 +408,6 @@ Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientati
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
 		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
-		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
 		return {
 			coefWidth : coefWidth,
@@ -458,7 +441,6 @@ Tige.prototype.Monter = function() {
 	this.m_PositionPtMeca.y-=((1/coeffBille));
 
 	this.m_deltaDeplacement-=1/coeffBille;
-	console.log("this.m_Position",this.m_Position);
 	var canvas  = document.querySelector('#dwv-imageLayer');
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "blue";
@@ -481,7 +463,6 @@ Tige.prototype.Descendre = function() {
 	this.m_PositionPtMeca.y+=((1/coeffBille));
 
 	this.m_deltaDeplacement+=1/coeffBille;
-	console.log("this.m_Position",this.m_Position);
 	var canvas  = document.querySelector('#dwv-imageLayer');
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "grey";

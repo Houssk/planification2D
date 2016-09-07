@@ -493,7 +493,6 @@ dwv.App = function ()
      */
     function loadImageFiles(files)
     {
-        console.log("start loadImageFiles");
         // clear variables
         self.reset();
         nSlicesToLoad = files.length;
@@ -517,22 +516,16 @@ dwv.App = function ()
             svgStyle: {width: '100%', height: '100%'},
         });
         lineBar.animate(1);
-        //console.log("lineBar.animate(1);");
         // create IO
         var fileIO = new dwv.io.File();
         fileIO.setDecoderScripts(decoderScripts);
         fileIO.onload = function (data) {
-            console.log("start fileIO.onload");
             var isFirst = true;
             if ( image ) {
                 view.append( data.view );
                 isFirst = false;
             }
-
-            console.log("start postLoadInit(data);");
             postLoadInit(data);
-            console.log("end postLoadInit(data);");
-
             if ( drawStage ) {
 
                 // create slice draw layer
@@ -546,7 +539,6 @@ dwv.App = function ()
                 // add the layer to the stage
                 drawStage.add(drawLayer);
             }
-            console.log("end fileIO.onload");
 
         };
         fileIO.onerror = function (error) { handleError(error); };
@@ -555,7 +547,6 @@ dwv.App = function ()
         // main load (asynchronous)
         fireEvent({ 'type': 'load-start' });
         fileIO.load(files);
-        console.log("end loadImageFiles");
 
     }
 
@@ -1499,8 +1490,7 @@ dwv.App = function ()
                 }while(isNaN(taille_bille_mm));
                 sessionStorage.setItem("taille_bille_mm",taille_bille_mm);
                 toolbox.setSelectedTool("Draw");
-                toolboxController.setSelectedShape("Circle");
-                console.log(window.event);*/
+                toolboxController.setSelectedShape("Circle");*/
 
 
             }

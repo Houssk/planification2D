@@ -77,7 +77,6 @@ dwv.image.RescaleSlopeAndIntercept.prototype.toString = function () {
  */
 dwv.image.Image = function(geometry, buffer)
 {
-    console.log("start dwv.image.Image");
     /**
      * Rescale slope and intercept.
      * @private
@@ -338,7 +337,6 @@ dwv.image.Image = function(geometry, buffer)
         }
         return histogram;
     };
-    console.log("end dwv.image.Image")
 };
 
 /**

@@ -759,7 +759,6 @@ var Kinetic = Kinetic || {};
         buttonDeleteRegle1.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                    console.log("shape.id()",shape.id());
                     if (shape.id()=="regle_1") {
                         var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
                         if (tempIdActive.regle_1==true) {
@@ -784,7 +783,6 @@ var Kinetic = Kinetic || {};
         buttonDeleteRegle2.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                    console.log("shape.id()",shape.id());
                     if (shape.id()=="regle_2") {
                         var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
                         if (tempIdActive.regle_2==true) {
@@ -810,7 +808,6 @@ var Kinetic = Kinetic || {};
         buttonDeleteRegle3.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                    console.log("shape.id()",shape.id());
                     if (shape.id()=="regle_3") {
                         var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
                         if (tempIdActive.regle_3==true) {
@@ -836,7 +833,6 @@ var Kinetic = Kinetic || {};
         buttonDeleteRapporteur1.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                    console.log("shape.id()",shape.id());
                     if (shape.id()=="angle_1") {
                         var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
                         if (tempIdActive.angle_1==true) {
@@ -861,7 +857,6 @@ var Kinetic = Kinetic || {};
         buttonDeleteRapporteur2.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                    console.log("shape.id()",shape.id());
                     if (shape.id()=="angle_2") {
                         var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
                         if (tempIdActive.angle_2==true) {
@@ -886,7 +881,6 @@ var Kinetic = Kinetic || {};
         buttonDeleteRapporteur3.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                    console.log("shape.id()",shape.id());
                     if (shape.id()=="angle_3") {
                         var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
                         if (tempIdActive.angle_3==true) {
