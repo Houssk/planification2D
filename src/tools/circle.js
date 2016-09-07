@@ -13,17 +13,14 @@ var onPeutTraceCercle=false;
 var lastPoint = null;
 var lastCenterPos = null;
 function ApparitionBoutonValiderPatient() {
-    console.log("ApparitionBoutonValiderPatient");
     if (sessionStorage.getItem("boolPrenom")=="true" &&
         sessionStorage.getItem("boolNom")=="true" &&
         sessionStorage.getItem("boolTypeOperation")=="true" &&
         sessionStorage.getItem("boolCoteOperation")=="true" &&
         sessionStorage.getItem("taille_bille_px")!=null) {
         document.getElementById("buttonValideInformationPatient").style.display="";
-        console.log("ApparitionBoutonValiderPatient display : _");
     } else {
         document.getElementById("buttonValideInformationPatient").style.display="none";
-        console.log("ApparitionBoutonValiderPatient display : none");
     }
 }
 /**
@@ -101,7 +98,6 @@ dwv.tool.CircleFactory.prototype.create = function (points, style, image)
             }
         }
     }
-    //console.log("onpeuttracercercle",onPeutTraceCercle);
     /*if(sessionStorage.getItem("retour")==0){
         onPeutTraceCercle = true;
     }*/

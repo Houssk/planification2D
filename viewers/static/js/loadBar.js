@@ -1,4 +1,3 @@
-console.log("loadBar.js");
 onmessage = function(e) {
     var progressBarDiv = window.getElementById("barprogress");
 	var lineBar = new ProgressBar.Line(progressBarDiv,{

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 30 Août 2016 à 13:59
+-- Généré le :  Mer 07 Septembre 2016 à 15:06
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -662,7 +662,7 @@ INSERT INTO `implant_acl_cim_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `he
 (5, 'Hype ACL A cimenter Latéralisée-T6', 'images/hype_acl_T6.png', 764, 6.47, 2085, 17.65, 0, 0, 0, 0, 0, 0, 0, 0, 283, -297, 957.5, 0, 0, 6),
 (6, 'Hype ACL A cimenter Latéralisée-T7', 'images/hype_acl_T7.png', 782, 6.62, 2138, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 285, -305, 982, 0, 0, 7),
 (7, 'Hype ACL A cimenter Latéralisée-T8', 'images/hype_acl_T8.png', 802, 6.79, 2203, 18.65, 0, 0, 0, 0, 0, 0, 0, 0, 287, -315, 1014.5, 0, 0, 8),
-(8, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9.png', 822, 6.26, 2274, 19.25, 0, 0, 0, 0, 0, 0, 0, 0, 289, -323, 1049, 0, 0, 9),
+(8, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9.png', 822, 6.96, 2274, 19.25, 0, 0, 0, 0, 0, 0, 0, 0, 289, -323, 1049, 0, 0, 9),
 (9, 'Hype ACL A cimenter Latéralisée-T2', 'images/hype_acl_T2_R.png', 683, 5.78, 1798, 15.22, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 256.5, 812, 0, 0, 2),
 (10, 'Hype ACL A cimenter Latéralisée-T3', 'images/hype_acl_T3_R.png', 706, 5.98, 1921, 16.26, 0, 0, 0, 0, 0, 0, 0, 0, -276, 268, 873.5, 0, 0, 3),
 (11, 'Hype ACL A cimenter Latéralisée-T4', 'images/hype_acl_T4_R.png', 725, 6.14, 1976, 16.73, 0, 0, 0, 0, 0, 0, 0, 0, -277.5, 276.5, 900, 0, 0, 4),
@@ -670,7 +670,7 @@ INSERT INTO `implant_acl_cim_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `he
 (13, 'Hype ACL A cimenter Latéralisée-T6', 'images/hype_acl_T6_R.png', 764, 6.47, 2085, 17.65, 0, 0, 0, 0, 0, 0, 0, 0, -283, 297, 957.5, 0, 0, 6),
 (14, 'Hype ACL A cimenter Latéralisée-T7', 'images/hype_acl_T7_R.png', 782, 6.62, 2138, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -285, 305, 982, 0, 0, 7),
 (15, 'Hype ACL A cimenter Latéralisée-T8', 'images/hype_acl_T8_R.png', 802, 6.79, 2203, 18.65, 0, 0, 0, 0, 0, 0, 0, 0, -287, 315, 1014.5, 0, 0, 8),
-(16, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9_R.png', 822, 6.26, 2274, 19.25, 0, 0, 0, 0, 0, 0, 0, 0, -289, 323, 1049, 0, 0, 9);
+(16, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9_R.png', 822, 6.96, 2274, 19.25, 0, 0, 0, 0, 0, 0, 0, 0, -289, 323, 1049, 0, 0, 9);
 
 -- --------------------------------------------------------
 

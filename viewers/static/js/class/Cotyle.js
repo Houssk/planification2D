@@ -193,7 +193,6 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
 		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
-		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 
 		return {
 			coefWidth : coefWidth,
@@ -261,8 +260,6 @@ Cotyle.prototype.Snap = function(imageWidth, imageHeight, deltaDeplacement, delt
 	this.m_PositionPtMeca.y += this.m_deltaDeplacement;
 	this.m_PositionPtMeca.x += this.m_deltaDeplacementX;
 
-	console.log("this.m_cotyleImageWidth",this.m_cotyleImageWidth,"this.m_cotyleImageHeight",this.m_cotyleImageHeight);
-	console.log("imageWidth",imageWidth,"imageHeight",imageHeight);
 	var canvas  = document.querySelector('#dwv-imageLayer');
 	var context = canvas.getContext('2d');
 	context.strokeStyle = "rgb(200,0,0)";
@@ -295,7 +292,6 @@ Cotyle.prototype.Placement = function(imageWidth, imageHeight, position, orienta
 		// On prend pour le moment la largeur mais après on prendra la largeur et la hauteur
 		var coefWidth = (unCmEgalCbPxWidthImage / unCmEgalCbPxWidthImp)*10;
 		var coefHeight = (unCmEgalCbPxHeightImage / unCmEgalCbPxHeightImp)*10;
-		//console.log("unCmEgalCbPxWidthImp",unCmEgalCbPxWidthImp);
 		return {
 			coefWidth : coefWidth,
 			coefHeight : coefHeight

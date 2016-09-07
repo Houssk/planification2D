@@ -23,8 +23,6 @@ function VerrouillageBoiteDialogue() {
 */
 
 function getTige(table, id) {
-    console.log("getTige");
-    console.log("table",table,"id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -78,8 +76,6 @@ function getTige(table, id) {
 */
 
 function getTigeBySize(table, size, cote) {
-    console.log("getTigeBySize");
-    console.log("table",table,"size",size,"cote",cote);
     var xhr;
     if (window.XMLHttpRequest) {
         xhr = new XMLHttpRequest();
@@ -93,7 +89,6 @@ function getTigeBySize(table, size, cote) {
     xhr.send(null);
     xhr.responseText;
     var docXML= xhr.responseXML;
-    console.log("docXML",docXML);
     var tigeIdBDD = docXML.getElementsByTagName("id");
     var tigeNomBDD = docXML.getElementsByTagName("nom");
     var tigeUrlBDD = docXML.getElementsByTagName("url");
@@ -134,8 +129,6 @@ function getTigeBySize(table, size, cote) {
 */
 
 function getCotyle(table, id) {
-    console.log("getCotyle");
-    console.log("table",table,"id",id);
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
@@ -166,8 +159,7 @@ function getCotyle(table, id) {
     var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
     var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
-    
-    console.log("cotyleUrl",cotyleUrl);
+
     var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
 
     return cotyle;
@@ -215,7 +207,6 @@ function getCotyleBySize(table, size, cote) {
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
     var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
     
-    console.log("cotyleUrl",cotyleUrl);
     var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
 
     return cotyle;
@@ -292,7 +283,6 @@ function draggerCotyleGauche (value){
     });
 }
 
-//console.log("patient",patient);
 /**
 *Cette fonction récupère les différentes taille de la dicom
 *
@@ -340,11 +330,9 @@ $(document).ready(function () {
     $('input[type="button"]').click(function(){
         $('input[type="button"].activeBtn').removeClass('activeBtn')
         $(this).addClass('activeBtn');
-        console.log("toto");
     });
     $('input[type="image"]').click(function(){
         $('input[type="image"].activeBtn').removeClass('activeBtn')
         $(this).addClass('activeBtn');
-        console.log("toto");
     });
 })

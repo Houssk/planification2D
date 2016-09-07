@@ -57,7 +57,6 @@ $(document).ready(function () {
 	document.getElementById("gammeColleretteOuPas").style.display = "none";
 	gammeCimenteOuPas.addEventListener("change",function(){
 		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
-		console.log("Element select");
 		if(valeurGammeCimenteOuPas=="cimente" ){
 			document.getElementById("gammeColleretteOuPas").style.display = "none";
 		}
@@ -103,17 +102,14 @@ $(document).ready(function () {
 	},false);
 
 	function ApparitionBoutonValiderPatient() {
-		console.log("ApparitionBoutonValiderPatient");
 		if (sessionStorage.getItem("boolPrenom")=="true" &&
 			sessionStorage.getItem("boolNom")=="true" &&
 			sessionStorage.getItem("boolTypeOperation")=="true" &&
 			sessionStorage.getItem("boolCoteOperation")=="true" &&
 			sessionStorage.getItem("taille_bille_px")!=null) {
 			document.getElementById("buttonValideInformationPatient").style.display="";
-			console.log("ApparitionBoutonValiderPatient display : _");
 		} else {
 			document.getElementById("buttonValideInformationPatient").style.display="none";
-			console.log("ApparitionBoutonValiderPatient display : none");
 		}
 	}
 
@@ -160,19 +156,11 @@ $(document).ready(function () {
 	function CalculOffset() {
 		var coefficient = sessionStorage.getItem("coefficient");
 		if (patient.GetCoteOperation()=="Gauche") {
-			console.log("cotyleDroit",cotyleDroit);
-			console.log("tigeDroit",tigeDroit);
-			console.log("cotyleDroit.GetPositionPtMeca().x",cotyleDroit.GetPositionPtMeca().x);
-			console.log("tigeDroit.GetPositionPtMecaHaut().x",tigeDroit.GetPositionPtMecaHaut().x);
 			var offset = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 			var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 			document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 			document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 		} else {
-			console.log("cotyleGauche",cotyleGauche);
-			console.log("tigeGauche",tigeGauche);
-			console.log("cotyleGauche.GetPositionPtMeca().x",cotyleGauche.GetPositionPtMeca().x);
-			console.log("tigeGauche.GetPositionPtMecaHaut().x",tigeGauche.GetPositionPtMecaHaut().x);
 			var offset =  Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 			var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 			document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
@@ -348,10 +336,8 @@ $(document).ready(function () {
 			} else {
 				newTigeGauche=getTigeBySize(tableImplant, tigeGauche.GetTaille(), "G");
 				indexTigeGauche=parseInt(newTigeGauche.GetID());
-				console.log("indexTigeGauche",indexTigeGauche);
 				newTigeDroit=getTigeBySize(tableImplant, tigeDroit.GetTaille(), "D");
 				indexTigeDroit=parseInt(newTigeDroit.GetID());
-				console.log("indexTigeDroit",indexTigeDroit);
 			}
 
 			
@@ -368,9 +354,7 @@ $(document).ready(function () {
 			canvasTige.height=m_canvasHeight;
 			canvasTige.style.zIndex = "26";
 			var contextetige = canvasTige.getContext("2d");
-			//console.log("contextetige",contextetige)
 			imgTigeDroit.onload=function () {
-				console.log("imgTigeDroit",imgTigeDroit);
 				var imgTigeDroitWidth=imgTigeDroit.width;
 				var imgTigeDroitHeight=imgTigeDroit.height;
 				var dicomCanvas = document.getElementById("dwv-imageLayer");
@@ -384,10 +368,6 @@ $(document).ready(function () {
 				newTigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 				tigeGauche=newTigeGauche;
 				tigeDroit=newTigeDroit;
-
-				//console.log("newTige",newTige);
-				//console.log("tigeGauche",tigeGauche);
-				//console.log("tigeDroit",tigeDroit);
 				if (patient.GetCoteOperation()=="Gauche") {
 					newTige=newTigeDroit;
 				} else {
@@ -399,11 +379,9 @@ $(document).ready(function () {
 				contextetige.rotate(newTige.GetOrientation());
 				contextetige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
 				contextetige.restore();
-				console.log("newTige",newTige);
 			}
 
 			imgTigeGauche.onload=function () {
-				console.log("imgTigeGauche",imgTigeGauche);
 				var imgTigeGaucheWidth=imgTigeGauche.width;
 				var imgTigeGaucheHeight=imgTigeGauche.height;
 				var dicomCanvas = document.getElementById("dwv-imageLayer");
@@ -417,10 +395,6 @@ $(document).ready(function () {
 				newTigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 				tigeGauche=newTigeGauche;
 				tigeDroit=newTigeDroit;
-
-				//console.log("newTige",newTige);
-				//console.log("tigeGauche",tigeGauche);
-				//console.log("tigeDroit",tigeDroit);
 				if (patient.GetCoteOperation()=="Gauche") {
 					newTige=newTigeDroit;
 				} else {
@@ -432,7 +406,6 @@ $(document).ready(function () {
 				contextetige.rotate(newTige.GetOrientation());
 				contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTige.GetImageLargeur() / 2, -newTige.GetImageHauteur() / 2, newTige.GetImageLargeur(), newTige.GetImageHauteur());
 				contextetige.restore();
-				console.log("newTige",newTige);
 			}
 			//Source des images
 			if (patient.GetCoteOperation()=="Gauche") {
@@ -450,10 +423,8 @@ $(document).ready(function () {
 			} else {
 				tigeGauche=getTigeBySize(tableImplant, tigeGauche.GetTaille(), "G");
 				indexTigeGauche=parseInt(tigeGauche.GetID());
-				console.log("indexTigeGauche",indexTigeGauche);
 				tigeDroit=getTigeBySize(tableImplant, tigeDroit.GetTaille(), "D");
 				indexTigeDroit=parseInt(tigeDroit.GetID());
-				console.log("indexTigeDroit",indexTigeDroit);
 			}
 			
 			imgTigeDroit = new Image;
@@ -469,7 +440,6 @@ $(document).ready(function () {
 			canvasTige.style.zIndex = "26";
 			var contextetige = canvasTige.getContext("2d");
 			imgTigeDroit.onload=function () {
-				console.log("imgTigeDroit",imgTigeDroit)
 				var imgTigeDroitWidth=imgTigeDroit.width;
 				var imgTigeDroitHeight=imgTigeDroit.height;
 				if (patient.GetCoteOperation()=="Gauche") {
@@ -524,7 +494,6 @@ $(document).ready(function () {
 				}
 			}
 			imgTigeGauche.onload=function () {
-				console.log("imgTigeGauche",imgTigeGauche);
 				var imgTigeGaucheWidth=imgTigeGauche.width;
 				var imgTigeGaucheHeight=imgTigeGauche.height;
 				if (patient.GetCoteOperation()=="Gauche") {
@@ -588,11 +557,7 @@ $(document).ready(function () {
 
 		if(firstSideChangedTige==false)
 		{
-			console.log("tigeselection firstSideChangedTige");
-			console.log("firstSideChangedTige tigeGauche",tigeGauche);
-			console.log("firstSideChangedTige tigeDroit",tigeDroit);
 			if (patient.GetCoteOperation()=="Droit") {
-				console.log("Cote Droit");
 				canvasTige=document.getElementById("canvasTigeDroit");
 				canvasTige.width=m_canvasWidth;
 				canvasTige.height=m_canvasHeight;
@@ -600,8 +565,6 @@ $(document).ready(function () {
 				var contexteTigeDrawTige=canvasTige.getContext("2d");
 				imgTigeDroit = new Image;
 				imgTigeDroit.onload=function () {
-					console.log("firstSideChangedTige imgTigeDroit",imgTigeDroit);
-					console.log("firstSideChangedTige tigeDroit",tigeDroit);
 					var imgTigeDroitWidth=imgTigeDroit.width;
 					var imgTigeDroitHeight=imgTigeDroit.height;
 					contexteTigeDrawTige.save();
@@ -614,7 +577,6 @@ $(document).ready(function () {
 				imgTigeDroit.src=tigeDroit.GetUrl();
 			}
 			if (patient.GetCoteOperation()=="Gauche") {
-				console.log("Cote gauche");
 				canvasTige=document.getElementById("canvasTigeGauche");
 				canvasTige.width=m_canvasWidth;
 				canvasTige.height=m_canvasHeight;
@@ -622,8 +584,6 @@ $(document).ready(function () {
 				var contexteTigeDrawTige=canvasTige.getContext("2d");
 				imgTigeGauche = new Image;
 				imgTigeGauche.onload=function () {
-					console.log("firstSideChangedTige imgTigeGauche",imgTigeGauche);
-					console.log("firstSideChangedTige tigeGauche",tigeGauche);
 					var imgTigeGaucheWidth=imgTigeGauche.width;
 					var imgTigeGaucheHeight=imgTigeGauche.height;
 					contexteTigeDrawTige.save();
@@ -641,11 +601,9 @@ $(document).ready(function () {
 			if (patient.GetCoteOperation()=="Gauche") {
 				var tailleTige = tigeDroit.GetNom().split("-");
 				document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-				//console.log("newTigeDroit.GetUrl()",newTigeDroit.GetUrl());
 			} else {
 				var tailleTige = tigeGauche.GetNom().split("-");
 				document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-				//console.log("newTigeGauche.GetUrl()",newTigeGauche.GetUrl());
 			}
 		} else {
 			var coteTige = document.getElementById("coteTige");
@@ -745,7 +703,6 @@ $(document).ready(function () {
 			canvasCotyle.style.zIndex = "27";
 			var contextecotyle = canvasCotyle.getContext("2d");
 			imgCotyleDroit.onload=function () {
-				console.log("imgCotyleDroit",imgCotyleDroit);
 				var imgCotyleDroitWidth=imgCotyleDroit.width;
 				var imgCotyleDroitHeight=imgCotyleDroit.height;
 				var dicomCanvas = document.getElementById("dwv-imageLayer");
@@ -768,8 +725,6 @@ $(document).ready(function () {
 				contextecotyle.rotate(0);
 				contextecotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -newCotyle.GetImageLargeur() / 2, -newCotyle.GetImageHauteur() / 2, newCotyle.GetImageLargeur(), newCotyle.GetImageHauteur());
 				contextecotyle.restore();
-				console.log("newCotyle.GetImageLargeur()",newCotyle.GetImageLargeur(),"newCotyle.GetImageHauteur()",newCotyle.GetImageHauteur())
-				console.log("load img cotyleDroit");
 			}
 			imgCotyleGauche.onload=function () {
 				var imgCotyleGaucheWidth=imgCotyleGauche.width;
@@ -794,8 +749,6 @@ $(document).ready(function () {
 				contextecotyle.rotate(0);
 				contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -newCotyle.GetImageLargeur() / 2, -newCotyle.GetImageHauteur() / 2, newCotyle.GetImageLargeur(), newCotyle.GetImageHauteur());
 				contextecotyle.restore();
-				console.log("newCotyle.GetImageLargeur()",newCotyle.GetImageLargeur(),"newCotyle.GetImageHauteur()",newCotyle.GetImageHauteur())
-				console.log("load img cotyleDroit");
 			}
 			if (patient.GetCoteOperation()=="Gauche") {
 				imgCotyleDroit.src=newCotyleDroit.GetUrl();
@@ -1002,15 +955,12 @@ $(document).ready(function () {
 				if (nomPatient.value == "" || nomPatient.value == "NOM") {
 					alert("Nom du patient incorrect ou null");
 				} else {
-					console.log(nomPatient.value);
 					if (prenomPatient.value == "" || prenomPatient.value == "PRENOM") {
 						alert("Prénom du patient incorrect ou null");
 					} else {
-						console.log(prenomPatient.value);
 						if (coteChirurgie.selectedIndex == 0) { // Test si l'option sélectionnée n'est pas l'option par défaut
 							alert("Veuillez sélectionner le coté sur le quel vous voulez effectué la chirurgie");
-						} else {
-							console.log(coteChirurgie.options[coteChirurgie.selectedIndex].value);// Récupère la valeur de l'option sélectionnée
+						} else {// Récupère la valeur de l'option sélectionnée
 							if (typeChirurgie.selectedIndex == 0) {// Test si l'option sélectionnée n'est pas l'option par défaut
 								alert("Veuillez sélectionner le type de chirurgie que vous voulez effectué");
 							} else { // Cas ou toute les données entrée sont valides
@@ -1019,23 +969,19 @@ $(document).ready(function () {
 								var coeff =  taille_bille_mm / taille_bille_px;
 								var string = "coefficient de redimensionnement des implants est : " + coeff;
 								if (!isNaN(coeff)) {
-									console.log("coeff", coeff);
 									sessionStorage.setItem("coefficient",coeff);
 									sessionStorage.setItem("calibrage",true);
 									swal("",string);
 								} else {
-									console.log("coeff application.js", coeff);
 									sessionStorage.setItem("calibrage",false);
 								}
 								var calibrage = sessionStorage.getItem("calibrage");
-								if (calibrage=="true") {
-									console.log(typeChirurgie.options[typeChirurgie.selectedIndex].value);// Récupère la valeur de l'option sélectionnée
+								if (calibrage=="true") {// Récupère la valeur de l'option sélectionnée
 									patient = new Patient(nomPatient.value, 
 										prenomPatient.value, 
 										typeChirurgie.options[typeChirurgie.selectedIndex].value, 
 										"DICOM", // to do DICOM
 										coteChirurgie.options[coteChirurgie.selectedIndex].value);
-									console.log(patient);
 
 									m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 									m_canvasHeight=document.getElementById("dwv-imageLayer").height;
@@ -1111,7 +1057,6 @@ $(document).ready(function () {
 	buttonDessinTrapeze.addEventListener('click', 
 		function() {
 			function DessinTrapeze(){
-				console.log("dessin trapèze");
 				if(sessionStorage.getItem("nbTrapeze")===null){
 					sessionStorage.setItem("nbTrapeze", 0);
 				}
@@ -1124,7 +1069,6 @@ $(document).ready(function () {
 	buttonDessinRapporteur.addEventListener('click', 
 		function() {
 			function DessinRapporteur(){
-				console.log("dessin rapporteur");
 				DrawShape("Protractor");
 				document.getElementById("dwv-drawDiv").style.zIndex = "200";
 			};
@@ -1135,7 +1079,6 @@ $(document).ready(function () {
 	buttonDessinRegle.addEventListener('click', 
 		function() {
 			function DessinRegle(){
-				console.log("dessin regle");
 				DrawShape("Line");
 				document.getElementById("dwv-drawDiv").style.zIndex = "200";
 			};
@@ -1146,7 +1089,6 @@ $(document).ready(function () {
 	buttonDessinCercle.addEventListener('click', 
 		function() {
 			function DessinCercle(){
-				console.log("dessin cercle");
 				if(sessionStorage.getItem("nbCercle")===null){
 					sessionStorage.setItem("nbCercle", 0);
 				}
@@ -1159,7 +1101,6 @@ $(document).ready(function () {
 	buttonDessinPetitTroch.addEventListener('click', 
 		function() {
 			function DessinMesurePetitTroch(){
-				console.log("dessin Mesure Petit Troch");
 				//if(sessionStorage.getItem("nbCercle")===null){
 				//	sessionStorage.setItem("nbCercle", 1);
 				//}
@@ -1800,7 +1741,6 @@ $(document).ready(function () {
 					imgCotyleDroit.onload=function () {
 						var imgCotyleDroitWidth=imgCotyleDroit.width;
 						var imgCotyleDroitHeight=imgCotyleDroit.height;
-						console.log("patient cotyle draw gauche",patient);
 						newCotyleDroit.Snap(imgCotyleDroitWidth, imgCotyleDroitHeight, cotyleDroit.GetDeltaDeplacement(), cotyleDroit.GetDeltaRotation(), patient);
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
@@ -1872,7 +1812,6 @@ $(document).ready(function () {
 					imgCotyleGauche.onload=function () {
 						var imgCotyleGaucheWidth=imgCotyleGauche.width;
 						var imgCotyleGaucheHeight=imgCotyleGauche.height;
-						console.log("patient cotyle draw droit",patient);
 						newCotyleGauche.Snap(imgCotyleGaucheWidth, imgCotyleGaucheHeight, cotyleGauche.GetDeltaDeplacement(), cotyleGauche.GetDeltaRotation(), patient);
 						contexteCotyleDrawCotyle.save();
 						contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
@@ -1939,22 +1878,16 @@ $(document).ready(function () {
 			function PlusTailleTige(){
 				var coteTigeBtn = document.getElementById("coteTige");
 				if (coteTigeBtn.options[coteTigeBtn.selectedIndex].value == "Gauche") {
-                       console.log("debut", indexTigeDroit);
 					if ((indexTigeDroit+1)>maximumTigeDroit) {
 						indexTigeDroit= maximumTigeDroit;
-						console.log("indexTigeDroit, maximumTigeDroit", indexTigeDroit, maximumTigeDroit);
 					} else if(indexTigeDroit<maximumTigeDroit) {
 						indexTigeDroit++;
-						console.log("indexTigeDroit, maximumTigeDroit",indexTigeDroit, maximumTigeDroit);
 					}
 				} else {
 					if ((indexTigeGauche+1)>maximumTigeGauche) {
-
 						indexTigeGauche=maximumTigeGauche;
-						console.log("indexTigeGauche maximumTigeGauche",indexTigeGauche, maximumTigeGauche);
 					} else {
 						indexTigeGauche++;
-						console.log("indexTigeGauche maximumTigeGauche",indexTigeGauche, maximumTigeGauche);
 					}
 				}
 
@@ -2039,7 +1972,6 @@ $(document).ready(function () {
 		function() {
 			function MonterTige(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -2049,8 +1981,7 @@ $(document).ready(function () {
 					tigeDroit.Monter();
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeDroit.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
@@ -2072,8 +2003,7 @@ $(document).ready(function () {
 					tigeGauche.Monter();
 					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
 					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeGauche.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
@@ -2098,7 +2028,6 @@ $(document).ready(function () {
 		function() {
 			function DescendreTige(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -2108,8 +2037,7 @@ $(document).ready(function () {
 					tigeDroit.Descendre();
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeDroit.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
@@ -2131,8 +2059,7 @@ $(document).ready(function () {
 					tigeGauche.Descendre();
 					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
 					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeGauche.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
@@ -2159,7 +2086,6 @@ $(document).ready(function () {
 		function() {
 			function MonterCotyle(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					/*var m_canvasWidth=900;
@@ -2212,7 +2138,6 @@ $(document).ready(function () {
 		function() {
 			function DescendreCotyle(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					/*var m_canvasWidth=900;
@@ -2264,7 +2189,6 @@ $(document).ready(function () {
 	buttonTournerHautCotyle.addEventListener('click', 
 		function() {
 			function TournerHautCotyle(){
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					canvasCotyle.width=m_canvasWidth;
@@ -2303,7 +2227,6 @@ $(document).ready(function () {
 	buttonTournerBasCotyle.addEventListener('click', 
 		function() {
 			function TournerBasCotyle(){
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					canvasCotyle.width=m_canvasWidth;
@@ -2342,7 +2265,6 @@ $(document).ready(function () {
 	buttonTournerHautCotyleNG.addEventListener('click', 
 		function() {
 			function TournerHautCotyleNG(){
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				var coteCotyle = document.getElementById("coteCotyle");
 				if (coteCotyle.options[coteCotyle.selectedIndex].value=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
@@ -2382,7 +2304,6 @@ $(document).ready(function () {
 	buttonTournerBasCotyleNG.addEventListener('click', 
 		function() {
 			function TournerBasCotyleNG(){
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				var coteCotyle = document.getElementById("coteCotyle");
 				if (coteCotyle.options[coteCotyle.selectedIndex].value=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
@@ -2496,11 +2417,9 @@ $(document).ready(function () {
 	buttonValideImplant.addEventListener('click', 
 		function() {
 			function ValiderImplant(){
-				console.log("valider implants");
 				var dicomCanvas = document.getElementById("dwv-imageLayer");
 				var dicomImage = dicomCanvas.toDataURL("image/jpeg");
 				var divLayer = document.getElementById("dwv-layerDialog");
-				console.log("divLayer",divLayer);
                 var imageSerf = "data:image/jpeg;base64,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";
 				
 				var coefficient = sessionStorage.getItem("coefficient");
@@ -2514,7 +2433,6 @@ $(document).ready(function () {
 				}
 				html2canvas(divLayer,{
 					onrendered: function (canvas) {
-						console.log("canvas",canvas);
 						var now = new Date();
 						var nowMonth = now.getMonth() + 1;
 						var nowMonthString = null;
@@ -2654,8 +2572,6 @@ $(document).ready(function () {
 				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
 				var coteCotyle = document.getElementById("coteCotyle");
 				document.getElementById("dwv-drawDiv").style.zIndex = "10";
-				//console.log("imgCotyleGauche",imgCotyleGauche);
-				//console.log("imgCotyleDroit",imgCotyleDroit);
 
 				if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
 
@@ -2705,9 +2621,7 @@ $(document).ready(function () {
 	buttonTournerHautTige.addEventListener('click', 
 		function() {
 			function TournerHautTige(){
-				console.log("TournerHautTige");
 				var coteTige = document.getElementById("coteTige");
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (coteTige.options[coteTige.selectedIndex].value=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -2746,9 +2660,7 @@ $(document).ready(function () {
 	buttonTournerBasTige.addEventListener('click', 
 		function() {
 			function TournerBasTige(){
-				console.log("TournerBasTige");
 				var coteTige = document.getElementById("coteTige");
-				//console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (coteTige.options[coteTige.selectedIndex].value=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -2788,7 +2700,6 @@ $(document).ready(function () {
 		function() {
 			function DeplacementDroitTige(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -2798,8 +2709,7 @@ $(document).ready(function () {
 					tigeDroit.MouvementDroit();
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeDroit.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
@@ -2821,8 +2731,7 @@ $(document).ready(function () {
 					tigeGauche.MouvementDroit();
 					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
 					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeGauche.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
@@ -2847,7 +2756,6 @@ $(document).ready(function () {
 		function() {
 			function DeplacementGaucheTige(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -2857,8 +2765,7 @@ $(document).ready(function () {
 					tigeDroit.MouvementGauche();
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeDroit.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
@@ -2880,8 +2787,7 @@ $(document).ready(function () {
 					tigeGauche.MouvementGauche();
 					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
 					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeGauche.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
@@ -3002,7 +2908,6 @@ $(document).ready(function () {
 		function() {
 			function DeplacementHautTige(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -3012,8 +2917,7 @@ $(document).ready(function () {
 					tigeDroit.MouvementHaut();
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeDroit.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
@@ -3035,8 +2939,7 @@ $(document).ready(function () {
 					tigeGauche.MouvementHaut();
 					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
 					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeGauche.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);
@@ -3061,7 +2964,6 @@ $(document).ready(function () {
 		function() {
 			function DeplacementBasTige(){
 				var coefficient = sessionStorage.getItem("coefficient");
-				console.log("m_canvasWidth",m_canvasWidth,"m_canvasHeight",m_canvasHeight);
 				if (patient.GetCoteOperation()=="Gauche") {
 					var canvasTige = document.getElementById("canvasTigeDroit");
 					canvasTige.width=m_canvasWidth;
@@ -3071,8 +2973,7 @@ $(document).ready(function () {
 					tigeDroit.MouvementBas();
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeDroit.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeDroit.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeDroit.GetPositionAvtOffset().x,tigeDroit.GetPositionAvtOffset().y);
@@ -3094,8 +2995,7 @@ $(document).ready(function () {
 					tigeGauche.MouvementBas();
 					var b=tigeGauche.GetPosition().y-(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPosition().x);
 					var posyr=(Math.tan(tigeGauche.GetOrientation())*tigeGauche.GetPositionAvtOffset().x)+b;
-					var delta = posyr-tigeGauche.GetPosition().y;//(Math.tan(tigeDroit.GetOrientation())*((tigeDroit.GetPosition().x-tigeDroit.GetPositionAvtOffset().x)-tigeDroit.GetPositionAvtOffset().x)+tigeDroit.GetPositionAvtOffset().y)-tigeDroit.GetPositionAvtOffset().y;
-					console.log("delta",delta);
+					var delta = posyr-tigeGauche.GetPosition().y;
 					contextetige.save();
 					contextetige.clearRect(0, 0, canvasTige.width, canvasTige.height);
 					contextetige.translate(tigeGauche.GetPositionAvtOffset().x,tigeGauche.GetPositionAvtOffset().y);

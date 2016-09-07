@@ -186,7 +186,6 @@ dwv.tool.ShapeEditor = function (app)
         // add shape specific anchors to the shape group
         if ( shape instanceof Kinetic.Line ) {
             var points = shape.points();
-            //console.log("points.length "+points.length);
             if ( points.length === 4 || points.length === 6) {
                 // add shape offset
                 var p0x = points[0] + shape.x();
@@ -208,7 +207,6 @@ dwv.tool.ShapeEditor = function (app)
             }
             else {
                 if (shape.id() =="petitroch") {
-                    //console.log(shape.id());
                     updateFunction = dwv.tool.UpdateMesurepetittroch;
                     var p0x = points[0] + shape.x();
                     var p0y = points[1] + shape.y();
@@ -216,19 +214,14 @@ dwv.tool.ShapeEditor = function (app)
                     var p1y = points[3] + shape.y();
                     var p2x = points[4] + shape.x();
                     var p2y = points[5] + shape.y();
-                    //console.log("p0x p0y",p0x,p0y);
                     var p3x = points[6] + shape.x();
                     var p3y = points[7] + shape.y();
                     addAnchor(group, p0x, p0y, 'begin');
                     addAnchor(group, p1x, p1y, 'end');
                     addAnchor(group, p2x, p2y, 'left');
 
-                    //console.log("anchor",p0x, p0y,p1x, p1y,p2x, p2y);
-
                 } else {
-                    //console.log("roi");
                     updateFunction = dwv.tool.UpdateRoi;
-                    //console.log("roi points "+points.length);
                     var px = 0;
                     var py = 0;
                     for ( var i = 0; i < points.length; i=i+2 ) {
@@ -313,7 +306,6 @@ dwv.tool.ShapeEditor = function (app)
     function getClone( anchor ) {
         // create closure to properties
 
-        //console.log("getClone");
         var parent = anchor.getParent();
         var id = anchor.id();
         var x = anchor.x();
@@ -370,7 +362,6 @@ dwv.tool.ShapeEditor = function (app)
         // drag start listener
         anchor.on('dragstart', function () {
             startAnchor = getClone(this);
-            console.log(cmdName);
         });
         // drag move listener
         anchor.on('dragmove', function () {
@@ -388,10 +379,7 @@ dwv.tool.ShapeEditor = function (app)
         anchor.on('dragend', function () {
             var endAnchor = getClone(this);
             // store the change command
-            var chgcmd = new dwv.tool.ChangeGroupCommand(
-                    cmdName, updateFunction, startAnchor, endAnchor, this.getLayer(), image);
-
-            console.log(cmdName);
+            var chgcmd = new dwv.tool.ChangeGroupCommand(cmdName, updateFunction, startAnchor, endAnchor, this.getLayer(), image);
             chgcmd.onExecute = drawEventCallback;
             chgcmd.onUndo = drawEventCallback;
             chgcmd.execute();

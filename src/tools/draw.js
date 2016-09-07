@@ -759,7 +759,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         buttonDeleteRegle1.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                console.log("shape.id()",shape.id());
                 if (shape.id()=="regle_1") {
                     var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
                     if (tempIdActive.regle_1==true) {
@@ -784,7 +783,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         buttonDeleteRegle2.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                console.log("shape.id()",shape.id());
                 if (shape.id()=="regle_2") {
                     var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
                     if (tempIdActive.regle_2==true) {
@@ -810,7 +808,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         buttonDeleteRegle3.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                console.log("shape.id()",shape.id());
                 if (shape.id()=="regle_3") {
                     var tempIdActive = JSON.parse(sessionStorage.getItem("idRegleActive"));
                     if (tempIdActive.regle_3==true) {
@@ -836,7 +833,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         buttonDeleteRapporteur1.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                console.log("shape.id()",shape.id());
                 if (shape.id()=="angle_1") {
                     var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
                     if (tempIdActive.angle_1==true) {
@@ -861,7 +857,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
          buttonDeleteRapporteur2.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                console.log("shape.id()",shape.id());
                 if (shape.id()=="angle_2") {
                     var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
                     if (tempIdActive.angle_2==true) {
@@ -886,7 +881,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
          buttonDeleteRapporteur3.addEventListener('click',
             function() {
                 //  if ( shape instanceof Kinetic.Line ) {
-                console.log("shape.id()",shape.id());
                 if (shape.id()=="angle_3") {
                     var tempIdActive = JSON.parse(sessionStorage.getItem("idAngleActive"));
                     if (tempIdActive.angle_3==true) {
@@ -910,7 +904,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
         // remove angle
         var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
         buttonValideInformationPatient.addEventListener('click', function() {
-                console.log("shape.id()",shape.id());
                 if(shape.id()=="cercle"){
                     var group = shape.getParent();
                     var delcmd = new dwv.tool.DeleteGroupCommand(group, "circle", drawLayer);
@@ -1175,7 +1168,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                         'y': pos.y - dragStartPos.y};
                 if ( translation.x !== 0 || translation.y !== 0 ) {
                     if(cmdName == "roi"){
-                        console.log("translation", translation);
                         if (document.getElementById("RadioOuiHanche").checked) {
                             var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezePosition"));
                             var x1 = trapezeAxePosition[0] ;
@@ -1193,7 +1185,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                             sessionStorage.setItem("trapezePosition", JSON.stringify(trapezeAxePosition));
                         } else { 
                             if(dragStartPos.x>(sessionStorage.getItem("imageLargeur")/2)){
-                                console.log("dragStartPos.x>(sessionStorage.getItem(imageLargeur)/2)")
                                 var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeDroitPosition"));
                                 var x1 = trapezeAxePosition[0] ;
                                 var y1 = trapezeAxePosition[1] ;
@@ -1213,7 +1204,6 @@ dwv.tool.Draw = function (app, shapeFactoryList)
                                 }
                             } else {
                                     if (dragStartPos.x<(sessionStorage.getItem("imageLargeur")/2)) {
-                                    console.log("dragStartPos.x>(sessionStorage.getItem(imageLargeur)/2)")
                                     var trapezeAxePosition = JSON.parse(sessionStorage.getItem("trapezeGauchePosition"));
                                     var x1 = trapezeAxePosition[0] ;
                                     var y1 = trapezeAxePosition[1] ;
