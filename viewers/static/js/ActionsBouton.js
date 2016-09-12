@@ -51,20 +51,6 @@ $(document).ready(function () {
 	sessionStorage.setItem("boolCoteOperation",false);
 	sessionStorage.setItem("boolTypeOperation",false);
 
-	/*var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
-	var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
-	var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
-	document.getElementById("gammeColleretteOuPas").style.display = "none";
-	gammeCimenteOuPas.addEventListener("change",function(){
-		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
-		if(valeurGammeCimenteOuPas=="cimente" ){
-			document.getElementById("gammeColleretteOuPas").style.display = "none";
-		}
-		else if(valeurGammeCimenteOuPas=="sansCiment") {
-			document.getElementById("gammeColleretteOuPas").style.display = "";
-		}
-	});*/
-
 	var couleurGris = document.getElementById("couleurGris");
 	couleurGris.addEventListener('click', function() {
 		function CouleurGris(){
@@ -320,6 +306,31 @@ $(document).ready(function () {
 					minimumTigeDroit = 0;
 					maximumTigeGauche = 0;
 					minimumTigeGauche= 0;
+					break;
+				}
+			}
+		} else if (valeurGammeTige == "implant_sagitta"){
+			var gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
+			var valeurGammeTigeSagitta = gammeTigeSagitta.options[gammeTigeSagitta.selectedIndex].value;
+			switch(valeurGammeTigeSagitta){
+				case "implant_sagitta_std":{
+					tableImplant = valeurGammeTigeSagitta;
+					indexTigeDroit = 1;
+					indexTigeGauche = 11;
+					maximumTigeDroit = 10;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 20;
+					minimumTigeGauche= 11;
+					break;
+				}
+				case "implant_sagitta_offset":{
+					tableImplant = valeurGammeTigeSagitta;
+					indexTigeDroit = 1;
+					indexTigeGauche = 10;
+					maximumTigeDroit = 9;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 18;
+					minimumTigeGauche= 10;
 					break;
 				}
 			}
@@ -1182,9 +1193,15 @@ $(document).ready(function () {
 		if (gammeTige.options[gammeTige.selectedIndex].value == "implant_hype") {
 			document.getElementById("implantHypeSousGamme").style.display="";
 			document.getElementById("implantLibraSousGamme").style.display="none";
+			document.getElementById("implantSagittaSousGamme").style.display="none";
 		} else if (gammeTige.options[gammeTige.selectedIndex].value == "implant_libra") {
 			document.getElementById("implantHypeSousGamme").style.display="none";
 			document.getElementById("implantLibraSousGamme").style.display="";
+			document.getElementById("implantSagittaSousGamme").style.display="none";
+		} else if(gammeTige.options[gammeTige.selectedIndex].value == "implant_sagitta"){
+			document.getElementById("implantHypeSousGamme").style.display="none";
+			document.getElementById("implantLibraSousGamme").style.display="none";
+			document.getElementById("implantSagittaSousGamme").style.display="";
 		}
 		TigeSelection();
 	});
@@ -1203,6 +1220,10 @@ $(document).ready(function () {
 	});
 	var gammeTigeLibra = document.getElementById("gammeTigeLibra");
 	gammeTigeLibra.addEventListener('change',function(){
+		TigeSelection();
+	});
+	var gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
+	gammeTigeSagitta.addEventListener('change',function(){
 		TigeSelection();
 	});
 	var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
