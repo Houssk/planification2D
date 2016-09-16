@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 07 Septembre 2016 à 14:13
+-- Généré le :  Ven 16 Septembre 2016 à 08:56
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -689,7 +689,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var` (
 
 INSERT INTO `implant_ax_ha_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
 (1, 'ax_ha_var-1', 'images/ax_ha_varT1.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, 232.53, -252.5, 554.5, 0, 0, 1),
-(2, 'ax_ha_var-2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 375.388, -263.5, 582.5, 0, 0, 2),
+(2, 'ax_ha_var-2', 'images/ax_ha_varT2.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, 237.388, -263.5, 582.5, 0, 0, 2),
 (3, 'ax_ha_var-3', 'images/ax_ha_varT3.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, 239.785, -273, 609.5, 0, 0, 3),
 (4, 'ax_ha_var-4', 'images/ax_ha_varT4.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, 248.151, -288.5, 652.5, 0, 0, 4),
 (5, 'ax_ha_var-5', 'images/ax_ha_varT5.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, 252.939, -302, 686.5, 0, 0, 5),
@@ -699,7 +699,7 @@ INSERT INTO `implant_ax_ha_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heig
 (9, 'ax_ha_var-9', 'images/ax_ha_varT9.png', 860, 7.28, 1803, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, 275.247, -352, 813.5, 0, 0, 9),
 (10, 'ax_ha_var-10', 'images/ax_ha_varT10.png', 885, 7.49, 1861, 15.76, 0, 0, 0, 0, 0, 0, 0, 0, 280.033, -364.5, 842.5, 0, 0, 10),
 (11, 'ax_ha_var-1', 'images/ax_ha_varT1_R.png', 661, 5.6, 1284, 10.88, 0, 0, 0, 0, 0, 0, 0, 0, -232.53, 252.5, 554.5, 0, 0, 1),
-(12, 'ax_ha_var-2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -375.388, 263.5, 582.5, 0, 0, 2),
+(12, 'ax_ha_var-2', 'images/ax_ha_varT2_R.png', 685, 5.8, 1341, 11.35, 0, 0, 0, 0, 0, 0, 0, 0, -237.388, 263.5, 582.5, 0, 0, 2),
 (13, 'ax_ha_var-3', 'images/ax_ha_varT3_R.png', 704, 5.96, 1395, 11.81, 0, 0, 0, 0, 0, 0, 0, 0, -239.785, 273, 609.5, 0, 0, 3),
 (14, 'ax_ha_var-4', 'images/ax_ha_varT4_R.png', 736, 6.22, 1481, 12.54, 0, 0, 0, 0, 0, 0, 0, 0, -248.151, 288.5, 652.5, 0, 0, 4),
 (15, 'ax_ha_var-5', 'images/ax_ha_varT5_R.png', 760, 6.43, 1549, 13.11, 0, 0, 0, 0, 0, 0, 0, 0, -252.939, 302, 686.5, 0, 0, 5),
