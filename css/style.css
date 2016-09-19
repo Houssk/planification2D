@@ -2,7 +2,7 @@
 body { 
 	background-color: white; 
 	color: white;
-	margin: 10px; 
+	margin: 10px;
 	padding: 0;
 	font-size: 80%;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -11,6 +11,9 @@ body {
 	-webkit-transition: all 200ms linear;
 	-o-transition: all 200ms linear;
 	transition: all 200ms linear;
+}
+html {
+    background-color: #ecf0f5;
 }
 
 /* Layers */
@@ -47,28 +50,13 @@ table.tagList td {
  	display: inline-block;
   float: right;
 }
-#logo {
-	background: url(../viewers/static/images/dedienne.png) no-repeat;
-	width: 170px;
-	height: 45px;
-	float: left;
-	margin-left: 40px;
-}
-#toolbar {
-	float: right;
-}
-
 #toolbox li:first-child {
- 	list-style-type: none; 
- 	padding-bottom: 10px; 
- 	margin-left: -20px; 
+ 	list-style-type: none;
 }
 #pageMain {
 	position: absolute; 
 	height: 92%; 
-	width: 99%; 
-	bottom: 5px; 
-	left: 5px; 
+	width: 99%;
 	background-color: #333333; 
 }
 #infotl { 
