@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 12 Septembre 2016 à 10:08
+-- Généré le :  Lun 26 Septembre 2016 à 15:20
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -760,8 +760,31 @@ CREATE TABLE IF NOT EXISTS `implant_cim_offset` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `implant_cim_offset`
+--
+
+INSERT INTO `implant_cim_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, 262, -269, 931.5, 0, 0, 2),
+(2, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, 264.5, -278.5, 984.5, 0, 0, 3),
+(3, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, 265.5, -288.5, 999, 0, 0, 4),
+(4, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 267.5, -299.5, 876.5, 0, 0, 5),
+(5, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 271, -307, 881.5, 0, 0, 6),
+(6, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, 270, -320, 1085.5, 0, 0, 7),
+(7, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, 274.5, -327.5, 1003.5, 0, 0, 8),
+(8, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, 276, -338, 1065, 0, 0, 9),
+(9, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2_R.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, -262, 269, 931.5, 0, 0, 2),
+(10, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3_R.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, -264.5, 278.5, 984.5, 0, 0, 3),
+(11, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4_R.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, -265.5, 288.5, 999, 0, 0, 4),
+(12, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5_R.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -267.5, 299.5, 876.5, 0, 0, 5),
+(13, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6_R.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -271, 307, 881.5, 0, 0, 6),
+(14, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7_R.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, -270, 320, 1085.5, 0, 0, 7),
+(15, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8_R.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 327.5, 1003.5, 0, 0, 8),
+(16, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9_R.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, -276, 338, 1065, 0, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -791,8 +814,35 @@ CREATE TABLE IF NOT EXISTS `implant_cim_std_appui` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `implant_cim_std_appui`
+--
+
+INSERT INTO `implant_cim_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 224.5, -224.5, 943, 0, 0, 1),
+(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 226.5, -233.5, 1027.5, 0, 0, 2),
+(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230, -243, 1030, 0, 0, 3),
+(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230.5, -253.5, 1032, 0, 0, 4),
+(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 232, -264, 1034.5, 0, 0, 5),
+(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 235, -272, 1039.5, 0, 0, 6),
+(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 237, -283, 1042, 0, 0, 7),
+(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 240, -292, 1051.5, 0, 0, 8),
+(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, 240.5, -301.5, 1100.5, 0, 0, 9),
+(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, 243.5, -311.5, 1129.5, 0, 0, 10),
+(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -224.5, 224.5, 943, 0, 0, 1),
+(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -226.5, 233.5, 1027.5, 0, 0, 2),
+(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230, 243, 1030, 0, 0, 3),
+(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230.5, 253.5, 1032, 0, 0, 4),
+(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -232, 264, 1034.5, 0, 0, 5),
+(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -235, 272, 1039.5, 0, 0, 6),
+(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -237, 283, 1042, 0, 0, 7),
+(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -240, 292, 1051.5, 0, 0, 8),
+(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, -240.5, 301.5, 1100.5, 0, 0, 9),
+(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, -243.5, 311.5, 1129.5, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -934,8 +984,35 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std_appui` (
   `PtMecaHautYPx` float NOT NULL,
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `implant_ha_std_appui`
+--
+
+INSERT INTO `implant_ha_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 224.5, -224.5, 943, 0, 0, 1),
+(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 226.5, -233.5, 1027.5, 0, 0, 2),
+(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230, -243, 1030, 0, 0, 3),
+(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230.5, -253.5, 1032, 0, 0, 4),
+(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 232, -264, 1034.5, 0, 0, 5),
+(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 235, -272, 1039.5, 0, 0, 6),
+(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 237, -283, 1042, 0, 0, 7),
+(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 240, -292, 1051.5, 0, 0, 8),
+(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, 240.5, -301.5, 1100.5, 0, 0, 9),
+(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, 243.5, -311.5, 1129.5, 0, 0, 10),
+(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -224.5, 224.5, 943, 0, 0, 1),
+(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -226.5, 233.5, 1027.5, 0, 0, 2),
+(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230, 243, 1030, 0, 0, 3),
+(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230.5, 253.5, 1032, 0, 0, 4),
+(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -232, 264, 1034.5, 0, 0, 5),
+(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -235, 272, 1039.5, 0, 0, 6),
+(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -237, 283, 1042, 0, 0, 7),
+(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -240, 292, 1051.5, 0, 0, 8),
+(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, -240.5, 301.5, 1100.5, 0, 0, 9),
+(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, -243.5, 311.5, 1129.5, 0, 0, 10);
 
 -- --------------------------------------------------------
 
