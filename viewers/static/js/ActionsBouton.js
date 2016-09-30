@@ -21,36 +21,37 @@ $(document).ready(function () {
 	var imgTigeGauche = null; // variable de stockage de l'image de la tige
 	var imgCotyleGauche = null; // variable de stockage de l'image du cotyle
 
-	var indexTigeDroit = null;
-	var indexCotyleDroit = null;
-	var indexTigeGauche = null;
-	var indexCotyleGauche = null;
+	var indexTigeDroit = null; // variable de stockage de l'id de la tige droite en cours (écran)
+	var indexCotyleDroit = null; // variable de stockage de l'id du cotyle droit en cours (écran)
+	var indexTigeGauche = null; // variable de stockage de l'id de la tige gauche en cours (écran)
+	var indexCotyleGauche = null; // variable de stockage de l'id du cotyle gauche en cours (écran)
 
-	var maximumTigeDroit= null;
-	var minimumTigeDroit=null;
-	var maximumTigeGauche= null;
-	var minimumTigeGauche=null;
+	var maximumTigeDroit= null; // variable de stockage de l'id max de la tige droite (écran)
+	var minimumTigeDroit=null; // variable de stockage de l'id min de la tige droite (écran)
+	var maximumTigeGauche= null; // variable de stockage de l'id max de la tige gauche (écran)
+	var minimumTigeGauche=null; // variable de stockage de l'id min de la tige gauche (écran)
 
-	var maximumCotyleDroit = null;
-	var maximumCotyleGauche = null;
-	var minimumCotyleDroit = null;
-	var minimumCotyleGauche = null;
+	var maximumCotyleDroit = null; // variable de stockage de l'id max du cotyle droit (écran)
+	var maximumCotyleGauche = null; // variable de stockage de l'id min du cotyle droit (écran)
+	var minimumCotyleDroit = null; // variable de stockage de l'id max du cotyle gauche (écran)
+	var minimumCotyleGauche = null; // variable de stockage de l'id min du cotyle gauche (écran)
 
-	var m_canvasWidth = null;
-	var m_canvasHeight = null;
+	var m_canvasWidth = null; // variable de stockage de la taille (largeur) du canvas de travail
+	var m_canvasHeight = null; // variable de stockage de la taille (hauteur) du canvas de travail
 
-	var tableImplant = null;
-	var tableCotyle = null;
+	var tableImplant = null; // variable de stockage du nom de la table implant (tige) utile
+	var tableCotyle = null; // variable de stockage du nom de la table cotyle utile
 
-	var firstSideChangedTige = true;
-	var firstSideChangedCotyle = true;
+	var firstSideChangedTige = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur la tige
+	var firstSideChangedCotyle = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur le cotyle
 
 
-	sessionStorage.setItem("boolNom",false);
-	sessionStorage.setItem("boolPrenom",false);
-	sessionStorage.setItem("boolCoteOperation",false);
-	sessionStorage.setItem("boolTypeOperation",false);
+	sessionStorage.setItem("boolNom",false); // ce stockage permet de savoir si le champs "Nom" est rempli pour gérer l'affichage du bouton "valider patient"
+	sessionStorage.setItem("boolPrenom",false); // ce stockage permet de savoir si le champs "Prénom" est rempli pour gérer l'affichage du bouton "valider patient"
+	sessionStorage.setItem("boolCoteOperation",false); // ce stockage permet de savoir si le champs "Coté d'opération" est rempli pour gérer l'affichage du bouton "valider patient"
+	sessionStorage.setItem("boolTypeOperation",false); // ce stockage permet de savoir si le champs "Type d'opération" est rempli pour gérer l'affichage du bouton "valider patient"
 
+	/* Change la couleur du fond */
 	var couleurGris = document.getElementById("couleurGris");
 	couleurGris.addEventListener('click', function() {
 		function CouleurGris(){
@@ -60,6 +61,7 @@ $(document).ready(function () {
 		CouleurGris()
 	},false);
 
+	/* Change la couleur du fond */
 	var couleurGrisClaire = document.getElementById("couleurGrisClaire");
 	couleurGrisClaire.addEventListener('click', function() {
 		function CouleurGrisClaire(){
@@ -69,6 +71,7 @@ $(document).ready(function () {
 		CouleurGrisClaire()
 	},false);
 
+	/* Change la couleur du fond */
 	var couleurNoir = document.getElementById("couleurNoir");
 	couleurNoir.addEventListener('click', function() {
 		function CouleurNoir(){
@@ -78,6 +81,7 @@ $(document).ready(function () {
 		CouleurNoir()
 	},false);
 
+	/* Change la couleur du fond */
 	var couleurBlanc = document.getElementById("couleurBlanc");
 	couleurBlanc.addEventListener('click', function() {
 		function CouleurBlanc(){
@@ -87,6 +91,10 @@ $(document).ready(function () {
 		CouleurBlanc()
 	},false);
 
+	/* 
+	*	Cette fonction assure la gestion de l'affichage de du bouton "Valider patient"
+	*	Elle est appelé à chaque changement du contenu des champs "Nom" "Prénom" "Coté d'opération" "Type d'opération" 
+	*/
 	function ApparitionBoutonValiderPatient() {
 		if (sessionStorage.getItem("boolPrenom")=="true" &&
 			sessionStorage.getItem("boolNom")=="true" &&
@@ -99,6 +107,11 @@ $(document).ready(function () {
 		}
 	}
 
+	/*
+	*	Gère le changement du contenu du champs "Nom"
+	*	Actualise la variable d'état du remplissage du champs
+	*	Appel la fonction de gestion de l'affichage de du bouton "Valider patient"
+	*/
 	var textBoxNom = document.getElementById("nomPatient");
 	textBoxNom.addEventListener('change',function(){
 		if (textBoxNom.value!="") {
@@ -109,6 +122,11 @@ $(document).ready(function () {
 		ApparitionBoutonValiderPatient();
 	});
 
+	/*
+	*	Gère le changement du contenu du champs "Prénom"
+	*	Actualise la variable d'état du remplissage du champs
+	*	Appel la fonction de gestion de l'affichage de du bouton "Valider patient"
+	*/
 	var textBoxPrenom = document.getElementById("prenomPatient");
 	textBoxPrenom.addEventListener('change',function(){
 		if (textBoxPrenom.value!="") {
@@ -119,6 +137,11 @@ $(document).ready(function () {
 		ApparitionBoutonValiderPatient();
 	});
 
+	/*
+	*	Gère le changement du contenu du champs "Type d'opération"
+	*	Actualise la variable d'état du remplissage du champs
+	*	Appel la fonction de gestion de l'affichage de du bouton "Valider patient"
+	*/
 	var listBoxTypeOperation = document.getElementById("typeChirurgie");
 	listBoxTypeOperation.addEventListener('change',function(){
 		if (listBoxTypeOperation.selectedIndex != 0) {
@@ -128,7 +151,12 @@ $(document).ready(function () {
 		}
 		ApparitionBoutonValiderPatient();
 	});
-
+	
+	/*
+	*	Gère le changement du contenu du champs "Coté d'opération"
+	*	Actualise la variable d'état du remplissage du champs
+	*	Appel la fonction de gestion de l'affichage de du bouton "Valider patient"
+	*/
 	var listBoxCoteOperation = document.getElementById("coteChirurgie");
 	listBoxCoteOperation.addEventListener('change',function(){
 		if (listBoxCoteOperation.selectedIndex != 0) {
@@ -139,6 +167,10 @@ $(document).ready(function () {
 		ApparitionBoutonValiderPatient();
 	});
 
+	/*
+	*	Cette fonction assure le calcul de l'offset en X et Y en fonction du coefficient de calibrage 
+	*	Elle assure également leur affichage
+	*/
 	function CalculOffset() {
 		var coefficient = sessionStorage.getItem("coefficient");
 		if (patient.GetCoteOperation()=="Gauche") {
@@ -154,7 +186,12 @@ $(document).ready(function () {
 		}
 	}
 
+	/*
+	*	Cette fonction assure la sélection, la mise en position et l'affichage des tiges
+	*	Elle est appelée a chaque changement de gamme 
+	*/
 	function TigeSelection() {
+		// Sélection de la gamme de la tige et renseignement des ids clé
 		var gammeTige = document.getElementById("gammeTige");
 		var valeurGammeTige = gammeTige.options[gammeTige.selectedIndex].value;
 		if (valeurGammeTige == "implant_hype") {
@@ -338,9 +375,11 @@ $(document).ready(function () {
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 		
-		if (patient.GetOperationGuide()=="Non guider") {
+		
+		if (patient.GetOperationGuide()=="Non guider") { // Traitement du cas ou la chirurgie n'est pas guidée
 			var newTigeGauche=null;
 			var newTigeDroit=null;
+			// Choix des tiges soit en initialisation simple soit avec conservation de la taille si les tiges sont déjà initialiséee
 			if (tigeDroit==null && tigeGauche==null) {
 				newTigeGauche=getTige(tableImplant, indexTigeGauche);
 				newTigeDroit=getTige(tableImplant, indexTigeDroit);
@@ -351,7 +390,6 @@ $(document).ready(function () {
 				indexTigeDroit=parseInt(newTigeDroit.GetID());
 			}
 
-			
 			var newTige=null;
 			var canvasTige=null;
 			imgTigeDroit = new Image;
@@ -426,8 +464,8 @@ $(document).ready(function () {
 			}
 			tigeDroit=newTigeDroit;
 			tigeGauche=newTigeGauche;
-
-		} else {
+		} else { // Traitement du cas ou la chirurgie est guidée
+			// Choix dew tiges soit en initialisation simple soit avec conservation de la taille si les tiges sont déjà initialisées
 			if (tigeDroit==null && tigeGauche==null) {
 				tigeDroit = getTige(tableImplant, indexTigeDroit);
 				tigeGauche = getTige(tableImplant, indexTigeGauche);
@@ -566,8 +604,7 @@ $(document).ready(function () {
 			}
 		}
 
-		if(firstSideChangedTige==false)
-		{
+		if(firstSideChangedTige==false) { //Cette condition permet d'effectuer la mise à jour de l'affichage de la seconde tige si l'utilisateur a fait un changement de coté
 			if (patient.GetCoteOperation()=="Droit") {
 				canvasTige=document.getElementById("canvasTigeDroit");
 				canvasTige.width=m_canvasWidth;
@@ -607,7 +644,7 @@ $(document).ready(function () {
 				imgTigeGauche.src=tigeGauche.GetUrl();
 			}
 		}
-
+		// Mise a jour de l'affichage de la taille de la tige en fonction du nombre de hanche sur la radio et puis du coté actif
 		if (document.getElementById("RadioOuiHanche").checked) {
 			if (patient.GetCoteOperation()=="Gauche") {
 				var tailleTige = tigeDroit.GetNom().split("-");
@@ -627,8 +664,12 @@ $(document).ready(function () {
 			}
 		}
 	}
-
+	/*
+	*	Cette fonction assure la sélection, la mise en position et l'affichage des cotyle
+	*	Elle est appelée a chaque changement de gamme 
+	*/
 	function CotyleSelection() {
+		// Sélection de la gamme de la tige et renseignement des ids clé
 		var gammeCotyle = document.getElementById("gammeCotyle");
 		var valeurGammeCotyle = gammeCotyle.options[gammeCotyle.selectedIndex].value;
 		if (valeurGammeCotyle == "cotyle_hype") {
@@ -688,9 +729,10 @@ $(document).ready(function () {
 		}
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
-		if (patient.GetOperationGuide()=="Non guider") {
+		if (patient.GetOperationGuide()=="Non guider") { // Traitement du cas ou la chirurgie n'est pas guidée
 			var newCotyleGauche = null;
 			var newCotyleDroit = null;
+			// Choix des cotyles soit en initialisation simple soit avec conservation de la taille si les cotyles sont déjà initialisés
 			if (cotyleDroit==null && cotyleGauche==null) {
 				newCotyleGauche=getCotyle(tableCotyle, indexCotyleGauche);
 				newCotyleDroit=getCotyle(tableCotyle, indexCotyleDroit);
@@ -768,8 +810,8 @@ $(document).ready(function () {
 			}
 			cotyleDroit=newCotyleDroit;
 			cotyleGauche=newCotyleGauche;
-		} else {
-			// récupération tige et cotyle
+		} else { // Traitement du cas ou la chirurgie est guidée
+			// Choix des cotyles soit en initialisation simple soit avec conservation de la taille si les cotyles sont déjà initialisés
 			if (cotyleDroit==null && cotyleGauche==null) {
 				cotyleGauche=getCotyle(tableCotyle, indexCotyleGauche);
 				cotyleDroit=getCotyle(tableCotyle, indexCotyleDroit);
@@ -887,7 +929,7 @@ $(document).ready(function () {
 			}
 		}
 		
-		if (firstSideChangedCotyle==false) {
+		if (firstSideChangedCotyle==false) { //Cette condition permet d'effectuer la mise à jour de l'affichage du second cotyle si l'utilisateur a fait un changement de coté
 			if (patient.GetCoteOperation()=="Droit") {
 				canvasCotyle=document.getElementById("canvasCotyleDroit");
 				canvasCotyle.width=m_canvasWidth;
@@ -927,6 +969,7 @@ $(document).ready(function () {
 				imgCotyleGauche.src=cotyleGauche.GetUrl();
 			}
 		}
+		// Mise a jour de l'affichage de la taille de la tige en fonction du nombre de hanche sur la radio et puis du coté actif
 		if (document.getElementById("RadioOuiHanche").checked) {
 			if (patient.GetCoteOperation()=="Gauche") {
 				var tailleCotyle = cotyleDroit.GetNom().split("-");
@@ -1004,8 +1047,8 @@ $(document).ready(function () {
 										document.getElementById("coteTige").value="Droit";
 										document.getElementById("coteCotyle").value="Droit";
 									}
-
 									if (patient.GetOperationGuide()=="Non guider") {
+										// Gestion de l'affichage des boutons en cas de chirurgie non guidée et appel des fonctions de sélection de tiges et cotyles
 										document.getElementById("deplacerCotyle").style.display="none";
 										document.getElementById("labelOffsetTigeCotyle").style.display="none";
 										document.getElementById("labelHauteurTigeCotyle").style.display="none";
@@ -1021,6 +1064,7 @@ $(document).ready(function () {
 										TigeSelection();
 										CotyleSelection();
 									} else {
+										// Gestion de l'affichage des boutons en cas de chirurgie guidée
 										document.getElementById("deplacerCotyle").style.display="";
 										document.getElementById("labelOffsetTigeCotyle").style.display="";
 										document.getElementById("labelHauteurTigeCotyle").style.display="";
@@ -1064,6 +1108,9 @@ $(document).ready(function () {
 			ValiderPatient()
 		},false);
 
+	/*
+	*	Active le tracé du trapèze sur le click du bouton
+	*/
 	var buttonDessinTrapeze = document.getElementById("buttonDessinTrapeze");
 	buttonDessinTrapeze.addEventListener('click', 
 		function() {
@@ -1076,6 +1123,9 @@ $(document).ready(function () {
 			DessinTrapeze()
 	}, false);
 
+	/*
+	*	Active le tracé du rapporteur sur le click du bouton
+	*/
 	var buttonDessinRapporteur = document.getElementById("buttonDessinRapporteur");
 	buttonDessinRapporteur.addEventListener('click', 
 		function() {
@@ -1086,6 +1136,9 @@ $(document).ready(function () {
 			DessinRapporteur()
 	}, false);
 
+	/*
+	*	Active le tracé de la règle sur le click du bouton
+	*/
 	var buttonDessinRegle = document.getElementById("buttonDessinRegle");
 	buttonDessinRegle.addEventListener('click', 
 		function() {
@@ -1096,6 +1149,9 @@ $(document).ready(function () {
 			DessinRegle()
 	}, false);
 
+	/*
+	*	Active le tracé du cercle sur le click du bouton
+	*/
 	var buttonDessinCercle = document.getElementById("buttonDessinCercle");
 	buttonDessinCercle.addEventListener('click', 
 		function() {
@@ -1108,24 +1164,29 @@ $(document).ready(function () {
 			DessinCercle()
 	}, false);
 
+	/*
+	*	Active le tracé de l'outil de mesure du petit troch sur le click du bouton
+	*/
 	var buttonDessinPetitTroch = document.getElementById("buttonDessinPetitTroch");
 	buttonDessinPetitTroch.addEventListener('click', 
 		function() {
 			function DessinMesurePetitTroch(){
-				//if(sessionStorage.getItem("nbCercle")===null){
-				//	sessionStorage.setItem("nbCercle", 1);
-				//}
 				DrawShape("Mesurepetittroch");
 			};
 			DessinMesurePetitTroch()
 	}, false);
 
+	/*
+	*	Cette fonction intervient au click sur le bouton "Valider Dessin"
+	*	Elle effectue les tests pour savoir si l'utilisateur a bien effectué les dessins et si ils sont du bon coté dans le cas ou la radio a les deux hanches
+	* 	Elle affiche des messages d'erreurs si les les tests ne sont pas valide
+	*	Si tout les tests sont OK, elle l'onglet implant, bloque les boutons de dessin et appel les fonctions de sélection de tiges et cotyles
+	*/
 	var buttonValideOutilsDessin = document.getElementById("buttonValideOutilsDessin");
 	buttonValideOutilsDessin.addEventListener('click', 
 		function() {
 			function ValiderDessin(){
 				var onPeutValider = false;
-
 				if (document.getElementById("RadioOuiHanche").checked) {
 					if (sessionStorage.getItem("cerclePosition")===null||sessionStorage.getItem("trapezePosition")===null) {
 						swal("Veuillez tracer un cercle et un trapèze sur la hanche du patient");
@@ -1188,6 +1249,10 @@ $(document).ready(function () {
 			ValiderDessin()
 	}, false);
 
+	/*
+	*	Gère l'affichage des sous gammes des tige en cas de changement de gamme
+	*	Appel la fonction de choix des tiges en cas de changement de gamme
+	*/
 	var gammeTige = document.getElementById("gammeTige");
 	gammeTige.addEventListener('change',function(){
 		if (gammeTige.options[gammeTige.selectedIndex].value == "implant_hype") {
@@ -1205,6 +1270,11 @@ $(document).ready(function () {
 		}
 		TigeSelection();
 	});
+
+	/*
+	*	Gère l'affichage des sous gammes des cotyles en cas de changement de gamme
+	*	Appel la fonction de choix des cotyles en cas de changement de gamme
+	*/
 	var gammeCotyle = document.getElementById("gammeCotyle");
 	gammeCotyle.addEventListener('change',function(){
 		if (gammeCotyle.options[gammeCotyle.selectedIndex].value == "cotyle_hype") {
@@ -1214,22 +1284,46 @@ $(document).ready(function () {
 		}
 		CotyleSelection();
 	});
+
+	/*
+	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
+	*/
 	var gammeTigeHype = document.getElementById("gammeTigeHype");
 	gammeTigeHype.addEventListener('change',function(){
 		TigeSelection();
 	});
+
+	/*
+	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
+	*/
 	var gammeTigeLibra = document.getElementById("gammeTigeLibra");
 	gammeTigeLibra.addEventListener('change',function(){
 		TigeSelection();
 	});
+
+	/*
+	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
+	*/
 	var gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
 	gammeTigeSagitta.addEventListener('change',function(){
 		TigeSelection();
 	});
+
+	/*
+	*	Appel la fonction de choix des cotyles en cas de changement de sous gamme
+	*/
 	var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
 	gammeCotyleNovae.addEventListener('change',function(){
 		CotyleSelection();
 	});
+
+	/*
+	*	Gère le changement de coté de la tige
+	*	Actualise l'affichage de la taille de la tige en fonction de coté
+	*	Affiche les boutons appropriés au manipulation en fonction de coté
+	*	Affiche la première tige du coté opposé à la chirurgie si celle-ci n'est pas afficher
+	*	Chacun des affichages et actualisation et effectué en fonction du type de chirurgie
+	*/
 	var coteTige = document.getElementById("coteTige");
 	coteTige.addEventListener('change',function(){
 		if(patient.GetOperationGuide()=="Guider"){
@@ -1391,13 +1485,19 @@ $(document).ready(function () {
 						}
 					imgTigeGauche.src=tigeGauche.GetUrl();
 					}
-					/*
-					*/
 				}
 			}
 		}
 		
 	});
+
+	/*
+	*	Gère le changement de coté du cotyle
+	*	Actualise l'affichage de la taille du cotyle en fonction de coté
+	*	Affiche les boutons appropriés au manipulation en fonction de coté
+	*	Affiche la première cotyle du coté opposé à la chirurgie si celle-ci n'est pas afficher
+	*	Chacun des affichages et actualisation et effectué en fonction du type de chirurgie
+	*/
 	var coteCotyle = document.getElementById("coteCotyle");
 	coteCotyle.addEventListener('change',function(){
 		if(patient.GetOperationGuide()=="Guider"){
@@ -1538,8 +1638,13 @@ $(document).ready(function () {
 		}
 	});
 	
-
-
+	/*
+	*	Gestion du click sur le bouton retour outils de dessin
+	*	Assure le retour de onglet dessin à patient
+	*	Nettoie la mémoire des positions des dessins
+	*	Nettoie la mémoire du nombre de dessins
+	*	Cache les corbeilles
+	*/
 	var buttonRetourOutilsDessin = document.getElementById("buttonRetourOutilsDessin");
 	buttonRetourOutilsDessin.addEventListener('click',
 		function() {
@@ -1574,13 +1679,15 @@ $(document).ready(function () {
 			RetourDessin()
 	}, false);
 
-
+	/*
+	*	Assure l'affichage des tiges lors du changement de taille en fonction du type de chirurgie et de coté
+	*	Met à jour les index tiges
+	*	Met à jour les offset X et Y
+	*/
 	function DrawTige() {
 		var contexteTigeDrawTige=null;
 		var canvasTige = null;
 		var coefficient = sessionStorage.getItem("coefficient");
-		/*var m_canvasWidth=900;
-		var m_canvasHeight=800;*/
 		var coteTige = document.getElementById("coteTige");
 		if (coteTige.options[coteTige.selectedIndex].value == "Gauche") {
 			canvasTige=document.getElementById("canvasTigeDroit");
@@ -1615,7 +1722,6 @@ $(document).ready(function () {
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleTige = tigeDroit.GetNom().split("-");
 						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 					}
 					imgTigeDroit.src=newTigeDroit.GetUrl();
 				} else {
@@ -1636,7 +1742,6 @@ $(document).ready(function () {
 					imgTigeDroit.src=newTigeDroit.GetUrl();
 					var tailleTige = newTigeDroit.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 				}
 			} else {
 				var newTigeDroit = getTige(tableImplant, indexTigeDroit);
@@ -1656,10 +1761,8 @@ $(document).ready(function () {
 				imgTigeDroit.src=newTigeDroit.GetUrl();
 				var tailleTige = newTigeDroit.GetNom().split("-");
 				document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-				//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 			}
 		}
-
 		if (coteTige.options[coteTige.selectedIndex].value == "Droit") {
 			canvasTige=document.getElementById("canvasTigeGauche");
 			canvasTige.width=m_canvasWidth;
@@ -1686,16 +1789,12 @@ $(document).ready(function () {
 						contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -newTigeGauche.GetImageLargeur() / 2, -newTigeGauche.GetImageHauteur() / 2, newTigeGauche.GetImageLargeur(), newTigeGauche.GetImageHauteur());
 						contexteTigeDrawTige.restore();
 						tigeGauche=newTigeGauche;
-						//var offset = Math.sqrt(Math.pow((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x),2)+Math.pow((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y),2))*coefficient;
 						var offset = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x-tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 						var hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y-tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 						document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleTige = tigeGauche.GetNom().split("-");
 						document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-						//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
-
-
 					}
 					imgTigeGauche.src=newTigeGauche.GetUrl();
 				} else {
@@ -1716,7 +1815,6 @@ $(document).ready(function () {
 					imgTigeGauche.src=newTigeGauche.GetUrl();
 					var tailleTige = newTigeGauche.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 			}
 
 		}	else {
@@ -1737,16 +1835,18 @@ $(document).ready(function () {
 				imgTigeGauche.src=newTigeGauche.GetUrl();
 				var tailleTige = newTigeGauche.GetNom().split("-");
 				document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
-				//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 			}
 		}
 	}
 
+	/*
+	*	Assure l'affichage des cotyles lors du changement de taille en fonction du type de chirurgie et de coté
+	*	Met à jour les index cotyles
+	*	Met à jour les offset X et Y
+	*/
 	function DrawCotyle() {
 		var contexteCotyleDrawCotyle=null;
 		var canvasCotyle = null;
-		/*var m_canvasWidth=900;
-		var m_canvasHeight=800;*/
 		var coefficient = sessionStorage.getItem("coefficient");
 		var coteCotyle = document.getElementById("coteCotyle");
 		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
@@ -1776,7 +1876,6 @@ $(document).ready(function () {
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleCotyle = cotyleDroit.GetNom().split("-");
 						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 					}
 					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 				} else {
@@ -1797,7 +1896,6 @@ $(document).ready(function () {
 					imgCotyleDroit.src=newCotyleDroit.GetUrl();
 					var tailleCotyle = newCotyleDroit.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				}
 			} else {
 				var newCotyleDroit = getCotyle(tableCotyle, indexCotyleDroit);
@@ -1817,7 +1915,6 @@ $(document).ready(function () {
 				imgCotyleDroit.src=newCotyleDroit.GetUrl();
 				var tailleCotyle = newCotyleDroit.GetNom().split("-");
 				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-				//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 			}
 		}
 		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
@@ -1847,7 +1944,6 @@ $(document).ready(function () {
 						document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 						var tailleCotyle = cotyleGauche.GetNom().split("-");
 						document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-						//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 					}
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 				} else {
@@ -1868,7 +1964,6 @@ $(document).ready(function () {
 					imgCotyleGauche.src=newCotyleGauche.GetUrl();
 					var tailleCotyle = newCotyleGauche.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				}
 			} else {
 				var newCotyleGauche = getCotyle(tableCotyle, indexCotyleGauche);
@@ -1888,11 +1983,14 @@ $(document).ready(function () {
 				imgCotyleGauche.src=newCotyleGauche.GetUrl();
 				var tailleCotyle = newCotyleGauche.GetNom().split("-");
 				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-				//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 			}
 		}
 	}
 
+	/*
+	*	Gère l'augmentation de la taille de la tige en fonction du coté
+	*	Appel la fonction de mise à jour de l'affichage
+	*/
 	var buttonPlusTige = document.getElementById("buttonPlusTige");
 	buttonPlusTige.addEventListener('click',
 		function() {
@@ -1911,12 +2009,15 @@ $(document).ready(function () {
 						indexTigeGauche++;
 					}
 				}
-
 				DrawTige();
 			};
 			PlusTailleTige()
 	}, false);
 
+	/*
+	*	Gère la diminution de la taille de la tige en fonction du coté
+	*	Appel la fonction de mise à jour de l'affichage
+	*/
 	var buttonMoinsTige = document.getElementById("buttonMoinsTige");
 	buttonMoinsTige.addEventListener('click',
 		function() {
@@ -1940,6 +2041,10 @@ $(document).ready(function () {
 			MoinsTailleTige()
 	}, false);
 
+	/*
+	*	Gère l'augmentation de la taille du cotyle en fonction du coté
+	*	Appel la fonction de mise à jour de l'affichage
+	*/
 	var buttonPlusCotyle = document.getElementById("buttonPlusCotyle");
 	buttonPlusCotyle.addEventListener('click',
 		function() {
@@ -1963,6 +2068,10 @@ $(document).ready(function () {
 			PlusTailleCotyle()
 	}, false);
 
+	/*
+	*	Gère la diminution de la taille du cotyle en fonction du coté
+	*	Appel la fonction de mise à jour de l'affichage
+	*/
 	var buttonMoinsCotyle = document.getElementById("buttonMoinsCotyle");
 	buttonMoinsCotyle.addEventListener('click',
 		function() {
@@ -1987,7 +2096,11 @@ $(document).ready(function () {
 	}, false);
 
 
-
+	/*
+	*	Monte la tige suivant son axe mécanique vertical en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonMonterTige = document.getElementById("buttonMonterTige");
 	buttonMonterTige.addEventListener('click',
 		function() {
@@ -2037,13 +2150,16 @@ $(document).ready(function () {
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
-					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			MonterTige()
 	}, false);
 
+	/*
+	*	Descend la tige suivant son axe mécanique vertical en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonDescendreTige = document.getElementById("buttonDescendreTige");
 	buttonDescendreTige.addEventListener('click',
 		function() {
@@ -2100,8 +2216,11 @@ $(document).ready(function () {
 			DescendreTige()
 	}, false);
 
-
-
+	/*
+	*	Monte le cotyle suivant son axe mécanique en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonMonterCotyle = document.getElementById("buttonMonterCotyle");
 	buttonMonterCotyle.addEventListener('click',
 		function() {
@@ -2154,6 +2273,11 @@ $(document).ready(function () {
 			MonterCotyle()
 	}, false);
 
+	/*
+	*	Descend le cotyle suivant son axe mécanique en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonDescendreCotyle = document.getElementById("buttonDescendreCotyle");
 	buttonDescendreCotyle.addEventListener('click',
 		function() {
@@ -2206,6 +2330,11 @@ $(document).ready(function () {
 			DescendreCotyle()
 	}, false);
 
+	/*
+	*	Oriente dans le sens horaire le cotyle suivant son centre de rotation en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/		
 	var buttonTournerHautCotyle = document.getElementById("buttonTournerHautCotyle");
 	buttonTournerHautCotyle.addEventListener('click', 
 		function() {
@@ -2244,6 +2373,11 @@ $(document).ready(function () {
 			TournerHautCotyle()
 	}, false);
 
+	/*
+	*	Oriente dans le sens anti-horaire le cotyle suivant son centre de rotation en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/	
 	var buttonTournerBasCotyle = document.getElementById("buttonTournerBasCotyle");
 	buttonTournerBasCotyle.addEventListener('click', 
 		function() {
@@ -2282,6 +2416,11 @@ $(document).ready(function () {
 			TournerBasCotyle()
 	}, false);
 
+	/*
+	*	Utilisé en non guidé
+	*	Oriente dans le sens horaire le cotyle suivant son centre de rotation en fonction du coté 
+	*	Effectue la mise à jour de l'affichage
+	*/	
 	var buttonTournerHautCotyleNG = document.getElementById("buttonTournerHautCotyleNG");
 	buttonTournerHautCotyleNG.addEventListener('click', 
 		function() {
@@ -2303,8 +2442,6 @@ $(document).ready(function () {
 
 				} else {
 					var canvasCotyle = document.getElementById("canvasCotyleGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
@@ -2321,6 +2458,11 @@ $(document).ready(function () {
 			TournerHautCotyleNG()
 	}, false);
 
+	/*
+	*	Utilisé en non guidé
+	*	Oriente dans le sens anti-horaire le cotyle suivant son centre de rotation en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*/	
 	var buttonTournerBasCotyleNG = document.getElementById("buttonTournerBasCotyleNG");
 	buttonTournerBasCotyleNG.addEventListener('click', 
 		function() {
@@ -2342,8 +2484,6 @@ $(document).ready(function () {
 
 				} else {
 					var canvasCotyle = document.getElementById("canvasCotyleGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
@@ -2360,6 +2500,11 @@ $(document).ready(function () {
 			TournerBasCotyleNG()
 	}, false);
 
+	/*
+	*	Supprime les tiges et cotyles des canvas
+	*	Si la chirurgie est guidé elle déploie l'onglet dessin
+	*	Si la chirurgie n'est pas guidé elle déploie l'onglet patient, vide la mémoire des dessins et du nombre de dessin, cache les corbeille, bascule la radio en mode zoom
+	*/
 	var buttonRetourImplant = document.getElementById("buttonRetourImplant");
 	buttonRetourImplant.addEventListener('click', 
 		function() {
@@ -2434,6 +2579,10 @@ $(document).ready(function () {
 			RetourImplant()
 	}, false);
 
+	/*
+	*	Génére le PDF résultat
+	*	Les image du PDF sont dataUrl
+	*/
 	var buttonValideImplant = document.getElementById("buttonValideImplant");
 	buttonValideImplant.addEventListener('click', 
 		function() {
@@ -2511,6 +2660,9 @@ $(document).ready(function () {
 			ValiderImplant()
 	}, false);
 	
+	/*
+	*	Active le zoom
+	*/
 	var buttonZoom = document.getElementById("buttonZoom");
 	buttonZoom.addEventListener('click', 
 		function() {
@@ -2520,6 +2672,9 @@ $(document).ready(function () {
 			Zoom()
 	}, false);
 
+	/*
+	*	Active le seuillage
+	*/
 	var buttonSeuil = document.getElementById("buttonSeuil");
 	buttonSeuil.addEventListener('click', 
 		function() {
@@ -2529,6 +2684,9 @@ $(document).ready(function () {
 			Seuil()
 	}, false);
 
+	/*
+	*	Active le déplacement manuel de la tige du coté sélectionné
+	*/
 	var buttonDeplacerTige = document.getElementById("buttonDeplacerTige");
 	buttonDeplacerTige.addEventListener('click', 
 		function() {
@@ -2583,6 +2741,9 @@ $(document).ready(function () {
 			DeplacerTige()
 	}, false);
 
+	/*
+	*	Active le déplacement manuel du cotyle du coté sélectionné
+	*/
 	var buttonDeplacerCotyle = document.getElementById("buttonDeplacerCotyle");
 	buttonDeplacerCotyle.addEventListener('click', 
 		function() {
@@ -2638,6 +2799,11 @@ $(document).ready(function () {
 			DeplacerCotyle()
 	}, false);
 
+	/*
+	*	Utilisé en non guidé
+	*	Oriente dans le sens horaire la tige suivant son centre de rotation en fonction du coté 
+	*	Effectue la mise à jour de l'affichage
+	*/
 	var buttonTournerHautTige = document.getElementById("buttonTournerHautTige");
 	buttonTournerHautTige.addEventListener('click', 
 		function() {
@@ -2659,8 +2825,6 @@ $(document).ready(function () {
 
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -2677,6 +2841,11 @@ $(document).ready(function () {
 			TournerHautTige()
 	}, false);
 
+	/*
+	*	Utilisé en non guidé
+	*	Oriente dans le sens anti-horaire la tige suivant son centre de rotation en fonction du coté 
+	*	Effectue la mise à jour de l'affichage
+	*/
 	var buttonTournerBasTige = document.getElementById("buttonTournerBasTige");
 	buttonTournerBasTige.addEventListener('click', 
 		function() {
@@ -2698,8 +2867,6 @@ $(document).ready(function () {
 
 				} else {
 					var canvasTige = document.getElementById("canvasTigeGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasTige.width=m_canvasWidth;
 					canvasTige.height=m_canvasHeight;
 					canvasTige.style.zIndex = "26";
@@ -2716,6 +2883,11 @@ $(document).ready(function () {
 			TournerBasTige()
 	}, false);
 
+	/*
+	*	Déplace la tige a droite (écran) en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/	
 	var buttonDroitTige = document.getElementById("buttonDroitTige");
 	buttonDroitTige.addEventListener('click',
 		function() {
@@ -2772,6 +2944,11 @@ $(document).ready(function () {
 			DeplacementDroitTige()
 	}, false);
 
+	/*
+	*	Déplace la tige a gauche (écran) en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/	
 	var buttonGaucheTige = document.getElementById("buttonGaucheTige");
 	buttonGaucheTige.addEventListener('click',
 		function() {
@@ -2821,13 +2998,16 @@ $(document).ready(function () {
 					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 					document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 					document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
-
-					//UpTige(canvasTige, tigeGauche);
 				}
 			};
 			DeplacementGaucheTige()
 	}, false);
 
+	/*
+	*	Déplace le cotyle a gauche (écran) en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/	
 	var buttonGaucheCotyle = document.getElementById("buttonGaucheCotyle");
 	buttonGaucheCotyle.addEventListener('click',
 		function() {
@@ -2876,6 +3056,11 @@ $(document).ready(function () {
 			DeplacementGaucheCotyle()
 	}, false);
 
+	/*
+	*	Déplace le cotyle a droite (écran) en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonDroitCotyle = document.getElementById("buttonDroitCotyle");
 	buttonDroitCotyle.addEventListener('click',
 		function() {
@@ -2924,6 +3109,11 @@ $(document).ready(function () {
 			DeplacementDroitCotyle()
 	}, false);
 
+	/*
+	*	Déplace la tige en haut (écran) en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonHautTige = document.getElementById("buttonHautTige");
 	buttonHautTige.addEventListener('click',
 		function() {
@@ -2980,6 +3170,11 @@ $(document).ready(function () {
 			DeplacementHautTige()
 	}, false);
 
+	/*
+	*	Déplace la tige en bas (écran) en fonction du coté
+	*	Effectue la mise à jour de l'affichage
+	*	Effectue la mise à jour de l'offset en X et Y
+	*/
 	var buttonBasTige = document.getElementById("buttonBasTige");
 	buttonBasTige.addEventListener('click',
 		function() {
