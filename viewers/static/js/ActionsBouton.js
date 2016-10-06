@@ -66,7 +66,7 @@ $(document).ready(function () {
 	couleurGrisClaire.addEventListener('click', function() {
 		function CouleurGrisClaire(){
 			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = '#717171';
+			div.style.backgroundColor = '#ecf0f5';
 		};
 		CouleurGrisClaire()
 	},false);
