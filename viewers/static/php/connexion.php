@@ -1,6 +1,6 @@
 <?php
 	// On se connecte à la BDD
-	$dbhost="localhost";
+	$dbhost="127.0.0.1:3306";
 	$dbuser="root";
 	$dbpass="";
 
