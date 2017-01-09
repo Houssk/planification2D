@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bb754fa-f5e1-4b21-802c-1bf9c749ea6e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/viewers/static/images/infoCalibrage.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/css/jquery.qtip.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/css/jquery.qtip.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/js/jquery.qtip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/js/jquery.qtip.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/windowLevel.js" afterPath="$PROJECT_DIR$/src/tools/windowLevel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewers/static/index.html" afterPath="$PROJECT_DIR$/viewers/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" afterPath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" />
     </list>
     <ignored path="planification2D.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,8 +66,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viewers/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="548" column="83" selection-start-line="548" selection-start-column="83" selection-end-line="548" selection-end-column="83" />
+            <state relative-caret-position="714">
+              <caret line="567" column="15" selection-start-line="567" selection-start-column="15" selection-end-line="567" selection-end-column="15" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -449,12 +440,12 @@
       <workItem from="1474278507002" duration="164000" />
       <workItem from="1479397871673" duration="3539000" />
       <workItem from="1479457486500" duration="978000" />
-      <workItem from="1483968840329" duration="3439000" />
+      <workItem from="1483968840329" duration="4042000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10806000" />
+    <option name="totallyTimeSpent" value="11409000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -466,7 +457,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25104168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -950,8 +941,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/viewers/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="548" column="83" selection-start-line="548" selection-start-column="83" selection-end-line="548" selection-end-column="83" />
+        <state relative-caret-position="714">
+          <caret line="567" column="15" selection-start-line="567" selection-start-column="15" selection-end-line="567" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />

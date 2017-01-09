@@ -551,10 +551,20 @@
 	$('#infoAngle').qtip(
 			{
 				content: $('<iframe src="images/infoAngle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+				position: {
+					my: 'bottom left',  // Position my top left...
+					at: 'right top', // at the bottom right of...
+					target: $('#infoAngle') // my target
+				}
 			});
 	$('#infoRegle').qtip(
 			{
 				content: $('<iframe src="images/infoRegle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+				position: {
+					my: 'bottom left',  // Position my top left...
+					at: 'right top', // at the bottom right of...
+					target: $('#infoRegle') // my target
+				}
 			});
 
 	$(document).ready(function(){
