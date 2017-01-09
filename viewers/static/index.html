@@ -578,14 +578,24 @@
 					{
 						content: $('<iframe src="images/infoCalibrage.gif" ' + ' height="256" width="320" frameborder="0"></iframe>'),
 					});
-			$('#infoAngle').qtip(
-					{
-						content: $('<iframe src="images/infoAngle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
-					});
-			$('#infoRegle').qtip(
-					{
-						content: $('<iframe src="images/infoRegle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
-					});
+            $('#infoAngle').qtip(
+                    {
+                        content: $('<iframe src="images/infoAngle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+                        position: {
+                            my: 'bottom left',  // Position my top left...
+                            at: 'right top', // at the bottom right of...
+                            target: $('#infoAngle') // my target
+                        }
+                    });
+            $('#infoRegle').qtip(
+                    {
+                        content: $('<iframe src="images/infoRegle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+                        position: {
+                            my: 'bottom left',  // Position my top left...
+                            at: 'right top', // at the bottom right of...
+                            target: $('#infoRegle') // my target
+                        }
+                    });
 
 			$(document).ready(function(){
 				$( "#infoTrapeze" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
