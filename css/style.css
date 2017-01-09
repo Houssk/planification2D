@@ -148,8 +148,36 @@ table.tagList td {
     top: 0px;
     left: 0px;
 }
-
+#ex1Slider .slider-selection {
+    background: #f47d30;
+}
+#ex2Slider .slider-selection {
+    background: #f47d30;
+}
+#ex3Slider .slider-selection {
+    background: #f47d30;
+}
 /*.red
 {
     background: #181617;
 }*/
+
+.slider-handle {
+    background-image: linear-gradient(to bottom, #333 0%, #333 100%) !important;
+
+}
+.qtip { max-width: none !important;
+    background-color: #f47d30 !important;
+    border-color: #f47d30 !important;
+}
+.qtip-content {
+    padding: 0px 0px !important;
+}
+.btn-danger {
+    background-color: #ff0000 !important;
+    border-color: #f5eced !important;
+}
+#infoCalibrage {
+margin-left: -3px;
+margin-top: -1px;
+}

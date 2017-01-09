@@ -1458,7 +1458,7 @@ dwv.App = function ()
         }
 
         /**
-         *  Récupération de la taille de la bille en mm via un pop-up
+         *  Rï¿½cupï¿½ration de la taille de la bille en mm via un pop-up
          *  @param taille_bille_mm  taille de la bille en mm
          *  @author  Houssam KARRACH
          **/

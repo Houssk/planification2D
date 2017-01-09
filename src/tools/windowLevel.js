@@ -9,6 +9,35 @@ dwv.tool = dwv.tool || {};
  */
 dwv.tool.WindowLevel = function(app)
 {
+
+    var buttonContrast = document.getElementById("buttonContrast");
+    buttonContrast.addEventListener('click',
+        function() {
+            app.getViewController().setWindowLevel(127.5,app.getViewController().getWindowLevel().width);
+            sliderContrast.setValue(127.5);
+        }, false);
+
+    var buttonLuminosite = document.getElementById("buttonLuminosite");
+    buttonLuminosite.addEventListener('click',
+        function() {
+            app.getViewController().setWindowLevel(app.getViewController().getWindowLevel().center,255);
+            sliderLuminosite.setValue(255);
+        }, false);
+
+    var sliderContrast = new Slider('#ex1',{
+        tooltip : 'hide'
+    })
+        .on('slide',function (value) {
+                app.getViewController().setWindowLevel(value,app.getViewController().getWindowLevel().width);
+        }
+    );
+    var sliderLuminosite = new Slider('#ex2',{
+        tooltip :'hide'
+    })
+        .on('slide',function (value) {
+                app.getViewController().setWindowLevel(app.getViewController().getWindowLevel().center,value);
+            }
+        );
     /**
      * Closure to self: to be used by event handlers.
      * @private
@@ -44,6 +73,7 @@ dwv.tool.WindowLevel = function(app)
      * Handle mouse move event.
      * @param {Object} event The mouse move event.
      */
+
     this.mousemove = function(event){
         // check start flag
         if( !self.started ) {
@@ -55,12 +85,15 @@ dwv.tool.WindowLevel = function(app)
         // calculate new window level
         var windowCenter = parseInt(app.getViewController().getWindowLevel().center, 10) + diffY;
         var windowWidth = parseInt(app.getViewController().getWindowLevel().width, 10) + diffX;
+        console.log("windowCenter","windowWidth",windowCenter,windowWidth)
         // update GUI
         app.getViewController().setWindowLevel(windowCenter,windowWidth);
         // store position
         self.x0 = event._x;
         self.y0 = event._y;
+
     };
+
 
     /**
      * Handle mouse up event.

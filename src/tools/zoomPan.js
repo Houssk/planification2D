@@ -14,6 +14,17 @@ dwv.tool.ZoomAndPan = function(app)
      * @private
      * @type Object
      */
+  /*  var imageWidth = parseInt(sessionStorage.getItem('imageHauteur'))/2;
+    var imageHeight= parseInt(sessionStorage.getItem('imageLargeur'))/2;*/
+/*    var sliderZoom = new Slider('#ex3')
+        .on('slide',function (value) {
+            var imageWidth = parseInt(sessionStorage.getItem('imageHauteur'))/2;
+            var imageHeight= parseInt(sessionStorage.getItem('imageLargeur'))/2;
+                console.log(value);
+                console.log("step, event._xs, event._ys",value, imageWidth, imageHeight);
+                app.stepZoom(value, imageWidth,imageHeight);
+            }
+        );*/
     var self = this;
     /**
      * ZoomAndPan GUI.
@@ -187,7 +198,9 @@ dwv.tool.ZoomAndPan = function(app)
     this.mousewheel = function(event){
         // ev.wheelDelta on chrome is 120
         var step = event.wheelDelta / 1200;
+        console.log("step, event._xs, event._ys",step, event._xs, event._ys);
         app.stepZoom(step, event._xs, event._ys);
+
     };
 
     /**
