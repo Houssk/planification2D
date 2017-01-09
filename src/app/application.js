@@ -1484,6 +1484,7 @@ dwv.App = function ()
                 }
                 sessionStorage.setItem("taille_bille_mm",inputValue);
                 toolbox.setSelectedTool("Draw");
+
                 toolboxController.setSelectedShape("Circle");
             });
 
