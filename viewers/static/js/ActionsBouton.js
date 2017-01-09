@@ -1266,7 +1266,7 @@ $(document).ready(function () {
 								if (!isNaN(coeff)) {
 									sessionStorage.setItem("coefficient",coeff);
 									sessionStorage.setItem("calibrage",true);
-									swal("",string);
+									//swal("",string);
 								} else {
 									sessionStorage.setItem("calibrage",false);
 								}
@@ -2479,6 +2479,10 @@ $(document).ready(function () {
 	buttonValideImplant.addEventListener('click', 
 		function() {
 			function ValiderImplant(){
+				var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille_px"));
+				var taille_bille_mm = parseInt(sessionStorage.getItem("taille_bille_mm"));
+				var coeff =  taille_bille_mm / taille_bille_px;
+				var string = "Le coefficient de redimensionnement des implants est : " + coeff;
 				var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 				var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
 				var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
@@ -2557,35 +2561,45 @@ $(document).ready(function () {
 						docPDF.setFontType("normal");
 						docPDF.text(15, 70, "Nom : " + patient.GetNom());
 						docPDF.text(15, 75, "Prénom : " + patient.GetPrenom());
+						docPDF.text(15, 80, string);
 						docPDF.setFontType("bold");
-						docPDF.text(15, 85, "Votre image DICOM d'origine :");
-						docPDF.addImage(dicomImage, 'JPEG', 15, 90, 180, ((180*m_canvasHeight)/m_canvasWidth));
-						docPDF.addPage();
-						docPDF.text(15, 20, "Votre planification :");
+						/*
+						 docPDF.text(15, 20, "Votre image DICOM d'origine :");
+						 docPDF.addImage(dicomImage, 'JPEG', 15, 25, 180, ((180*m_canvasHeight)/m_canvasWidth));
+
+						 docPDF.addPage();*/
+
+						docPDF.text(15, 90, "Votre planification :");
 						docPDF.setFontSize(12);
 						docPDF.setFontType("normal");
+
 						if (patient.GetCoteOperation()=="Gauche") {
 							var tailleTige = tigeDroit.GetNom().split("-");
 							var tailleCotyle = cotyleDroit.GetNom().split("-");
-							docPDF.text(15, 25, "Tige utilisé pour cette planification : Symbol T"+tailleTige.slice(-1)[0]+" "+textCimenteOuPas+" "+textVariseOuPas+" "+textColleretteOuPas);
-							docPDF.text(15, 30, "Cotyle utilisé pour cette planification : Symbol T"+tailleCotyle.slice(-1)[0]+" "+textCimenteOuNe);
+							docPDF.text(15, 95, "Tige utilisé pour cette planification : Symbol T"+tailleTige.slice(-1)[0]+" "+textCimenteOuPas+" "+textVariseOuPas+" "+textColleretteOuPas);
+							docPDF.text(15, 100, "Cotyle utilisé pour cette planification : Symbol T"+tailleCotyle.slice(-1)[0]+" "+textCimenteOuNe);
 						}
 
 						if (patient.GetCoteOperation()=="Droit") {
 							var tailleTige = tigeGauche.GetNom().split("-");
 							var tailleCotyle = cotyleGauche.GetNom().split("-");
-							docPDF.text(15, 25, "Tige utilisé pour cette planification : Symbol T"+tailleTige.slice(-1)[0]+" "+textCimenteOuPas+" "+textVariseOuPas+" "+textColleretteOuPas);
-							docPDF.text(15, 30, "Cotyle utilisé pour cette planification : Symbol T"+tailleCotyle.slice(-1)[0]+" "+textCimenteOuNe);
+							docPDF.text(15, 95, "Tige utilisé pour cette planification : Symbol T"+tailleTige.slice(-1)[0]+" "+textCimenteOuPas+" "+textVariseOuPas+" "+textColleretteOuPas);
+							docPDF.text(15, 100, "Cotyle utilisé pour cette planification : Symbol T"+tailleCotyle.slice(-1)[0]+" "+textCimenteOuNe);
 						}
 						
 						if(patient.GetOperationGuide()=="Guider")
 						{
-							docPDF.text(15, 35, "Offset = "+offset+" mm");
-							docPDF.text(15, 40, "Hauteur = "+hauteur+" mm");
-							docPDF.addImage(divData, 'JPEG', 15, 45, 180, ((180*m_canvasHeight)/m_canvasWidth));
+							docPDF.text(15, 105, "Offset = "+offset+" mm");
+							docPDF.text(15, 110, "Hauteur = "+hauteur+" mm");
+							docPDF.addImage(divData, 'JPEG', 15, 115, 180, ((180*m_canvasHeight)/m_canvasWidth));
 						} else if (patient.GetOperationGuide()=="Non guider") {
-							docPDF.addImage(divData, 'JPEG', 15, 35, 180, ((180*m_canvasHeight)/m_canvasWidth));
+							docPDF.addImage(divData, 'JPEG', 15, 105, 180, ((180*m_canvasHeight)/m_canvasWidth));
 						}
+
+						docPDF.addPage();
+						docPDF.text(15, 20, "Votre image DICOM d'origine :");
+						docPDF.addImage(dicomImage, 'JPEG', 15, 25, 180, ((180*m_canvasHeight)/m_canvasWidth));
+
 						docPDF.save(patient.GetNom()+" "+patient.GetPrenom());
 						
 					},
@@ -2610,14 +2624,14 @@ $(document).ready(function () {
 	/*
 	*	Active le seuillage
 	*/
-	var buttonSeuil = document.getElementById("buttonSeuil");
+/*	var buttonSeuil = document.getElementById("buttonSeuil");
 	buttonSeuil.addEventListener('click', 
 		function() {
 			function Seuil(){
 				SeuilMode();
 			};
 			Seuil()
-	}, false);
+	}, false);*/
 
 	/*
 	*	Active le déplacement manuel de la tige du coté sélectionné
