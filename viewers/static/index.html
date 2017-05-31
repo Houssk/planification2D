@@ -13,14 +13,18 @@
 		<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
 		<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
 		<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css">
+		<link rel="stylesheet" href="../../bootstrap/css/jquery.qtip.min.css">
 
 
 
 		<!-- Third party -->
 		<script type="text/javascript" src="../../ext/jquery/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="../../ext/jquery-ui/jquery-ui-1.11.4.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/bootstrap-slider.js"></script>
 		<script type="text/javascript" src="../../ext/flot/jquery.flot.min.js"></script>
 		<script type="text/javascript" src="../../ext/kinetic/kinetic-v5.1.1-06.10.min.js"></script>
+		<script type="text/javascript" src="../../bootstrap/js/jquery.qtip.min.js"></script>
 		<!-- decoders -->
 		<script type="text/javascript" src="../../ext/pdfjs/jpx.js"></script>
 		<script type="text/javascript" src="../../ext/pdfjs/util.js"></script>
@@ -130,9 +134,9 @@
 						</div>
 						<div class="col-md-6">
 							<select class="form-control" id="typeChirurgie">
-								<option disabled selected>CHIRURGIE</option>
-								<option value="Guider">GUIDEE</option>
-								<option value="Non guider">NON GUIDEE</option>
+								<option disabled selected>PLANIFICATION</option>
+								<option value="Guider">AVANCEE</option>
+								<option value="Non guider">LIBRE</option>
 							</select>
 						</div>
 					</div>
@@ -143,17 +147,31 @@
 					<div id="divNbHanche" style="display: none; margin-top:5%;">
 						<div class="row">
 							<div class="col-md-6 centered">
-								<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="SEUILLAGE" style="width: 110px;">
+								<div class="row">
+									<div class="col-md-7">
+										<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+									</div>
+									<div class="col-md-2 col-md-offset-2">
+										<button id="infoCalibrage" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
+											<span class="glyphicon glyphicon-question-sign" ></span>
+										</button>
+									</div>
+								</div>
 							</div>
+							<!--<div class="col-md-6 centered">
+                                <input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="SEUILLAGE" style="width: 110px;">
+                                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
+                                <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
+                            </div>-->
 							<div class="col-md-6">
 								<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ZOOM" style="width: 110px; float: right;">
 							</div>
 						</div>
-						<div class="row centered" style="margin-top:2%;">
-							<div class="col-md-6 centered">
-								<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
-							</div>
-						</div>
+						<!--<div class="row centered" style="margin-top:2%;">
+                            <div class="col-md-6 centered">
+                                <input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+                            </div>
+                        </div>-->
 
 						<div class="row">
 							<div class="col-md-12 centered">
@@ -176,13 +194,21 @@
 			<!-- OUTILS DESSIN -->
 			<div class="outilsDessin">
 				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
-					<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class="ui-widget ui-state-default ui-corner-all" style="display: none; width: 30px; height: 30px; float: right"></input></p>
+					<button id="infoTrapeze" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
+						<span class="glyphicon glyphicon-question-sign" ></span>
+					</button>
+					<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+				</p>
 				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
-					<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class="ui-widget ui-state-default ui-corner-all" style="display: none; width: 30px; height: 30px; float: right"></input></p>
-
+					<button id="infoPetitTroch" type="button" class="btn btn-danger" aria-label="Left Align">
+						<span class="glyphicon glyphicon-question-sign" ></span>
+					</button>
+					<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
 				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
-					<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class="ui-widget ui-state-default ui-corner-all" style="display: none; width: 30px; height: 30px; float: right"></input></p>
-
+					<button id="infoCercle" type="button" class="btn btn-danger" aria-label="Left Align">
+						<span class="glyphicon glyphicon-question-sign" ></span>
+					</button>
+					<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
 				<div class="row">
 					<div class="col-md-6 centered">
 						<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="width: 110px;">
@@ -403,45 +429,62 @@
 					</div>
 				</div>
 			</div>
-			<h3>OPTIONS DIVERSES</h3>
-			<div class="couleurArrierePlan">
-				<div class="row">
-					<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:#333333;">
-					<input type="button" id="couleurGrisClaire" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#ecf0f5;">
-					<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left ; margin-right: 12px; background-color:black;">
-					<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
-				</div>
-				<div class="row" style="margin: 5% 0%">
-                    <div class="col-md-8">
-                        <input type="button" id="buttonDessinRapporteur" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px; display: none;">
-                    </div>
-                    <div class="col-md-1">
-                        <input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-                    </div>
-                    <div class="col-md-1">
-                        <input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-                    </div>
-                    <div class="col-md-1">
-                        <input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-                    </div>
-                </div>
-                <div class="row" style="margin: 5% 0%">
-                    <div class="col-md-8">
-                        <input type="button" id="buttonDessinRegle" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px; display: none;">
-                    </div>
-                    <div class="col-md-1">
-                        <input id="buttonDeleteRegle1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-                    </div>
-                    <div class="col-md-1">
-                        <input id="buttonDeleteRegle2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-                    </div>
-                    <div class="col-md-1">
-                        <input id="buttonDeleteRegle3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-                    </div>
-                </div>
-				<label id="labelOffsetTigeCotyle" class="blackColor"></label>
-			</div>
 		</div>
+		<div id="accordeon2" style="width: 350px;">
+				<h3>OPTIONS DIVERS</h3>
+				<div class="couleurArrierePlan" >
+					<div class="row" style="margin: 0% 5%">
+						<input type="button" id="couleurGrisClaire" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#ecf0f5;">
+						<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:#333333;">
+						<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left  margin-right: 12px; background-color:black;">
+						<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
+					</div>
+					<div class="row" style="margin: 5% 0%">
+						<div class="col-md-8 centered">
+							<input type="button" id="buttonContrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CONSTRASTE" style="width: 110px;">
+							<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="400" data-slider-step="1" data-slider-value="127.5"/>
+							<input type="button" id="buttonLuminosite" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="LUMINOSITE" style="width: 110px;">
+							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
+						</div>
+					</div>
+					<div class="row" style="margin: 5% 0%">
+						<div class="col-md-8" id="buttonDessinRapporteur" style="display: none;">
+							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px;">
+							<button id="infoAngle" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
+								<span class="glyphicon glyphicon-question-sign" ></span>
+							</button>
+						</div>
+						<div class="col-md-1">
+							<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1">
+							<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1">
+							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div class="row" style="margin: 5% 0%" >
+						<div class="col-md-8" id="buttonDessinRegle" style=" display: none;">
+							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px;">
+							<button id="infoRegle" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
+								<span class="glyphicon glyphicon-question-sign" ></span>
+							</button>
+						</div>
+						<div class="col-md-1">
+							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1">
+							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1">
+							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
+				</div>
+			</div>
+
 
 			<!-- Toolbox -->
 			<div class="toolList" title="Toolbox"></div>
@@ -485,7 +528,53 @@
 	</body>
   <script>
   	$("#accordeon").accordion({heightStyle: 'panel'});
+	$("#accordeon2").accordion({heightStyle: 'panel'});
+	$('#infoTrapeze').qtip(
+			{
+				content: $('<iframe src="images/infoTrapeze.gif" ' + ' height="262" width="320" frameborder="0" ></iframe>'),
+			});
+	$('#infoCercle').qtip(
+			{
+				content: $('<iframe src="images/infoCercle.gif" ' + ' height="260" width="320" frameborder="0" ></iframe>'),
+			/*	hide: {
+				 event: 'unfocus'
+				 }*/
+			});
+	$('#infoPetitTroch').qtip(
+			{
+				content: $('<iframe src="images/infoPetitTroch.gif" ' + ' height="262" width="320" frameborder="0"></iframe>'),
+			});
+	$('#infoCalibrage').qtip(
+			{
+				content: $('<iframe src="images/infoCalibrage.gif" ' + ' height="246" width="320" frameborder="0"></iframe>'),
+			});
+	$('#infoAngle').qtip(
+			{
+				content: $('<iframe src="images/infoAngle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+				position: {
+					my: 'bottom left',  // Position my top left...
+					at: 'right top', // at the bottom right of...
+					target: $('#infoAngle') // my target
+				}
+			});
+	$('#infoRegle').qtip(
+			{
+				content: $('<iframe src="images/infoRegle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+				position: {
+					my: 'bottom left',  // Position my top left...
+					at: 'right top', // at the bottom right of...
+					target: $('#infoRegle') // my target
+				}
+			});
 
+	$(document).ready(function(){
+		$( "#infoTrapeze" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+		$( "#infoCercle" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+		$( "#infoPetitTroch" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+		$( "#infoCalibrage" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+		$( "#infoRegle" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+		$( "#infoAngle" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+	});
        
   </script>
 </html>

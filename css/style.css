@@ -152,3 +152,36 @@ table.tagList td {
 .imagefiles {
   width: 100%;
 }
+#ex1Slider .slider-selection {
+    background: #a54996;
+}
+#ex2Slider .slider-selection {
+    background: #a54996;
+}
+#ex3Slider .slider-selection {
+    background: #a54996;
+}
+.slider-handle {
+    background-image: linear-gradient(to bottom, #333 0%, #333 100%) !important;
+
+}
+
+.qtip-content {
+    padding: 0px 0px !important;
+}
+.btn-danger {
+    background-color: #ff0000 !important;
+    border-color: #f5eced !important;
+}
+#infoCalibrage {
+    margin-left: -3px;
+    margin-top: -1px;
+}
+.qtip {
+
+    max-width: none !important;
+    background-color: #a54996; !important;
+    border-color: #a54996; !important;
+    border : 1px solid #a54996 !important
+
+}
