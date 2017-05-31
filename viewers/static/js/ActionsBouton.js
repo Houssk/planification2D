@@ -515,83 +515,108 @@ $(document).ready(function () {
 		var gammeCimenteOuPas = document.getElementById("gammeCimenteOuPas");
 		var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
 		var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
+		var symbole = document.getElementById("symbol");
+		console.log("symbole",symbole);
 
 		var valeurGammeVariseOuPas = gammeVariseOuPas.options[gammeVariseOuPas.selectedIndex].value;
 		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
 		var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
+		var valeurSymbole = symbole.options[symbole.selectedIndex].value;
+		console.log("valeurSymbole",valeurSymbole);
 
-		if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
 
-			tableTige ="implant_ax_cem_var";
-			
-			indexTigeDroit = 4;
-			maximumTigeDroit =10;
-			minimumTigeDroit = 1;
+		   if(valeurSymbole == "symbol1") {
+			   document.getElementById('disableIf').style.display = '';
+			   if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
 
-			indexTigeGauche = 14;
-			maximumTigeGauche =20;
-			minimumTigeGauche= 11;
-		}
-		else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
+				   tableTige ="implant_ax_cem_var";
 
-			tableTige ="implant_ax_cem_std";
-			
-			indexTigeDroit = 4;
-			maximumTigeDroit =10;
-			minimumTigeDroit = 1;
+				   indexTigeDroit = 4;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
 
-			indexTigeGauche = 14;
-			maximumTigeGauche =20;
-			minimumTigeGauche= 11;
-		}
-		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
-			
-			tableTige ="implant_ax_ha_var_col";
-			
-			indexTigeDroit = 4;
-			maximumTigeDroit =10;
-			minimumTigeDroit = 1;
+				   indexTigeGauche = 14;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+			   }
+			   else if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "standard" ){
 
-			indexTigeGauche = 14;
-			maximumTigeGauche =20;
-			minimumTigeGauche= 11;
-		}
-		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
+				   tableTige ="implant_ax_cem_std";
 
-			tableTige ="implant_ax_ha_var";
-			
-			indexTigeDroit = 4;
-			maximumTigeDroit =10;
-			minimumTigeDroit = 1;
+				   indexTigeDroit = 4;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
 
-			indexTigeGauche = 14;
-			maximumTigeGauche =20;
-			minimumTigeGauche= 11;
-		}
-		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
+				   indexTigeGauche = 14;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+			   }
+			   else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "collerette"){
 
-			tableTige ="implant_ax_ha_std_col";
-			
-			indexTigeDroit = 4;
-			maximumTigeDroit =10;
-			minimumTigeDroit = 1;
+				   tableTige ="implant_ax_ha_var_col";
 
-			indexTigeGauche = 14;
-			maximumTigeGauche =20;
-			minimumTigeGauche= 11;
-		}
-		else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
-			
-			tableTige ="implant_ax_ha_std";
-			
-			indexTigeDroit = 4;
-			maximumTigeDroit =10;
-			minimumTigeDroit = 1;
+				   indexTigeDroit = 4;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
 
-			indexTigeGauche = 14;
-			maximumTigeGauche =20;
-			minimumTigeGauche= 11;
-		}
+				   indexTigeGauche = 14;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+			   }
+			   else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "varise" && valeurGammeColleretteOuPas == "sansCollerette"){
+
+				   tableTige ="implant_ax_ha_var";
+
+				   indexTigeDroit = 4;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
+
+				   indexTigeGauche = 14;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+			   }
+			   else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "collerette"){
+
+				   tableTige ="implant_ax_ha_std_col";
+
+				   indexTigeDroit = 4;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
+
+				   indexTigeGauche = 14;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+			   }
+			   else if(valeurGammeCimenteOuPas=="sansCiment" && valeurGammeVariseOuPas == "standard" && valeurGammeColleretteOuPas == "sansCollerette"){
+
+				   tableTige ="implant_ax_ha_std";
+
+				   indexTigeDroit = 4;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
+
+				   indexTigeGauche = 14;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+			   }
+		   }
+		   else if (valeurSymbole == "symbol2"){
+			   document.getElementById('disableIf').style.display = "none";
+			   console.log("symbol2");
+			   tableTige ="implant_ax_symbole2";
+				   //;
+
+			   indexTigeDroit = 1;
+			   maximumTigeDroit =3;
+			   minimumTigeDroit = 1;
+			   indexTigeGauche = 1;
+			   maximumTigeGauche =3;
+			   minimumTigeGauche= 1;
+			   tigeGauche.SetTaille(5);
+			   tigeDroit.SetTaille(5);
+
+		   }
+
 
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
@@ -904,30 +929,46 @@ $(document).ready(function () {
 	function CotyleSelection() {
 		// Sélection de la gamme de la tige et renseignement des ids clé
 		var gammeCimenteOuNe = document.getElementById("gammeCimenteOuNe");
+		var symbolCotyle = document.getElementById('symbolCotyle');
 		var valeurGammeCimenteOuNe = gammeCimenteOuNe.options[gammeCimenteOuNe.selectedIndex].value;
-		if(valeurGammeCimenteOuNe=="cimente" ) {
+		var symbolValeurCotyle = symbolCotyle.options[symbolCotyle.selectedIndex].value;
+        if(symbolValeurCotyle == 'symbol1'){
+			document.getElementById('disableIfCotyle').style.display ='';
+			if(valeurGammeCimenteOuNe=="cimente" ) {
 
-			tableCotyle = "cotyle_ax_dm_cem";
+				tableCotyle = "cotyle_ax_dm_cem";
+				indexCotyleDroit = 6;
+				maximumCotyleDroit = 13;
+				minimumCotyleDroit = 1;
+				indexCotyleGauche = 19;
+				maximumCotyleGauche = 26;
+				minimumCotyleGauche = 14;
+			}
+			else if (valeurGammeCimenteOuNe=="sansCiment" ) {
 
-			indexCotyleDroit = 6;
-			maximumCotyleDroit = 13;
-			minimumCotyleDroit = 1;
-			indexCotyleGauche = 19;
-			maximumCotyleGauche = 26;
-			minimumCotyleGauche = 14;
+				tableCotyle = "cotyle_ax_sm_ne";
+				indexCotyleDroit = 5;
+				maximumCotyleDroit = 11;
+				minimumCotyleDroit = 1;
+				indexCotyleGauche = 16;
+				maximumCotyleGauche = 22;
+				minimumCotyleGauche = 12;
+			}
 		}
-		else if (valeurGammeCimenteOuNe=="sansCiment" ) {
-
-			tableCotyle = "cotyle_ax_sm_ne";
-
-			indexCotyleDroit = 5;
-			maximumCotyleDroit = 11;
+		else if(symbolValeurCotyle == 'symbol2'){
+			document.getElementById('disableIfCotyle').style.display ='none';
+			cotyleDroit.SetTaille(5);
+			cotyleGauche.SetTaille(5);
+			tableCotyle = "cotyle_ax_symbole2";
+			indexCotyleDroit = 1;
+			maximumCotyleDroit = 3;
 			minimumCotyleDroit = 1;
-			
-			indexCotyleGauche = 16;
-			maximumCotyleGauche = 22;
-			minimumCotyleGauche = 12;
+			indexCotyleGauche = 1;
+			maximumCotyleGauche = 3;
+			minimumCotyleGauche = 1;
+
 		}
+
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 		// Traitement du cas ou la chirurgie n'est pas guidée
@@ -1223,6 +1264,16 @@ $(document).ready(function () {
 		TigeSelection();
 	});
 
+	var symbole = document.getElementById("symbol");
+	symbole.addEventListener("change", function () {
+		TigeSelection();
+	});
+	var symboleCotyle = document.getElementById("symbolCotyle");
+	symboleCotyle.addEventListener("change", function () {
+		CotyleSelection();
+	});
+
+
 	/*
 	*	Gère l'affichage des sous gammes des cotyles en cas de changement de gamme
 	*	Appel la fonction de choix des cotyles en cas de changement de gamme
@@ -1231,6 +1282,7 @@ $(document).ready(function () {
 	gammeCimenteOuNe.addEventListener("change", function () {
 		CotyleSelection();
 	});
+
 
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
 	buttonValideInformationPatient.addEventListener('click', 
