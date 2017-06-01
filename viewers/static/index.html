@@ -224,41 +224,50 @@
 				<div id="actionImplant">
 					<div class="row">
 						<div class="col-md-3"><h4>Tige</h4></div>
-						<div class="col-md-9"><h4 id="labelGammeTige" style="text-align: center;">Symbol</h4></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<select class="form-control" id="gammeCimenteOuPas">
-								<option value="cimente">CIMENTE</option>
-								<option value="sansCiment">SANS CIMENT</option>
-							</select>
-						</div>
-						<div class="col-md-6">
-							<select class="form-control" id="gammeVariseOuPas">
-								<option value="varise">VARISE</option>
-								<option value="standard">STANDARD</option>
-							</select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<select class="form-control" id="gammeColleretteOuPas">
-								<option value="collerette">COLLERETTE</option>
-								<option value="sansCollerette">SANS COLLERETTE</option>
-							</select>
-						</div>
-					</div>
-					<div id="coteTigeDisplay" class="row">
-						<div class="col-md-3">
-							<h5>Côté</h5>
-						</div>
 						<div class="col-md-9">
-							<select id="coteTige" class="form-control">
-								<option value="Gauche">GAUCHE</option>
-								<option value="Droit">DROIT</option>
+							<select class="form-control" id="symbol" style="font-weight: bold;">
+								<option value="symbol1"><h4 id="labelGammeTige" style="text-align: center;">Symbol</h4></option>
+								<option value="symbol2"><h4 id="labelGammeTige2" style="text-align: center;">Symbol2</h4></option>
 							</select>
+
 						</div>
 					</div>
+					<div id="disableIf" style=" ">
+						<div class="row">
+							<div class="col-md-6">
+								<select class="form-control" id="gammeCimenteOuPas">
+									<option value="cimente">CIMENTE</option>
+									<option value="sansCiment">SANS CIMENT</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<select class="form-control" id="gammeVariseOuPas">
+									<option value="varise">VARISE</option>
+									<option value="standard">STANDARD</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<select class="form-control" id="gammeColleretteOuPas">
+									<option value="collerette">COLLERETTE</option>
+									<option value="sansCollerette">SANS COLLERETTE</option>
+								</select>
+							</div>
+						</div>
+						<div id="coteTigeDisplay" class="row">
+							<div class="col-md-3">
+								<h5>Côté</h5>
+							</div>
+							<div class="col-md-9">
+								<select id="coteTige" class="form-control">
+									<option value="Gauche">GAUCHE</option>
+									<option value="Droit">DROIT</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
 					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
 							<h5>Taille</h5>
@@ -326,27 +335,35 @@
 					</div>
 					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3"><h4>Cotyle</h4></div>
-						<div class="col-md-9"><h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<select class="form-control" id="gammeCimenteOuNe">
-								<option value="cimente">CIMENTE</option>
-								<option value="sansCiment">SANS CIMENT</option>
-							</select>
-						</div>
-					</div>
-					<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">
-						<div class="col-md-3">
-							<h5>Côté</h5>
-						</div>
 						<div class="col-md-9">
-							<select id="coteCotyle" class="form-control">
-								<option value="Gauche">GAUCHE</option>
-								<option value="Droit">DROIT</option>
+							<select class="form-control" id="symbolCotyle" style="font-weight: bold;">
+								<option value="symbol1"><h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4></option>
+								<option value="symbol2"><h4 id="labelGammeCotyle2" style="text-align: center;">Symbol2</h4></option>
 							</select>
 						</div>
 					</div>
+					<div id ="disableIfCotyle">
+						<div class="row">
+							<div class="col-md-6">
+								<select class="form-control" id="gammeCimenteOuNe">
+									<option value="cimente">CIMENTE</option>
+									<option value="sansCiment">SANS CIMENT</option>
+								</select>
+							</div>
+						</div>
+						<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">
+							<div class="col-md-3">
+								<h5>Côté</h5>
+							</div>
+							<div class="col-md-9">
+								<select id="coteCotyle" class="form-control">
+									<option value="Gauche">GAUCHE</option>
+									<option value="Droit">DROIT</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
 					<div class="row" style="margin-top: 2%;">
 						<div class="col-md-3">
 							<h5>Taille</h5>

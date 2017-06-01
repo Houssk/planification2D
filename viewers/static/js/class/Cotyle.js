@@ -158,6 +158,9 @@ Cotyle.prototype.GetTaille = function() {
 	return this.m_Taille;
 };
 
+Cotyle.prototype.SetTaille = function(taille) {
+	this.m_Taille = taille;
+};
 /**
 *Cette fonction permet de snaper la cotyle sur le trapèze correspondant
 *
