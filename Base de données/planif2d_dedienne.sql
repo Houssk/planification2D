@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.1.4
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 16 Septembre 2016 à 08:56
--- Version du serveur :  5.7.9
--- Version de PHP :  5.6.16
+-- Généré le :  Jeu 01 Juin 2017 à 09:50
+-- Version du serveur :  5.6.15-log
+-- Version de PHP :  5.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `planif2d_dedienne`
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `cotyles`
 --
 
-DROP TABLE IF EXISTS `cotyles`;
 CREATE TABLE IF NOT EXISTS `cotyles` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(200) NOT NULL,
@@ -38,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `cotyles` (
   `PosCenterX` float NOT NULL,
   `PosCenterY` float NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=91 ;
 
 --
 -- Contenu de la table `cotyles`
@@ -142,7 +141,6 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 -- Structure de la table `cotyle_ax_dm_cem`
 --
 
-DROP TABLE IF EXISTS `cotyle_ax_dm_cem`;
 CREATE TABLE IF NOT EXISTS `cotyle_ax_dm_cem` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(200) NOT NULL,
@@ -155,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_dm_cem` (
   `PosCenterY` float NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
 -- Contenu de la table `cotyle_ax_dm_cem`
@@ -195,7 +193,6 @@ INSERT INTO `cotyle_ax_dm_cem` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, 
 -- Structure de la table `cotyle_ax_sm_ne`
 --
 
-DROP TABLE IF EXISTS `cotyle_ax_sm_ne`;
 CREATE TABLE IF NOT EXISTS `cotyle_ax_sm_ne` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(200) NOT NULL,
@@ -208,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_ax_sm_ne` (
   `PosCenterY` float NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Contenu de la table `cotyle_ax_sm_ne`
@@ -241,10 +238,38 @@ INSERT INTO `cotyle_ax_sm_ne` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cotyle_ax_symbole2`
+--
+
+CREATE TABLE IF NOT EXISTS `cotyle_ax_symbole2` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(255) NOT NULL,
+  `URL` varchar(255) NOT NULL,
+  `SizeXPixel` float NOT NULL,
+  `SizeYPixel` float NOT NULL,
+  `SizeXCm` float NOT NULL,
+  `SizeYCm` float NOT NULL,
+  `PosCenterX` float NOT NULL,
+  `PosCenterY` float NOT NULL,
+  `taille` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `cotyle_ax_symbole2`
+--
+
+INSERT INTO `cotyle_ax_symbole2` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
+(1, '5', 'images/cotyle_symbole2_5.png', 740, 753, 6.27, 6.38, 0, 0, 5),
+(2, '8', 'images/cotyle_symbole2_8.png', 704, 752, 5.96, 6.37, 0, 0, 8),
+(3, '10', 'images/cotyle_symbole2_10.png', 738, 748, 6.25, 6.33, 0, 0, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `implant`
 --
 
-DROP TABLE IF EXISTS `implant`;
 CREATE TABLE IF NOT EXISTS `implant` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -267,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=145 ;
 
 --
 -- Contenu de la table `implant`
@@ -425,7 +450,6 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 -- Structure de la table `implant_ax_cem_std`
 --
 
-DROP TABLE IF EXISTS `implant_ax_cem_std`;
 CREATE TABLE IF NOT EXISTS `implant_ax_cem_std` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -449,7 +473,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_cem_std` (
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `implant_ax_cem_std`
@@ -483,7 +507,6 @@ INSERT INTO `implant_ax_cem_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 -- Structure de la table `implant_ax_cem_var`
 --
 
-DROP TABLE IF EXISTS `implant_ax_cem_var`;
 CREATE TABLE IF NOT EXISTS `implant_ax_cem_var` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -507,7 +530,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_cem_var` (
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `implant_ax_cem_var`
@@ -541,7 +564,6 @@ INSERT INTO `implant_ax_cem_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 -- Structure de la table `implant_ax_ha_std`
 --
 
-DROP TABLE IF EXISTS `implant_ax_ha_std`;
 CREATE TABLE IF NOT EXISTS `implant_ax_ha_std` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -565,7 +587,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_std` (
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `implant_ax_ha_std`
@@ -599,7 +621,6 @@ INSERT INTO `implant_ax_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heig
 -- Structure de la table `implant_ax_ha_std_col`
 --
 
-DROP TABLE IF EXISTS `implant_ax_ha_std_col`;
 CREATE TABLE IF NOT EXISTS `implant_ax_ha_std_col` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -623,7 +644,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_std_col` (
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `implant_ax_ha_std_col`
@@ -657,7 +678,6 @@ INSERT INTO `implant_ax_ha_std_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `
 -- Structure de la table `implant_ax_ha_var`
 --
 
-DROP TABLE IF EXISTS `implant_ax_ha_var`;
 CREATE TABLE IF NOT EXISTS `implant_ax_ha_var` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -681,7 +701,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var` (
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `implant_ax_ha_var`
@@ -715,7 +735,6 @@ INSERT INTO `implant_ax_ha_var` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heig
 -- Structure de la table `implant_ax_ha_var_col`
 --
 
-DROP TABLE IF EXISTS `implant_ax_ha_var_col`;
 CREATE TABLE IF NOT EXISTS `implant_ax_ha_var_col` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) NOT NULL,
@@ -739,7 +758,7 @@ CREATE TABLE IF NOT EXISTS `implant_ax_ha_var_col` (
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `implant_ax_ha_var_col`
@@ -766,6 +785,46 @@ INSERT INTO `implant_ax_ha_var_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `
 (18, 'ax_ha_var_col-8', 'images/ax_ha_var_colT8_R.png', 834, 7.06, 1736, 14.72, 0, 0, 0, 0, 0, 0, 0, 0, -269.337, 339, 780, 0, 0, 8),
 (19, 'ax_ha_var_col-9', 'images/ax_ha_var_colT9_R.png', 860, 7.28, 1804, 15.27, 0, 0, 0, 0, 0, 0, 0, 0, -276.429, 352, 814, 0, 0, 9),
 (20, 'ax_ha_var_col-10', 'images/ax_ha_var_colT10_R.png', 885, 7.49, 1860, 15.75, 0, 0, 0, 0, 0, 0, 0, 0, -281.215, 363.5, 842, 0, 0, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `implant_ax_symbole2`
+--
+
+CREATE TABLE IF NOT EXISTS `implant_ax_symbole2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `implant_ax_symbole2`
+--
+
+INSERT INTO `implant_ax_symbole2` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, '5', 'images/symbole2_T5.png', 1123, 9.51, 2664, 22.56, 0, 0, 0, 0, 0, 0, 0, 0, 307.5, -275.5, 1046, 0, 0, 5),
+(2, '8', 'images/symbole2_T8.png', 1139, 9.64, 2634, 22.3, 0, 0, 0, 0, 0, 0, 0, 0, 314.5, -335.5, 1105, 0, 0, 8),
+(3, '10', 'images/symbole2_T10.png', 1121, 9.49, 2650, 22.44, 0, 0, 0, 0, 0, 0, 0, 0, 314.5, -365.5, 1118, 0, 0, 10);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
