@@ -961,11 +961,11 @@ $(document).ready(function () {
 			cotyleGauche.SetTaille(5);
 			tableCotyle = "cotyle_ax_symbole2";
 			indexCotyleDroit = 1;
-			maximumCotyleDroit = 3;
+			maximumCotyleDroit = 13;
 			minimumCotyleDroit = 1;
-			indexCotyleGauche = 1;
-			maximumCotyleGauche = 3;
-			minimumCotyleGauche = 1;
+			indexCotyleGauche = 14;
+			maximumCotyleGauche = 26;
+			minimumCotyleGauche = 26;
 
 		}
 
