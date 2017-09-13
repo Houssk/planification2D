@@ -956,7 +956,7 @@ $(document).ready(function () {
 			}
 		}
 		else if(symbolValeurCotyle == 'symbol2'){
-			document.getElementById('disableIfCotyle').style.display ='none';
+			document.getElementById('disableIfCotyle').style.display ='';
 			cotyleDroit.SetTaille(5);
 			cotyleGauche.SetTaille(5);
 			tableCotyle = "cotyle_ax_symbole2";
