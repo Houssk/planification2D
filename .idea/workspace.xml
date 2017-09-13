@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e9476e0-b24e-4ba4-a34d-4bf253e6f648" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" afterPath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" />
     </list>
     <ignored path="planification2D.iws" />
@@ -69,8 +68,8 @@
       <file leaf-file-name="ActionsBouton.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viewers/static/js/ActionsBouton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="611">
-              <caret line="961" column="47" selection-start-line="961" selection-start-column="47" selection-end-line="961" selection-end-column="47" />
+            <state relative-caret-position="577">
+              <caret line="959" column="78" selection-start-line="959" selection-start-column="78" selection-end-line="959" selection-end-column="78" />
               <folding>
                 <element signature="e#29762#33561#0" expanded="false" />
               </folding>
@@ -357,12 +356,12 @@
       <workItem from="1496221271906" duration="365000" />
       <workItem from="1496223174066" duration="11422000" />
       <workItem from="1496307812004" duration="2626000" />
-      <workItem from="1505290298246" duration="838000" />
+      <workItem from="1505290298246" duration="1215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62520000" />
+    <option name="totallyTimeSpent" value="62897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
@@ -770,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/viewers/static/js/ActionsBouton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="961" column="47" selection-start-line="961" selection-start-column="47" selection-end-line="961" selection-end-column="47" />
+        <state relative-caret-position="577">
+          <caret line="959" column="78" selection-start-line="959" selection-start-column="78" selection-end-line="959" selection-end-column="78" />
           <folding>
             <element signature="e#29762#33561#0" expanded="false" />
           </folding>

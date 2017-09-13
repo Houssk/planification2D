@@ -957,6 +957,7 @@ $(document).ready(function () {
 		}
 		else if(symbolValeurCotyle == 'symbol2'){
 			document.getElementById('disableIfCotyle').style.display ='';
+			document.getElementById('gammeCimenteOuNe').style.display ='none';
 			cotyleDroit.SetTaille(5);
 			cotyleGauche.SetTaille(5);
 			tableCotyle = "cotyle_ax_symbole2";
