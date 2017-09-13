@@ -966,7 +966,7 @@ $(document).ready(function () {
 			minimumCotyleDroit = 1;
 			indexCotyleGauche = 14;
 			maximumCotyleGauche = 26;
-			minimumCotyleGauche = 26;
+			minimumCotyleGauche = 14;
 
 		}
 
