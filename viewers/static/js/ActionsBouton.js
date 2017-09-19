@@ -516,8 +516,6 @@ $(document).ready(function () {
 		var gammeVariseOuPas = document.getElementById("gammeVariseOuPas");
 		var gammeColleretteOuPas = document.getElementById("gammeColleretteOuPas");
 		var symbole = document.getElementById("symbol");
-		console.log("symbole",symbole);
-
 		var valeurGammeVariseOuPas = gammeVariseOuPas.options[gammeVariseOuPas.selectedIndex].value;
 		var valeurGammeCimenteOuPas = gammeCimenteOuPas.options[gammeCimenteOuPas.selectedIndex].value;
 		var valeurGammeColleretteOuPas = gammeColleretteOuPas.options[gammeColleretteOuPas.selectedIndex].value;
@@ -527,10 +525,10 @@ $(document).ready(function () {
 
 		   if(valeurSymbole == "symbol1") {
 			   document.getElementById('disableIf').style.display = '';
+			   document.getElementById('gammeCimenteOuPas').style.display='';
 			   if(valeurGammeCimenteOuPas=="cimente" && valeurGammeVariseOuPas == "varise" ){
 
 				   tableTige ="implant_ax_cem_var";
-
 				   indexTigeDroit = 4;
 				   maximumTigeDroit =10;
 				   minimumTigeDroit = 1;
@@ -601,20 +599,31 @@ $(document).ready(function () {
 			   }
 		   }
 		   else if (valeurSymbole == "symbol2"){
-			   document.getElementById('disableIf').style.display = "none";
+			   document.getElementById('disableIf').style.display = "";
+			   document.getElementById('gammeCimenteOuPas').style.display='none';
 			   console.log("symbol2");
-			   tableTige ="implant_ax_symbole2";
-				   //;
-
-			   indexTigeDroit = 1;
-			   maximumTigeDroit =3;
-			   minimumTigeDroit = 1;
-			   indexTigeGauche = 1;
-			   maximumTigeGauche =3;
-			   minimumTigeGauche= 1;
-			   tigeGauche.SetTaille(5);
-			   tigeDroit.SetTaille(5);
-
+			   if(valeurGammeVariseOuPas == 'standard'){
+				   tableTige ="implant_symbole2";
+				   indexTigeDroit = 1;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
+				   indexTigeGauche = 11;
+				   maximumTigeGauche = 20;
+				   minimumTigeGauche= 11;
+				   tigeGauche.SetTaille(5);
+				   tigeDroit.SetTaille(5);
+			   }
+			   else if(valeurGammeVariseOuPas =='varise'){
+				   tableTige ="implant_symbole2_var";
+				   indexTigeDroit = 1;
+				   maximumTigeDroit =10;
+				   minimumTigeDroit = 1;
+				   indexTigeGauche = 11;
+				   maximumTigeGauche =20;
+				   minimumTigeGauche= 11;
+				   tigeGauche.SetTaille(5);
+				   tigeDroit.SetTaille(5);
+			   }
 		   }
 
 

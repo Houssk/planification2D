@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e9476e0-b24e-4ba4-a34d-4bf253e6f648" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" afterPath="$PROJECT_DIR$/viewers/static/js/ActionsBouton.js" />
     </list>
     <ignored path="planification2D.iws" />
@@ -68,10 +69,10 @@
       <file leaf-file-name="ActionsBouton.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viewers/static/js/ActionsBouton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="967" column="37" selection-start-line="967" selection-start-column="37" selection-end-line="967" selection-end-column="37" />
+            <state relative-caret-position="458">
+              <caret line="621" column="41" selection-start-line="621" selection-start-column="41" selection-end-line="621" selection-end-column="41" />
               <folding>
-                <element signature="e#29762#33561#0" expanded="false" />
+                <element signature="e#30255#34054#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -182,7 +183,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1912" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -212,6 +213,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -264,12 +267,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Planification3D_v2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
@@ -356,18 +357,19 @@
       <workItem from="1496221271906" duration="365000" />
       <workItem from="1496223174066" duration="11422000" />
       <workItem from="1496307812004" duration="2626000" />
-      <workItem from="1505290298246" duration="1843000" />
+      <workItem from="1505290298246" duration="3645000" />
+      <workItem from="1505805968207" duration="833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63525000" />
+    <option name="totallyTimeSpent" value="66160000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18070363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -769,10 +771,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/viewers/static/js/ActionsBouton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="967" column="37" selection-start-line="967" selection-start-column="37" selection-end-line="967" selection-end-column="37" />
+        <state relative-caret-position="458">
+          <caret line="621" column="41" selection-start-line="621" selection-start-column="41" selection-end-line="621" selection-end-column="41" />
           <folding>
-            <element signature="e#29762#33561#0" expanded="false" />
+            <element signature="e#30255#34054#0" expanded="false" />
           </folding>
         </state>
       </provider>
