@@ -13,7 +13,7 @@ body {
 	transition: all 200ms linear;
 }
 html {
-    background-color: #ecf0f5;
+    background-color: white;
 }
 
 /* Layers */
@@ -57,7 +57,7 @@ table.tagList td {
 	position: absolute; 
 	height: 92%; 
 	width: 99%;
-	background-color: #ecf0f5;
+	background-color: white;
 }
 #infotl { 
 	color: #333; 
