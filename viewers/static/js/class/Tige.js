@@ -39,6 +39,7 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
 	this.m_PositionPtMeca={'x' : null, 'y' : null};
 	this.m_Taille=Taille;
+	console.log(Nom);
 }
 
 /**

@@ -2578,6 +2578,16 @@ $(document).ready(function () {
 			};
 			RetourImplant()
 	}, false);
+/**
+* 
+*/
+	function encode_utf8(s) {
+  return unescape(encodeURIComponent(s));
+}
+
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
 
 	/*
 	*	Génére le PDF résultat
@@ -2642,13 +2652,15 @@ $(document).ready(function () {
 						docPDF.setFontType("normal");
 
 						if (patient.GetCoteOperation()=="Gauche") {
-							docPDF.text(15, 95, "Tige utilisé pour cette planification : "+tigeDroit.GetNom());
+							docPDF.text(15, 95, "Tige utilisé pour cette planification : "+ decode_utf8(tigeDroit.GetNom()));
 							docPDF.text(15, 100, "Cotyle utilisé pour cette planification : "+cotyleDroit.GetNom());
+							console.log(tigeDroit.GetNom())
 						}
 
 						if (patient.GetCoteOperation()=="Droit") {
-							docPDF.text(15, 95, "Tige utilisé pour cette planification : "+tigeGauche.GetNom());
+							docPDF.text(15, 95, "Tige utilisé pour cette planification : "+decode_utf8(tigeGauche.GetNom()));
 							docPDF.text(15, 100, "Cotyle utilisé pour cette planification : "+cotyleGauche.GetNom());
+							console.log(tigeGauche.GetNom())
 						}
 
 						if(patient.GetOperationGuide()=="Guider")
@@ -2663,7 +2675,7 @@ $(document).ready(function () {
 						docPDF.text(15, 20, "Votre image DICOM d'origine :");
 						docPDF.addImage(dicomImage, 'JPEG', 15, 25, 180, ((180*m_canvasHeight)/m_canvasWidth));
 
-						docPDF.save(patient.GetNom()+" "+patient.GetPrenom());
+						docPDF.save(patient.GetNom()+" "+patient.GetPrenom()+".pdf");
 						
 					},
 					id: "pdf"
@@ -2671,7 +2683,7 @@ $(document).ready(function () {
 			};
 			ValiderImplant()
 	}, false);
-	
+
 	/*
 	*	Active le zoom
 	*/
