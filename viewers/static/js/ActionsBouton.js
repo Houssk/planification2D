@@ -91,9 +91,9 @@ $(document).ready(function () {
 		CouleurBlanc()
 	},false);
 
-	/* 
+	/*
 	*	Cette fonction assure la gestion de l'affichage de du bouton "Valider patient"
-	*	Elle est appelé à chaque changement du contenu des champs "Nom" "Prénom" "Coté d'opération" "Type d'opération" 
+	*	Elle est appelé à chaque changement du contenu des champs "Nom" "Prénom" "Coté d'opération" "Type d'opération"
 	*/
 	function ApparitionBoutonValiderPatient() {
 		if (sessionStorage.getItem("boolPrenom")=="true" &&
@@ -151,7 +151,7 @@ $(document).ready(function () {
 		}
 		ApparitionBoutonValiderPatient();
 	});
-	
+
 	/*
 	*	Gère le changement du contenu du champs "Coté d'opération"
 	*	Actualise la variable d'état du remplissage du champs
@@ -168,7 +168,7 @@ $(document).ready(function () {
 	});
 
 	/*
-	*	Cette fonction assure le calcul de l'offset en X et Y en fonction du coefficient de calibrage 
+	*	Cette fonction assure le calcul de l'offset en X et Y en fonction du coefficient de calibrage
 	*	Elle assure également leur affichage
 	*/
 	function CalculOffset() {
@@ -188,7 +188,7 @@ $(document).ready(function () {
 
 	/*
 	*	Cette fonction assure la sélection, la mise en position et l'affichage des tiges
-	*	Elle est appelée a chaque changement de gamme 
+	*	Elle est appelée a chaque changement de gamme
 	*/
 	function TigeSelection() {
 		// Sélection de la gamme de la tige et renseignement des ids clé
@@ -374,8 +374,8 @@ $(document).ready(function () {
 		}
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
-		
-		
+
+
 		if (patient.GetOperationGuide()=="Non guider") { // Traitement du cas ou la chirurgie n'est pas guidée
 			var newTigeGauche=null;
 			var newTigeDroit=null;
@@ -475,7 +475,7 @@ $(document).ready(function () {
 				tigeDroit=getTigeBySize(tableImplant, tigeDroit.GetTaille(), "D");
 				indexTigeDroit=parseInt(tigeDroit.GetID());
 			}
-			
+
 			imgTigeDroit = new Image;
 			imgTigeGauche = new Image;
 			var canvasTige=null;
@@ -666,7 +666,7 @@ $(document).ready(function () {
 	}
 	/*
 	*	Cette fonction assure la sélection, la mise en position et l'affichage des cotyle
-	*	Elle est appelée a chaque changement de gamme 
+	*	Elle est appelée a chaque changement de gamme
 	*/
 	function CotyleSelection() {
 		// Sélection de la gamme de la tige et renseignement des ids clé
@@ -675,11 +675,11 @@ $(document).ready(function () {
 		if (valeurGammeCotyle == "cotyle_hype") {
 			tableCotyle = valeurGammeCotyle;
 			indexCotyleDroit = 1;
-			indexCotyleGauche = 9;
-			maximumCotyleDroit = 8;
+			indexCotyleGauche = 11;
+			maximumCotyleDroit = 10;
 			minimumCotyleDroit = 1;
-			maximumCotyleGauche = 16;
-			minimumCotyleGauche= 9;
+			maximumCotyleGauche = 20;
+			minimumCotyleGauche= 11;
 		} else if (valeurGammeCotyle == "cotyle_novae") {
 			var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
 			var valeurGammeCotyleNovae = gammeCotyleNovae.options[gammeCotyleNovae.selectedIndex].value;
@@ -928,7 +928,7 @@ $(document).ready(function () {
 				imgCotyleGauche.src=cotyleGauche.GetUrl();
 			}
 		}
-		
+
 		if (firstSideChangedCotyle==false) { //Cette condition permet d'effectuer la mise à jour de l'affichage du second cotyle si l'utilisateur a fait un changement de coté
 			if (patient.GetCoteOperation()=="Droit") {
 				canvasCotyle=document.getElementById("canvasCotyleDroit");
@@ -992,7 +992,7 @@ $(document).ready(function () {
 
 
 	var buttonValideInformationPatient = document.getElementById("buttonValideInformationPatient");
-	buttonValideInformationPatient.addEventListener('click', 
+	buttonValideInformationPatient.addEventListener('click',
 		function() {
 			/**
 			*Cette fonction permet de créer un patient après validation des entrées dans la boite de dialogue "Information"
@@ -1031,9 +1031,9 @@ $(document).ready(function () {
 								}
 								var calibrage = sessionStorage.getItem("calibrage");
 								if (calibrage=="true") {// Récupère la valeur de l'option sélectionnée
-									patient = new Patient(nomPatient.value, 
-										prenomPatient.value, 
-										typeChirurgie.options[typeChirurgie.selectedIndex].value, 
+									patient = new Patient(nomPatient.value,
+										prenomPatient.value,
+										typeChirurgie.options[typeChirurgie.selectedIndex].value,
 										"DICOM", // to do DICOM
 										coteChirurgie.options[coteChirurgie.selectedIndex].value);
 
@@ -1098,7 +1098,7 @@ $(document).ready(function () {
 								} else {
 									alert("Veuillez calibrer votre DICOM");
 								}
-								
+
 							}
 						}
 					}
@@ -1112,7 +1112,7 @@ $(document).ready(function () {
 	*	Active le tracé du trapèze sur le click du bouton
 	*/
 	var buttonDessinTrapeze = document.getElementById("buttonDessinTrapeze");
-	buttonDessinTrapeze.addEventListener('click', 
+	buttonDessinTrapeze.addEventListener('click',
 		function() {
 			function DessinTrapeze(){
 				if(sessionStorage.getItem("nbTrapeze")===null){
@@ -1127,7 +1127,7 @@ $(document).ready(function () {
 	*	Active le tracé du rapporteur sur le click du bouton
 	*/
 	var buttonDessinRapporteur = document.getElementById("buttonDessinRapporteur");
-	buttonDessinRapporteur.addEventListener('click', 
+	buttonDessinRapporteur.addEventListener('click',
 		function() {
 			function DessinRapporteur(){
 				DrawShape("Protractor");
@@ -1140,7 +1140,7 @@ $(document).ready(function () {
 	*	Active le tracé de la règle sur le click du bouton
 	*/
 	var buttonDessinRegle = document.getElementById("buttonDessinRegle");
-	buttonDessinRegle.addEventListener('click', 
+	buttonDessinRegle.addEventListener('click',
 		function() {
 			function DessinRegle(){
 				DrawShape("Line");
@@ -1153,7 +1153,7 @@ $(document).ready(function () {
 	*	Active le tracé du cercle sur le click du bouton
 	*/
 	var buttonDessinCercle = document.getElementById("buttonDessinCercle");
-	buttonDessinCercle.addEventListener('click', 
+	buttonDessinCercle.addEventListener('click',
 		function() {
 			function DessinCercle(){
 				if(sessionStorage.getItem("nbCercle")===null){
@@ -1168,7 +1168,7 @@ $(document).ready(function () {
 	*	Active le tracé de l'outil de mesure du petit troch sur le click du bouton
 	*/
 	var buttonDessinPetitTroch = document.getElementById("buttonDessinPetitTroch");
-	buttonDessinPetitTroch.addEventListener('click', 
+	buttonDessinPetitTroch.addEventListener('click',
 		function() {
 			function DessinMesurePetitTroch(){
 				DrawShape("Mesurepetittroch");
@@ -1183,7 +1183,7 @@ $(document).ready(function () {
 	*	Si tout les tests sont OK, elle l'onglet implant, bloque les boutons de dessin et appel les fonctions de sélection de tiges et cotyles
 	*/
 	var buttonValideOutilsDessin = document.getElementById("buttonValideOutilsDessin");
-	buttonValideOutilsDessin.addEventListener('click', 
+	buttonValideOutilsDessin.addEventListener('click',
 		function() {
 			function ValiderDessin(){
 				var onPeutValider = false;
@@ -1488,7 +1488,7 @@ $(document).ready(function () {
 				}
 			}
 		}
-		
+
 	});
 
 	/*
@@ -1637,7 +1637,7 @@ $(document).ready(function () {
 			}
 		}
 	});
-	
+
 	/*
 	*	Gestion du click sur le bouton retour outils de dessin
 	*	Assure le retour de onglet dessin à patient
@@ -2334,9 +2334,9 @@ $(document).ready(function () {
 	*	Oriente dans le sens horaire le cotyle suivant son centre de rotation en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*	Effectue la mise à jour de l'offset en X et Y
-	*/		
+	*/
 	var buttonTournerHautCotyle = document.getElementById("buttonTournerHautCotyle");
-	buttonTournerHautCotyle.addEventListener('click', 
+	buttonTournerHautCotyle.addEventListener('click',
 		function() {
 			function TournerHautCotyle(){
 				if (patient.GetCoteOperation()=="Gauche") {
@@ -2377,9 +2377,9 @@ $(document).ready(function () {
 	*	Oriente dans le sens anti-horaire le cotyle suivant son centre de rotation en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*	Effectue la mise à jour de l'offset en X et Y
-	*/	
+	*/
 	var buttonTournerBasCotyle = document.getElementById("buttonTournerBasCotyle");
-	buttonTournerBasCotyle.addEventListener('click', 
+	buttonTournerBasCotyle.addEventListener('click',
 		function() {
 			function TournerBasCotyle(){
 				if (patient.GetCoteOperation()=="Gauche") {
@@ -2418,11 +2418,11 @@ $(document).ready(function () {
 
 	/*
 	*	Utilisé en non guidé
-	*	Oriente dans le sens horaire le cotyle suivant son centre de rotation en fonction du coté 
+	*	Oriente dans le sens horaire le cotyle suivant son centre de rotation en fonction du coté
 	*	Effectue la mise à jour de l'affichage
-	*/	
+	*/
 	var buttonTournerHautCotyleNG = document.getElementById("buttonTournerHautCotyleNG");
-	buttonTournerHautCotyleNG.addEventListener('click', 
+	buttonTournerHautCotyleNG.addEventListener('click',
 		function() {
 			function TournerHautCotyleNG(){
 				var coteCotyle = document.getElementById("coteCotyle");
@@ -2462,9 +2462,9 @@ $(document).ready(function () {
 	*	Utilisé en non guidé
 	*	Oriente dans le sens anti-horaire le cotyle suivant son centre de rotation en fonction du coté
 	*	Effectue la mise à jour de l'affichage
-	*/	
+	*/
 	var buttonTournerBasCotyleNG = document.getElementById("buttonTournerBasCotyleNG");
-	buttonTournerBasCotyleNG.addEventListener('click', 
+	buttonTournerBasCotyleNG.addEventListener('click',
 		function() {
 			function TournerBasCotyleNG(){
 				var coteCotyle = document.getElementById("coteCotyle");
@@ -2506,7 +2506,7 @@ $(document).ready(function () {
 	*	Si la chirurgie n'est pas guidé elle déploie l'onglet patient, vide la mémoire des dessins et du nombre de dessin, cache les corbeille, bascule la radio en mode zoom
 	*/
 	var buttonRetourImplant = document.getElementById("buttonRetourImplant");
-	buttonRetourImplant.addEventListener('click', 
+	buttonRetourImplant.addEventListener('click',
 		function() {
 			function RetourImplant(){
 				var canvasCotyle = document.getElementById("canvasCotyleDroit");
@@ -2579,7 +2579,7 @@ $(document).ready(function () {
 			RetourImplant()
 	}, false);
 /**
-* 
+*
 */
 	function encode_utf8(s) {
   return unescape(encodeURIComponent(s));
@@ -2594,7 +2594,7 @@ function decode_utf8(s) {
 	*	Les image du PDF sont dataUrl
 	*/
 	var buttonValideImplant = document.getElementById("buttonValideImplant");
-	buttonValideImplant.addEventListener('click', 
+	buttonValideImplant.addEventListener('click',
 		function() {
 			function ValiderImplant(){
 				var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille_px"));
@@ -2605,7 +2605,7 @@ function decode_utf8(s) {
 				var dicomImage = dicomCanvas.toDataURL("image/jpeg");
 				var divLayer = document.getElementById("dwv-layerDialog");
                 var imageSerf = "data:image/jpeg;base64,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";
-				
+
 				var coefficient = sessionStorage.getItem("coefficient");
 				if (patient.GetCoteOperation()=="Gauche") {
 					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
@@ -2676,7 +2676,7 @@ function decode_utf8(s) {
 						docPDF.addImage(dicomImage, 'JPEG', 15, 25, 180, ((180*m_canvasHeight)/m_canvasWidth));
 
 						docPDF.save(patient.GetNom()+" "+patient.GetPrenom()+".pdf");
-						
+
 					},
 					id: "pdf"
 				});
@@ -2688,7 +2688,7 @@ function decode_utf8(s) {
 	*	Active le zoom
 	*/
 	var buttonZoom = document.getElementById("buttonZoom");
-	buttonZoom.addEventListener('click', 
+	buttonZoom.addEventListener('click',
 		function() {
 			function Zoom(){
 				ZoomMode();
@@ -2700,7 +2700,7 @@ function decode_utf8(s) {
 	*	Active le seuillage
 	*/
 	/*var buttonSeuil = document.getElementById("buttonSeuil");
-	buttonSeuil.addEventListener('click', 
+	buttonSeuil.addEventListener('click',
 		function() {
 			function Seuil(){
 				SeuilMode();
@@ -2712,7 +2712,7 @@ function decode_utf8(s) {
 	*	Active le déplacement manuel de la tige du coté sélectionné
 	*/
 	var buttonDeplacerTige = document.getElementById("buttonDeplacerTige");
-	buttonDeplacerTige.addEventListener('click', 
+	buttonDeplacerTige.addEventListener('click',
 		function() {
 			function DeplacerTige(){
 				var canvasTigeDroit=document.getElementById("canvasTigeDroit");
@@ -2737,7 +2737,7 @@ function decode_utf8(s) {
 					contexteTigeMoveTige.rotate(tigeDroit.GetOrientation());
 					contexteTigeMoveTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
 					contexteTigeMoveTige.restore();
-					
+
 					draggerTigeDroit(false);
 
 				}
@@ -2769,7 +2769,7 @@ function decode_utf8(s) {
 	*	Active le déplacement manuel du cotyle du coté sélectionné
 	*/
 	var buttonDeplacerCotyle = document.getElementById("buttonDeplacerCotyle");
-	buttonDeplacerCotyle.addEventListener('click', 
+	buttonDeplacerCotyle.addEventListener('click',
 		function() {
 			function DeplacerCotyle(){
 				var canvasTigeDroit=document.getElementById("canvasTigeDroit");
@@ -2795,7 +2795,7 @@ function decode_utf8(s) {
 					contexteCotyleMoveCotyleD.rotate(cotyleDroit.GetOrientation());
 					contexteCotyleMoveCotyleD.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
 					contexteCotyleMoveCotyleD.restore();
-					
+
 					draggerCotyleDroit(false);
 
 				}
@@ -2807,7 +2807,7 @@ function decode_utf8(s) {
 					canvasCotyleGauche.style.zIndex=100;
 
 					draggerCotyleGauche(true);
-					
+
 					var contexteCotyleMoveCotyleG=canvasCotyleGauche.getContext("2d");
 					contexteCotyleMoveCotyleG.save();
 					contexteCotyleMoveCotyleG.clearRect(0, 0, canvasCotyleGauche.width, canvasCotyleGauche.height);
@@ -2815,7 +2815,7 @@ function decode_utf8(s) {
 					contexteCotyleMoveCotyleG.rotate(cotyleGauche.GetOrientation());
 					contexteCotyleMoveCotyleG.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contexteCotyleMoveCotyleG.restore();
-					
+
 					draggerCotyleGauche(false);
 				}
 
@@ -2825,11 +2825,11 @@ function decode_utf8(s) {
 
 	/*
 	*	Utilisé en non guidé
-	*	Oriente dans le sens horaire la tige suivant son centre de rotation en fonction du coté 
+	*	Oriente dans le sens horaire la tige suivant son centre de rotation en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*/
 	var buttonTournerHautTige = document.getElementById("buttonTournerHautTige");
-	buttonTournerHautTige.addEventListener('click', 
+	buttonTournerHautTige.addEventListener('click',
 		function() {
 			function TournerHautTige(){
 				var coteTige = document.getElementById("coteTige");
@@ -2867,11 +2867,11 @@ function decode_utf8(s) {
 
 	/*
 	*	Utilisé en non guidé
-	*	Oriente dans le sens anti-horaire la tige suivant son centre de rotation en fonction du coté 
+	*	Oriente dans le sens anti-horaire la tige suivant son centre de rotation en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*/
 	var buttonTournerBasTige = document.getElementById("buttonTournerBasTige");
-	buttonTournerBasTige.addEventListener('click', 
+	buttonTournerBasTige.addEventListener('click',
 		function() {
 			function TournerBasTige(){
 				var coteTige = document.getElementById("coteTige");
@@ -2911,7 +2911,7 @@ function decode_utf8(s) {
 	*	Déplace la tige a droite (écran) en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*	Effectue la mise à jour de l'offset en X et Y
-	*/	
+	*/
 	var buttonDroitTige = document.getElementById("buttonDroitTige");
 	buttonDroitTige.addEventListener('click',
 		function() {
@@ -2972,7 +2972,7 @@ function decode_utf8(s) {
 	*	Déplace la tige a gauche (écran) en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*	Effectue la mise à jour de l'offset en X et Y
-	*/	
+	*/
 	var buttonGaucheTige = document.getElementById("buttonGaucheTige");
 	buttonGaucheTige.addEventListener('click',
 		function() {
@@ -3031,7 +3031,7 @@ function decode_utf8(s) {
 	*	Déplace le cotyle a gauche (écran) en fonction du coté
 	*	Effectue la mise à jour de l'affichage
 	*	Effectue la mise à jour de l'offset en X et Y
-	*/	
+	*/
 	var buttonGaucheCotyle = document.getElementById("buttonGaucheCotyle");
 	buttonGaucheCotyle.addEventListener('click',
 		function() {
@@ -3256,4 +3256,3 @@ function decode_utf8(s) {
 	}, false);
 });
 
-	
