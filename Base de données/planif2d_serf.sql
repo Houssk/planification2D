@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 26 Septembre 2016 à 15:20
--- Version du serveur :  5.7.9
--- Version de PHP :  5.6.16
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 11 juin 2019 à 11:24
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `planif2d_serf`
 --
+
+DELIMITER $$
+--
+-- Procédures
+--
+DROP PROCEDURE IF EXISTS `cotyle_hype_loop`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cotyle_hype_loop` (IN `max` INT, IN `min` INT)  NO SQL
+BEGIN
+    DECLARE y INT;
+
+    WHILE max >= min DO
+     SET y = max + 2;
+     UPDATE `cotyle_hype` SET `ID` = y WHERE `ID` = max;
+     SET max = max - 1;
+    END WHILE; 
+
+    SELECT * FROM `cotyle_hype` WHERE 1;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -41,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `cotyles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyles`
+-- Déchargement des données de la table `cotyles`
 --
 
 INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
@@ -158,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_coptos_th` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyle_coptos_th`
+-- Déchargement des données de la table `cotyle_coptos_th`
 --
 
 INSERT INTO `cotyle_coptos_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -204,29 +226,33 @@ CREATE TABLE IF NOT EXISTS `cotyle_hype` (
   `PosCenterY` float NOT NULL,
   `taille` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyle_hype`
+-- Déchargement des données de la table `cotyle_hype`
 --
 
 INSERT INTO `cotyle_hype` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
-(1, 'Cup-49', 'images/Cup49.png', 1136, 915, 9.62, 7.75, 0, 0, 49),
-(2, 'Cup-51', 'images/Cup51.png', 1136, 915, 9.62, 7.75, 0, 0, 51),
-(3, 'Cup-53', 'images/Cup53.png', 1136, 915, 9.62, 7.75, 0, 0, 53),
-(4, 'Cup-55', 'images/Cup55.png', 1136, 915, 9.62, 7.75, 0, 0, 55),
-(5, 'Cup-57', 'images/Cup57.png', 1136, 915, 9.62, 7.75, 0, 0, 57),
-(6, 'Cup-59', 'images/Cup59.png', 1136, 915, 9.62, 7.75, 0, 0, 59),
-(7, 'Cup-61', 'images/Cup61.png', 1136, 915, 9.62, 7.75, 0, 0, 61),
-(8, 'Cup-63', 'images/Cup63.png', 1136, 915, 9.62, 7.75, 0, 0, 63),
-(9, 'Cup-49', 'images/Cup49_R.png', 1136, 915, 9.62, 7.75, 0, 0, 49),
-(10, 'Cup-51', 'images/Cup51_R.png', 1136, 915, 9.62, 7.75, 0, 0, 51),
-(11, 'Cup-53', 'images/Cup53_R.png', 1136, 915, 9.62, 7.75, 0, 0, 53),
-(12, 'Cup-55', 'images/Cup55_R.png', 1136, 915, 9.62, 7.75, 0, 0, 55),
-(13, 'Cup-57', 'images/Cup57_R.png', 1136, 915, 9.62, 7.75, 0, 0, 57),
-(14, 'Cup-59', 'images/Cup59_R.png', 1136, 915, 9.62, 7.75, 0, 0, 59),
-(15, 'Cup-61', 'images/Cup61_R.png', 1136, 915, 9.62, 7.75, 0, 0, 61),
-(16, 'Cup-63', 'images/Cup63_R.png', 1136, 915, 9.62, 7.75, 0, 0, 63);
+(1, 'Cup-45', 'images/Cup45.png', 260, 271, 6.6, 6.88, 0, 0, 45),
+(2, 'Cup-47', 'images/Cup47.png', 279, 276, 7.087, 7.01, 0, 0, 47),
+(3, 'Cup-49', 'images/Cup49.png', 1136, 915, 9.62, 7.75, 0, 0, 49),
+(4, 'Cup-51', 'images/Cup51.png', 1136, 915, 9.62, 7.75, 0, 0, 51),
+(5, 'Cup-53', 'images/Cup53.png', 1136, 915, 9.62, 7.75, 0, 0, 53),
+(6, 'Cup-55', 'images/Cup55.png', 1136, 915, 9.62, 7.75, 0, 0, 55),
+(7, 'Cup-57', 'images/Cup57.png', 1136, 915, 9.62, 7.75, 0, 0, 57),
+(8, 'Cup-59', 'images/Cup59.png', 1136, 915, 9.62, 7.75, 0, 0, 59),
+(9, 'Cup-61', 'images/Cup61.png', 1136, 915, 9.62, 7.75, 0, 0, 61),
+(10, 'Cup-63', 'images/Cup63.png', 1136, 915, 9.62, 7.75, 0, 0, 63),
+(11, 'Cup-45', 'images/Cup45_R.png', 254, 265, 6.452, 6.73, 0, 0, 45),
+(12, 'Cup-47', 'images/Cup47_R.png', 236, 247, 5.99, 6.27, 0, 0, 47),
+(13, 'Cup-49', 'images/Cup49_R.png', 1136, 915, 9.62, 7.75, 0, 0, 49),
+(14, 'Cup-51', 'images/Cup51_R.png', 1136, 915, 9.62, 7.75, 0, 0, 51),
+(15, 'Cup-53', 'images/Cup53_R.png', 1136, 915, 9.62, 7.75, 0, 0, 53),
+(16, 'Cup-55', 'images/Cup55_R.png', 1136, 915, 9.62, 7.75, 0, 0, 55),
+(17, 'Cup-57', 'images/Cup57_R.png', 1136, 915, 9.62, 7.75, 0, 0, 57),
+(18, 'Cup-59', 'images/Cup59_R.png', 1136, 915, 9.62, 7.75, 0, 0, 59),
+(19, 'Cup-61', 'images/Cup61_R.png', 1136, 915, 9.62, 7.75, 0, 0, 61),
+(20, 'Cup-63', 'images/Cup63_R.png', 1136, 915, 9.62, 7.75, 0, 0, 63);
 
 -- --------------------------------------------------------
 
@@ -249,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_novae` (
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyle_novae`
+-- Déchargement des données de la table `cotyle_novae`
 --
 
 INSERT INTO `cotyle_novae` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
@@ -310,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_novae_e_th` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyle_novae_e_th`
+-- Déchargement des données de la table `cotyle_novae_e_th`
 --
 
 INSERT INTO `cotyle_novae_e_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -359,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_stick` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyle_stick`
+-- Déchargement des données de la table `cotyle_stick`
 --
 
 INSERT INTO `cotyle_stick` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -408,7 +434,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_sunfit_th` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `cotyle_sunfit_th`
+-- Déchargement des données de la table `cotyle_sunfit_th`
 --
 
 INSERT INTO `cotyle_sunfit_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -469,7 +495,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant`
+-- Déchargement des données de la table `implant`
 --
 
 INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
@@ -651,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `implant_acl_cim_lat` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_acl_cim_lat`
+-- Déchargement des données de la table `implant_acl_cim_lat`
 --
 
 INSERT INTO `implant_acl_cim_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -705,7 +731,7 @@ CREATE TABLE IF NOT EXISTS `implant_acs_cim_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_acs_cim_std`
+-- Déchargement des données de la table `implant_acs_cim_std`
 --
 
 INSERT INTO `implant_acs_cim_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -765,7 +791,7 @@ CREATE TABLE IF NOT EXISTS `implant_cim_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_cim_offset`
+-- Déchargement des données de la table `implant_cim_offset`
 --
 
 INSERT INTO `implant_cim_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -819,7 +845,7 @@ CREATE TABLE IF NOT EXISTS `implant_cim_std_appui` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_cim_std_appui`
+-- Déchargement des données de la table `implant_cim_std_appui`
 --
 
 INSERT INTO `implant_cim_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -877,7 +903,7 @@ CREATE TABLE IF NOT EXISTS `implant_ha_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_ha_offset`
+-- Déchargement des données de la table `implant_ha_offset`
 --
 
 INSERT INTO `implant_ha_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -931,7 +957,7 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_ha_std`
+-- Déchargement des données de la table `implant_ha_std`
 --
 
 INSERT INTO `implant_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -989,7 +1015,7 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std_appui` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_ha_std_appui`
+-- Déchargement des données de la table `implant_ha_std_appui`
 --
 
 INSERT INTO `implant_ha_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1046,7 +1072,7 @@ CREATE TABLE IF NOT EXISTS `implant_hype` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_hype`
+-- Déchargement des données de la table `implant_hype`
 --
 
 INSERT INTO `implant_hype` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
@@ -1099,7 +1125,7 @@ CREATE TABLE IF NOT EXISTS `implant_libra` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_libra`
+-- Déchargement des données de la table `implant_libra`
 --
 
 INSERT INTO `implant_libra` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
@@ -1153,7 +1179,7 @@ CREATE TABLE IF NOT EXISTS `implant_sagitta_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_sagitta_offset`
+-- Déchargement des données de la table `implant_sagitta_offset`
 --
 
 INSERT INTO `implant_sagitta_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1209,7 +1235,7 @@ CREATE TABLE IF NOT EXISTS `implant_sagitta_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_sagitta_std`
+-- Déchargement des données de la table `implant_sagitta_std`
 --
 
 INSERT INTO `implant_sagitta_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1267,7 +1293,7 @@ CREATE TABLE IF NOT EXISTS `implant_scc_mini_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scc_mini_std`
+-- Déchargement des données de la table `implant_scc_mini_std`
 --
 
 INSERT INTO `implant_scc_mini_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1317,7 +1343,7 @@ CREATE TABLE IF NOT EXISTS `implant_scc_std_col` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scc_std_col`
+-- Déchargement des données de la table `implant_scc_std_col`
 --
 
 INSERT INTO `implant_scc_std_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1377,7 +1403,7 @@ CREATE TABLE IF NOT EXISTS `implant_scho_high_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scho_high_offset`
+-- Déchargement des données de la table `implant_scho_high_offset`
 --
 
 INSERT INTO `implant_scho_high_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1433,7 +1459,7 @@ CREATE TABLE IF NOT EXISTS `implant_scla_mini_lat` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scla_mini_lat`
+-- Déchargement des données de la table `implant_scla_mini_lat`
 --
 
 INSERT INTO `implant_scla_mini_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1483,7 +1509,7 @@ CREATE TABLE IF NOT EXISTS `implant_scl_lat` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scl_lat`
+-- Déchargement des données de la table `implant_scl_lat`
 --
 
 INSERT INTO `implant_scl_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1539,7 +1565,7 @@ CREATE TABLE IF NOT EXISTS `implant_scs_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scs_std`
+-- Déchargement des données de la table `implant_scs_std`
 --
 
 INSERT INTO `implant_scs_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1599,7 +1625,7 @@ CREATE TABLE IF NOT EXISTS `implant_scv_coxa_vara` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `implant_scv_coxa_vara`
+-- Déchargement des données de la table `implant_scv_coxa_vara`
 --
 
 INSERT INTO `implant_scv_coxa_vara` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1619,6 +1645,7 @@ INSERT INTO `implant_scv_coxa_vara` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `
 (14, 'Hype SCV Coxa vara-T7', 'images/hype_scv_T7_R.png', 776, 6.57, 2080, 17.61, 0, 0, 0, 0, 0, 0, 0, 0, -265, 292, 951, 0, 0, 7),
 (15, 'Hype SCV Coxa vara-T8', 'images/hype_scv_T8_R.png', 794, 6.72, 2144, 18.15, 0, 0, 0, 0, 0, 0, 0, 0, -266, 301, 985, 0, 0, 8),
 (16, 'Hype SCV Coxa vara-T9', 'images/hype_scv_T9_R.png', 812, 6.87, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -267, 311, 1008, 0, 0, 9);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
