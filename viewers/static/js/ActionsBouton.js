@@ -1091,6 +1091,10 @@ $(document).ready(function () {
 
 									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
 										$('.implants *').prop('disabled',false);
+										$('.col.pad  *').css('pointer-events', 'auto');
+										$("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+										$('#padCircle, .material-icons, #labelTailleTige').css('opacity', '1');
+										$('.buttonInactif').css('opacity', '0.65');
 										$("#accordeon").accordion({active : 2});
 									}
 									firstSideChangedTige = true;
@@ -1180,7 +1184,7 @@ $(document).ready(function () {
 	*	Cette fonction intervient au click sur le bouton "Valider Dessin"
 	*	Elle effectue les tests pour savoir si l'utilisateur a bien effectué les dessins et si ils sont du bon coté dans le cas ou la radio a les deux hanches
 	* 	Elle affiche des messages d'erreurs si les les tests ne sont pas valide
-	*	Si tout les tests sont OK, elle l'onglet implant, bloque les boutons de dessin et appel les fonctions de sélection de tiges et cotyles
+	*	Si tout les tests sont OK, elle ouvre l'onglet implant, bloque les boutons de dessin et appel les fonctions de sélection de tiges et cotyles
 	*/
 	var buttonValideOutilsDessin = document.getElementById("buttonValideOutilsDessin");
 	buttonValideOutilsDessin.addEventListener('click',
@@ -1221,6 +1225,10 @@ $(document).ready(function () {
 				if(onPeutValider==true)
 				{
 					$('.implants *').prop('disabled',false);
+					$('.col.pad  *').css('pointer-events', 'auto');
+					$("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+					$('#padCircle, .material-icons, #labelTailleTige').css('opacity', '1');
+					$('.buttonInactif').css('opacity', '0.65');
 					$('.outilsDessin *').prop('disabled',true);
 					$("#accordeon").accordion({active : 2});
 					document.getElementById("deplacerCotyle").style.display="";
@@ -2546,6 +2554,9 @@ $(document).ready(function () {
 				contextetige.restore();
 
 				$('.implants *').prop('disabled',true);
+				$('.col.pad  *').css('pointer-events', 'none');
+				$("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleInactive.svg');
+				$('#padCircle, .material-icons, #labelTailleTige').css('opacity', '0.65');
 				//document.getElementById("choix_gamme").style.display = "";
 				//document.getElementById("actionImplant").style.display="none";
 

@@ -7,14 +7,18 @@
 	<meta charset="UTF-8">
 	<meta name="description" content="DICOM Web Viewer (DWV) static version">
 	<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link type="text/css" rel="stylesheet" href="../../css/style.css">
 	<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
 	<link type="text/css" rel="stylesheet" href="../../ext/jquery-ui/themes/ui-darkness/jquery-ui-1.11.2.min.css">
 	<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css">
 	<link rel="stylesheet" href="../../bootstrap/css/jquery.qtip.min.css">
+
+	<link type="text/css" rel="stylesheet" href="../../css/stylepad.css">
 
 
 	<!-- Third party -->
@@ -97,6 +101,7 @@
 	<script type="text/javascript" src="../../ext/progressbar/progressbar.js"></script>
 
 
+
 	<!-- Launch the app -->
 
 	<script type="text/javascript" src="appgui.js"></script>
@@ -105,6 +110,7 @@
 	<!--<script type="text/javascript" src="js/tests.js"></script>-->
 	<script type="text/javascript" src="js/Fonction.js"></script>
 	<script type="text/javascript" src="js/ActionsBouton.js"></script>
+	<script type="text/javascript" src="../js/jspad.js"></script>
 
 </head>
 
@@ -125,18 +131,22 @@
 						</div>
 						<div class="row" style="margin-top: 2%">
 							<div class="col-md-6">
-								<select class="form-control" id="coteChirurgie">
-									<option disabled selected>COTE</option>
-									<option value="Gauche">GAUCHE</option>
-									<option value="Droit">DROIT</option>
-								</select>
+								<div class="form-group">
+									<select class="form-control" id="coteChirurgie">
+										<option disabled selected hidden>COTE</option>
+										<option value="Gauche">GAUCHE</option>
+										<option value="Droit">DROIT</option>
+									</select>
+								</div>
 							</div>
 							<div class="col-md-6">
-								<select class="form-control" id="typeChirurgie">
-									<option disabled selected>PLANIFICATION</option>
-									<option value="Guider">AVANCEE</option>
-									<option value="Non guider">LIBRE</option>
-								</select>
+								<div class="form-group">
+									<select class="form-control" id="typeChirurgie">
+										<option disabled selected hidden>PLANIFICATION</option>
+										<option value="Guider">AVANCEE</option>
+										<option value="Non guider">LIBRE</option>
+									</select>
+								</div>
 							</div>
 						</div>
 						<div class="loaderlist" style="margin-top: 2%"></div>
@@ -282,10 +292,10 @@
 								<div class="container deplacerTige">
 										<div class="row justify-content-center position-relative">
 											<div class="col position-absolute">
-										<img src="images/pad/padCircle.svg" id="padCircle" class="img-fluid padCircle" alt="circle" />
+										<img src="images/pad/deplacerTige/padCircleInactive.svg" id="padCircle" class="img-fluid padCircle" alt="circle" />
 											</div>
 										</div>
-										<div class="container" id="dPad">
+										<div class="container">
 											<div class="row padTop justify-content-center no-gutters">
 												<div class="col pad">
 													<span class="material-icons" id="buttonPlusTige">add</span>
@@ -296,12 +306,12 @@
 													<span class="material-icons" id="buttonHautTige" style="margin-top: -1px;">arrow_upward</span>
 												</div>
 												<div class="col pad">
-													<span class="material-icons" id="buttonMonterTige" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
+													<span class="material-icons buttonRotationUp" id="buttonMonterTige" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
 												</div>
 											</div>
 											<div class="row justify-content-center no-gutters">
 												<div class="col pad padLeft">
-													<span class="material-icons" id="buttonTournerHautTige">rotate_right</span>
+													<span class="material-icons buttonInactif">rotate_right</span>
 												</div>
 												<div class="col-3 padCenter">
 													<div class="row justify-content-center no-gutters">
@@ -317,12 +327,12 @@
 													</div>
 												</div>
 												<div class="col pad padRight">
-													<span class="material-icons" id="buttonTournerBasTige">rotate_left</span>
+													<span class="material-icons buttonInactif">rotate_left</span>
 												</div>
 											</div>
 											<div class="row justify-content-center no-gutters">
 												<div class="col pad">
-													<span class="material-icons" id="buttonDescendreTige" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
+													<span class="material-icons buttonRotationDown" id="buttonDescendreTige" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
 												</div>
 												<div class="col pad padMiddleBot">
 													<span class="material-icons" id="buttonBasTige" style="margin-top: 3px;">arrow_downward</span>
@@ -381,8 +391,9 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="row positionTige" style="margin-top: 2%; display: none;">
+								</div> -->
+								
+								<div class="row positionTige" style="display: none;">
 									<div class="col-md-6">
 										<h5>Positionner</h5>
 									</div>
@@ -520,14 +531,16 @@
 				<div class="couleurArrierePlan">
 					<div class="row" style="margin: 0% 5%">
 						<input type="button" id="couleurGrisClaire" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#ecf0f5;">
-						<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:#333333;">
-						<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left  margin-right: 12px; background-color:black;">
+						<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#333333;">
+						<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:black;">
 						<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
 					</div>
 					<div class="row" style="margin: 5% 0%">
-						<div class="col-md-8 centered">
+						<div class="row-md-8 centered">
 							<input type="button" id="buttonContrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="LUMINOSITE" style="width: 110px;">
 							<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="400" data-slider-step="1" data-slider-value="127.5"/>
+						</div>
+						<div class="row-md-8 centered">	
 							<input type="button" id="buttonLuminosite" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CONTRASTE" style="width: 110px;">
 							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
 						</div>
@@ -634,6 +647,7 @@
 				</div><!-- /pageMain -->
 
 			</div><!-- /dwv -->
+
 		</body>
 
 		<script>

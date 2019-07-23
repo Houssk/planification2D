@@ -8,8 +8,10 @@
 *@author Quentin PETIT
 */
 function VerrouillageBoiteDialogue() {
-	$('.outilsDessin *').prop('disabled',true);
-	$('.implants *').prop('disabled',true);
+    $('.outilsDessin *').prop('disabled',true);
+    $('.implants *').prop('disabled',true);
+    $('.col.pad  *').css('pointer-events', 'none');
+    $('#padCircle, .material-icons, #labelTailleTige').css('opacity', '0.65');
 }
 
 /**
@@ -308,7 +310,7 @@ function getValeursImage() {
 }
 
 /**
-*Cette fonction calul les facteurs de redimensionnement de la dicom
+*Cette fonction calcule les facteurs de redimensionnement de la dicom
 *
 *@author Quentin PETIT
 */
