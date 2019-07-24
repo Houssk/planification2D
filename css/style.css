@@ -182,11 +182,12 @@ margin-left: -3px;
 margin-top: -1px;
 }
 
-.redDanger {
-  color: rgb(0, 0, 0) !important;
-}
-
-.deplacerTige, .positionTige {
+#dPad {
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+#labelTailleTige {
+  padding-top: 1px;
+  font-weight: 500;
 }

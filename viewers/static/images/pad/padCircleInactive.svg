@@ -14,7 +14,7 @@
    viewBox="0 0 47.770722 47.739899"
    version="1.1"
    id="svg8"
-   sodipodi:docname="padCircle.svg"
+   sodipodi:docname="padCircleInactive.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <defs
      id="defs2">
@@ -214,13 +214,13 @@
        inkscape:connector-curvature="0" />
     <path
        id="path5534"
-       style="display:inline;fill:#f47d30;fill-opacity:1;stroke-width:0.32594317"
-       d="m 31.920989,10.583346 -10.178124,5.961322 10.14977,5.944913 a 16.366125,17.89191 0 0 1 -0.93792,-6.037888 16.366125,17.89191 0 0 1 0.966274,-5.867739 c 0,0 0,-6.23e-4 0,-6.23e-4 z"
+       style="display:inline;fill:#f47d30;fill-opacity:1;stroke-width:0.34185207"
+       d="m 31.920989,9.988035 -10.178124,6.557454 10.14977,6.539405 a 16.366125,19.681101 0 0 1 -0.93792,-6.641677 16.366125,19.681101 0 0 1 0.966274,-6.4545132 c 0,0 0,-6.853e-4 0,-6.853e-4 z"
        inkscape:connector-curvature="0" />
     <path
        id="path5536"
-       style="display:inline;fill:#f47d30;fill-opacity:1;stroke-width:0.32548878"
-       d="m 59.392096,10.583331 a 16.320525,17.891905 0 0 1 0.935306,6.037888 16.320525,17.891905 0 0 1 -0.963581,5.867741 v 6.21e-4 l 10.149767,-5.96132 z"
+       style="display:inline;fill:#f47d30;fill-opacity:1;stroke-width:0.3413755"
+       d="m 59.392096,9.9880185 a 16.320525,19.681096 0 0 1 0.935306,6.6416765 16.320525,19.681096 0 0 1 -0.963581,6.454515 v 6.83e-4 l 10.149767,-6.557452 z"
        inkscape:connector-curvature="0" />
     <path
        id="path5538"

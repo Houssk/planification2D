@@ -10,8 +10,8 @@
 function VerrouillageBoiteDialogue() {
     $('.outilsDessin *').prop('disabled',true);
     $('.implants *').prop('disabled',true);
-    $('.col.pad  *').css('pointer-events', 'none');
-    $('#padCircle, .material-icons, #labelTailleTige').css('opacity', '0.65');
+    $('.col.pad  *').addClass('buttonInactif');
+    $('#padCircle').css('opacity', '0.65');
 }
 
 /**

@@ -289,10 +289,10 @@
 										</select>
 									</div>
 								</div>
-								<div class="container deplacerTige">
+								<div class="container" id="dPad">
 										<div class="row justify-content-center position-relative">
 											<div class="col position-absolute">
-										<img src="images/pad/deplacerTige/padCircleInactive.svg" id="padCircle" class="img-fluid padCircle" alt="circle" />
+										<img src="images/pad/padCircleInactive.svg" id="padCircle" class="img-fluid padCircle" alt="circle" />
 											</div>
 										</div>
 										<div class="container">
@@ -303,39 +303,39 @@
 											</div>
 											<div class="row justify-content-center no-gutters">
 												<div class="col pad padMiddleTop">
-													<span class="material-icons" id="buttonHautTige" style="margin-top: -1px;">arrow_upward</span>
+													<span class="material-icons deplacerTige" id="buttonHautTige" style="margin-top: -1px;">arrow_upward</span>
 												</div>
 												<div class="col pad">
-													<span class="material-icons buttonRotationUp" id="buttonMonterTige" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
+													<span class="material-icons buttonRotationUp deplacerTige" id="buttonMonterTige" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
 												</div>
 											</div>
 											<div class="row justify-content-center no-gutters">
 												<div class="col pad padLeft">
-													<span class="material-icons buttonInactif">rotate_right</span>
+													<span class="material-icons positionTige" id="buttonTournerHautTige">rotate_right</span>
 												</div>
 												<div class="col-3 padCenter">
 													<div class="row justify-content-center no-gutters">
 														<div class="col pad">
-														   <span class="material-icons" id="buttonGaucheTige" style="margin-left: -4px;">arrow_back</span>
+														   <span class="material-icons deplacerTige" id="buttonGaucheTige" style="margin-left: -4px;">arrow_back</span>
 														</div>
 														<div class="col pad">
 															<label id="labelTailleTige"></label>
 														</div>
 														<div class="col pad">
-															<span class="material-icons" id="buttonDroitTige" style="margin-right: -4px;">arrow_forward</span>
+															<span class="material-icons deplacerTige" id="buttonDroitTige" style="margin-right: -4px;">arrow_forward</span>
 														</div>
 													</div>
 												</div>
 												<div class="col pad padRight">
-													<span class="material-icons buttonInactif">rotate_left</span>
+													<span class="material-icons positionTige" id="buttonTournerBasTige">rotate_left</span>
 												</div>
 											</div>
 											<div class="row justify-content-center no-gutters">
 												<div class="col pad">
-													<span class="material-icons buttonRotationDown" id="buttonDescendreTige" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
+													<span class="material-icons buttonRotationDown deplacerTige" id="buttonDescendreTige" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
 												</div>
 												<div class="col pad padMiddleBot">
-													<span class="material-icons" id="buttonBasTige" style="margin-top: 3px;">arrow_downward</span>
+													<span class="material-icons deplacerTige" id="buttonBasTige" style="margin-top: 3px;">arrow_downward</span>
 												</div>
 											</div>
 											<div class="row padBot justify-content-center no-gutters">
@@ -393,21 +393,21 @@
 									</div>
 								</div> -->
 								
-								<div class="row positionTige" style="display: none;">
+								<div class="row" style="display: none;">
 									<div class="col-md-6">
 										<h5>Positionner</h5>
 									</div>
 									<div class="col-md-6">
 										<div class="row">
-                                            <div class="col-md-2 backgroundColor">
+                                            <!-- <div class="col-md-2 backgroundColor">
                                                 <input id="buttonTournerHautTige" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
-                                            </div>
+                                            </div> -->
 											<div class="col-md-2 backgroundColor">
 												<input id="buttonDeplacerTige" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
 											</div>
-                                            <div class="col-md-2 backgroundColor">
+                                            <!-- <div class="col-md-2 backgroundColor">
                                                 <input id="buttonTournerBasTige" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >
-                                            </div>
+                                            </div> -->
 
 										</div>
 									</div>
