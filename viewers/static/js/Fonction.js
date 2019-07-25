@@ -11,7 +11,8 @@ function VerrouillageBoiteDialogue() {
     $('.outilsDessin *').prop('disabled',true);
     $('.implants *').prop('disabled',true);
     $('.col.pad  *').addClass('buttonInactif');
-    $('#padCircle').css('opacity', '0.65');
+    $('#buttonDeplacerTige').addClass('buttonInactif');
+    $('#dPad').css('opacity', '0.65');
 }
 
 /**
@@ -330,11 +331,12 @@ function facteurRedimensionnementImage() {
 
 $(document).ready(function () {
     $('input[type="button"]').click(function(){
-        $('input[type="button"].activeBtn').removeClass('activeBtn')
+        $('input[type="button"].activeBtn').removeClass('activeBtn');
         $(this).addClass('activeBtn');
     });
     $('input[type="image"]').click(function(){
-        $('input[type="image"].activeBtn').removeClass('activeBtn')
+        $('input[type="image"].activeBtn').removeClass('activeBtn');
         $(this).addClass('activeBtn');
     });
-})
+
+});

@@ -121,4 +121,23 @@ $( "#buttonDescendreTige" )
     $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
   });
 
+$("#buttonDeplacerTige")
+  .mouseover(function() {
+    $("#buttonDeplacerTige").parent().css('background-color', '#c55801');
+  })
+  .mouseout(function() {
+    $("#buttonDeplacerTige").parent().css('background-color', '#f47d30');
+  });
+
+});
+
+$('#buttonDeplacerTige').click(function() {
+  $('#buttonDeplacer').addClass('activeBtn');
+});
+$('#accordeon').click(function(event) { 
+  $target = $(event.target);
+  if($target.attr('id') != 'buttonDeplacerTige' && !$target.is("div") && !target.is("img")) {
+      $('#buttonDeplacer').removeClass('activeBtn');
+  }        
+
 });
