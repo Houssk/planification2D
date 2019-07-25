@@ -1088,13 +1088,15 @@ $(document).ready(function () {
 										document.getElementById("positionCotyle").style.display="none";
 									}
 
-									document.getElementById("buttonDessinRapporteur").style.display="";
-									document.getElementById("buttonDessinRegle").style.display="";
+									document.getElementById("rowRapporteur").style.display="";
+									document.getElementById("rowRegle").style.display="";
 									$('.informationPatient *').prop('disabled',true);
+									$('#infoCalibrage').addClass('buttonInactif');
 									//document.getElementById("informationPatient").style.display = "";
 
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
+										$('#infoTrapeze, #infoPetitTroch, #infoCercle').removeClass('buttonInactif');
 										$("#accordeon").accordion({active : 1});
 									}
 
@@ -1235,6 +1237,7 @@ $(document).ready(function () {
 					$("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
 					$('#dPad').css('opacity', '1');
 					$('.outilsDessin *').prop('disabled',true);
+					$('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
 					$("#accordeon").accordion({active : 2});
 					document.getElementById("deplacerCotyle").style.display="";
 					document.getElementById("labelOffsetTigeCotyle").style.display="";
@@ -1686,13 +1689,15 @@ $(document).ready(function () {
 				sessionStorage.removeItem("trapezeDroitPosition");
 
 				$('.outilsDessin *').prop('disabled',true);
+				$('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
 				$("#accordeon").accordion({active : 0});
 				$('.informationPatient *').prop('disabled',false);
+				$('#infoCalibrage').removeClass('buttonInactif');
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
-				document.getElementById("buttonDessinRapporteur").style.display="none";
-				document.getElementById("buttonDessinRegle").style.display="none";
+				document.getElementById("rowRapporteur").style.display="none";
+				document.getElementById("rowRegle").style.display="none";
 				document.getElementById("buttonDeleteRegle1").style.display="none";
 				document.getElementById("buttonDeleteRegle2").style.display="none";
 				document.getElementById("buttonDeleteRegle3").style.display="none";
@@ -2583,17 +2588,19 @@ $(document).ready(function () {
 
 				if (patient.GetOperationGuide() == "Guider") {
 					$('.outilsDessin *').prop('disabled',false);
+					$('#infoTrapeze, #infoPetitTroch, #infoCercle').removeClass('buttonInactif');
 					$("#accordeon").accordion({active : 1});
 
 				} else {
 					$('.informationPatient *').prop('disabled',false);
+					$('#infoCalibrage').removeClass('buttonInactif');
 					sessionStorage.setItem("calibrage", false);
 	                sessionStorage.setItem("nbCercle",0);
 	                sessionStorage.setItem("nbTrapeze", 0);
                 	sessionStorage.setItem("nbPetitTroch", 0);
 	                sessionStorage.setItem("retour",0);
-					document.getElementById("buttonDessinRapporteur").style.display="none";
-					document.getElementById("buttonDessinRegle").style.display="none";
+					document.getElementById("rowRapporteur").style.display="none";
+					document.getElementById("rowRegle").style.display="none";
 					document.getElementById("buttonDeleteRegle1").style.display="none";
 					document.getElementById("buttonDeleteRegle2").style.display="none";
 					document.getElementById("buttonDeleteRegle3").style.display="none";

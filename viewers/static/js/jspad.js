@@ -129,15 +129,17 @@ $("#buttonDeplacerTige")
     $("#buttonDeplacerTige").parent().css('background-color', '#f47d30');
   });
 
-});
-
 $('#buttonDeplacerTige').click(function() {
-  $('#buttonDeplacer').addClass('activeBtn');
-});
-$('#accordeon').click(function(event) { 
-  $target = $(event.target);
-  if($target.attr('id') != 'buttonDeplacerTige' && !$target.is("div") && !target.is("img")) {
+    $('#buttonDeplacer').addClass('activeBtn');
+  });
+
+  $('#dPad').find('span').click(function(event) { 
+    $target = $(event.target);
+    if($target.attr('id') != 'buttonDeplacerTige') {
       $('#buttonDeplacer').removeClass('activeBtn');
-  }        
+    }         
+  });
+
 
 });
+

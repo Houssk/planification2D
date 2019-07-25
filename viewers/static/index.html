@@ -155,15 +155,13 @@
 						</div>
 						<div id="divNbHanche" style="display: none; margin-top:5%;">
 							<div class="row">
-								<div class="col-md-6 centered">
-									<div class="row">
-										<div class="col-md-7">
+								<div class="col-md-7 centered">
+									<div class="row no-gutters">
+										<div class="col-md-9">
 											<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
 										</div>
-										<div class="col-md-2 col-md-offset-2">
-											<button id="infoCalibrage" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-												<span class="glyphicon glyphicon-question-sign" ></span>
-											</button>
+										<div class="col-md-2 col-md-offset-7" style="height:30px;">
+											<span id="infoCalibrage" class="material-icons btnHelp" >help</span>
 										</div>
 									</div>
 								</div>
@@ -172,7 +170,7 @@
 									<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
 									<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
 								</div>-->
-								<div class="col-md-6">
+								<div class="col-md-5">
 									<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ZOOM" style="width: 110px; float: right;">
 								</div>
 							</div>
@@ -202,22 +200,39 @@
 				<h3>OUTILS DESSIN</h3>
 				<!-- OUTILS DESSIN -->
 				<div class="outilsDessin">
-					<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
-						<button id="infoTrapeze" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-							<span class="glyphicon glyphicon-question-sign" ></span>
-						</button>
-						<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-					</p>
-					<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
-						<button id="infoPetitTroch" type="button" class="btn btn-danger" aria-label="Left Align">
-							<span class="glyphicon glyphicon-question-sign" ></span>
-						</button>
-						<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
-						<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
-							<button id="infoCercle" type="button" class="btn btn-danger" aria-label="Left Align">
-								<span class="glyphicon glyphicon-question-sign" ></span>
-							</button>
-							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
+					<div class="row no-gutters justify-content-left">
+						<div class ="col-5">
+							<input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
+						</div>
+						<div class ="col-2">
+							<span id="infoTrapeze" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class ="col">
+							<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div class="row no-gutters justify-content-left">
+						<div class ="col-5">
+							<input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
+						</div>
+						<div class ="col-2">
+							<span id="infoPetitTroch" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class="col">
+							<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div class="row no-gutters justify-content-left">
+						<div class="col-5">
+							<input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
+						</div>
+						<div class="col-2">
+							<span id="infoCercle" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class="col">
+							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
 							<div class="row">
 								<div class="col-md-6 centered">
 									<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="width: 110px;">
@@ -349,25 +364,6 @@
 												</div>
 											</div>
 										</div>
-								</div>
-								<div class="row" style="display: none;">
-									<div class="col-md-6">
-										<h5>Positionner</h5>
-									</div>
-									<div class="col-md-6">
-										<div class="row">
-                                            <!-- <div class="col-md-2 backgroundColor">
-                                                <input id="buttonTournerHautTige" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
-                                            </div> -->
-											<!-- <div class="col-md-2 backgroundColor">
-												<input id="buttonDeplacerTige" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
-											</div> -->
-                                            <!-- <div class="col-md-2 backgroundColor">
-                                                <input id="buttonTournerBasTige" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >
-                                            </div> -->
-
-										</div>
-									</div>
 								</div>
 								<div class="row" style="margin-top: 2%;">
 									<div class="col-md-3"><h4>Cotyle</h4></div>
@@ -502,37 +498,37 @@
 							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
 						</div>
 					</div>
-					<div class="row" style="margin: 5% 0%">
-						<div class="col-md-8" id="buttonDessinRapporteur" style="display: none;">
+					<div id="rowRapporteur" class="row no-gutters" style="margin: 5% 0%; display: none;">
+						<div class="col-md-5" id="buttonDessinRapporteur">
 							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px;">
-							<button id="infoAngle" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-								<span class="glyphicon glyphicon-question-sign" ></span>
-							</button>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-2">	
+							<span id="infoAngle" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class="col-md-1 offset-md-1">
 							<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-1" style="margin-left: 8px;">
 							<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-1" style="margin-left: 9px;">
 							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
 					</div>
-					<div class="row" style="margin: 5% 0%" >
-						<div class="col-md-8" id="buttonDessinRegle" style=" display: none;">
+					<div id="rowRegle" class="row no-gutters" style="margin: 5% 0%; display: none;" >
+						<div class="col-md-5" id="buttonDessinRegle">
 							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px;">
-							<button id="infoRegle" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-								<span class="glyphicon glyphicon-question-sign" ></span>
-							</button>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-2">
+							<span id="infoRegle" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class="col-md-1 offset-md-1">
 							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-1" style="margin-left: 8px;">
 							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-1" style="margin-left: 9px;">
 							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
 					</div>

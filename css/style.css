@@ -173,13 +173,13 @@ table.tagList td {
 .qtip-content {
     padding: 0px 0px !important;
 }
-.btn-danger {
-    background-color: #ff0000 !important;
-    border-color: #f5eced !important;
+.material-icons.btnHelp {
+  color: #dc3545;
+  font-size: 29px;
 }
-#infoCalibrage {
-margin-left: -3px;
-margin-top: -1px;
+
+.material-icons.btnHelp:hover {
+  color: #c82333;
 }
 
 #dPad {
@@ -191,3 +191,7 @@ margin-top: -1px;
   padding-top: 1px;
   font-weight: 500;
 }
+
+.outilsDessin > .row {
+  margin-bottom: 10px;
+} 

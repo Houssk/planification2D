@@ -9,6 +9,7 @@
 */
 function VerrouillageBoiteDialogue() {
     $('.outilsDessin *').prop('disabled',true);
+    $('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
     $('.implants *').prop('disabled',true);
     $('.col.pad  *').addClass('buttonInactif');
     $('#buttonDeplacerTige').addClass('buttonInactif');

@@ -42,20 +42,9 @@
     text-align: center;
 }
 
-.material-icons.md-dark {
-    color: rgba(0, 0, 0, 0.54); 
-}
-.material-icons.md-dark.md-inactive {
-    color: rgba(0, 0, 0, 0.26);
-}
-
 .material-icons {
     color: rgba(255, 255, 255, 1);
     user-select: none;
-}
-
-.material-icons.md-inactive {
-    color: rgba(255, 255, 255, 0.3);
 }
 
 .buttonRotationUp {
