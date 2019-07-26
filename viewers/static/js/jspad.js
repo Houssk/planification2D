@@ -12,113 +12,241 @@ $('#buttonValideInformationPatient')
 $( "#buttonPlusTige" )
   .mouseover(function() {
     if (typeChirgurie == "Non guider") {
-      $("#padCircle").attr('src', 'images/pad/positionTige/padTriangleUp.svg');
+      $("#padCircleTige").attr('src', 'images/pad/position/padTriangleUp.svg');
     }
     else if(coteChirurgie == $("#coteTige").val()) {
-        $("#padCircle").attr('src', 'images/pad/deplacerTige/padTriangleUp.svg');
+        $("#padCircleTige").attr('src', 'images/pad/deplacer/padTriangleUp.svg');
         }
       else {
-        $("#padCircle").attr('src', 'images/pad/positionTige/padTriangleUp.svg');
+        $("#padCircleTige").attr('src', 'images/pad/position/padTriangleUp.svg');
         };
   })
   .mouseout(function() {
     if (typeChirgurie == "Non guider") {
-      $("#padCircle").attr('src', 'images/pad/positionTige/padCircleActive.svg');
+      $("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
     }
     else if(coteChirurgie == $("#coteTige").val()) {
-      $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+      $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
       }
     else {
-      $("#padCircle").attr('src', 'images/pad/positionTige/padCircleActive.svg');
+      $("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
       };
   });
 
 $( "#buttonMoinsTige" )
 .mouseover(function() {
   if (typeChirgurie == "Non guider") {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padTriangleDown.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padTriangleDown.svg');
   }
   else if(coteChirurgie == $("#coteTige").val()) {
-      $("#padCircle").attr('src', 'images/pad/deplacerTige/padTriangleDown.svg');
+      $("#padCircleTige").attr('src', 'images/pad/deplacer/padTriangleDown.svg');
       }
     else {
-      $("#padCircle").attr('src', 'images/pad/positionTige/padTriangleDown.svg');
+      $("#padCircleTige").attr('src', 'images/pad/position/padTriangleDown.svg');
       };
 })
 .mouseout(function() {
   if (typeChirgurie == "Non guider") {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
   }
   else if(coteChirurgie == $("#coteTige").val()) {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
     }
   else {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
     };
 });
   
 $( "#buttonTournerHautTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padTriangleLeft.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padTriangleLeft.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
   });
   
 $( "#buttonTournerBasTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padTriangleRight.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padTriangleRight.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/positionTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
   });
   
 $( "#buttonHautTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleUp.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleUp.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
   });
   
 $( "#buttonDroitTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleRight.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleRight.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
   });
   
 $( "#buttonBasTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleDown.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleDown.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
   });
   
 $( "#buttonGaucheTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleLeft.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleLeft.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
   });
   
 $( "#buttonMonterTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleUpRight.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleUpRight.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
   });
   
 $( "#buttonDescendreTige" )
   .mouseover(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleDownLeft.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleDownLeft.svg');
   })
   .mouseout(function() {
-    $("#padCircle").attr('src', 'images/pad/deplacerTige/padCircleActive.svg');
+    $("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
+  });
+
+  $( "#buttonPlusCotyle" )
+  .mouseover(function() {
+    if (typeChirgurie == "Non guider") {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleUp.svg');
+    }
+    else if(coteChirurgie == $("#coteCotyle").val()) {
+        $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleUp.svg');
+        }
+      else {
+        $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleUp.svg');
+        };
+  })
+  .mouseout(function() {
+    if (typeChirgurie == "Non guider") {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+    }
+    else if(coteChirurgie == $("#coteCotyle").val()) {
+      $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+      }
+    else {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+      };
+});
+
+$( "#buttonMoinsCotyle" )
+.mouseover(function() {
+  if (typeChirgurie == "Non guider") {
+    $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleDown.svg');
+  }
+  else if(coteChirurgie == $("#coteCotyle").val()) {
+      $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleDown.svg');
+      }
+    else {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleDown.svg');
+      };
+})
+.mouseout(function() {
+  if (typeChirgurie == "Non guider") {
+    $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+  }
+  else if(coteChirurgie == $("#coteCotyle").val()) {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+    }
+  else {
+    $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+    };
+});
+  
+$( "#buttonTournerHautCotyle" )
+.mouseover(function() {
+    if (typeChirgurie == "Non guider") {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleLeft.svg');
+    }
+    else if(coteChirurgie == $("#coteCotyle").val()) {
+        $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleLeft.svg');
+        }
+      else {
+        $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleLeft.svg');
+        };
+  })
+  .mouseout(function() {
+    if (typeChirgurie == "Non guider") {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+    }
+    else if(coteChirurgie == $("#coteCotyle").val()) {
+      $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+      }
+    else {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+      };
+  });
+
+$( "#buttonTournerBasCotyle" )
+.mouseover(function() {
+    if (typeChirgurie == "Non guider") {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleRight.svg');
+    }
+    else if(coteChirurgie == $("#coteCotyle").val()) {
+        $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleRight.svg');
+        }
+      else {
+        $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleRight.svg');
+        };
+  })
+  .mouseout(function() {
+    if (typeChirgurie == "Non guider") {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+    }
+    else if(coteChirurgie == $("#coteCotyle").val()) {
+      $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+      }
+    else {
+      $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+      };
+  });
+  
+$( "#buttonDroitCotyle" )
+  .mouseover(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleRight.svg');
+  })
+  .mouseout(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+  });
+  
+$( "#buttonGaucheCotyle" )
+  .mouseover(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleLeft.svg');
+  })
+  .mouseout(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+  });
+  
+$( "#buttonMonterCotyle" )
+  .mouseover(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleUpRight.svg');
+  })
+  .mouseout(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+  });
+  
+$( "#buttonDescendreCotyle" )
+  .mouseover(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleDownLeft.svg');
+  })
+  .mouseout(function() {
+    $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
   });
 
 $("#buttonDeplacerTige")
@@ -129,14 +257,33 @@ $("#buttonDeplacerTige")
     $("#buttonDeplacerTige").parent().css('background-color', '#f47d30');
   });
 
-$('#buttonDeplacerTige').click(function() {
-    $('#buttonDeplacer').addClass('activeBtn');
+$("#buttonDeplacerCotyle")
+  .mouseover(function() {
+    $("#buttonDeplacerCotyle").parent().css('background-color', '#c55801');
+  })
+  .mouseout(function() {
+    $("#buttonDeplacerCotyle").parent().css('background-color', '#f47d30');
   });
 
-  $('#dPad').find('span').click(function(event) { 
+$('#buttonDeplacerTige').click(function() {
+    $('#divDeplacerTige').addClass('activeBtn');
+  });
+
+  $('#dPadTige').find('span').click(function(event) { 
     $target = $(event.target);
     if($target.attr('id') != 'buttonDeplacerTige') {
-      $('#buttonDeplacer').removeClass('activeBtn');
+      $('#divDeplacerTige').removeClass('activeBtn');
+    }         
+  });
+
+  $('#buttonDeplacerCotyle').click(function() {
+    $('#divDeplacerCotyle').addClass('activeBtn');
+  });
+
+$('#dPadCotyle').find('span').click(function(event) { 
+    $target = $(event.target);
+    if($target.attr('id') != 'buttonDeplacerCotyle') {
+      $('#divDeplacerCotyle').removeClass('activeBtn');
     }         
   });
 

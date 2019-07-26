@@ -12,8 +12,8 @@ function VerrouillageBoiteDialogue() {
     $('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
     $('.implants *').prop('disabled',true);
     $('.col.pad  *').addClass('buttonInactif');
-    $('#buttonDeplacerTige').addClass('buttonInactif');
-    $('#dPad').css('opacity', '0.65');
+    $('#buttonDeplacerTige, #buttonDeplacerCotyle').addClass('buttonInactif');
+    $('#dPadTige, #dPadCotyle').css('opacity', '0.65');
 }
 
 /**

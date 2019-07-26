@@ -26,11 +26,7 @@
     margin-left: 26px;
 }
 
-#buttonTournerHautTige, #buttonTournerBasTige {
-    padding-top: 1px;
-}
-
-#buttonTournerHautTigeInactif, #buttonTournerBasTigeInactif {
+#buttonTournerHautTige, #buttonTournerBasTige, #buttonTournerHautCotyle, #buttonTournerBasCotyle {
     padding-top: 1px;
 }
 
@@ -64,7 +60,7 @@
     opacity: 0.65;
 }
 
-#buttonDeplacer {
+#divDeplacerTige, #divDeplacerCotyle {
     max-height: 33px;
     max-width: 33px;
     min-width: 33px;
@@ -72,7 +68,7 @@
     background-color: #f47d30;
 }
 
-#buttonDeplacerTige {
+#buttonDeplacerTige, #buttonDeplacerCotyle {
     padding-left: 1%;
     padding-top: 1%;
     font-size: 32px;
