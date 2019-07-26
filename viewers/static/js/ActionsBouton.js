@@ -1060,7 +1060,6 @@ $(document).ready(function () {
 										document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
 										document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
 										document.getElementById("padCircleCotyle").src='images/pad/position/padCircleActive.svg';
-										// document.getElementById("deplacerCotyle").style.display="none";
 										document.getElementById("labelOffsetTigeCotyle").style.display="none";
 										document.getElementById("labelHauteurTigeCotyle").style.display="none";
 										document.getElementById("padCircleTige").src='images/pad/position/padCircleActive.svg';
@@ -1076,7 +1075,6 @@ $(document).ready(function () {
 										for (var i = 0; i < elementPositionTige.length; i++) {
 											elementPositionTige[i].classList.remove("buttonInactif");
 										}
-										// document.getElementById("positionCotyle").style.display="";
 										TigeSelection();
 										CotyleSelection();
 									}

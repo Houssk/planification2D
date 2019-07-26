@@ -187,7 +187,7 @@ table.tagList td {
   margin-bottom: 2%;
 }
 
-#labelTailleTige {
+#labelTailleTige, #labelTailleCotyle {
   padding-top: 1px;
   font-weight: 500;
 }
