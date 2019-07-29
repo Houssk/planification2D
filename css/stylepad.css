@@ -38,11 +38,6 @@
     text-align: center;
 }
 
-.material-icons {
-    color: rgba(255, 255, 255, 1);
-    user-select: none;
-}
-
 .buttonRotationUp {
     -webkit-transform: rotate(45deg);
 
@@ -75,11 +70,6 @@
 }
 
 
-.col.pad > .material-icons {
+.col.pad > .material-icons, #divDeplacerTige, #divDeplacerCotyle {
     cursor: pointer;
-}
-
-.activeBtn
-{
-	background: #c55801 !important;
 }

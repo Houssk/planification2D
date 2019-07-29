@@ -1,5 +1,4 @@
-.backgroundColor
-{
+.backgroundColor {
   background-color: #f47d30;
   margin-right: 2%;
   height: 25px;
@@ -8,7 +7,14 @@
   text-align: center;
 }
 
-.btnHover:hover
-{
-  background: #181617;
+.btnHover:hover {
+  background: #c55801;
+}
+
+.activeBtn {
+	background: #c55801 !important;
+}
+
+.material-icons.md-32 {
+  font-size: 32px;
 }

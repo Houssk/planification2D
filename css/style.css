@@ -157,6 +157,11 @@ table.tagList td {
 #ex3Slider .slider-selection {
     background: #f47d30;
 }
+
+#ex1Slider, #ex2Slider {
+  vertical-align: -webkit-baseline-middle;
+}
+
 /*.red
 {
     background: #181617;
@@ -195,3 +200,12 @@ table.tagList td {
 .outilsDessin > .row {
   margin-bottom: 10px;
 } 
+
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+  user-select: none;
+}
+
+.material-icons.md-dark {
+   color: rgba(0, 0, 0, 1); 
+}

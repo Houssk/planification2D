@@ -51,46 +51,6 @@ $(document).ready(function () {
 	sessionStorage.setItem("boolCoteOperation",false); // ce stockage permet de savoir si le champs "Coté d'opération" est rempli pour gérer l'affichage du bouton "valider patient"
 	sessionStorage.setItem("boolTypeOperation",false); // ce stockage permet de savoir si le champs "Type d'opération" est rempli pour gérer l'affichage du bouton "valider patient"
 
-	/* Change la couleur du fond */
-	var couleurGris = document.getElementById("couleurGris");
-	couleurGris.addEventListener('click', function() {
-		function CouleurGris(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = '#333333';
-		};
-		CouleurGris()
-	},false);
-
-	/* Change la couleur du fond */
-	var couleurGrisClaire = document.getElementById("couleurGrisClaire");
-	couleurGrisClaire.addEventListener('click', function() {
-		function CouleurGrisClaire(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = '#ecf0f5';
-		};
-		CouleurGrisClaire()
-	},false);
-
-	/* Change la couleur du fond */
-	var couleurNoir = document.getElementById("couleurNoir");
-	couleurNoir.addEventListener('click', function() {
-		function CouleurNoir(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = 'black';
-		};
-		CouleurNoir()
-	},false);
-
-	/* Change la couleur du fond */
-	var couleurBlanc = document.getElementById("couleurBlanc");
-	couleurBlanc.addEventListener('click', function() {
-		function CouleurBlanc(){
-			var div = document.getElementById('pageMain');
-			div.style.backgroundColor = 'white';
-		};
-		CouleurBlanc()
-	},false);
-
 	/*
 	*	Cette fonction assure la gestion de l'affichage de du bouton "Valider patient"
 	*	Elle est appelé à chaque changement du contenu des champs "Nom" "Prénom" "Coté d'opération" "Type d'opération"
@@ -1547,9 +1507,6 @@ $(document).ready(function () {
 					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
 					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
 					document.getElementById("padCircleCotyle").src='images/pad/cotyleGuide/padCircleActive.svg';
-					var tailleCotyle = cotyleDroit.GetNom().split("-");
-					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				} else if (patient.GetCoteOperation()=="Droit") {
 					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
 					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
@@ -1601,9 +1558,6 @@ $(document).ready(function () {
 					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
 					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
 					document.getElementById("padCircleCotyle").src='images/pad/cotyleGuide/padCircleActive.svg';
-					var tailleCotyle = cotyleGauche.GetNom().split("-");
-					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
-					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
 				} else if (patient.GetCoteOperation()=="Gauche") {
 					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
 					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
