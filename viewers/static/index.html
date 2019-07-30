@@ -298,10 +298,18 @@
 										<h5>Côté</h5>
 									</div>
 									<div class="col-md-9">
-										<select id="coteTige" class="form-control">
+										<!-- <select id="coteTige" class="form-control">
 											<option value="Gauche">GAUCHE</option>
 											<option value="Droit">DROIT</option>
-										</select>
+										</select> -->
+										<div class="btn-group btn-group-toggle" id="coteTige" data-toggle="buttons">
+											<label class="btn btn-secondary">
+												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> GAUCHE
+											</label>
+											<label class="btn btn-secondary">
+												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> DROIT
+											</label>
+										</div>
 									</div>
 								</div>
 								<div class="container" id="dPadTige">
@@ -567,9 +575,8 @@
 					<div id="dwv-layerDialog" class="layerDialog" title="Image">
 						<div class="dropBox"></div>
 						<div class="layerContainer">
-							<div id="offsetHauteurTC">
-								<label id="labelOffsetTigeCotyle" class="whiteColor"></label>
-								<label id="labelHauteurTigeCotyle" class="whiteColor"></label>
+							<div class="alert alert-danger" role="alert" style="display: none;">
+								L'offset a changé !
 							</div>
 							<div class="drop" style="z-index: 1">
 								<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
@@ -587,6 +594,10 @@
 									<div class="plot"></div>
 								</div>
 							</div><!-- /infoLayer -->
+							<div class="col" id="offsetHauteurTC">
+								<label id="labelOffsetTigeCotyle" class="whiteColor"></label>
+								<label id="labelHauteurTigeCotyle" class="whiteColor"></label>
+							</div>
 						</div><!-- /layerContainer -->
 					</div><!-- /layerDialog -->
 
