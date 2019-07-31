@@ -14,6 +14,8 @@ function VerrouillageBoiteDialogue() {
     $('.col.pad  *').addClass('buttonInactif');
     $('#buttonDeplacerTige, #buttonDeplacerCotyle').addClass('buttonInactif');
     $('#dPadTige, #dPadCotyle').css('opacity', '0.65');
+    $('#coteTige').addClass('buttonInactif');
+    $('#coteCotyle').addClass('buttonInactif');
 }
 
 /**

@@ -18,3 +18,31 @@
 .material-icons.md-32 {
   font-size: 32px;
 }
+
+.btn.btn-primary {
+  background-color: #f47d30;
+  border-color: #f47d30;
+}
+
+.btn.btn-primary:hover {
+  background-color: #dc6a18 !important;
+  border-color: #dc6a18 !important;
+}
+
+.btn.btn-primary.active {
+  background-color: #c55801 !important;
+  border-color: #c55801 !important;
+}
+
+#coteTige, #coteCotyle {
+  width: 75%;
+}
+
+.radioButton {
+  width: 50%;
+}
+
+#coteTigeDisplay, #coteCotyleDisplay {
+  text-align: center;
+  margin-top: 5px;
+}

@@ -235,7 +235,7 @@
 					</div>
 							<div class="row">
 								<div class="col-md-6 centered">
-									<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="width: 110px;">
+									<button type="button" id="buttonValideOutilsDessin" class="btn btn-primary">VALIDER</button>
 								</div>
 								<div class="col-md-6 centered">
 									<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
@@ -293,21 +293,17 @@
 										</select>
 									</div>
 								</div>
-								<div id="coteTigeDisplay" class="row">
-									<div class="col-md-3">
+								<div id="coteTigeDisplay" class="row justify-content-center">
+									<!-- <div class="col-3">
 										<h5>Côté</h5>
-									</div>
-									<div class="col-md-9">
-										<!-- <select id="coteTige" class="form-control">
-											<option value="Gauche">GAUCHE</option>
-											<option value="Droit">DROIT</option>
-										</select> -->
+									</div> -->
+									<div class="col">
 										<div class="btn-group btn-group-toggle" id="coteTige" data-toggle="buttons">
-											<label class="btn btn-secondary">
-												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> GAUCHE
+											<label class="btn btn-primary radioButton">
+												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> Gauche
 											</label>
-											<label class="btn btn-secondary">
-												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> DROIT
+											<label class="btn btn-primary radioButton">
+												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> Droit
 											</label>
 										</div>
 									</div>
@@ -395,15 +391,16 @@
 										</select>
 									</div>
 								</div>
-								<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">
-									<div class="col-md-3">
-										<h5>Côté</h5>
-									</div>
-									<div class="col-md-9">
-										<select id="coteCotyle" class="form-control">
-											<option value="Gauche">GAUCHE</option>
-											<option value="Droit">DROIT</option>
-										</select>
+								<div id="coteCotyleDisplay" class="row justify-content-center">
+									<div class="col">
+										<div class="btn-group btn-group-toggle" id="coteCotyle" data-toggle="buttons">
+											<label class="btn btn-primary radioButton">
+												<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"> Gauche
+											</label>
+											<label class="btn btn-primary radioButton">
+												<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"> Droit
+											</label>
+										</div>
 									</div>
 								</div>
 

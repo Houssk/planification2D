@@ -45,7 +45,6 @@ $(document).ready(function () {
 	var firstSideChangedTige = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur la tige
 	var firstSideChangedCotyle = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur le cotyle
 
-
 	sessionStorage.setItem("boolNom",false); // ce stockage permet de savoir si le champs "Nom" est rempli pour gérer l'affichage du bouton "valider patient"
 	sessionStorage.setItem("boolPrenom",false); // ce stockage permet de savoir si le champs "Prénom" est rempli pour gérer l'affichage du bouton "valider patient"
 	sessionStorage.setItem("boolCoteOperation",false); // ce stockage permet de savoir si le champs "Coté d'opération" est rempli pour gérer l'affichage du bouton "valider patient"
@@ -131,10 +130,12 @@ $(document).ready(function () {
 	*	Cette fonction assure le calcul de l'offset en X et Y en fonction du coefficient de calibrage
 	*	Elle assure également leur affichage
 	*/
+	var clickTimeout; // Variable destinée à éviter la répétition du fadeOut et du changement de couleur si l'utilisateur continue de cliquer sur les boutons appelant la fonction
 	function CalculOffset() {
 		var coefficient = sessionStorage.getItem("coefficient");
 		var offset = null;
 		var hauteur = null;
+		clearTimeout(clickTimeout);
 		if (patient.GetCoteOperation()=="Gauche") {
 			offset = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
 			hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
@@ -146,8 +147,8 @@ $(document).ready(function () {
 		document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
 		document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
 		document.getElementById('labelOffsetTigeCotyle').style.color="#f00";
-		document.getElementById('labelHauteurTigeCotyle').style.color="#f00"
-		setTimeout(function(){
+		document.getElementById('labelHauteurTigeCotyle').style.color="#f00";
+		clickTimeout = setTimeout(function(){
 			$('.alert').fadeOut('5000');
 			document.getElementById('labelOffsetTigeCotyle').style.color="#fff";
 			document.getElementById('labelHauteurTigeCotyle').style.color="#fff";
@@ -936,7 +937,7 @@ $(document).ready(function () {
 				imgCotyleGauche.src=cotyleGauche.GetUrl();
 			}
 		}
-		// Mise a jour de l'affichage de la taille de la tige en fonction du nombre de hanche sur la radio et puis du coté actif
+		// Mise a jour de l'affichage de la taille du cotyle en fonction du nombre de hanche sur la radio et puis du coté actif
 		if (document.getElementById("RadioOuiHanche").checked) {
 			if (patient.GetCoteOperation()=="Gauche") {
 				var tailleCotyle = cotyleDroit.GetNom().split("-");
@@ -946,8 +947,7 @@ $(document).ready(function () {
 				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 			}
 		} else {
-			var coteCotyle = document.getElementById("coteCotyle");
-			if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+			if (document.querySelector('input[name="coteTige"]:checked').value == "Gauche") {
 				var tailleCotyle = cotyleDroit.GetNom().split("-");
 				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 			} else {
@@ -1009,10 +1009,10 @@ $(document).ready(function () {
 
 									if (patient.GetCoteOperation()=="Gauche") {
 										document.getElementById("coteTigeG").checked = true;
-										document.getElementById("coteCotyle").value="Gauche";
+										document.getElementById("coteCotyleG").checked = true;
 									} else {
 										document.getElementById("coteTigeD").checked = true;
-										document.getElementById("coteCotyle").value="Droit";
+										document.getElementById("coteCotyleD").checked = true;
 									}
 									if (patient.GetOperationGuide()=="Non guider") {
 										// Gestion de l'affichage des boutons en cas de chirurgie non guidée et appel des fonctions de sélection de tiges et cotyles
@@ -1020,6 +1020,10 @@ $(document).ready(function () {
 										for (var i = 0; i < elementDeplacerCotyle.length; i++) {
 											elementDeplacerCotyle[i].classList.add("buttonInactif");
 										}
+										document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.add('active');
+										document.getElementById("coteCotyle").classList.remove("buttonInactif");
+										document.querySelector('input[name="coteTige"]:checked').parentNode.classList.add('active');
+										document.getElementById("coteTige").classList.remove("buttonInactif");
 										document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
 										document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
 										document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
@@ -1203,6 +1207,8 @@ $(document).ready(function () {
 					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
 						elementDeplacerCotyle[i].classList.remove("buttonInactif");
 						}
+					document.getElementById("coteCotyle").classList.remove("buttonInactif");
+					document.getElementById("coteTige").classList.remove("buttonInactif");
 					document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
 					document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
 					document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
@@ -1214,6 +1220,7 @@ $(document).ready(function () {
 					document.getElementById("buttonMoinsTige").classList.remove("buttonInactif");
 					document.getElementById("buttonPlusTige").classList.remove("buttonInactif");
 					document.getElementById("labelTailleTige").classList.remove("buttonInactif");
+
 					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
 					for (var i = 0; i < elementDeplacerTige.length; i++) {
 						elementDeplacerTige[i].classList.remove("buttonInactif");
@@ -1222,13 +1229,8 @@ $(document).ready(function () {
 					for (var i = 0; i < elementPositionTige.length; i++) {
 						elementPositionTige[i].classList.add("buttonInactif");
 					}
-					if (patient.GetCoteOperation()=="Gauche") {
-						document.getElementById("coteTigeG").checked = true;
-						document.getElementById("coteCotyle").value="Gauche";
-					} else {
-						document.getElementById("coteTigeD").checked = true;
-						document.getElementById("coteCotyle").value="Droit";
-					}
+					document.querySelector('input[name="coteTige"]:checked').parentNode.classList.add('active');
+					document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.add('active');
 					TigeSelection();
 					CotyleSelection();
 				}
@@ -1313,6 +1315,14 @@ $(document).ready(function () {
 	*/
 	var coteTige = document.getElementById("coteTige");
 	coteTige.addEventListener('click',function(){
+		var radioCoteTige = document.querySelectorAll('input[name="coteTige"]');
+		for(var item of radioCoteTige) {
+			if(item.checked) {
+				item.parentNode.classList.add('active');
+			} else {
+				item.parentNode.classList.remove('active');
+			}
+		}
 		if(patient.GetOperationGuide()=="Guider"){
 			if (document.querySelector('input[name="coteTige"]:checked').value == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
@@ -1498,9 +1508,17 @@ $(document).ready(function () {
 	*	Chacun des affichages et actualisation et effectué en fonction du type de chirurgie
 	*/
 	var coteCotyle = document.getElementById("coteCotyle");
-	coteCotyle.addEventListener('change',function(){
+	coteCotyle.addEventListener('click',function(){
+		var radioCoteCotyle = document.querySelectorAll('input[name="coteCotyle"]');
+		for(var item of radioCoteCotyle) {
+			if(item.checked) {
+				item.parentNode.classList.add('active');
+			} else {
+				item.parentNode.classList.remove('active');
+			}
+		}
 		if(patient.GetOperationGuide()=="Guider"){
-			if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+			if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
 					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
 					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
@@ -1551,7 +1569,7 @@ $(document).ready(function () {
 						imgCotyleDroit.src=cotyleDroit.GetUrl();
 					}
 				}
-			} else if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
+			} else if (document.querySelector('input[name="coteCotyle]:checked').value == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
 					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
 					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
@@ -1607,7 +1625,7 @@ $(document).ready(function () {
 			$('.positionCotyle').prop('disabled',false);
 		}
 		if (patient.GetOperationGuide()=="Non guider") {
-			if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+			if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
 					var tailleCotyle = cotyleDroit.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
@@ -1637,7 +1655,7 @@ $(document).ready(function () {
 						imgCotyleDroit.src=cotyleDroit.GetUrl();
 					}
 				}
-			} else if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
+			} else if (document.querySelector('input[name="coteCotyle"]:checked').value == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
 					var tailleCotyle = cotyleGauche.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
@@ -1876,8 +1894,7 @@ $(document).ready(function () {
 		var contexteCotyleDrawCotyle=null;
 		var canvasCotyle = null;
 		var coefficient = sessionStorage.getItem("coefficient");
-		var coteCotyle = document.getElementById("coteCotyle");
-		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+		if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
 			canvasCotyle=document.getElementById("canvasCotyleDroit");
 			canvasCotyle.width=m_canvasWidth;
 			canvasCotyle.height=m_canvasHeight;
@@ -1942,7 +1959,7 @@ $(document).ready(function () {
 				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 			}
 		}
-		if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
+		if (document.querySelector('input[name="coteCotyle"]:checked').value == "Droit") {
 			canvasCotyle=document.getElementById("canvasCotyleGauche");
 			canvasCotyle.width=m_canvasWidth;
 			canvasCotyle.height=m_canvasHeight;
@@ -2069,8 +2086,7 @@ $(document).ready(function () {
 	buttonPlusCotyle.addEventListener('click',
 		function() {
 			function PlusTailleCotyle(){
-				var coteCotyleBtn = document.getElementById("coteCotyle");
-				if (coteCotyleBtn.options[coteCotyleBtn.selectedIndex].value == "Gauche") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
 					if (indexCotyleDroit+1>maximumCotyleDroit) {
 						indexCotyleDroit=maximumCotyleDroit;
 					} else {
@@ -2095,9 +2111,8 @@ $(document).ready(function () {
 	var buttonMoinsCotyle = document.getElementById("buttonMoinsCotyle");
 	buttonMoinsCotyle.addEventListener('click',
 		function() {
-			var coteCotyleBtn = document.getElementById("coteCotyle");
 			function MoinsTailleCotyle(){
-				if (coteCotyleBtn.options[coteCotyleBtn.selectedIndex].value == "Gauche") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
 					if (indexCotyleDroit-1<minimumCotyleDroit) {
 						indexCotyleDroit=minimumCotyleDroit;
 					} else {
@@ -2331,8 +2346,7 @@ $(document).ready(function () {
 	buttonTournerHautCotyle.addEventListener('click',
 		function() {
 			function TournerHautCotyle(){
-				var coteCotyle = document.getElementById("coteCotyle");
-				if (coteCotyle.options[coteCotyle.selectedIndex].value=="Gauche") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value =="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
@@ -2375,8 +2389,7 @@ $(document).ready(function () {
 	buttonTournerBasCotyle.addEventListener('click',
 		function() {
 			function TournerBasCotyle(){
-				var coteCotyle = document.getElementById("coteCotyle");
-				if (coteCotyle.options[coteCotyle.selectedIndex].value=="Gauche") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value=="Gauche") {
 					var canvasCotyle = document.getElementById("canvasCotyleDroit");
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
@@ -2462,6 +2475,11 @@ $(document).ready(function () {
 				$('#divDeplacerTige, #divDeplacerCotyle').css('opacity', '1');
 				$("#padCircleTige, #padCircleCotyle").attr('src', 'images/pad/padCircleInactive.svg');
 				$('#dPadTige, #dPadCotyle').css('opacity', '0.65');
+				$('#coteTige').addClass('buttonInactif');
+				$('#coteCotyle').addClass('buttonInactif');
+				document.querySelector('input[name="coteTige"]:checked').parentNode.classList.remove('active');
+				document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.remove('active');
+				
 				//document.getElementById("choix_gamme").style.display = "";
 				//document.getElementById("actionImplant").style.display="none";
 
@@ -2693,10 +2711,9 @@ function decode_utf8(s) {
 				var canvasTigeGauche=document.getElementById("canvasTigeGauche");
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
 				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
-				var coteCotyle = document.getElementById("coteCotyle");
 				document.getElementById("dwv-drawDiv").style.zIndex = "10";
 
-				if (coteCotyle.options[coteCotyle.selectedIndex].value == "Gauche") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
 
 					canvasTigeDroit.style.zIndex=25;
 					canvasTigeGauche.style.zIndex=30;
@@ -2717,7 +2734,7 @@ function decode_utf8(s) {
 
 				}
 
-				if (coteCotyle.options[coteCotyle.selectedIndex].value == "Droit") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value == "Droit") {
 					canvasTigeDroit.style.zIndex=25;
 					canvasTigeGauche.style.zIndex=30;
 					canvasCotyleDroit.style.zIndex=35;

@@ -126,7 +126,7 @@ $( "#buttonDescendreTige" )
     if (typeChirgurie == "Non guider") {
       $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleUp.svg');
     }
-    else if(coteChirurgie == $("#coteCotyle").val()) {
+    else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
         $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleUp.svg');
         }
       else {
@@ -137,7 +137,7 @@ $( "#buttonDescendreTige" )
     if (typeChirgurie == "Non guider") {
       $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
     }
-    else if(coteChirurgie == $("#coteCotyle").val()) {
+    else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
       $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
       }
     else {
@@ -150,7 +150,7 @@ $( "#buttonMoinsCotyle" )
   if (typeChirgurie == "Non guider") {
     $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleDown.svg');
   }
-  else if(coteChirurgie == $("#coteCotyle").val()) {
+  else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
       $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleDown.svg');
       }
     else {
@@ -161,7 +161,7 @@ $( "#buttonMoinsCotyle" )
   if (typeChirgurie == "Non guider") {
     $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
   }
-  else if(coteChirurgie == $("#coteCotyle").val()) {
+  else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
     $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
     }
   else {
@@ -174,7 +174,7 @@ $( "#buttonTournerHautCotyle" )
     if (typeChirgurie == "Non guider") {
       $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleLeft.svg');
     }
-    else if(coteChirurgie == $("#coteCotyle").val()) {
+    else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
         $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleLeft.svg');
         }
       else {
@@ -185,7 +185,7 @@ $( "#buttonTournerHautCotyle" )
     if (typeChirgurie == "Non guider") {
       $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
     }
-    else if(coteChirurgie == $("#coteCotyle").val()) {
+    else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
       $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
       }
     else {
@@ -198,7 +198,7 @@ $( "#buttonTournerBasCotyle" )
     if (typeChirgurie == "Non guider") {
       $("#padCircleCotyle").attr('src', 'images/pad/position/padTriangleRight.svg');
     }
-    else if(coteChirurgie == $("#coteCotyle").val()) {
+    else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
         $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padTriangleRight.svg');
         }
       else {
@@ -209,7 +209,7 @@ $( "#buttonTournerBasCotyle" )
     if (typeChirgurie == "Non guider") {
       $("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
     }
-    else if(coteChirurgie == $("#coteCotyle").val()) {
+    else if(coteChirurgie == $("input[name='coteCotyle']:checked").val()) {
       $("#padCircleCotyle").attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
       }
     else {
