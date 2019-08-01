@@ -50,11 +50,6 @@
     transform: rotate(45deg);
 }
 
-.buttonInactif {
-    pointer-events: none;
-    opacity: 0.65;
-}
-
 #divDeplacerTige, #divDeplacerCotyle {
     max-height: 33px;
     max-width: 33px;

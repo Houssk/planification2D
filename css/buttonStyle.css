@@ -7,21 +7,34 @@
   text-align: center;
 }
 
+.buttonInactif {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.65;
+}
+
 .btnHover:hover {
   background: #c55801;
 }
 
 .activeBtn {
-	background: #c55801 !important;
+  background: #c55801 !important;
+  border-color: #c55801 !important;
 }
 
 .material-icons.md-32 {
   font-size: 32px;
 }
 
+.material-icons.md-34 {
+  font-size: 34px;
+}
+
 .btn.btn-primary {
   background-color: #f47d30;
   border-color: #f47d30;
+  width: 100%;
+  font-weight: bold;
 }
 
 .btn.btn-primary:hover {
@@ -29,7 +42,7 @@
   border-color: #dc6a18 !important;
 }
 
-.btn.btn-primary.active {
+.btn.btn-primary.active, .btn.btn-primary:active {
   background-color: #c55801 !important;
   border-color: #c55801 !important;
 }
@@ -45,4 +58,75 @@
 #coteTigeDisplay, #coteCotyleDisplay {
   text-align: center;
   margin-top: 5px;
+}
+
+.outilsDessin > .row > .col-6 {
+  padding-right: 15px;
+}
+
+.valider {
+  padding: 6px 10px;
+  width: auto !important;
+}
+
+.valider > .material-icons {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.retour {
+  padding: 5px 9px;
+  width: auto !important;
+}
+
+.retour > .material-icons {
+  vertical-align: middle;
+}
+
+.zoom {
+  padding: 0px;
+  width: auto !important;
+}
+
+.zoom > .material-icons {
+  vertical-align: middle;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  outline: 0;
+  border: 1px solid #f47d30;
+}
+
+.form-control:focus  {
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(197, 88, 1, 0.6) ;
+  outline: 0;
+  border: 1px solid #f47d30;
+}
+
+.imagefiles:focus, .imagefiles:active {
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(197, 88, 1, 0.6) ;
+  outline: 0;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(244, 125, 48, 0.6)
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(244, 125, 48, 0.6)
+}
+
+.material-icons.btnHelp {
+  color: #dc3545;
+  font-size: 29px;
+  vertical-align: middle !important;
+}
+
+.material-icons.btnHelp:hover {
+  color: #c82333;
+}
+
+#infoRegle, #infoAngle {
+  padding-left: 5px;
 }

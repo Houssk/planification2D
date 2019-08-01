@@ -150,7 +150,7 @@ dwv.gui.Toolbox = function (app)
         //node.appendChild(help);
 
         // apply button style
-        $("button").button();
+        // $("button").button();
 
         // save state button
         //var saveButton = document.createElement("button");

@@ -184,14 +184,6 @@ table.tagList td {
 .qtip-content {
     padding: 0px 0px !important;
 }
-.material-icons.btnHelp {
-  color: #dc3545;
-  font-size: 29px;
-}
-
-.material-icons.btnHelp:hover {
-  color: #c82333;
-}
 
 #dPadTige {
   margin-top: 2%;
@@ -230,6 +222,7 @@ table.tagList td {
 
 #buttonContrast, #buttonLuminosite {
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .alert {

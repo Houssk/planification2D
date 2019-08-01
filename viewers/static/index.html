@@ -154,29 +154,29 @@
 							<div id="barprogress" style="margin-top: 2%"></div>
 						</div>
 						<div id="divNbHanche" style="display: none; margin-top:5%;">
-							<div class="row">
-								<div class="col-md-7 centered">
-									<div class="row no-gutters">
-										<div class="col-md-9">
-											<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+							<div class="row justify-content-center no-gutters">
+								<div class="col-md-7">
+									<div class="row no-gutters align-items-center">
+										<div class="col-md-9" style="padding-top: 1px;">
+											<button type="button" id="buttonCalibrage" class="btn btn-primary">CALIBRER</button>
 										</div>
-										<div class="col-md-2 col-md-offset-7" style="height:30px;">
+										<div class="col-md-2 offset-md-1">
 											<span id="infoCalibrage" class="material-icons btnHelp" >help</span>
 										</div>
 									</div>
 								</div>
 								<!--<div class="col-md-6 centered">
-									<input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="SEUILLAGE" style="width: 110px;">
+									<input type="button" id="buttonSeuil" class="btn btn-primary" value="SEUILLAGE" style="width: 110px;">
 									<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
 									<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
 								</div>-->
-								<div class="col-md-5">
-									<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ZOOM" style="width: 110px; float: right;">
+								<div class="col-md-3 offset-md-2">
+									<button type="button" id="buttonZoom" class="btn btn-primary zoom"><span class="material-icons md-34">zoom_in</span></button>
 								</div>
 							</div>
 							<!--<div class="row centered" style="margin-top:2%;">
 								<div class="col-md-6 centered">
-									<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+									<input type="button" id="buttonCalibrage" class="btn btn-primary" value="CALIBRER" style="width: 110px;">
 								</div>
 							</div>-->
 
@@ -189,9 +189,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-offset-3 col-md-6 centered">
-									<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
+							<div class="row" style="text-align: center;">
+								<div class="col">
+									<button type="button" id="buttonValideInformationPatient" class="btn btn-primary valider" style="display: none;"><span class="material-icons md-32">done</span></button>
 								</div>
 							</div>
 						</div>
@@ -200,9 +200,9 @@
 				<h3>OUTILS DESSIN</h3>
 				<!-- OUTILS DESSIN -->
 				<div class="outilsDessin">
-					<div class="row no-gutters justify-content-left">
-						<div class ="col-5">
-							<input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
+					<div class="row no-gutters justify-content-left align-items-center">
+						<div class ="col-6">
+							<button id="buttonDessinTrapeze" type="button" class="btn btn-primary">TRAPEZE</button>
 						</div>
 						<div class ="col-2">
 							<span id="infoTrapeze" class="material-icons btnHelp" >help</span>
@@ -211,9 +211,9 @@
 							<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
 					</div>
-					<div class="row no-gutters justify-content-left">
-						<div class ="col-5">
-							<input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
+					<div class="row no-gutters justify-content-left align-items-center">
+						<div class ="col-6">
+							<button id="buttonDessinPetitTroch" type="button" class="btn btn-primary">PETIT TROCH</button>
 						</div>
 						<div class ="col-2">
 							<span id="infoPetitTroch" class="material-icons btnHelp" >help</span>
@@ -222,9 +222,9 @@
 							<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
 					</div>
-					<div class="row no-gutters justify-content-left">
-						<div class="col-5">
-							<input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
+					<div class="row no-gutters justify-content-left align-items-center">
+						<div class="col-6">
+							<button id="buttonDessinCercle" type="button" class="btn btn-primary">CERCLE</button>
 						</div>
 						<div class="col-2">
 							<span id="infoCercle" class="material-icons btnHelp" >help</span>
@@ -233,12 +233,12 @@
 							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
 					</div>
-							<div class="row">
-								<div class="col-md-6 centered">
-									<button type="button" id="buttonValideOutilsDessin" class="btn btn-primary">VALIDER</button>
+							<div class="row" style="text-align: center;">
+								<div class="col-6">
+									<button type="button" id="buttonValideOutilsDessin" class="btn btn-primary valider"><span class="material-icons md-32">done</span></button>
 								</div>
-								<div class="col-md-6 centered">
-									<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
+								<div class="col-6">
+									<button type="button" id="buttonRetourOutilsDessin" class="btn btn-primary retour"><span class="material-icons md-34">replay</span></button>
 								</div>
 							</div>
 						</div>
@@ -300,10 +300,10 @@
 									<div class="col">
 										<div class="btn-group btn-group-toggle" id="coteTige" data-toggle="buttons">
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> Gauche
+												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> GAUCHE
 											</label>
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> Droit
+												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> DROIT
 											</label>
 										</div>
 									</div>
@@ -395,10 +395,10 @@
 									<div class="col">
 										<div class="btn-group btn-group-toggle" id="coteCotyle" data-toggle="buttons">
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"> Gauche
+												<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"> GAUCHE
 											</label>
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"> Droit
+												<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"> DROIT
 											</label>
 										</div>
 									</div>
@@ -459,12 +459,12 @@
 											</div>
 										</div>
 								</div>
-								<div class="row" style="margin-top: 2%;">
-									<div class="col-md-6 centered">
-										<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TERMINER" style="width: 110px;">
+								<div class="row" style="margin-top: 2%; text-align: center;">
+									<div class="col-6">
+										<button id="buttonValideImplant" type="button" class="btn btn-primary valider"><span class="material-icons md-32">done</span></button>
 									</div>
-									<div class="col-md-6 centered">
-										<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
+									<div class="col-6">
+										<button id="buttonRetourImplant" type="button" class="btn btn-primary retour"><span class="material-icons md-34">replay</span></button>
 									</div>
 								</div>
 							</div>
@@ -476,7 +476,7 @@
 				<div class="couleurArrierePlan">
 					<div class="row no-gutters" style="margin: 5% 0%">
 						<div class="col-1">
-							<!-- <input type="button" id="buttonContrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="LUMINOSITE" style="width: 110px;"> -->
+							<!-- <input type="button" id="buttonContrast" class="btn btn-primary" value="LUMINOSITE" style="width: 110px;"> -->
 							<span id="buttonContrast" class="material-icons md-dark md-32">wb_sunny</span>
 						</div>
 						<div class="col offset-1">
@@ -485,16 +485,16 @@
 					</div>
 					<div class="row no-gutters" style="margin: 5% 0%">	
 						<div class="col-1">
-							<!-- <input type="button" id="buttonLuminosite" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CONTRASTE" style="width: 110px;"> -->
+							<!-- <input type="button" id="buttonLuminosite" class="btn btn-primary" value="CONTRASTE" style="width: 110px;"> -->
 							<span id="buttonLuminosite" class="material-icons md-dark md-32">tonality</span>
 						</div>
 						<div class="col offset-1">
 							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
 						</div>
 					</div>
-					<div id="rowRapporteur" class="row no-gutters" style="margin: 5% 0%; display: none;">
+					<div id="rowRapporteur" class="row no-gutters align-items-center" style="margin: 5% 0%; display: none;">
 						<div class="col-md-5" id="buttonDessinRapporteur">
-							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px;">
+							<button type="button"  class="btn btn-primary">ANGLE</button>
 						</div>
 						<div class="col-md-2">	
 							<span id="infoAngle" class="material-icons btnHelp" >help</span>
@@ -509,9 +509,9 @@
 							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 						</div>
 					</div>
-					<div id="rowRegle" class="row no-gutters" style="margin: 5% 0%; display: none;" >
+					<div id="rowRegle" class="row no-gutters align-items-center" style="margin: 5% 0%; display: none;" >
 						<div class="col-md-5" id="buttonDessinRegle">
-							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px;">
+							<button type="button"  class="btn btn-primary">REGLE</button>
 						</div>
 						<div class="col-md-2">
 							<span id="infoRegle" class="material-icons btnHelp" >help</span>
@@ -532,7 +532,7 @@
 						</div>
 						<div class="col-md-9">
 							<a href="Manuel Utilisateur Serf.pdf" target="_blank">
-								<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" style="width: 220px;">MANUEL UTILISATEUR</button>
+								<button type="button" class="btn btn-primary" style="width: 220px;">MANUEL UTILISATEUR</button>
 							</a>
 						</div>
 						<br>

@@ -8,6 +8,7 @@
 *@author Quentin PETIT
 */
 function VerrouillageBoiteDialogue() {
+    
     $('.outilsDessin *').prop('disabled',true);
     $('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
     $('.implants *').prop('disabled',true);
@@ -333,8 +334,8 @@ function facteurRedimensionnementImage() {
 }
 
 $(document).ready(function () {
-    $('input[type="button"]').click(function(){
-        $('input[type="button"].activeBtn').removeClass('activeBtn');
+    $('button[type="button"]').click(function(){
+        $('button[type="button"].activeBtn').removeClass('activeBtn');
         $(this).addClass('activeBtn');
     });
     $('input[type="image"]').click(function(){
