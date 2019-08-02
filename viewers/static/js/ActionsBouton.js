@@ -1035,9 +1035,6 @@ $(document).ready(function () {
 
 										$("#accordeon").accordion({active : 2});
 
-										// document.getElementById("padCircleCotyle").src='images/pad/position/padCircleActive.svg';
-										// document.getElementById("padCircleTige").src='images/pad/position/padCircleActive.svg';
-
 										TigeSelection();
 										CotyleSelection();
 									}
@@ -1208,7 +1205,6 @@ $(document).ready(function () {
 
 					$("#accordeon").accordion({active : 2});
 
-					
 					TigeSelection();
 					CotyleSelection();
 				}
