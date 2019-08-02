@@ -1016,36 +1016,28 @@ $(document).ready(function () {
 									}
 									if (patient.GetOperationGuide()=="Non guider") {
 										// Gestion de l'affichage des boutons en cas de chirurgie non guidée et appel des fonctions de sélection de tiges et cotyles
-										var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
-										for (var i = 0; i < elementDeplacerCotyle.length; i++) {
-											elementDeplacerCotyle[i].classList.add("buttonInactif");
-										}
+
+										$('.implants').find('button, span, .btn-group').removeClass('buttonInactif');
+										$('#divDeplacerTige, #divDeplacerCotyle').removeClass('buttonInactif');
+										$('#labelTailleTige, #labelTailleCotyle').removeClass('buttonInactif');
+										$('.implants *').prop('disabled',false);
+
+										$('#padCircleTige, #padCircleCotyle').css('opacity', '1');
+										$('.deplacerCotyle').addClass("buttonInactif");
+										$('.deplacerTige').addClass("buttonInactif");
+
+										$('#padCircleCotyle, #padCircleTige').attr('src','images/pad/position/padCircleActive.svg');
+
+										$('#labelOffsetTigeCotyle, #labelHauteurTigeCotyle').css('display,none');
+
 										document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.add('active');
-										document.getElementById("coteCotyle").classList.remove("buttonInactif");
 										document.querySelector('input[name="coteTige"]:checked').parentNode.classList.add('active');
-										document.getElementById("coteTige").classList.remove("buttonInactif");
-										document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
-										document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
-										document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
-										document.getElementById("buttonDeplacerCotyle").classList.remove("buttonInactif");
-										document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
-										document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
-										document.getElementById("padCircleCotyle").src='images/pad/position/padCircleActive.svg';
-										document.getElementById("labelOffsetTigeCotyle").style.display="none";
-										document.getElementById("labelHauteurTigeCotyle").style.display="none";
-										document.getElementById("padCircleTige").src='images/pad/position/padCircleActive.svg';
-										document.getElementById("buttonMoinsTige").classList.remove("buttonInactif");
-										document.getElementById("buttonPlusTige").classList.remove("buttonInactif");
-										document.getElementById("labelTailleTige").classList.remove("buttonInactif");
-										document.getElementById("buttonDeplacerTige").classList.remove("buttonInactif");
-										var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
-										for (var i = 0; i < elementDeplacerTige.length; i++) {
-											elementDeplacerTige[i].classList.add("buttonInactif");
-										}
-										var elementPositionTige = document.getElementsByClassName("positionTige");
-										for (var i = 0; i < elementPositionTige.length; i++) {
-											elementPositionTige[i].classList.remove("buttonInactif");
-										}
+
+										$("#accordeon").accordion({active : 2});
+
+										// document.getElementById("padCircleCotyle").src='images/pad/position/padCircleActive.svg';
+										// document.getElementById("padCircleTige").src='images/pad/position/padCircleActive.svg';
+
 										TigeSelection();
 										CotyleSelection();
 									}
@@ -1053,20 +1045,13 @@ $(document).ready(function () {
 									document.getElementById("rowRapporteur").style.display="";
 									document.getElementById("rowRegle").style.display="";
 									$('.informationPatient *').prop('disabled',true);
-									$('#infoCalibrage').addClass('buttonInactif');
+									$('.informationPatient').find('button, span').addClass('buttonInactif');
 									//document.getElementById("informationPatient").style.display = "";
 
 									if(patient.GetOperationGuide()=="Guider"){ // Cas ou l'opération est guidée. Active uniquement la boite de dessin.
 										$('.outilsDessin *').prop('disabled',false);
-										$('#infoTrapeze, #infoPetitTroch, #infoCercle').removeClass('buttonInactif');
+										$('.outilsDessin').find('button, span').removeClass('buttonInactif');
 										$("#accordeon").accordion({active : 1});
-									}
-
-									if (patient.GetOperationGuide()=="Non guider") { // Cas ou l'opération est non guidée. Active uniquement la boite implant.
-										$('.implants *').prop('disabled',false);
-										$("#padCircleTige").attr('src', 'images/pad/position/padCircleActive.svg');
-										$('#dPadTige, #dPadCotyle').css('opacity', '1');
-										$("#accordeon").accordion({active : 2});
 									}
 									firstSideChangedTige = true;
 									firstSideChangedCotyle = true;
@@ -1195,42 +1180,35 @@ $(document).ready(function () {
 
 				if(onPeutValider==true)
 				{
+					if (patient.GetCoteOperation()=="Gauche") {
+						document.getElementById("coteTigeG").checked = true;
+						document.getElementById("coteCotyleG").checked = true;
+					} else {
+						document.getElementById("coteTigeD").checked = true;
+						document.getElementById("coteCotyleD").checked = true;
+					}
 					$('.implants *').prop('disabled',false);
-					$("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
-					$('#dPadTige, #dPadCotyle').css('opacity', '1');
-					$('#divDeplacerTige, #divDeplacerCotyle').css('opacity','0.65');
-					$('.outilsDessin *').prop('disabled',true);
-					$('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
-					$("#accordeon").accordion({active : 2});
-					document.getElementById("padCircleCotyle").src='images/pad/cotyleGuide/padCircleActive.svg';
-					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
-					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
-						elementDeplacerCotyle[i].classList.remove("buttonInactif");
-						}
-					document.getElementById("coteCotyle").classList.remove("buttonInactif");
-					document.getElementById("coteTige").classList.remove("buttonInactif");
-					document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
-					document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonDeplacerCotyle").classList.add("buttonInactif");
-					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
-					document.getElementById("labelOffsetTigeCotyle").style.display="";
-					document.getElementById("labelHauteurTigeCotyle").style.display="";
-					document.getElementById("buttonMoinsTige").classList.remove("buttonInactif");
-					document.getElementById("buttonPlusTige").classList.remove("buttonInactif");
-					document.getElementById("labelTailleTige").classList.remove("buttonInactif");
+					$('.implants').find('button, span, .btn-group').removeClass('buttonInactif');
+					$('#labelTailleTige, #labelTailleCotyle').removeClass('buttonInactif');
 
-					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
-					for (var i = 0; i < elementDeplacerTige.length; i++) {
-						elementDeplacerTige[i].classList.remove("buttonInactif");
-					}
-					var elementPositionTige = document.getElementsByClassName("positionTige");
-					for (var i = 0; i < elementPositionTige.length; i++) {
-						elementPositionTige[i].classList.add("buttonInactif");
-					}
+
+					$('.positionTige').addClass("buttonInactif");
+					$('#divDeplacerTige, #divDeplacerCotyle').addClass("buttonInactif");
+					$('#buttonDeplacerTige, #buttonDeplacerCotyle').addClass("buttonInactif");
+
 					document.querySelector('input[name="coteTige"]:checked').parentNode.classList.add('active');
 					document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.add('active');
+
+					$('#padCircleTige, #padCircleCotyle').css('opacity', '1');
+					$("#padCircleTige").attr('src', 'images/pad/deplacer/padCircleActive.svg');
+					$('#padCircleCotyle').attr('src','images/pad/cotyleGuide/padCircleActive.svg');
+
+					$('.outilsDessin *').prop('disabled',true);
+					$('.outilsDessin').find('button, span').addClass('buttonInactif');
+
+					$("#accordeon").accordion({active : 2});
+
+					
 					TigeSelection();
 					CotyleSelection();
 				}
@@ -1315,6 +1293,7 @@ $(document).ready(function () {
 	*/
 	var coteTige = document.getElementById("coteTige");
 	coteTige.addEventListener('click',function(){
+		var checkedCoteTige = document.querySelector('input[name="coteTige"]:checked').value;
 		var radioCoteTige = document.querySelectorAll('input[name="coteTige"]');
 		for(var item of radioCoteTige) {
 			if(item.checked) {
@@ -1324,34 +1303,26 @@ $(document).ready(function () {
 			}
 		}
 		if(patient.GetOperationGuide()=="Guider"){
-			if (document.querySelector('input[name="coteTige"]:checked').value == "Gauche") {
+			if (checkedCoteTige == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
-					document.getElementById("padCircleTige").src='images/pad/deplacer/padCircleActive.svg';
-					document.getElementById("divDeplacerTige").style.opacity="0.65";
-					document.getElementById("buttonDeplacerTige").classList.add("buttonInactif");
-					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
-					for (var i = 0; i < elementDeplacerTige.length; i++) {
-						elementDeplacerTige[i].classList.remove("buttonInactif");
-					}
-					var elementPositionTige = document.getElementsByClassName("positionTige");
-					for (var i = 0; i < elementPositionTige.length; i++) {
-						elementPositionTige[i].classList.add("buttonInactif");
-					}
+					$('#padCircleTige').attr('src','images/pad/deplacer/padCircleActive.svg');
+					$('#divDeplacerTige').addClass("buttonInactif");
+					$('#buttonDeplacerTige').addClass("buttonInactif");
+
+					$('.deplacerTige').removeClass("buttonInactif");
+					$('.positionTige').addClass("buttonInactif");
+					
 					var tailleTige = tigeDroit.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 				} else if (patient.GetCoteOperation()=="Droit") {
-					document.getElementById("padCircleTige").src='images/pad/position/padCircleActive.svg';
-					document.getElementById("divDeplacerTige").style.opacity="1";
-					document.getElementById("buttonDeplacerTige").classList.remove("buttonInactif");
-					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
-					for (var i = 0; i < elementDeplacerTige.length; i++) {
-						elementDeplacerTige[i].classList.add("buttonInactif");
-					}
-					var elementPositionTige = document.getElementsByClassName("positionTige");
-					for (var i = 0; i < elementPositionTige.length; i++) {
-						elementPositionTige[i].classList.remove("buttonInactif");
-					}
+					$('#padCircleTige').attr('src','images/pad/position/padCircleActive.svg');
+					$('#divDeplacerTige').removeClass("buttonInactif");
+					$('#buttonDeplacerTige').removeClass("buttonInactif");
+
+					$('.deplacerTige').addClass("buttonInactif");
+					$('.positionTige').removeClass("buttonInactif");
+
 					var tailleTige = tigeDroit.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
@@ -1376,34 +1347,26 @@ $(document).ready(function () {
 						imgTigeDroit.src=tigeDroit.GetUrl();
 					}
 				}
-			} else if (document.querySelector('input[name="coteTige"]:checked').value == "Droit") {
+			} else if (checkedCoteTige == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
-					document.getElementById("padCircleTige").src='images/pad/deplacer/padCircleActive.svg';
-					document.getElementById("divDeplacerTige").style.opacity="0.65";
-					document.getElementById("buttonDeplacerTige").classList.add("buttonInactif");
-					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
-					for (var i = 0; i < elementDeplacerTige.length; i++) {
-						elementDeplacerTige[i].classList.remove("buttonInactif");
-					}
-					var elementPositionTige = document.getElementsByClassName("positionTige");
-					for (var i = 0; i < elementPositionTige.length; i++) {
-						elementPositionTige[i].classList.add("buttonInactif");
-					}
+					$('#padCircleTige').attr('src','images/pad/deplacer/padCircleActive.svg');
+					$('#divDeplacerTige').addClass("buttonInactif");
+					$('#buttonDeplacerTige').addClass("buttonInactif");
+
+					$('.deplacerTige').removeClass("buttonInactif");
+					$('.positionTige').addClass("buttonInactif");
+
 					var tailleTige = tigeGauche.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
 				} else if (patient.GetCoteOperation()=="Gauche") {
-					document.getElementById("padCircleTige").src='images/pad/position/padCircleActive.svg';
-					document.getElementById("divDeplacerTige").style.opacity="1";
-					document.getElementById("buttonDeplacerTige").classList.remove("buttonInactif");
-					var elementDeplacerTige = document.getElementsByClassName("deplacerTige");
-					for (var i = 0; i < elementDeplacerTige.length; i++) {
-						elementDeplacerTige[i].classList.add("buttonInactif");
-					}
-					var elementPositionTige = document.getElementsByClassName("positionTige");
-					for (var i = 0; i < elementPositionTige.length; i++) {
-						elementPositionTige[i].classList.remove("buttonInactif");
-					}
+					$('#padCircleTige').attr('src','images/pad/position/padCircleActive.svg');
+					$('#divDeplacerTige').removeClass("buttonInactif");
+					$('#buttonDeplacerTige').removeClass("buttonInactif");
+
+					$('.deplacerTige').addClass("buttonInactif");
+					$('.positionTige').removeClass("buttonInactif");
+
 					var tailleTige = tigeGauche.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
@@ -1435,7 +1398,7 @@ $(document).ready(function () {
 			$('.positionTige').prop('disabled',false);
 		}
 		if (patient.GetOperationGuide()=="Non guider") {
-			if (document.querySelector('input[name="coteTige"]:checked').value == "Gauche") {
+			if (checkedCoteTige == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
 					var tailleTige = tigeDroit.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
@@ -1465,7 +1428,7 @@ $(document).ready(function () {
 						imgTigeDroit.src=tigeDroit.GetUrl();
 					}
 				}
-			} else if (document.querySelector('input[name="coteTige"]:checked').value == "Droit") {
+			} else if (checkedCoteTige == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
 					var tailleTige = tigeGauche.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
@@ -1509,6 +1472,7 @@ $(document).ready(function () {
 	*/
 	var coteCotyle = document.getElementById("coteCotyle");
 	coteCotyle.addEventListener('click',function(){
+		var checkedCoteCotyle = document.querySelector('input[name="coteCotyle"]:checked').value;
 		var radioCoteCotyle = document.querySelectorAll('input[name="coteCotyle"]');
 		for(var item of radioCoteCotyle) {
 			if(item.checked) {
@@ -1518,33 +1482,22 @@ $(document).ready(function () {
 			}
 		}
 		if(patient.GetOperationGuide()=="Guider"){
-			if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
+			if (checkedCoteCotyle == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
-					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
-					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
-						elementDeplacerCotyle[i].classList.remove("buttonInactif");
-					}
-					document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonDeplacerCotyle").classList.add("buttonInactif");
-					document.getElementById("divDeplacerCotyle").style.opacity="0.65";
-					document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
-					document.getElementById("padCircleCotyle").src='images/pad/cotyleGuide/padCircleActive.svg';
+					$('#padCircleCotyle').attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+					$('#divDeplacerCotyle').addClass("buttonInactif");
+					$('#buttonDeplacerCotyle').addClass("buttonInactif");
+
+					$('.deplacerCotyle').removeClass('buttonInactif');
+					var tailleCotyle = cotyleDroit.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 				} else if (patient.GetCoteOperation()=="Droit") {
-					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
-					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
-						elementDeplacerCotyle[i].classList.add("buttonInactif");
-					}
-					document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
-					document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonDeplacerCotyle").classList.remove("buttonInactif");
-					document.getElementById("divDeplacerCotyle").style.opacity="1";
-					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
-					document.getElementById("padCircleCotyle").src='images/pad/position/padCircleActive.svg';
+					$("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+					$('#divDeplacerCotyle').removeClass("buttonInactif");
+					$('#buttonDeplacerCotyle').removeClass("buttonInactif");
+
+					$('.deplacerCotyle').addClass('buttonInactif');
+
 					var tailleCotyle = cotyleDroit.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
@@ -1569,33 +1522,22 @@ $(document).ready(function () {
 						imgCotyleDroit.src=cotyleDroit.GetUrl();
 					}
 				}
-			} else if (document.querySelector('input[name="coteCotyle]:checked').value == "Droit") {
+			} else if (checkedCoteCotyle == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
-					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
-					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
-						elementDeplacerCotyle[i].classList.remove("buttonInactif");
-					}
-					document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
-					document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonDeplacerCotyle").classList.add("buttonInactif");
-					document.getElementById("divDeplacerCotyle").style.opacity="0.65";
-					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
-					document.getElementById("padCircleCotyle").src='images/pad/cotyleGuide/padCircleActive.svg';
+					$('#padCircleCotyle').attr('src', 'images/pad/cotyleGuide/padCircleActive.svg');
+					$('#divDeplacerCotyle').addClass("buttonInactif");
+					$('#buttonDeplacerCotyle').addClass("buttonInactif");
+
+					$('.deplacerCotyle').removeClass('buttonInactif');
+					var tailleCotyle = cotyleGauche.GetNom().split("-");
+					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 				} else if (patient.GetCoteOperation()=="Gauche") {
-					var elementDeplacerCotyle = document.getElementsByClassName("deplacerCotyle");
-					for (var i = 0; i < elementDeplacerCotyle.length; i++) {
-						elementDeplacerCotyle[i].classList.add("buttonInactif");
-					}
-					document.getElementById("buttonMoinsCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonPlusCotyle").classList.remove("buttonInactif");
-					document.getElementById("labelTailleCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonDeplacerCotyle").classList.remove("buttonInactif");
-					document.getElementById("divDeplacerCotyle").style.opacity="1";
-					document.getElementById("buttonTournerHautCotyle").classList.remove("buttonInactif");
-					document.getElementById("buttonTournerBasCotyle").classList.remove("buttonInactif");
-					document.getElementById("padCircleCotyle").src='images/pad/position/padCircleActive.svg';
+					$("#padCircleCotyle").attr('src', 'images/pad/position/padCircleActive.svg');
+					$('#divDeplacerCotyle').removeClass("buttonInactif");
+					$('#buttonDeplacerCotyle').removeClass("buttonInactif");
+
+					$('.deplacerCotyle').addClass('buttonInactif');
+
 					var tailleCotyle = cotyleGauche.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
 					//document.getElementById('labelGammeCotyle').innerHTML = tailleCotyle[0];
@@ -1625,7 +1567,7 @@ $(document).ready(function () {
 			$('.positionCotyle').prop('disabled',false);
 		}
 		if (patient.GetOperationGuide()=="Non guider") {
-			if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
+			if (checkedCoteCotyle == "Gauche") {
 				if (patient.GetCoteOperation()=="Gauche") {
 					var tailleCotyle = cotyleDroit.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
@@ -1655,7 +1597,7 @@ $(document).ready(function () {
 						imgCotyleDroit.src=cotyleDroit.GetUrl();
 					}
 				}
-			} else if (document.querySelector('input[name="coteCotyle"]:checked').value == "Droit") {
+			} else if (checkedCoteCotyle == "Droit") {
 				if (patient.GetCoteOperation()=="Droit") {
 					var tailleCotyle = cotyleGauche.GetNom().split("-");
 					document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
@@ -1709,10 +1651,11 @@ $(document).ready(function () {
 				sessionStorage.removeItem("trapezeDroitPosition");
 
 				$('.outilsDessin *').prop('disabled',true);
-				$('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
-				$("#accordeon").accordion({active : 0});
+				$('.outilsDessin').find('button, span').addClass('buttonInactif');
 				$('.informationPatient *').prop('disabled',false);
-				$('#infoCalibrage').removeClass('buttonInactif');
+				$('.informationPatient').find('button, span').removeClass('buttonInactif');
+				$("#accordeon").accordion({active : 0});
+
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
@@ -2470,13 +2413,12 @@ $(document).ready(function () {
 				contextetige.restore();
 
 				$('.implants *').prop('disabled',true);
-				$('.col.pad  *').addClass('buttonInactif');
-				$('#buttonDeplacerTige, #buttonDeplacerCotyle').addClass('buttonInactif');
-				$('#divDeplacerTige, #divDeplacerCotyle').css('opacity', '1');
+				$('.implants').find('button, span, .btn-group').addClass('buttonInactif');
+				$('#divDeplacerTige, #divDeplacerCotyle').addClass('buttonInactif');
+				$('#labelTailleTige, #labelTailleCotyle').addClass('buttonInactif');
+   				$('#padCircleTige, #padCircleCotyle').css('opacity', '0.65');
 				$("#padCircleTige, #padCircleCotyle").attr('src', 'images/pad/padCircleInactive.svg');
-				$('#dPadTige, #dPadCotyle').css('opacity', '0.65');
-				$('#coteTige').addClass('buttonInactif');
-				$('#coteCotyle').addClass('buttonInactif');
+
 				document.querySelector('input[name="coteTige"]:checked').parentNode.classList.remove('active');
 				document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.remove('active');
 				
@@ -2485,12 +2427,12 @@ $(document).ready(function () {
 
 				if (patient.GetOperationGuide() == "Guider") {
 					$('.outilsDessin *').prop('disabled',false);
-					$('#infoTrapeze, #infoPetitTroch, #infoCercle').removeClass('buttonInactif');
+					$('.outilsDessin').find('button, span').removeClass('buttonInactif');
 					$("#accordeon").accordion({active : 1});
 
 				} else {
 					$('.informationPatient *').prop('disabled',false);
-					$('#infoCalibrage').removeClass('buttonInactif');
+					$('.informationPatient').find('button, span').removeClass('buttonInactif');
 					sessionStorage.setItem("calibrage", false);
 	                sessionStorage.setItem("nbCercle",0);
 	                sessionStorage.setItem("nbTrapeze", 0);

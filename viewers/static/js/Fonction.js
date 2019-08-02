@@ -10,13 +10,12 @@
 function VerrouillageBoiteDialogue() {
     
     $('.outilsDessin *').prop('disabled',true);
-    $('#infoTrapeze, #infoPetitTroch, #infoCercle').addClass('buttonInactif');
+    $('.outilsDessin').find('button, span').addClass('buttonInactif');
     $('.implants *').prop('disabled',true);
-    $('.col.pad  *').addClass('buttonInactif');
-    $('#buttonDeplacerTige, #buttonDeplacerCotyle').addClass('buttonInactif');
-    $('#dPadTige, #dPadCotyle').css('opacity', '0.65');
-    $('#coteTige').addClass('buttonInactif');
-    $('#coteCotyle').addClass('buttonInactif');
+    $('.implants').find('button, span, .btn-group').addClass('buttonInactif');
+    $('#labelTailleTige, #labelTailleCotyle').addClass('buttonInactif');
+    $('#divDeplacerTige, #divDeplacerCotyle').addClass('buttonInactif');
+    $('#padCircleTige, #padCircleCotyle').css('opacity', '0.65');
 }
 
 /**
@@ -219,12 +218,14 @@ function getCotyleBySize(table, size, cote) {
     return cotyle;
 }
 function desactivationListe() {
-
+    var coteCotyleDisplay = document.getElementById("coteCotyleDisplay");
+    var coteTigeDisplay = document.getElementById("coteTigeDisplay");
     if (document.getElementById("RadioOuiHanche").checked) {
-        var coteCotyleDisplay = document.getElementById("coteCotyleDisplay");
-        var coteTigeDisplay = document.getElementById("coteTigeDisplay");
         coteCotyleDisplay.style.display = "none";
         coteTigeDisplay.style.display = "none";
+    } else {
+        coteCotyleDisplay.style.display = "";
+        coteTigeDisplay.style.display = "";
     }
 }
 
