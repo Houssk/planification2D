@@ -86,7 +86,7 @@ dwv.tool.ProtractorFactory.prototype.create = function (points, style/*, image*/
                     shapeId="angle_3";
                 }
             } else {
-                swal("Veuillez supprimer les régles pour en recreer un nouveau","Seul 3 régles sont autorisé");
+                swal("Veuillez supprimer les angles pour en recreer un nouveau","Seul 3 angles sont autorisés");
                 onPeutTraceAngle=false;
             }
         }
@@ -154,7 +154,7 @@ dwv.tool.ProtractorFactory.prototype.create = function (points, style/*, image*/
         }
         // return group
         return group;
-    } 
+    }
     else {
         var group = new Kinetic.Group();
         var kshape = new Kinetic.Line({

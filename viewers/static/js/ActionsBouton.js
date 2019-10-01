@@ -1307,7 +1307,7 @@ $(document).ready(function () {
 
 					$('.deplacerTige').removeClass("buttonInactif");
 					$('.positionTige').addClass("buttonInactif");
-					
+
 					var tailleTige = tigeDroit.GetNom().split("-");
 					document.getElementById('labelTailleTige').innerHTML = tailleTige.slice(-1)[0];
 					//document.getElementById('labelGammeTige').innerHTML = tailleTige[0];
@@ -2417,7 +2417,7 @@ $(document).ready(function () {
 
 				document.querySelector('input[name="coteTige"]:checked').parentNode.classList.remove('active');
 				document.querySelector('input[name="coteCotyle"]:checked').parentNode.classList.remove('active');
-				
+
 				//document.getElementById("choix_gamme").style.display = "";
 				//document.getElementById("actionImplant").style.display="none";
 
@@ -2589,6 +2589,7 @@ function decode_utf8(s) {
 	buttonDeplacerTige.addEventListener('click',
 		function() {
 			function DeplacerTige(){
+                document.getElementById("divDeplacerCotyle").classList.remove("activeBtn");
 				var canvasTigeDroit=document.getElementById("canvasTigeDroit");
 				var canvasTigeGauche=document.getElementById("canvasTigeGauche");
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
@@ -2645,6 +2646,7 @@ function decode_utf8(s) {
 	buttonDeplacerCotyle.addEventListener('click',
 		function() {
 			function DeplacerCotyle(){
+                document.getElementById("divDeplacerTige").classList.remove("activeBtn");
 				var canvasTigeDroit=document.getElementById("canvasTigeDroit");
 				var canvasTigeGauche=document.getElementById("canvasTigeGauche");
 				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");

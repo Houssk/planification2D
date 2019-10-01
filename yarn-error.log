@@ -1,0 +1,71 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\PC13\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js run test
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\PC13\bin;C:\OpenSim 3.3\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\HP\HP Performance Advisor;C:\Program Files\Git\cmd;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\dotnet;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files\CMake\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\110\Tools\Binn;C:\wamp\bin\php\php5.6.31;C:\composer;C:\Program Files\nodejs;C:\Users\PC13\AppData\Local\Programs\Python\Python37-32\Scripts;C:\Users\PC13\AppData\Local\Programs\Python\Python37-32;C:\Users\PC13\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\PC13\AppData\Local\Programs\Python\Python36-32;C:\Users\PC13\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\PC13\AppData\Roaming\Composer\vendor\bin;C:\Users\PC13\AppData\Local\GitHubDesktop\bin;C:\Users\PC13\AppData\Roaming\npm;C:\Program Files (x86)\GnuWin32\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  10.16.0
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "dwv",
+    "version": "0.15.0-beta",
+    "homepage": "https://ivmartel.github.io/dwv/",
+    "description": "DICOM Web Viewer.",
+    "license": "GPL-3.0",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/ivmartel/dwv.git"
+    },
+    "scripts": {
+      "test": "grunt publish --verbose"
+    },
+    "dependencies": {
+      "jquery": "2.1.4",
+      "jquery-ui": "~1.10",
+      "jquery-mobile": "~1.4",
+      "kinetic": "~5"
+    },
+    "devDependencies": {
+      "grunt": "~0.4",
+      "grunt-cli": "~0.1",
+      "grunt-contrib-jshint": "~1.0",
+      "grunt-qunit-istanbul": "~0.6",
+      "grunt-coveralls": "~1.0",
+      "grunt-contrib-concat": "~1.0",
+      "grunt-contrib-uglify": "~1.0",
+      "grunt-jsdoc": "~1.1",
+      "ink-docstrap": "~1.1",
+      "grunt-execute": "^0.2",
+      "selenium-webdriver": "^2.52",
+      "saucelabs": "^1.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 3
+  Command: C:\WINDOWS\system32\cmd.exe
+  Arguments: /d /s /c grunt publish --verbose
+  Directory: C:\wamp\www\planification2D
+  Output:
+  
+      at ProcessTermError.MessageError (C:\Users\PC13\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\PC13\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\PC13\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at ChildProcess.emit (events.js:198:13)
+      at maybeClose (internal/child_process.js:982:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)

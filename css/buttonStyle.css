@@ -18,7 +18,7 @@
 }
 
 .activeBtn {
-  background: #c55801 !important;
+  background: #5d554e!important;
   border-color: #c55801 !important;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .btn.btn-primary.active, .btn.btn-primary:active {
-  background-color: #c55801 !important;
+  background-color: #5d554e !important;
   border-color: #c55801 !important;
 }
 

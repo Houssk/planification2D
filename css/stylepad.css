@@ -1,9 +1,16 @@
 .pad {
 
-    max-height: 26px;
+    max-height: 1.6rem;
     max-width: 26px;
     min-width: 26px;
 }
+/* Safari style */
+@media not all and (min-resolution:.001dpcm) { @media {
+
+    .pad {
+        max-height: 1.8rem;
+    }
+}}
 
 .padCenter {
     max-width: 78px;
@@ -40,7 +47,6 @@
 
 .buttonRotationUp {
     -webkit-transform: rotate(45deg);
-
     transform: rotate(45deg);
 }
 
@@ -54,9 +60,10 @@
     max-height: 33px;
     max-width: 33px;
     min-width: 33px;
-    margin-left: 56px;
+    margin-left: 38%;
     background-color: #f47d30;
 }
+
 
 #buttonDeplacerTige, #buttonDeplacerCotyle {
     padding-left: 1%;

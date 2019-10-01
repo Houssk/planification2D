@@ -86,7 +86,7 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
                     shapeId="regle_3";
                 }
             } else {
-                swal("Veuillez supprimer les régles pour en recreer un nouveau","Seul 3 régles sont autorisé");
+                swal("Veuillez supprimer les régles pour en recreer une nouvelle","Seules 3 régles sont autorisées");
                 onPeutTraceRegle=false;
             }
         }
@@ -129,7 +129,7 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
         group.add(kshape);
         group.add(ktext);
         return group;
-    } 
+    }
     else {
         var group = new Kinetic.Group();
         var kshape = new Kinetic.Line({
@@ -142,7 +142,7 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
         group.add(kshape);
         return group;
     }
-    
+
 };
 
 /**
@@ -200,8 +200,8 @@ dwv.tool.UpdateLine = function (anchor, image)
     var dicomCanvas = document.getElementById("dwv-imageLayer");
     var dicomWidth = sessionStorage.getItem("imageLargeur");
     var dicomHeight = sessionStorage.getItem("imageHauteur");
-    
-    
+
+
     var textPos = {
         'x': line.getEnd().getX() + dX * 25+(10*(dicomWidth/dicomCanvas.width)),
         'y': line.getEnd().getY() + dY * 15+(10*(dicomHeight/dicomCanvas.height)), };
