@@ -3,30 +3,19 @@
 #1472a3 Clair
  */
 
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-    border: 1px solid #183544;
-    background: #1472a3;
+.sweet-alert button, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+    background: var(--color-button-primary);
+    border:     var(--borders-width-style) var(--color-button-secondary);
 }
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border: 1px solid #1472a3;
-    background: #183544;
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-widget-header  {
+    background: var(--color-main-background);
+    border:     var(--borders-width-style) var(--color-button-primary);
 }
 
 .ui-state-hover, .ui-state-hover, .ui-state-hover {
-     border: 1px solid #183544;
-     background: #1472a3;
+    background: var(--color-button-primary);
+     border:    var(--borders-width-style) var(--color-button-secondary);
  }
-
-.ui-widget-header {
-    border: 1px solid #1472a3;
-    background: #183544;
-}
-
-.sweet-alert button {
-    border: 1px solid #1472a3 !important;
-    background: #183544 !important;
-}
-.sweet-alert input {
-    border: 1px solid #1472a3 !important;
+.sweet-alert input{
+    border:     var(--borders-width-style) var(--color-main-background);
 }

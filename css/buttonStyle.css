@@ -1,6 +1,6 @@
 .backgroundColor
 {
-  background-color: #183544;
+  background-color: var(--color-main-background);
   margin-right: 2%;
   height: 25px;
   width: 25px;
@@ -10,10 +10,11 @@
 
 .btnHover:hover
 {
-  background: #185c81 !important;
+    background: var(--color-button-primary);
+    border: var(--borders-width-style) var(--color-button-secondary);
 }
 
 .activeBtn {
-   border: 1px solid #183544 !important;
-   background: #1472a3 !important;
+    background: var(--color-button-secondary) !important;
+   border: var(--borders-width-style) var(--color-button-primary) !important;
  }

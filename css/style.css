@@ -1,5 +1,4 @@
-
-body { 
+body {
 	background-color: white; 
 	color: white;
 	margin: 10px;
@@ -145,21 +144,21 @@ table.tagList td {
     background-repeat:no-repeat;
     background-position:center;
     position:absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 
 .imagefiles {
   width: 100%;
 }
 #ex1Slider .slider-selection {
-    background: #183544;
+    background: var(--color-main-background);
 }
 #ex2Slider .slider-selection {
-    background: #183544;
+    background: var(--color-main-background);
 }
 #ex3Slider .slider-selection {
-    background: #183544;
+    background: var(--color-main-background);
 }
 .slider-handle {
     background-image: linear-gradient(to bottom, #333 0%, #333 100%) !important;
@@ -167,7 +166,7 @@ table.tagList td {
 }
 
 .qtip-content {
-    padding: 0px 0px !important;
+    padding: 0 0 !important;
 }
 .btn-danger {
     background-color: #ff0000 !important;
@@ -180,8 +179,8 @@ table.tagList td {
 .qtip {
 
     max-width: none !important;
-    background-color: #183544; !important;
-    border-color: #183544; !important;
-    border : 1px solid #183544 !important
+    background-color: var(--color-button-primary);
+    border-color: var(--color-button-primary);
+    border : var(--borders-width-style) var(--color-button-primary);
 
 }
