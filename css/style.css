@@ -153,13 +153,13 @@ table.tagList td {
   width: 100%;
 }
 #ex1Slider .slider-selection {
-    background: #a54996;
+    background: #183544;
 }
 #ex2Slider .slider-selection {
-    background: #a54996;
+    background: #183544;
 }
 #ex3Slider .slider-selection {
-    background: #a54996;
+    background: #183544;
 }
 .slider-handle {
     background-image: linear-gradient(to bottom, #333 0%, #333 100%) !important;
@@ -180,8 +180,8 @@ table.tagList td {
 .qtip {
 
     max-width: none !important;
-    background-color: #a54996; !important;
-    border-color: #a54996; !important;
-    border : 1px solid #a54996 !important
+    background-color: #183544; !important;
+    border-color: #183544; !important;
+    border : 1px solid #183544 !important
 
 }
