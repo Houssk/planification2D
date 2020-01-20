@@ -187,99 +187,168 @@ function getCotyleBySize(table, size, cote) {
     xhr.open("GET", 'php/getCotyleBySize.php?sizeCotyle='+size+'&tableCotyle='+table+'&coteCotyle='+cote+'', false);
     xhr.send(null);
     xhr.responseText;
-    var docXML= xhr.responseXML;
-    var cotyleIdBDD = docXML.getElementsByTagName("id");
-    var cotyleNomBDD = docXML.getElementsByTagName("nom");
-    var cotyleUrlBDD = docXML.getElementsByTagName("url");
-    var widthPxCotyleBDD = docXML.getElementsByTagName("sizeXPx");
-    var widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm");
-    var heightPxCotyleBDD = docXML.getElementsByTagName("sizeYPx");
-    var heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm");
-    var tailleCotyleBDD = docXML.getElementsByTagName("taille");
+    var docXML= xhr.responseXML,
+        cotyleIdBDD = docXML.getElementsByTagName("id"),
+        cotyleNomBDD = docXML.getElementsByTagName("nom"),
+        cotyleUrlBDD = docXML.getElementsByTagName("url"),
+        widthPxCotyleBDD = docXML.getElementsByTagName("sizeXPx"),
+        widthCmCotyleBDD = docXML.getElementsByTagName("sizeXCm"),
+        heightPxCotyleBDD = docXML.getElementsByTagName("sizeYPx"),
+        heightCmCotyleBDD = docXML.getElementsByTagName("sizeYCm"),
+        tailleCotyleBDD = docXML.getElementsByTagName("taille"),
 
-    var cotyleId = cotyleIdBDD.item(0).firstChild.data;
-    var cotyleNom = cotyleNomBDD.item(0).firstChild.data;
-    var cotyleUrl = cotyleUrlBDD.item(0).firstChild.data;
-    var widthPxCotyle = widthPxCotyleBDD.item(0).firstChild.data;
-    var widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data;
-    var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
-    var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
-    var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
-    var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
+        cotyleId = cotyleIdBDD.item(0).firstChild.data,
+        cotyleNom = cotyleNomBDD.item(0).firstChild.data,
+        cotyleUrl = cotyleUrlBDD.item(0).firstChild.data,
+        widthPxCotyle = widthPxCotyleBDD.item(0).firstChild.data,
+        widthCmCotyle = widthCmCotyleBDD.item(0).firstChild.data,
+        heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data,
+        heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data,
+        tailleCotyle = tailleCotyleBDD.item(0).firstChild.data,
+        cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle)
+    ;
 
     return cotyle;
 }
 function desactivationListe() {
 
     if (document.getElementById("RadioOuiHanche").checked) {
-        var coteCotyleDisplay = document.getElementById("coteCotyleDisplay");
-        var coteTigeDisplay = document.getElementById("coteTigeDisplay");
+        var coteCotyleDisplay = document.getElementById("coteCotyleDisplay"),
+            coteTigeDisplay = document.getElementById("coteTigeDisplay")
+        ;
         coteCotyleDisplay.style.display = "none";
         coteTigeDisplay.style.display = "none";
     }
 }
 
-function draggerTigeDroit (value){
-    $( ".tigeDraggableDroit" ).draggable({
-        disabled: value,
+
+
+
+//Draggable elements
+function createDraggable(draggableElementScope, canvasID){
+    let target = $(draggableElementScope),
+        timedDissabling,
+        timerInitialized = false
+    ;
+    target.draggable({
+        disabled: true,
         drag: function(){
-            var canvasOffset = $('#canvasTigeDroit').offset();//$('#'+canvas.id+'').offset();
-            // Offset permet d'enregistrer le déplacement
-            var offsetX = canvasOffset.left;
-            var offsetY = canvasOffset.top;
+            let canvasOffset = $(canvasID).offset(),
+                // Offset permet d'enregistrer le déplacement
+                offsetX = canvasOffset.left,
+                offsetY = canvasOffset.top
+            ;
+            if (timerInitialized){
+                clearTimeout(timedDissabling);
+            }
+        },
+        stop: function () {
+            timedDissabling = setTimeout(disableAllDraggable, 1500);
+            timerInitialized = true;
         }
     });
-    $( ".tigeDraggableDroit" ).draggable( "option", "disabled", value );
+    target.draggable( "option", "disabled", true );
     $("body").droppable({
         accept: ".draggable"
     });
 }
-function draggerTigeGauche (value){
-    $( ".tigeDraggableGauche" ).draggable({
-        disabled: value,
-        drag: function(){
-            var canvasOffset = $('#canvasTigeGauche').offset();//$('#'+canvas.id+'').offset();
-            // Offset permet d'enregistrer le déplacement
-            var offsetX = canvasOffset.left;
-            var offsetY = canvasOffset.top;
-        }
-    });
-    $( ".tigeDraggableGauche" ).draggable( "option", "disabled", value );
-    $("body").droppable({
-        accept: ".draggable"
-    });
+function activateThisDraggable(draggableElementScope){
+    disableAllDraggable();
+    $(draggableElementScope).draggable( "enable" );
+    $(draggableElementScope).addClass("isDraggable");
 }
 
-function draggerCotyleDroit (value){
-    $( ".cotyleDraggableDroit" ).draggable({
-        disabled: value,
-        drag: function(){
-            var canvasOffset = $('#canvasCotyleDroit').offset();//$('#'+canvas.id+'').offset();
-            // Offset permet d'enregistrer le déplacement
-            var offsetX = canvasOffset.left;
-            var offsetY = canvasOffset.top;
-        }
-    });
-    $( ".cotyleDraggableDroit" ).draggable( "option", "disabled", value );
-    $("body").droppable({
-        accept: ".draggable"
-    });
+function disableAllDraggable(){
+    let draggableElement = $(".isDraggable"),
+        divDeplacer = $(".divDeplacer");
+    if (draggableElement){
+        draggableElement.draggable( "option", "disabled", true );
+    }
+    divDeplacer.removeClass("activeBtn");
 }
-function draggerCotyleGauche (value){
-    $( ".cotyleDraggableGauche" ).draggable({
-        disabled: value,
-        drag: function(){
-            var canvasOffset = $('#canvasCotyleGauche').offset();//$('#'+canvas.id+'').offset();
-            // Offset permet d'enregistrer le déplacement
-            var offsetX = canvasOffset.left;
-            var offsetY = canvasOffset.top;
-        }
-    });
-    $( ".cotyleDraggableGauche" ).draggable( "option", "disabled", value );
-    $("body").droppable({
-        accept: ".draggable"
-    });
-}
+
+
+
+//
+// function draggerTigeDroit (value){
+//     let tigeDraggableDroit = $( ".tigeDraggableDroit" );
+//     console.log("draggerTigeDroit value = " + value);
+//     tigeDraggableDroit.draggable({
+//         disabled: value,
+//         drag: function(){
+//             var canvasOffset = $('#canvasTigeDroit').offset(),//$('#'+canvas.id+'').offset();
+//                 // Offset permet d'enregistrer le déplacement
+//                 offsetX = canvasOffset.left,
+//                 offsetY = canvasOffset.top;
+//         }
+//     });
+//     tigeDraggableDroit.draggable( "option", "disabled", value );
+//     $("body").droppable({
+//         accept: ".draggable"
+//     });
+//
+//     dragDissableListener(tigeDraggableDroit);
+//
+//
+// }
+// function draggerTigeGauche (value){
+//     let tigeDraggableGauche = $( ".tigeDraggableGauche" );
+//     console.log("draggerTigeGauche value = " + value);
+//     tigeDraggableGauche.draggable({
+//         disabled: value,
+//         drag: function(){
+//             var canvasOffset = $('#canvasTigeGauche').offset(),//$('#'+canvas.id+'').offset();
+//                 // Offset permet d'enregistrer le déplacement
+//                 offsetX = canvasOffset.left,
+//                 offsetY = canvasOffset.top;
+//         }
+//     });
+//     tigeDraggableGauche.draggable( "option", "disabled", value );
+//     $("body").droppable({
+//         accept: ".draggable"
+//     });
+//
+//     dragDissableListener(tigeDraggableGauche);
+// }
+//
+// function draggerCotyleDroit (value){
+//     let cotyleDraggableDroit = $( ".cotyleDraggableDroit" );
+//     console.log("draggerCotyleDroit value = " + value);
+//     cotyleDraggableDroit.draggable({
+//         disabled: value,
+//         drag: function(){
+//             var canvasOffset = $('#canvasCotyleDroit').offset(),//$('#'+canvas.id+'').offset();
+//             // Offset permet d'enregistrer le déplacement
+//                 offsetX = canvasOffset.left,
+//                 offsetY = canvasOffset.top;
+//         }
+//     });
+//     cotyleDraggableDroit.draggable( "option", "disabled", value );
+//     $("body").droppable({
+//         accept: ".draggable"
+//     });
+//
+//     dragDissableListener(cotyleDraggableDroit);
+// }
+// function draggerCotyleGauche (value){
+//     let cotyleDraggableGauche = $( ".cotyleDraggableGauche" );
+//     console.log("draggerCotyleGauche value = " + value);
+//     cotyleDraggableGauche.draggable({
+//         disabled: value,
+//         drag: function(){
+//             var canvasOffset = $('#canvasCotyleGauche').offset(),//$('#'+canvas.id+'').offset();
+//             // Offset permet d'enregistrer le déplacement
+//                 offsetX = canvasOffset.left,
+//                 offsetY = canvasOffset.top;
+//         }
+//     });
+//     cotyleDraggableGauche.draggable( "option", "disabled", value );
+//     $("body").droppable({
+//         accept: ".draggable"
+//     });
+//
+//     dragDissableListener(cotyleDraggableGauche);
+// }
 
 /**
 *Cette fonction récupère les différentes taille de la dicom
@@ -287,15 +356,14 @@ function draggerCotyleGauche (value){
 *@author Quentin PETIT
 */
 function getValeursImage() {
-    var dicomCanvas = document.getElementById("dwv-imageLayer");
-
-    // Taille de l'image réelle
-    var widthImageReelle = sessionStorage.getItem("imageLargeur");
-    var heightImageReelle = sessionStorage.getItem("imageHauteur");
-
-    // Taille de l'image affichée à l'écran
-    var widthImageCanvas = dicomCanvas.width;
-    var heightImageCanvas = dicomCanvas.height;
+    var dicomCanvas = document.getElementById("dwv-imageLayer"),
+        // Taille de l'image réelle
+        widthImageReelle = sessionStorage.getItem("imageLargeur"),
+        heightImageReelle = sessionStorage.getItem("imageHauteur"),
+        // Taille de l'image affichée à l'écran
+        widthImageCanvas = dicomCanvas.width,
+        heightImageCanvas = dicomCanvas.height
+    ;
 
     return {
         widthImageReelle : widthImageReelle, 
@@ -315,8 +383,8 @@ function facteurRedimensionnementImage() {
     var image = getValeursImage();
 
     // Calcul du coefficient réducteur de l'image
-    var coefWidthImage = image.widthImageCanvas / image.widthImageReelle;
-    var coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
+    var coefWidthImage = image.widthImageCanvas / image.widthImageReelle,
+        coefHeightImage = image.heightImageCanvas / image.heightImageReelle;
 
     return {
         coefWidth : coefWidthImage, 
@@ -333,4 +401,4 @@ $(document).ready(function () {
         $('input[type="image"].activeBtn').removeClass('activeBtn')
         $(this).addClass('activeBtn');
     });
-})
+});

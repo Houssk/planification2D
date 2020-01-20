@@ -1,0 +1,77 @@
+.pad {
+
+    max-height: 1.6rem;
+    max-width: 26px;
+    min-width: 26px;
+}
+/* Safari style */
+@media not all and (min-resolution:.001dpcm) { @media {
+
+    .pad {
+        max-height: 1.8rem;
+    }
+}}
+
+.padCenter {
+    max-width: 78px;
+    max-height: 26px;
+    min-width: 78px;
+    margin-left: 2px;
+    margin-right: 1px;
+}
+
+.padCircle {
+    height: 145px;
+}
+
+.padTop {
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+
+.padMiddleTop {
+    margin-left: 26px;
+}
+
+#buttonTournerHautTige, #buttonTournerBasTige, #buttonTournerHautCotyle, #buttonTournerBasCotyle {
+    padding-top: 1px;
+}
+
+.padMiddleBot {
+    margin-right: 26px;
+}
+
+.container {
+    text-align: center;
+}
+
+.buttonRotationUp {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.buttonRotationDown {
+    -webkit-transform: rotate(45deg);
+
+    transform: rotate(45deg);
+}
+
+#divDeplacerTige, #divDeplacerCotyle {
+    max-height: 33px;
+    max-width: 33px;
+    min-width: 33px;
+    margin-left: 38%;
+    background-color: var(--color-main-background);
+}
+
+
+#buttonDeplacerTige, #buttonDeplacerCotyle {
+    padding-left: 1%;
+    padding-top: 1%;
+    font-size: 32px;
+}
+
+
+.col.pad > .material-icons, #divDeplacerTige, #divDeplacerCotyle {
+    cursor: pointer;
+}
