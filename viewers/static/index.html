@@ -8,13 +8,17 @@
 		<meta name="description" content="DICOM Web Viewer (DWV) static version">
 		<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
 
+		<link type="text/css" rel="stylesheet" href="../../css/variables.css">
 		<link type="text/css" rel="stylesheet" href="../../css/style.css">
 		<link type="text/css" rel="stylesheet" href="../../ext/jquery-ui/themes/ui-darkness/jquery-ui-1.11.2.min.css">
 		<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
 		<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css">
 		<link rel="stylesheet" href="../../bootstrap/css/jquery.qtip.min.css">
+		<link type="text/css" rel="stylesheet" href="../../css/newBackgroundColor.css">
+		<link type="text/css" rel="stylesheet" href="../../css/stylePad.css">
 
 
 
@@ -24,7 +28,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/bootstrap-slider.js"></script>
 		<script type="text/javascript" src="../../ext/flot/jquery.flot.min.js"></script>
 		<script type="text/javascript" src="../../ext/kinetic/kinetic-v5.1.1-06.10.min.js"></script>
-		<script type="text/javascript" src="../../bootstrap/js/jquery.qtip.min.js"></script>
+		<script type="text/javascript" src="../../bootstrap/js/jquery.qtip.js"></script>
 		<!-- decoders -->
 		<script type="text/javascript" src="../../ext/pdfjs/jpx.js"></script>
 		<script type="text/javascript" src="../../ext/pdfjs/util.js"></script>
@@ -105,6 +109,7 @@
 		<!--<script type="text/javascript" src="js/tests.js"></script>-->
 		<script type="text/javascript" src="js/Fonction.js"></script>
 		<script type="text/javascript" src="js/ActionsBouton.js"></script>
+		<script type="text/javascript" src="js/jspad.js"></script>
 		
 	</head>
 
@@ -116,456 +121,690 @@
 
 		<div id="pageMain">
 
-		<div id="accordeon" style="width: 350px;">
-			<h3>INFORMATIONS</h3>
-			<div class="informationPatient">
-				<form>
-					<div class="row">
-						<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
-						<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
-					</div>
-					<div class="row" style="margin-top: 2%">
-						<div class="col-md-6">
-							<select class="form-control" id="coteChirurgie">
-								<option disabled selected>COTE</option>
-								<option value="Gauche">GAUCHE</option>
-								<option value="Droit">DROIT</option>
-							</select>
-						</div>
-						<div class="col-md-6">
-							<select class="form-control" id="typeChirurgie">
-								<option disabled selected>PLANIFICATION</option>
-								<option value="Guider">AVANCEE</option>
-								<option value="Non guider">LIBRE</option>
-							</select>
-						</div>
-					</div>
-					<div class="loaderlist" style="margin-top: 2%"></div>
-					<div id="dialog-message" title="Téléchargement en cours">
-						<div id="barprogress" style="margin-top: 2%"></div>
-					</div>
-					<div id="divNbHanche" style="display: none; margin-top:5%;">
+			<div id="accordeon" style="width: 350px;">
+				<h3>INFORMATIONS</h3>
+				<div class="informationPatient">
+					<form>
 						<div class="row">
-							<div class="col-md-6 centered">
-								<div class="row">
-									<div class="col-md-7">
-										<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+							<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
+							<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
+						</div>
+						<div class="row" style="margin-top: 2%">
+							<div class="col-md-6">
+								<div class="form-group">
+									<select class="form-control" id="coteChirurgie">
+										<option disabled selected hidden>COTE</option>
+										<option value="Gauche">GAUCHE</option>
+										<option value="Droit">DROIT</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<select class="form-control" id="typeChirurgie">
+										<option disabled selected hidden>PLANIFICATION</option>
+										<option value="Guider">AVANCEE</option>
+										<option value="Non guider">LIBRE</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="loaderlist" style="margin-top: 2%"></div>
+						<div id="dialog-message" title="Téléchargement en cours">
+							<div id="barprogress" style="margin-top: 2%"></div>
+						</div>
+						<div id="divNbHanche" style="display: none; margin-top:5%;">
+							<div class="row justify-content-center no-gutters">
+								<div class="col-md-7">
+									<div class="row no-gutters align-items-center">
+										<div class="col-md-9" style="padding-top: 1px;">
+											<button type="button" id="buttonCalibrage" class="btn btn-primary">CALIBRER</button>
+										</div>
+										<div class="col-md-2 offset-md-1">
+											<span id="infoCalibrage" class="material-icons btnHelp" >help</span>
+										</div>
 									</div>
-									<div class="col-md-2 col-md-offset-2">
-										<button id="infoCalibrage" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-											<span class="glyphicon glyphicon-question-sign" ></span>
-										</button>
+								</div>
+								<!--<div class="col-md-6 centered">
+									<input type="button" id="buttonSeuil" class="btn btn-primary" value="SEUILLAGE" style="width: 110px;">
+									<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
+									<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
+								</div>-->
+								<div class="col-md-3 offset-md-2">
+									<button type="button" id="buttonZoom" class="btn btn-primary zoom"><span class="material-icons md-34">zoom_in</span></button>
+								</div>
+							</div>
+							<!--<div class="row centered" style="margin-top:2%;">
+								<div class="col-md-6 centered">
+									<input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
+								</div>
+							</div>-->
+
+							<div class="row">
+								<div class="col-md-12 centered">
+									<label id="labelNbHanche" class="blackColor">Cette image possède une seule hanche</label>
+									<div style="text-align: center;">
+										<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
+										<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
 									</div>
 								</div>
 							</div>
-							<!--<div class="col-md-6 centered">
-                                <input type="button" id="buttonSeuil" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="SEUILLAGE" style="width: 110px;">
-                                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
-                                <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
-                            </div>-->
-							<div class="col-md-6">
-								<input type="button" id="buttonZoom" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ZOOM" style="width: 110px; float: right;">
+							<div class="row">
+								<div class="col-md-offset-3 col-md-6 centered">
+									<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
+								</div>
 							</div>
 						</div>
-						<!--<div class="row centered" style="margin-top:2%;">
-                            <div class="col-md-6 centered">
-                                <input type="button" id="buttonCalibrage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CALIBRER" style="width: 110px;">
-                            </div>
-                        </div>-->
+					</form>
+				</div>
+				<h3>OUTILS DESSIN</h3>
+				<!-- OUTILS DESSIN -->
+				<div class="outilsDessin">
+					<div class="row no-gutters justify-content-left align-items-center">
 
+						<div class ="col-6">
+							<button id="buttonDessinTrapeze" type="button" class="btn btn-primary">TRAPEZE</button>
+						</div>					<div class ="col-2">
+							<span id="infoTrapeze" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class ="col">
+							<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div class="row no-gutters justify-content-left align-items-center">
+						<div class ="col-6">
+							<button id="buttonDessinPetitTroch" type="button" class="btn btn-primary">PETIT TROCH</button>
+						</div>
+						<div class ="col-2">
+							<span id="infoPetitTroch" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class="col">
+							<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right">
+						</div>
+					</div>
+					<div class="row no-gutters justify-content-left align-items-center">
+						<div class="col-6">
+							<button id="buttonDessinCercle" type="button" class="btn btn-primary">CERCLE</button>
+						</div>
+						<div class="col-2">
+							<span id="infoCercle" class="material-icons btnHelp" >help</span>
+						</div>
+						<div class="col">
+							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 centered">
+							<button id="buttonValideOutilsDessin" type="button" class="btn btn-primary" >VALIDER</button>
+						</div>
+						<div class="col-md-6 centered">
+							<button id="buttonRetourOutilsDessin"class="btn btn-primary" >RETOUR</button>
+						</div>
+					</div>
+				</div>
+				<h3>IMPLANTS</h3>
+				<!-- IMPLANTS -->
+				<div class="implants">
+					<div id="actionImplant">
+						<div class="row">
+							<div class="col-md-3"><h4>Tige</h4></div>
+							<div class="col-md-9">
+								<select class="form-control" id="symbol" style="font-weight: bold;">
+									<option value="symbol1"><h4 id="labelGammeTige"  style="text-align: center;">Symbol </h4></option>
+									<option value="symbol2"><h4 id="labelGammeTige2" style="text-align: center;">Symbol2</h4></option>
+								</select>
+
+							</div>
+						</div>
+						<div id="disableIf" style=" ">
+							<div class="row">
+								<div class="col-md-6">
+									<select class="form-control" id="gammeCimenteOuPas">
+										<option value="cimente">CIMENTE</option>
+										<option value="sansCiment">SANS CIMENT</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<select class="form-control" id="gammeVariseOuPas">
+										<option value="varise">VARISE</option>
+										<option value="standard">STANDARD</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<select class="form-control" id="gammeColleretteOuPas">
+										<option value="collerette">COLLERETTE</option>
+										<option value="sansCollerette">SANS COLLERETTE</option>
+									</select>
+								</div>
+							</div>
+
+
+
+
+<!--							<div id="coteTigeDisplay" class="row">-->
+<!--								<div class="col-md-3">-->
+<!--									<h5>Côté</h5>-->
+<!--								</div>-->
+<!--								<div class="col-md-9">-->
+<!--									<select id="coteTige" class="form-control">-->
+<!--										<option value="Gauche">GAUCHE</option>-->
+<!--										<option value="Droit">DROIT</option>-->
+<!--									</select>-->
+<!--								</div>-->
+<!--							</div>-->
+
+							<div id="coteTigeDisplay" class="row justify-content-center">
+								<div class="col">
+									<div class="btn-group btn-group-toggle" id="coteTige" data-toggle="buttons">
+										<label class="btn btn-primary radioButton">
+											<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> GAUCHE
+										</label>
+										<label class="btn btn-primary radioButton">
+											<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> DROIT
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--						-->
+<!--						<div class="row" style="margin-top: 2%;">-->
+<!--							<div class="col-md-3">-->
+<!--								<h5>Taille</h5>-->
+<!--							</div>-->
+<!--							<div class="col-md-9" style="text-align: center;">-->
+<!--								<input id="buttonMoinsTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+<!--								<label id="labelTailleTige" class="blackColor" style="width: 25px;"></label>-->
+<!--								<input id="buttonPlusTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="row deplacerTige" style="margin-top: 2%;">-->
+<!--							<div class="col-md-6">-->
+<!--								<h5>D&eacute;placer</h5>-->
+<!--							</div>-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonMonterTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonHautTige" type="image" src="images/Haut.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonGaucheTige" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonDroitTige" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonBasTige" type="image" src="images/Bas.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonDescendreTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="row positionTige" style="margin-top: 2%; display: none;">-->
+<!--							<div class="col-md-6">-->
+<!--								<h5>Positionner</h5>-->
+<!--							</div>-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="row">-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonTournerHautTige" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonDeplacerTige" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonTournerBasTige" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						-->
+
+
+
+						<div class="container" id="dPadTige">
+							<div class="row justify-content-center position-relative">
+								<div class="col position-absolute">
+									<img src="images/pad/padCircleInactive.svg" id="padCircleTige" class="img-fluid padCircle" alt="circle" />
+								</div>
+							</div>
+							<div class="row justify-content-center position-relative no-gutters">
+								<div id="divDeplacerTige" class="col position-absolute divDeplacer">
+									<span id="buttonDeplacerTige" class="material-icons md-light">open_with</span>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row padTop justify-content-center no-gutters">
+									<div class="col pad">
+										<span class="material-icons md-light" id="buttonPlusTige">add</span>
+									</div>
+								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col pad padMiddleTop">
+										<span class="material-icons md-light deplacerTige" id="buttonHautTige" style="margin-top: -1px;">arrow_upward</span>
+									</div>
+									<div class="col pad">
+										<span class="material-icons md-light buttonRotationUp deplacerTige" id="buttonMonterTige" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
+									</div>
+								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col pad padLeft">
+										<span class="material-icons md-light positionTige" id="buttonTournerHautTige">rotate_right</span>
+									</div>
+									<div class="col-3 padCenter">
+										<div class="row justify-content-center no-gutters">
+											<div class="col pad">
+												<span class="material-icons md-light deplacerTige" id="buttonGaucheTige" style="margin-left: -4px;">arrow_back</span>
+											</div>
+											<div class="col pad">
+												<label id="labelTailleTige"></label>
+											</div>
+											<div class="col pad">
+												<span class="material-icons md-light deplacerTige" id="buttonDroitTige" style="margin-right: -4px;">arrow_forward</span>
+											</div>
+										</div>
+									</div>
+									<div class="col pad padRight">
+										<span class="material-icons md-light positionTige" id="buttonTournerBasTige">rotate_left</span>
+									</div>
+								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col pad">
+										<span class="material-icons md-light buttonRotationDown deplacerTige" id="buttonDescendreTige" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
+									</div>
+									<div class="col pad padMiddleBot">
+										<span class="material-icons md-light deplacerTige" id="buttonBasTige" style="margin-top: 3px;">arrow_downward</span>
+									</div>
+								</div>
+								<div class="row padBot justify-content-center no-gutters">
+									<div class="col pad">
+										<span class="material-icons md-light" id="buttonMoinsTige">remove</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<div class="row" style="margin-top: 2%;">
+							<div class="col-md-3"><h4>Cotyle</h4></div>
+							<div class="col-md-9">
+								<select class="form-control" id="symbolCotyle" style="font-weight: bold;">
+									<option value="symbol1"><h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4></option>
+									<option value="symbol2"><h4 id="labelGammeCotyle2" style="text-align: center;">Symbol2</h4></option>
+								</select>
+							</div>
+						</div>
+						<div id ="disableIfCotyle">
+							<div class="row">
+								<div class="col-md-6">
+									<select class="form-control" id="gammeCimenteOuNe">
+										<option value="cimente">CIMENTE</option>
+										<option value="sansCiment">SANS CIMENT</option>
+									</select>
+								</div>
+							</div>
+
+
+<!--							<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">-->
+<!--								<div class="col-md-3">-->
+<!--									<h5>Côté</h5>-->
+<!--								</div>-->
+<!--								<div class="col-md-9">-->
+<!--									<select id="coteCotyle" class="form-control">-->
+<!--										<option value="Gauche">GAUCHE</option>-->
+<!--										<option value="Droit">DROIT</option>-->
+<!--									</select>-->
+<!--								</div>-->
+<!--							</div>-->
+
+
+							<div id="coteCotyleDisplay" class="row justify-content-center">
+								<div class="col">
+									<div class="btn-group btn-group-toggle" id="coteCotyle" data-toggle="buttons">
+										<label class="btn btn-primary radioButton">
+											<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"> GAUCHE
+										</label>
+										<label class="btn btn-primary radioButton">
+											<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"> DROIT
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+<!--						<div class="row" style="margin-top: 2%;">-->
+<!--							<div class="col-md-3">-->
+<!--								<h5>Taille</h5>-->
+<!--							</div>-->
+<!--							<div class="col-md-9" style="text-align: center;">-->
+<!--								<input id="buttonMoinsCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+<!--								<label id="labelTailleCotyle" class="blackColor" style="width: 25px;"></label>-->
+<!--								<input id="buttonPlusCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div id="deplacerCotyle" class="row" style="margin-top: 2%;">-->
+<!--							<div class="col-md-6">-->
+<!--								<h5>D&eacute;placer</h5>-->
+<!--							</div>-->
+<!--							<div class="col-md-6" style="text-align: center;">-->
+<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonMonterCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonTournerBasCotyle" type="image" src="images/flecheGaucheGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
+<!--									</div>-->
+
+
+<!--								</div>-->
+<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonGaucheCotyle" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonDroitCotyle" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonTournerHautCotyle" type="image" src="images/flecheDroitGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonDescendreCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div id="positionCotyle" class="row" style="display: none;" >-->
+<!--							<div class="col-md-6">-->
+<!--								<h5>Positionner</h5>-->
+<!--							</div>-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="row">-->
+
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonTournerHautCotyleNG" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonDeplacerCotyle" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+<!--									</div>-->
+<!--									<div class="col-md-2 backgroundColor">-->
+<!--										<input id="buttonTournerBasCotyleNG" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
+<!--									</div>-->
+
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+
+
+						<div class="container" id="dPadCotyle">
+							<div class="row justify-content-center position-relative">
+								<div class="col position-absolute">
+									<img src="images/pad/padCircleInactive.svg" id="padCircleCotyle" class="img-fluid padCircle" alt="circle" />
+								</div>
+							</div>
+							<div class="row justify-content-center position-relative no-gutters">
+								<div id="divDeplacerCotyle" class="col position-absolute divDeplacer">
+									<span id="buttonDeplacerCotyle" class="material-icons md-light">open_with</span>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row padTop justify-content-center no-gutters">
+									<div class="col pad">
+										<span class="material-icons md-light" id="buttonPlusCotyle">add</span>
+									</div>
+								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col pad" style="margin-left:52px;">
+										<span class="material-icons md-light buttonRotationUp deplacerCotyle" id="buttonMonterCotyle" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
+									</div>
+								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col pad padLeft">
+										<span class="material-icons md-light" id="buttonTournerHautCotyle">rotate_right</span>
+									</div>
+									<div class="col-3 padCenter">
+										<div class="row justify-content-center no-gutters">
+											<div class="col pad">
+												<span class="material-icons md-light deplacerCotyle" id="buttonGaucheCotyle" style="margin-left: -4px;">arrow_back</span>
+											</div>
+											<div class="col pad">
+												<label id="labelTailleCotyle"></label>
+											</div>
+											<div class="col pad">
+												<span class="material-icons md-light deplacerCotyle" id="buttonDroitCotyle" style="margin-right: -4px;">arrow_forward</span>
+											</div>
+										</div>
+									</div>
+									<div class="col pad padRight">
+										<span class="material-icons md-light" id="buttonTournerBasCotyle">rotate_left</span>
+									</div>
+								</div>
+								<div class="row justify-content-center no-gutters">
+									<div class="col pad" style="margin-top: 3px; margin-right: 52px;">
+										<span class="material-icons md-light buttonRotationDown deplacerCotyle" id="buttonDescendreCotyle" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
+									</div>
+								</div>
+								<div class="row padBot justify-content-center no-gutters">
+									<div class="col pad">
+										<span class="material-icons md-light" id="buttonMoinsCotyle">remove</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<label id="labelOffsetTigeCotyle" class="blackColor"></label>
+						<label id="labelHauteurTigeCotyle" class="blackColor"></label>
+						<div class="row" style="margin-top: 2%;">
+							<div class="col-md-6 centered">
+								<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TERMINER" style="width: 110px;">
+							</div>
+							<div class="col-md-6 centered">
+								<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="accordeon2" style="width: 350px;">
+					<h3>OPTIONS DIVERS</h3>
+					<div class="couleurArrierePlan" >
+						<div class="row" style="margin: 5% 0%">
+							<div class="col-md-8 centered">
+								<input type="button" id="buttonContrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CONTRASTE" style="width: 110px;">
+								<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="400" data-slider-step="1" data-slider-value="127.5"/>
+								<input type="button" id="buttonLuminosite" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="LUMINOSITE" style="width: 110px;">
+								<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
+								<br><br><br>
+
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<img src="images/triangle.JPG" alt="" style="width: 35px;">
+							</div>
+							<div class="col-md-9">
+								<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">
+									<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" style="width: 220px;">MANUEL UTILISATEUR</button>
+								</a>
+							</div>
+							<br>
+						</div>
+						<div class="row" style="margin-top: 20px">
+							<div class="col-md-5">
+								<img src="images/CE.JPG" alt="" style="width: 42px;">
+							</div>
+							<div class="col-md-5">
+								<img src="images/fabricant.JPG" alt="" style="width: 150px;">
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-md-12 centered">
-								<label id="labelNbHanche" class="blackColor">Cette DICOM possède une seule hanche</label>
-								<div style="text-align: center;">
-									<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
-									<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+								<h5>Année d’obtention du marquage CE : 2017</h5>
+							</div>
+						</div>
+						<div class="row" style="margin: 5% 0%">
+							<div class="col-md-8" id="buttonDessinRapporteur" style="display: none;">
+								<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px;">
+								<div class="col-md-2">
+									<span id="infoAngle" class="material-icons btnHelp" >help</span>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-offset-3 col-md-6 centered">
-								<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
+							<div class="col-md-1">
+								<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+							</div>
+							<div class="col-md-1">
+								<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+							</div>
+							<div class="col-md-1">
+								<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
 							</div>
 						</div>
-					</div>
-				</form>
-			</div>
-			<h3>OUTILS DESSIN</h3>
-			<!-- OUTILS DESSIN -->
-			<div class="outilsDessin">
-				<p><input id="buttonDessinTrapeze" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TRAPEZE" style="width: 110px;">
-					<button id="infoTrapeze" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-						<span class="glyphicon glyphicon-question-sign" ></span>
-					</button>
-					<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-				</p>
-				<p><input id="buttonDessinPetitTroch" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="PETIT TROCH" style="width: 110px;">
-					<button id="infoPetitTroch" type="button" class="btn btn-danger" aria-label="Left Align">
-						<span class="glyphicon glyphicon-question-sign" ></span>
-					</button>
-					<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
-				<p><input id="buttonDessinCercle" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CERCLE" style="width: 110px;">
-					<button id="infoCercle" type="button" class="btn btn-danger" aria-label="Left Align">
-						<span class="glyphicon glyphicon-question-sign" ></span>
-					</button>
-					<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input></p>
-				<div class="row">
-					<div class="col-md-6 centered">
-						<input id="buttonValideOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="width: 110px;">
-					</div>
-					<div class="col-md-6 centered">
-						<input id="buttonRetourOutilsDessin" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
+						<div class="row" style="margin: 5% 0%" >
+							<div class="col-md-8" id="buttonDessinRegle" style=" display: none;">
+								<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px;">
+								<div class="col-md-2">
+									<span id="infoRegle" class="material-icons btnHelp" >help</span>
+								</div>
+							</div>
+							<div class="col-md-1">
+								<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+							</div>
+							<div class="col-md-1">
+								<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+							</div>
+							<div class="col-md-1">
+								<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
+							</div>
+						</div>
+						<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
 					</div>
 				</div>
-			</div>
-			<h3>IMPLANTS</h3>
-			<!-- IMPLANTS -->
-			<div class="implants">
-				<div id="actionImplant">
-					<div class="row">
-						<div class="col-md-3"><h4>Tige</h4></div>
-						<div class="col-md-9">
-							<select class="form-control" id="symbol" style="font-weight: bold;">
-								<option value="symbol1"><h4 id="labelGammeTige" style="text-align: center;">Symbol</h4></option>
-								<option value="symbol2"><h4 id="labelGammeTige2" style="text-align: center;">Symbol2</h4></option>
-							</select>
-
-						</div>
-					</div>
-					<div id="disableIf" style=" ">
-						<div class="row">
-							<div class="col-md-6">
-								<select class="form-control" id="gammeCimenteOuPas">
-									<option value="cimente">CIMENTE</option>
-									<option value="sansCiment">SANS CIMENT</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<select class="form-control" id="gammeVariseOuPas">
-									<option value="varise">VARISE</option>
-									<option value="standard">STANDARD</option>
-								</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<select class="form-control" id="gammeColleretteOuPas">
-									<option value="collerette">COLLERETTE</option>
-									<option value="sansCollerette">SANS COLLERETTE</option>
-								</select>
-							</div>
-						</div>
-						<div id="coteTigeDisplay" class="row">
-							<div class="col-md-3">
-								<h5>Côté</h5>
-							</div>
-							<div class="col-md-9">
-								<select id="coteTige" class="form-control">
-									<option value="Gauche">GAUCHE</option>
-									<option value="Droit">DROIT</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="row" style="margin-top: 2%;">
-						<div class="col-md-3">
-							<h5>Taille</h5>
-						</div>
-						<div class="col-md-9" style="text-align: center;">
-							<input id="buttonMoinsTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">
-							<label id="labelTailleTige" class="blackColor" style="width: 25px;"></label>
-							<input id="buttonPlusTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">
-						</div>
-					</div>
-					<div class="row deplacerTige" style="margin-top: 2%;">
-						<div class="col-md-6">
-							<h5>D&eacute;placer</h5>
-						</div>
-						<div class="col-md-6">
-							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonMonterTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonHautTige" type="image" src="images/Haut.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-								<div class="col-md-2 backgroundColor">
-								</div>
-							</div>
-							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonGaucheTige" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-								<div class="col-md-2 backgroundColor">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonDroitTige" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-							</div>
-							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
-								<div class="col-md-2 backgroundColor">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonBasTige" type="image" src="images/Bas.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonDescendreTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row positionTige" style="margin-top: 2%; display: none;">
-						<div class="col-md-6">
-							<h5>Positionner</h5>
-						</div>
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonTournerHautTige" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonDeplacerTige" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonTournerBasTige" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row" style="margin-top: 2%;">
-						<div class="col-md-3"><h4>Cotyle</h4></div>
-						<div class="col-md-9">
-							<select class="form-control" id="symbolCotyle" style="font-weight: bold;">
-								<option value="symbol1"><h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4></option>
-								<option value="symbol2"><h4 id="labelGammeCotyle2" style="text-align: center;">Symbol2</h4></option>
-							</select>
-						</div>
-					</div>
-					<div id ="disableIfCotyle">
-						<div class="row">
-							<div class="col-md-6">
-								<select class="form-control" id="gammeCimenteOuNe">
-									<option value="cimente">CIMENTE</option>
-									<option value="sansCiment">SANS CIMENT</option>
-								</select>
-							</div>
-						</div>
-						<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">
-							<div class="col-md-3">
-								<h5>Côté</h5>
-							</div>
-							<div class="col-md-9">
-								<select id="coteCotyle" class="form-control">
-									<option value="Gauche">GAUCHE</option>
-									<option value="Droit">DROIT</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="row" style="margin-top: 2%;">
-						<div class="col-md-3">
-							<h5>Taille</h5>
-						</div>
-						<div class="col-md-9" style="text-align: center;">
-							<input id="buttonMoinsCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">
-							<label id="labelTailleCotyle" class="blackColor" style="width: 25px;"></label>
-							<input id="buttonPlusCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">
-						</div>
-					</div>
-					<div id="deplacerCotyle" class="row" style="margin-top: 2%;">
-						<div class="col-md-6">
-							<h5>D&eacute;placer</h5>
-						</div>
-						<div class="col-md-6" style="text-align: center;">
-							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonMonterCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-								<div class="col-md-2 backgroundColor">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonTournerBasCotyle" type="image" src="images/flecheGaucheGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >
-								</div>
 
 
+				<!-- Toolbox -->
+				<div class="toolList" title="Toolbox"></div>
+
+				<!-- History -->
+				<div class="history" title="History"></div>
+
+				<!-- Tags -->
+				<div class="tags" title="Tags"></div>
+
+				<!-- Help -->
+				<div class="help" title="Help"></div>
+
+				<!-- Layer Container -->
+				<div id="dwv-layerDialog" class="layerDialog" title="Image">
+					<div class="dropBox"></div>
+					<div class="layerContainer">
+						<div class="drop" style="z-index: 1">
+							<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+							<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+							<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
+							<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
+							<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
+						</div>
+						<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
+						<div class="infoLayer">
+							<div class="infotl"></div>
+							<div class="infotr"></div>
+							<div class="infobl"></div>
+							<div class="infobr">
+								<div class="plot"></div>
 							</div>
-							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonGaucheCotyle" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-								<div class="col-md-2 backgroundColor">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonDroitCotyle" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-							</div>
-							<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">
+						</div><!-- /infoLayer -->
+					</div><!-- /layerContainer -->
+				</div><!-- /layerDialog -->
 
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonTournerHautCotyle" type="image" src="images/flecheDroitGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">
-								</div>
-								<div class="col-md-2 backgroundColor">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonDescendreCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="positionCotyle" class="row" style="display: none;" >
-						<div class="col-md-6">
-							<h5>Positionner</h5>
-						</div>
-						<div class="col-md-6">
-							<div class="row">
-
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonTournerHautCotyleNG" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonDeplacerCotyle" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">
-								</div>
-								<div class="col-md-2 backgroundColor">
-									<input id="buttonTournerBasCotyleNG" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<label id="labelOffsetTigeCotyle" class="blackColor"></label>
-					<label id="labelHauteurTigeCotyle" class="blackColor"></label>
-					<div class="row" style="margin-top: 2%;">
-						<div class="col-md-6 centered">
-							<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TERMINER" style="width: 110px;">
-						</div>
-						<div class="col-md-6 centered">
-							<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="accordeon2" style="width: 350px;">
-				<h3>OPTIONS DIVERS</h3>
-				<div class="couleurArrierePlan" >
-					<div class="row" style="margin: 0% 5%">
-						<input type="button" id="couleurGrisClaire" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:#ecf0f5;">
-						<input type="button" id="couleurGris" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left; margin-right: 12px; background-color:#333333;">
-						<input type="button" id="couleurNoir" class="ui-button ui-widget ui-corner-all ui-button-text-only"  style="float: left  margin-right: 12px; background-color:black;">
-						<input type="button" id="couleurBlanc" class="ui-button ui-widget ui-corner-all ui-button-text-only" style="float: left; margin-right: 12px; background-color:white;">
-					</div>
-					<div class="row" style="margin: 5% 0%">
-						<div class="col-md-8 centered">
-							<input type="button" id="buttonContrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CONTRASTE" style="width: 110px;">
-							<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="400" data-slider-step="1" data-slider-value="127.5"/>
-							<input type="button" id="buttonLuminosite" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="LUMINOSITE" style="width: 110px;">
-							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
-							<br><br><br>
-							
-							
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-2">
-							<img src="images/triangle.JPG" alt="" style="width: 35px;">
-						</div>
-						<div class="col-md-9">
-							<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">
-								<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" style="width: 220px;">MANUEL UTILISATEUR</button>
-							</a>
-						</div>
-						<br>
-					</div>
-					<div class="row" style="margin-top: 20px">
-						<div class="col-md-5">
-							<img src="images/CE.JPG" alt="" style="width: 42px;">
-						</div>
-						<div class="col-md-5">
-							<img src="images/fabricant.JPG" alt="" style="width: 150px;">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 centered">
-							<h5>Année d’obtention du marquage CE : 2017</h5>
-						</div>
-					</div>
-					<div class="row" style="margin: 5% 0%">
-						<div class="col-md-8" id="buttonDessinRapporteur" style="display: none;">
-							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px;">
-							<button id="infoAngle" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-								<span class="glyphicon glyphicon-question-sign" ></span>
-							</button>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-					</div>
-					<div class="row" style="margin: 5% 0%" >
-						<div class="col-md-8" id="buttonDessinRegle" style=" display: none;">
-							<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px;">
-							<button id="infoRegle" type="button" class="btn btn-danger ui-button-danger" aria-label="Left Align">
-								<span class="glyphicon glyphicon-question-sign" ></span>
-							</button>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-					</div>
-					<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
-				</div>
-			</div>
-
-
-			<!-- Toolbox -->
-			<div class="toolList" title="Toolbox"></div>
-
-			<!-- History -->
-			<div class="history" title="History"></div>
-
-			<!-- Tags -->
-			<div class="tags" title="Tags"></div>
-
-			<!-- Help -->
-			<div class="help" title="Help"></div>
-
-			<!-- Layer Container -->
-			<div id="dwv-layerDialog" class="layerDialog" title="Image">
-				<div class="dropBox"></div>
-				<div class="layerContainer">
-					<div class="drop" style="z-index: 1">
-						<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-						<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-						<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-						<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
-					</div>
-					<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
-					<div class="infoLayer">
-						<div class="infotl"></div>
-						<div class="infotr"></div>
-						<div class="infobl"></div>
-						<div class="infobr">
-							<div class="plot"></div>
-						</div>
-					</div><!-- /infoLayer -->
-				</div><!-- /layerContainer -->
-			</div><!-- /layerDialog -->
-
-		</div><!-- /pageMain -->
+			</div><!-- /pageMain -->
 
 		</div><!-- /dwv -->
 

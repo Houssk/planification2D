@@ -1,19 +1,142 @@
 .backgroundColor
 {
-  background-color: #a54996;
+  background-color: var(--color-main-background);
   margin-right: 2%;
   height: 25px;
   width: 25px;
-  padding: 0px;
+  padding: 0;
   text-align: center;
+}
+
+.buttonInactif {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.65;
 }
 
 .btnHover:hover
 {
-  background: #004563;
+    background: var(--color-button-primary);
+    border: var(--borders-width-style) var(--color-button-secondary);
 }
 
-.activeBtn
-{
-	background: #004563 !important;
+.activeBtn {
+    background: var(--color-button-secondary) !important;
+   border: var(--borders-width-style) var(--color-button-primary) !important;
+ }
+
+.material-icons.md-32 {
+    font-size: 32px;
 }
+
+.material-icons.md-34 {
+    font-size: 34px;
+}
+
+.btn.btn-primary {
+    background-color: var(--color-main-background);
+    border-color: var(--color-button-secondary);
+    width: 100%;
+    font-weight: bold;
+}
+
+
+.btn.btn-primary:hover {
+    background-color: var(--color-button-primary) !important;
+    border-color: var(--color-button-secondary) !important;
+}
+
+.btn.btn-primary.active, .btn.btn-primary:active {
+    background-color: var(--color-button-primary) !important;
+    border-color: var(--color-button-secondary) !important;
+}
+
+#coteTige, #coteCotyle {
+    width: 75%;
+}
+
+.radioButton {
+    width: 50%;
+}
+
+#coteTigeDisplay, #coteCotyleDisplay {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.outilsDessin > .row > .col-6 {
+    padding-right: 15px;
+}
+
+.valider {
+    padding: 6px 10px;
+    width: auto !important;
+}
+
+.valider > .material-icons {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.retour {
+    padding: 5px 9px;
+    width: auto !important;
+}
+
+.retour > .material-icons {
+    vertical-align: middle;
+}
+
+.zoom {
+    padding: 0;
+    width: auto !important;
+}
+
+.zoom > .material-icons {
+    vertical-align: middle;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    outline: 0;
+    border: 1px solid var(--color-main-background);
+}
+
+.form-control:focus  {
+    box-shadow: inset 0 1px 1px var(--color-button-primary), 0 0 8px var(--color-button-secondary) ;
+    outline: 0;
+    border: 1px solid var(--color-main-background);
+}
+
+.imagefiles:focus, .imagefiles:active {
+    box-shadow: inset 0 1px 1px var(--color-button-primary), 0 0 8px var(--color-button-secondary) ;
+    outline: 0;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem var(--color-button-secondary);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem var(--color-button-secondary);
+}
+
+.material-icons.btnHelp {
+    color: #dc3545;
+    font-size: 29px;
+    vertical-align: middle !important;
+}
+
+.material-icons.btnHelp:hover {
+    color: #c82333;
+}
+
+#infoRegle, #infoAngle {
+    padding-left: 5px;
+}
+.outilsDessin > .row > .col-6 {
+    padding: 10px 15px 10px 0 !important;
+}
+.outilsDessin > .row > .col-6 > button > span {
+     padding: 0 !important;
+ }

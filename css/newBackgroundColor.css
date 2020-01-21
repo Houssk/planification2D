@@ -1,0 +1,21 @@
+/*
+#183544 Foncé
+#1472a3 Clair
+ */
+
+.sweet-alert button, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+    background: var(--color-button-primary);
+    border:     var(--borders-width-style) var(--color-button-secondary);
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-widget-header  {
+    background: var(--color-main-background);
+    border:     var(--borders-width-style) var(--color-button-primary);
+}
+
+.ui-state-hover, .ui-state-hover, .ui-state-hover {
+    background: var(--color-button-primary);
+     border:    var(--borders-width-style) var(--color-button-secondary);
+ }
+.sweet-alert input{
+    border:     var(--borders-width-style) var(--color-main-background);
+}
