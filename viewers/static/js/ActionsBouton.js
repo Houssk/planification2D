@@ -1780,7 +1780,7 @@ $(document).ready(function () {
 
 				if (document.getElementById("RadioOuiHanche").checked) {
 					if (sessionStorage.getItem("cerclePosition")===null||sessionStorage.getItem("trapezePosition")===null) {
-						swal("Veuillez tracer un cercle et un trapèze sur la hanche du patient");
+						swal(translatedTexts["pleaseDrawText"][lang]);
 					} else {
 						if (patient.GetCoteOperation()=="Gauche") {
 							sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezePosition"))));
@@ -1795,14 +1795,14 @@ $(document).ready(function () {
 				} else {
 					if (patient.GetCoteOperation()=="Droit") {
 							if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
-								swal("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
+								swal(translatedTexts["pleaseDrawRText"][lang]);
 							} else {
 								onPeutValider = true;
 							}
 						}
 						if (patient.GetCoteOperation()=="Gauche") {
 							if(sessionStorage.getItem("cercleDroitPosition")===null||sessionStorage.getItem("trapezeDroitPosition")===null){
-								swal("Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient");
+								swal(translatedTexts["pleaseDrawLText"][lang]);
 							} else {
 								onPeutValider = true;
 							}
