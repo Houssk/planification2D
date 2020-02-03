@@ -1200,20 +1200,20 @@ $(document).ready(function () {
 		// Mise a jour de l'affichage de la taille de la tige en fonction du nombre de hanche sur la radio et puis du coté actif
 		if (document.getElementById("RadioOuiHanche").checked) {
 			if (patient.GetCoteOperation()=="Gauche") {
-				var tailleCotyle = cotyleDroit.GetNom().split("-");
-				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+				var tailleTige = tigeDroit.GetNom().split("-");
+				document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			} else {
-				var tailleCotyle = cotyleGauche.GetNom().split("-");
-				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+				var tailleTige = tigeGauche.GetNom().split("-");
+				document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			}
 		} else {
 			if (document.querySelector('input[name="coteTige"]:checked').value == "Gauche") {
-				var tailleCotyle = cotyleDroit.GetNom().split("-");
-				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+				var tailleTige = tigeDroit.GetNom().split("-");
+				document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			} else {
 				CotyleSelection();
-				var tailleCotyle = cotyleGauche.GetNom().split("-");
-				document.getElementById('labelTailleCotyle').innerHTML = tailleCotyle.slice(-1)[0];
+				var tailleTige = tigeGauche.GetNom().split("-");
+				document.getElementById('labelTailleTige').innerHTML = "T"+tailleTige.slice(-1)[0];
 			}
 		}
 	}
@@ -1668,8 +1668,8 @@ $(document).ready(function () {
 									}
 									
 
-									document.getElementById("buttonDessinRapporteur").style.display="";
-                                    document.getElementById("buttonDessinRegle").style.display="";
+									document.getElementById("rowRapporteur").style.display="";
+                                    document.getElementById("rowRegle").style.display="";
 
 									$('.informationPatient *').prop('disabled',true);
 									//document.getElementById("informationPatient").style.display = "";
@@ -1686,7 +1686,7 @@ $(document).ready(function () {
 									firstSideChangedTige = true;
 									firstSideChangedCotyle = true;
 								} else {
-									alert("Veuillez calibrer votre DICOM");
+									alert(translatedTexts["pleaseCalibrate"][lang]);
 								}
 								
 							}

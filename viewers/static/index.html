@@ -128,10 +128,8 @@
 				<div class="informationPatient">
 					<form>
 						<div class="row">
-							<div class="col-md-6"><input class="textTranslation" data-type="placeholder" data-textid="lastNameText" id="nomPatient" type="text" placeholder="NOM"
-									class="form-control"></div>
-							<div class="col-md-6"><input class="textTranslation" data-type="placeholder" data-textid="firstNameText"  id="prenomPatient" type="text" placeholder="PRENOM"
-									class="form-control"></div>
+							<div class="col-md-6"><input class="textTranslation form-control" data-type="placeholder" data-textid="lastNameText" id="nomPatient" type="text" placeholder="NOM"></div>
+							<div class="col-md-6"><input class="textTranslation form-control" data-type="placeholder" data-textid="firstNameText"  id="prenomPatient" type="text" placeholder="PRENOM"></div>
 						</div>
 						<div class="row" style="margin-top: 2%">
 							<div class="col-md-6">
@@ -198,10 +196,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-offset-3 col-md-6 centered">
+							<div class="row justify-content-end">
+								<div class="col-md-offset-3 col-md-6 centered row justify-content-end">
 									<input type="button" id="buttonValideInformationPatient"
-										class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="validateText"
+										class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation greenHover col" data-type="value" data-textid="validateText"
 										value="VALIDER" style="margin-top:2%; width: 110px; display: none">
 								</div>
 							</div>
@@ -222,7 +220,7 @@
 						<div class="col">
 							<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg"
 								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
+								style="display: none; width: 30px;height: 30px; float: right">
 						</div>
 					</div>
 					<div class="row no-gutters justify-content-left align-items-center">
@@ -254,10 +252,10 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6 centered">
-							<button id="buttonRetourOutilsDessin" class="btn btn-primary textTranslation" data-textid="backText">RETOUR</button>
+							<button id="buttonRetourOutilsDessin" class="btn btn-primary textTranslation redHover" data-textid="backText">RETOUR</button>
 						</div>
 						<div class="col-md-6 centered">
-							<button id="buttonValideOutilsDessin" type="button" class="btn btn-primary textTranslation" data-textid="validateText">VALIDER</button>
+							<button id="buttonValideOutilsDessin" type="button" class="btn btn-primary textTranslation greenHover" data-textid="validateText">VALIDER</button>
 						</div>
 					</div>
 				</div>
@@ -266,10 +264,10 @@
 				<div class="implants">
 					<div id="actionImplant">
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-12">
 								<h4 class="textTranslation" data-textid="stemText">Tige</h4>
 							</div>
-							<div class="col-md-9">
+							<div class="col-md-12 smallPaddingBot">
 								<select class="form-control" id="symbol" style="font-weight: bold;">
 									<option value="symbol1">
 										<h4 id="labelGammeTige" style="text-align: center;">Symbol </h4>
@@ -305,9 +303,6 @@
 								</div>
 							</div>
 
-
-
-
 							<!--							<div id="coteTigeDisplay" class="row">-->
 							<!--								<div class="col-md-3">-->
 							<!--									<h5>Côté</h5>-->
@@ -335,18 +330,6 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 						<!--						-->
 						<!--						<div class="row" style="margin-top: 2%;">-->
@@ -490,41 +473,11 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 						<div class="row" style="margin-top: 2%;">
-							<div class="col-md-3">
-								<h4 class="textTranslation" data-textid="cupText">Cotyle</h4>
+							<div class="col-md-12">
+								<h4 class="textTranslation smallPaddingTop" data-textid="cupText">Cotyle</h4>
 							</div>
-							<div class="col-md-9">
+							<div class="col-md-12 smallPaddingBot">
 								<select class="form-control" id="symbolCotyle" style="font-weight: bold;">
 									<option value="symbol1">
 										<h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4>
@@ -712,72 +665,106 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-						<label id="labelOffsetTigeCotyle" class="blackColor"></label>
-						<label id="labelHauteurTigeCotyle" class="blackColor"></label>
+<!--						<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
+<!--						<label id="labelHauteurTigeCotyle" class="blackColor"></label>-->
 						<div class="row" style="margin-top: 2%;">
 							<div class="col-md-6 centered">
 								<input id="buttonRetourImplant" type="button"
-									   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="backText"
+									   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation redHover" data-type="value" data-textid="backText"
 									   value="RETOUR" style="width: 110px; float: right;">
 							</div>
 							<div class="col-md-6 centered">
 								<input id="buttonValideImplant" type="button"
-									class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="finishText"
+									class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation greenHover" data-type="value" data-textid="finishText"
 									value="TERMINER" style="width: 110px;">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="accordeon2" style="width: 350px;">
-				<div class="couleurArrierePlan">
-					<h3 class="textTranslation" data-textid="variousOptionsText">OPTIONS DIVERS</h3>
-					<div class="col-md-8 centered">
-						<input type="button" id="buttonContrast"
-							class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="contrastText"
-							value="CONTRASTE" style="width: 110px;">
-						<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100"
-							data-slider-max="400" data-slider-step="1" data-slider-value="127.5" />
-						<input type="button" id="buttonLuminosite"
-							class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="brightnessText"
-							value="LUMINOSITE" style="width: 110px;">
-						<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600"
-							data-slider-step="1" data-slider-value="255" />
-						<br><br><br>
-					</div>
 
+
+
+
+
+			<div id="accordeon2" style="width: 350px;">
+				<h3>OPTIONS DIVERSES</h3>
+				<div class="couleurArrierePlan">
+					<div class="row no-gutters" style="margin: 5% 0%">
+						<div class="col-1">
+							<!-- <input type="button" id="buttonContrast" class="btn btn-primary" value="LUMINOSITE" style="width: 110px;"> -->
+							<span id="buttonContrast" class="material-icons md-dark md-32">wb_sunny</span>
+						</div>
+						<div class="col offset-1">
+							<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100"
+								   data-slider-max="400" data-slider-step="1" data-slider-value="127.5" />
+						</div>
+					</div>
+					<div class="row no-gutters" style="margin: 5% 0%">
+						<div class="col-1">
+							<!-- <input type="button" id="buttonLuminosite" class="btn btn-primary" value="CONTRASTE" style="width: 110px;"> -->
+							<span id="buttonLuminosite" class="material-icons md-dark md-32">tonality</span>
+						</div>
+						<div class="col offset-1">
+							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0"
+								   data-slider-max="600" data-slider-step="1" data-slider-value="255" />
+						</div>
+					</div>
+					<div id="rowRapporteur" class="row no-gutters align-items-center"
+						 style="margin: 5% 0%; display: none;">
+						<div class="col-md-5" id="buttonDessinRapporteur">
+							<button type="button" class="btn btn-primary">ANGLE</button>
+						</div>
+						<div class="col-md-2">
+							<span id="infoAngle" class="material-icons btnHelp">help</span>
+						</div>
+						<div class="col-md-1 offset-md-1">
+							<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 8px;">
+							<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 9px;">
+							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div id="rowRegle" class="row no-gutters align-items-center" style="margin: 5% 0%; display: none;">
+						<div class="col-md-5" id="buttonDessinRegle">
+							<button type="button" class="btn btn-primary">REGLE</button>
+						</div>
+						<div class="col-md-2">
+							<span id="infoRegle" class="material-icons btnHelp">help</span>
+						</div>
+						<div class="col-md-1 offset-md-1">
+							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 8px;">
+							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 9px;">
+							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-md-2">
 							<img src="images/triangle.JPG" alt="" style="width: 35px;">
 						</div>
 						<div class="col-md-9">
 							<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">
-								<button type="button"
-									class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-textid="userManualText"
-									style="width: 220px;">MANUEL UTILISATEUR</button>
+								<button type="button" class="btn btn-primary" style="width: 220px;">MANUEL
+									UTILISATEUR</button>
 							</a>
 						</div>
 						<br>
@@ -792,62 +779,111 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 centered">
-							<h5 class="textTranslation" data-textid="ceMarkText">Année d’obtention du marquage CE : 2017</h5>
-						</div>
-					</div>
-					<div class="row" style="margin: 5% 0%">
-						<div class="col-md-8" id="buttonDessinRapporteur" style="display: none;">
-							<input type="button"
-								class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="angleText"
-								value="ANGLE" style="width: 110px;">
-							<div class="col-md-2">
-								<span id="infoAngle" class="material-icons btnHelp">help</span>
-							</div>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg"
-								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg"
-								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg"
-								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-					</div>
-					<div class="row" style="margin: 5% 0%">
-						<div class="col-md-8" id="buttonDessinRegle" style=" display: none;">
-							<input type="button"
-								class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="rulerText"
-								value="REGLE" style="width: 110px;">
-							<div class="col-md-2">
-								<span id="infoRegle" class="material-icons btnHelp">help</span>
-							</div>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg"
-								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg"
-								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-						<div class="col-md-1">
-							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg"
-								class=" ui-widget ui-state-default ui-corner-all "
-								style="display: none; width: 30px;height: 30px; float: right"></input>
+							<h5>Année d’obtention du marquage CE : 2017</h5>
 						</div>
 					</div>
 					<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
 				</div>
 			</div>
+
+<!--			<div id="accordeon2" style="width: 350px;">-->
+<!--				<div class="couleurArrierePlan">-->
+<!--					<h3 class="textTranslation" data-textid="variousOptionsText">OPTIONS DIVERS</h3>-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<div class="col-md-8 centered smallPaddingBot">-->
+<!--						<input type="button" id="buttonContrast"-->
+<!--							class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="contrastText"-->
+<!--							value="CONTRASTE" style="width: 110px;">-->
+<!--						<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100"-->
+<!--							data-slider-max="400" data-slider-step="1" data-slider-value="127.5" />-->
+<!--						<input type="button" id="buttonLuminosite"-->
+<!--							class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="brightnessText"-->
+<!--							value="LUMINOSITE" style="width: 110px;">-->
+<!--						<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600"-->
+<!--							data-slider-step="1" data-slider-value="255" />-->
+<!--					</div>-->
+<!--					<div class="row" style="margin: 5% 0%">-->
+<!--						<div class="col-8 row" id="buttonDessinRapporteur" style="display: none;">-->
+<!--							<input type="col-8 button"-->
+<!--								   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="angleText"-->
+<!--								   value="ANGLE" style="width: 110px;">-->
+<!--							<div class="col-md-1">-->
+<!--								<span id="infoAngle" class="material-icons btnHelp">help</span>-->
+<!--							</div>-->
+<!--							<div class="col-1 align-self-end">-->
+<!--								<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg"-->
+<!--									   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--									   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--							</div>-->
+<!--							<div class="col-1 align-self-end">-->
+<!--								<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg"-->
+<!--									   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--									   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--							</div>-->
+<!--							<div class="col-1 align-self-end">-->
+<!--								<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg"-->
+<!--									   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--									   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row smallPaddingBot" style="margin: 5% 0%">-->
+<!--						<div class="col-md-8 row" id="buttonDessinRegle" style=" display: none;">-->
+<!--							<input type="col-md-8 button"-->
+<!--								   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="rulerText"-->
+<!--								   value="REGLE" style="width: 110px;">-->
+<!--							<div class="col-md-2">-->
+<!--								<span id="infoRegle" class="material-icons btnHelp">help</span>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-md-1">-->
+<!--							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg"-->
+<!--								   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--								   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--						</div>-->
+<!--						<div class="col-md-1">-->
+<!--							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg"-->
+<!--								   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--								   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--						</div>-->
+<!--						<div class="col-md-1">-->
+<!--							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg"-->
+<!--								   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--								   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row">-->
+<!--						<div class="col-md-2">-->
+<!--							<img src="images/triangle.JPG" alt="" style="width: 35px;">-->
+<!--						</div>-->
+<!--						<div class="col-md-9">-->
+<!--							<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">-->
+<!--								<button type="button"-->
+<!--									class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-textid="userManualText"-->
+<!--									style="width: 220px;">MANUEL UTILISATEUR-->
+<!--								</button>-->
+<!--							</a>-->
+<!--						</div>-->
+<!--						<br>-->
+<!--					</div>-->
+<!--					<div class="row" style="margin-top: 20px">-->
+<!--						<div class="col-md-5">-->
+<!--							<img src="images/CE.JPG" alt="" style="width: 42px;">-->
+<!--						</div>-->
+<!--						<div class="col-md-5">-->
+<!--							<img src="images/fabricant.JPG" alt="" style="width: 150px;">-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row">-->
+<!--						<div class="col-md-12 centered">-->
+<!--							<h5 class="textTranslation" data-textid="ceMarkText">Année d’obtention du marquage CE : 2017</h5>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--					&lt;!&ndash;<label id="labelOffsetTigeCotyle" class="blackColor"></label>&ndash;&gt;-->
+<!--				</div>-->
+<!--			</div>-->
 		</div>
 	</div>
 
@@ -882,13 +918,17 @@
 			</div>
 			<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
 			<div class="infoLayer">
-				<div class="infotl"></div>
-				<div class="infotr"></div>
-				<div class="infobl"></div>
-				<div class="infobr">
+				<div class="infotl whiteColor"></div>
+				<div class="infotr whiteColor"></div>
+				<div class="infobl whiteColor"></div>
+				<div class="infobr whiteColor">
 					<div class="plot"></div>
 				</div>
 			</div><!-- /infoLayer -->
+			<div class="col" id="offsetHauteurTC">
+				<label id="labelOffsetTigeCotyle" class="whiteColor"></label>
+				<label id="labelHauteurTigeCotyle" class="whiteColor"></label>
+			</div>
 		</div><!-- /layerContainer -->
 	</div><!-- /layerDialog -->
 
@@ -946,7 +986,6 @@
 		$("#infoRegle").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
 		$("#infoAngle").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
 	});
-
 </script>
 <script type="text/javascript" src="js/textTranslationManager.js"></script>
 

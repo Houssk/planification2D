@@ -1,5 +1,26 @@
-const lang = "en";
+//Pour appeler une traduction dans le html :
 
+// Si le texte à traduire est directement dans le HTML :
+// Il faut donner la classe "textTranslation" au conteneur du texte (div, h2, p, span... Peu importe).
+// Ensuite, il faut appliquer une balise data au texte pour suivre ce model : data-textid="nomDeLaTraduction"
+// Exemple complet : <h3 class="textTranslation" data-textid="informationText">INFORMATIONS</h3>
+// Dans cet exemple, le contenu HTML sera remplacéé par la traduction. Le texte "INFORMATIONS" qui est dedans ne sera affiché que si le script ne peut pas être exécuté.
+//Le script se chargera du reste.
+
+//Si le texte est contenu dans un placeholder
+//Il faut donner la classe "textTranslation" au conteneur du texte (div, h2, p, span... Peu importe) ainsi qu'une balise data pour indiquer quoi modifier : data-type="placeholder"
+// Exemple complet : <input class="textTranslation" data-type="placeholder" data-textid="lastNameText" type="text" placeholder="NOM">
+// Dans cet exemple, le placeholder "NOM" sera remplacé par la traduction nommée "lastNameText", ou affichera NOM si le script ne peut pas être exécuté.
+
+//Pour appeler la traduction dans un script (Pour une pop up swal par exemple), il faut simplement remplacer le texte par ( translatedTexts["nomDeLaTraduction"][lang] ).
+//Exemple complet : if(trapezePosition===null){ swal( translatedTexts["pleaseDrawText"][lang] ); }
+
+const lang = getLanguage();
+function getLanguage(){
+    const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez simplement ce qui apparait dans l'URL de la page en se connectant avec la langue ciblée. (/en/ deviens donc "en")
+          urlLanguage =  (window.location.pathname.split('/')[1].toLowerCase());
+    return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "fr"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
+}
 const translatedTexts = {
     Planning2DText: {
         "fr": `Planification 2D`,
@@ -136,12 +157,12 @@ const translatedTexts = {
         "en": 'Acetabular cup'
     },
 
-    selectFileText: {          //TODO Not used !    class="textTranslation" data-type="placeholder" data-textid="selectFileText"
+    selectFileText: {
         "fr": 'Select. Fichiers',
         "en": 'Select Files'
     },
 
-    noFileText: {          //TODO Not used !   translatedTexts["noFileText"][lang]   <><><>  class="textTranslation" data-textid="selectFileText"
+    noFileText: {
         "fr": 'Aucun fichier choisi',
         "en": 'No file selected'
     },
@@ -198,12 +219,14 @@ const translatedTexts = {
     brightnessText: {
         "fr": "Luminosité",
         "en": "Brightness"
+    },
+    pleaseCalibrate: {
+        "fr": "Veuillez calibrer votre DICOM",
+        "en": "Please calibrate your DICOM"
     }
+
 };
-
-
 $('.textTranslation').each(function() {
-    console.log("Trad loop");
     typeof $(this).data("type") === 'undefined'
         ?
             $(this).html(translatedTexts[$(this).data("textid")][lang])
