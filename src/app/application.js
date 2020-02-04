@@ -1548,7 +1548,7 @@ dwv.App = function ()
             var infotr = self.getElement("infotr");
             windowingInfo = new dwv.info.Windowing(infotr);
             windowingInfo.create();
-
+            //
             var infotl = self.getElement("infotl");
             positionInfo = new dwv.info.Position(infotl);
             positionInfo.create();
