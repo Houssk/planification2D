@@ -1467,19 +1467,19 @@ dwv.App = function ()
         var taille_bille_mm = null;
         buttonCalibrage.addEventListener('click', function() {
             swal({
-                title: "Calibrage!",
-                text: "Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille:",
+                title: translatedTexts["scaleText"][lang],//"Calibrage!"
+                text: translatedTexts["enterBallSizeText"][lang],//"Entrez la taille de la bille en mm puis dessinez un cercle autour de la bille:"
                 type: "input",
                 showCancelButton: true,
                 closeOnConfirm: true,
                 animation: "slide-from-top",
-                inputPlaceholder: "Taille en mm."
+                inputPlaceholder: translatedTexts["sizeText"][lang]//"Taille en mm."
             },
             function(inputValue){
                 if (inputValue === false)
                     return false;
                 if (inputValue === "") {
-                    swal.showInputError("Veuillez renseigner le champs!");
+                    swal.showInputError(translatedTexts["fillAllText"][lang]); //"Veuillez renseigner le champs!"
                     return false;
                 }
                 sessionStorage.setItem("taille_bille_mm",inputValue);

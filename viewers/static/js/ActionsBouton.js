@@ -1053,7 +1053,7 @@ $(document).ready(function () {
 									firstSideChangedTige = true;
 									firstSideChangedCotyle = true;
 								} else {
-									alert("Veuillez calibrer votre DICOM");
+									alert(translatedTexts["pleaseCalibrate"][lang]);//"Veuillez calibrer votre DICOM"
 								}
 
 							}
@@ -1146,7 +1146,7 @@ $(document).ready(function () {
 				var onPeutValider = false;
 				if (document.getElementById("RadioOuiHanche").checked) {
 					if (sessionStorage.getItem("cerclePosition")===null||sessionStorage.getItem("trapezePosition")===null) {
-						swal("Veuillez tracer un cercle et un trapèze sur la hanche du patient");
+						swal(translatedTexts["pleaseDrawText"][lang]); //"Veuillez tracer un cercle et un trapèze sur la hanche du patient"
 					} else {
 						if (patient.GetCoteOperation()=="Gauche") {
 							sessionStorage.setItem("trapezeDroitPosition", JSON.stringify(JSON.parse(sessionStorage.getItem("trapezePosition"))));
@@ -1161,14 +1161,14 @@ $(document).ready(function () {
 				} else {
 					if (patient.GetCoteOperation()=="Droit") {
 							if(sessionStorage.getItem("cercleGauchePosition")===null||sessionStorage.getItem("trapezeGauchePosition")===null){
-								swal("Veuillez tracer un cercle et un trapèze sur la hanche droite du patient");
+								swal(translatedTexts["pleaseDrawRText"][lang]); //"Veuillez tracer un cercle et un trapèze sur la hanche droite du patient"
 							} else {
 								onPeutValider = true;
 							}
 						}
 						if (patient.GetCoteOperation()=="Gauche") {
 							if(sessionStorage.getItem("cercleDroitPosition")===null||sessionStorage.getItem("trapezeDroitPosition")===null){
-								swal("Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient");
+								swal(translatedTexts["pleaseDrawLText"][lang]); //"Veuillez tracer un cercle et un trapèze sur la hanche gauche du patient"
 							} else {
 								onPeutValider = true;
 							}
@@ -2474,7 +2474,7 @@ function decode_utf8(s) {
 				var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille_px"));
 				var taille_bille_mm = parseInt(sessionStorage.getItem("taille_bille_mm"));
 				var coeff =  taille_bille_mm / taille_bille_px;
-				var string = "Le coefficient de redimensionnement des implants est : " + coeff;
+				var string = translatedTexts["pdfTextSizeCoefficient"][lang] + coeff; //"Le coefficient de redimensionnement des implants est : "
 				var dicomCanvas = document.getElementById("dwv-imageLayer");
 				var dicomImage = dicomCanvas.toDataURL("image/jpeg");
 				var divLayer = document.getElementById("dwv-layerDialog");
@@ -2508,11 +2508,11 @@ function decode_utf8(s) {
 						docPDF.text(160, 30, now.getDate() + "/" + nowMonthString + "/" + now.getFullYear());
 						docPDF.setFontType("bold");
 						docPDF.setFontSize(18);
-						docPDF.text(30, 50, "Planification pour la chirurgie de la hanche du patient :");
+						docPDF.text(30, 50, translatedTexts["pdfTextTitle"][lang]);//"Planification pour la chirurgie de la hanche du patient :"
 						docPDF.setFontSize(12);
 						docPDF.setFontType("normal");
-						docPDF.text(15, 70, "Nom : " + patient.GetNom());
-						docPDF.text(15, 75, "Prénom : " + patient.GetPrenom());
+						docPDF.text(15, 70, translatedTexts["pdfTextLastName"][lang] + patient.GetNom());//"Nom : "
+						docPDF.text(15, 75, translatedTexts["pdfTextFirstName"][lang] + patient.GetPrenom());//"Prénom : "
 						docPDF.text(15, 80, string);
 						docPDF.setFontType("bold");
 						/*
@@ -2521,32 +2521,32 @@ function decode_utf8(s) {
 
 						docPDF.addPage();*/
 
-						docPDF.text(15, 90, "Votre planification :");
+						docPDF.text(15, 90, translatedTexts["pdfTextYourPlanning"][lang]); //"Votre planification :"
 						docPDF.setFontSize(12);
 						docPDF.setFontType("normal");
 
 						if (patient.GetCoteOperation()=="Gauche") {
-							docPDF.text(15, 95, "Tige utilisé pour cette planification : "+ decode_utf8(tigeDroit.GetNom()));
-							docPDF.text(15, 100, "Cotyle utilisé pour cette planification : "+cotyleDroit.GetNom());
+							docPDF.text(15, 95, translatedTexts["pdfTextStem"][lang] + decode_utf8(tigeDroit.GetNom())); //"Tige utilisé pour cette planification : "
+							docPDF.text(15, 100, translatedTexts["pdfTextCup"][lang] +cotyleDroit.GetNom()); //"Cotyle utilisé pour cette planification : "
 							console.log(tigeDroit.GetNom())
 						}
 
 						if (patient.GetCoteOperation()=="Droit") {
-							docPDF.text(15, 95, "Tige utilisé pour cette planification : "+decode_utf8(tigeGauche.GetNom()));
-							docPDF.text(15, 100, "Cotyle utilisé pour cette planification : "+cotyleGauche.GetNom());
+							docPDF.text(15, 95, translatedTexts["pdfTextStem"][lang] +decode_utf8(tigeGauche.GetNom())); //"Tige utilisé pour cette planification : "
+							docPDF.text(15, 100, translatedTexts["pdfTextCup"][lang] +cotyleGauche.GetNom()); //"Cotyle utilisé pour cette planification : "
 							console.log(tigeGauche.GetNom())
 						}
 
 						if(patient.GetOperationGuide()=="Guider")
 						{
-							docPDF.text(15, 105, "Offset = "+offset+" mm");
-							docPDF.text(15, 110, "Hauteur = "+hauteur+" mm");
+							docPDF.text(15, 105, translatedTexts["pdfTextOffset"][lang]+offset+" mm"); //"Offset = "
+							docPDF.text(15, 110, translatedTexts["pdfTextHeight"][lang]+hauteur+" mm"); //"Hauteur = "
 							docPDF.addImage(divData, 'JPEG', 15, 115, 180, ((180*m_canvasHeight)/m_canvasWidth));
 						} else if (patient.GetOperationGuide()=="Non guider") {
 							docPDF.addImage(divData, 'JPEG', 15, 105, 180, ((180*m_canvasHeight)/m_canvasWidth));
 						}
 						docPDF.addPage();
-						docPDF.text(15, 20, "Votre image DICOM d'origine :");
+						docPDF.text(15, 20, translatedTexts["pdfTextYourDicom"][lang]); //"Votre image DICOM d'origine :"
 						docPDF.addImage(dicomImage, 'JPEG', 15, 25, 180, ((180*m_canvasHeight)/m_canvasWidth));
 
 						docPDF.save(patient.GetNom()+" "+patient.GetPrenom()+".pdf");

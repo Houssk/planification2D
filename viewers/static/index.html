@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>SERF - Planification 2D</title>
+	<title class="textTranslation" data-textid="Planning2DText">SERF - Planification 2D</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="DICOM Web Viewer (DWV) static version">
 	<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
@@ -122,29 +122,29 @@
 		<div id="pageMain">
 
 			<div id="accordeon" style="width: 350px;">
-				<h3>INFORMATIONS</h3>
+				<h3 class="textTranslation" data-textid="informationText">INFORMATIONS</h3>
 				<div class="informationPatient">
 					<form>
 						<div class="row">
-							<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
-							<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
+							<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control textTranslation" data-textid="lastNameText" data-type="placeholder"></div>
+							<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control textTranslation" data-textid="firstNameText" data-type="placeholder"></div>
 						</div>
 						<div class="row" style="margin-top: 2%">
 							<div class="col-md-6">
 								<div class="form-group">
 									<select class="form-control" id="coteChirurgie">
-										<option disabled selected hidden>COTE</option>
-										<option value="Gauche">GAUCHE</option>
-										<option value="Droit">DROIT</option>
+										<option disabled selected hidden class="textTranslation" data-textid="sideText">COTE</option>
+										<option value="Gauche" class="textTranslation" data-textid="leftText">GAUCHE</option>
+										<option value="Droit" class="textTranslation" data-textid="rightText">DROIT</option>
 									</select>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<select class="form-control" id="typeChirurgie">
-										<option disabled selected hidden>PLANIFICATION</option>
-										<option value="Guider">AVANCEE</option>
-										<option value="Non guider">LIBRE</option>
+										<option disabled selected hidden class="textTranslation" data-textid="planningText">PLANIFICATION</option>
+										<option value="Guider" class="textTranslation" data-textid="advancedText">AVANCEE</option>
+										<option value="Non guider" class="textTranslation" data-textid="freeText">LIBRE</option>
 									</select>
 								</div>
 							</div>
@@ -158,7 +158,7 @@
 								<div class="col-md-7">
 									<div class="row no-gutters align-items-center">
 										<div class="col-md-9" style="padding-top: 1px;">
-											<button type="button" id="buttonCalibrage" class="btn btn-primary">CALIBRER</button>
+											<button type="button" id="buttonCalibrage" class="btn btn-primary textTranslation" data-textid="scalingText">CALIBRER</button>
 										</div>
 										<div class="col-md-2 offset-md-1">
 											<span id="infoCalibrage" class="material-icons btnHelp" >help</span>
@@ -182,10 +182,10 @@
 
 							<div class="row">
 								<div class="col-md-12 centered">
-									<label id="labelNbHanche" class="blackColor">Cette image possède une seule hanche</label>
+									<label id="labelNbHanche" class="blackColor textTranslation" data-textid="oneHipText">Cette image possède une seule hanche</label>
 									<div style="text-align: center;">
-										<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
-										<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+										<label class="blackColor textTranslation" data-textid="yesText">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
+										<label class="blackColor textTranslation" data-textid="noText">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
 									</div>
 								</div>
 							</div>
@@ -197,12 +197,12 @@
 						</div>
 					</form>
 				</div>
-				<h3>OUTILS DESSIN</h3>
+				<h3 class="textTranslation" data-textid="drawingToolsText">OUTILS DESSIN</h3>
 				<!-- OUTILS DESSIN -->
 				<div class="outilsDessin">
 					<div class="row no-gutters justify-content-left align-items-center">
 						<div class ="col-6">
-							<button id="buttonDessinTrapeze" type="button" class="btn btn-primary">TRAPEZE</button>
+							<button id="buttonDessinTrapeze" type="button" class="btn btn-primary textTranslation" data-textid="trapezeText">TRAPEZE</button>
 						</div>
 						<div class ="col-2">
 							<span id="infoTrapeze" class="material-icons btnHelp" >help</span>
@@ -213,7 +213,7 @@
 					</div>
 					<div class="row no-gutters justify-content-left align-items-center">
 						<div class ="col-6">
-							<button id="buttonDessinPetitTroch" type="button" class="btn btn-primary">PETIT TROCH</button>
+							<button id="buttonDessinPetitTroch" type="button" class="btn btn-primary textTranslation" data-textid="lesserTrochanterText">PETIT TROCH</button>
 						</div>
 						<div class ="col-2">
 							<span id="infoPetitTroch" class="material-icons btnHelp" >help</span>
@@ -224,7 +224,7 @@
 					</div>
 					<div class="row no-gutters justify-content-left align-items-center">
 						<div class="col-6">
-							<button id="buttonDessinCercle" type="button" class="btn btn-primary">CERCLE</button>
+							<button id="buttonDessinCercle" type="button" class="btn btn-primary textTranslation" data-textid="circleText">CERCLE</button>
 						</div>
 						<div class="col-2">
 							<span id="infoCercle" class="material-icons btnHelp" >help</span>
@@ -242,12 +242,12 @@
 								</div>
 							</div>
 						</div>
-						<h3>IMPLANTS</h3>
+						<h3 class="textTranslation" data-textid="implantText">IMPLANTS</h3>
 						<!-- IMPLANTS -->
 						<div class="implants">
 							<div id="actionImplant" ><!--style="display: none"-->
 								<div class="row">
-									<div class="col-md-3"><h4>Tige</h4></div>
+									<div class="col-md-3"><h4 class="textTranslation" data-textid="stemText">Tige</h4></div>
 									<!--<div class="col-md-9"><h4 id="labelGammeTige" style="text-align: center;"></h4></div>-->
 								</div>
 								<div class="row">
@@ -300,10 +300,10 @@
 									<div class="col">
 										<div class="btn-group btn-group-toggle" id="coteTige" data-toggle="buttons">
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> GAUCHE
+												<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"><span class="textTranslation" data-textid="leftText">GAUCHE</span>
 											</label>
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> DROIT
+												<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"><span class="textTranslation" data-textid="rightText">DROIT</span>
 											</label>
 										</div>
 									</div>
@@ -370,7 +370,7 @@
 										</div>
 								</div>
 								<div class="row" style="margin-top: 2%;">
-									<div class="col-md-3"><h4>Cotyle</h4></div>
+									<div class="col-md-3"><h4 class="textTranslation" data-textid="cupText">Cotyle</h4></div>
 									<!--<div class="col-md-9"><h4 id="labelGammeCotyle" style="text-align: center;"></h4></div>-->
 								</div>
 								<div class="row">
@@ -395,10 +395,10 @@
 									<div class="col">
 										<div class="btn-group btn-group-toggle" id="coteCotyle" data-toggle="buttons">
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"> GAUCHE
+												<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"><span class="textTranslation" data-textid="leftText">GAUCHE</span>
 											</label>
 											<label class="btn btn-primary radioButton">
-												<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"> DROIT
+												<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"><span class="textTranslation" data-textid="rightText">DROIT</span>
 											</label>
 										</div>
 									</div>
@@ -472,7 +472,7 @@
 						</div>
 			</div>
 			<div id="accordeon2" style="width: 350px;">
-				<h3>OPTIONS DIVERSES</h3>
+				<h3 class="textTranslation" data-textid="variousOptionsText">OPTIONS DIVERSES</h3>
 				<div class="couleurArrierePlan">
 					<div class="row no-gutters" style="margin: 5% 0%">
 						<div class="col-1">
@@ -494,7 +494,7 @@
 					</div>
 					<div id="rowRapporteur" class="row no-gutters align-items-center" style="margin: 5% 0%; display: none;">
 						<div class="col-md-5" id="buttonDessinRapporteur">
-							<button type="button"  class="btn btn-primary">ANGLE</button>
+							<button type="button"  class="btn btn-primary textTranslation" data-textid="angleText">ANGLE</button>
 						</div>
 						<div class="col-md-2">
 							<span id="infoAngle" class="material-icons btnHelp" >help</span>
@@ -511,7 +511,7 @@
 					</div>
 					<div id="rowRegle" class="row no-gutters align-items-center" style="margin: 5% 0%; display: none;" >
 						<div class="col-md-5" id="buttonDessinRegle">
-							<button type="button"  class="btn btn-primary">REGLE</button>
+							<button type="button"  class="btn btn-primary textTranslation" data-textid="rulerText">REGLE</button>
 						</div>
 						<div class="col-md-2">
 							<span id="infoRegle" class="material-icons btnHelp" >help</span>
@@ -532,7 +532,7 @@
 						</div>
 						<div class="col-md-9">
 							<a href="Manuel Utilisateur Serf.pdf" target="_blank">
-								<button type="button" class="btn btn-primary" style="width: 220px;">MANUEL UTILISATEUR</button>
+								<button type="button" class="btn btn-primary textTranslation" data-textid="userManualText" style="width: 220px;">MANUEL UTILISATEUR</button>
 							</a>
 						</div>
 						<br>
@@ -547,7 +547,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 centered">
-							<h5>Année d’obtention du marquage CE : 2018</h5>
+							<h5 class="textTranslation" data-textid="ceMarkText">Année d’obtention du marquage CE : 2018</h5>
 						</div>
 					</div>
 					<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
@@ -569,7 +569,7 @@
 					<div class="help" title="Help"></div>
 
 					<!-- Layer Container -->
-					<div id="dwv-layerDialog" class="layerDialog" title="Image">
+					<div id="dwv-layerDialog" class="layerDialog textTranslation" data-textid="imgText" data-type="title" title="Image">
 						<div class="dropBox"></div>
 						<div class="layerContainer">
 							<div class="alert alert-danger" role="alert" style="display: none;">
@@ -584,8 +584,8 @@
 							</div>
 							<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
 							<div class="infoLayer">
-								<div class="infotl"></div>
-								<div class="infotr"></div>
+								<div class="infotl whiteColor"></div>
+								<div class="infotr whiteColor"></div>
 								<div class="infobl"></div>
 								<div class="infobr">
 									<div class="plot"></div>
@@ -646,4 +646,5 @@
                     });
 
 		</script>
+		<script type="text/javascript" src="js/textTranslationManager.js"></script>
 		</html>
