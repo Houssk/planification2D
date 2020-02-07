@@ -230,3 +230,6 @@ greenHover:hover, #buttonValideInformationPatient:hover, #buttonValideOutilsDess
 .greenHover:hover, #buttonRetourOutilsDessin:hover, #buttonRetourImplant:hover{
     background: red !important;
 }
+#padCircleTige, #padCircleCotyle{
+    opacity: 0.7;
+}

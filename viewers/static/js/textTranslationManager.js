@@ -32,7 +32,7 @@ const translatedTexts = {
         "en": 'Information'
     },
 
-    imgText: {               //TODO Not used !   translatedTexts["imgText"][lang]
+    imgText: {
         "fr": `Image`,
         "en": `Picture`
     },
@@ -223,6 +223,46 @@ const translatedTexts = {
     pleaseCalibrate: {
         "fr": "Veuillez calibrer votre DICOM",
         "en": "Please calibrate your DICOM"
+    },
+    pdfTextTitle: {
+        "fr": "Planification pour la chirurgie de la hanche du patient :",
+        "en": "Planning for the patient's hip surgery:"
+    },
+    pdfTextLastName: {
+        "fr": "Nom : ",
+        "en": "Last name: "
+    },
+    pdfTextFirstName: {
+        "fr": "Prénom : ",
+        "en": "First name: "
+    },
+    pdfTextYourPlanning: {
+        "fr": "Votre planification :",
+        "en": "Your planning:"
+    },
+    pdfTextSizeCoefficient: {
+        "fr": "Le coefficient de redimensionnement des implants est : ",
+        "en": "The scaling coefficient of the implants is: "
+    },
+    pdfTextStem: {
+        "fr": "Tige utilisé pour cette planification : ",
+        "en": "Stem used for this planning: "
+    },
+    pdfTextCup: {
+        "fr": "Cotyle utilisé pour cette planification : ",
+        "en": "Cup used for this planning: "
+    },
+    pdfTextOffset: {
+        "fr": "Offset = ",
+        "en": "Offset = "
+    },
+    pdfTextHeight: {
+        "fr": "Hauteur = ",
+        "en": "Height = "
+    },
+    pdfTextYourDicom: {
+        "fr": "Votre image DICOM d'origine :",
+        "en": "Your original DICOM picture :"
     }
 
 };

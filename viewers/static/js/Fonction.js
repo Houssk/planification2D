@@ -159,6 +159,7 @@ function getCotyle(table, id) {
     var heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data;
     var heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data;
     var tailleCotyle = tailleCotyleBDD.item(0).firstChild.data;
+
     var cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle);
 
     return cotyle;
@@ -205,19 +206,21 @@ function getCotyleBySize(table, size, cote) {
         heightPxCotyle = heightPxCotyleBDD.item(0).firstChild.data,
         heightCmCotyle = heightCmCotyleBDD.item(0).firstChild.data,
         tailleCotyle = tailleCotyleBDD.item(0).firstChild.data,
+
         cotyle = new Cotyle(cotyleId,cotyleNom,cotyleUrl,widthPxCotyle,widthCmCotyle,heightPxCotyle,heightCmCotyle,tailleCotyle)
     ;
 
     return cotyle;
 }
 function desactivationListe() {
-
+    var coteCotyleDisplay = document.getElementById("coteCotyleDisplay");
+    var coteTigeDisplay = document.getElementById("coteTigeDisplay");
     if (document.getElementById("RadioOuiHanche").checked) {
-        var coteCotyleDisplay = document.getElementById("coteCotyleDisplay"),
-            coteTigeDisplay = document.getElementById("coteTigeDisplay")
-        ;
         coteCotyleDisplay.style.display = "none";
         coteTigeDisplay.style.display = "none";
+    } else {
+        coteCotyleDisplay.style.display = "";
+        coteTigeDisplay.style.display = "";
     }
 }
 
@@ -225,11 +228,10 @@ function desactivationListe() {
 
 
 //Draggable elements
+let timedDissabling, timerInitialized;
+
 function createDraggable(draggableElementScope, canvasID){
-    let target = $(draggableElementScope),
-        timedDissabling,
-        timerInitialized = false
-    ;
+    let target = $(draggableElementScope);
     target.draggable({
         disabled: true,
         drag: function(){
@@ -263,6 +265,10 @@ function disableAllDraggable(){
         divDeplacer = $(".divDeplacer");
     if (draggableElement){
         draggableElement.draggable( "option", "disabled", true );
+    }
+    if (timerInitialized){
+        clearTimeout(timedDissabling);
+        timerInitialized=false;
     }
     divDeplacer.removeClass("activeBtn");
 }
