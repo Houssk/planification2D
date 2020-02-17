@@ -233,3 +233,6 @@ greenHover:hover, #buttonValideInformationPatient:hover, #buttonValideOutilsDess
 #padCircleTige, #padCircleCotyle{
     opacity: 0.7;
 }
+.infotl, .infotr{
+    display: none;
+}
