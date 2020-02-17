@@ -207,9 +207,6 @@ Tige.prototype.GetDeltaDeplacementY = function() {
 Tige.prototype.GetTaille = function() {
 	return this.m_Taille;
 };
-Tige.prototype.SetTaille = function(taille) {
-	this.m_Taille = taille;
-};
 
 /**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
@@ -472,12 +469,14 @@ Tige.prototype.Descendre = function() {
 	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
 };
 
+
+const rotationAngleTige = 0.0174532925; //Etait à l'origine calculé ainsi : (1*2*Math.PI)/360;
 Tige.prototype.TournerHaut = function() {
-	this.m_angleAlignement+=(1*2*Math.PI)/360;
+	this.m_angleAlignement += rotationAngleTige;
 };
 
 Tige.prototype.TournerBas = function() {
-	this.m_angleAlignement-=(1*2*Math.PI)/360;
+	this.m_angleAlignement -= rotationAngleTige;
 };
 
 Tige.prototype.MouvementDroit = function() {

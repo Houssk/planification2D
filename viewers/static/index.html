@@ -2,149 +2,151 @@
 <!-- <html manifest="cache.manifest"> -->
 <html>
 
-	<head>
-		<title>Planification 2D</title>
-		<meta charset="UTF-8">
-		<meta name="description" content="DICOM Web Viewer (DWV) static version">
-		<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
+<head>
+	<title class="textTranslation" data-textid="Planning2DText">Planification 2D</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="DICOM Web Viewer (DWV) static version">
+	<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging,DWV">
 
-		<link type="text/css" rel="stylesheet" href="../../css/variables.css">
-		<link type="text/css" rel="stylesheet" href="../../css/style.css">
-		<link type="text/css" rel="stylesheet" href="../../ext/jquery-ui/themes/ui-darkness/jquery-ui-1.11.2.min.css">
-		<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
-		<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css">
-		<link rel="stylesheet" href="../../bootstrap/css/jquery.qtip.min.css">
-		<link type="text/css" rel="stylesheet" href="../../css/newBackgroundColor.css">
-		<link type="text/css" rel="stylesheet" href="../../css/stylePad.css">
+	<link type="text/css" rel="stylesheet" href="../../css/variables.css">
+	<link type="text/css" rel="stylesheet" href="../../css/style.css">
+	<link type="text/css" rel="stylesheet" href="../../ext/jquery-ui/themes/ui-darkness/jquery-ui-1.11.2.min.css">
+	<link type="text/css" rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+	<link type="text/css" rel="stylesheet" href="../../css/buttonStyle.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../../ext/sweetalert-master/dist/sweetalert.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css">
+	<link rel="stylesheet" href="../../bootstrap/css/jquery.qtip.min.css">
+	<link type="text/css" rel="stylesheet" href="../../css/newBackgroundColor.css">
+	<link type="text/css" rel="stylesheet" href="../../css/stylePad.css">
 
 
 
-		<!-- Third party -->
-		<script type="text/javascript" src="../../ext/jquery/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="../../ext/jquery-ui/jquery-ui-1.11.4.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/bootstrap-slider.js"></script>
-		<script type="text/javascript" src="../../ext/flot/jquery.flot.min.js"></script>
-		<script type="text/javascript" src="../../ext/kinetic/kinetic-v5.1.1-06.10.min.js"></script>
-		<script type="text/javascript" src="../../bootstrap/js/jquery.qtip.js"></script>
-		<!-- decoders -->
-		<script type="text/javascript" src="../../ext/pdfjs/jpx.js"></script>
-		<script type="text/javascript" src="../../ext/pdfjs/util.js"></script>
-		<script type="text/javascript" src="../../ext/pdfjs/arithmetic_decoder.js"></script>
-		<script type="text/javascript" src="../../ext/rii-mango/lossless-min.js"></script>
-		<script type="text/javascript" src="../../ext/notmasteryet/jpg.js"></script>
-		<!-- PDF -->
-		<!-- <script type="text/javascript" src="../../ext/jsPDF/jspdf.debug.js"></script> -->
-		<script type="text/javascript" src="../../ext/jsPDF/jspdf.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/jspdf.min.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/png.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/zlib.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/plugins/addimage.js"></script>
-		<script type="text/javascript" src="../../ext/jsPDF/plugins/png_support.js"></script>
-		<script type="text/javascript" src="../../ext/Html2canvas/html2canvas.js"></script>
-		<!--Alert-->
-		<script src="../../ext/sweetalert-master/dist/sweetalert.min.js"></script>
-		<!-- Local -->
-		<script type="text/javascript" src="../../src/app/application.js"></script>
-		<script type="text/javascript" src="../../src/app/toolboxController.js"></script>
-		<script type="text/javascript" src="../../src/app/viewController.js"></script>
-		<script type="text/javascript" src="../../src/app/state.js"></script>
-		<script type="text/javascript" src="../../src/dicom/dicomParser.js"></script>
-		<script type="text/javascript" src="../../src/dicom/dictionary.js"></script>
-		<script type="text/javascript" src="../../src/gui/browser.js"></script>
-		<script type="text/javascript" src="../../src/gui/filter.js"></script>
-		<script type="text/javascript" src="../../src/gui/generic.js"></script>
-		<script type="text/javascript" src="../../src/gui/help.js"></script>
-		<script type="text/javascript" src="../../src/gui/html.js"></script>
-		<script type="text/javascript" src="../../src/gui/layer.js"></script>
-		<script type="text/javascript" src="../../src/gui/loader.js"></script>
-		<script type="text/javascript" src="../../src/gui/style.js"></script>
-		<script type="text/javascript" src="../../src/gui/tools.js"></script>
-		<script type="text/javascript" src="../../src/gui/undo.js"></script>
-		<script type="text/javascript" src="../../src/image/filter.js"></script>
-		<script type="text/javascript" src="../../src/image/geometry.js"></script>
-		<script type="text/javascript" src="../../src/image/image.js"></script>
-		<script type="text/javascript" src="../../src/image/luts.js"></script>
-		<script type="text/javascript" src="../../src/image/reader.js"></script>
-		<script type="text/javascript" src="../../src/image/view.js"></script>
-		<script type="text/javascript" src="../../src/io/file.js"></script>
-		<script type="text/javascript" src="../../src/io/url.js"></script>
-		<script type="text/javascript" src="../../src/math/bucketQueue.js"></script>
-		<script type="text/javascript" src="../../src/math/point.js"></script>
-		<script type="text/javascript" src="../../src/math/scissors.js"></script>
-		<script type="text/javascript" src="../../src/math/shapes.js"></script>
-		<script type="text/javascript" src="../../src/math/stats.js"></script>
-		<script type="text/javascript" src="../../src/tools/draw.js"></script>
-		<script type="text/javascript" src="../../src/tools/editor.js"></script>
-		<script type="text/javascript" src="../../src/tools/ellipse.js"></script>
-		<script type="text/javascript" src="../../src/tools/filter.js"></script>
-		<script type="text/javascript" src="../../src/tools/info.js"></script>
-		<script type="text/javascript" src="../../src/tools/line.js"></script>
-		<script type="text/javascript" src="../../src/tools/livewire.js"></script>
-		<script type="text/javascript" src="../../src/tools/protractor.js"></script>
-		<script type="text/javascript" src="../../src/tools/rectangle.js"></script>
-		<script type="text/javascript" src="../../src/tools/roi.js"></script>
-		<script type="text/javascript" src="../../src/tools/scroll.js"></script>
-		<script type="text/javascript" src="../../src/tools/toolbox.js"></script>
-		<script type="text/javascript" src="../../src/tools/circle.js"></script>
-		<script type="text/javascript" src="../../src/tools/mesurepetittroch.js"></script>
-		<script type="text/javascript" src="../../src/tools/undo.js"></script>
-		<script type="text/javascript" src="../../src/tools/windowLevel.js"></script>
-		<script type="text/javascript" src="../../src/tools/zoomPan.js"></script>
-		<script type="text/javascript" src="../../src/utils/string.js"></script>
-		<script type="text/javascript" src="../../src/utils/uri.js"></script>
-		<script type="text/javascript" src="../../src/utils/thread.js"></script>
-		<script type="text/javascript" src="js/class/Patient.js"></script>
-		<script type="text/javascript" src="js/class/Tige.js"></script>
-		<script type="text/javascript" src="js/class/Cotyle.js"></script>
-		<script type="text/javascript" src="../../ext/progressbar/progressbar.js"></script>
+	<!-- Third party -->
+	<script type="text/javascript" src="../../ext/jquery/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../../ext/jquery-ui/jquery-ui-1.11.4.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/bootstrap-slider.js"></script>
+	<script type="text/javascript" src="../../ext/flot/jquery.flot.min.js"></script>
+	<script type="text/javascript" src="../../ext/kinetic/kinetic-v5.1.1-06.10.min.js"></script>
+	<script type="text/javascript" src="../../bootstrap/js/jquery.qtip.js"></script>
+	<!-- decoders -->
+	<script type="text/javascript" src="../../ext/pdfjs/jpx.js"></script>
+	<script type="text/javascript" src="../../ext/pdfjs/util.js"></script>
+	<script type="text/javascript" src="../../ext/pdfjs/arithmetic_decoder.js"></script>
+	<script type="text/javascript" src="../../ext/rii-mango/lossless-min.js"></script>
+	<script type="text/javascript" src="../../ext/notmasteryet/jpg.js"></script>
+	<!-- PDF -->
+	<!-- <script type="text/javascript" src="../../ext/jsPDF/jspdf.debug.js"></script> -->
+	<script type="text/javascript" src="../../ext/jsPDF/jspdf.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/jspdf.min.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/png.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/libs/png_support/zlib.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/plugins/addimage.js"></script>
+	<script type="text/javascript" src="../../ext/jsPDF/plugins/png_support.js"></script>
+	<script type="text/javascript" src="../../ext/Html2canvas/html2canvas.js"></script>
+	<!--Alert-->
+	<script src="../../ext/sweetalert-master/dist/sweetalert.min.js"></script>
+	<!-- Local -->
+	<script type="text/javascript" src="../../src/app/application.js"></script>
+	<script type="text/javascript" src="../../src/app/toolboxController.js"></script>
+	<script type="text/javascript" src="../../src/app/viewController.js"></script>
+	<script type="text/javascript" src="../../src/app/state.js"></script>
+	<script type="text/javascript" src="../../src/dicom/dicomParser.js"></script>
+	<script type="text/javascript" src="../../src/dicom/dictionary.js"></script>
+	<script type="text/javascript" src="../../src/gui/browser.js"></script>
+	<script type="text/javascript" src="../../src/gui/filter.js"></script>
+	<script type="text/javascript" src="../../src/gui/generic.js"></script>
+	<script type="text/javascript" src="../../src/gui/help.js"></script>
+	<script type="text/javascript" src="../../src/gui/html.js"></script>
+	<script type="text/javascript" src="../../src/gui/layer.js"></script>
+	<script type="text/javascript" src="../../src/gui/loader.js"></script>
+	<script type="text/javascript" src="../../src/gui/style.js"></script>
+	<script type="text/javascript" src="../../src/gui/tools.js"></script>
+	<script type="text/javascript" src="../../src/gui/undo.js"></script>
+	<script type="text/javascript" src="../../src/image/filter.js"></script>
+	<script type="text/javascript" src="../../src/image/geometry.js"></script>
+	<script type="text/javascript" src="../../src/image/image.js"></script>
+	<script type="text/javascript" src="../../src/image/luts.js"></script>
+	<script type="text/javascript" src="../../src/image/reader.js"></script>
+	<script type="text/javascript" src="../../src/image/view.js"></script>
+	<script type="text/javascript" src="../../src/io/file.js"></script>
+	<script type="text/javascript" src="../../src/io/url.js"></script>
+	<script type="text/javascript" src="../../src/math/bucketQueue.js"></script>
+	<script type="text/javascript" src="../../src/math/point.js"></script>
+	<script type="text/javascript" src="../../src/math/scissors.js"></script>
+	<script type="text/javascript" src="../../src/math/shapes.js"></script>
+	<script type="text/javascript" src="../../src/math/stats.js"></script>
+	<script type="text/javascript" src="../../src/tools/draw.js"></script>
+	<script type="text/javascript" src="../../src/tools/editor.js"></script>
+	<script type="text/javascript" src="../../src/tools/ellipse.js"></script>
+	<script type="text/javascript" src="../../src/tools/filter.js"></script>
+	<script type="text/javascript" src="../../src/tools/info.js"></script>
+	<script type="text/javascript" src="../../src/tools/line.js"></script>
+	<script type="text/javascript" src="../../src/tools/livewire.js"></script>
+	<script type="text/javascript" src="../../src/tools/protractor.js"></script>
+	<script type="text/javascript" src="../../src/tools/rectangle.js"></script>
+	<script type="text/javascript" src="../../src/tools/roi.js"></script>
+	<script type="text/javascript" src="../../src/tools/scroll.js"></script>
+	<script type="text/javascript" src="../../src/tools/toolbox.js"></script>
+	<script type="text/javascript" src="../../src/tools/circle.js"></script>
+	<script type="text/javascript" src="../../src/tools/mesurepetittroch.js"></script>
+	<script type="text/javascript" src="../../src/tools/undo.js"></script>
+	<script type="text/javascript" src="../../src/tools/windowLevel.js"></script>
+	<script type="text/javascript" src="../../src/tools/zoomPan.js"></script>
+	<script type="text/javascript" src="../../src/utils/string.js"></script>
+	<script type="text/javascript" src="../../src/utils/uri.js"></script>
+	<script type="text/javascript" src="../../src/utils/thread.js"></script>
+	<script type="text/javascript" src="js/class/Patient.js"></script>
+	<script type="text/javascript" src="js/class/Tige.js"></script>
+	<script type="text/javascript" src="js/class/Cotyle.js"></script>
+	<script type="text/javascript" src="../../ext/progressbar/progressbar.js"></script>
 
-		<!-- Launch the app -->
+	<!-- Launch the app -->
 
-		<script type="text/javascript" src="appgui.js"></script>
-		<script type="text/javascript" src="applauncher.js"></script>
+	<script type="text/javascript" src="appgui.js"></script>
+	<script type="text/javascript" src="applauncher.js"></script>
 
-		<!--<script type="text/javascript" src="js/tests.js"></script>-->
-		<script type="text/javascript" src="js/Fonction.js"></script>
-		<script type="text/javascript" src="js/ActionsBouton.js"></script>
-		<script type="text/javascript" src="js/jspad.js"></script>
-		
-	</head>
+	<!--<script type="text/javascript" src="js/tests.js"></script>-->
+	<script type="text/javascript" src="js/Fonction.js"></script>
+	<script type="text/javascript" src="js/ActionsBouton.js"></script>
+	<script type="text/javascript" src="js/jspad.js"></script>
 
-	<body id="body" onload="VerrouillageBoiteDialogue()">
+</head>
+
+<body id="body" onload="VerrouillageBoiteDialogue()">
 
 	<!-- DWV -->
-		<div id="dwv">
-			<!-- Toolbar -->
+	<div id="dwv">
+		<!-- Toolbar -->
 
 		<div id="pageMain">
 
 			<div id="accordeon" style="width: 350px;">
-				<h3>INFORMATIONS</h3>
+				<h3 class="textTranslation" data-textid="informationText">INFORMATIONS</h3>
 				<div class="informationPatient">
 					<form>
 						<div class="row">
-							<div class="col-md-6"><input id="nomPatient" type="text" placeholder="NOM" class="form-control"></div>
-							<div class="col-md-6"><input id="prenomPatient" type="text" placeholder="PRENOM" class="form-control"></div>
+							<div class="col-md-6"><input class="textTranslation form-control" data-type="placeholder" data-textid="lastNameText" id="nomPatient" type="text" placeholder="NOM"></div>
+							<div class="col-md-6"><input class="textTranslation form-control" data-type="placeholder" data-textid="firstNameText"  id="prenomPatient" type="text" placeholder="PRENOM"></div>
 						</div>
 						<div class="row" style="margin-top: 2%">
 							<div class="col-md-6">
 								<div class="form-group">
 									<select class="form-control" id="coteChirurgie">
-										<option disabled selected hidden>COTE</option>
-										<option value="Gauche">GAUCHE</option>
-										<option value="Droit">DROIT</option>
+										<option disabled selected hidden class="textTranslation" data-textid="sideText">COTE</option>
+										<option value="Gauche" class="textTranslation" data-textid="leftText">GAUCHE</option>
+										<option value="Droit" class="textTranslation" data-textid="rightText">DROIT</option>
 									</select>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<select class="form-control" id="typeChirurgie">
-										<option disabled selected hidden>PLANIFICATION</option>
-										<option value="Guider">AVANCEE</option>
-										<option value="Non guider">LIBRE</option>
+										<option disabled selected hidden class="textTranslation" data-textid="planningText">PLANIFICATION</option>
+										<option value="Guider" class="textTranslation" data-textid="advancedText">AVANCEE</option>
+										<option value="Non guider" class="textTranslation" data-textid="freeText">LIBRE</option>
 									</select>
 								</div>
 							</div>
@@ -158,10 +160,11 @@
 								<div class="col-md-7">
 									<div class="row no-gutters align-items-center">
 										<div class="col-md-9" style="padding-top: 1px;">
-											<button type="button" id="buttonCalibrage" class="btn btn-primary">CALIBRER</button>
+											<button type="button" id="buttonCalibrage"
+												class="btn btn-primary textTranslation" data-textid="scalingText">CALIBRER</button>
 										</div>
 										<div class="col-md-2 offset-md-1">
-											<span id="infoCalibrage" class="material-icons btnHelp" >help</span>
+											<span id="infoCalibrage" class="material-icons btnHelp">help</span>
 										</div>
 									</div>
 								</div>
@@ -171,7 +174,8 @@
 									<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
 								</div>-->
 								<div class="col-md-3 offset-md-2">
-									<button type="button" id="buttonZoom" class="btn btn-primary zoom"><span class="material-icons md-34">zoom_in</span></button>
+									<button type="button" id="buttonZoom" class="btn btn-primary zoom"><span
+											class="material-icons md-34">zoom_in</span></button>
 								</div>
 							</div>
 							<!--<div class="row centered" style="margin-top:2%;">
@@ -182,76 +186,199 @@
 
 							<div class="row">
 								<div class="col-md-12 centered">
-									<label id="labelNbHanche" class="blackColor">Cette image possède une seule hanche</label>
+									<label id="labelNbHanche" class="blackColor textTranslation" data-textid="oneHipText">Cette image possède une seule
+										hanche</label>
 									<div style="text-align: center;">
-										<label class="blackColor">Oui</label><input type="radio" id="RadioOuiHanche" value="oui" name="optRadio">
-										<label class="blackColor">Non</label><input type="radio" id="RadioNonHanche" value="non" name="optRadio" checked="true">
+										<label class="blackColor textTranslation" data-textid="yesText">Oui</label><input type="radio" id="RadioOuiHanche"
+											value="oui" name="optRadio">
+										<label class="blackColor textTranslation" data-textid="noText">Non</label><input type="radio" id="RadioNonHanche"
+											value="non" name="optRadio" checked="true">
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-offset-3 col-md-6 centered">
-									<input  type="button" id="buttonValideInformationPatient" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="VALIDER" style="margin-top:2%; width: 110px; display: none">
+							<div class="row justify-content-end">
+								<div class="col-md-offset-3 col-md-6 centered row justify-content-end">
+									<input type="button" id="buttonValideInformationPatient"
+										class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation greenHover col" data-type="value" data-textid="validateText"
+										value="VALIDER" style="margin-top:2%; width: 110px; display: none">
 								</div>
 							</div>
 						</div>
 					</form>
 				</div>
-				<h3>OUTILS DESSIN</h3>
+				<h3 class="textTranslation" data-textid="drawingToolsText">OUTILS DESSIN</h3>
 				<!-- OUTILS DESSIN -->
 				<div class="outilsDessin">
 					<div class="row no-gutters justify-content-left align-items-center">
 
-						<div class ="col-6">
-							<button id="buttonDessinTrapeze" type="button" class="btn btn-primary">TRAPEZE</button>
-						</div>					<div class ="col-2">
-							<span id="infoTrapeze" class="material-icons btnHelp" >help</span>
+						<div class="col-6">
+							<button id="buttonDessinTrapeze" type="button" class="btn btn-primary textTranslation" data-textid="trapezeText">TRAPEZE</button>
 						</div>
-						<div class ="col">
-							<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-						</div>
-					</div>
-					<div class="row no-gutters justify-content-left align-items-center">
-						<div class ="col-6">
-							<button id="buttonDessinPetitTroch" type="button" class="btn btn-primary">PETIT TROCH</button>
-						</div>
-						<div class ="col-2">
-							<span id="infoPetitTroch" class="material-icons btnHelp" >help</span>
+						<div class="col-2">
+							<span id="infoTrapeze" class="material-icons btnHelp">help</span>
 						</div>
 						<div class="col">
-							<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right">
+							<input id="buttonDeleteTrapeze" type="image" src="images/delete.jpg"
+								class=" ui-widget ui-state-default ui-corner-all "
+								style="display: none; width: 30px;height: 30px; float: right">
 						</div>
 					</div>
 					<div class="row no-gutters justify-content-left align-items-center">
 						<div class="col-6">
-							<button id="buttonDessinCercle" type="button" class="btn btn-primary">CERCLE</button>
+							<button id="buttonDessinPetitTroch" type="button" class="btn btn-primary textTranslation" data-textid="lesserTrochanterText">PETIT
+								TROCH</button>
 						</div>
 						<div class="col-2">
-							<span id="infoCercle" class="material-icons btnHelp" >help</span>
+							<span id="infoPetitTroch" class="material-icons btnHelp">help</span>
 						</div>
 						<div class="col">
-							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right">
+							<input id="buttonDeletePetitTroch" type="image" src="images/delete.jpg"
+								class=" ui-widget ui-state-default ui-corner-all "
+								style="display: none; width: 30px;height: 30px; float: right">
+						</div>
+					</div>
+					<div class="row no-gutters justify-content-left align-items-center">
+						<div class="col-6">
+							<button id="buttonDessinCercle" type="button" class="btn btn-primary textTranslation" data-textid="circleText">CERCLE</button>
+						</div>
+						<div class="col-2">
+							<span id="infoCercle" class="material-icons btnHelp">help</span>
+						</div>
+						<div class="col">
+							<input id="buttonDeleteCercle" type="image" src="images/delete.jpg"
+								class=" ui-widget ui-state-default ui-corner-all "
+								style="display: none; width: 30px;height: 30px; float: right">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6 centered">
-							<button id="buttonValideOutilsDessin" type="button" class="btn btn-primary" >VALIDER</button>
+							<button id="buttonRetourOutilsDessin" class="btn btn-primary textTranslation redHover" data-textid="backText">RETOUR</button>
 						</div>
 						<div class="col-md-6 centered">
-							<button id="buttonRetourOutilsDessin"class="btn btn-primary" >RETOUR</button>
+							<button id="buttonValideOutilsDessin" type="button" class="btn btn-primary textTranslation greenHover" data-textid="validateText">VALIDER</button>
 						</div>
 					</div>
 				</div>
-				<h3>IMPLANTS</h3>
+				<h3 class="textTranslation" data-textid="implantText">IMPLANTS</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				<!-- IMPLANTS -->
 				<div class="implants">
 					<div id="actionImplant">
 						<div class="row">
-							<div class="col-md-3"><h4>Tige</h4></div>
-							<div class="col-md-9">
+							<div class="col-md-12">
+								<h4 class="textTranslation" data-textid="stemText">Tige</h4>
+							</div>
+							<div class="col-md-12 smallPaddingBot">
 								<select class="form-control" id="symbol" style="font-weight: bold;">
-									<option value="symbol1"><h4 id="labelGammeTige"  style="text-align: center;">Symbol </h4></option>
-									<option value="symbol2"><h4 id="labelGammeTige2" style="text-align: center;">Symbol2</h4></option>
+									<option value="symbol1">
+										<h4 id="labelGammeTige" style="text-align: center;">Symbol </h4>
+									</option>
+									<option value="symbol2">
+										<h4 id="labelGammeTige2" style="text-align: center;">Symbol2</h4>
+									</option>
 								</select>
 
 							</div>
@@ -280,121 +407,109 @@
 								</div>
 							</div>
 
-
-
-
-<!--							<div id="coteTigeDisplay" class="row">-->
-<!--								<div class="col-md-3">-->
-<!--									<h5>Côté</h5>-->
-<!--								</div>-->
-<!--								<div class="col-md-9">-->
-<!--									<select id="coteTige" class="form-control">-->
-<!--										<option value="Gauche">GAUCHE</option>-->
-<!--										<option value="Droit">DROIT</option>-->
-<!--									</select>-->
-<!--								</div>-->
-<!--							</div>-->
+							<!--							<div id="coteTigeDisplay" class="row">-->
+							<!--								<div class="col-md-3">-->
+							<!--									<h5>Côté</h5>-->
+							<!--								</div>-->
+							<!--								<div class="col-md-9">-->
+							<!--									<select id="coteTige" class="form-control">-->
+							<!--										<option value="Gauche">GAUCHE</option>-->
+							<!--										<option value="Droit">DROIT</option>-->
+							<!--									</select>-->
+							<!--								</div>-->
+							<!--							</div>-->
 
 							<div id="coteTigeDisplay" class="row justify-content-center">
 								<div class="col">
 									<div class="btn-group btn-group-toggle" id="coteTige" data-toggle="buttons">
 										<label class="btn btn-primary radioButton">
-											<input type="radio" name="coteTige" id="coteTigeG" value="Gauche" autocomplete="off"> GAUCHE
+											<input type="radio" name="coteTige" id="coteTigeG" value="Gauche"
+												autocomplete="off"> <span  class="textTranslation" data-textid="leftText" >GAUCHE</span>
 										</label>
 										<label class="btn btn-primary radioButton">
-											<input type="radio" name="coteTige" id="coteTigeD" value="Droit" autocomplete="off"> DROIT
+											<input type="radio" name="coteTige" id="coteTigeD" value="Droit"
+												autocomplete="off"> <span  class="textTranslation" data-textid="rightText">DROIT</span>
 										</label>
 									</div>
 								</div>
 							</div>
 						</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!--						-->
-<!--						<div class="row" style="margin-top: 2%;">-->
-<!--							<div class="col-md-3">-->
-<!--								<h5>Taille</h5>-->
-<!--							</div>-->
-<!--							<div class="col-md-9" style="text-align: center;">-->
-<!--								<input id="buttonMoinsTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
-<!--								<label id="labelTailleTige" class="blackColor" style="width: 25px;"></label>-->
-<!--								<input id="buttonPlusTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="row deplacerTige" style="margin-top: 2%;">-->
-<!--							<div class="col-md-6">-->
-<!--								<h5>D&eacute;placer</h5>-->
-<!--							</div>-->
-<!--							<div class="col-md-6">-->
-<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonMonterTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonHautTige" type="image" src="images/Haut.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--									</div>-->
-<!--								</div>-->
-<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonGaucheTige" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonDroitTige" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--								</div>-->
-<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonBasTige" type="image" src="images/Bas.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonDescendreTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="row positionTige" style="margin-top: 2%; display: none;">-->
-<!--							<div class="col-md-6">-->
-<!--								<h5>Positionner</h5>-->
-<!--							</div>-->
-<!--							<div class="col-md-6">-->
-<!--								<div class="row">-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonTournerHautTige" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonDeplacerTige" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonTournerBasTige" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
-<!--									</div>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						-->
+						<!--						-->
+						<!--						<div class="row" style="margin-top: 2%;">-->
+						<!--							<div class="col-md-3">-->
+						<!--								<h5>Taille</h5>-->
+						<!--							</div>-->
+						<!--							<div class="col-md-9" style="text-align: center;">-->
+						<!--								<input id="buttonMoinsTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+						<!--								<label id="labelTailleTige" class="blackColor" style="width: 25px;"></label>-->
+						<!--								<input id="buttonPlusTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+						<!--							</div>-->
+						<!--						</div>-->
+						<!--						<div class="row deplacerTige" style="margin-top: 2%;">-->
+						<!--							<div class="col-md-6">-->
+						<!--								<h5>D&eacute;placer</h5>-->
+						<!--							</div>-->
+						<!--							<div class="col-md-6">-->
+						<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonMonterTige" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonHautTige" type="image" src="images/Haut.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--									</div>-->
+						<!--								</div>-->
+						<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonGaucheTige" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonDroitTige" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--								</div>-->
+						<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonBasTige" type="image" src="images/Bas.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonDescendreTige" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--								</div>-->
+						<!--							</div>-->
+						<!--						</div>-->
+						<!--						<div class="row positionTige" style="margin-top: 2%; display: none;">-->
+						<!--							<div class="col-md-6">-->
+						<!--								<h5>Positionner</h5>-->
+						<!--							</div>-->
+						<!--							<div class="col-md-6">-->
+						<!--								<div class="row">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonTournerHautTige" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonDeplacerTige" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonTournerBasTige" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
+						<!--									</div>-->
+						<!--								</div>-->
+						<!--							</div>-->
+						<!--						</div>-->
+						<!--						-->
 
 
 
 						<div class="container" id="dPadTige">
 							<div class="row justify-content-center position-relative">
 								<div class="col position-absolute">
-									<img src="images/pad/padCircleInactive.svg" id="padCircleTige" class="img-fluid padCircle" alt="circle" />
+									<img src="images/pad/padCircleInactive.svg" id="padCircleTige"
+										class="img-fluid padCircle" alt="circle" />
 								</div>
 							</div>
 							<div class="row justify-content-center position-relative no-gutters">
@@ -410,31 +525,38 @@
 								</div>
 								<div class="row justify-content-center no-gutters">
 									<div class="col pad padMiddleTop">
-										<span class="material-icons md-light deplacerTige" id="buttonHautTige" style="margin-top: -1px;">arrow_upward</span>
+										<span class="material-icons md-light deplacerTige" id="buttonHautTige"
+											style="margin-top: -1px;">arrow_upward</span>
 									</div>
 									<div class="col pad">
-										<span class="material-icons md-light buttonRotationUp deplacerTige" id="buttonMonterTige" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
+										<span class="material-icons md-light buttonRotationUp deplacerTige"
+											id="buttonMonterTige"
+											style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
 									</div>
 								</div>
 								<div class="row justify-content-center no-gutters">
 									<div class="col pad padLeft">
-										<span class="material-icons md-light positionTige" id="buttonTournerHautTige">rotate_right</span>
+										<span class="material-icons md-light positionTige"
+											id="buttonTournerHautTige">rotate_right</span>
 									</div>
 									<div class="col-3 padCenter">
 										<div class="row justify-content-center no-gutters">
 											<div class="col pad">
-												<span class="material-icons md-light deplacerTige" id="buttonGaucheTige" style="margin-left: -4px;">arrow_back</span>
+												<span class="material-icons md-light deplacerTige" id="buttonGaucheTige"
+													style="margin-left: -4px;">arrow_back</span>
 											</div>
 											<div class="col pad">
 												<label id="labelTailleTige"></label>
 											</div>
 											<div class="col pad">
-												<span class="material-icons md-light deplacerTige" id="buttonDroitTige" style="margin-right: -4px;">arrow_forward</span>
+												<span class="material-icons md-light deplacerTige" id="buttonDroitTige"
+													style="margin-right: -4px;">arrow_forward</span>
 											</div>
 										</div>
 									</div>
 									<div class="col pad padRight">
-										<span class="material-icons md-light positionTige" id="buttonTournerBasTige">rotate_left</span>
+										<span class="material-icons md-light positionTige"
+											id="buttonTournerBasTige">rotate_left</span>
 									</div>
 								</div>
 								<div class="row justify-content-center no-gutters">
@@ -442,7 +564,8 @@
 										<span class="material-icons md-light buttonRotationDown deplacerTige" id="buttonDescendreTige" style="margin-right: -12px; margin-top: -6px;">arrow_downward</span>
 									</div>
 									<div class="col pad padMiddleBot">
-										<span class="material-icons md-light deplacerTige" id="buttonBasTige" style="margin-top: 3px;">arrow_downward</span>
+										<span class="material-icons md-light deplacerTige" id="buttonBasTige"
+											style="margin-top: 3px;">arrow_downward</span>
 									</div>
 								</div>
 								<div class="row padBot justify-content-center no-gutters">
@@ -452,46 +575,22 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 						<div class="row" style="margin-top: 2%;">
-							<div class="col-md-3"><h4>Cotyle</h4></div>
-							<div class="col-md-9">
+							<div class="col-md-12">
+								<h4 class="textTranslation smallPaddingTop" data-textid="cupText">Cotyle</h4>
+							</div>
+							<div class="col-md-12 smallPaddingBot">
 								<select class="form-control" id="symbolCotyle" style="font-weight: bold;">
-									<option value="symbol1"><h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4></option>
-									<option value="symbol2"><h4 id="labelGammeCotyle2" style="text-align: center;">Symbol2</h4></option>
+									<option value="symbol1">
+										<h4 id="labelGammeCotyle" style="text-align: center;">Symbol</h4>
+									</option>
+									<option value="symbol2">
+										<h4 id="labelGammeCotyle2" style="text-align: center;">Symbol2</h4>
+									</option>
 								</select>
 							</div>
 						</div>
-						<div id ="disableIfCotyle">
+						<div id="disableIfCotyle">
 							<div class="row">
 								<div class="col-md-6">
 									<select class="form-control" id="gammeCimenteOuNe">
@@ -502,109 +601,112 @@
 							</div>
 
 
-<!--							<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">-->
-<!--								<div class="col-md-3">-->
-<!--									<h5>Côté</h5>-->
-<!--								</div>-->
-<!--								<div class="col-md-9">-->
-<!--									<select id="coteCotyle" class="form-control">-->
-<!--										<option value="Gauche">GAUCHE</option>-->
-<!--										<option value="Droit">DROIT</option>-->
-<!--									</select>-->
-<!--								</div>-->
-<!--							</div>-->
+							<!--							<div id="coteCotyleDisplay" class="row" style="margin-top: 2%;">-->
+							<!--								<div class="col-md-3">-->
+							<!--									<h5>Côté</h5>-->
+							<!--								</div>-->
+							<!--								<div class="col-md-9">-->
+							<!--									<select id="coteCotyle" class="form-control">-->
+							<!--										<option value="Gauche">GAUCHE</option>-->
+							<!--										<option value="Droit">DROIT</option>-->
+							<!--									</select>-->
+							<!--								</div>-->
+							<!--							</div>-->
 
 
 							<div id="coteCotyleDisplay" class="row justify-content-center">
 								<div class="col">
 									<div class="btn-group btn-group-toggle" id="coteCotyle" data-toggle="buttons">
 										<label class="btn btn-primary radioButton">
-											<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche" autocomplete="off"> GAUCHE
+											<input type="radio" name="coteCotyle" id="coteCotyleG" value="Gauche"
+												autocomplete="off"> <span  class="textTranslation" data-textid="leftText" >GAUCHE</span>
 										</label>
 										<label class="btn btn-primary radioButton">
-											<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit" autocomplete="off"> DROIT
+											<input type="radio" name="coteCotyle" id="coteCotyleD" value="Droit"
+												autocomplete="off"> <span  class="textTranslation" data-textid="rightText">DROIT</span>
 										</label>
 									</div>
 								</div>
 							</div>
 						</div>
 
-<!--						<div class="row" style="margin-top: 2%;">-->
-<!--							<div class="col-md-3">-->
-<!--								<h5>Taille</h5>-->
-<!--							</div>-->
-<!--							<div class="col-md-9" style="text-align: center;">-->
-<!--								<input id="buttonMoinsCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
-<!--								<label id="labelTailleCotyle" class="blackColor" style="width: 25px;"></label>-->
-<!--								<input id="buttonPlusCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div id="deplacerCotyle" class="row" style="margin-top: 2%;">-->
-<!--							<div class="col-md-6">-->
-<!--								<h5>D&eacute;placer</h5>-->
-<!--							</div>-->
-<!--							<div class="col-md-6" style="text-align: center;">-->
-<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonMonterCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonTournerBasCotyle" type="image" src="images/flecheGaucheGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
-<!--									</div>-->
+						<!--						<div class="row" style="margin-top: 2%;">-->
+						<!--							<div class="col-md-3">-->
+						<!--								<h5>Taille</h5>-->
+						<!--							</div>-->
+						<!--							<div class="col-md-9" style="text-align: center;">-->
+						<!--								<input id="buttonMoinsCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+						<!--								<label id="labelTailleCotyle" class="blackColor" style="width: 25px;"></label>-->
+						<!--								<input id="buttonPlusCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+						<!--							</div>-->
+						<!--						</div>-->
+						<!--						<div id="deplacerCotyle" class="row" style="margin-top: 2%;">-->
+						<!--							<div class="col-md-6">-->
+						<!--								<h5>D&eacute;placer</h5>-->
+						<!--							</div>-->
+						<!--							<div class="col-md-6" style="text-align: center;">-->
+						<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonMonterCotyle" type="image" src="images/Plus.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonTournerBasCotyle" type="image" src="images/flecheGaucheGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
+						<!--									</div>-->
 
 
-<!--								</div>-->
-<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonGaucheCotyle" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonDroitCotyle" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--								</div>-->
-<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+						<!--								</div>-->
+						<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonGaucheCotyle" type="image" src="images/Gauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonDroitCotyle" type="image" src="images/Droite.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--								</div>-->
+						<!--								<div class="row" style="margin-top: 2%; margin-bottom: 2%; text-align: center;">-->
 
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonTournerHautCotyle" type="image" src="images/flecheDroitGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonDescendreCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
-<!--									</div>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div id="positionCotyle" class="row" style="display: none;" >-->
-<!--							<div class="col-md-6">-->
-<!--								<h5>Positionner</h5>-->
-<!--							</div>-->
-<!--							<div class="col-md-6">-->
-<!--								<div class="row">-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonTournerHautCotyle" type="image" src="images/flecheDroitGuidee.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px ;">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonDescendreCotyle" type="image" src="images/Moins.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px">-->
+						<!--									</div>-->
+						<!--								</div>-->
+						<!--							</div>-->
+						<!--						</div>-->
+						<!--						<div id="positionCotyle" class="row" style="display: none;" >-->
+						<!--							<div class="col-md-6">-->
+						<!--								<h5>Positionner</h5>-->
+						<!--							</div>-->
+						<!--							<div class="col-md-6">-->
+						<!--								<div class="row">-->
 
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonTournerHautCotyleNG" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonDeplacerCotyle" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
-<!--									</div>-->
-<!--									<div class="col-md-2 backgroundColor">-->
-<!--										<input id="buttonTournerBasCotyleNG" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
-<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonTournerHautCotyleNG" type="image" src="images/flecheGauche.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonDeplacerCotyle" type="image" src="images/move.png" class="ui-widget ui-state-default ui-corner-all btnHover" style="width:25px; height: 25px;">-->
+						<!--									</div>-->
+						<!--									<div class="col-md-2 backgroundColor">-->
+						<!--										<input id="buttonTournerBasCotyleNG" type="image" src="images/flecheDroit.png" class="ui-widget ui-state-default ui-corner-all btnHover"  style="width:25px; height: 25px;" >-->
+						<!--									</div>-->
 
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
+						<!--								</div>-->
+						<!--							</div>-->
+						<!--						</div>-->
 
 
 						<div class="container" id="dPadCotyle">
 							<div class="row justify-content-center position-relative">
 								<div class="col position-absolute">
-									<img src="images/pad/padCircleInactive.svg" id="padCircleCotyle" class="img-fluid padCircle" alt="circle" />
+									<img src="images/pad/padCircleInactive.svg" id="padCircleCotyle"
+										class="img-fluid padCircle" alt="circle" />
 								</div>
 							</div>
 							<div class="row justify-content-center position-relative no-gutters">
@@ -620,28 +722,35 @@
 								</div>
 								<div class="row justify-content-center no-gutters">
 									<div class="col pad" style="margin-left:52px;">
-										<span class="material-icons md-light buttonRotationUp deplacerCotyle" id="buttonMonterCotyle" style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
+										<span class="material-icons md-light buttonRotationUp deplacerCotyle"
+											id="buttonMonterCotyle"
+											style="margin-left: -13px; margin-top: 7px;">arrow_upward</span>
 									</div>
 								</div>
 								<div class="row justify-content-center no-gutters">
 									<div class="col pad padLeft">
-										<span class="material-icons md-light" id="buttonTournerHautCotyle">rotate_right</span>
+										<span class="material-icons md-light"
+											id="buttonTournerHautCotyle">rotate_right</span>
 									</div>
 									<div class="col-3 padCenter">
 										<div class="row justify-content-center no-gutters">
 											<div class="col pad">
-												<span class="material-icons md-light deplacerCotyle" id="buttonGaucheCotyle" style="margin-left: -4px;">arrow_back</span>
+												<span class="material-icons md-light deplacerCotyle"
+													id="buttonGaucheCotyle" style="margin-left: -4px;">arrow_back</span>
 											</div>
 											<div class="col pad">
 												<label id="labelTailleCotyle"></label>
 											</div>
 											<div class="col pad">
-												<span class="material-icons md-light deplacerCotyle" id="buttonDroitCotyle" style="margin-right: -4px;">arrow_forward</span>
+												<span class="material-icons md-light deplacerCotyle"
+													id="buttonDroitCotyle"
+													style="margin-right: -4px;">arrow_forward</span>
 											</div>
 										</div>
 									</div>
 									<div class="col pad padRight">
-										<span class="material-icons md-light" id="buttonTournerBasCotyle">rotate_left</span>
+										<span class="material-icons md-light"
+											id="buttonTournerBasCotyle">rotate_left</span>
 									</div>
 								</div>
 								<div class="row justify-content-center no-gutters">
@@ -656,208 +765,320 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-						<label id="labelOffsetTigeCotyle" class="blackColor"></label>
-						<label id="labelHauteurTigeCotyle" class="blackColor"></label>
+<!--						<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
+<!--						<label id="labelHauteurTigeCotyle" class="blackColor"></label>-->
 						<div class="row" style="margin-top: 2%;">
 							<div class="col-md-6 centered">
-								<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="TERMINER" style="width: 110px;">
+								<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation redHover" data-type="value" data-textid="backText" value="RETOUR" style="width: 110px; float: right;">
 							</div>
 							<div class="col-md-6 centered">
-								<input id="buttonRetourImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="RETOUR" style="width: 110px; float: right;">
+								<input id="buttonValideImplant" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation greenHover" data-type="value" data-textid="finishText" value="TERMINER" style="width: 110px;">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+
+
+
 			<div id="accordeon2" style="width: 350px;">
-					<h3>OPTIONS DIVERS</h3>
-					<div class="couleurArrierePlan" >
-						<div class="row" style="margin: 5% 0%">
-							<div class="col-md-8 centered">
-								<input type="button" id="buttonContrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="CONTRASTE" style="width: 110px;">
-								<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="400" data-slider-step="1" data-slider-value="127.5"/>
-								<input type="button" id="buttonLuminosite" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="LUMINOSITE" style="width: 110px;">
-								<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="255"/>
-								<br><br><br>
-
-
-							</div>
+				<h3>OPTIONS DIVERSES</h3>
+				<div class="couleurArrierePlan">
+					<div class="row no-gutters" style="margin: 5% 0%">
+						<div class="col-1">
+							<!-- <input type="button" id="buttonContrast" class="btn btn-primary" value="LUMINOSITE" style="width: 110px;"> -->
+							<span id="buttonContrast" class="material-icons md-dark md-32">wb_sunny</span>
 						</div>
-						<div class="row">
-							<div class="col-md-2">
-								<img src="images/triangle.JPG" alt="" style="width: 35px;">
-							</div>
-							<div class="col-md-9">
-								<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">
-									<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" style="width: 220px;">MANUEL UTILISATEUR</button>
-								</a>
-							</div>
-							<br>
+						<div class="col offset-1">
+							<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100"
+								   data-slider-max="400" data-slider-step="1" data-slider-value="127.5" />
 						</div>
-						<div class="row" style="margin-top: 20px">
-							<div class="col-md-5">
-								<img src="images/CE.JPG" alt="" style="width: 42px;">
-							</div>
-							<div class="col-md-5">
-								<img src="images/fabricant.JPG" alt="" style="width: 150px;">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 centered">
-								<h5>Année d’obtention du marquage CE : 2017</h5>
-							</div>
-						</div>
-						<div class="row" style="margin: 5% 0%">
-							<div class="col-md-8" id="buttonDessinRapporteur" style="display: none;">
-								<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="ANGLE" style="width: 110px;">
-								<div class="col-md-2">
-									<span id="infoAngle" class="material-icons btnHelp" >help</span>
-								</div>
-							</div>
-							<div class="col-md-1">
-								<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-							</div>
-							<div class="col-md-1">
-								<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-							</div>
-							<div class="col-md-1">
-								<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-							</div>
-						</div>
-						<div class="row" style="margin: 5% 0%" >
-							<div class="col-md-8" id="buttonDessinRegle" style=" display: none;">
-								<input type="button"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover" value="REGLE" style="width: 110px;">
-								<div class="col-md-2">
-									<span id="infoRegle" class="material-icons btnHelp" >help</span>
-								</div>
-							</div>
-							<div class="col-md-1">
-								<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-							</div>
-							<div class="col-md-1">
-								<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-							</div>
-							<div class="col-md-1">
-								<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg" class=" ui-widget ui-state-default ui-corner-all " style="display: none; width: 30px;height: 30px; float: right"></input>
-							</div>
-						</div>
-						<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
 					</div>
-				</div>
-
-
-				<!-- Toolbox -->
-				<div class="toolList" title="Toolbox"></div>
-
-				<!-- History -->
-				<div class="history" title="History"></div>
-
-				<!-- Tags -->
-				<div class="tags" title="Tags"></div>
-
-				<!-- Help -->
-				<div class="help" title="Help"></div>
-
-				<!-- Layer Container -->
-				<div id="dwv-layerDialog" class="layerDialog" title="Image">
-					<div class="dropBox"></div>
-					<div class="layerContainer">
-						<div class="drop" style="z-index: 1">
-							<canvas id="canvasTigeDroit" class="tigeDraggableDroit"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-							<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-							<canvas id="canvasTigeGauche" class="tigeDraggableGauche"  style="position: absolute;"></canvas><!--width=900px height=800px-->
-							<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche"  style="position: absolute; "></canvas><!--width=900px height=800px-->
-							<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible browsers...</canvas><!---->
+					<div class="row no-gutters" style="margin: 5% 0%">
+						<div class="col-1">
+							<!-- <input type="button" id="buttonLuminosite" class="btn btn-primary" value="CONTRASTE" style="width: 110px;"> -->
+							<span id="buttonLuminosite" class="material-icons md-dark md-32">tonality</span>
 						</div>
-						<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
-						<div class="infoLayer">
-							<div class="infotl"></div>
-							<div class="infotr"></div>
-							<div class="infobl"></div>
-							<div class="infobr">
-								<div class="plot"></div>
-							</div>
-						</div><!-- /infoLayer -->
-					</div><!-- /layerContainer -->
-				</div><!-- /layerDialog -->
+						<div class="col offset-1">
+							<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0"
+								   data-slider-max="600" data-slider-step="1" data-slider-value="255" />
+						</div>
+					</div>
+					<div id="rowRapporteur" class="row no-gutters align-items-center"
+						 style="margin: 5% 0%; display: none;">
+						<div class="col-md-5" id="buttonDessinRapporteur">
+							<button type="button" class="btn btn-primary">ANGLE</button>
+						</div>
+						<div class="col-md-2">
+							<span id="infoAngle" class="material-icons btnHelp">help</span>
+						</div>
+						<div class="col-md-1 offset-md-1">
+							<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 8px;">
+							<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 9px;">
+							<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div id="rowRegle" class="row no-gutters align-items-center" style="margin: 5% 0%; display: none;">
+						<div class="col-md-5" id="buttonDessinRegle">
+							<button type="button" class="btn btn-primary">REGLE</button>
+						</div>
+						<div class="col-md-2">
+							<span id="infoRegle" class="material-icons btnHelp">help</span>
+						</div>
+						<div class="col-md-1 offset-md-1">
+							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 8px;">
+							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+						<div class="col-md-1" style="margin-left: 9px;">
+							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg"
+								   class=" ui-widget ui-state-default ui-corner-all "
+								   style="display: none; width: 30px;height: 30px; float: right"></input>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							<img src="images/triangle.JPG" alt="" style="width: 35px;">
+						</div>
+						<div class="col-md-9">
+							<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">
+								<button type="button" class="btn btn-primary" style="width: 220px;">MANUEL
+									UTILISATEUR</button>
+							</a>
+						</div>
+						<br>
+					</div>
+					<div class="row" style="margin-top: 20px">
+						<div class="col-md-5">
+							<img src="images/CE.JPG" alt="" style="width: 42px;">
+						</div>
+						<div class="col-md-5">
+							<img src="images/fabricant.JPG" alt="" style="width: 150px;">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 centered">
+							<h5>Année d’obtention du marquage CE : 2017</h5>
+						</div>
+					</div>
+					<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
+				</div>
+			</div>
 
-			</div><!-- /pageMain -->
+<!--			<div id="accordeon2" style="width: 350px;">-->
+<!--				<div class="couleurArrierePlan">-->
+<!--					<h3 class="textTranslation" data-textid="variousOptionsText">OPTIONS DIVERS</h3>-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<div class="col-md-8 centered smallPaddingBot">-->
+<!--						<input type="button" id="buttonContrast"-->
+<!--							class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="contrastText"-->
+<!--							value="CONTRASTE" style="width: 110px;">-->
+<!--						<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100"-->
+<!--							data-slider-max="400" data-slider-step="1" data-slider-value="127.5" />-->
+<!--						<input type="button" id="buttonLuminosite"-->
+<!--							class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="brightnessText"-->
+<!--							value="LUMINOSITE" style="width: 110px;">-->
+<!--						<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="600"-->
+<!--							data-slider-step="1" data-slider-value="255" />-->
+<!--					</div>-->
+<!--					<div class="row" style="margin: 5% 0%">-->
+<!--						<div class="col-8 row" id="buttonDessinRapporteur" style="display: none;">-->
+<!--							<input type="col-8 button"-->
+<!--								   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="angleText"-->
+<!--								   value="ANGLE" style="width: 110px;">-->
+<!--							<div class="col-md-1">-->
+<!--								<span id="infoAngle" class="material-icons btnHelp">help</span>-->
+<!--							</div>-->
+<!--							<div class="col-1 align-self-end">-->
+<!--								<input id="buttonDeleteRapporteur1" type="image" src="images/delete.jpg"-->
+<!--									   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--									   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--							</div>-->
+<!--							<div class="col-1 align-self-end">-->
+<!--								<input id="buttonDeleteRapporteur2" type="image" src="images/delete.jpg"-->
+<!--									   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--									   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--							</div>-->
+<!--							<div class="col-1 align-self-end">-->
+<!--								<input id="buttonDeleteRapporteur3" type="image" src="images/delete.jpg"-->
+<!--									   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--									   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row smallPaddingBot" style="margin: 5% 0%">-->
+<!--						<div class="col-md-8 row" id="buttonDessinRegle" style=" display: none;">-->
+<!--							<input type="col-md-8 button"-->
+<!--								   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-type="value" data-textid="rulerText"-->
+<!--								   value="REGLE" style="width: 110px;">-->
+<!--							<div class="col-md-2">-->
+<!--								<span id="infoRegle" class="material-icons btnHelp">help</span>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-md-1">-->
+<!--							<input id="buttonDeleteRegle1" type="image" src="images/delete.jpg"-->
+<!--								   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--								   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--						</div>-->
+<!--						<div class="col-md-1">-->
+<!--							<input id="buttonDeleteRegle2" type="image" src="images/delete.jpg"-->
+<!--								   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--								   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--						</div>-->
+<!--						<div class="col-md-1">-->
+<!--							<input id="buttonDeleteRegle3" type="image" src="images/delete.jpg"-->
+<!--								   class=" ui-widget ui-state-default ui-corner-all "-->
+<!--								   style="display: none; width: 30px;height: 30px; float: right"></input>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row">-->
+<!--						<div class="col-md-2">-->
+<!--							<img src="images/triangle.JPG" alt="" style="width: 35px;">-->
+<!--						</div>-->
+<!--						<div class="col-md-9">-->
+<!--							<a href="Manuel Utilisateur Dedienne.pdf" target="_blank">-->
+<!--								<button type="button"-->
+<!--									class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btnHover textTranslation" data-textid="userManualText"-->
+<!--									style="width: 220px;">MANUEL UTILISATEUR-->
+<!--								</button>-->
+<!--							</a>-->
+<!--						</div>-->
+<!--						<br>-->
+<!--					</div>-->
+<!--					<div class="row" style="margin-top: 20px">-->
+<!--						<div class="col-md-5">-->
+<!--							<img src="images/CE.JPG" alt="" style="width: 42px;">-->
+<!--						</div>-->
+<!--						<div class="col-md-5">-->
+<!--							<img src="images/fabricant.JPG" alt="" style="width: 150px;">-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row">-->
+<!--						<div class="col-md-12 centered">-->
+<!--							<h5 class="textTranslation" data-textid="ceMarkText">Année d’obtention du marquage CE : 2017</h5>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--					&lt;!&ndash;<label id="labelOffsetTigeCotyle" class="blackColor"></label>&ndash;&gt;-->
+<!--				</div>-->
+<!--			</div>-->
+		</div>
+	</div>
 
-		</div><!-- /dwv -->
+	<!-- Toolbox -->
+	<div class="toolList" title="Toolbox"></div>
 
-	</body>
-  <script>
-  	$("#accordeon").accordion({heightStyle: 'panel'});
-	$("#accordeon2").accordion({heightStyle: 'panel'});
+	<!-- History -->
+	<div class="history" title="History"></div>
+
+	<!-- Tags -->
+	<div class="tags" title="Tags"></div>
+
+	<!-- Help -->
+	<div class="help" title="Help"></div>
+
+	<!-- Layer Container -->
+	<div id="dwv-layerDialog" class="layerDialog textTranslation" data-textid="imgText" data-type="title" title="Image">
+		<div class="dropBox"></div>
+		<div class="layerContainer">
+			<div class="drop" style="z-index: 1">
+				<canvas id="canvasTigeDroit" class="tigeDraggableDroit" style="position: absolute;"></canvas><!--width=900px height=800px-->
+				<canvas id="canvasCotyleDroit" class="cotyleDraggableDroit" style="position: absolute; "></canvas><!--width=900px height=800px-->
+				<canvas id="canvasTigeGauche" class="tigeDraggableGauche" style="position: absolute;"></canvas><!--width=900px height=800px-->
+				<canvas id="canvasCotyleGauche" class="cotyleDraggableGauche" style="position: absolute; "></canvas><!--width=900px height=800px-->
+				<canvas id="dwv-imageLayer" class="imageLayer" style="z-index:10">Only for HTML5 compatible
+					browsers...</canvas>
+				<!---->
+			</div>
+			<div id="dwv-drawDiv" class="drawDiv" style="z-index:20"></div>
+			<div class="infoLayer">
+				<div class="infotl whiteColor"></div>
+				<div class="infotr whiteColor"></div>
+				<div class="infobl whiteColor"></div>
+				<div class="infobr whiteColor">
+					<div class="plot"></div>
+				</div>
+			</div><!-- /infoLayer -->
+			<div class="col" id="offsetHauteurTC">
+				<label id="labelOffsetTigeCotyle" class="whiteColor"></label>
+				<label id="labelHauteurTigeCotyle" class="whiteColor"></label>
+			</div>
+		</div><!-- /layerContainer -->
+	</div><!-- /layerDialog -->
+
+	</div><!-- /pageMain -->
+
+	</div><!-- /dwv -->
+
+</body>
+<script>
+	$("#accordeon").accordion({ heightStyle: 'panel' });
+	$("#accordeon2").accordion({ heightStyle: 'panel' });
 	$('#infoTrapeze').qtip(
-			{
-				content: $('<iframe src="images/infoTrapeze.gif" ' + ' height="262" width="320" frameborder="0" ></iframe>'),
-			});
+		{
+			content: $('<iframe src="images/infoTrapeze.gif" ' + ' height="262" width="320" frameborder="0" ></iframe>'),
+		});
 	$('#infoCercle').qtip(
-			{
-				content: $('<iframe src="images/infoCercle.gif" ' + ' height="260" width="320" frameborder="0" ></iframe>'),
+		{
+			content: $('<iframe src="images/infoCercle.gif" ' + ' height="260" width="320" frameborder="0" ></iframe>'),
 			/*	hide: {
 				 event: 'unfocus'
 				 }*/
-			});
+		});
 	$('#infoPetitTroch').qtip(
-			{
-				content: $('<iframe src="images/infoPetitTroch.gif" ' + ' height="262" width="320" frameborder="0"></iframe>'),
-			});
+		{
+			content: $('<iframe src="images/infoPetitTroch.gif" ' + ' height="262" width="320" frameborder="0"></iframe>'),
+		});
 	$('#infoCalibrage').qtip(
-			{
-				content: $('<iframe src="images/infoCalibrage.gif" ' + ' height="246" width="320" frameborder="0"></iframe>'),
-			});
+		{
+			content: $('<iframe src="images/infoCalibrage.gif" ' + ' height="246" width="320" frameborder="0"></iframe>'),
+		});
 	$('#infoAngle').qtip(
-			{
-				content: $('<iframe src="images/infoAngle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
-				position: {
-					my: 'bottom left',  // Position my top left...
-					at: 'right top', // at the bottom right of...
-					target: $('#infoAngle') // my target
-				}
-			});
+		{
+			content: $('<iframe src="images/infoAngle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+			position: {
+				my: 'bottom left',  // Position my top left...
+				at: 'right top', // at the bottom right of...
+				target: $('#infoAngle') // my target
+			}
+		});
 	$('#infoRegle').qtip(
-			{
-				content: $('<iframe src="images/infoRegle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
-				position: {
-					my: 'bottom left',  // Position my top left...
-					at: 'right top', // at the bottom right of...
-					target: $('#infoRegle') // my target
-				}
-			});
+		{
+			content: $('<iframe src="images/infoRegle.gif" ' + ' height="248" width="320" frameborder="0"></iframe>'),
+			position: {
+				my: 'bottom left',  // Position my top left...
+				at: 'right top', // at the bottom right of...
+				target: $('#infoRegle') // my target
+			}
+		});
 
-	$(document).ready(function(){
-		$( "#infoTrapeze" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
-		$( "#infoCercle" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
-		$( "#infoPetitTroch" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
-		$( "#infoCalibrage" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
-		$( "#infoRegle" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
-		$( "#infoAngle" ).removeClass( "ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" );
+	$(document).ready(function () {
+		$("#infoTrapeze").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
+		$("#infoCercle").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
+		$("#infoPetitTroch").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
+		$("#infoCalibrage").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
+		$("#infoRegle").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
+		$("#infoAngle").removeClass("ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only");
 	});
-       
-  </script>
+</script>
+<script type="text/javascript" src="js/textTranslationManager.js"></script>
+
 </html>

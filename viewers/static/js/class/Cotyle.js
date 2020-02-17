@@ -342,18 +342,29 @@ Cotyle.prototype.Descendre = function() {
 	context.strokeStyle = "rgb(200,150,10)";
 //	context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 50, 40);
 };
-
+const rotationAngleCotyle = 0.0174532925; //Etait à l'origine calculé ainsi : (1*2*Math.PI)/360;
 Cotyle.prototype.TournerHaut = function() {
-	this.m_Orientation+=(1*2*Math.PI)/360;
+	this.m_Orientation += rotationAngleCotyle;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
-	this.m_deltaRotation+=(1*2*Math.PI)/360;
+	this.m_deltaRotation += rotationAngleCotyle;
 };
 
 Cotyle.prototype.TournerBas = function() {
-	this.m_Orientation-=(1*2*Math.PI)/360;
+	this.m_Orientation -= rotationAngleCotyle;
 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
-	this.m_deltaRotation-=(1*2*Math.PI)/360;
+	this.m_deltaRotation -= rotationAngleCotyle;
 };
+// Cotyle.prototype.TournerHaut = function() {
+// 	this.m_Orientation+=(1*2*Math.PI)/360;
+// 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
+// 	this.m_deltaRotation+=(1*2*Math.PI)/360;
+// };
+//
+// Cotyle.prototype.TournerBas = function() {
+// 	this.m_Orientation-=(1*2*Math.PI)/360;
+// 	this.m_coeffDirecteur=Math.tan(this.m_angle+this.m_Orientation);
+// 	this.m_deltaRotation-=(1*2*Math.PI)/360;
+// };
 
 Cotyle.prototype.MouvementDroit = function() {
 	var coeffBille = sessionStorage.getItem("coefficient");
