@@ -22,7 +22,7 @@
 const lang = getLanguage();
 function getLanguage(){
     const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez simplement ce qui apparait dans l'URL de la page en se connectant avec la langue ciblée. (/en/ deviens donc "en")
-        urlLanguage =  (window.location.pathname.split('/')[1].toLowerCase());
+        urlLanguage =  (parent.location.pathname.split('/')[1].toLowerCase());
     return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "fr"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
 }
 const translatedTexts = {
