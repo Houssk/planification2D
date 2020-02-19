@@ -1609,8 +1609,8 @@ $(document).ready(function () {
 				document.getElementById("buttonDeletePetitTroch").style.display = "none";
 				document.getElementById("buttonDeleteCercle").style.display = "none";
 				document.getElementById("buttonDeleteTrapeze").style.display = "none";
-				document.getElementById("buttonDessinRegle").style.display="none";
-				document.getElementById("buttonDessinRapporteur").style.display="none";
+				document.getElementById("rowRapporteur").style.display="none";
+				document.getElementById("rowRegle").style.display="none";
                 document.getElementById("buttonDeleteRegle1").style.display="none";
                 document.getElementById("buttonDeleteRegle2").style.display="none";
                 document.getElementById("buttonDeleteRegle3").style.display="none";
