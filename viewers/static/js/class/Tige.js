@@ -207,6 +207,9 @@ Tige.prototype.GetDeltaDeplacementY = function() {
 Tige.prototype.GetTaille = function() {
 	return this.m_Taille;
 };
+Tige.prototype.SetTaille = function(taille) {
+	this.m_Taille = taille;
+};
 
 /**
 *Cette fonction permet de snaper la tige sur le trapèze correspondant
