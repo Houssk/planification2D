@@ -15,10 +15,11 @@
 //Pour appeler la traduction dans un script (Pour une pop up swal par exemple), il faut simplement remplacer le texte par ( translatedTexts["nomDeLaTraduction"][lang] ).
 //Exemple complet : if(trapezePosition===null){ swal( translatedTexts["pleaseDrawText"][lang] ); }
 
-const lang = getLanguage();
+const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez simplement ce qui apparait dans l'URL de la page en se connectant avec la langue ciblée. (/en/ deviens donc "en")
+      urlLanguage =  (parent.location.pathname.split('/')[1].toLowerCase()),
+      lang = getLanguage()
+;
 function getLanguage(){
-    const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez simplement ce qui apparait dans l'URL de la page en se connectant avec la langue ciblée. (/en/ deviens donc "en")
-        urlLanguage =  (parent.location.pathname.split('/')[1].toLowerCase());
     return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "fr"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
 }
 const translatedTexts = {
