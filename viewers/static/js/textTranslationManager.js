@@ -18,7 +18,7 @@
 //             textTranslation" data-textid="UNTRANSLATED
 //             textTranslation" data-textid="UNTRANSLATED" data-type="placeholder value
 
-
+console.log("Translation starts... ... ...");
 const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez simplement ce qui apparait dans l'URL de la page en se connectant avec la langue ciblée. (/en/ deviens donc "en")
     urlLanguage =  (parent.location.pathname.split('/')[1].toLowerCase()),
     lang = getLanguage()

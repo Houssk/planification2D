@@ -39,7 +39,6 @@ function Tige(ID, Nom, Url, OffsetX, tigeWidthPx, tigeWidthCm, tigeHeightPx, tig
 	this.m_ptMecaHaut={'x': ptMecaHautXPx, 'y' : ptMecaHautYPx};
 	this.m_PositionPtMeca={'x' : null, 'y' : null};
 	this.m_Taille=Taille;
-	console.log(Nom);
 }
 
 /**
@@ -374,12 +373,6 @@ Tige.prototype.Snap = function(imageWidth, imageHeight, patient, deltaDeplacemen
 	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacement)*dicomCanvas.height)/dicomHeight;
 	this.m_PositionAvtOffset.x+=((this.m_deltaDeplacementX)*dicomCanvas.width)/dicomWidth;
 	this.m_PositionAvtOffset.y+=((this.m_deltaDeplacementY)*dicomCanvas.height)/dicomHeight;
-
-	//context.strokeRect(this.m_PositionPtMeca.x,this.m_PositionPtMeca.y, 20, 80);
-
-
-
-
 };
 
 Tige.prototype.Placement = function(imageWidth, imageHeight, position, orientation) {

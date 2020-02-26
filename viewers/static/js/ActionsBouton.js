@@ -2301,8 +2301,6 @@ $(document).ready(function () {
 
 				} else {
 					var canvasCotyle = document.getElementById("canvasCotyleGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
@@ -2344,8 +2342,6 @@ $(document).ready(function () {
 
 				} else {
 					var canvasCotyle = document.getElementById("canvasCotyleGauche");
-					//var m_canvasWidth=900;
-					//var m_canvasHeight=800;
 					canvasCotyle.width=m_canvasWidth;
 					canvasCotyle.height=m_canvasHeight;
 					canvasCotyle.style.zIndex = "26";
