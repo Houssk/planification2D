@@ -23,6 +23,8 @@ const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez sim
     urlLanguage =  (parent.location.pathname.split('/')[1].toLowerCase()),
     lang = getLanguage()
 ;
+console.log("converted URL part : " + urlLanguage);
+console.log("const lang : " + lang);
 function getLanguage(){
     return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "fr"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
 }
