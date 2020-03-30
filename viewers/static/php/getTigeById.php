@@ -14,7 +14,7 @@
 	// Sinon si on a un GET on récupère les données de l'id définit dans le GET
 	$query = "SELECT * FROM ".$table." WHERE id=".$id."";
 	$result = mysql_query($query, $dblink) or die (mysql_error($dblink));
-	
+	var_dump($dblink);
 	// On boucle sur le résultat
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	    echo "<id>" . $row[0] . "</id>\n";

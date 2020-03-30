@@ -37,7 +37,7 @@ function getTige(table, id) {
 			xhr = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 	}
-
+   console.log(xhr);
 	xhr.open("GET", 'php/getTigeById.php?idTige='+id+'&tableTige='+table+'', false);
     xhr.send(null);
     xhr.responseText;
