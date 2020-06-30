@@ -144,8 +144,8 @@ $(document).ready(function () {
 			hauteur = Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 		}
 		$('.alert').show();
-		document.getElementById('labelOffsetTigeCotyle').innerHTML = "offset = "+offset+" mm";
-		document.getElementById('labelHauteurTigeCotyle').innerHTML = "Hauteur = "+hauteur+" mm";
+		document.getElementById('labelOffsetTigeCotyle').innerHTML = translatedTexts["pdfTextOffset"][lang] +offset+" mm";
+		document.getElementById('labelHauteurTigeCotyle').innerHTML = translatedTexts["pdfTextHeight"][lang] +hauteur+" mm";
 		document.getElementById('labelOffsetTigeCotyle').style.color="#f00";
 		document.getElementById('labelHauteurTigeCotyle').style.color="#f00";
 		clickTimeout = setTimeout(function(){
