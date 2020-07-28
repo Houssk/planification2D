@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 11 juin 2019 à 11:24
--- Version du serveur :  5.7.19
--- Version de PHP :  5.6.31
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jul 28, 2020 at 03:25 PM
+-- Server version: 5.7.24
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,12 +19,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `planif2d_serf`
+-- Database: `planif2d_serf`
 --
 
 DELIMITER $$
 --
--- Procédures
+-- Procedures
 --
 DROP PROCEDURE IF EXISTS `cotyle_hype_loop`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cotyle_hype_loop` (IN `max` INT, IN `min` INT)  NO SQL
@@ -45,7 +45,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyles`
+-- Table structure for table `cotyles`
 --
 
 DROP TABLE IF EXISTS `cotyles`;
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `cotyles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyles`
+-- Dumping data for table `cotyles`
 --
 
 INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
@@ -161,7 +161,7 @@ INSERT INTO `cotyles` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyle_coptos_th`
+-- Table structure for table `cotyle_coptos_th`
 --
 
 DROP TABLE IF EXISTS `cotyle_coptos_th`;
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_coptos_th` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyle_coptos_th`
+-- Dumping data for table `cotyle_coptos_th`
 --
 
 INSERT INTO `cotyle_coptos_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -210,7 +210,7 @@ INSERT INTO `cotyle_coptos_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyle_hype`
+-- Table structure for table `cotyle_hype`
 --
 
 DROP TABLE IF EXISTS `cotyle_hype`;
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_hype` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyle_hype`
+-- Dumping data for table `cotyle_hype`
 --
 
 INSERT INTO `cotyle_hype` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -257,7 +257,7 @@ INSERT INTO `cotyle_hype` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `Size
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyle_novae`
+-- Table structure for table `cotyle_novae`
 --
 
 DROP TABLE IF EXISTS `cotyle_novae`;
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_novae` (
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyle_novae`
+-- Dumping data for table `cotyle_novae`
 --
 
 INSERT INTO `cotyle_novae` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`) VALUES
@@ -317,7 +317,7 @@ INSERT INTO `cotyle_novae` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `Siz
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyle_novae_e_th`
+-- Table structure for table `cotyle_novae_e_th`
 --
 
 DROP TABLE IF EXISTS `cotyle_novae_e_th`;
@@ -336,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_novae_e_th` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyle_novae_e_th`
+-- Dumping data for table `cotyle_novae_e_th`
 --
 
 INSERT INTO `cotyle_novae_e_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -366,7 +366,7 @@ INSERT INTO `cotyle_novae_e_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyle_stick`
+-- Table structure for table `cotyle_stick`
 --
 
 DROP TABLE IF EXISTS `cotyle_stick`;
@@ -385,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_stick` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyle_stick`
+-- Dumping data for table `cotyle_stick`
 --
 
 INSERT INTO `cotyle_stick` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -415,7 +415,7 @@ INSERT INTO `cotyle_stick` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `Siz
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cotyle_sunfit_th`
+-- Table structure for table `cotyle_sunfit_th`
 --
 
 DROP TABLE IF EXISTS `cotyle_sunfit_th`;
@@ -434,7 +434,7 @@ CREATE TABLE IF NOT EXISTS `cotyle_sunfit_th` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cotyle_sunfit_th`
+-- Dumping data for table `cotyle_sunfit_th`
 --
 
 INSERT INTO `cotyle_sunfit_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, `SizeXCm`, `SizeYCm`, `PosCenterX`, `PosCenterY`, `taille`) VALUES
@@ -466,7 +466,7 @@ INSERT INTO `cotyle_sunfit_th` (`ID`, `Nom`, `URL`, `SizeXPixel`, `SizeYPixel`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant`
+-- Table structure for table `implant`
 --
 
 DROP TABLE IF EXISTS `implant`;
@@ -495,7 +495,7 @@ CREATE TABLE IF NOT EXISTS `implant` (
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant`
+-- Dumping data for table `implant`
 --
 
 INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
@@ -647,14 +647,14 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_acl_cim_lat`
+-- Table structure for table `implant_acl_cim_lat`
 --
 
 DROP TABLE IF EXISTS `implant_acl_cim_lat`;
 CREATE TABLE IF NOT EXISTS `implant_acl_cim_lat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -673,42 +673,42 @@ CREATE TABLE IF NOT EXISTS `implant_acl_cim_lat` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_acl_cim_lat`
+-- Dumping data for table `implant_acl_cim_lat`
 --
 
 INSERT INTO `implant_acl_cim_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype ACL A cimenter Latéralisée-T2', 'images/hype_acl_T2.png', 683, 5.78, 1798, 15.22, 0, 0, 0, 0, 0, 0, 0, 0, 274.5, -256.5, 812, 0, 0, 2),
-(2, 'Hype ACL A cimenter Latéralisée-T3', 'images/hype_acl_T3.png', 706, 5.98, 1921, 16.26, 0, 0, 0, 0, 0, 0, 0, 0, 276, -268, 873.5, 0, 0, 3),
-(3, 'Hype ACL A cimenter Latéralisée-T4', 'images/hype_acl_T4.png', 725, 6.14, 1976, 16.73, 0, 0, 0, 0, 0, 0, 0, 0, 277.5, -276.5, 900, 0, 0, 4),
-(4, 'Hype ACL A cimenter Latéralisée-T5', 'images/hype_acl_T5.png', 744, 6.3, 2038, 17.26, 0, 0, 0, 0, 0, 0, 0, 0, 280, -287, 932, 0, 0, 5),
-(5, 'Hype ACL A cimenter Latéralisée-T6', 'images/hype_acl_T6.png', 764, 6.47, 2085, 17.65, 0, 0, 0, 0, 0, 0, 0, 0, 283, -297, 957.5, 0, 0, 6),
-(6, 'Hype ACL A cimenter Latéralisée-T7', 'images/hype_acl_T7.png', 782, 6.62, 2138, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 285, -305, 982, 0, 0, 7),
-(7, 'Hype ACL A cimenter Latéralisée-T8', 'images/hype_acl_T8.png', 802, 6.79, 2203, 18.65, 0, 0, 0, 0, 0, 0, 0, 0, 287, -315, 1014.5, 0, 0, 8),
-(8, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9.png', 822, 6.96, 2274, 19.25, 0, 0, 0, 0, 0, 0, 0, 0, 289, -323, 1049, 0, 0, 9),
-(9, 'Hype ACL A cimenter Latéralisée-T2', 'images/hype_acl_T2_R.png', 683, 5.78, 1798, 15.22, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 256.5, 812, 0, 0, 2),
-(10, 'Hype ACL A cimenter Latéralisée-T3', 'images/hype_acl_T3_R.png', 706, 5.98, 1921, 16.26, 0, 0, 0, 0, 0, 0, 0, 0, -276, 268, 873.5, 0, 0, 3),
-(11, 'Hype ACL A cimenter Latéralisée-T4', 'images/hype_acl_T4_R.png', 725, 6.14, 1976, 16.73, 0, 0, 0, 0, 0, 0, 0, 0, -277.5, 276.5, 900, 0, 0, 4),
-(12, 'Hype ACL A cimenter Latéralisée-T5', 'images/hype_acl_T5_R.png', 744, 6.3, 2038, 17.26, 0, 0, 0, 0, 0, 0, 0, 0, -280, 287, 932, 0, 0, 5),
-(13, 'Hype ACL A cimenter Latéralisée-T6', 'images/hype_acl_T6_R.png', 764, 6.47, 2085, 17.65, 0, 0, 0, 0, 0, 0, 0, 0, -283, 297, 957.5, 0, 0, 6),
-(14, 'Hype ACL A cimenter Latéralisée-T7', 'images/hype_acl_T7_R.png', 782, 6.62, 2138, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -285, 305, 982, 0, 0, 7),
-(15, 'Hype ACL A cimenter Latéralisée-T8', 'images/hype_acl_T8_R.png', 802, 6.79, 2203, 18.65, 0, 0, 0, 0, 0, 0, 0, 0, -287, 315, 1014.5, 0, 0, 8),
-(16, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9_R.png', 822, 6.96, 2274, 19.25, 0, 0, 0, 0, 0, 0, 0, 0, -289, 323, 1049, 0, 0, 9);
+(1, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T2', 'images/hype_acl_T2.png', 231, 5.87, 598, 15.19, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 270, 0, 0, 2),
+(2, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T3', 'images/hype_acl_T3.png', 239, 6.07, 636, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 289, 0, 0, 3),
+(3, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T4', 'images/hype_acl_T4.png', 246, 6.25, 673, 17.09, 0, 0, 0, 0, 0, 0, 0, 0, 90, -95, 307.5, 0, 0, 4),
+(4, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T5', 'images/hype_acl_T5.png', 252, 6.4, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 312.5, 0, 0, 5),
+(5, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T6', 'images/hype_acl_T6.png', 259, 6.58, 709, 18.01, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 325.5, 0, 0, 6),
+(6, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T7', 'images/hype_acl_T7.png', 266, 6.76, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 335, 0, 0, 7),
+(7, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T8', 'images/hype_acl_T8.png', 272, 6.91, 743, 18.87, 0, 0, 0, 0, 0, 0, 0, 0, 93, -108, 342.5, 0, 0, 8),
+(8, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T9', 'images/hype_acl_T9.png', 278, 7.06, 775, 19.68, 0, 0, 0, 0, 0, 0, 0, 0, 94, -111, 358.5, 0, 0, 9),
+(9, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T2', 'images/hype_acl_T2_R.png', 231, 5.87, 598, 15.19, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 270, 0, 0, 2),
+(10, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T3', 'images/hype_acl_T3_R.png', 239, 6.07, 636, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 289, 0, 0, 3),
+(11, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T4', 'images/hype_acl_T4_R.png', 246, 6.25, 673, 17.09, 0, 0, 0, 0, 0, 0, 0, 0, -90, 96, 307.5, 0, 0, 4),
+(12, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T5', 'images/hype_acl_T5_R.png', 252, 6.4, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 312.5, 0, 0, 5),
+(13, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T6', 'images/hype_acl_T6_R.png', 259, 6.58, 709, 18.01, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 325.5, 0, 0, 6),
+(14, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T7', 'images/hype_acl_T7_R.png', 266, 6.76, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 335, 0, 0, 7),
+(15, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T8', 'images/hype_acl_T8_R.png', 272, 6.91, 743, 18.87, 0, 0, 0, 0, 0, 0, 0, 0, -93, 108, 342.5, 0, 0, 8),
+(16, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T9', 'images/hype_acl_T9_R.png', 278, 7.06, 775, 19.68, 0, 0, 0, 0, 0, 0, 0, 0, -94, 112, 358.5, 0, 0, 9);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_acs_cim_std`
+-- Table structure for table `implant_acs_cim_std`
 --
 
 DROP TABLE IF EXISTS `implant_acs_cim_std`;
 CREATE TABLE IF NOT EXISTS `implant_acs_cim_std` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -727,41 +727,41 @@ CREATE TABLE IF NOT EXISTS `implant_acs_cim_std` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_acs_cim_std`
+-- Dumping data for table `implant_acs_cim_std`
 --
 
 INSERT INTO `implant_acs_cim_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype ACS A cimenter Standard-T1', 'images/hype_acs_T1.png', 597, 5.05, 1727, 14.62, 0, 0, 0, 0, 0, 0, 0, 0, 235.5, -212.5, 776.5, 0, 0, 1),
-(2, 'Hype ACS A cimenter Standard-T2', 'images/hype_acs_T2.png', 613, 5.19, 1790, 15.16, 0, 0, 0, 0, 0, 0, 0, 0, 239.5, -221.5, 809, 0, 0, 2),
-(3, 'Hype ACS A cimenter Standard-T3', 'images/hype_acs_T3.png', 634, 5.37, 1907, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, 240, -232, 866.5, 0, 0, 3),
-(4, 'Hype ACS A cimenter Standard-T4', 'images/hype_acs_T4.png', 654, 5.54, 1968, 16.66, 0, 0, 0, 0, 0, 0, 0, 0, 242, -242, 897, 0, 0, 4),
-(5, 'Hype ACS A cimenter Standard-T5', 'images/hype_acs_T5.png', 673, 5.7, 2029, 17.18, 0, 0, 0, 0, 0, 0, 0, 0, 244.5, -251.5, 927.5, 0, 0, 5),
-(6, 'Hype ACS A cimenter Standard-T6', 'images/hype_acs_T6.png', 692, 5.86, 2090, 17.7, 0, 0, 0, 0, 0, 0, 0, 0, 247, -261, 958, 0, 0, 6),
-(7, 'Hype ACS A cimenter Standard-T7', 'images/hype_acs_T7.png', 711, 6.02, 2151, 18.21, 0, 0, 0, 0, 0, 0, 0, 0, 249.5, -270.5, 988.5, 0, 0, 7),
-(8, 'Hype ACS A cimenter Standard-T8', 'images/hype_acs_T8.png', 731, 6.19, 2213, 18.74, 0, 0, 0, 0, 0, 0, 0, 0, 250.5, -280.5, 1019.5, 0, 0, 8),
-(9, 'Hype ACS A cimenter Standard-T9', 'images/hype_acs_T9.png', 749, 6.34, 2271, 19.23, 0, 0, 0, 0, 0, 0, 0, 0, 253.5, -289.5, 1048.5, 0, 0, 9),
-(10, 'Hype ACS A cimenter Standard-T10', 'images/hype_acs_T10.png', 767, 6.49, 2337, 19.79, 0, 0, 0, 0, 0, 0, 0, 0, 256.5, -298.5, 1081.5, 0, 0, 10),
-(11, 'Hype ACS A cimenter Standard-T11', 'images/hype_acs_T11.png', 779, 6.6, 2403, 20.35, 0, 0, 0, 0, 0, 0, 0, 0, 262.5, -304.5, 1114.5, 0, 0, 11),
-(12, 'Hype ACS A cimenter Standard-T1', 'images/hype_acs_T1_R.png', 597, 5.05, 1727, 14.62, 0, 0, 0, 0, 0, 0, 0, 0, -235.5, 212.5, 776.5, 0, 0, 1),
-(13, 'Hype ACS A cimenter Standard-T2', 'images/hype_acs_T2_R.png', 613, 5.19, 1790, 15.16, 0, 0, 0, 0, 0, 0, 0, 0, -239.5, 221.5, 809, 0, 0, 2),
-(14, 'Hype ACS A cimenter Standard-T3', 'images/hype_acs_T3_R.png', 634, 5.37, 1907, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, -240, 232, 866.5, 0, 0, 3),
-(15, 'Hype ACS A cimenter Standard-T4', 'images/hype_acs_T4_R.png', 654, 5.54, 1968, 16.66, 0, 0, 0, 0, 0, 0, 0, 0, -242, 242, 897, 0, 0, 4),
-(16, 'Hype ACS A cimenter Standard-T5', 'images/hype_acs_T5_R.png', 673, 5.7, 2029, 17.18, 0, 0, 0, 0, 0, 0, 0, 0, -244.5, 251.5, 927.5, 0, 0, 5),
-(17, 'Hype ACS A cimenter Standard-T6', 'images/hype_acs_T6_R.png', 692, 5.86, 2090, 17.7, 0, 0, 0, 0, 0, 0, 0, 0, -247, 261, 958, 0, 0, 6),
-(18, 'Hype ACS A cimenter Standard-T7', 'images/hype_acs_T7_R.png', 711, 6.02, 2151, 18.21, 0, 0, 0, 0, 0, 0, 0, 0, -249.5, 270.5, 988.5, 0, 0, 7),
-(19, 'Hype ACS A cimenter Standard-T8', 'images/hype_acs_T8_R.png', 731, 6.19, 2213, 18.74, 0, 0, 0, 0, 0, 0, 0, 0, -250.5, 280.5, 1019.5, 0, 0, 8),
-(20, 'Hype ACS A cimenter Standard-T9', 'images/hype_acs_T9_R.png', 749, 6.34, 2271, 19.23, 0, 0, 0, 0, 0, 0, 0, 0, -253.5, 289.5, 1048.5, 0, 0, 9),
-(21, 'Hype ACS A cimenter Standard-T10', 'images/hype_acs_T10_R.png', 767, 6.49, 2337, 19.79, 0, 0, 0, 0, 0, 0, 0, 0, -256.5, 298.5, 1081.5, 0, 0, 10),
-(22, 'Hype ACS A cimenter Standard-T11', 'images/hype_acs_T11_R.png', 779, 6.6, 2403, 20.35, 0, 0, 0, 0, 0, 0, 0, 0, -262.5, 304.5, 1114.5, 0, 0, 11);
+(1, 'Hype ACS A cimenter Standard-T1', 'images/hype_acs_T1.png', 202, 5.13, 584, 14.83, 0, 0, 0, 0, 0, 0, 0, 0, 76, -73, 263, 0, 0, 1),
+(2, 'Hype ACS A cimenter Standard-T2', 'images/hype_acs_T2.png', 208, 5.28, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, 78, -76, 273, 0, 0, 2),
+(3, 'Hype ACS A cimenter Standard-T3', 'images/hype_acs_T3.png', 216, 5.49, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, 78, -80, 294.5, 0, 0, 3),
+(4, 'Hype ACS A cimenter Standard-T4', 'images/hype_acs_T4.png', 222, 5.64, 663, 16.84, 0, 0, 0, 0, 0, 0, 0, 0, 79, -83, 302.5, 0, 0, 4),
+(5, 'Hype ACS A cimenter Standard-T5', 'images/hype_acs_T5.png', 228, 5.79, 680, 17.27, 0, 0, 0, 0, 0, 0, 0, 0, 79, -86, 311, 0, 0, 5),
+(6, 'Hype ACS A cimenter Standard-T6', 'images/hype_acs_T6.png', 235, 5.97, 707, 17.96, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -89.5, 324.5, 0, 0, 6),
+(7, 'Hype ACS A cimenter Standard-T7', 'images/hype_acs_T7.png', 242, 6.15, 741, 18.82, 0, 0, 0, 0, 0, 0, 0, 0, 80, -93, 341.5, 0, 0, 7),
+(8, 'Hype ACS A cimenter Standard-T8', 'images/hype_acs_T8.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 81, -96, 345, 0, 0, 8),
+(9, 'Hype ACS A cimenter Standard-T9', 'images/hype_acs_T9.png', 255, 6.48, 764, 19.41, 0, 0, 0, 0, 0, 0, 0, 0, 82.5, -99.5, 353, 0, 0, 9),
+(10, 'Hype ACS A cimenter Standard-T10', 'images/hype_acs_T10.png', 261, 6.63, 794, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, 83.5, -102.5, 368, 0, 0, 10),
+(11, 'Hype ACS A cimenter Standard-T11', 'images/hype_acs_T11.png', 265, 6.73, 829, 21.06, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -104.5, 385.5, 0, 0, 11),
+(12, 'Hype ACS A cimenter Standard-T1', 'images/hype_acs_T1_R.png', 202, 5.13, 584, 14.83, 0, 0, 0, 0, 0, 0, 0, 0, -76, 73, 263, 0, 0, 1),
+(13, 'Hype ACS A cimenter Standard-T2', 'images/hype_acs_T2_R.png', 208, 5.28, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, -78, 70, 273, 0, 0, 2),
+(14, 'Hype ACS A cimenter Standard-T3', 'images/hype_acs_T3_R.png', 216, 5.49, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, -78, 72, 294.5, 0, 0, 3),
+(15, 'Hype ACS A cimenter Standard-T4', 'images/hype_acs_T4_R.png', 222, 5.64, 663, 16.84, 0, 0, 0, 0, 0, 0, 0, 0, -79, 77, 302.5, 0, 0, 4),
+(16, 'Hype ACS A cimenter Standard-T5', 'images/hype_acs_T5_R.png', 228, 5.79, 680, 17.27, 0, 0, 0, 0, 0, 0, 0, 0, -79, 81, 311, 0, 0, 5),
+(17, 'Hype ACS A cimenter Standard-T6', 'images/hype_acs_T6_R.png', 235, 5.97, 707, 17.96, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 90.5, 324.5, 0, 0, 6),
+(18, 'Hype ACS A cimenter Standard-T7', 'images/hype_acs_T7_R.png', 242, 6.15, 741, 18.82, 0, 0, 0, 0, 0, 0, 0, 0, -80, 94, 341.5, 0, 0, 7),
+(19, 'Hype ACS A cimenter Standard-T8', 'images/hype_acs_T8_R.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -81, 96, 345, 0, 0, 8),
+(20, 'Hype ACS A cimenter Standard-T9', 'images/hype_acs_T9_R.png', 255, 6.48, 764, 19.41, 0, 0, 0, 0, 0, 0, 0, 0, -82.5, 100.5, 353, 0, 0, 9),
+(21, 'Hype ACS A cimenter Standard-T10', 'images/hype_acs_T10_R.png', 261, 6.63, 794, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, -83.5, 102.5, 368, 0, 0, 10),
+(22, 'Hype ACS A cimenter Standard-T11', 'images/hype_acs_T11_R.png', 265, 6.73, 829, 21.06, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 105.5, 385.5, 0, 0, 11);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_cim_offset`
+-- Table structure for table `implant_cim_offset`
 --
 
 DROP TABLE IF EXISTS `implant_cim_offset`;
@@ -791,7 +791,7 @@ CREATE TABLE IF NOT EXISTS `implant_cim_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_cim_offset`
+-- Dumping data for table `implant_cim_offset`
 --
 
 INSERT INTO `implant_cim_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -815,7 +815,7 @@ INSERT INTO `implant_cim_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_cim_std_appui`
+-- Table structure for table `implant_cim_std_appui`
 --
 
 DROP TABLE IF EXISTS `implant_cim_std_appui`;
@@ -845,7 +845,7 @@ CREATE TABLE IF NOT EXISTS `implant_cim_std_appui` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_cim_std_appui`
+-- Dumping data for table `implant_cim_std_appui`
 --
 
 INSERT INTO `implant_cim_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -873,7 +873,7 @@ INSERT INTO `implant_cim_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_ha_offset`
+-- Table structure for table `implant_ha_offset`
 --
 
 DROP TABLE IF EXISTS `implant_ha_offset`;
@@ -903,7 +903,7 @@ CREATE TABLE IF NOT EXISTS `implant_ha_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_ha_offset`
+-- Dumping data for table `implant_ha_offset`
 --
 
 INSERT INTO `implant_ha_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -927,7 +927,7 @@ INSERT INTO `implant_ha_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heig
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_ha_std`
+-- Table structure for table `implant_ha_std`
 --
 
 DROP TABLE IF EXISTS `implant_ha_std`;
@@ -957,7 +957,7 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_ha_std`
+-- Dumping data for table `implant_ha_std`
 --
 
 INSERT INTO `implant_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -985,7 +985,7 @@ INSERT INTO `implant_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightP
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_ha_std_appui`
+-- Table structure for table `implant_ha_std_appui`
 --
 
 DROP TABLE IF EXISTS `implant_ha_std_appui`;
@@ -1015,7 +1015,7 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std_appui` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_ha_std_appui`
+-- Dumping data for table `implant_ha_std_appui`
 --
 
 INSERT INTO `implant_ha_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1043,7 +1043,7 @@ INSERT INTO `implant_ha_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `h
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_hype`
+-- Table structure for table `implant_hype`
 --
 
 DROP TABLE IF EXISTS `implant_hype`;
@@ -1072,23 +1072,23 @@ CREATE TABLE IF NOT EXISTS `implant_hype` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_hype`
+-- Dumping data for table `implant_hype`
 --
 
 INSERT INTO `implant_hype` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
 (1, 'Hype-T2', 'images/HypeT2.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, 276, -256, 813, 135, 0),
-(2, 'Hype-T3', 'images/HypeT3.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, 276.5, -267.5, 873.5, 135, 0),
-(3, 'Hype-T4', 'images/HypeT4.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, 278.5, -275.5, 902, 135, 0),
-(4, 'Hype-T5', 'images/HypeT5.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, 282.5, -285.5, 933, 135, 0),
-(5, 'Hype-T6', 'images/HypeT6.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 283, -293, 957.5, 135, 0),
+(2, 'Hype-T3', 'images/SCHO-3G.png', 239, 6.07, 660, 16.76, 0, 0, 0, 0, 0, 0, 0, 0, 87.5, -91.5, -300, 135, 0),
+(3, 'Hype-T4', 'images/SCHO-4G.png', 245, 6.22, 670, 17.02, 0, 0, 0, 0, 0, 0, 0, 0, 88.5, -94.5, -306, 135, 0),
+(4, 'Hype-T5', 'images/SCHO-5G.png', 254, 6.45, 692, 17.58, 0, 0, 0, 0, 0, 0, 0, 0, 87, -99, -317, 135, 0),
+(5, 'Hype-T6', 'images/SCHO-6G.png', 258, 6.55, 711, 18.06, 0, 0, 0, 0, 0, 0, 0, 0, 90, -101, -325.5, 135, 0),
 (6, 'Hype-T7', 'images/HypeT7.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, 286, -304, 981.5, 135, 0),
 (7, 'Hype-T8', 'images/HypeT8.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, 287.5, -314.5, 1014.5, 135, 0),
 (8, 'Hype-T9', 'images/HypeT9.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, 289.5, -323.5, 1049.5, 135, 0),
 (9, 'Hype-T2', 'images/HypeT2_R.png', 684, 5.8, 1800, 15.2, 0, 0, 0, 0, 0, 0, 0, 0, -276, 256, 813, 135, 0),
-(10, 'Hype-T3', 'images/HypeT3_R.png', 707, 6, 1923, 16.3, 0, 0, 0, 0, 0, 0, 0, 0, -276.5, 267.5, 873.5, 135, 0),
-(11, 'Hype-T4', 'images/HypeT4_R.png', 725, 6.1, 1978, 16.7, 0, 0, 0, 0, 0, 0, 0, 0, -278.5, 275.5, 902, 135, 0),
-(12, 'Hype-T5', 'images/HypeT5_R.png', 745, 6.3, 2040, 17.3, 0, 0, 0, 0, 0, 0, 0, 0, -282.5, 285.5, 933, 135, 0),
-(13, 'Hype-T6', 'images/HypeT6_R.png', 764, 6.5, 2087, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -283, 293, 957.5, 135, 0),
+(10, 'Hype-T3', 'images/SCHO-3D.png', 239, 6.07, 660, 16.76, 0, 0, 0, 0, 0, 0, 0, 0, -88.5, 90.5, -300, 135, 0),
+(11, 'Hype-T4', 'images/SCHO-4D.png', 245, 6.22, 670, 17.02, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 93.5, -306, 135, 0),
+(12, 'Hype-T5', 'images/SCHO-5D.png', 254, 6.45, 692, 17.58, 0, 0, 0, 0, 0, 0, 0, 0, -88, 99, -317, 135, 0),
+(13, 'Hype-T6', 'images/SCHO-6D.png', 258, 6.55, 711, 18.06, 0, 0, 0, 0, 0, 0, 0, 0, -91, 100, -325.5, 135, 0),
 (14, 'Hype-T7', 'images/HypeT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -286, 304, 981.5, 135, 0),
 (15, 'Hype-T8', 'images/HypeT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -287.5, 314.5, 1014.5, 135, 0),
 (16, 'Hype-T9', 'images/HypeT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -289.5, 323.5, 1049.5, 135, 0);
@@ -1096,7 +1096,7 @@ INSERT INTO `implant_hype` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_libra`
+-- Table structure for table `implant_libra`
 --
 
 DROP TABLE IF EXISTS `implant_libra`;
@@ -1125,7 +1125,7 @@ CREATE TABLE IF NOT EXISTS `implant_libra` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_libra`
+-- Dumping data for table `implant_libra`
 --
 
 INSERT INTO `implant_libra` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`) VALUES
@@ -1149,7 +1149,7 @@ INSERT INTO `implant_libra` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_sagitta_offset`
+-- Table structure for table `implant_sagitta_offset`
 --
 
 DROP TABLE IF EXISTS `implant_sagitta_offset`;
@@ -1179,7 +1179,7 @@ CREATE TABLE IF NOT EXISTS `implant_sagitta_offset` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_sagitta_offset`
+-- Dumping data for table `implant_sagitta_offset`
 --
 
 INSERT INTO `implant_sagitta_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1205,7 +1205,7 @@ INSERT INTO `implant_sagitta_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_sagitta_std`
+-- Table structure for table `implant_sagitta_std`
 --
 
 DROP TABLE IF EXISTS `implant_sagitta_std`;
@@ -1235,7 +1235,7 @@ CREATE TABLE IF NOT EXISTS `implant_sagitta_std` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `implant_sagitta_std`
+-- Dumping data for table `implant_sagitta_std`
 --
 
 INSERT INTO `implant_sagitta_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
@@ -1263,14 +1263,14 @@ INSERT INTO `implant_sagitta_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `he
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scc_mini_std`
+-- Table structure for table `implant_scc_mini_std`
 --
 
 DROP TABLE IF EXISTS `implant_scc_mini_std`;
 CREATE TABLE IF NOT EXISTS `implant_scc_mini_std` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1289,38 +1289,38 @@ CREATE TABLE IF NOT EXISTS `implant_scc_mini_std` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scc_mini_std`
+-- Dumping data for table `implant_scc_mini_std`
 --
 
 INSERT INTO `implant_scc_mini_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCC MINI Standard-T2', 'images/hype_scc_mini_T2.png', 625, 5.29, 1493, 12.64, 0, 0, 0, 0, 0, 0, 0, 0, 234.5, -226.5, 659.5, 0, 0, 2),
-(2, 'Hype SCC MINI Standard-T3', 'images/hype_scc_mini_T3.png', 643, 5.44, 1587, 13.44, 0, 0, 0, 0, 0, 0, 0, 0, 232.5, -235.5, 707.5, 0, 0, 3),
-(3, 'Hype SCC MINI Standard-T4', 'images/hype_scc_mini_T4.png', 668, 5.66, 1616, 13.68, 0, 0, 0, 0, 0, 0, 0, 0, 236, -248, 720, 0, 0, 4),
-(4, 'Hype SCC MINI Standard-T5', 'images/hype_scc_mini_T5.png', 675, 5.72, 1673, 14.16, 0, 0, 0, 0, 0, 0, 0, 0, 231.5, -265.5, 760.5, 0, 0, 5),
-(5, 'Hype SCC MINI Standard-T6', 'images/hype_scc_mini_T6.png', 705, 5.97, 1760, 14.9, 0, 0, 0, 0, 0, 0, 0, 0, 238.5, -266.5, 794, 0, 0, 6),
-(6, 'Hype SCC MINI Standard-T7', 'images/hype_scc_mini_T7.png', 727, 6.16, 1790, 15.16, 0, 0, 0, 0, 0, 0, 0, 0, 241.5, -277.5, 807, 0, 0, 7),
-(7, 'Hype SCC MINI Standard-T2', 'images/hype_scc_mini_T2_R.png', 625, 5.29, 1493, 12.64, 0, 0, 0, 0, 0, 0, 0, 0, -234.5, 226.5, 659.5, 0, 0, 2),
-(8, 'Hype SCC MINI Standard-T3', 'images/hype_scc_mini_T3_R.png', 643, 5.44, 1587, 13.44, 0, 0, 0, 0, 0, 0, 0, 0, -232.5, 235.5, 707.5, 0, 0, 3),
-(9, 'Hype SCC MINI Standard-T4', 'images/hype_scc_mini_T4_R.png', 668, 5.66, 1616, 13.68, 0, 0, 0, 0, 0, 0, 0, 0, -236, 248, 720, 0, 0, 4),
-(10, 'Hype SCC MINI Standard-T5', 'images/hype_scc_mini_T5_R.png', 675, 5.72, 1673, 14.16, 0, 0, 0, 0, 0, 0, 0, 0, -231.5, 265.5, 760.5, 0, 0, 5),
-(11, 'Hype SCC MINI Standard-T6', 'images/hype_scc_mini_T6_R.png', 705, 5.97, 1760, 14.9, 0, 0, 0, 0, 0, 0, 0, 0, -238.5, 266.5, 794, 0, 0, 6),
-(12, 'Hype SCC MINI Standard-T7', 'images/hype_scc_mini_T7_R.png', 727, 6.16, 1790, 15.16, 0, 0, 0, 0, 0, 0, 0, 0, -241.5, 277.5, 807, 0, 0, 7);
+(1, 'Hype SCC MINI Standard-T2', 'images/hype_scc_mini_T2.png', 208, 5.28, 512, 13, 0, 0, 0, 0, 0, 0, 0, 0, 78, -76, 227, 0, 0, 2),
+(2, 'Hype SCC MINI Standard-T3', 'images/hype_scc_mini_T3.png', 215, 5.46, 532, 13.51, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -79.5, 237, 0, 0, 3),
+(3, 'Hype SCC MINI Standard-T4', 'images/hype_scc_mini_T4.png', 221, 5.61, 555, 14.1, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -82.5, 248.5, 0, 0, 4),
+(4, 'Hype SCC MINI Standard-T5', 'images/hype_scc_mini_T5.png', 228, 5.79, 581, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, 79, -86, 261.5, 0, 0, 5),
+(5, 'Hype SCC MINI Standard-T6', 'images/hype_scc_mini_T6.png', 235, 5.97, 596, 15.14, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -89.5, 269, 0, 0, 6),
+(6, 'Hype SCC MINI Standard-T7', 'images/hype_scc_mini_T7.png', 242, 6.15, 617, 15.67, 0, 0, 0, 0, 0, 0, 0, 0, 80, -93, 279.5, 0, 0, 7),
+(7, 'Hype SCC MINI Standard-T2', 'images/hype_scc_mini_T2_R.png', 208, 5.28, 512, 13, 0, 0, 0, 0, 0, 0, 0, 0, -78, 76, 227, 0, 0, 2),
+(8, 'Hype SCC MINI Standard-T3', 'images/hype_scc_mini_T3_R.png', 215, 5.46, 532, 13.51, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 81.5, 237, 0, 0, 3),
+(9, 'Hype SCC MINI Standard-T4', 'images/hype_scc_mini_T4_R.png', 221, 5.61, 555, 14.1, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 83.5, 248.5, 0, 0, 4),
+(10, 'Hype SCC MINI Standard-T5', 'images/hype_scc_mini_T5_R.png', 228, 5.79, 581, 14.76, 0, 0, 0, 0, 0, 0, 0, 0, -79, 87, 261.5, 0, 0, 5),
+(11, 'Hype SCC MINI Standard-T6', 'images/hype_scc_mini_T6_R.png', 235, 5.97, 596, 15.14, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 90.5, 269, 0, 0, 6),
+(12, 'Hype SCC MINI Standard-T7', 'images/hype_scc_mini_T7_R.png', 242, 6.15, 617, 15.67, 0, 0, 0, 0, 0, 0, 0, 0, -80, 94, 279.5, 0, 0, 7);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scc_std_col`
+-- Table structure for table `implant_scc_std_col`
 --
 
 DROP TABLE IF EXISTS `implant_scc_std_col`;
 CREATE TABLE IF NOT EXISTS `implant_scc_std_col` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1339,48 +1339,48 @@ CREATE TABLE IF NOT EXISTS `implant_scc_std_col` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scc_std_col`
+-- Dumping data for table `implant_scc_std_col`
 --
 
 INSERT INTO `implant_scc_std_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCC Standard à colerette-T1', 'images/hype_scc_T1.png', 608, 5.17, 1736, 14.7, 0, 0, 0, 0, 0, 0, 0, 0, 230, -218, 780, 0, 0, 1),
-(2, 'Hype SCC Standard à colerette-T2', 'images/hype_scc_T2.png', 625, 5.29, 1799, 15.23, 0, 0, 0, 0, 0, 0, 0, 0, 233.5, -226.5, 812.5, 0, 0, 2),
-(3, 'Hype SCC Standard à colerette-T3', 'images/hype_scc_T3.png', 648, 5.49, 1916, 16.22, 0, 0, 0, 0, 0, 0, 0, 0, 234, -239, 871, 0, 0, 3),
-(4, 'Hype SCC Standard à colerette-T4', 'images/hype_scc_T4.png', 668, 5.66, 1976, 16.73, 0, 0, 0, 0, 0, 0, 0, 0, 236, -247, 901, 0, 0, 4),
-(5, 'Hype SCC Standard à colerette-T5', 'images/hype_scc_T5.png', 685, 5.8, 2037, 17.25, 0, 0, 0, 0, 0, 0, 0, 0, 237.5, -258.5, 932.5, 0, 0, 5),
-(6, 'Hype SCC Standard à colerette-T6', 'images/hype_scc_T6.png', 708, 5.99, 2098, 17.76, 0, 0, 0, 0, 0, 0, 0, 0, 239, -268, 962, 0, 0, 6),
-(7, 'Hype SCC Standard à colerette-T7', 'images/hype_scc_T7.png', 727, 6.16, 2159, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, 241.5, -277.5, 993.5, 0, 0, 7),
-(8, 'Hype SCC Standard à colerette-T8', 'images/hype_scc_T8.png', 748, 6.33, 2220, 18.8, 0, 0, 0, 0, 0, 0, 0, 0, 243, -289, 1024, 0, 0, 8),
-(9, 'Hype SCC Standard à colerette-T9', 'images/hype_scc_T9.png', 768, 6.5, 2281, 19.31, 0, 0, 0, 0, 0, 0, 0, 0, 245, -299, 1054.5, 0, 0, 9),
-(10, 'Hype SCC Standard à colerette-T10', 'images/hype_scc_T10.png', 784, 6.64, 2344, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, 248, -307, 1084, 0, 0, 10),
-(11, 'Hype SCC Standard à colerette-T11', 'images/hype_scc_T11.png', 798, 6.76, 2410, 20.4, 0, 0, 0, 0, 0, 0, 0, 0, 253, -314, 1118, 0, 0, 11),
-(12, 'Hype SCC Standard à colerette-T1', 'images/hype_scc_T1_R.png', 608, 5.17, 1736, 14.7, 0, 0, 0, 0, 0, 0, 0, 0, -230, 218, 780, 0, 0, 1),
-(13, 'Hype SCC Standard à colerette-T2', 'images/hype_scc_T2_R.png', 625, 5.29, 1799, 15.23, 0, 0, 0, 0, 0, 0, 0, 0, -233.5, 226.5, 812.5, 0, 0, 2),
-(14, 'Hype SCC Standard à colerette-T3', 'images/hype_scc_T3_R.png', 648, 5.49, 1916, 16.22, 0, 0, 0, 0, 0, 0, 0, 0, -234, 239, 871, 0, 0, 3),
-(15, 'Hype SCC Standard à colerette-T4', 'images/hype_scc_T4_R.png', 668, 5.66, 1976, 16.73, 0, 0, 0, 0, 0, 0, 0, 0, -236, 247, 901, 0, 0, 4),
-(16, 'Hype SCC Standard à colerette-T5', 'images/hype_scc_T5_R.png', 685, 5.8, 2037, 17.25, 0, 0, 0, 0, 0, 0, 0, 0, -237.5, 258.5, 932.5, 0, 0, 5),
-(17, 'Hype SCC Standard à colerette-T6', 'images/hype_scc_T6_R.png', 708, 5.99, 2098, 17.76, 0, 0, 0, 0, 0, 0, 0, 0, -239, 268, 962, 0, 0, 6),
-(18, 'Hype SCC Standard à colerette-T7', 'images/hype_scc_T7_R.png', 727, 6.16, 2159, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, -241.5, 277.5, 993.5, 0, 0, 7),
-(19, 'Hype SCC Standard à colerette-T8', 'images/hype_scc_T8_R.png', 748, 6.33, 2220, 18.8, 0, 0, 0, 0, 0, 0, 0, 0, -243, 289, 1024, 0, 0, 8),
-(20, 'Hype SCC Standard à colerette-T9', 'images/hype_scc_T9_R.png', 768, 6.5, 2281, 19.31, 0, 0, 0, 0, 0, 0, 0, 0, -245, 299, 1054.5, 0, 0, 9),
-(21, 'Hype SCC Standard à colerette-T10', 'images/hype_scc_T10_R.png', 784, 6.64, 2344, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, -248, 307, 1084, 0, 0, 10),
-(22, 'Hype SCC Standard à colerette-T11', 'images/hype_scc_T11_R.png', 798, 6.76, 2410, 20.4, 0, 0, 0, 0, 0, 0, 0, 0, -253, 314, 1118, 0, 0, 11);
+(1, 'Hype SCC Standard Ã  colerette-T1', 'images/hype_scc_T1.png', 202, 5.13, 594, 15.09, 0, 0, 0, 0, 0, 0, 0, 0, 77, -73, 268, 0, 0, 1),
+(2, 'Hype SCC Standard Ã  colerette-T2', 'images/hype_scc_T2.png', 208, 5.28, 610, 15.49, 0, 0, 0, 0, 0, 0, 0, 0, 78, -76, 276, 0, 0, 2),
+(3, 'Hype SCC Standard Ã  colerette-T3', 'images/hype_scc_T3.png', 215, 5.46, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -79.5, 294.5, 0, 0, 3),
+(4, 'Hype SCC Standard Ã  colerette-T4', 'images/hype_scc_T4.png', 221, 5.61, 672, 17.07, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -82.5, 307, 0, 0, 4),
+(5, 'Hype SCC Standard Ã  colerette-T5', 'images/hype_scc_T5.png', 228, 5.79, 698, 17.73, 0, 0, 0, 0, 0, 0, 0, 0, 79, -86, 320, 0, 0, 5),
+(6, 'Hype SCC Standard Ã  colerette-T6', 'images/hype_scc_T6.png', 235, 5.97, 719, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -89.5, 330.5, 0, 0, 6),
+(7, 'Hype SCC Standard Ã  colerette-T7', 'images/hype_scc_T7.png', 242, 6.15, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, 80, -93, 335, 0, 0, 7),
+(8, 'Hype SCC Standard Ã  colerette-T8', 'images/hype_scc_T8.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 81, -96, 345, 0, 0, 8),
+(9, 'Hype SCC Standard Ã  colerette-T9', 'images/hype_scc_T9.png', 255, 6.48, 771, 19.58, 0, 0, 0, 0, 0, 0, 0, 0, 82.5, -99.5, 356.5, 0, 0, 9),
+(10, 'Hype SCC Standard Ã  colerette-T10', 'images/hype_scc_T10.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 83.5, -102.5, 371, 0, 0, 10),
+(11, 'Hype SCC Standard Ã  colerette-T11', 'images/hype_scc_T11.png', 265, 6.73, 833, 21.16, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -104.5, 387.5, 0, 0, 11),
+(12, 'Hype SCC Standard Ã  colerette-T1', 'images/hype_scc_T1_R.png', 202, 5.13, 594, 15.09, 0, 0, 0, 0, 0, 0, 0, 0, -76, 74, 268, 0, 0, 1),
+(13, 'Hype SCC Standard Ã  colerette-T2', 'images/hype_scc_T2_R.png', 208, 5.28, 610, 15.49, 0, 0, 0, 0, 0, 0, 0, 0, -78, 76, 276, 0, 0, 2),
+(14, 'Hype SCC Standard Ã  colerette-T3', 'images/hype_scc_T3_R.png', 215, 5.46, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 80.5, 294.5, 0, 0, 3),
+(15, 'Hype SCC Standard Ã  colerette-T4', 'images/hype_scc_T4_R.png', 221, 5.61, 672, 17.07, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 83.5, 307, 0, 0, 4),
+(16, 'Hype SCC Standard Ã  colerette-T5', 'images/hype_scc_T5_R.png', 228, 5.79, 698, 17.73, 0, 0, 0, 0, 0, 0, 0, 0, -79, 87, 320, 0, 0, 5),
+(17, 'Hype SCC Standard Ã  colerette-T6', 'images/hype_scc_T6_R.png', 235, 5.97, 719, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 91.5, 330.5, 0, 0, 6),
+(18, 'Hype SCC Standard Ã  colerette-T7', 'images/hype_scc_T7_R.png', 242, 6.15, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, -80, 94, 335, 0, 0, 7),
+(19, 'Hype SCC Standard Ã  colerette-T8', 'images/hype_scc_T8_R.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -81, 97, 345, 0, 0, 8),
+(20, 'Hype SCC Standard Ã  colerette-T9', 'images/hype_scc_T9_R.png', 255, 6.48, 771, 19.58, 0, 0, 0, 0, 0, 0, 0, 0, -82.5, 99.5, 356.5, 0, 0, 9),
+(21, 'Hype SCC Standard Ã  colerette-T10', 'images/hype_scc_T10_R.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -83.5, 103.5, 371, 0, 0, 10),
+(22, 'Hype SCC Standard Ã  colerette-T11', 'images/hype_scc_T11_R.png', 265, 6.73, 833, 21.16, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 106.5, 387.5, 0, 0, 11);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scho_high_offset`
+-- Table structure for table `implant_scho_high_offset`
 --
 
 DROP TABLE IF EXISTS `implant_scho_high_offset`;
 CREATE TABLE IF NOT EXISTS `implant_scho_high_offset` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1399,44 +1399,45 @@ CREATE TABLE IF NOT EXISTS `implant_scho_high_offset` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scho_high_offset`
+-- Dumping data for table `implant_scho_high_offset`
 --
 
 INSERT INTO `implant_scho_high_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCHO High Offset-T3', 'images/hype_scho_T3.png\r\n', 709, 6, 2052, 17.37, 0, 0, 0, 0, 0, 0, 0, 0, 265.5, -269.5, 940, 0, 0, 3),
-(2, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4.png\r\n', 730, 6.18, 2110, 17.86, 0, 0, 0, 0, 0, 0, 0, 0, 267, -279, 969, 0, 0, 4),
-(3, 'Hype SCHO High Offset-T5', 'images/hype_scho_T5.png\r\n', 747, 6.32, 2087, 17.67, 0, 0, 0, 0, 0, 0, 0, 0, 267.5, -289.5, 958.5, 0, 0, 5),
-(4, 'Hype SCHO High Offset-T6', 'images/hype_scho_T6.png\r\n', 771, 6.53, 2232, 18.9, 0, 0, 0, 0, 0, 0, 0, 0, 270.5, -299.5, 1028, 0, 0, 6),
-(5, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7.png\r\n', 791, 6.7, 2294, 19.42, 0, 0, 0, 0, 0, 0, 0, 0, 272.5, -309.5, 1061, 0, 0, 7),
-(6, 'Hype SCHO High Offset-T8', 'images/hype_scho_T8.png\r\n', 811, 6.87, 2354, 19.93, 0, 0, 0, 0, 0, 0, 0, 0, 274.5, -319.5, 1092, 0, 0, 8),
-(7, 'Hype SCHO High Offset-T9', 'images/hype_scho_T9.png\r\n', 831, 7.04, 2415, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, 276.5, -329.5, 1119.5, 0, 0, 9),
-(8, 'Hype SCHO High Offset-T10', 'images/hype_scho_T10.png\r\n', 848, 7.04, 2479, 20.99, 0, 0, 0, 0, 0, 0, 0, 0, 280, -338.5, 1151.5, 0, 0, 10),
-(9, 'Hype SCHO High Offset-T11', 'images/hype_scho_T11.png\r\n', 851, 7.21, 2536, 21.47, 0, 0, 0, 0, 0, 0, 0, 0, 279.5, -349.5, 1189, 0, 0, 11),
-(10, 'Hype SCHO High Offset-T3', 'images/hype_scho_T3_R.png\r\n', 709, 6, 2052, 17.37, 0, 0, 0, 0, 0, 0, 0, 0, -265.5, 269.5, 940, 0, 0, 3),
-(11, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4_R.png\r\n', 730, 6.18, 2110, 17.86, 0, 0, 0, 0, 0, 0, 0, 0, -267, 279, 969, 0, 0, 4),
-(12, 'Hype SCHO High Offset-T5', 'images/hype_scho_T5_R.png\r\n', 747, 6.32, 2087, 17.67, 0, 0, 0, 0, 0, 0, 0, 0, -267.5, 289.5, 958.5, 0, 0, 5),
-(13, 'Hype SCHO High Offset-T6', 'images/hype_scho_T6_R.png\r\n', 771, 6.53, 2232, 18.9, 0, 0, 0, 0, 0, 0, 0, 0, -270.5, 299.5, 1028, 0, 0, 6),
-(14, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7_R.png\r\n', 791, 6.7, 2294, 19.42, 0, 0, 0, 0, 0, 0, 0, 0, -272.5, 309.5, 1061, 0, 0, 7),
-(15, 'Hype SCHO High Offset-T8', 'images/hype_scho_T8_R.png\r\n', 811, 6.87, 2354, 19.93, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 319.5, 1092, 0, 0, 8),
-(16, 'Hype SCHO High Offset-T9', 'images/hype_scho_T9_R.png\r\n', 831, 7.04, 2415, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, -276.5, 329.5, 1119.5, 0, 0, 9),
-(17, 'Hype SCHO High Offset-T10', 'images/hype_scho_T10_R.png\r\n', 848, 7.04, 2479, 20.99, 0, 0, 0, 0, 0, 0, 0, 0, -280, 338.5, 1151.5, 0, 0, 10),
-(18, 'Hype SCHO High Offset-T11', 'images/hype_scho_T11_R.png\r\n', 851, 7.21, 2536, 21.47, 0, 0, 0, 0, 0, 0, 0, 0, -279.5, 349.5, 1189, 0, 0, 11);
+(1, 'Hype SCHO High Offset-T3', 'images/hype_scho_T3.png\n', 237, 6.02, 653, 16.59, 0, 0, 0, 0, 0, 0, 0, 0, 88.5, -90.5, 297.5, 0, 0, 3),
+(2, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4.png\n', 244, 6.2, 682, 17.32, 0, 0, 0, 0, 0, 0, 0, 0, 88, -94, 312, 0, 0, 4),
+(3, 'Hype SCHO High Offset-T5', 'images/hype_scho_T5.png\n', 251, 6.38, 693, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -97.5, 317.5, 0, 0, 5),
+(4, 'Hype SCHO High Offset-T6', 'images/hype_scho_T6.png\n', 257, 6.53, 714, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -100.5, 328, 0, 0, 6),
+(5, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7.png\n', 264, 6.71, 734, 18.64, 0, 0, 0, 0, 0, 0, 0, 0, 91, -104, 328, 0, 0, 7),
+(6, 'Hype SCHO High Offset-T8', 'images/hype_scho_T8.png\n', 271, 6.88, 760, 19.3, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -107.5, 351, 0, 0, 8),
+(7, 'Hype SCHO High Offset-T9', 'images/hype_scho_T9.png\n', 278, 7.06, 785, 19.94, 0, 0, 0, 0, 0, 0, 0, 0, 92, -111, 363.5, 0, 0, 9),
+(8, 'Hype SCHO High Offset-T10', 'images/hype_scho_T10.png\n', 283, 7.19, 805, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, 93.5, -113.5, 373.5, 0, 0, 10),
+(9, 'Hype SCHO High Offset-T11', 'images/hype_scho_T11.png\n', 288, 7.32, 835, 21.21, 0, 0, 0, 0, 0, 0, 0, 0, 95, -116, 388.5, 0, 0, 11),
+(10, 'Hype SCHO High Offset-T3', 'images/hype_scho_T3_R.png\n', 237, 6.02, 653, 16.59, 0, 0, 0, 0, 0, 0, 0, 0, -88.5, 90.5, 297.5, 0, 0, 3),
+(11, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4_R.png\n', 244, 6.2, 682, 17.32, 0, 0, 0, 0, 0, 0, 0, 0, -88, 94, 297.5, 0, 0, 4),
+(12, 'Hype SCHO High Offset-T5', 'images/hype_scho_T5_R.png\n', 251, 6.38, 693, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 97.5, 317.5, 0, 0, 5),
+(13, 'Hype SCHO High Offset-T6', 'images/hype_scho_T6_R.png\n', 257, 6.53, 714, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 101.5, 328, 0, 0, 6),
+(14, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7_R.png\n', 264, 6.71, 734, 18.64, 0, 0, 0, 0, 0, 0, 0, 0, -91, 104, 338, 0, 0, 7),
+(15, 'Hype SCHO High Offset-T8', 'images/hype_scho_T8_R.png\n', 271, 6.88, 760, 19.3, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 107.5, 351, 0, 0, 8),
+(16, 'Hype SCHO High Offset-T9', 'images/hype_scho_T9_R.png\n', 278, 7.06, 785, 19.94, 0, 0, 0, 0, 0, 0, 0, 0, -92, 111, 363.5, 0, 0, 9),
+(17, 'Hype SCHO High Offset-T10', 'images/hype_scho_T10_R.png\n', 283, 7.19, 805, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, -93.5, 113.5, 373.5, 0, 0, 10),
+(18, 'Hype SCHO High Offset-T11', 'images/hype_scho_T11_R.png\n', 288, 7.32, 835, 21.21, 0, 0, 0, 0, 0, 0, 0, 0, -95, 116, 388.5, 0, 0, 11),
+(19, 'Hype SCHO High Offset-T11', 'images/hype_scho_T11_R.png\n', 288, 7.32, 835, 21.21, 0, 0, 0, 0, 0, 0, 0, 0, -95, 116, 388.5, 0, 0, 12);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scla_mini_lat`
+-- Table structure for table `implant_scla_mini_lat`
 --
 
 DROP TABLE IF EXISTS `implant_scla_mini_lat`;
 CREATE TABLE IF NOT EXISTS `implant_scla_mini_lat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1455,38 +1456,38 @@ CREATE TABLE IF NOT EXISTS `implant_scla_mini_lat` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scla_mini_lat`
+-- Dumping data for table `implant_scla_mini_lat`
 --
 
 INSERT INTO `implant_scla_mini_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCLA MINI Latéralisée-T2', 'images/hype_scla_mini_T2.png', 696, 5.89, 1491, 12.62, 0, 0, 0, 0, 0, 0, 0, 0, 269, -262, 658.5, 0, 0, 2),
-(2, 'Hype SCLA MINI Latéralisée-T3', 'images/hype_scla_mini_T3.png', 718, 6.08, 1609, 13.62, 0, 0, 0, 0, 0, 0, 0, 0, 269, -274, 717.5, 0, 0, 3),
-(3, 'Hype SCLA MINI Latéralisée-T4', 'images/hype_scla_mini_T4.png', 738, 6.25, 1629, 13.79, 0, 0, 0, 0, 0, 0, 0, 0, 271, -283, 727.5, 0, 0, 4),
-(4, 'Hype SCLA MINI Latéralisée-T5', 'images/hype_scla_mini_T5.png', 760, 6.43, 1678, 14.21, 0, 0, 0, 0, 0, 0, 0, 0, 273, -295, 752, 0, 0, 5),
-(5, 'Hype SCLA MINI Latéralisée-T6', 'images/hype_scla_mini_T6.png', 778, 6.59, 1737, 14.71, 0, 0, 0, 0, 0, 0, 0, 0, 275, -304, 782.5, 0, 0, 6),
-(6, 'Hype SCLA MINI Latéralisée-T7', 'images/hype_scla_mini_T7.png', 798, 6.76, 1770, 14.99, 0, 0, 0, 0, 0, 0, 0, 0, 277, -314, 798, 0, 0, 7),
-(7, 'Hype SCLA MINI Latéralisée-T2', 'images/hype_scla_mini_T2_R.png', 696, 5.89, 1491, 12.62, 0, 0, 0, 0, 0, 0, 0, 0, -269, 262, 658.5, 0, 0, 2),
-(8, 'Hype SCLA MINI Latéralisée-T3', 'images/hype_scla_mini_T3_R.png', 718, 6.08, 1609, 13.62, 0, 0, 0, 0, 0, 0, 0, 0, -269, 274, 717.5, 0, 0, 3),
-(9, 'Hype SCLA MINI Latéralisée-T4', 'images/hype_scla_mini_T4_R.png', 738, 6.25, 1629, 13.79, 0, 0, 0, 0, 0, 0, 0, 0, -271, 283, 727.5, 0, 0, 4),
-(10, 'Hype SCLA MINI Latéralisée-T5', 'images/hype_scla_mini_T5_R.png', 760, 6.43, 1678, 14.21, 0, 0, 0, 0, 0, 0, 0, 0, -273, 295, 752, 0, 0, 5),
-(11, 'Hype SCLA MINI Latéralisée-T6', 'images/hype_scla_mini_T6_R.png', 778, 6.59, 1737, 14.71, 0, 0, 0, 0, 0, 0, 0, 0, -275, 304, 782.5, 0, 0, 6),
-(12, 'Hype SCLA MINI Latéralisée-T7', 'images/hype_scla_mini_T7_R.png', 798, 6.76, 1770, 14.99, 0, 0, 0, 0, 0, 0, 0, 0, -277, 314, 798, 0, 0, 7);
+(1, 'Hype SCLA MINI LatÃ©ralisÃ©e-T2', 'images/hype_scla_mini_T2.png', 231, 5.87, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 273.5, 0, 0, 2),
+(2, 'Hype SCLA MINI LatÃ©ralisÃ©e-T3', 'images/hype_scla_mini_T3.png', 239, 6.07, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 273.5, 0, 0, 3),
+(3, 'Hype SCLA MINI LatÃ©ralisÃ©e-T4', 'images/hype_scla_mini_T4.png', 245, 6.22, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 90.5, -94.5, 273.5, 0, 0, 4),
+(4, 'Hype SCLA MINI LatÃ©ralisÃ©e-T5', 'images/hype_scla_mini_T5.png', 252, 6.4, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 273.5, 0, 0, 5),
+(5, 'Hype SCLA MINI LatÃ©ralisÃ©e-T6', 'images/hype_scla_mini_T6.png', 259, 6.58, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 273.5, 0, 0, 6),
+(6, 'Hype SCLA MINI LatÃ©ralisÃ©e-T7', 'images/hype_scla_mini_T7.png', 266, 6.76, 605, 15.35, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 273.5, 0, 0, 7),
+(7, 'Hype SCLA MINI LatÃ©ralisÃ©e-T2', 'images/hype_scla_mini_T2_R.png', 231, 5.87, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 273.5, 0, 0, 2),
+(8, 'Hype SCLA MINI LatÃ©ralisÃ©e-T3', 'images/hype_scla_mini_T3_R.png', 239, 6.07, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 273.5, 0, 0, 3),
+(9, 'Hype SCLA MINI LatÃ©ralisÃ©e-T4', 'images/hype_scla_mini_T4_R.png', 245, 6.22, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 95.5, 273.5, 0, 0, 4),
+(10, 'Hype SCLA MINI LatÃ©ralisÃ©e-T5', 'images/hype_scla_mini_T5_R.png', 252, 6.4, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 273.5, 0, 0, 5),
+(11, 'Hype SCLA MINI LatÃ©ralisÃ©e-T6', 'images/hype_scla_mini_T6_R.png', 259, 6.58, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 273.5, 0, 0, 6),
+(12, 'Hype SCLA MINI LatÃ©ralisÃ©e-T7', 'images/hype_scla_mini_T7_R.png', 266, 6.76, 605, 15.35, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 273.5, 0, 0, 7);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scl_lat`
+-- Table structure for table `implant_scl_lat`
 --
 
 DROP TABLE IF EXISTS `implant_scl_lat`;
 CREATE TABLE IF NOT EXISTS `implant_scl_lat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1505,44 +1506,44 @@ CREATE TABLE IF NOT EXISTS `implant_scl_lat` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scl_lat`
+-- Dumping data for table `implant_scl_lat`
 --
 
 INSERT INTO `implant_scl_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCL Latéralisée-T2', 'images/hype_scl_T2.png', 696, 5.89, 1790, 15.16, 0, 0, 0, 0, 0, 0, 0, 0, 269, -262, 808, 0, 0, 2),
-(2, 'Hype SCL Latéralisée-T3', 'images/hype_scl_T3.png', 718, 6.08, 1918, 16.24, 0, 0, 0, 0, 0, 0, 0, 0, 269, -274, 873, 0, 0, 3),
-(3, 'Hype SCL Latéralisée-T4', 'images/hype_scl_T4.png', 738, 6.25, 1984, 16.8, 0, 0, 0, 0, 0, 0, 0, 0, 271, -283, 906, 0, 0, 4),
-(4, 'Hype SCL Latéralisée-T5', 'images/hype_scl_T5.png', 756, 6.4, 2037, 17.25, 0, 0, 0, 0, 0, 0, 0, 0, 272, -295, 932.5, 0, 0, 5),
-(5, 'Hype SCL Latéralisée-T6', 'images/hype_scl_T6.png', 778, 6.59, 2136, 18.08, 0, 0, 0, 0, 0, 0, 0, 0, 275, -304, 981, 0, 0, 6),
-(6, 'Hype SCL Latéralisée-T7', 'images/hype_scl_T7.png', 798, 6.76, 2197, 18.6, 0, 0, 0, 0, 0, 0, 0, 0, 279, -313, 1011.5, 0, 0, 7),
-(7, 'Hype SCL Latéralisée-T8', 'images/hype_scl_T8.png', 818, 6.93, 2258, 19.12, 0, 0, 0, 0, 0, 0, 0, 0, 278, -324, 1042, 0, 0, 8),
-(8, 'Hype SCL Latéralisée-T9', 'images/hype_scl_T9.png', 838, 7.1, 2318, 19.63, 0, 0, 0, 0, 0, 0, 0, 0, 280, -334, 1073, 0, 0, 9),
-(9, 'Hype SCL Latéralisée-T10', 'images/hype_scl_T10.png', 855, 7.24, 2382, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, 283.5, -341.5, 1104, 0, 0, 10),
-(10, 'Hype SCL Latéralisée-T2', 'images/hype_scl_T2_R.png', 696, 5.89, 1790, 15.16, 0, 0, 0, 0, 0, 0, 0, 0, -269, 262, 808, 0, 0, 2),
-(11, 'Hype SCL Latéralisée-T3', 'images/hype_scl_T3_R.png', 718, 6.08, 1918, 16.24, 0, 0, 0, 0, 0, 0, 0, 0, -269, 274, 873, 0, 0, 3),
-(12, 'Hype SCL Latéralisée-T4', 'images/hype_scl_T4_R.png', 738, 6.25, 1984, 16.8, 0, 0, 0, 0, 0, 0, 0, 0, -271, 283, 906, 0, 0, 4),
-(13, 'Hype SCL Latéralisée-T5', 'images/hype_scl_T5_R.png', 756, 6.4, 2037, 17.25, 0, 0, 0, 0, 0, 0, 0, 0, -272, 295, 932.5, 0, 0, 5),
-(14, 'Hype SCL Latéralisée-T6', 'images/hype_scl_T6_R.png', 778, 6.59, 2136, 18.08, 0, 0, 0, 0, 0, 0, 0, 0, -275, 304, 981, 0, 0, 6),
-(15, 'Hype SCL Latéralisée-T7', 'images/hype_scl_T7_R.png', 798, 6.76, 2197, 18.6, 0, 0, 0, 0, 0, 0, 0, 0, -279, 313, 1011.5, 0, 0, 7),
-(16, 'Hype SCL Latéralisée-T8', 'images/hype_scl_T8_R.png', 818, 6.93, 2258, 19.12, 0, 0, 0, 0, 0, 0, 0, 0, -278, 324, 1042, 0, 0, 8),
-(17, 'Hype SCL Latéralisée-T9', 'images/hype_scl_T9_R.png', 838, 7.1, 2318, 19.63, 0, 0, 0, 0, 0, 0, 0, 0, -280, 334, 1073, 0, 0, 9),
-(18, 'Hype SCL Latéralisée-T10', 'images/hype_scl_T10_R.png', 855, 7.24, 2382, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, -283.5, 341.5, 1104, 0, 0, 10);
+(1, 'Hype SCL LatÃ©ralisÃ©e-T2', 'images/hype_scl_T2.png', 231, 5.87, 633, 16.08, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 287.5, 0, 0, 2),
+(2, 'Hype SCL LatÃ©ralisÃ©e-T3', 'images/hype_scl_T3.png', 239, 6.07, 667, 16.94, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 304.5, 0, 0, 3),
+(3, 'Hype SCL LatÃ©ralisÃ©e-T4', 'images/hype_scl_T4.png', 245, 6.22, 685, 17.4, 0, 0, 0, 0, 0, 0, 0, 0, 90.5, -94.5, 313.5, 0, 0, 4),
+(4, 'Hype SCL LatÃ©ralisÃ©e-T5', 'images/hype_scl_T5.png', 252, 6.4, 706, 17.93, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 324, 0, 0, 5),
+(5, 'Hype SCL LatÃ©ralisÃ©e-T6', 'images/hype_scl_T6.png', 259, 6.58, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 345, 0, 0, 6),
+(6, 'Hype SCL LatÃ©ralisÃ©e-T7', 'images/hype_scl_T7.png', 266, 6.76, 737, 18.72, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 339.5, 0, 0, 7),
+(7, 'Hype SCL LatÃ©ralisÃ©e-T8', 'images/hype_scl_T8.png', 272, 6.91, 768, 19.51, 0, 0, 0, 0, 0, 0, 0, 0, 93, -108, 355, 0, 0, 8),
+(8, 'Hype SCL LatÃ©ralisÃ©e-T9', 'images/hype_scl_T9.png', 278, 7.06, 793, 20.14, 0, 0, 0, 0, 0, 0, 0, 0, 94, -111, 367.5, 0, 0, 9),
+(9, 'Hype SCL LatÃ©ralisÃ©e-T10', 'images/hype_scl_T10.png', 284, 7.21, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 95, -114, 371, 0, 0, 10),
+(10, 'Hype SCL LatÃ©ralisÃ©e-T2', 'images/hype_scl_T2_R.png', 231, 5.87, 633, 16.08, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 287.5, 0, 0, 2),
+(11, 'Hype SCL LatÃ©ralisÃ©e-T3', 'images/hype_scl_T3_R.png', 239, 6.07, 667, 16.94, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 304.5, 0, 0, 3),
+(12, 'Hype SCL LatÃ©ralisÃ©e-T4', 'images/hype_scl_T4_R.png', 245, 6.22, 685, 17.4, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 95.5, 313.5, 0, 0, 4),
+(13, 'Hype SCL LatÃ©ralisÃ©e-T5', 'images/hype_scl_T5_R.png', 252, 6.4, 706, 17.93, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 324, 0, 0, 5),
+(14, 'Hype SCL LatÃ©ralisÃ©e-T6', 'images/hype_scl_T6_R.png', 259, 6.58, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 345, 0, 0, 6),
+(15, 'Hype SCL LatÃ©ralisÃ©e-T7', 'images/hype_scl_T7_R.png', 266, 6.76, 737, 18.72, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 339.5, 0, 0, 7),
+(16, 'Hype SCL LatÃ©ralisÃ©e-T8', 'images/hype_scl_T8_R.png', 272, 6.91, 768, 19.51, 0, 0, 0, 0, 0, 0, 0, 0, -93, 109, 355, 0, 0, 8),
+(17, 'Hype SCL LatÃ©ralisÃ©e-T9', 'images/hype_scl_T9_R.png', 278, 7.06, 793, 20.14, 0, 0, 0, 0, 0, 0, 0, 0, -94, 113, 367.5, 0, 0, 9),
+(18, 'Hype SCL LatÃ©ralisÃ©e-T10', 'images/hype_scl_T10_R.png', 284, 7.21, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -95, 116, 371, 0, 0, 10);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scs_std`
+-- Table structure for table `implant_scs_std`
 --
 
 DROP TABLE IF EXISTS `implant_scs_std`;
 CREATE TABLE IF NOT EXISTS `implant_scs_std` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1561,48 +1562,48 @@ CREATE TABLE IF NOT EXISTS `implant_scs_std` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scs_std`
+-- Dumping data for table `implant_scs_std`
 --
 
 INSERT INTO `implant_scs_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCS Standard-T1', 'images/hype_scs_T1.png', 608, 5.15, 1720, 14.56, 0, 0, 0, 0, 0, 0, 0, 0, 230, -219, 773, 0, 0, 1),
-(2, 'Hype SCS Standard-T2', 'images/hype_scs_T2.png', 625, 5.29, 1802, 15.26, 0, 0, 0, 0, 0, 0, 0, 0, 234.5, -227.5, 814, 0, 0, 2),
-(3, 'Hype SCS Standard-T3', 'images/hype_scs_T3.png', 648, 5.49, 1903, 16.11, 0, 0, 0, 0, 0, 0, 0, 0, 234, -239, 864.5, 0, 0, 3),
-(4, 'Hype SCS Standard-T4', 'images/hype_scs_T4.png', 668, 5.66, 1974, 16.71, 0, 0, 0, 0, 0, 0, 0, 0, 236, -250, 901, 0, 0, 4),
-(5, 'Hype SCS Standard-T5', 'images/hype_scs_T5.png', 685, 5.8, 2037, 17.25, 0, 0, 0, 0, 0, 0, 0, 0, 236.5, -259.5, 932.5, 0, 0, 5),
-(6, 'Hype SCS Standard-T6', 'images/hype_scs_T6.png', 708, 5.99, 2078, 17.59, 0, 0, 0, 0, 0, 0, 0, 0, 239, -268, 952, 0, 0, 6),
-(7, 'Hype SCS Standard-T7', 'images/hype_scs_T7.png', 727, 6.16, 2152, 18.22, 0, 0, 0, 0, 0, 0, 0, 0, 241.5, -278.5, 989, 0, 0, 7),
-(8, 'Hype SCS Standard-T8', 'images/hype_scs_T8.png', 748, 6.33, 2219, 18.79, 0, 0, 0, 0, 0, 0, 0, 0, 243, -287, 1021.5, 0, 0, 8),
-(9, 'Hype SCS Standard-T9', 'images/hype_scs_T9.png', 768, 6.5, 2284, 19.34, 0, 0, 0, 0, 0, 0, 0, 0, 245, -297, 1054, 0, 0, 9),
-(10, 'Hype SCS Standard-T10', 'images/hype_scs_T10.png', 784, 6.64, 2355, 19.94, 0, 0, 0, 0, 0, 0, 0, 0, 248, -307, 1091.5, 0, 0, 10),
-(11, 'Hype SCS Standard-T11', 'images/hype_scs_T11.png', 798, 6.76, 2394, 20.27, 0, 0, 0, 0, 0, 0, 0, 0, 253, -312, 1109, 0, 0, 11),
-(12, 'Hype SCS Standard-T1', 'images/hype_scs_T1_R.png', 608, 5.15, 1720, 14.56, 0, 0, 0, 0, 0, 0, 0, 0, -230, 219, 773, 0, 0, 1),
-(13, 'Hype SCS Standard-T2', 'images/hype_scs_T2_R.png', 625, 5.29, 1802, 15.26, 0, 0, 0, 0, 0, 0, 0, 0, -234.5, 227.5, 814, 0, 0, 2),
-(14, 'Hype SCS Standard-T3', 'images/hype_scs_T3_R.png', 648, 5.49, 1903, 16.11, 0, 0, 0, 0, 0, 0, 0, 0, -234, 239, 864.5, 0, 0, 3),
-(15, 'Hype SCS Standard-T4', 'images/hype_scs_T4_R.png', 668, 5.66, 1974, 16.71, 0, 0, 0, 0, 0, 0, 0, 0, -236, 250, 901, 0, 0, 4),
-(16, 'Hype SCS Standard-T5', 'images/hype_scs_T5_R.png', 685, 5.8, 2037, 17.25, 0, 0, 0, 0, 0, 0, 0, 0, -236.5, 259.5, 932.5, 0, 0, 5),
-(17, 'Hype SCS Standard-T6', 'images/hype_scs_T6_R.png', 708, 5.99, 2078, 17.59, 0, 0, 0, 0, 0, 0, 0, 0, -239, 268, 952, 0, 0, 6),
-(18, 'Hype SCS Standard-T7', 'images/hype_scs_T7_R.png', 727, 6.16, 2152, 18.22, 0, 0, 0, 0, 0, 0, 0, 0, -241.5, 278.5, 989, 0, 0, 7),
-(19, 'Hype SCS Standard-T8', 'images/hype_scs_T8_R.png', 748, 6.33, 2219, 18.79, 0, 0, 0, 0, 0, 0, 0, 0, -243, 287, 1021.5, 0, 0, 8),
-(20, 'Hype SCS Standard-T9', 'images/hype_scs_T9_R.png', 768, 6.5, 2284, 19.34, 0, 0, 0, 0, 0, 0, 0, 0, -245, 297, 1054, 0, 0, 9),
-(21, 'Hype SCS Standard-T10', 'images/hype_scs_T10_R.png', 784, 6.64, 2355, 19.94, 0, 0, 0, 0, 0, 0, 0, 0, -248, 307, 1091.5, 0, 0, 10),
-(22, 'Hype SCS Standard-T11', 'images/hype_scs_T11_R.png', 798, 6.76, 2394, 20.27, 0, 0, 0, 0, 0, 0, 0, 0, -253, 312, 1109, 0, 0, 11);
+(1, 'Hype SCS Standard-T1', 'images/hype_scs_T1.png', 202, 5.13, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 77, -73, 371, 0, 0, 1),
+(2, 'Hype SCS Standard-T2', 'images/hype_scs_T2.png', 208, 5.28, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 78, -76, 371, 0, 0, 2),
+(3, 'Hype SCS Standard-T3', 'images/hype_scs_T3.png', 215, 5.46, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -79.5, 371, 0, 0, 3),
+(4, 'Hype SCS Standard-T4', 'images/hype_scs_T4.png', 221, 5.61, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -82.5, 371, 0, 0, 4),
+(5, 'Hype SCS Standard-T5', 'images/hype_scs_T5.png', 228, 5.79, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 79, -86, 371, 0, 0, 5),
+(6, 'Hype SCS Standard-T6', 'images/hype_scs_T6.png', 235, 5.97, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -89.5, 371, 0, 0, 6),
+(7, 'Hype SCS Standard-T7', 'images/hype_scs_T7.png', 242, 6.15, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 80, -93, 371, 0, 0, 7),
+(8, 'Hype SCS Standard-T8', 'images/hype_scs_T8.png', 248, 6.3, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 81, -96, 371, 0, 0, 8),
+(9, 'Hype SCS Standard-T9', 'images/hype_scs_T9.png', 255, 6.48, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 82.5, -99.5, 371, 0, 0, 9),
+(10, 'Hype SCS Standard-T10', 'images/hype_scs_T10.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 83.5, -102.5, 371, 0, 0, 10),
+(11, 'Hype SCS Standard-T11', 'images/hype_scs_T11.png', 265, 6.73, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -104.5, 371, 0, 0, 11),
+(12, 'Hype SCS Standard-T1', 'images/hype_scs_T1_R.png', 202, 5.13, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -77, 73, 371, 0, 0, 1),
+(13, 'Hype SCS Standard-T2', 'images/hype_scs_T2_R.png', 208, 5.28, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -78, 76, 371, 0, 0, 2),
+(14, 'Hype SCS Standard-T3', 'images/hype_scs_T3_R.png', 215, 5.46, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 81.5, 371, 0, 0, 3),
+(15, 'Hype SCS Standard-T4', 'images/hype_scs_T4_R.png', 221, 5.61, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 83.5, 371, 0, 0, 4),
+(16, 'Hype SCS Standard-T5', 'images/hype_scs_T5_R.png', 228, 5.79, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -79, 87, 371, 0, 0, 5),
+(17, 'Hype SCS Standard-T6', 'images/hype_scs_T6_R.png', 235, 5.97, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 90.5, 371, 0, 0, 6),
+(18, 'Hype SCS Standard-T7', 'images/hype_scs_T7_R.png', 242, 6.15, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -80, 94, 371, 0, 0, 7),
+(19, 'Hype SCS Standard-T8', 'images/hype_scs_T8_R.png', 248, 6.3, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -81, 97, 371, 0, 0, 8),
+(20, 'Hype SCS Standard-T9', 'images/hype_scs_T9_R.png', 255, 6.48, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -82.5, 100.5, 371, 0, 0, 9),
+(21, 'Hype SCS Standard-T10', 'images/hype_scs_T10_R.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -83.5, 103.5, 371, 0, 0, 10),
+(22, 'Hype SCS Standard-T11', 'images/hype_scs_T11_R.png', 265, 6.73, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 105.5, 371, 0, 0, 11);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `implant_scv_coxa_vara`
+-- Table structure for table `implant_scv_coxa_vara`
 --
 
 DROP TABLE IF EXISTS `implant_scv_coxa_vara`;
 CREATE TABLE IF NOT EXISTS `implant_scv_coxa_vara` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
+  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1621,30 +1622,30 @@ CREATE TABLE IF NOT EXISTS `implant_scv_coxa_vara` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `implant_scv_coxa_vara`
+-- Dumping data for table `implant_scv_coxa_vara`
 --
 
 INSERT INTO `implant_scv_coxa_vara` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCV Coxa vara-T2', 'images/hype_scv_T2.png', 682, 5.77, 1744, 14.77, 0, 0, 0, 0, 0, 0, 0, 0, 262, -246, 785, 0, 0, 2),
-(2, 'Hype SCV Coxa vara-T3', 'images/hype_scv_T3.png', 705, 5.97, 1845, 15.62, 0, 0, 0, 0, 0, 0, 0, 0, 263.5, -256.5, 834.5, 0, 0, 3),
-(3, 'Hype SCV Coxa vara-T4', 'images/hype_scv_T4.png', 722, 6.11, 1900, 16.09, 0, 0, 0, 0, 0, 0, 0, 0, 263, -266, 862, 0, 0, 4),
-(4, 'Hype SCV Coxa vara-T5', 'images/hype_scv_T5.png', 723, 6.12, 1900, 16.71, 0, 0, 0, 0, 0, 0, 0, 0, 255.5, -282.5, 899, 0, 0, 5),
-(5, 'Hype SCV Coxa vara-T6', 'images/hype_scv_T6.png', 758, 6.42, 2028, 17.17, 0, 0, 0, 0, 0, 0, 0, 0, 265, -283, 926, 0, 0, 6),
-(6, 'Hype SCV Coxa vara-T7', 'images/hype_scv_T7.png', 776, 6.57, 2080, 17.61, 0, 0, 0, 0, 0, 0, 0, 0, 265, -292, 951, 0, 0, 7),
-(7, 'Hype SCV Coxa vara-T8', 'images/hype_scv_T8.png', 794, 6.72, 2144, 18.15, 0, 0, 0, 0, 0, 0, 0, 0, 266, -301, 985, 0, 0, 8),
-(8, 'Hype SCV Coxa vara-T9', 'images/hype_scv_T9.png', 812, 6.87, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 267, -311, 1008, 0, 0, 9),
-(9, 'Hype SCV Coxa vara-T2', 'images/hype_scv_T2_R.png', 682, 5.77, 1744, 14.77, 0, 0, 0, 0, 0, 0, 0, 0, -262, 246, 785, 0, 0, 2),
-(10, 'Hype SCV Coxa vara-T3', 'images/hype_scv_T3_R.png', 705, 5.97, 1845, 15.62, 0, 0, 0, 0, 0, 0, 0, 0, -263.5, 256.5, 834.5, 0, 0, 3),
-(11, 'Hype SCV Coxa vara-T4', 'images/hype_scv_T4_R.png', 722, 6.11, 1900, 16.09, 0, 0, 0, 0, 0, 0, 0, 0, -263, 266, 862, 0, 0, 4),
-(12, 'Hype SCV Coxa vara-T5', 'images/hype_scv_T5_R.png', 723, 6.12, 1900, 16.71, 0, 0, 0, 0, 0, 0, 0, 0, -255.5, 282.5, 899, 0, 0, 5),
-(13, 'Hype SCV Coxa vara-T6', 'images/hype_scv_T6_R.png', 758, 6.42, 2028, 17.17, 0, 0, 0, 0, 0, 0, 0, 0, -265, 283, 926, 0, 0, 6),
-(14, 'Hype SCV Coxa vara-T7', 'images/hype_scv_T7_R.png', 776, 6.57, 2080, 17.61, 0, 0, 0, 0, 0, 0, 0, 0, -265, 292, 951, 0, 0, 7),
-(15, 'Hype SCV Coxa vara-T8', 'images/hype_scv_T8_R.png', 794, 6.72, 2144, 18.15, 0, 0, 0, 0, 0, 0, 0, 0, -266, 301, 985, 0, 0, 8),
-(16, 'Hype SCV Coxa vara-T9', 'images/hype_scv_T9_R.png', 812, 6.87, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -267, 311, 1008, 0, 0, 9);
+(1, 'Hype SCV Coxa vara-T2', 'images/hype_scv_T2.png', 221, 5.61, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -84.5, 346, 0, 0, 2),
+(2, 'Hype SCV Coxa vara-T3', 'images/hype_scv_T3.png', 229, 5.82, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -88.5, 346, 0, 0, 3),
+(3, 'Hype SCV Coxa vara-T4', 'images/hype_scv_T4.png', 234, 5.94, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 85, -91, 346, 0, 0, 4),
+(4, 'Hype SCV Coxa vara-T5', 'images/hype_scv_T5.png', 241, 6.12, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 85.5, -94.5, 346, 0, 0, 5),
+(5, 'Hype SCV Coxa vara-T6', 'images/hype_scv_T6.png', 247, 6.27, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 85.5, -97.5, 346, 0, 0, 6),
+(6, 'Hype SCV Coxa vara-T7', 'images/hype_scv_T7.png', 253, 6.43, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 85.5, -100.5, 346, 0, 0, 7),
+(7, 'Hype SCV Coxa vara-T8', 'images/hype_scv_T8.png', 258, 6.55, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 86, -103, 346, 0, 0, 8),
+(8, 'Hype SCV Coxa vara-T9', 'images/hype_scv_T9.png', 264, 6.71, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, 86, -106, 346, 0, 0, 9),
+(9, 'Hype SCV Coxa vara-T2', 'images/hype_scv_T2_R.png', 221, 5.61, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 85.5, 346, 0, 0, 2),
+(10, 'Hype SCV Coxa vara-T3', 'images/hype_scv_T3_R.png', 229, 5.82, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 89.5, 346, 0, 0, 3),
+(11, 'Hype SCV Coxa vara-T4', 'images/hype_scv_T4_R.png', 234, 5.94, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -85, 93, 346, 0, 0, 4),
+(12, 'Hype SCV Coxa vara-T5', 'images/hype_scv_T5_R.png', 241, 6.12, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -85.5, 94.5, 346, 0, 0, 5),
+(13, 'Hype SCV Coxa vara-T6', 'images/hype_scv_T6_R.png', 247, 6.27, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -85.5, 98.5, 346, 0, 0, 6),
+(14, 'Hype SCV Coxa vara-T7', 'images/hype_scv_T7_R.png', 253, 6.43, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -85.5, 101.5, 346, 0, 0, 7),
+(15, 'Hype SCV Coxa vara-T8', 'images/hype_scv_T8_R.png', 258, 6.55, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -86, 104, 346, 0, 0, 8),
+(16, 'Hype SCV Coxa vara-T9', 'images/hype_scv_T9_R.png', 264, 6.71, 750, 19.05, 0, 0, 0, 0, 0, 0, 0, 0, -86, 107, 346, 0, 0, 9);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
