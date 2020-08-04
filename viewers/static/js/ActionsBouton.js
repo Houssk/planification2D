@@ -315,32 +315,7 @@ $(document).ready(function () {
 					break;
 				}
 			}
-		} else if (valeurGammeTige == "implant_sagitta"){
-			var gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
-			var valeurGammeTigeSagitta = gammeTigeSagitta.options[gammeTigeSagitta.selectedIndex].value;
-			switch(valeurGammeTigeSagitta){
-				case "implant_sagitta_std":{
-					tableImplant = valeurGammeTigeSagitta;
-					indexTigeDroit = 1;
-					indexTigeGauche = 11;
-					maximumTigeDroit = 10;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 20;
-					minimumTigeGauche= 11;
-					break;
-				}
-				case "implant_sagitta_offset":{
-					tableImplant = valeurGammeTigeSagitta;
-					indexTigeDroit = 1;
-					indexTigeGauche = 10;
-					maximumTigeDroit = 9;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 18;
-					minimumTigeGauche= 10;
-					break;
-				}
-			}
-		}
+		 }
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
@@ -1221,15 +1196,9 @@ $(document).ready(function () {
 		if (gammeTige.options[gammeTige.selectedIndex].value == "implant_hype") {
 			document.getElementById("implantHypeSousGamme").style.display="";
 			document.getElementById("implantLibraSousGamme").style.display="none";
-			document.getElementById("implantSagittaSousGamme").style.display="none";
 		} else if (gammeTige.options[gammeTige.selectedIndex].value == "implant_libra") {
 			document.getElementById("implantHypeSousGamme").style.display="none";
 			document.getElementById("implantLibraSousGamme").style.display="";
-			document.getElementById("implantSagittaSousGamme").style.display="none";
-		} else if(gammeTige.options[gammeTige.selectedIndex].value == "implant_sagitta"){
-			document.getElementById("implantHypeSousGamme").style.display="none";
-			document.getElementById("implantLibraSousGamme").style.display="none";
-			document.getElementById("implantSagittaSousGamme").style.display="";
 		}
 		TigeSelection();
 	});
@@ -1261,14 +1230,6 @@ $(document).ready(function () {
 	*/
 	var gammeTigeLibra = document.getElementById("gammeTigeLibra");
 	gammeTigeLibra.addEventListener('change',function(){
-		TigeSelection();
-	});
-
-	/*
-	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
-	*/
-	var gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
-	gammeTigeSagitta.addEventListener('change',function(){
 		TigeSelection();
 	});
 
