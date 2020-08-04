@@ -86,7 +86,7 @@ dwv.tool.LineFactory.prototype.create = function (points, style, image)
                     shapeId="regle_3";
                 }
             } else {
-                swal("Veuillez supprimer les régles pour en recreer une nouvelle","Seules 3 régles sont autorisées");
+                swal(translatedTexts["rullerSwal"][lang], translatedTexts["rullerSwalMini"][lang]);
                 onPeutTraceRegle=false;
             }
         }
