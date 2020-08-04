@@ -86,7 +86,7 @@ dwv.tool.ProtractorFactory.prototype.create = function (points, style/*, image*/
                     shapeId="angle_3";
                 }
             } else {
-                swal("Veuillez supprimer les angles pour en recreer un nouveau","Seul 3 angles sont autorisés");
+                swal(translatedTexts["angleSwal"][lang],translatedTexts["angleSwalMini"][lang]);
                 onPeutTraceAngle=false;
             }
         }

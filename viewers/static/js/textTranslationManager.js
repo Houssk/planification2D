@@ -32,6 +32,22 @@ const translatedTexts = {
         "fr": `Manuel Utilisateur Serf`,
         "en": `User Manual Serf`,
     },
+    rullerSwal: {
+        "fr": `Veuillez supprimer les régles pour en recreer une nouvelle.`,
+        "en": `Please delete the rulers to create a new one.`,
+    },
+    rullerSwalMini: {
+        "fr": `Seules 3 régles sont autorisées.`,
+        "en": `Only 3 rulers are allowed.`,
+    },
+    angleSwal: {
+        "fr": `Veuillez supprimer les angles pour en recreer un nouveau.`,
+        "en": `Please remove the angles to create a new one.`,
+    },
+    angleSwalMini: {
+        "fr": `Seul 3 angles sont autorisés.`,
+        "en": `Only 3 angles are allowed.`,
+    },
     Planning2DText: {
         "fr": `Planification 2D`,
         "en": `2D preoperative planning`
