@@ -22,7 +22,7 @@ const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez sim
     lang = getLanguage()
 ;
 function getLanguage(){
-    return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "fr"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
+    return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "en"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
 }
 const translatedTexts = {
     Planning2DText: {
