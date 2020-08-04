@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- <html manifest="cache.manifest"> -->
-<html>
+<html lang="">
 
 <head>
 	<title class="textTranslation" data-textid="Planning2DText">SERF - Planification 2D</title>
@@ -165,20 +165,10 @@
 										</div>
 									</div>
 								</div>
-								<!--<div class="col-md-6 centered">
-									<input type="button" id="buttonSeuil" class="btn btn-primary" value="SEUILLAGE" style="width: 110px;">
-									<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
-									<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="-100" data-slider-max="200" data-slider-step="1" data-slider-value="14"/>
-								</div>-->
 								<div class="col-md-3 offset-md-2">
 									<button type="button" id="buttonZoom" class="btn btn-primary zoom"><span class="material-icons md-34">zoom_in</span></button>
 								</div>
 							</div>
-							<!--<div class="row centered" style="margin-top:2%;">
-								<div class="col-md-6 centered">
-									<input type="button" id="buttonCalibrage" class="btn btn-primary" value="CALIBRER" style="width: 110px;">
-								</div>
-							</div>-->
 
 							<div class="row">
 								<div class="col-md-12 centered">
@@ -255,7 +245,6 @@
 								<select class="form-control" id="gammeTige">
 									<option value="implant_hype">HYPE</option>
 									<option value="implant_libra">LIBRA</option>
-									<option value="implant_sagitta">SAGITTA</option>
 								</select>
 							</div>
 						</div>
@@ -282,14 +271,6 @@
 									<option value="implant_ha_std_appui">HA Standard Appui</option>
 									<option value="implant_cim_offset">Cimentée Offset</option>
 									<option value="implant_cim_std_appui">Cimentée Standard Appui</option>
-								</select>
-							</div>
-						</div>
-						<div id="implantSagittaSousGamme" class="row" style="display:none;">
-							<div class="col-md-8">
-								<select class="form-control" id="gammeTigeSagitta">
-									<option value="implant_sagitta_std">Standard</option>
-									<option value="implant_sagitta_offset">Décalée</option>
 								</select>
 							</div>
 						</div>
@@ -530,7 +511,7 @@
 							<img src="images/triangle.JPG" alt="" style="width: 35px;">
 						</div>
 						<div class="col-md-9">
-							<a href="Manuel Utilisateur Serf.pdf" target="_blank">
+							<a id="userManual" href="Manuel Utilisateur Serf.pdf" target="_blank">
 								<button type="button" class="btn btn-primary textTranslation" data-textid="userManualText" style="width: 220px;">MANUEL UTILISATEUR</button>
 							</a>
 						</div>
@@ -549,7 +530,6 @@
 							<h5 class="textTranslation" data-textid="ceMarkText">Année d’obtention du marquage CE : 2018</h5>
 						</div>
 					</div>
-					<!--<label id="labelOffsetTigeCotyle" class="blackColor"></label>-->
 				</div>
 			</div>
 

@@ -24,7 +24,14 @@ const translatedLanguages = ["fr", "en"], //Pour ajouter une langue, ajoutez sim
 function getLanguage(){
     return (translatedLanguages.indexOf(urlLanguage) >= 0) ? urlLanguage : "en"; //En cas de traduction non terminée ou d'erreur de changement dans l'URL, la page sera par défaut en Français.
 }
+//Set the html lang parameter
+$("html").attr("lang", lang);
+
 const translatedTexts = {
+    UserManual: {
+        "fr": `Manuel Utilisateur Serf`,
+        "en": `User Manual Serf`,
+    },
     Planning2DText: {
         "fr": `Planification 2D`,
         "en": `2D preoperative planning`
@@ -281,6 +288,7 @@ const translatedTexts = {
     }
 
 };
+//Translate everything having the .testTranslation class. The translation is done differently if the element have a data field or not.
 $('.textTranslation').each(function() {
     typeof $(this).data("type") === 'undefined'
         ?
@@ -289,3 +297,5 @@ $('.textTranslation').each(function() {
         $(this).attr($(this).data("type"), translatedTexts[$(this).data("textid")][lang])
     ;
 });
+//Set the user manual link
+$("#userManual").prop("href", (translatedTexts["UserManual"][lang]) + ".pdf")
