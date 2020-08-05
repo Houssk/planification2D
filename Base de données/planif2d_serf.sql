@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 05, 2020 at 01:05 PM
+-- Generation Time: Aug 05, 2020 at 02:59 PM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -1303,7 +1303,7 @@ INSERT INTO `implant_scho_high_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`
 (8, 'Hype SCHO High Offset-T10', 'images/hype_scho_T10.png\n', 283, 7.19, 805, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, 93.5, -113.5, 373.5, 0, 0, 10),
 (9, 'Hype SCHO High Offset-T11', 'images/hype_scho_T11.png\n', 288, 7.32, 835, 21.21, 0, 0, 0, 0, 0, 0, 0, 0, 95, -116, 388.5, 0, 0, 11),
 (10, 'Hype SCHO High Offset-T3', 'images/hype_scho_T3_R.png\n', 237, 6.02, 653, 16.59, 0, 0, 0, 0, 0, 0, 0, 0, -88.5, 90.5, 297.5, 0, 0, 3),
-(11, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4_R.png\n', 244, 6.2, 682, 17.32, 0, 0, 0, 0, 0, 0, 0, 0, -88, 94, 297.5, 0, 0, 4),
+(11, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4_R.png\n', 244, 6.2, 682, 17.32, 0, 0, 0, 0, 0, 0, 0, 0, -88, 94, 312, 0, 0, 4),
 (12, 'Hype SCHO High Offset-T5', 'images/hype_scho_T5_R.png\n', 251, 6.38, 693, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 97.5, 317.5, 0, 0, 5),
 (13, 'Hype SCHO High Offset-T6', 'images/hype_scho_T6_R.png\n', 257, 6.53, 714, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 101.5, 328, 0, 0, 6),
 (14, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7_R.png\n', 264, 6.71, 734, 18.64, 0, 0, 0, 0, 0, 0, 0, 0, -91, 104, 338, 0, 0, 7),
