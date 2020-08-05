@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 04, 2020 at 08:49 AM
+-- Generation Time: Aug 05, 2020 at 01:05 PM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -653,8 +653,8 @@ INSERT INTO `implant` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `he
 DROP TABLE IF EXISTS `implant_acl_cim_lat`;
 CREATE TABLE IF NOT EXISTS `implant_acl_cim_lat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -681,22 +681,22 @@ CREATE TABLE IF NOT EXISTS `implant_acl_cim_lat` (
 --
 
 INSERT INTO `implant_acl_cim_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T2', 'images/hype_acl_T2.png', 231, 5.87, 598, 15.19, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 270, 0, 0, 2),
-(2, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T3', 'images/hype_acl_T3.png', 239, 6.07, 636, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 289, 0, 0, 3),
-(3, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T4', 'images/hype_acl_T4.png', 246, 6.25, 673, 17.09, 0, 0, 0, 0, 0, 0, 0, 0, 90, -95, 307.5, 0, 0, 4),
-(4, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T5', 'images/hype_acl_T5.png', 252, 6.4, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 312.5, 0, 0, 5),
-(5, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T6', 'images/hype_acl_T6.png', 259, 6.58, 709, 18.01, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 325.5, 0, 0, 6),
-(6, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T7', 'images/hype_acl_T7.png', 266, 6.76, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 335, 0, 0, 7),
-(7, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T8', 'images/hype_acl_T8.png', 272, 6.91, 743, 18.87, 0, 0, 0, 0, 0, 0, 0, 0, 93, -108, 342.5, 0, 0, 8),
-(8, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T9', 'images/hype_acl_T9.png', 278, 7.06, 775, 19.68, 0, 0, 0, 0, 0, 0, 0, 0, 94, -111, 358.5, 0, 0, 9),
-(9, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T2', 'images/hype_acl_T2_R.png', 231, 5.87, 598, 15.19, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 270, 0, 0, 2),
-(10, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T3', 'images/hype_acl_T3_R.png', 239, 6.07, 636, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 289, 0, 0, 3),
-(11, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T4', 'images/hype_acl_T4_R.png', 246, 6.25, 673, 17.09, 0, 0, 0, 0, 0, 0, 0, 0, -90, 96, 307.5, 0, 0, 4),
-(12, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T5', 'images/hype_acl_T5_R.png', 252, 6.4, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 312.5, 0, 0, 5),
-(13, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T6', 'images/hype_acl_T6_R.png', 259, 6.58, 709, 18.01, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 325.5, 0, 0, 6),
-(14, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T7', 'images/hype_acl_T7_R.png', 266, 6.76, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 335, 0, 0, 7),
-(15, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T8', 'images/hype_acl_T8_R.png', 272, 6.91, 743, 18.87, 0, 0, 0, 0, 0, 0, 0, 0, -93, 108, 342.5, 0, 0, 8),
-(16, 'Hype ACL A cimenter LatÃ©ralisÃ©e-T9', 'images/hype_acl_T9_R.png', 278, 7.06, 775, 19.68, 0, 0, 0, 0, 0, 0, 0, 0, -94, 112, 358.5, 0, 0, 9);
+(1, 'Hype ACL A cimenter Latéralisée-T2', 'images/hype_acl_T2.png', 231, 5.87, 598, 15.19, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 270, 0, 0, 2),
+(2, 'Hype ACL A cimenter Latéralisée-T3', 'images/hype_acl_T3.png', 239, 6.07, 636, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 289, 0, 0, 3),
+(3, 'Hype ACL A cimenter Latéralisée-T4', 'images/hype_acl_T4.png', 246, 6.25, 673, 17.09, 0, 0, 0, 0, 0, 0, 0, 0, 90, -95, 307.5, 0, 0, 4),
+(4, 'Hype ACL A cimenter Latéralisée-T5', 'images/hype_acl_T5.png', 252, 6.4, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 312.5, 0, 0, 5),
+(5, 'Hype ACL A cimenter Latéralisée-T6', 'images/hype_acl_T6.png', 259, 6.58, 709, 18.01, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 325.5, 0, 0, 6),
+(6, 'Hype ACL A cimenter Latéralisée-T7', 'images/hype_acl_T7.png', 266, 6.76, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 335, 0, 0, 7),
+(7, 'Hype ACL A cimenter Latéralisée-T8', 'images/hype_acl_T8.png', 272, 6.91, 743, 18.87, 0, 0, 0, 0, 0, 0, 0, 0, 93, -108, 342.5, 0, 0, 8),
+(8, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9.png', 278, 7.06, 775, 19.68, 0, 0, 0, 0, 0, 0, 0, 0, 94, -111, 358.5, 0, 0, 9),
+(9, 'Hype ACL A cimenter Latéralisée-T2', 'images/hype_acl_T2_R.png', 231, 5.87, 598, 15.19, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 270, 0, 0, 2),
+(10, 'Hype ACL A cimenter Latéralisée-T3', 'images/hype_acl_T3_R.png', 239, 6.07, 636, 16.15, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 289, 0, 0, 3),
+(11, 'Hype ACL A cimenter Latéralisée-T4', 'images/hype_acl_T4_R.png', 246, 6.25, 673, 17.09, 0, 0, 0, 0, 0, 0, 0, 0, -90, 96, 307.5, 0, 0, 4),
+(12, 'Hype ACL A cimenter Latéralisée-T5', 'images/hype_acl_T5_R.png', 252, 6.4, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 312.5, 0, 0, 5),
+(13, 'Hype ACL A cimenter Latéralisée-T6', 'images/hype_acl_T6_R.png', 259, 6.58, 709, 18.01, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 325.5, 0, 0, 6),
+(14, 'Hype ACL A cimenter Latéralisée-T7', 'images/hype_acl_T7_R.png', 266, 6.76, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 335, 0, 0, 7),
+(15, 'Hype ACL A cimenter Latéralisée-T8', 'images/hype_acl_T8_R.png', 272, 6.91, 743, 18.87, 0, 0, 0, 0, 0, 0, 0, 0, -93, 108, 342.5, 0, 0, 8),
+(16, 'Hype ACL A cimenter Latéralisée-T9', 'images/hype_acl_T9_R.png', 278, 7.06, 775, 19.68, 0, 0, 0, 0, 0, 0, 0, 0, -94, 112, 358.5, 0, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -1205,8 +1205,8 @@ INSERT INTO `implant_scc_mini_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `h
 DROP TABLE IF EXISTS `implant_scc_std_col`;
 CREATE TABLE IF NOT EXISTS `implant_scc_std_col` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1233,28 +1233,28 @@ CREATE TABLE IF NOT EXISTS `implant_scc_std_col` (
 --
 
 INSERT INTO `implant_scc_std_col` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCC Standard Ã  colerette-T1', 'images/hype_scc_T1.png', 202, 5.13, 594, 15.09, 0, 0, 0, 0, 0, 0, 0, 0, 77, -73, 268, 0, 0, 1),
-(2, 'Hype SCC Standard Ã  colerette-T2', 'images/hype_scc_T2.png', 208, 5.28, 610, 15.49, 0, 0, 0, 0, 0, 0, 0, 0, 78, -76, 276, 0, 0, 2),
-(3, 'Hype SCC Standard Ã  colerette-T3', 'images/hype_scc_T3.png', 215, 5.46, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -79.5, 294.5, 0, 0, 3),
-(4, 'Hype SCC Standard Ã  colerette-T4', 'images/hype_scc_T4.png', 221, 5.61, 672, 17.07, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -82.5, 307, 0, 0, 4),
-(5, 'Hype SCC Standard Ã  colerette-T5', 'images/hype_scc_T5.png', 228, 5.79, 698, 17.73, 0, 0, 0, 0, 0, 0, 0, 0, 79, -86, 320, 0, 0, 5),
-(6, 'Hype SCC Standard Ã  colerette-T6', 'images/hype_scc_T6.png', 235, 5.97, 719, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -89.5, 330.5, 0, 0, 6),
-(7, 'Hype SCC Standard Ã  colerette-T7', 'images/hype_scc_T7.png', 242, 6.15, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, 80, -93, 335, 0, 0, 7),
-(8, 'Hype SCC Standard Ã  colerette-T8', 'images/hype_scc_T8.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 81, -96, 345, 0, 0, 8),
-(9, 'Hype SCC Standard Ã  colerette-T9', 'images/hype_scc_T9.png', 255, 6.48, 771, 19.58, 0, 0, 0, 0, 0, 0, 0, 0, 82.5, -99.5, 356.5, 0, 0, 9),
-(10, 'Hype SCC Standard Ã  colerette-T10', 'images/hype_scc_T10.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 83.5, -102.5, 371, 0, 0, 10),
-(11, 'Hype SCC Standard Ã  colerette-T11', 'images/hype_scc_T11.png', 265, 6.73, 833, 21.16, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -104.5, 387.5, 0, 0, 11),
-(12, 'Hype SCC Standard Ã  colerette-T1', 'images/hype_scc_T1_R.png', 202, 5.13, 594, 15.09, 0, 0, 0, 0, 0, 0, 0, 0, -76, 74, 268, 0, 0, 1),
-(13, 'Hype SCC Standard Ã  colerette-T2', 'images/hype_scc_T2_R.png', 208, 5.28, 610, 15.49, 0, 0, 0, 0, 0, 0, 0, 0, -78, 76, 276, 0, 0, 2),
-(14, 'Hype SCC Standard Ã  colerette-T3', 'images/hype_scc_T3_R.png', 215, 5.46, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 80.5, 294.5, 0, 0, 3),
-(15, 'Hype SCC Standard Ã  colerette-T4', 'images/hype_scc_T4_R.png', 221, 5.61, 672, 17.07, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 83.5, 307, 0, 0, 4),
-(16, 'Hype SCC Standard Ã  colerette-T5', 'images/hype_scc_T5_R.png', 228, 5.79, 698, 17.73, 0, 0, 0, 0, 0, 0, 0, 0, -79, 87, 320, 0, 0, 5),
-(17, 'Hype SCC Standard Ã  colerette-T6', 'images/hype_scc_T6_R.png', 235, 5.97, 719, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 91.5, 330.5, 0, 0, 6),
-(18, 'Hype SCC Standard Ã  colerette-T7', 'images/hype_scc_T7_R.png', 242, 6.15, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, -80, 94, 335, 0, 0, 7),
-(19, 'Hype SCC Standard Ã  colerette-T8', 'images/hype_scc_T8_R.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -81, 97, 345, 0, 0, 8),
-(20, 'Hype SCC Standard Ã  colerette-T9', 'images/hype_scc_T9_R.png', 255, 6.48, 771, 19.58, 0, 0, 0, 0, 0, 0, 0, 0, -82.5, 99.5, 356.5, 0, 0, 9),
-(21, 'Hype SCC Standard Ã  colerette-T10', 'images/hype_scc_T10_R.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -83.5, 103.5, 371, 0, 0, 10),
-(22, 'Hype SCC Standard Ã  colerette-T11', 'images/hype_scc_T11_R.png', 265, 6.73, 833, 21.16, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 106.5, 387.5, 0, 0, 11);
+(1, 'Hype SCC Standard à colerette-T1', 'images/hype_scc_T1.png', 202, 5.13, 594, 15.09, 0, 0, 0, 0, 0, 0, 0, 0, 77, -73, 268, 0, 0, 1),
+(2, 'Hype SCC Standard à colerette-T2', 'images/hype_scc_T2.png', 208, 5.28, 610, 15.49, 0, 0, 0, 0, 0, 0, 0, 0, 78, -76, 276, 0, 0, 2),
+(3, 'Hype SCC Standard à colerette-T3', 'images/hype_scc_T3.png', 215, 5.46, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -79.5, 294.5, 0, 0, 3),
+(4, 'Hype SCC Standard à colerette-T4', 'images/hype_scc_T4.png', 221, 5.61, 672, 17.07, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -82.5, 307, 0, 0, 4),
+(5, 'Hype SCC Standard à colerette-T5', 'images/hype_scc_T5.png', 228, 5.79, 698, 17.73, 0, 0, 0, 0, 0, 0, 0, 0, 79, -86, 320, 0, 0, 5),
+(6, 'Hype SCC Standard à colerette-T6', 'images/hype_scc_T6.png', 235, 5.97, 719, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -89.5, 330.5, 0, 0, 6),
+(7, 'Hype SCC Standard à colerette-T7', 'images/hype_scc_T7.png', 242, 6.15, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, 80, -93, 335, 0, 0, 7),
+(8, 'Hype SCC Standard à colerette-T8', 'images/hype_scc_T8.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 81, -96, 345, 0, 0, 8),
+(9, 'Hype SCC Standard à colerette-T9', 'images/hype_scc_T9.png', 255, 6.48, 771, 19.58, 0, 0, 0, 0, 0, 0, 0, 0, 82.5, -99.5, 356.5, 0, 0, 9),
+(10, 'Hype SCC Standard à colerette-T10', 'images/hype_scc_T10.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 83.5, -102.5, 371, 0, 0, 10),
+(11, 'Hype SCC Standard à colerette-T11', 'images/hype_scc_T11.png', 265, 6.73, 833, 21.16, 0, 0, 0, 0, 0, 0, 0, 0, 84.5, -104.5, 387.5, 0, 0, 11),
+(12, 'Hype SCC Standard à colerette-T1', 'images/hype_scc_T1_R.png', 202, 5.13, 594, 15.09, 0, 0, 0, 0, 0, 0, 0, 0, -76, 74, 268, 0, 0, 1),
+(13, 'Hype SCC Standard à colerette-T2', 'images/hype_scc_T2_R.png', 208, 5.28, 610, 15.49, 0, 0, 0, 0, 0, 0, 0, 0, -78, 76, 276, 0, 0, 2),
+(14, 'Hype SCC Standard à colerette-T3', 'images/hype_scc_T3_R.png', 215, 5.46, 647, 16.43, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 80.5, 294.5, 0, 0, 3),
+(15, 'Hype SCC Standard à colerette-T4', 'images/hype_scc_T4_R.png', 221, 5.61, 672, 17.07, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 83.5, 307, 0, 0, 4),
+(16, 'Hype SCC Standard à colerette-T5', 'images/hype_scc_T5_R.png', 228, 5.79, 698, 17.73, 0, 0, 0, 0, 0, 0, 0, 0, -79, 87, 320, 0, 0, 5),
+(17, 'Hype SCC Standard à colerette-T6', 'images/hype_scc_T6_R.png', 235, 5.97, 719, 18.26, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 91.5, 330.5, 0, 0, 6),
+(18, 'Hype SCC Standard à colerette-T7', 'images/hype_scc_T7_R.png', 242, 6.15, 728, 18.49, 0, 0, 0, 0, 0, 0, 0, 0, -80, 94, 335, 0, 0, 7),
+(19, 'Hype SCC Standard à colerette-T8', 'images/hype_scc_T8_R.png', 248, 6.3, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -81, 97, 345, 0, 0, 8),
+(20, 'Hype SCC Standard à colerette-T9', 'images/hype_scc_T9_R.png', 255, 6.48, 771, 19.58, 0, 0, 0, 0, 0, 0, 0, 0, -82.5, 99.5, 356.5, 0, 0, 9),
+(21, 'Hype SCC Standard à colerette-T10', 'images/hype_scc_T10_R.png', 261, 6.63, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -83.5, 103.5, 371, 0, 0, 10),
+(22, 'Hype SCC Standard à colerette-T11', 'images/hype_scc_T11_R.png', 265, 6.73, 833, 21.16, 0, 0, 0, 0, 0, 0, 0, 0, -84.5, 106.5, 387.5, 0, 0, 11);
 
 -- --------------------------------------------------------
 
@@ -1322,8 +1322,8 @@ INSERT INTO `implant_scho_high_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`
 DROP TABLE IF EXISTS `implant_scla_mini_lat`;
 CREATE TABLE IF NOT EXISTS `implant_scla_mini_lat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1350,18 +1350,18 @@ CREATE TABLE IF NOT EXISTS `implant_scla_mini_lat` (
 --
 
 INSERT INTO `implant_scla_mini_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCLA MINI LatÃ©ralisÃ©e-T2', 'images/hype_scla_mini_T2.png', 231, 5.87, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 273.5, 0, 0, 2),
-(2, 'Hype SCLA MINI LatÃ©ralisÃ©e-T3', 'images/hype_scla_mini_T3.png', 239, 6.07, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 273.5, 0, 0, 3),
-(3, 'Hype SCLA MINI LatÃ©ralisÃ©e-T4', 'images/hype_scla_mini_T4.png', 245, 6.22, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 90.5, -94.5, 273.5, 0, 0, 4),
-(4, 'Hype SCLA MINI LatÃ©ralisÃ©e-T5', 'images/hype_scla_mini_T5.png', 252, 6.4, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 273.5, 0, 0, 5),
-(5, 'Hype SCLA MINI LatÃ©ralisÃ©e-T6', 'images/hype_scla_mini_T6.png', 259, 6.58, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 273.5, 0, 0, 6),
-(6, 'Hype SCLA MINI LatÃ©ralisÃ©e-T7', 'images/hype_scla_mini_T7.png', 266, 6.76, 605, 15.35, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 273.5, 0, 0, 7),
-(7, 'Hype SCLA MINI LatÃ©ralisÃ©e-T2', 'images/hype_scla_mini_T2_R.png', 231, 5.87, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 273.5, 0, 0, 2),
-(8, 'Hype SCLA MINI LatÃ©ralisÃ©e-T3', 'images/hype_scla_mini_T3_R.png', 239, 6.07, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 273.5, 0, 0, 3),
-(9, 'Hype SCLA MINI LatÃ©ralisÃ©e-T4', 'images/hype_scla_mini_T4_R.png', 245, 6.22, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 95.5, 273.5, 0, 0, 4),
-(10, 'Hype SCLA MINI LatÃ©ralisÃ©e-T5', 'images/hype_scla_mini_T5_R.png', 252, 6.4, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 273.5, 0, 0, 5),
-(11, 'Hype SCLA MINI LatÃ©ralisÃ©e-T6', 'images/hype_scla_mini_T6_R.png', 259, 6.58, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 273.5, 0, 0, 6),
-(12, 'Hype SCLA MINI LatÃ©ralisÃ©e-T7', 'images/hype_scla_mini_T7_R.png', 266, 6.76, 605, 15.35, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 273.5, 0, 0, 7);
+(1, 'Hype SCLA MINI Latéralisée-T2', 'images/hype_scla_mini_T2.png', 231, 5.87, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 273.5, 0, 0, 2),
+(2, 'Hype SCLA MINI Latéralisée-T3', 'images/hype_scla_mini_T3.png', 239, 6.07, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 273.5, 0, 0, 3),
+(3, 'Hype SCLA MINI Latéralisée-T4', 'images/hype_scla_mini_T4.png', 245, 6.22, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 90.5, -94.5, 273.5, 0, 0, 4),
+(4, 'Hype SCLA MINI Latéralisée-T5', 'images/hype_scla_mini_T5.png', 252, 6.4, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 273.5, 0, 0, 5),
+(5, 'Hype SCLA MINI Latéralisée-T6', 'images/hype_scla_mini_T6.png', 259, 6.58, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 273.5, 0, 0, 6),
+(6, 'Hype SCLA MINI Latéralisée-T7', 'images/hype_scla_mini_T7.png', 266, 6.76, 605, 15.35, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 273.5, 0, 0, 7),
+(7, 'Hype SCLA MINI Latéralisée-T2', 'images/hype_scla_mini_T2_R.png', 231, 5.87, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 273.5, 0, 0, 2),
+(8, 'Hype SCLA MINI Latéralisée-T3', 'images/hype_scla_mini_T3_R.png', 239, 6.07, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 273.5, 0, 0, 3),
+(9, 'Hype SCLA MINI Latéralisée-T4', 'images/hype_scla_mini_T4_R.png', 245, 6.22, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 95.5, 273.5, 0, 0, 4),
+(10, 'Hype SCLA MINI Latéralisée-T5', 'images/hype_scla_mini_T5_R.png', 252, 6.4, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 273.5, 0, 0, 5),
+(11, 'Hype SCLA MINI Latéralisée-T6', 'images/hype_scla_mini_T6_R.png', 259, 6.58, 605, 15.37, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 273.5, 0, 0, 6),
+(12, 'Hype SCLA MINI Latéralisée-T7', 'images/hype_scla_mini_T7_R.png', 266, 6.76, 605, 15.35, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 273.5, 0, 0, 7);
 
 -- --------------------------------------------------------
 
@@ -1372,8 +1372,8 @@ INSERT INTO `implant_scla_mini_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `
 DROP TABLE IF EXISTS `implant_scl_lat`;
 CREATE TABLE IF NOT EXISTS `implant_scl_lat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `url` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
   `widthPx` float NOT NULL,
   `widthCm` float NOT NULL,
   `heightPx` float NOT NULL,
@@ -1400,24 +1400,24 @@ CREATE TABLE IF NOT EXISTS `implant_scl_lat` (
 --
 
 INSERT INTO `implant_scl_lat` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Hype SCL LatÃ©ralisÃ©e-T2', 'images/hype_scl_T2.png', 231, 5.87, 633, 16.08, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 287.5, 0, 0, 2),
-(2, 'Hype SCL LatÃ©ralisÃ©e-T3', 'images/hype_scl_T3.png', 239, 6.07, 667, 16.94, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 304.5, 0, 0, 3),
-(3, 'Hype SCL LatÃ©ralisÃ©e-T4', 'images/hype_scl_T4.png', 245, 6.22, 685, 17.4, 0, 0, 0, 0, 0, 0, 0, 0, 90.5, -94.5, 313.5, 0, 0, 4),
-(4, 'Hype SCL LatÃ©ralisÃ©e-T5', 'images/hype_scl_T5.png', 252, 6.4, 706, 17.93, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 324, 0, 0, 5),
-(5, 'Hype SCL LatÃ©ralisÃ©e-T6', 'images/hype_scl_T6.png', 259, 6.58, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 345, 0, 0, 6),
-(6, 'Hype SCL LatÃ©ralisÃ©e-T7', 'images/hype_scl_T7.png', 266, 6.76, 737, 18.72, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 339.5, 0, 0, 7),
-(7, 'Hype SCL LatÃ©ralisÃ©e-T8', 'images/hype_scl_T8.png', 272, 6.91, 768, 19.51, 0, 0, 0, 0, 0, 0, 0, 0, 93, -108, 355, 0, 0, 8),
-(8, 'Hype SCL LatÃ©ralisÃ©e-T9', 'images/hype_scl_T9.png', 278, 7.06, 793, 20.14, 0, 0, 0, 0, 0, 0, 0, 0, 94, -111, 367.5, 0, 0, 9),
-(9, 'Hype SCL LatÃ©ralisÃ©e-T10', 'images/hype_scl_T10.png', 284, 7.21, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 95, -114, 371, 0, 0, 10),
-(10, 'Hype SCL LatÃ©ralisÃ©e-T2', 'images/hype_scl_T2_R.png', 231, 5.87, 633, 16.08, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 287.5, 0, 0, 2),
-(11, 'Hype SCL LatÃ©ralisÃ©e-T3', 'images/hype_scl_T3_R.png', 239, 6.07, 667, 16.94, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 304.5, 0, 0, 3),
-(12, 'Hype SCL LatÃ©ralisÃ©e-T4', 'images/hype_scl_T4_R.png', 245, 6.22, 685, 17.4, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 95.5, 313.5, 0, 0, 4),
-(13, 'Hype SCL LatÃ©ralisÃ©e-T5', 'images/hype_scl_T5_R.png', 252, 6.4, 706, 17.93, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 324, 0, 0, 5),
-(14, 'Hype SCL LatÃ©ralisÃ©e-T6', 'images/hype_scl_T6_R.png', 259, 6.58, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 345, 0, 0, 6),
-(15, 'Hype SCL LatÃ©ralisÃ©e-T7', 'images/hype_scl_T7_R.png', 266, 6.76, 737, 18.72, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 339.5, 0, 0, 7),
-(16, 'Hype SCL LatÃ©ralisÃ©e-T8', 'images/hype_scl_T8_R.png', 272, 6.91, 768, 19.51, 0, 0, 0, 0, 0, 0, 0, 0, -93, 109, 355, 0, 0, 8),
-(17, 'Hype SCL LatÃ©ralisÃ©e-T9', 'images/hype_scl_T9_R.png', 278, 7.06, 793, 20.14, 0, 0, 0, 0, 0, 0, 0, 0, -94, 113, 367.5, 0, 0, 9),
-(18, 'Hype SCL LatÃ©ralisÃ©e-T10', 'images/hype_scl_T10_R.png', 284, 7.21, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -95, 116, 371, 0, 0, 10);
+(1, 'Hype SCL Latéralisée-T2', 'images/hype_scl_T2.png', 231, 5.87, 633, 16.08, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -87.5, 287.5, 0, 0, 2),
+(2, 'Hype SCL Latéralisée-T3', 'images/hype_scl_T3.png', 239, 6.07, 667, 16.94, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -91.5, 304.5, 0, 0, 3),
+(3, 'Hype SCL Latéralisée-T4', 'images/hype_scl_T4.png', 245, 6.22, 685, 17.4, 0, 0, 0, 0, 0, 0, 0, 0, 90.5, -94.5, 313.5, 0, 0, 4),
+(4, 'Hype SCL Latéralisée-T5', 'images/hype_scl_T5.png', 252, 6.4, 706, 17.93, 0, 0, 0, 0, 0, 0, 0, 0, 91, -98, 324, 0, 0, 5),
+(5, 'Hype SCL Latéralisée-T6', 'images/hype_scl_T6.png', 259, 6.58, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -101.5, 345, 0, 0, 6),
+(6, 'Hype SCL Latéralisée-T7', 'images/hype_scl_T7.png', 266, 6.76, 737, 18.72, 0, 0, 0, 0, 0, 0, 0, 0, 92, -105, 339.5, 0, 0, 7),
+(7, 'Hype SCL Latéralisée-T8', 'images/hype_scl_T8.png', 272, 6.91, 768, 19.51, 0, 0, 0, 0, 0, 0, 0, 0, 93, -108, 355, 0, 0, 8),
+(8, 'Hype SCL Latéralisée-T9', 'images/hype_scl_T9.png', 278, 7.06, 793, 20.14, 0, 0, 0, 0, 0, 0, 0, 0, 94, -111, 367.5, 0, 0, 9),
+(9, 'Hype SCL Latéralisée-T10', 'images/hype_scl_T10.png', 284, 7.21, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, 95, -114, 371, 0, 0, 10),
+(10, 'Hype SCL Latéralisée-T2', 'images/hype_scl_T2_R.png', 231, 5.87, 633, 16.08, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 88.5, 287.5, 0, 0, 2),
+(11, 'Hype SCL Latéralisée-T3', 'images/hype_scl_T3_R.png', 239, 6.07, 667, 16.94, 0, 0, 0, 0, 0, 0, 0, 0, -89.5, 92.5, 304.5, 0, 0, 3),
+(12, 'Hype SCL Latéralisée-T4', 'images/hype_scl_T4_R.png', 245, 6.22, 685, 17.4, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 95.5, 313.5, 0, 0, 4),
+(13, 'Hype SCL Latéralisée-T5', 'images/hype_scl_T5_R.png', 252, 6.4, 706, 17.93, 0, 0, 0, 0, 0, 0, 0, 0, -91, 99, 324, 0, 0, 5),
+(14, 'Hype SCL Latéralisée-T6', 'images/hype_scl_T6_R.png', 259, 6.58, 748, 19, 0, 0, 0, 0, 0, 0, 0, 0, -91.5, 102.5, 345, 0, 0, 6),
+(15, 'Hype SCL Latéralisée-T7', 'images/hype_scl_T7_R.png', 266, 6.76, 737, 18.72, 0, 0, 0, 0, 0, 0, 0, 0, -92, 106, 339.5, 0, 0, 7),
+(16, 'Hype SCL Latéralisée-T8', 'images/hype_scl_T8_R.png', 272, 6.91, 768, 19.51, 0, 0, 0, 0, 0, 0, 0, 0, -93, 109, 355, 0, 0, 8),
+(17, 'Hype SCL Latéralisée-T9', 'images/hype_scl_T9_R.png', 278, 7.06, 793, 20.14, 0, 0, 0, 0, 0, 0, 0, 0, -94, 113, 367.5, 0, 0, 9),
+(18, 'Hype SCL Latéralisée-T10', 'images/hype_scl_T10_R.png', 284, 7.21, 800, 20.32, 0, 0, 0, 0, 0, 0, 0, 0, -95, 116, 371, 0, 0, 10);
 
 -- --------------------------------------------------------
 
