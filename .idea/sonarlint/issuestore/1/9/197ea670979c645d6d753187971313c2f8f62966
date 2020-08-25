@@ -1,0 +1,268 @@
+
+\javascript:S1854Ÿ"8Remove this useless assignment to variable "dicomWidth".(î¾åŠ8ÓäŒ™Ù.
+_javascript:S1481Ÿ";Remove the declaration of the unused 'dicomWidth' variable.(î¾åŠ8ÓäŒ™Ù.
+ejavascript:S1481 "<Remove the declaration of the unused 'dicomHeight' variable.(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854 "9Remove this useless assignment to variable "dicomHeight".(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+\javascript:S1854»"8Remove this useless assignment to variable "dicomWidth".(î¾åŠ8ÓäŒ™Ù.
+_javascript:S1481»";Remove the declaration of the unused 'dicomWidth' variable.(î¾åŠ8ÓäŒ™Ù.
+ejavascript:S1481¼"<Remove the declaration of the unused 'dicomHeight' variable.(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854¼"9Remove this useless assignment to variable "dicomHeight".(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+Xjavascript:S1117„"4'dicomWidth' is already declared in the upper scope.(î¾åŠ8ÓäŒ™Ù.
+\javascript:S1854„"8Remove this useless assignment to variable "dicomWidth".(î¾åŠ8ÓäŒ™Ù.
+_javascript:S1481„";Remove the declaration of the unused 'dicomWidth' variable.(î¾åŠ8ÓäŒ™Ù.
+^javascript:S1117…"5'dicomHeight' is already declared in the upper scope.(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481…"<Remove the declaration of the unused 'dicomHeight' variable.(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854…"9Remove this useless assignment to variable "dicomHeight".(ğ–¢«şÿÿÿÿ8ÓäŒ™Ù.
+[javascript:S1117†"2'Position' is already declared in the upper scope.(ø©±ıûÿÿÿÿ8ÓäŒ™Ù.
+;javascript:S2814"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+Ejavascript:S2814›"!'dicomCanvas' is already defined.(ÖÄø˜8ÓäŒ™Ù.
+ajavascript:S1854"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+[javascript:S1854"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+^javascript:S1481"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+ajavascript:S1854»"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481»";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+[javascript:S1854¼"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+^javascript:S1481¼"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+;javascript:S2814Ä"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814Å"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814Æ"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+Ejavascript:S2814Ñ"!'dicomCanvas' is already defined.(ÖÄø˜8ÓäŒ™Ù.
+Ijavascript:S2814Ó" 'dicomWidth' is already defined.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481Ó";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+ajavascript:S1854Ó"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+^javascript:S1481Ô"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+Cjavascript:S2814Ô"!'dicomHeight' is already defined.(¯È8ÓäŒ™Ù.
+[javascript:S1854Ô"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+Gjavascript:S2814Õ"'Position' is already defined.(¾Í®–üÿÿÿÿ8ÓäŒ™Ù.
+kjavascript:S1481î"BRemove the declaration of the unused 'imgTigeDroitWidth' variable.(‚ÏÖíşÿÿÿÿ8ÓäŒ™Ù.
+hjavascript:S1854î"?Remove this useless assignment to variable "imgTigeDroitWidth".(‚ÏÖíşÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1481ï"CRemove the declaration of the unused 'imgTigeDroitHeight' variable.(ïˆÄæüÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1854ï"@Remove this useless assignment to variable "imgTigeDroitHeight".(ïˆÄæüÿÿÿÿ8ÓäŒ™Ù.
+Njavascript:S2814ş"*'contexteTigeDrawTige' is already defined.(ıÅÒ8ÓäŒ™Ù.
+ljavascript:S1481"CRemove the declaration of the unused 'imgTigeGaucheWidth' variable.(çÄ÷Òşÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1854"@Remove this useless assignment to variable "imgTigeGaucheWidth".(çÄ÷Òşÿÿÿÿ8ÓäŒ™Ù.
+hjavascript:S1481‚"DRemove the declaration of the unused 'imgTigeGaucheHeight' variable.(±’ †8ÓäŒ™Ù.
+ejavascript:S1854‚"ARemove this useless assignment to variable "imgTigeGaucheHeight".(±’ †8ÓäŒ™Ù.
+Djavascript:S2814“" 'tailleTige' is already defined.(ı†8ÓäŒ™Ù.
+Djavascript:S2814˜" 'tailleTige' is already defined.(Ê«¢©8ÓäŒ™Ù.
+Djavascript:S2814›" 'tailleTige' is already defined.(ı†8ÓäŒ™Ù.
+Xjavascript:S1117¦"5'gammeCotyle' is already declared in the upper scope.(”ı«8ÓäŒ™Ù.
+cjavascript:S1117±":'gammeCotyleNovae' is already declared in the upper scope.(·”ĞŒøÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481æ";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+ajavascript:S1854æ"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+[javascript:S1854ç"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+^javascript:S1481ç"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+ajavascript:S1854ş"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481ş";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+^javascript:S1481ÿ"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+[javascript:S1854ÿ"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+Fjavascript:S2814¦""'canvasCotyle' is already defined.(ù€¹8ÓäŒ™Ù.
+Mjavascript:S2814¯"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+ajavascript:S1854¿"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481¿";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+^javascript:S1481À"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+[javascript:S1854À"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+Ejavascript:S2814Ñ"!'dicomCanvas' is already defined.(ÖÄø˜8ÓäŒ™Ù.
+Ijavascript:S2814Ó" 'dicomWidth' is already defined.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+ajavascript:S1854Ó"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481Ó";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+Cjavascript:S2814Ô"!'dicomHeight' is already defined.(¯È8ÓäŒ™Ù.
+^javascript:S1481Ô"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+[javascript:S1854Ô"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+Gjavascript:S2814Õ"'Position' is already defined.(¾Í®–üÿÿÿÿ8ÓäŒ™Ù.
+djavascript:S1481ì";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+ajavascript:S1854ì"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+[javascript:S1854í"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+^javascript:S1481í"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+Ejavascript:S2814ı"!'dicomCanvas' is already defined.(ÖÄø˜8ÓäŒ™Ù.
+djavascript:S1481ÿ";Remove the declaration of the unused 'dicomWidth' variable.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+ajavascript:S1854ÿ"8Remove this useless assignment to variable "dicomWidth".(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+Ijavascript:S2814ÿ" 'dicomWidth' is already defined.(üÊ÷ßıÿÿÿÿ8ÓäŒ™Ù.
+^javascript:S1481€"<Remove the declaration of the unused 'dicomHeight' variable.(¯È8ÓäŒ™Ù.
+[javascript:S1854€"9Remove this useless assignment to variable "dicomHeight".(¯È8ÓäŒ™Ù.
+Cjavascript:S2814€"!'dicomHeight' is already defined.(¯È8ÓäŒ™Ù.
+Gjavascript:S2814"'Position' is already defined.(¾Í®–üÿÿÿÿ8ÓäŒ™Ù.
+mjavascript:S1481˜"DRemove the declaration of the unused 'imgCotyleDroitWidth' variable.(á¬®ôùÿÿÿÿ8ÓäŒ™Ù.
+jjavascript:S1854˜"ARemove this useless assignment to variable "imgCotyleDroitWidth".(á¬®ôùÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1481™"ERemove the declaration of the unused 'imgCotyleDroitHeight' variable.(Œß›¥8ÓäŒ™Ù.
+fjavascript:S1854™"BRemove this useless assignment to variable "imgCotyleDroitHeight".(Œß›¥8ÓäŒ™Ù.
+Wjavascript:S2814¨".'contexteCotyleDrawCotyle' is already defined.(ÿ«êıüÿÿÿÿ8ÓäŒ™Ù.
+kjavascript:S1854«"BRemove this useless assignment to variable "imgCotyleGaucheWidth".(“ƒÊÿÿÿÿÿ8ÓäŒ™Ù.
+njavascript:S1481«"ERemove the declaration of the unused 'imgCotyleGaucheWidth' variable.(“ƒÊÿÿÿÿÿ8ÓäŒ™Ù.
+ojavascript:S1481¬"FRemove the declaration of the unused 'imgCotyleGaucheHeight' variable.(©Õ¤Üøÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1854¬"CRemove this useless assignment to variable "imgCotyleGaucheHeight".(©Õ¤Üøÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814½""'tailleCotyle' is already defined.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814Â""'tailleCotyle' is already defined.(üŠ›Öıÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814Å""'tailleCotyle' is already defined.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481Ù"<Remove the declaration of the unused 'tailleBille' variable.(ÀÀöÖÿÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854Ù"9Remove this useless assignment to variable "tailleBille".(ÀÀöÖÿÿÿÿÿ8ÓäŒ™Ù.
+[javascript:S1481ê"7Remove the declaration of the unused 'string' variable.(ÏŸôÂ8ÓäŒ™Ù.
+Xjavascript:S1854ê"4Remove this useless assignment to variable "string".(ÏŸôÂ8ÓäŒ™Ù.
+?javascript:S1116Æ"Unnecessary semicolon.(ôŸìúÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814µ	" 'tailleTige' is already defined.(Ê«¢©8ÓäŒ™Ù.
+„javascript:S2703º	"`Add the "let", "const" or "var" keyword to this declaration of "canvasTige" to make it explicit.(·•äÀ8ÓäŒ™Ù.
+kjavascript:S1481Á	"BRemove the declaration of the unused 'imgTigeDroitWidth' variable.(‚ÏÖíşÿÿÿÿ8ÓäŒ™Ù.
+hjavascript:S1854Á	"?Remove this useless assignment to variable "imgTigeDroitWidth".(‚ÏÖíşÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1854Â	"@Remove this useless assignment to variable "imgTigeDroitHeight".(ïˆÄæüÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1481Â	"CRemove the declaration of the unused 'imgTigeDroitHeight' variable.(ïˆÄæüÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814Ö	" 'tailleTige' is already defined.(ı†8ÓäŒ™Ù.
+Djavascript:S2814á	" 'tailleTige' is already defined.(ı†8ÓäŒ™Ù.
+Njavascript:S2814ê	"*'contexteTigeDrawTige' is already defined.(ıÅÒ8ÓäŒ™Ù.
+ijavascript:S1854í	"@Remove this useless assignment to variable "imgTigeGaucheWidth".(çÄ÷Òşÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1481í	"CRemove the declaration of the unused 'imgTigeGaucheWidth' variable.(çÄ÷Òşÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1854î	"ARemove this useless assignment to variable "imgTigeGaucheHeight".(±’ †8ÓäŒ™Ù.
+hjavascript:S1481î	"DRemove the declaration of the unused 'imgTigeGaucheHeight' variable.(±’ †8ÓäŒ™Ù.
+Djavascript:S2814‚
+" 'tailleTige' is already defined.(Ê«¢©8ÓäŒ™Ù.
+Djavascript:S2814†
+" 'tailleTige' is already defined.(Ê«¢©8ÓäŒ™Ù.
+Njavascript:S2814
+"*'contexteTigeDrawTige' is already defined.(ıÅÒ8ÓäŒ™Ù.
+hjavascript:S1854’
+"?Remove this useless assignment to variable "imgTigeDroitWidth".(‚ÏÖíşÿÿÿÿ8ÓäŒ™Ù.
+kjavascript:S1481’
+"BRemove the declaration of the unused 'imgTigeDroitWidth' variable.(‚ÏÖíşÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1854“
+"@Remove this useless assignment to variable "imgTigeDroitHeight".(ïˆÄæüÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1481“
+"CRemove the declaration of the unused 'imgTigeDroitHeight' variable.(ïˆÄæüÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814¡
+" 'tailleTige' is already defined.(ı†8ÓäŒ™Ù.
+Djavascript:S2814¥
+" 'tailleTige' is already defined.(ı†8ÓäŒ™Ù.
+Njavascript:S2814®
+"*'contexteTigeDrawTige' is already defined.(ıÅÒ8ÓäŒ™Ù.
+ijavascript:S1854±
+"@Remove this useless assignment to variable "imgTigeGaucheWidth".(çÄ÷Òşÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1481±
+"CRemove the declaration of the unused 'imgTigeGaucheWidth' variable.(çÄ÷Òşÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1854²
+"ARemove this useless assignment to variable "imgTigeGaucheHeight".(±’ †8ÓäŒ™Ù.
+hjavascript:S1481²
+"DRemove the declaration of the unused 'imgTigeGaucheHeight' variable.(±’ †8ÓäŒ™Ù.
+Kjavascript:S2814æ
+""'tailleCotyle' is already defined.(üŠ›Öıÿÿÿÿ8ÓäŒ™Ù.
+†javascript:S2703ë
+"bAdd the "let", "const" or "var" keyword to this declaration of "canvasCotyle" to make it explicit.(¤ìÚ8ÓäŒ™Ù.
+mjavascript:S1481ò
+"DRemove the declaration of the unused 'imgCotyleDroitWidth' variable.(á¬®ôùÿÿÿÿ8ÓäŒ™Ù.
+jjavascript:S1854ò
+"ARemove this useless assignment to variable "imgCotyleDroitWidth".(á¬®ôùÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1481ó
+"ERemove the declaration of the unused 'imgCotyleDroitHeight' variable.(Œß›¥8ÓäŒ™Ù.
+fjavascript:S1854ó
+"BRemove this useless assignment to variable "imgCotyleDroitHeight".(Œß›¥8ÓäŒ™Ù.
+Kjavascript:S2814…""'tailleCotyle' is already defined.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814""'tailleCotyle' is already defined.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+Wjavascript:S2814—".'contexteCotyleDrawCotyle' is already defined.(ÿ«êıüÿÿÿÿ8ÓäŒ™Ù.
+njavascript:S1481š"ERemove the declaration of the unused 'imgCotyleGaucheWidth' variable.(“ƒÊÿÿÿÿÿ8ÓäŒ™Ù.
+kjavascript:S1854š"BRemove this useless assignment to variable "imgCotyleGaucheWidth".(“ƒÊÿÿÿÿÿ8ÓäŒ™Ù.
+ojavascript:S1481›"FRemove the declaration of the unused 'imgCotyleGaucheHeight' variable.(©Õ¤Üøÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1854›"CRemove this useless assignment to variable "imgCotyleGaucheHeight".(©Õ¤Üøÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814­""'tailleCotyle' is already defined.(üŠ›Öıÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814±""'tailleCotyle' is already defined.(üŠ›Öıÿÿÿÿ8ÓäŒ™Ù.
+Wjavascript:S2814º".'contexteCotyleDrawCotyle' is already defined.(ÿ«êıüÿÿÿÿ8ÓäŒ™Ù.
+mjavascript:S1481½"DRemove the declaration of the unused 'imgCotyleDroitWidth' variable.(á¬®ôùÿÿÿÿ8ÓäŒ™Ù.
+jjavascript:S1854½"ARemove this useless assignment to variable "imgCotyleDroitWidth".(á¬®ôùÿÿÿÿ8ÓäŒ™Ù.
+ijavascript:S1481¾"ERemove the declaration of the unused 'imgCotyleDroitHeight' variable.(Œß›¥8ÓäŒ™Ù.
+fjavascript:S1854¾"BRemove this useless assignment to variable "imgCotyleDroitHeight".(Œß›¥8ÓäŒ™Ù.
+Kjavascript:S2814Ë""'tailleCotyle' is already defined.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814Ï""'tailleCotyle' is already defined.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+Wjavascript:S2814Ø".'contexteCotyleDrawCotyle' is already defined.(ÿ«êıüÿÿÿÿ8ÓäŒ™Ù.
+kjavascript:S1854Û"BRemove this useless assignment to variable "imgCotyleGaucheWidth".(“ƒÊÿÿÿÿÿ8ÓäŒ™Ù.
+njavascript:S1481Û"ERemove the declaration of the unused 'imgCotyleGaucheWidth' variable.(“ƒÊÿÿÿÿÿ8ÓäŒ™Ù.
+ljavascript:S1854Ü"CRemove this useless assignment to variable "imgCotyleGaucheHeight".(©Õ¤Üøÿÿÿÿ8ÓäŒ™Ù.
+ojavascript:S1481Ü"FRemove the declaration of the unused 'imgCotyleGaucheHeight' variable.(©Õ¤Üøÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854Ÿ"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481Ÿ"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Xjavascript:S1117¼"4'tailleTige' is already declared in the upper scope.(Ê«¢©8ÓäŒ™Ù.
+Kjavascript:S2814Á""'newTigeDroit' is already defined.(ÌÑÄÆıÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814Ô""'newTigeDroit' is already defined.(ÌÑÄÆıÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814ã" 'tailleTige' is already defined.(¯ô’Ê8ÓäŒ™Ù.
+Xjavascript:S1117‚"4'tailleTige' is already declared in the upper scope.(ı†8ÓäŒ™Ù.
+Ljavascript:S2814‡"#'newTigeGauche' is already defined.(–Î³­øÿÿÿÿ8ÓäŒ™Ù.
+Ijavascript:S2814–" 'tailleTige' is already defined.(ê­ÀÔøÿÿÿÿ8ÓäŒ™Ù.
+Ljavascript:S2814›"#'newTigeGauche' is already defined.(–Î³­øÿÿÿÿ8ÓäŒ™Ù.
+Ijavascript:S2814ª" 'tailleTige' is already defined.(ê­ÀÔøÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854¸"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481¸"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+_javascript:S1117Ï"6'tailleCotyle' is already declared in the upper scope.(üŠ›Öıÿÿÿÿ8ÓäŒ™Ù.
+Hjavascript:S2814Ô"$'newCotyleDroit' is already defined.(ÏÍ8ÓäŒ™Ù.
+Hjavascript:S2814ç"$'newCotyleDroit' is already defined.(ÏÍ8ÓäŒ™Ù.
+Kjavascript:S2814ö""'tailleCotyle' is already defined.(»§ƒÏùÿÿÿÿ8ÓäŒ™Ù.
+_javascript:S1117"6'tailleCotyle' is already declared in the upper scope.(ê‘ôşüÿÿÿÿ8ÓäŒ™Ù.
+Njavascript:S2814•"%'newCotyleGauche' is already defined.(ÒÖ¾üÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814¤""'tailleCotyle' is already defined.(•¼æ³şÿÿÿÿ8ÓäŒ™Ù.
+Njavascript:S2814¨"%'newCotyleGauche' is already defined.(ÒÖ¾üÿÿÿÿ8ÓäŒ™Ù.
+Kjavascript:S2814·""'tailleCotyle' is already defined.(•¼æ³şÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481¯"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854¯"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814Ä" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814È""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+;javascript:S2814Ê"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814Ë"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814Ì"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+bjavascript:S1854ä"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481ä"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814ù" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814ı""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+;javascript:S2814ÿ"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814€"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+ejavascript:S1481›"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854›"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Fjavascript:S2814®""'canvasCotyle' is already defined.(„½äÀ8ÓäŒ™Ù.
+Mjavascript:S2814´"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854Ë"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481Ë"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Fjavascript:S2814ß""'canvasCotyle' is already defined.(„½äÀ8ÓäŒ™Ù.
+Mjavascript:S2814å"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+Fjavascript:S2814Œ""'canvasCotyle' is already defined.(„½äÀ8ÓäŒ™Ù.
+Mjavascript:S2814"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+Fjavascript:S2814µ""'canvasCotyle' is already defined.(„½äÀ8ÓäŒ™Ù.
+Mjavascript:S2814¹"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+Hjavascript:S1481£"%Remove unused function 'encode_utf8'.(¾[8ÓäŒ™Ù.
+Djavascript:S2814­" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814±""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+Djavascript:S2814Ö" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814Ú""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+bjavascript:S1854ğ"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481ğ"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814…" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814‰""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+;javascript:S2814‹"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814Œ"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+ejavascript:S1481§"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854§"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814¼" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814À""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+;javascript:S2814Â"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814Ã"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814Ä"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+bjavascript:S1854Ü"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481Ü"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Fjavascript:S2814ï""'canvasCotyle' is already defined.(„½äÀ8ÓäŒ™Ù.
+Mjavascript:S2814ó"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854‹"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481‹"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Fjavascript:S2814""'canvasCotyle' is already defined.(„½äÀ8ÓäŒ™Ù.
+Mjavascript:S2814¢"$'contextecotyle' is already defined.(¾ê—óøÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481º"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854º"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814Ï" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814Ó""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+;javascript:S2814Õ"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814Ö"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814×"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.
+?javascript:S1116ä"Unnecessary semicolon.(ôŸìúÿÿÿÿ8ÓäŒ™Ù.
+ejavascript:S1481ñ"<Remove the declaration of the unused 'coefficient' variable.(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+bjavascript:S1854ñ"9Remove this useless assignment to variable "coefficient".(ªàÕàùÿÿÿÿ8ÓäŒ™Ù.
+Djavascript:S2814†" 'canvasTige' is already defined.(Ô—Æİ8ÓäŒ™Ù.
+Fjavascript:S2814Š""'contextetige' is already defined.(Œò½É8ÓäŒ™Ù.
+;javascript:S2814Œ"'b' is already defined.(áòóŸ8ÓäŒ™Ù.
+Djavascript:S2814"'posyr' is already defined.(Øõøúûÿÿÿÿ8ÓäŒ™Ù.
+?javascript:S2814"'delta' is already defined.(Œ¥ñ§8ÓäŒ™Ù.

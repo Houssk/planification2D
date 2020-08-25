@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 05, 2020 at 02:59 PM
+-- Generation Time: Aug 25, 2020 at 12:48 PM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -787,30 +787,30 @@ CREATE TABLE IF NOT EXISTS `implant_cim_offset` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `implant_cim_offset`
 --
 
 INSERT INTO `implant_cim_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, 262, -269, 931.5, 0, 0, 2),
-(2, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, 264.5, -278.5, 984.5, 0, 0, 3),
-(3, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, 265.5, -288.5, 999, 0, 0, 4),
-(4, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 267.5, -299.5, 876.5, 0, 0, 5),
-(5, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 271, -307, 881.5, 0, 0, 6),
-(6, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, 270, -320, 1085.5, 0, 0, 7),
-(7, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, 274.5, -327.5, 1003.5, 0, 0, 8),
-(8, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, 276, -338, 1065, 0, 0, 9),
-(9, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2_R.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, -262, 269, 931.5, 0, 0, 2),
-(10, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3_R.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, -264.5, 278.5, 984.5, 0, 0, 3),
-(11, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4_R.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, -265.5, 288.5, 999, 0, 0, 4),
-(12, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5_R.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -267.5, 299.5, 876.5, 0, 0, 5),
-(13, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6_R.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -271, 307, 881.5, 0, 0, 6),
-(14, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7_R.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, -270, 320, 1085.5, 0, 0, 7),
-(15, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8_R.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 327.5, 1003.5, 0, 0, 8),
-(16, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9_R.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, -276, 338, 1065, 0, 0, 9);
+(1, 'Libra HA Offset-T2', 'images/libra_offset_T2.png', 238, 6.05, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, 88, -91, 274, 0, 0, 2),
+(2, 'Libra HA Offset-T3', 'images/libra_offset_T3.png', 244, 6.2, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, 88, -94, 294.5, 0, 0, 3),
+(3, 'Libra HA Offset-T4', 'images/libra_offset_T4.png', 251, 6.38, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -97.5, 304.5, 0, 0, 4),
+(4, 'Libra HA Offset-T5', 'images/libra_offset_T5.png', 258, 6.55, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 90, -101, 313.5, 0, 0, 5),
+(5, 'Libra HA Offset-T6', 'images/libra_offset_T6.png', 264, 6.71, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, 90, -104, 333, 0, 0, 6),
+(6, 'Libra HA Offset-T7', 'images/libra_offset_T7.png', 270, 6.86, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, 90, -107, 343, 0, 0, 7),
+(7, 'Libra HA Offset-T8', 'images/libra_offset_T8.png', 277, 7.04, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -110.5, 353.5, 0, 0, 8),
+(8, 'Libra HA Offset-T9', 'images/libra_offset_T9.png', 284, 7.21, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, 93, -111, 362, 0, 0, 9),
+(9, 'Libra HA Offset-T2', 'images/libra_offset_T2_R.png', 238, 6.05, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, -89, 87, 274, 0, 0, 2),
+(10, 'Libra HA Offset-T3', 'images/libra_offset_T3_R.png', 244, 6.2, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, -89, 90, 294.5, 0, 0, 3),
+(11, 'Libra HA Offset-T4', 'images/libra_offset_T4_R.png', 251, 6.38, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 91.5, 304.5, 0, 0, 4),
+(12, 'Libra HA Offset-T5', 'images/libra_offset_T5_R.png', 258, 6.55, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -91, 97, 313.5, 0, 0, 5),
+(13, 'Libra HA Offset-T6', 'images/libra_offset_T6_R.png', 264, 6.71, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, -92, 100, 333, 0, 0, 6),
+(14, 'Libra HA Offset-T7', 'images/libra_offset_T7_R.png', 270, 6.86, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, -92, 102, 343, 0, 0, 7),
+(15, 'Libra HA Offset-T8', 'images/libra_offset_T8_R.png', 277, 7.04, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, -92.5, 106.5, 353.5, 0, 0, 8),
+(16, 'Libra HA Offset-T9', 'images/libra_offset_T9_R.png', 284, 7.21, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, -94, 110, 362, 0, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -841,34 +841,36 @@ CREATE TABLE IF NOT EXISTS `implant_cim_std_appui` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `implant_cim_std_appui`
 --
 
 INSERT INTO `implant_cim_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 224.5, -224.5, 943, 0, 0, 1),
-(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 226.5, -233.5, 1027.5, 0, 0, 2),
-(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230, -243, 1030, 0, 0, 3),
-(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230.5, -253.5, 1032, 0, 0, 4),
-(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 232, -264, 1034.5, 0, 0, 5),
-(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 235, -272, 1039.5, 0, 0, 6),
-(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 237, -283, 1042, 0, 0, 7),
-(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 240, -292, 1051.5, 0, 0, 8),
-(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, 240.5, -301.5, 1100.5, 0, 0, 9),
-(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, 243.5, -311.5, 1129.5, 0, 0, 10),
-(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -224.5, 224.5, 943, 0, 0, 1),
-(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -226.5, 233.5, 1027.5, 0, 0, 2),
-(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230, 243, 1030, 0, 0, 3),
-(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230.5, 253.5, 1032, 0, 0, 4),
-(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -232, 264, 1034.5, 0, 0, 5),
-(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -235, 272, 1039.5, 0, 0, 6),
-(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -237, 283, 1042, 0, 0, 7),
-(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -240, 292, 1051.5, 0, 0, 8),
-(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, -240.5, 301.5, 1100.5, 0, 0, 9),
-(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, -243.5, 311.5, 1129.5, 0, 0, 10);
+(1, 'Libra HA Std-T1', 'images/libra_c_std_a_T1.png', 203, 5.16, 548, 13.92, 0, 0, 0, 0, 0, 0, 0, 0, 74.5, -73.5, 244, 0, 0, 1),
+(2, 'Libra HA Std-T2', 'images/libra_c_std_a_T2.png', 209, 5.31, 603, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, 75.5, -78.5, 274.5, 0, 0, 2),
+(3, 'Libra HA Std-T3', 'images/libra_c_std_a_T3.png', 215, 5.46, 646, 16.41, 0, 0, 0, 0, 0, 0, 0, 0, 80.5, -79.5, 295, 0, 0, 3),
+(4, 'Libra HA Std-T4', 'images/libra_c_std_a_T4.png', 222, 5.64, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, 73, -84, 302.5, 0, 0, 4),
+(5, 'Libra HA Std-T5', 'images/libra_c_std_a_T5.png', 229, 5.82, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -87.5, 314.5, 0, 0, 5),
+(6, 'Libra HA Std-T6', 'images/libra_c_std_a_T6.png', 235, 5.97, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, 77.5, -91.5, 332, 0, 0, 6),
+(7, 'Libra HA Std-T7', 'images/libra_c_std_a_T7.png', 242, 6.15, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, 78, -94, 341, 0, 0, 7),
+(8, 'Libra HA Std-T8', 'images/libra_c_std_a_T8.png', 248, 6.3, 762, 19.35, 0, 0, 0, 0, 0, 0, 0, 0, 81, -96, 352, 0, 0, 8),
+(9, 'Libra HA Std-T9', 'images/libra_c_std_a_T9.png', 255, 6.48, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -102.5, 363, 0, 0, 9),
+(10, 'Libra HA Std-T10', 'images/libra_c_std_a_T10.png', 261, 6.63, 795, 20.19, 0, 0, 0, 0, 0, 0, 0, 0, 81.5, -103.5, 368.5, 0, 0, 10),
+(11, 'Libra HA Std-T11', 'images/libra_c_std_a_T11.png', 266, 6.76, 818, 20.78, 0, 0, 0, 0, 0, 0, 0, 0, 83, -106, 381, 0, 0, 11),
+(12, 'Libra HA Std-T1', 'images/libra_c_std_a_T1_R.png', 203, 5.16, 548, 13.92, 0, 0, 0, 0, 0, 0, 0, 0, -75.5, 72.5, 244, 0, 0, 1),
+(13, 'Libra HA Std-T2', 'images/libra_c_std_a_T2_R.png', 209, 5.31, 603, 15.32, 0, 0, 0, 0, 0, 0, 0, 0, -76.5, 76.5, 274.5, 0, 0, 2),
+(14, 'Libra HA Std-T3', 'images/libra_c_std_a_T3_R.png', 215, 5.46, 646, 16.41, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 79.5, 295, 0, 0, 3),
+(15, 'Libra HA Std-T4', 'images/libra_c_std_a_T4_R.png', 222, 5.64, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, -78, 82, 302.5, 0, 0, 4),
+(16, 'Libra HA Std-T5', 'images/libra_c_std_a_T5_R.png', 229, 5.82, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 86.5, 314.5, 0, 0, 5),
+(17, 'Libra HA Std-T6', 'images/libra_c_std_a_T6_R.png', 235, 5.97, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 89.5, 332, 0, 0, 6),
+(18, 'Libra HA Std-T7', 'images/libra_c_std_a_T7_R.png', 242, 6.15, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, -80, 92, 341, 0, 0, 7),
+(19, 'Libra HA Std-T8', 'images/libra_c_std_a_T8_R.png', 248, 6.3, 762, 19.35, 0, 0, 0, 0, 0, 0, 0, 0, -82, 95, 352, 0, 0, 8),
+(20, 'Libra HA Std-T9', 'images/libra_c_std_a_T9_R.png', 255, 6.48, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, -80.5, 100.5, 363, 0, 0, 9),
+(21, 'Libra HA Std-T10', 'images/libra_c_std_a_T10_R.png', 261, 6.63, 795, 20.19, 0, 0, 0, 0, 0, 0, 0, 0, -83.5, 101.5, 368.5, 0, 0, 10),
+(22, 'Libra HA Std-T11', 'images/libra_c_std_a_T11_R.png', 266, 6.76, 818, 20.78, 0, 0, 0, 0, 0, 0, 0, 0, -84, 105, 381, 0, 0, 11);
 
 -- --------------------------------------------------------
 
@@ -899,30 +901,30 @@ CREATE TABLE IF NOT EXISTS `implant_ha_offset` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `implant_ha_offset`
 --
 
 INSERT INTO `implant_ha_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, 262, -269, 931.5, 0, 0, 2),
-(2, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, 264.5, -278.5, 984.5, 0, 0, 3),
-(3, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, 265.5, -288.5, 999, 0, 0, 4),
-(4, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 267.5, -299.5, 876.5, 0, 0, 5),
-(5, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, 271, -307, 881.5, 0, 0, 6),
-(6, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, 270, -320, 1085.5, 0, 0, 7),
-(7, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, 274.5, -327.5, 1003.5, 0, 0, 8),
-(8, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, 276, -338, 1065, 0, 0, 9),
-(9, 'Libra HA Offset-T2', 'images/libra_ha_offset_T2_R.png', 704, 5.96, 2053, 17.38, 0, 0, 0, 0, 0, 0, 0, 0, -262, 269, 931.5, 0, 0, 2),
-(10, 'Libra HA Offset-T3', 'images/libra_ha_offset_T3_R.png', 723, 6.12, 2143, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, -264.5, 278.5, 984.5, 0, 0, 3),
-(11, 'Libra HA Offset-T4', 'images/libra_ha_offset_T4_R.png', 743, 6.29, 2180, 18.46, 0, 0, 0, 0, 0, 0, 0, 0, -265.5, 288.5, 999, 0, 0, 4),
-(12, 'Libra HA Offset-T5', 'images/libra_ha_offset_T5_R.png', 765, 6.48, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -267.5, 299.5, 876.5, 0, 0, 5),
-(13, 'Libra HA Offset-T6', 'images/libra_ha_offset_T6_R.png', 782, 6.62, 2723, 23.05, 0, 0, 0, 0, 0, 0, 0, 0, -271, 307, 881.5, 0, 0, 6),
-(14, 'Libra HA Offset-T7', 'images/libra_ha_offset_T7_R.png', 806, 6.8, 2345, 19.85, 0, 0, 0, 0, 0, 0, 0, 0, -270, 320, 1085.5, 0, 0, 7),
-(15, 'Libra HA Offset-T8', 'images/libra_ha_offset_T8_R.png', 821, 6.95, 2529, 21.41, 0, 0, 0, 0, 0, 0, 0, 0, -274.5, 327.5, 1003.5, 0, 0, 8),
-(16, 'Libra HA Offset-T9', 'images/libra_ha_offset_T9_R.png', 842, 7.13, 2530, 21.42, 0, 0, 0, 0, 0, 0, 0, 0, -276, 338, 1065, 0, 0, 9);
+(1, 'Libra HA Offset-T2', 'images/libra_offset_T2.png', 238, 6.05, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, 88, -91, 274, 0, 0, 2),
+(2, 'Libra HA Offset-T3', 'images/libra_offset_T3.png', 244, 6.2, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, 88, -94, 294.5, 0, 0, 3),
+(3, 'Libra HA Offset-T4', 'images/libra_offset_T4.png', 251, 6.38, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -97.5, 304.5, 0, 0, 4),
+(4, 'Libra HA Offset-T5', 'images/libra_offset_T5.png', 258, 6.55, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 90, -101, 313.5, 0, 0, 5),
+(5, 'Libra HA Offset-T6', 'images/libra_offset_T6.png', 264, 6.71, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, 90, -104, 333, 0, 0, 6),
+(6, 'Libra HA Offset-T7', 'images/libra_offset_T7.png', 270, 6.86, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, 90, -107, 343, 0, 0, 7),
+(7, 'Libra HA Offset-T8', 'images/libra_offset_T8.png', 277, 7.04, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -110.5, 353.5, 0, 0, 8),
+(8, 'Libra HA Offset-T9', 'images/libra_offset_T9.png', 284, 7.21, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, 93, -111, 362, 0, 0, 9),
+(9, 'Libra HA Offset-T2', 'images/libra_offset_T2_R.png', 238, 6.05, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, -89, 87, 274, 0, 0, 2),
+(10, 'Libra HA Offset-T3', 'images/libra_offset_T3_R.png', 244, 6.2, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, -89, 90, 294.5, 0, 0, 3),
+(11, 'Libra HA Offset-T4', 'images/libra_offset_T4_R.png', 251, 6.38, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, -90.5, 91.5, 304.5, 0, 0, 4),
+(12, 'Libra HA Offset-T5', 'images/libra_offset_T5_R.png', 258, 6.55, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -91, 97, 313.5, 0, 0, 5),
+(13, 'Libra HA Offset-T6', 'images/libra_offset_T6_R.png', 264, 6.71, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, -92, 100, 333, 0, 0, 6),
+(14, 'Libra HA Offset-T7', 'images/libra_offset_T7_R.png', 270, 6.86, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, -92, 102, 343, 0, 0, 7),
+(15, 'Libra HA Offset-T8', 'images/libra_offset_T8_R.png', 277, 7.04, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, -92.5, 106.5, 353.5, 0, 0, 8),
+(16, 'Libra HA Offset-T9', 'images/libra_offset_T9_R.png', 284, 7.21, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, -94, 110, 362, 0, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -953,34 +955,34 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `implant_ha_std`
 --
 
 INSERT INTO `implant_ha_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 224.5, -224.5, 943, 0, 0, 1),
-(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 226.5, -233.5, 1027.5, 0, 0, 2),
-(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230, -243, 1030, 0, 0, 3),
-(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230.5, -253.5, 1032, 0, 0, 4),
-(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 232, -264, 1034.5, 0, 0, 5),
-(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 235, -272, 1039.5, 0, 0, 6),
-(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 237, -283, 1042, 0, 0, 7),
-(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 240, -292, 1051.5, 0, 0, 8),
-(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, 240.5, -301.5, 1100.5, 0, 0, 9),
-(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, 243.5, -311.5, 1129.5, 0, 0, 10),
-(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -224.5, 224.5, 943, 0, 0, 1),
-(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -226.5, 233.5, 1027.5, 0, 0, 2),
-(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230, 243, 1030, 0, 0, 3),
-(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230.5, 253.5, 1032, 0, 0, 4),
-(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -232, 264, 1034.5, 0, 0, 5),
-(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -235, 272, 1039.5, 0, 0, 6),
-(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -237, 283, 1042, 0, 0, 7),
-(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -240, 292, 1051.5, 0, 0, 8),
-(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, -240.5, 301.5, 1100.5, 0, 0, 9),
-(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, -243.5, 311.5, 1129.5, 0, 0, 10);
+(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 205, 5.21, 546, 13.87, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -74.5, 245, 0, 0, 1),
+(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 212, 5.38, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, 74, -78, 274, 0, 0, 2),
+(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 218, 5.54, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, 75, -81, 294.5, 0, 0, 3),
+(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 224, 5.69, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, 76, -84, 304.5, 0, 0, 4),
+(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 232, 5.89, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 76, -88, 313.5, 0, 0, 5),
+(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 237, 6.02, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, 76.5, -90.5, 333, 0, 0, 6),
+(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 244, 6.2, 741, 18.82, 0, 0, 0, 0, 0, 0, 0, 0, 78, -94, 342.5, 0, 0, 7),
+(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 251, 6.38, 761, 19.33, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -97.5, 352.5, 0, 0, 8),
+(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 258, 6.55, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, 79, -101, 362, 0, 0, 9),
+(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 264, 6.71, 794, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, 80, -104, 369, 0, 0, 10),
+(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 205, 5.21, 546, 13.87, 0, 0, 0, 0, 0, 0, 0, 0, -74.5, 72.5, 245, 0, 0, 1),
+(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 212, 5.38, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, -76, 77, 274, 0, 0, 2),
+(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 218, 5.54, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, -77, 80, 294.5, 0, 0, 3),
+(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 224, 5.69, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, -77, 83, 304.5, 0, 0, 4),
+(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 232, 5.89, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -78, 87, 313.5, 0, 0, 5),
+(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 237, 6.02, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 90.5, 333, 0, 0, 6),
+(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 244, 6.2, 741, 18.82, 0, 0, 0, 0, 0, 0, 0, 0, -79, 92, 342.5, 0, 0, 7),
+(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 251, 6.38, 761, 19.33, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 96.5, 352.5, 0, 0, 8),
+(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 258, 6.55, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, -80, 99, 362, 0, 0, 9),
+(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 264, 6.71, 794, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, -81, 103, 369, 0, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -1011,34 +1013,36 @@ CREATE TABLE IF NOT EXISTS `implant_ha_std_appui` (
   `angleCervicoDiaphysaire` float NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `taille` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `implant_ha_std_appui`
 --
 
 INSERT INTO `implant_ha_std_appui` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Libra HA Std-T1', 'images/libra_ha_std_T1.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, 224.5, -224.5, 943, 0, 0, 1),
-(2, 'Libra HA Std-T2', 'images/libra_ha_std_T2.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 226.5, -233.5, 1027.5, 0, 0, 2),
-(3, 'Libra HA Std-T3', 'images/libra_ha_std_T3.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230, -243, 1030, 0, 0, 3),
-(4, 'Libra HA Std-T4', 'images/libra_ha_std_T4.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 230.5, -253.5, 1032, 0, 0, 4),
-(5, 'Libra HA Std-T5', 'images/libra_ha_std_T5.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 232, -264, 1034.5, 0, 0, 5),
-(6, 'Libra HA Std-T6', 'images/libra_ha_std_T6.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 235, -272, 1039.5, 0, 0, 6),
-(7, 'Libra HA Std-T7', 'images/libra_ha_std_T7.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, 237, -283, 1042, 0, 0, 7),
-(8, 'Libra HA Std-T8', 'images/libra_ha_std_T8.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 240, -292, 1051.5, 0, 0, 8),
-(9, 'Libra HA Std-T9', 'images/libra_ha_std_T9.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, 240.5, -301.5, 1100.5, 0, 0, 9),
-(10, 'Libra HA Std-T10', 'images/libra_ha_std_T10.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, 243.5, -311.5, 1129.5, 0, 0, 10),
-(11, 'Libra HA Std-T1', 'images/libra_ha_std_T1_R.png', 615, 5.21, 2190, 18.54, 0, 0, 0, 0, 0, 0, 0, 0, -224.5, 224.5, 943, 0, 0, 1),
-(12, 'Libra HA Std-T2', 'images/libra_ha_std_T2_R.png', 633, 5.36, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -226.5, 233.5, 1027.5, 0, 0, 2),
-(13, 'Libra HA Std-T3', 'images/libra_ha_std_T3_R.png', 652, 5.52, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230, 243, 1030, 0, 0, 3),
-(14, 'Libra HA Std-T4', 'images/libra_ha_std_T4_R.png', 673, 5.7, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -230.5, 253.5, 1032, 0, 0, 4),
-(15, 'Libra HA Std-T5', 'images/libra_ha_std_T5_R.png', 694, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -232, 264, 1034.5, 0, 0, 5),
-(16, 'Libra HA Std-T6', 'images/libra_ha_std_T6_R.png', 712, 5.88, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -235, 272, 1039.5, 0, 0, 6),
-(17, 'Libra HA Std-T7', 'images/libra_ha_std_T7_R.png', 732, 6.2, 2350, 19.9, 0, 0, 0, 0, 0, 0, 0, 0, -237, 283, 1042, 0, 0, 7),
-(18, 'Libra HA Std-T8', 'images/libra_ha_std_T8_R.png', 750, 6.35, 2349, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -240, 292, 1051.5, 0, 0, 8),
-(19, 'Libra HA Std-T9', 'images/libra_ha_std_T9_R.png', 771, 6.53, 2373, 20.09, 0, 0, 0, 0, 0, 0, 0, 0, -240.5, 301.5, 1100.5, 0, 0, 9),
-(20, 'Libra HA Std-T10', 'images/libra_ha_std_T10_R.png', 789, 6.68, 2431, 20.58, 0, 0, 0, 0, 0, 0, 0, 0, -243.5, 311.5, 1129.5, 0, 0, 10);
+(1, 'Libra HA Std-T1', 'images/libra_ha_std_a_T1.png', 209, 5.31, 547, 13.89, 0, 0, 0, 0, 0, 0, 0, 0, 74.5, -73.5, 242.5, 0, 0, 1),
+(2, 'Libra HA Std-T2', 'images/libra_ha_std_a_T2.png', 214, 5.44, 607, 15.42, 0, 0, 0, 0, 0, 0, 0, 0, 76, -77, 272.5, 0, 0, 2),
+(3, 'Libra HA Std-T3', 'images/libra_ha_std_a_T3.png', 219, 5.56, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, 76.5, -80.5, 294.5, 0, 0, 3),
+(4, 'Libra HA Std-T4', 'images/libra_ha_std_a_T4.png', 227, 5.77, 666, 16.92, 0, 0, 0, 0, 0, 0, 0, 0, 75.5, -84.5, 303, 0, 0, 4),
+(5, 'Libra HA Std-T5', 'images/libra_ha_std_a_T5.png', 234, 5.94, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 78, -89, 313.5, 0, 0, 5),
+(6, 'Libra HA Std-T6', 'images/libra_ha_std_a_T6.png', 240, 6.1, 724, 18.39, 0, 0, 0, 0, 0, 0, 0, 0, 79, -90, 332, 0, 0, 6),
+(7, 'Libra HA Std-T7', 'images/libra_ha_std_a_T7.png', 246, 6.25, 744, 18.9, 0, 0, 0, 0, 0, 0, 0, 0, 78, -93, 341, 0, 0, 7),
+(8, 'Libra HA Std-T8', 'images/libra_ha_std_a_T8.png', 252, 6.4, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, 80, -97, 351.5, 0, 0, 8),
+(9, 'Libra HA Std-T9', 'images/libra_ha_std_a_T9.png', 259, 6.58, 783, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, 79.5, -100.5, 361.5, 0, 0, 9),
+(10, 'Libra HA Std-T10', 'images/libra_ha_std_a_T10.png', 266, 6.76, 796, 20.22, 0, 0, 0, 0, 0, 0, 0, 0, 81, -103, 368, 0, 0, 10),
+(11, 'Libra HA Std-T11', 'images/libra_ha_std_a_T11.png', 271, 6.88, 821, 20.85, 0, 0, 0, 0, 0, 0, 0, 0, 80.5, -108.5, 379.5, 0, 0, 11),
+(12, 'Libra HA Std-T1', 'images/libra_ha_std_a_T1_R.png', 209, 5.31, 547, 13.89, 0, 0, 0, 0, 0, 0, 0, 0, -75.5, 72.5, 242.5, 0, 0, 1),
+(13, 'Libra HA Std-T2', 'images/libra_ha_std_a_T2_R.png', 214, 5.44, 607, 15.42, 0, 0, 0, 0, 0, 0, 0, 0, -78, 76, 272.5, 0, 0, 2),
+(14, 'Libra HA Std-T3', 'images/libra_ha_std_a_T3_R.png', 219, 5.56, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 79.5, 294.5, 0, 0, 3),
+(15, 'Libra HA Std-T4', 'images/libra_ha_std_a_T4_R.png', 227, 5.77, 666, 16.92, 0, 0, 0, 0, 0, 0, 0, 0, -77.5, 83.5, 303, 0, 0, 4),
+(16, 'Libra HA Std-T5', 'images/libra_ha_std_a_T5_R.png', 234, 5.94, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -78, 87, 313.5, 0, 0, 5),
+(17, 'Libra HA Std-T6', 'images/libra_ha_std_a_T6_R.png', 240, 6.1, 724, 18.39, 0, 0, 0, 0, 0, 0, 0, 0, -80, 90, 332, 0, 0, 6),
+(18, 'Libra HA Std-T7', 'images/libra_ha_std_a_T7_R.png', 246, 6.25, 744, 18.9, 0, 0, 0, 0, 0, 0, 0, 0, -80, 92, 341, 0, 0, 7),
+(19, 'Libra HA Std-T8', 'images/libra_ha_std_a_T8_R.png', 252, 6.4, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, -81, 96, 351.5, 0, 0, 8),
+(20, 'Libra HA Std-T9', 'images/libra_ha_std_a_T9_R.png', 259, 6.58, 783, 19.89, 0, 0, 0, 0, 0, 0, 0, 0, -81.5, 100.5, 361.5, 0, 0, 9),
+(21, 'Libra HA Std-T10', 'images/libra_ha_std_a_T10_R.png', 266, 6.76, 796, 20.22, 0, 0, 0, 0, 0, 0, 0, 0, -82, 103, 368, 0, 0, 10),
+(22, 'Libra HA Std-T11', 'images/libra_ha_std_a_T11_R.png', 271, 6.88, 821, 20.85, 0, 0, 0, 0, 0, 0, 0, 0, -81.5, 107.5, 379.5, 0, 0, 11);
 
 -- --------------------------------------------------------
 
@@ -1297,7 +1301,7 @@ INSERT INTO `implant_scho_high_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`
 (2, 'Hype SCHO High Offset-T4', 'images/hype_scho_T4.png\n', 244, 6.2, 682, 17.32, 0, 0, 0, 0, 0, 0, 0, 0, 88, -94, 312, 0, 0, 4),
 (3, 'Hype SCHO High Offset-T5', 'images/hype_scho_T5.png\n', 251, 6.38, 693, 17.6, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -97.5, 317.5, 0, 0, 5),
 (4, 'Hype SCHO High Offset-T6', 'images/hype_scho_T6.png\n', 257, 6.53, 714, 18.14, 0, 0, 0, 0, 0, 0, 0, 0, 89.5, -100.5, 328, 0, 0, 6),
-(5, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7.png\n', 264, 6.71, 734, 18.64, 0, 0, 0, 0, 0, 0, 0, 0, 91, -104, 328, 0, 0, 7),
+(5, 'Hype SCHO High Offset-T7', 'images/hype_scho_T7.png\n', 264, 6.71, 734, 18.64, 0, 0, 0, 0, 0, 0, 0, 0, 91, -104, 338, 0, 0, 7),
 (6, 'Hype SCHO High Offset-T8', 'images/hype_scho_T8.png\n', 271, 6.88, 760, 19.3, 0, 0, 0, 0, 0, 0, 0, 0, 91.5, -107.5, 351, 0, 0, 8),
 (7, 'Hype SCHO High Offset-T9', 'images/hype_scho_T9.png\n', 278, 7.06, 785, 19.94, 0, 0, 0, 0, 0, 0, 0, 0, 92, -111, 363.5, 0, 0, 9),
 (8, 'Hype SCHO High Offset-T10', 'images/hype_scho_T10.png\n', 283, 7.19, 805, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, 93.5, -113.5, 373.5, 0, 0, 10),
