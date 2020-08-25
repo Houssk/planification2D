@@ -287,11 +287,11 @@ $(document).ready(function () {
 				case "implant_ha_std_appui" : {
 					tableImplant = valeurGammeTigeLibra;
 					indexTigeDroit = 1;
-					indexTigeGauche = 11;
-					maximumTigeDroit = 10;
+					indexTigeGauche = 12;
+					maximumTigeDroit = 11;
 					minimumTigeDroit = 1;
-					maximumTigeGauche = 20;
-					minimumTigeGauche= 11;
+					maximumTigeGauche = 22;
+					minimumTigeGauche= 12;
 					break;
 				}
 				case "implant_cim_offset" : {
@@ -307,11 +307,11 @@ $(document).ready(function () {
 				case "implant_cim_std_appui" : {
 					tableImplant = valeurGammeTigeLibra;
 					indexTigeDroit = 1;
-					indexTigeGauche = 11;
-					maximumTigeDroit = 10;
+					indexTigeGauche = 12;
+					maximumTigeDroit = 11;
 					minimumTigeDroit = 1;
-					maximumTigeGauche = 20;
-					minimumTigeGauche= 11;
+					maximumTigeGauche = 22;
+					minimumTigeGauche= 12;
 					break;
 				}
 			}
