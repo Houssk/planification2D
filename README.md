@@ -41,12 +41,6 @@ git clone -b SerfDev https://github.com/Houssk/planification2D.git
 ```
 * Modifier le contenu que vous venez d'ajouter avec les bon identifiants et le bon nom de base de donnée.
 
-## Installer les assets
-
-```bash
-npm install
-```
-
 ## Lancer l'application
 
 * En local, le chemin d'accés est dans `/viewers/static/`. Exemple :
