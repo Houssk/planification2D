@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 25, 2020 at 12:48 PM
+-- Generation Time: Sep 07, 2020 at 09:26 AM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -811,6 +811,64 @@ INSERT INTO `implant_cim_offset` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 (14, 'Libra HA Offset-T7', 'images/libra_offset_T7_R.png', 270, 6.86, 742, 18.85, 0, 0, 0, 0, 0, 0, 0, 0, -92, 102, 343, 0, 0, 7),
 (15, 'Libra HA Offset-T8', 'images/libra_offset_T8_R.png', 277, 7.04, 763, 19.38, 0, 0, 0, 0, 0, 0, 0, 0, -92.5, 106.5, 353.5, 0, 0, 8),
 (16, 'Libra HA Offset-T9', 'images/libra_offset_T9_R.png', 284, 7.21, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, -94, 110, 362, 0, 0, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_cim_std`
+--
+
+DROP TABLE IF EXISTS `implant_cim_std`;
+CREATE TABLE IF NOT EXISTS `implant_cim_std` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_cim_std`
+--
+
+INSERT INTO `implant_cim_std` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra Cim Std-T1', 'images/libra_ha_std_T1.png', 205, 5.21, 546, 13.87, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -74.5, 245, 0, 0, 1),
+(2, 'Libra Cim Std-T2', 'images/libra_ha_std_T2.png', 212, 5.38, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, 74, -78, 274, 0, 0, 2),
+(3, 'Libra Cim Std-T3', 'images/libra_ha_std_T3.png', 218, 5.54, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, 75, -81, 294.5, 0, 0, 3),
+(4, 'Libra Cim Std-T4', 'images/libra_ha_std_T4.png', 224, 5.69, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, 76, -84, 304.5, 0, 0, 4),
+(5, 'Libra Cim Std-T5', 'images/libra_ha_std_T5.png', 232, 5.89, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, 76, -88, 313.5, 0, 0, 5),
+(6, 'Libra Cim Std-T6', 'images/libra_ha_std_T6.png', 237, 6.02, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, 76.5, -90.5, 333, 0, 0, 6),
+(7, 'Libra Cim Std-T7', 'images/libra_ha_std_T7.png', 244, 6.2, 741, 18.82, 0, 0, 0, 0, 0, 0, 0, 0, 78, -94, 342.5, 0, 0, 7),
+(8, 'Libra Cim Std-T8', 'images/libra_ha_std_T8.png', 251, 6.38, 761, 19.33, 0, 0, 0, 0, 0, 0, 0, 0, 78.5, -97.5, 352.5, 0, 0, 8),
+(9, 'Libra Cim Std-T9', 'images/libra_ha_std_T9.png', 258, 6.55, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, 79, -101, 362, 0, 0, 9),
+(10, 'Libra Cim Std-T10', 'images/libra_ha_std_T10.png', 264, 6.71, 794, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, 80, -104, 369, 0, 0, 10),
+(11, 'Libra Cim Std-T1', 'images/libra_ha_std_T1_R.png', 205, 5.21, 546, 13.87, 0, 0, 0, 0, 0, 0, 0, 0, -74.5, 72.5, 245, 0, 0, 1),
+(12, 'Libra Cim Std-T2', 'images/libra_ha_std_T2_R.png', 212, 5.38, 604, 15.34, 0, 0, 0, 0, 0, 0, 0, 0, -76, 77, 274, 0, 0, 2),
+(13, 'Libra Cim Std-T3', 'images/libra_ha_std_T3_R.png', 218, 5.54, 645, 16.38, 0, 0, 0, 0, 0, 0, 0, 0, -77, 80, 294.5, 0, 0, 3),
+(14, 'Libra Cim Std-T4', 'images/libra_ha_std_T4_R.png', 224, 5.69, 665, 16.89, 0, 0, 0, 0, 0, 0, 0, 0, -77, 83, 304.5, 0, 0, 4),
+(15, 'Libra Cim Std-T5', 'images/libra_ha_std_T5_R.png', 232, 5.89, 683, 17.35, 0, 0, 0, 0, 0, 0, 0, 0, -78, 87, 313.5, 0, 0, 5),
+(16, 'Libra Cim Std-T6', 'images/libra_ha_std_T6_R.png', 237, 6.02, 722, 18.34, 0, 0, 0, 0, 0, 0, 0, 0, -78.5, 90.5, 333, 0, 0, 6),
+(17, 'Libra Cim Std-T7', 'images/libra_ha_std_T7_R.png', 244, 6.2, 741, 18.82, 0, 0, 0, 0, 0, 0, 0, 0, -79, 92, 342.5, 0, 0, 7),
+(18, 'Libra Cim Std-T8', 'images/libra_ha_std_T8_R.png', 251, 6.38, 761, 19.33, 0, 0, 0, 0, 0, 0, 0, 0, -79.5, 96.5, 352.5, 0, 0, 8),
+(19, 'Libra Cim Std-T9', 'images/libra_ha_std_T9_R.png', 258, 6.55, 780, 19.81, 0, 0, 0, 0, 0, 0, 0, 0, -80, 99, 362, 0, 0, 9),
+(20, 'Libra Cim Std-T10', 'images/libra_ha_std_T10_R.png', 264, 6.71, 794, 20.17, 0, 0, 0, 0, 0, 0, 0, 0, -81, 103, 369, 0, 0, 10);
 
 -- --------------------------------------------------------
 
