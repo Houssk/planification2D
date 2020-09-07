@@ -274,7 +274,27 @@ $(document).ready(function () {
 					minimumTigeGauche= 11;
 					break;
 				}
+				case "implant_cim_std": {
+					tableImplant = valeurGammeTigeLibra;
+					indexTigeDroit = 1;
+					indexTigeGauche = 11;
+					maximumTigeDroit = 10;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 20;
+					minimumTigeGauche= 11;
+					break;
+				}
 				case "implant_ha_offset" : {
+					tableImplant = valeurGammeTigeLibra;
+					indexTigeDroit = 1;
+					indexTigeGauche = 9;
+					maximumTigeDroit = 8;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 16;
+					minimumTigeGauche= 9;
+					break;
+				}
+				case "implant_cim_offset" : {
 					tableImplant = valeurGammeTigeLibra;
 					indexTigeDroit = 1;
 					indexTigeGauche = 9;
@@ -292,16 +312,6 @@ $(document).ready(function () {
 					minimumTigeDroit = 1;
 					maximumTigeGauche = 22;
 					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_cim_offset" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
 					break;
 				}
 				case "implant_cim_std_appui" : {
