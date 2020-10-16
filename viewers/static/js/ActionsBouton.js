@@ -10,40 +10,40 @@ var Kinetic = Kinetic || {};
 
 $(document).ready(function () {
 
-	var patient = null; // variable de stockage du patient
-	var tigeGauche = null; // variable de stockage de la tige gauche
-	var cotyleGauche = null; // variable de stockage du coyle gauche
-	var tigeDroit = null; // variable de stockage de la tige droit
-	var cotyleDroit = null; // variable de stockage du coyle droit
+	let patient = null; // variable de stockage du patient
+	let tigeGauche = null; // variable de stockage de la tige gauche
+	let cotyleGauche = null; // variable de stockage du coyle gauche
+	let tigeDroit = null; // variable de stockage de la tige droit
+	let cotyleDroit = null; // variable de stockage du coyle droit
 
-	var imgTigeDroit = null; // variable de stockage de l'image de la tige
-	var imgCotyleDroit = null; // variable de stockage de l'image du cotyle
-	var imgTigeGauche = null; // variable de stockage de l'image de la tige
-	var imgCotyleGauche = null; // variable de stockage de l'image du cotyle
+	let imgTigeDroit = null; // variable de stockage de l'image de la tige
+	let imgCotyleDroit = null; // variable de stockage de l'image du cotyle
+	let imgTigeGauche = null; // variable de stockage de l'image de la tige
+	let imgCotyleGauche = null; // variable de stockage de l'image du cotyle
 
-	var indexTigeDroit = null; // variable de stockage de l'id de la tige droite en cours (écran)
-	var indexCotyleDroit = null; // variable de stockage de l'id du cotyle droit en cours (écran)
-	var indexTigeGauche = null; // variable de stockage de l'id de la tige gauche en cours (écran)
-	var indexCotyleGauche = null; // variable de stockage de l'id du cotyle gauche en cours (écran)
+	let indexTigeDroit = null; // variable de stockage de l'id de la tige droite en cours (écran)
+	let indexCotyleDroit = null; // variable de stockage de l'id du cotyle droit en cours (écran)
+	let indexTigeGauche = null; // variable de stockage de l'id de la tige gauche en cours (écran)
+	let indexCotyleGauche = null; // variable de stockage de l'id du cotyle gauche en cours (écran)
 
-	var maximumTigeDroit= null; // variable de stockage de l'id max de la tige droite (écran)
-	var minimumTigeDroit=null; // variable de stockage de l'id min de la tige droite (écran)
-	var maximumTigeGauche= null; // variable de stockage de l'id max de la tige gauche (écran)
-	var minimumTigeGauche=null; // variable de stockage de l'id min de la tige gauche (écran)
+	let maximumTigeDroit= null; // variable de stockage de l'id max de la tige droite (écran)
+	let minimumTigeDroit=null; // variable de stockage de l'id min de la tige droite (écran)
+	let maximumTigeGauche= null; // variable de stockage de l'id max de la tige gauche (écran)
+	let minimumTigeGauche=null; // variable de stockage de l'id min de la tige gauche (écran)
 
-	var maximumCotyleDroit = null; // variable de stockage de l'id max du cotyle droit (écran)
-	var maximumCotyleGauche = null; // variable de stockage de l'id min du cotyle droit (écran)
-	var minimumCotyleDroit = null; // variable de stockage de l'id max du cotyle gauche (écran)
-	var minimumCotyleGauche = null; // variable de stockage de l'id min du cotyle gauche (écran)
+	let maximumCotyleDroit = null; // variable de stockage de l'id max du cotyle droit (écran)
+	let maximumCotyleGauche = null; // variable de stockage de l'id min du cotyle droit (écran)
+	let minimumCotyleDroit = null; // variable de stockage de l'id max du cotyle gauche (écran)
+	let minimumCotyleGauche = null; // variable de stockage de l'id min du cotyle gauche (écran)
 
-	var m_canvasWidth = null; // variable de stockage de la taille (largeur) du canvas de travail
-	var m_canvasHeight = null; // variable de stockage de la taille (hauteur) du canvas de travail
+	let m_canvasWidth = null; // variable de stockage de la taille (largeur) du canvas de travail
+	let m_canvasHeight = null; // variable de stockage de la taille (hauteur) du canvas de travail
 
-	var tableImplant = null; // variable de stockage du nom de la table implant (tige) utile
-	var tableCotyle = null; // variable de stockage du nom de la table cotyle utile
+	let tableImplant = null; // variable de stockage du nom de la table implant (tige) utile
+	let tableCotyle = null; // variable de stockage du nom de la table cotyle utile
 
-	var firstSideChangedTige = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur la tige
-	var firstSideChangedCotyle = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur le cotyle
+	let firstSideChangedTige = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur la tige
+	let firstSideChangedCotyle = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur le cotyle
 
 	sessionStorage.setItem("boolNom",false); // ce stockage permet de savoir si le champs "Nom" est rempli pour gérer l'affichage du bouton "valider patient"
 	sessionStorage.setItem("boolPrenom",false); // ce stockage permet de savoir si le champs "Prénom" est rempli pour gérer l'affichage du bouton "valider patient"
@@ -260,51 +260,11 @@ $(document).ready(function () {
 				}
 			}
 		} else if (valeurGammeTige == "implant_libra") {
-			var gammeTigeLibra = document.getElementById("gammeTigeLibra");
-			var valeurGammeTigeLibra = gammeTigeLibra.options[gammeTigeLibra.selectedIndex].value;
+			let gammeTigeLibra = document.getElementById("gammeTigeLibra"),
+				valeurGammeTigeLibra = gammeTigeLibra.options[gammeTigeLibra.selectedIndex].value;
 			switch(valeurGammeTigeLibra)
 			{
-				case "implant_ha_std" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 11;
-					maximumTigeDroit = 10;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 20;
-					minimumTigeGauche= 11;
-					break;
-				}
-				case "implant_cim_std": {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 11;
-					maximumTigeDroit = 10;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 20;
-					minimumTigeGauche= 11;
-					break;
-				}
-				case "implant_ha_offset" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
-					break;
-				}
-				case "implant_cim_offset" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
-					break;
-				}
-				case "implant_ha_std_appui" : {
+				case "implant_libra_ha" : {
 					tableImplant = valeurGammeTigeLibra;
 					indexTigeDroit = 1;
 					indexTigeGauche = 12;
@@ -314,7 +274,7 @@ $(document).ready(function () {
 					minimumTigeGauche= 12;
 					break;
 				}
-				case "implant_cim_std_appui" : {
+				case "implant_libra_ha_a" : {
 					tableImplant = valeurGammeTigeLibra;
 					indexTigeDroit = 1;
 					indexTigeGauche = 12;
@@ -322,10 +282,86 @@ $(document).ready(function () {
 					minimumTigeDroit = 1;
 					maximumTigeGauche = 22;
 					minimumTigeGauche= 12;
+					break;
+				}
+				case "implant_libra_ha_of": {
+					tableImplant = valeurGammeTigeLibra;
+					indexTigeDroit = 1;
+					indexTigeGauche = 9;
+					maximumTigeDroit = 8;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 16;
+					minimumTigeGauche= 9;
+					break;
+				}
+				case "implant_libra_c" : {
+					tableImplant = valeurGammeTigeLibra;
+					indexTigeDroit = 1;
+					indexTigeGauche = 12;
+					maximumTigeDroit = 11;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 22;
+					minimumTigeGauche= 12;
+					break;
+				}
+				case "implant_libra_c_a" : {
+					tableImplant = valeurGammeTigeLibra;
+					indexTigeDroit = 1;
+					indexTigeGauche = 12;
+					maximumTigeDroit = 11;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 22;
+					minimumTigeGauche= 12;
+					break;
+				}
+				case "implant_libra_c_of" : {
+					tableImplant = valeurGammeTigeLibra;
+					indexTigeDroit = 1;
+					indexTigeGauche = 9;
+					maximumTigeDroit = 8;
+					minimumTigeDroit = 1;
+					maximumTigeGauche = 16;
+					minimumTigeGauche= 9;
 					break;
 				}
 			}
-		 }
+		} else if (valeurGammeTige === "implant_sagitta") {
+			let gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
+			let valeurGammeTigeSagitta = gammeTigeSagitta.options[gammeTigeSagitta.selectedIndex].value;
+			switch(valeurGammeTigeSagitta)
+			{
+			case "implant_sagitta180" : {
+				tableImplant = valeurGammeTigeSagitta;
+				indexTigeDroit = 1;
+				indexTigeGauche = 6;
+				maximumTigeDroit = 5;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 10;
+				minimumTigeGauche= 6;
+				break;
+			}
+			case "implant_sagitta250": {
+				tableImplant = valeurGammeTigeSagitta;
+				indexTigeDroit = 1;
+				indexTigeGauche = 6;
+				maximumTigeDroit = 5;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 10;
+				minimumTigeGauche= 6;
+				break;
+			}
+			case "implant_sagitta325" : {
+				tableImplant = valeurGammeTigeSagitta;
+				indexTigeDroit = 1;
+				indexTigeGauche = 5;
+				maximumTigeDroit = 4;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 8;
+				minimumTigeGauche= 5;
+				break;
+			}
+		}
+	}
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
 		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
 
@@ -1203,12 +1239,18 @@ $(document).ready(function () {
 	*/
 	var gammeTige = document.getElementById("gammeTige");
 	gammeTige.addEventListener('change',function(){
-		if (gammeTige.options[gammeTige.selectedIndex].value == "implant_hype") {
+		if (gammeTige.options[gammeTige.selectedIndex].value === "implant_hype") {
 			document.getElementById("implantHypeSousGamme").style.display="";
 			document.getElementById("implantLibraSousGamme").style.display="none";
-		} else if (gammeTige.options[gammeTige.selectedIndex].value == "implant_libra") {
+			document.getElementById("implantSagittaSousGamme").style.display="none";
+		} else if (gammeTige.options[gammeTige.selectedIndex].value === "implant_libra") {
 			document.getElementById("implantHypeSousGamme").style.display="none";
 			document.getElementById("implantLibraSousGamme").style.display="";
+			document.getElementById("implantSagittaSousGamme").style.display="none";
+		} else if (gammeTige.options[gammeTige.selectedIndex].value === "implant_sagitta") {
+			document.getElementById("implantHypeSousGamme").style.display="none";
+			document.getElementById("implantLibraSousGamme").style.display="none";
+			document.getElementById("implantSagittaSousGamme").style.display="";
 		}
 		TigeSelection();
 	});
@@ -1230,7 +1272,7 @@ $(document).ready(function () {
 	/*
 	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
 	*/
-	var gammeTigeHype = document.getElementById("gammeTigeHype");
+	let gammeTigeHype = document.getElementById("gammeTigeHype");
 	gammeTigeHype.addEventListener('change',function(){
 		TigeSelection();
 	});
@@ -1238,15 +1280,23 @@ $(document).ready(function () {
 	/*
 	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
 	*/
-	var gammeTigeLibra = document.getElementById("gammeTigeLibra");
+	let gammeTigeLibra = document.getElementById("gammeTigeLibra");
 	gammeTigeLibra.addEventListener('change',function(){
+		TigeSelection();
+	});
+
+	/*
+	*	Appel la fonction de choix des tiges en cas de changement de sous gamme
+	*/
+	let gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
+	gammeTigeSagitta.addEventListener('change',function(){
 		TigeSelection();
 	});
 
 	/*
 	*	Appel la fonction de choix des cotyles en cas de changement de sous gamme
 	*/
-	var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
+	let gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
 	gammeCotyleNovae.addEventListener('change',function(){
 		CotyleSelection();
 	});
