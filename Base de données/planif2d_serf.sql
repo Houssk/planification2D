@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 07, 2020 at 09:26 AM
+-- Generation Time: Oct 19, 2020 at 09:59 AM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -1207,6 +1207,490 @@ INSERT INTO `implant_libra` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx
 (14, 'Libra-T7', 'images/LibraT7_R.png', 782, 6.6, 2139, 18.1, 0, 0, 0, 0, 0, 0, 0, 0, -214, 305, 983.5, 0, 0),
 (15, 'Libra-T8', 'images/LibraT8_R.png', 803, 6.8, 2205, 18.7, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 315.5, 1014.5, 135, 0),
 (16, 'Libra-T9', 'images/LibraT9_R.png', 821, 6.9, 2275, 19.2, 0, 0, 0, 0, 0, 0, 0, 0, -216.5, 327.5, 1050.5, 135, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_libra_c`
+--
+
+DROP TABLE IF EXISTS `implant_libra_c`;
+CREATE TABLE IF NOT EXISTS `implant_libra_c` (
+  `id` int(2) DEFAULT NULL,
+  `nom` varchar(11) DEFAULT NULL,
+  `url` varchar(29) DEFAULT NULL,
+  `widthPx` int(3) DEFAULT NULL,
+  `widthCm` decimal(3,2) DEFAULT NULL,
+  `heightPx` int(3) DEFAULT NULL,
+  `heightCm` decimal(4,2) DEFAULT NULL,
+  `axeFemurHautPxX` int(1) DEFAULT NULL,
+  `axeFemurHautPxY` int(1) DEFAULT NULL,
+  `axeFemurBasPxX` int(1) DEFAULT NULL,
+  `axeFemurBasPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxY` int(1) DEFAULT NULL,
+  `distOffsetX` int(3) DEFAULT NULL,
+  `PtMecaHautXPx` int(4) DEFAULT NULL,
+  `PtMecaHautYPx` int(3) DEFAULT NULL,
+  `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `taille` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_libra_c`
+--
+
+INSERT INTO `implant_libra_c` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra_C-T1', 'images/libra/Libra C 1.png', 210, '5.33', 601, '15.27', 0, 0, 0, 0, 0, 0, 0, 0, 73, -77, 272, 0, 0, 1),
+(2, 'Libra_C-T2', 'images/libra/Libra C 2.png', 221, '5.61', 676, '17.17', 0, 0, 0, 0, 0, 0, 0, 0, 71, -82, 310, 0, 0, 2),
+(3, 'Libra_C-T3', 'images/libra/Libra C 3.png', 219, '5.56', 713, '18.11', 0, 0, 0, 0, 0, 0, 0, 0, 76, -81, 328, 0, 0, 3),
+(4, 'Libra_C-T4', 'images/libra/Libra C 4.png', 225, '5.71', 737, '18.72', 0, 0, 0, 0, 0, 0, 0, 0, 76, -85, 340, 0, 0, 4),
+(5, 'Libra_C-T5', 'images/libra/Libra C 5.png', 235, '5.97', 763, '19.38', 0, 0, 0, 0, 0, 0, 0, 0, 75, -89, 353, 0, 0, 5),
+(6, 'Libra_C-T6', 'images/libra/Libra C 6.png', 242, '6.15', 792, '20.12', 0, 0, 0, 0, 0, 0, 0, 0, 76, -94, 368, 0, 0, 6),
+(7, 'Libra_C-T7', 'images/libra/Libra C 7.png', 245, '6.22', 807, '20.50', 0, 0, 0, 0, 0, 0, 0, 0, 78, -94, 375, 0, 0, 7),
+(8, 'Libra_C-T8', 'images/libra/Libra C 8.png', 260, '6.60', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, 75, -102, 389, 0, 0, 8),
+(9, 'Libra_C-T9', 'images/libra/Libra C 9.png', 274, '6.96', 840, '21.34', 0, 0, 0, 0, 0, 0, 0, 0, 72, -110, 392, 0, 0, 9),
+(10, 'Libra_C-T10', 'images/libra/Libra C 10.png', 276, '7.01', 870, '22.10', 0, 0, 0, 0, 0, 0, 0, 0, 75, -111, 407, 0, 0, 10),
+(11, 'Libra_C-T11', 'images/libra/Libra C 11.png', 284, '7.21', 894, '22.71', 0, 0, 0, 0, 0, 0, 0, 0, 75, -114, 419, 0, 0, 11),
+(12, 'Libra_C-T1', 'images/libra/Libra C 1 R.png', 210, '5.33', 601, '15.27', 0, 0, 0, 0, 0, 0, 0, 0, -73, 77, 272, 0, 0, 1),
+(13, 'Libra_C-T2', 'images/libra/Libra C 2 R.png', 221, '5.61', 676, '17.17', 0, 0, 0, 0, 0, 0, 0, 0, -71, 82, 310, 0, 0, 2),
+(14, 'Libra_C-T3', 'images/libra/Libra C 3 R.png', 219, '5.56', 713, '18.11', 0, 0, 0, 0, 0, 0, 0, 0, -76, 81, 328, 0, 0, 3),
+(15, 'Libra_C-T4', 'images/libra/Libra C 4 R.png', 225, '5.71', 737, '18.72', 0, 0, 0, 0, 0, 0, 0, 0, -76, 85, 340, 0, 0, 4),
+(16, 'Libra_C-T5', 'images/libra/Libra C 5 R.png', 235, '5.97', 763, '19.38', 0, 0, 0, 0, 0, 0, 0, 0, -75, 89, 353, 0, 0, 5),
+(17, 'Libra_C-T6', 'images/libra/Libra C 6 R.png', 242, '6.15', 792, '20.12', 0, 0, 0, 0, 0, 0, 0, 0, -76, 94, 368, 0, 0, 6),
+(18, 'Libra_C-T7', 'images/libra/Libra C 7 R.png', 245, '6.22', 807, '20.50', 0, 0, 0, 0, 0, 0, 0, 0, -78, 94, 375, 0, 0, 7),
+(19, 'Libra_C-T8', 'images/libra/Libra C 8 R.png', 260, '6.60', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, -75, 102, 389, 0, 0, 8),
+(20, 'Libra_C-T9', 'images/libra/Libra C 9 R.png', 274, '6.96', 840, '21.34', 0, 0, 0, 0, 0, 0, 0, 0, -72, 110, 392, 0, 0, 9),
+(21, 'Libra_C-T10', 'images/libra/Libra C 10 R.png', 276, '7.01', 870, '22.10', 0, 0, 0, 0, 0, 0, 0, 0, -75, 111, 407, 0, 0, 10),
+(22, 'Libra_C-T11', 'images/libra/Libra C 11 R.png', 284, '7.21', 894, '22.71', 0, 0, 0, 0, 0, 0, 0, 0, -75, 114, 419, 0, 0, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_libra_c_a`
+--
+
+DROP TABLE IF EXISTS `implant_libra_c_a`;
+CREATE TABLE IF NOT EXISTS `implant_libra_c_a` (
+  `id` int(2) DEFAULT NULL,
+  `nom` varchar(13) DEFAULT NULL,
+  `url` varchar(31) DEFAULT NULL,
+  `widthPx` int(3) DEFAULT NULL,
+  `widthCm` decimal(3,2) DEFAULT NULL,
+  `heightPx` int(3) DEFAULT NULL,
+  `heightCm` decimal(4,2) DEFAULT NULL,
+  `axeFemurHautPxX` int(1) DEFAULT NULL,
+  `axeFemurHautPxY` int(1) DEFAULT NULL,
+  `axeFemurBasPxX` int(1) DEFAULT NULL,
+  `axeFemurBasPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxY` int(1) DEFAULT NULL,
+  `distOffsetX` int(3) DEFAULT NULL,
+  `PtMecaHautXPx` int(4) DEFAULT NULL,
+  `PtMecaHautYPx` int(3) DEFAULT NULL,
+  `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `taille` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_libra_c_a`
+--
+
+INSERT INTO `implant_libra_c_a` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra_C_A-T1', 'images/libra/Libra C A 1.png', 218, '5.54', 626, '15.90', 0, 0, 0, 0, 0, 0, 0, 0, 69, -82, 284, 0, 0, 1),
+(2, 'Libra_C_A-T2', 'images/libra/Libra C A 2.png', 218, '5.54', 686, '17.42', 0, 0, 0, 0, 0, 0, 0, 0, 72, -82, 314, 0, 0, 2),
+(3, 'Libra_C_A-T3', 'images/libra/Libra C A 3.png', 224, '5.69', 728, '18.49', 0, 0, 0, 0, 0, 0, 0, 0, 73, -84, 335, 0, 0, 3),
+(4, 'Libra_C_A-T4', 'images/libra/Libra C A 4.png', 230, '5.84', 768, '19.51', 0, 0, 0, 0, 0, 0, 0, 0, 74, -88, 355, 0, 0, 4),
+(5, 'Libra_C_A-T5', 'images/libra/Libra C A 5.png', 252, '6.40', 782, '19.86', 0, 0, 0, 0, 0, 0, 0, 0, 72, -95, 362, 0, 0, 5),
+(6, 'Libra_C_A-T6', 'images/libra/Libra C A 6.png', 252, '6.40', 806, '20.47', 0, 0, 0, 0, 0, 0, 0, 0, 71, -99, 374, 0, 0, 6),
+(7, 'Libra_C_A-T7', 'images/libra/Libra C A 7.png', 254, '6.45', 819, '20.80', 0, 0, 0, 0, 0, 0, 0, 0, 75, -99, 380, 0, 0, 7),
+(8, 'Libra_C_A-T8', 'images/libra/Libra C A 8.png', 275, '6.98', 847, '21.51', 0, 0, 0, 0, 0, 0, 0, 0, 79, -98, 394, 0, 0, 8),
+(9, 'Libra_C_A-T9', 'images/libra/Libra C A 9.png', 272, '6.91', 867, '22.02', 0, 0, 0, 0, 0, 0, 0, 0, 76, -106, 404, 0, 0, 9),
+(10, 'Libra_C_A-T10', 'images/libra/Libra C A 10.png', 278, '7.06', 880, '22.35', 0, 0, 0, 0, 0, 0, 0, 0, 81, -105, 411, 0, 0, 10),
+(11, 'Libra_C_A-T11', 'images/libra/Libra C A 11.png', 301, '7.65', 895, '22.73', 0, 0, 0, 0, 0, 0, 0, 0, 80, -110, 418, 0, 0, 11),
+(12, 'Libra_C_A-T1', 'images/libra/Libra C A 1 R.png', 218, '5.54', 626, '15.90', 0, 0, 0, 0, 0, 0, 0, 0, -69, 82, 284, 0, 0, 1),
+(13, 'Libra_C_A-T2', 'images/libra/Libra C A 2 R.png', 218, '5.54', 686, '17.42', 0, 0, 0, 0, 0, 0, 0, 0, -72, 82, 314, 0, 0, 2),
+(14, 'Libra_C_A-T3', 'images/libra/Libra C A 3 R.png', 224, '5.69', 728, '18.49', 0, 0, 0, 0, 0, 0, 0, 0, -73, 84, 335, 0, 0, 3),
+(15, 'Libra_C_A-T4', 'images/libra/Libra C A 4 R.png', 230, '5.84', 768, '19.51', 0, 0, 0, 0, 0, 0, 0, 0, -74, 88, 355, 0, 0, 4),
+(16, 'Libra_C_A-T5', 'images/libra/Libra C A 5 R.png', 252, '6.40', 782, '19.86', 0, 0, 0, 0, 0, 0, 0, 0, -72, 95, 362, 0, 0, 5),
+(17, 'Libra_C_A-T6', 'images/libra/Libra C A 6 R.png', 252, '6.40', 806, '20.47', 0, 0, 0, 0, 0, 0, 0, 0, -71, 99, 374, 0, 0, 6),
+(18, 'Libra_C_A-T7', 'images/libra/Libra C A 7 R.png', 254, '6.45', 819, '20.80', 0, 0, 0, 0, 0, 0, 0, 0, -75, 99, 380, 0, 0, 7),
+(19, 'Libra_C_A-T8', 'images/libra/Libra C A 8 R.png', 275, '6.98', 847, '21.51', 0, 0, 0, 0, 0, 0, 0, 0, -79, 98, 394, 0, 0, 8),
+(20, 'Libra_C_A-T9', 'images/libra/Libra C A 9 R.png', 272, '6.91', 867, '22.02', 0, 0, 0, 0, 0, 0, 0, 0, -76, 106, 404, 0, 0, 9),
+(21, 'Libra_C_A-T10', 'images/libra/Libra C A 10 R.png', 278, '7.06', 880, '22.35', 0, 0, 0, 0, 0, 0, 0, 0, -81, 105, 411, 0, 0, 10),
+(22, 'Libra_C_A-T11', 'images/libra/Libra C A 11 R.png', 301, '7.65', 895, '22.73', 0, 0, 0, 0, 0, 0, 0, 0, -80, 110, 418, 0, 0, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_libra_c_of`
+--
+
+DROP TABLE IF EXISTS `implant_libra_c_of`;
+CREATE TABLE IF NOT EXISTS `implant_libra_c_of` (
+  `id` int(2) DEFAULT NULL,
+  `nom` varchar(13) DEFAULT NULL,
+  `url` varchar(31) DEFAULT NULL,
+  `widthPx` int(3) DEFAULT NULL,
+  `widthCm` decimal(3,2) DEFAULT NULL,
+  `heightPx` int(3) DEFAULT NULL,
+  `heightCm` decimal(4,2) DEFAULT NULL,
+  `axeFemurHautPxX` int(1) DEFAULT NULL,
+  `axeFemurHautPxY` int(1) DEFAULT NULL,
+  `axeFemurBasPxX` int(1) DEFAULT NULL,
+  `axeFemurBasPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxY` int(1) DEFAULT NULL,
+  `distOffsetX` int(3) DEFAULT NULL,
+  `PtMecaHautXPx` int(4) DEFAULT NULL,
+  `PtMecaHautYPx` int(3) DEFAULT NULL,
+  `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `taille` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_libra_c_of`
+--
+
+INSERT INTO `implant_libra_c_of` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra_C_OF-T2', 'images/libra/Libra C OF 2.png', 253, '6.43', 676, '17.17', 0, 0, 0, 0, 0, 0, 0, 0, 78, -98, 311, 0, 0, 2),
+(2, 'Libra_C_OF-T3', 'images/libra/Libra C OF 3.png', 249, '6.32', 716, '18.19', 0, 0, 0, 0, 0, 0, 0, 0, 84, -96, 331, 0, 0, 3),
+(3, 'Libra_C_OF-T4', 'images/libra/Libra C OF 4.png', 257, '6.53', 771, '19.58', 0, 0, 0, 0, 0, 0, 0, 0, 85, -100, 358, 0, 0, 4),
+(4, 'Libra_C_OF-T5', 'images/libra/Libra C OF 5.png', 265, '6.73', 823, '20.90', 0, 0, 0, 0, 0, 0, 0, 0, 84, -104, 384, 0, 0, 5),
+(5, 'Libra_C_OF-T6', 'images/libra/Libra C OF 6.png', 273, '6.93', 801, '20.35', 0, 0, 0, 0, 0, 0, 0, 0, 84, -108, 373, 0, 0, 6),
+(6, 'Libra_C_OF-T7', 'images/libra/Libra C OF 7.png', 288, '7.32', 819, '20.80', 0, 0, 0, 0, 0, 0, 0, 0, 81, -116, 382, 0, 0, 7),
+(7, 'Libra_C_OF-T8', 'images/libra/Libra C OF 8.png', 284, '7.21', 875, '22.22', 0, 0, 0, 0, 0, 0, 0, 0, 87, -114, 410, 0, 0, 8),
+(8, 'Libra_C_OF-T9', 'images/libra/Libra C OF 9.png', 303, '7.70', 888, '25.56', 0, 0, 0, 0, 0, 0, 0, 0, 81, -123, 417, 0, 0, 9),
+(9, 'Libra_C_OF-T2', 'images/libra/Libra C OF 2 R.png', 253, '6.43', 676, '17.17', 0, 0, 0, 0, 0, 0, 0, 0, -78, 98, 311, 0, 0, 2),
+(10, 'Libra_C_OF-T3', 'images/libra/Libra C OF 3 R.png', 249, '6.32', 716, '18.19', 0, 0, 0, 0, 0, 0, 0, 0, -84, 96, 331, 0, 0, 3),
+(11, 'Libra_C_OF-T4', 'images/libra/Libra C OF 4 R.png', 257, '6.53', 771, '19.58', 0, 0, 0, 0, 0, 0, 0, 0, -85, 100, 358, 0, 0, 4),
+(12, 'Libra_C_OF-T5', 'images/libra/Libra C OF 5 R.png', 265, '6.73', 823, '20.90', 0, 0, 0, 0, 0, 0, 0, 0, -84, 104, 384, 0, 0, 5),
+(13, 'Libra_C_OF-T6', 'images/libra/Libra C OF 6 R.png', 273, '6.93', 801, '20.35', 0, 0, 0, 0, 0, 0, 0, 0, -84, 108, 373, 0, 0, 6),
+(14, 'Libra_C_OF-T7', 'images/libra/Libra C OF 7 R.png', 288, '7.32', 819, '20.80', 0, 0, 0, 0, 0, 0, 0, 0, -81, 116, 382, 0, 0, 7),
+(15, 'Libra_C_OF-T8', 'images/libra/Libra C OF 8 R.png', 284, '7.21', 875, '22.22', 0, 0, 0, 0, 0, 0, 0, 0, -87, 114, 410, 0, 0, 8),
+(16, 'Libra_C_OF-T9', 'images/libra/Libra C OF 9 R.png', 303, '7.70', 888, '25.56', 0, 0, 0, 0, 0, 0, 0, 0, -81, 123, 417, 0, 0, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_libra_ha`
+--
+
+DROP TABLE IF EXISTS `implant_libra_ha`;
+CREATE TABLE IF NOT EXISTS `implant_libra_ha` (
+  `id` int(2) DEFAULT NULL,
+  `nom` varchar(12) DEFAULT NULL,
+  `url` varchar(30) DEFAULT NULL,
+  `widthPx` int(3) DEFAULT NULL,
+  `widthCm` decimal(3,2) DEFAULT NULL,
+  `heightPx` int(3) DEFAULT NULL,
+  `heightCm` decimal(4,2) DEFAULT NULL,
+  `axeFemurHautPxX` int(1) DEFAULT NULL,
+  `axeFemurHautPxY` int(1) DEFAULT NULL,
+  `axeFemurBasPxX` int(1) DEFAULT NULL,
+  `axeFemurBasPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxY` int(1) DEFAULT NULL,
+  `distOffsetX` int(3) DEFAULT NULL,
+  `PtMecaHautXPx` int(4) DEFAULT NULL,
+  `PtMecaHautYPx` int(3) DEFAULT NULL,
+  `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `taille` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_libra_ha`
+--
+
+INSERT INTO `implant_libra_ha` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra_HA-T1', 'images/libra/Libra HA 1.png', 205, '5.21', 625, '16.56', 0, 0, 0, 0, 0, 0, 0, 0, 74, -75, 284, 0, 0, 1),
+(2, 'Libra_HA-T2', 'images/libra/Libra HA 2.png', 212, '5.38', 772, '19.61', 0, 0, 0, 0, 0, 0, 0, 0, 76, -78, 358, 0, 0, 2),
+(3, 'Libra_HA-T3', 'images/libra/Libra HA 3.png', 218, '5.54', 733, '18.62', 0, 0, 0, 0, 0, 0, 0, 0, 77, -81, 338, 0, 0, 3),
+(4, 'Libra_HA-T4', 'images/libra/Libra HA 4.png', 225, '5.71', 770, '19.56', 0, 0, 0, 0, 0, 0, 0, 0, 77, -84, 357, 0, 0, 4),
+(5, 'Libra_HA-T5', 'images/libra/Libra HA 5.png', 232, '5.89', 785, '19.94', 0, 0, 0, 0, 0, 0, 0, 0, 77, -88, 364, 0, 0, 5),
+(6, 'Libra_HA-T6', 'images/libra/Libra HA 6.png', 254, '6.45', 818, '20.78', 0, 0, 0, 0, 0, 0, 0, 0, 70, -100, 381, 0, 0, 6),
+(7, 'Libra_HA-T7', 'images/libra/Libra HA 7.png', 245, '6.22', 836, '21.23', 0, 0, 0, 0, 0, 0, 0, 0, 79, -94, 390, 0, 0, 7),
+(8, 'Libra_HA-T8', 'images/libra/Libra HA 8.png', 252, '6.40', 860, '21.84', 0, 0, 0, 0, 0, 0, 0, 0, 79, -98, 402, 0, 0, 8),
+(9, 'Libra_HA-T9', 'images/libra/Libra HA 9.png', 263, '6.68', 884, '22.45', 0, 0, 0, 0, 0, 0, 0, 0, 78, -103, 414, 0, 0, 9),
+(10, 'Libra_HA-T10', 'images/libra/Libra HA 10.png', 266, '6.76', 919, '23.34', 0, 0, 0, 0, 0, 0, 0, 0, 81, -105, 431, 0, 0, 10),
+(11, 'Libra_HA-T11', 'images/libra/Libra HA 11.png', 279, '7.09', 922, '23.42', 0, 0, 0, 0, 0, 0, 0, 0, 79, -109, 433, 0, 0, 11),
+(12, 'Libra_HA-T1', 'images/libra/Libra HA 1 R.png', 205, '5.21', 625, '16.56', 0, 0, 0, 0, 0, 0, 0, 0, -74, 75, 284, 0, 0, 1),
+(13, 'Libra_HA-T2', 'images/libra/Libra HA 2 R.png', 212, '5.38', 772, '19.61', 0, 0, 0, 0, 0, 0, 0, 0, -76, 78, 358, 0, 0, 2),
+(14, 'Libra_HA-T3', 'images/libra/Libra HA 3 R.png', 218, '5.54', 733, '18.62', 0, 0, 0, 0, 0, 0, 0, 0, -77, 81, 338, 0, 0, 3),
+(15, 'Libra_HA-T4', 'images/libra/Libra HA 4 R.png', 225, '5.71', 770, '19.56', 0, 0, 0, 0, 0, 0, 0, 0, -77, 84, 357, 0, 0, 4),
+(16, 'Libra_HA-T5', 'images/libra/Libra HA 5 R.png', 232, '5.89', 785, '19.94', 0, 0, 0, 0, 0, 0, 0, 0, -77, 88, 364, 0, 0, 5),
+(17, 'Libra_HA-T6', 'images/libra/Libra HA 6 R.png', 254, '6.45', 818, '20.78', 0, 0, 0, 0, 0, 0, 0, 0, -70, 100, 381, 0, 0, 6),
+(18, 'Libra_HA-T7', 'images/libra/Libra HA 7 R.png', 245, '6.22', 836, '21.23', 0, 0, 0, 0, 0, 0, 0, 0, -79, 94, 390, 0, 0, 7),
+(19, 'Libra_HA-T8', 'images/libra/Libra HA 8 R.png', 252, '6.40', 860, '21.84', 0, 0, 0, 0, 0, 0, 0, 0, -79, 98, 402, 0, 0, 8),
+(20, 'Libra_HA-T9', 'images/libra/Libra HA 9 R.png', 263, '6.68', 884, '22.45', 0, 0, 0, 0, 0, 0, 0, 0, -78, 103, 414, 0, 0, 9),
+(21, 'Libra_HA-T10', 'images/libra/Libra HA 10 R.png', 266, '6.76', 919, '23.34', 0, 0, 0, 0, 0, 0, 0, 0, -81, 105, 431, 0, 0, 10),
+(22, 'Libra_HA-T11', 'images/libra/Libra HA 11 R.png', 279, '7.09', 922, '23.42', 0, 0, 0, 0, 0, 0, 0, 0, -79, 109, 433, 0, 0, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_libra_ha_a`
+--
+
+DROP TABLE IF EXISTS `implant_libra_ha_a`;
+CREATE TABLE IF NOT EXISTS `implant_libra_ha_a` (
+  `id` int(2) DEFAULT NULL,
+  `nom` varchar(14) DEFAULT NULL,
+  `url` varchar(32) DEFAULT NULL,
+  `widthPx` int(3) DEFAULT NULL,
+  `widthCm` decimal(3,2) DEFAULT NULL,
+  `heightPx` int(3) DEFAULT NULL,
+  `heightCm` decimal(4,2) DEFAULT NULL,
+  `axeFemurHautPxX` int(1) DEFAULT NULL,
+  `axeFemurHautPxY` int(1) DEFAULT NULL,
+  `axeFemurBasPxX` int(1) DEFAULT NULL,
+  `axeFemurBasPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxY` int(1) DEFAULT NULL,
+  `distOffsetX` int(3) DEFAULT NULL,
+  `PtMecaHautXPx` int(4) DEFAULT NULL,
+  `PtMecaHautYPx` int(3) DEFAULT NULL,
+  `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `taille` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_libra_ha_a`
+--
+
+INSERT INTO `implant_libra_ha_a` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra_HA_A-T1', 'images/libra/Libra HA A 1.png', 220, '5.59', 636, '16.15', 0, 0, 0, 0, 0, 0, 0, 0, 70, -82, 290, 0, 0, 1),
+(2, 'Libra_HA_A-T2', 'images/libra/Libra HA A 2.png', 222, '5.64', 684, '17.37', 0, 0, 0, 0, 0, 0, 0, 0, 73, -83, 314, 0, 0, 2),
+(3, 'Libra_HA_A-T3', 'images/libra/Libra HA A 3.png', 230, '5.84', 748, '19.00', 0, 0, 0, 0, 0, 0, 0, 0, 73, -87, 346, 0, 0, 3),
+(4, 'Libra_HA_A-T4', 'images/libra/Libra HA A 4.png', 233, '5.92', 767, '19.48', 0, 0, 0, 0, 0, 0, 0, 0, 74, -88, 355, 0, 0, 4),
+(5, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5.png', 241, '6.12', 780, '19.81', 0, 0, 0, 0, 0, 0, 0, 0, 74, -92, 362, 0, 0, 5),
+(6, 'Libra_HA_A-T6', 'images/libra/Libra HA A 6.png', 258, '6.55', 812, '20.62', 0, 0, 0, 0, 0, 0, 0, 0, 70, -101, 378, 0, 0, 6),
+(7, 'Libra_HA_A-T7', 'images/libra/Libra HA A 7.png', 265, '6.73', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, 70, -104, 389, 0, 0, 7),
+(8, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8.png', 298, '7.57', 908, '23.06', 0, 0, 0, 0, 0, 0, 0, 0, 80, -111, 426, 0, 0, 8),
+(9, 'Libra_HA_A-T9', 'images/libra/Libra HA A 9.png', 292, '7.42', 868, '22.05', 0, 0, 0, 0, 0, 0, 0, 0, 83, -101, 406, 0, 0, 9),
+(10, 'Libra_HA_A-T10', 'images/libra/Libra HA A 10.png', 278, '7.06', 906, '23.01', 0, 0, 0, 0, 0, 0, 0, 0, 79, -108, 425, 0, 0, 10),
+(11, 'Libra_HA_A-T11', 'images/libra/Libra HA A 11.png', 294, '7.47', 935, '23.75', 0, 0, 0, 0, 0, 0, 0, 0, 72, -120, 439, 0, 0, 11),
+(12, 'Libra_HA_A-T1', 'images/libra/Libra HA A 1 R.png', 220, '5.59', 636, '16.15', 0, 0, 0, 0, 0, 0, 0, 0, -70, 82, 290, 0, 0, 1),
+(13, 'Libra_HA_A-T2', 'images/libra/Libra HA A 2 R.png', 222, '5.64', 684, '17.37', 0, 0, 0, 0, 0, 0, 0, 0, -73, 83, 314, 0, 0, 2),
+(14, 'Libra_HA_A-T3', 'images/libra/Libra HA A 3 R.png', 230, '5.84', 748, '19.00', 0, 0, 0, 0, 0, 0, 0, 0, -73, 87, 346, 0, 0, 3),
+(15, 'Libra_HA_A-T4', 'images/libra/Libra HA A 4 R.png', 233, '5.92', 767, '19.48', 0, 0, 0, 0, 0, 0, 0, 0, -74, 88, 355, 0, 0, 4),
+(16, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5 R.png', 241, '6.12', 780, '19.81', 0, 0, 0, 0, 0, 0, 0, 0, -74, 92, 362, 0, 0, 5),
+(17, 'Libra_HA_A-T6', 'images/libra/Libra HA A 6 R.png', 258, '6.55', 812, '20.62', 0, 0, 0, 0, 0, 0, 0, 0, -70, 101, 378, 0, 0, 6),
+(18, 'Libra_HA_A-T7', 'images/libra/Libra HA A 7 R.png', 265, '6.73', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, -70, 104, 389, 0, 0, 7),
+(19, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8 R.png', 298, '7.57', 908, '23.06', 0, 0, 0, 0, 0, 0, 0, 0, -80, 111, 426, 0, 0, 8),
+(20, 'Libra_HA_A-T9', 'images/libra/Libra HA A 9 R.png', 292, '7.42', 868, '22.05', 0, 0, 0, 0, 0, 0, 0, 0, -83, 101, 406, 0, 0, 9),
+(21, 'Libra_HA_A-T10', 'images/libra/Libra HA A 10 R.png', 278, '7.06', 906, '23.01', 0, 0, 0, 0, 0, 0, 0, 0, -79, 108, 425, 0, 0, 10),
+(22, 'Libra_HA_A-T11', 'images/libra/Libra HA A 11 R.png', 294, '7.47', 935, '23.75', 0, 0, 0, 0, 0, 0, 0, 0, -72, 120, 439, 0, 0, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_libra_ha_of`
+--
+
+DROP TABLE IF EXISTS `implant_libra_ha_of`;
+CREATE TABLE IF NOT EXISTS `implant_libra_ha_of` (
+  `id` int(2) DEFAULT NULL,
+  `nom` varchar(14) DEFAULT NULL,
+  `url` varchar(32) DEFAULT NULL,
+  `widthPx` int(3) DEFAULT NULL,
+  `widthCm` decimal(3,2) DEFAULT NULL,
+  `heightPx` int(3) DEFAULT NULL,
+  `heightCm` decimal(4,2) DEFAULT NULL,
+  `axeFemurHautPxX` int(1) DEFAULT NULL,
+  `axeFemurHautPxY` int(1) DEFAULT NULL,
+  `axeFemurBasPxX` int(1) DEFAULT NULL,
+  `axeFemurBasPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheHautPxY` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxX` int(1) DEFAULT NULL,
+  `axeTeteHancheBasPxY` int(1) DEFAULT NULL,
+  `distOffsetX` int(3) DEFAULT NULL,
+  `PtMecaHautXPx` int(4) DEFAULT NULL,
+  `PtMecaHautYPx` int(3) DEFAULT NULL,
+  `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `taille` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_libra_ha_of`
+--
+
+INSERT INTO `implant_libra_ha_of` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Libra_HA_OF-T2', 'images/libra/Libra HA OF 2.png', 236, '5.99', 709, '18.01', 0, 0, 0, 0, 0, 0, 0, 0, 88, -90, 326, 0, 0, 2),
+(2, 'Libra_HA_OF-T3', 'images/libra/Libra HA OF 3.png', 242, '6.15', 741, '18.82', 0, 0, 0, 0, 0, 0, 0, 0, 89, -93, 342, 0, 0, 3),
+(3, 'Libra_HA_OF-T4', 'images/libra/Libra HA OF 4.png', 248, '6.30', 769, '19.53', 0, 0, 0, 0, 0, 0, 0, 0, 89, -96, 356, 0, 0, 4),
+(4, 'Libra_HA_OF-T5', 'images/libra/Libra HA OF 5.png', 259, '6.58', 794, '20.17', 0, 0, 0, 0, 0, 0, 0, 0, 87, -101, 369, 0, 0, 5),
+(5, 'Libra_HA_OF-T6', 'images/libra/Libra HA OF 6.png', 268, '6.81', 838, '21.29', 0, 0, 0, 0, 0, 0, 0, 0, 87, -106, 391, 0, 0, 6),
+(6, 'Libra_HA_OF-T7', 'images/libra/Libra HA OF 7.png', 276, '7.01', 837, '21.26', 0, 0, 0, 0, 0, 0, 0, 0, 87, -110, 390, 0, 0, 7),
+(7, 'Libra_HA_OF-T8', 'images/libra/Libra HA OF 8.png', 277, '7.04', 862, '21.89', 0, 0, 0, 0, 0, 0, 0, 0, 90, -110, 403, 0, 0, 8),
+(8, 'Libra_HA_OF-T9', 'images/libra/Libra HA OF 9.png', 292, '7.42', 876, '22.25', 0, 0, 0, 0, 0, 0, 0, 0, 88, -117, 410, 0, 0, 9),
+(9, 'Libra_HA_OF-T2', 'images/libra/Libra HA OF 2 R.png', 236, '5.99', 709, '18.01', 0, 0, 0, 0, 0, 0, 0, 0, -88, 90, 326, 0, 0, 2),
+(10, 'Libra_HA_OF-T3', 'images/libra/Libra HA OF 3 R.png', 242, '6.15', 741, '18.82', 0, 0, 0, 0, 0, 0, 0, 0, -89, 93, 342, 0, 0, 3),
+(11, 'Libra_HA_OF-T4', 'images/libra/Libra HA OF 4 R.png', 248, '6.30', 769, '19.53', 0, 0, 0, 0, 0, 0, 0, 0, -89, 96, 356, 0, 0, 4),
+(12, 'Libra_HA_OF-T5', 'images/libra/Libra HA OF 5 R.png', 259, '6.58', 794, '20.17', 0, 0, 0, 0, 0, 0, 0, 0, -87, 101, 369, 0, 0, 5),
+(13, 'Libra_HA_OF-T6', 'images/libra/Libra HA OF 6 R.png', 268, '6.81', 838, '21.29', 0, 0, 0, 0, 0, 0, 0, 0, -87, 106, 391, 0, 0, 6),
+(14, 'Libra_HA_OF-T7', 'images/libra/Libra HA OF 7 R.png', 276, '7.01', 837, '21.26', 0, 0, 0, 0, 0, 0, 0, 0, -87, 110, 390, 0, 0, 7),
+(15, 'Libra_HA_OF-T8', 'images/libra/Libra HA OF 8 R.png', 277, '7.04', 862, '21.89', 0, 0, 0, 0, 0, 0, 0, 0, -90, 110, 403, 0, 0, 8),
+(16, 'Libra_HA_OF-T9', 'images/libra/Libra HA OF 9 R.png', 292, '7.42', 876, '22.25', 0, 0, 0, 0, 0, 0, 0, 0, -88, 117, 410, 0, 0, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_sagitta180`
+--
+
+DROP TABLE IF EXISTS `implant_sagitta180`;
+CREATE TABLE IF NOT EXISTS `implant_sagitta180` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_sagitta180`
+--
+
+INSERT INTO `implant_sagitta180` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Sagitta180-T2', 'images/sagitta/Sagitta EVLR2-180.png', 208, 5.28, 805, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, 68, -77, 374.5, 0, 0, 2),
+(2, 'Sagitta180-T3', 'images/sagitta/Sagitta EVLR3-180.png', 224, 5.69, 841, 21.36, 0, 0, 0, 0, 0, 0, 0, 0, 76, -71, 384.5, 0, 0, 3),
+(3, 'Sagitta180-T4', 'images/sagitta/Sagitta EVLR4-180.png', 223, 5.66, 834, 21.18, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -76.5, 383, 0, 0, 4),
+(4, 'Sagitta180-T5', 'images/sagitta/Sagitta EVLR5-180.png', 229, 5.82, 823, 20.9, 0, 0, 0, 0, 0, 0, 0, 0, 75.5, -75.5, 374.5, 0, 0, 5),
+(5, 'Sagitta180-T6', 'images/sagitta/Sagitta EVLR6-180.png', 231, 5.87, 826, 20.98, 0, 0, 0, 0, 0, 0, 0, 0, 74.5, -78.5, 377, 0, 0, 6),
+(6, 'Sagitta180-T2', 'images/sagitta/Sagitta EVLR2-180 R.png', 208, 5.28, 805, 20.45, 0, 0, 0, 0, 0, 0, 0, 0, -68, 77, 374.5, 0, 0, 2),
+(7, 'Sagitta180-T3', 'images/sagitta/Sagitta EVLR3-180 R.png', 224, 5.69, 841, 21.36, 0, 0, 0, 0, 0, 0, 0, 0, -75, 71, 384.5, 0, 0, 3),
+(8, 'Sagitta180-T4', 'images/sagitta/Sagitta EVLR4-180 R.png', 223, 5.66, 834, 21.18, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 76.5, 383, 0, 0, 4),
+(9, 'Sagitta180-T5', 'images/sagitta/Sagitta EVLR5-180 R.png', 229, 5.82, 823, 20.9, 0, 0, 0, 0, 0, 0, 0, 0, -75.5, 75.5, 374.5, 0, 0, 5),
+(10, 'Sagitta180-T6', 'images/sagitta/Sagitta EVLR6-180 R.png', 231, 5.87, 826, 20.98, 0, 0, 0, 0, 0, 0, 0, 0, -75.5, 78.5, 377, 0, 0, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_sagitta250`
+--
+
+DROP TABLE IF EXISTS `implant_sagitta250`;
+CREATE TABLE IF NOT EXISTS `implant_sagitta250` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_sagitta250`
+--
+
+INSERT INTO `implant_sagitta250` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Sagitta250-T2', 'images/sagitta/Sagitta EVLR2-250.png', 219, 5.56, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -73.5, 512, 0, 0, 2),
+(2, 'Sagitta250-T3', 'images/sagitta/Sagitta EVLR3-250.png', 224, 5.69, 1102, 27.99, 0, 0, 0, 0, 0, 0, 0, 0, 76, -72, 514, 0, 0, 3),
+(3, 'Sagitta250-T4', 'images/sagitta/Sagitta EVLR4-250.png', 223, 5.66, 1091, 22.71, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -76.5, 512.5, 0, 0, 4),
+(4, 'Sagitta250-T5', 'images/sagitta/Sagitta EVLR5-250.png', 229, 5.82, 1098, 27.89, 0, 0, 0, 0, 0, 0, 0, 0, 74.5, -76.5, 512, 0, 0, 5),
+(5, 'Sagitta250-T6', 'images/sagitta/Sagitta EVLR6-250.png', 232, 5.89, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, 75, -78, 510, 0, 0, 6),
+(6, 'Sagitta250-T2', 'images/sagitta/Sagitta EVLR2-250 R.png', 219, 5.56, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 72.5, 512, 0, 0, 2),
+(7, 'Sagitta250-T3', 'images/sagitta/Sagitta EVLR3-250 R.png', 224, 5.69, 1102, 27.99, 0, 0, 0, 0, 0, 0, 0, 0, -76, 72, 514, 0, 0, 3),
+(8, 'Sagitta250-T4', 'images/sagitta/Sagitta EVLR4-250 R.png', 223, 5.66, 1091, 22.71, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 76.5, 512.5, 0, 0, 4),
+(9, 'Sagitta250-T5', 'images/sagitta/Sagitta EVLR5-250 R.png', 229, 5.82, 1098, 27.89, 0, 0, 0, 0, 0, 0, 0, 0, -74.5, 76.5, 512, 0, 0, 5),
+(10, 'Sagitta250-T6', 'images/sagitta/Sagitta EVLR6-250 R.png', 232, 5.89, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, -75, 78, 510, 0, 0, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `implant_sagitta325`
+--
+
+DROP TABLE IF EXISTS `implant_sagitta325`;
+CREATE TABLE IF NOT EXISTS `implant_sagitta325` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `widthPx` float NOT NULL,
+  `widthCm` float NOT NULL,
+  `heightPx` float NOT NULL,
+  `heightCm` float NOT NULL,
+  `axeFemurHautPxX` int(11) NOT NULL,
+  `axeFemurHautPxY` int(11) NOT NULL,
+  `axeFemurBasPxX` int(11) NOT NULL,
+  `axeFemurBasPxY` int(11) NOT NULL,
+  `axeTeteHancheHautPxX` int(11) NOT NULL,
+  `axeTeteHancheHautPxY` int(11) NOT NULL,
+  `axeTeteHancheBasPxX` int(11) NOT NULL,
+  `axeTeteHancheBasPxY` int(11) NOT NULL,
+  `distOffsetX` float NOT NULL,
+  `PtMecaHautXPx` float NOT NULL,
+  `PtMecaHautYPx` float NOT NULL,
+  `angleCervicoDiaphysaire` float NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `taille` int(11) NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `implant_sagitta325`
+--
+
+INSERT INTO `implant_sagitta325` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
+(1, 'Sagitta325-T3', 'images/sagitta/Sagitta EVLR3-325.png', 211, 5.36, 1378, 35, 0, 0, 0, 0, 0, 0, 0, 0, 69.5, -78.5, 662, 0, 0, 3),
+(2, 'Sagitta325-T4', 'images/sagitta/Sagitta EVLR4-325.png', 223, 5.66, 1383, 35.13, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -76.5, 657.5, 0, 0, 4),
+(3, 'Sagitta325-T5', 'images/sagitta/Sagitta EVLR5-325.png', 229, 5.82, 1387, 35.23, 0, 0, 0, 0, 0, 0, 0, 0, 74.5, -76.5, 657.5, 0, 0, 5),
+(4, 'Sagitta325-T6', 'images/sagitta/Sagitta EVLR6-325.png', 232, 5.89, 1379, 35.03, 0, 0, 0, 0, 0, 0, 0, 0, 75, -78, 655.5, 0, 0, 6),
+(5, 'Sagitta325-T3', 'images/sagitta/Sagitta EVLR3-325 R.png', 211, 5.36, 1378, 35, 0, 0, 0, 0, 0, 0, 0, 0, -69.5, 78.5, 662, 0, 0, 3),
+(6, 'Sagitta325-T4', 'images/sagitta/Sagitta EVLR4-325 R.png', 223, 5.66, 1383, 35.13, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 76.5, 657.5, 0, 0, 4),
+(7, 'Sagitta325-T5', 'images/sagitta/Sagitta EVLR5-325 R.png', 229, 5.82, 1387, 35.23, 0, 0, 0, 0, 0, 0, 0, 0, -75.5, 76.5, 657.5, 0, 0, 5),
+(8, 'Sagitta325-T6', 'images/sagitta/Sagitta EVLR6-325 R.png', 232, 5.89, 1379, 35.03, 0, 0, 0, 0, 0, 0, 0, 0, -75, 78, 655.5, 0, 0, 6);
 
 -- --------------------------------------------------------
 
