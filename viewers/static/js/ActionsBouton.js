@@ -10,40 +10,41 @@ var Kinetic = Kinetic || {};
 
 $(document).ready(function () {
 
-	let patient = null; // variable de stockage du patient
-	let tigeGauche = null; // variable de stockage de la tige gauche
-	let cotyleGauche = null; // variable de stockage du coyle gauche
-	let tigeDroit = null; // variable de stockage de la tige droit
-	let cotyleDroit = null; // variable de stockage du coyle droit
+	let patient 				= null, // variable de stockage du patient
+		tigeGauche 				= null, // variable de stockage de la tige gauche
+		cotyleGauche 			= null, // variable de stockage du coyle gauche
+		tigeDroit 				= null, // variable de stockage de la tige droit
+		cotyleDroit 			= null, // variable de stockage du coyle droit
 
-	let imgTigeDroit = null; // variable de stockage de l'image de la tige
-	let imgCotyleDroit = null; // variable de stockage de l'image du cotyle
-	let imgTigeGauche = null; // variable de stockage de l'image de la tige
-	let imgCotyleGauche = null; // variable de stockage de l'image du cotyle
+		imgTigeDroit 			= null, // variable de stockage de l'image de la tige
+		imgCotyleDroit 			= null, // variable de stockage de l'image du cotyle
+		imgTigeGauche 			= null, // variable de stockage de l'image de la tige
+		imgCotyleGauche 		= null, // variable de stockage de l'image du cotyle
 
-	let indexTigeDroit = null; // variable de stockage de l'id de la tige droite en cours (écran)
-	let indexCotyleDroit = null; // variable de stockage de l'id du cotyle droit en cours (écran)
-	let indexTigeGauche = null; // variable de stockage de l'id de la tige gauche en cours (écran)
-	let indexCotyleGauche = null; // variable de stockage de l'id du cotyle gauche en cours (écran)
+		indexTigeDroit 			= null, // variable de stockage de l'id de la tige droite en cours (écran)
+		indexCotyleDroit 		= null, // variable de stockage de l'id du cotyle droit en cours (écran)
+		indexTigeGauche 		= null, // variable de stockage de l'id de la tige gauche en cours (écran)
+		indexCotyleGauche 		= null, // variable de stockage de l'id du cotyle gauche en cours (écran)
 
-	let maximumTigeDroit= null; // variable de stockage de l'id max de la tige droite (écran)
-	let minimumTigeDroit=null; // variable de stockage de l'id min de la tige droite (écran)
-	let maximumTigeGauche= null; // variable de stockage de l'id max de la tige gauche (écran)
-	let minimumTigeGauche=null; // variable de stockage de l'id min de la tige gauche (écran)
+		maximumTigeDroit		= null, // variable de stockage de l'id max de la tige droite (écran)
+		minimumTigeDroit		= null, // variable de stockage de l'id min de la tige droite (écran)
+		maximumTigeGauche		= null, // variable de stockage de l'id max de la tige gauche (écran)
+		minimumTigeGauche		= null, // variable de stockage de l'id min de la tige gauche (écran)
 
-	let maximumCotyleDroit = null; // variable de stockage de l'id max du cotyle droit (écran)
-	let maximumCotyleGauche = null; // variable de stockage de l'id min du cotyle droit (écran)
-	let minimumCotyleDroit = null; // variable de stockage de l'id max du cotyle gauche (écran)
-	let minimumCotyleGauche = null; // variable de stockage de l'id min du cotyle gauche (écran)
+		maximumCotyleDroit 		= null, // variable de stockage de l'id max du cotyle droit (écran)
+		maximumCotyleGauche 	= null, // variable de stockage de l'id min du cotyle droit (écran)
+		minimumCotyleDroit 		= null, // variable de stockage de l'id max du cotyle gauche (écran)
+		minimumCotyleGauche 	= null, // variable de stockage de l'id min du cotyle gauche (écran)
 
-	let m_canvasWidth = null; // variable de stockage de la taille (largeur) du canvas de travail
-	let m_canvasHeight = null; // variable de stockage de la taille (hauteur) du canvas de travail
+		m_canvasWidth 			= null, // variable de stockage de la taille (largeur) du canvas de travail
+		m_canvasHeight 			= null, // variable de stockage de la taille (hauteur) du canvas de travail
 
-	let tableImplant = null; // variable de stockage du nom de la table implant (tige) utile
-	let tableCotyle = null; // variable de stockage du nom de la table cotyle utile
+		tableImplant 			= null, // variable de stockage du nom de la table implant (tige) utile
+		tableCotyle 			= null, // variable de stockage du nom de la table cotyle utile
 
-	let firstSideChangedTige = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur la tige
-	let firstSideChangedCotyle = true; // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur le cotyle
+		firstSideChangedTige 	= true, // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur la tige
+		firstSideChangedCotyle 	= true // cette variable permet de savoir si l'utilisateur à effectué un changement de coté sur le cotyle
+	;
 
 	sessionStorage.setItem("boolNom",false); // ce stockage permet de savoir si le champs "Nom" est rempli pour gérer l'affichage du bouton "valider patient"
 	sessionStorage.setItem("boolPrenom",false); // ce stockage permet de savoir si le champs "Prénom" est rempli pour gérer l'affichage du bouton "valider patient"
@@ -66,7 +67,7 @@ $(document).ready(function () {
 		}
 	}
 
-	/*
+	/*W
 	*	Gère le changement du contenu du champs "Nom"
 	*	Actualise la variable d'état du remplissage du champs
 	*	Appel la fonction de gestion de l'affichage de du bouton "Valider patient"
@@ -161,214 +162,97 @@ $(document).ready(function () {
 	*/
 	function TigeSelection() {
 		// Sélection de la gamme de la tige et renseignement des ids clé
-		var gammeTige = document.getElementById("gammeTige");
-		var valeurGammeTige = gammeTige.options[gammeTige.selectedIndex].value;
-		if (valeurGammeTige == "implant_hype") {
-			var gammeTigeHype = document.getElementById("gammeTigeHype");
-			var valeurGammeTigeHype = gammeTigeHype.options[gammeTigeHype.selectedIndex].value;
-			switch(valeurGammeTigeHype)
-			{
-				case "implant_scs_std" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_scc_std_col" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_scl_lat" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 10;
-					maximumTigeDroit = 9;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 18;
-					minimumTigeGauche= 10;
-					break;
-				}
-				case "implant_scv_coxa_vara" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
-					break;
-				}
-				case "implant_scho_high_offset" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 10;
-					maximumTigeDroit = 9;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 18;
-					minimumTigeGauche= 10;
-					break;
-				}
-				case "implant_scc_mini_std" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 7;
-					maximumTigeDroit = 6;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 12;
-					minimumTigeGauche= 7;
-					break;
-				}
-				case "implant_scla_mini_lat" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 7;
-					maximumTigeDroit = 6;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 12;
-					minimumTigeGauche= 7;
-					break;
-				}
-				case "implant_acs_cim_std" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_acl_cim_lat" : {
-					tableImplant = valeurGammeTigeHype;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
-					break;
-				}
+		gammeTige = document.getElementById("gammeTige");
+		let valeurGammeTige = gammeTige.options[gammeTige.selectedIndex].value;
+		if (valeurGammeTige === "implant_hype") {
+			gammeTigeHype = document.getElementById("gammeTigeHype");
+			let valeurGammeTigeHype = gammeTigeHype.options[gammeTigeHype.selectedIndex].value;
+			if (valeurGammeTigeHype === "implant_scs_std" || valeurGammeTigeHype === "implant_scc_std_col" || valeurGammeTigeHype === "implant_acs_cim_std") {
+				tableImplant = valeurGammeTigeHype;
+				indexTigeDroit = 1;
+				indexTigeGauche = 12;
+				maximumTigeDroit = 11;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 22;
+				minimumTigeGauche = 12;
+			} else if (valeurGammeTigeHype === "implant_scl_lat" ||valeurGammeTigeHype === "implant_scho_high_offset") {
+				tableImplant = valeurGammeTigeHype;
+				indexTigeDroit = 1;
+				indexTigeGauche = 10;
+				maximumTigeDroit = 9;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 18;
+				minimumTigeGauche = 10;
+			} else if (valeurGammeTigeHype === "implant_scv_coxa_vara" || valeurGammeTigeHype === "implant_acl_cim_lat") {
+				tableImplant = valeurGammeTigeHype;
+				indexTigeDroit = 1;
+				indexTigeGauche = 9;
+				maximumTigeDroit = 8;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 16;
+				minimumTigeGauche = 9;
+			} else if (valeurGammeTigeHype === "implant_scc_mini_std" || valeurGammeTigeHype === "implant_scla_mini_lat") {
+				tableImplant = valeurGammeTigeHype;
+				indexTigeDroit = 1;
+				indexTigeGauche = 7;
+				maximumTigeDroit = 6;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 12;
+				minimumTigeGauche = 7;
+			} else{
+					console.log("Error 12465 in function TigeSelection().")
 			}
-		} else if (valeurGammeTige == "implant_libra") {
-			let gammeTigeLibra = document.getElementById("gammeTigeLibra"),
-				valeurGammeTigeLibra = gammeTigeLibra.options[gammeTigeLibra.selectedIndex].value;
-			switch(valeurGammeTigeLibra)
-			{
-				case "implant_libra_ha" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_libra_ha_a" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_libra_ha_of": {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
-					break;
-				}
-				case "implant_libra_c" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_libra_c_a" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 12;
-					maximumTigeDroit = 11;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 22;
-					minimumTigeGauche= 12;
-					break;
-				}
-				case "implant_libra_c_of" : {
-					tableImplant = valeurGammeTigeLibra;
-					indexTigeDroit = 1;
-					indexTigeGauche = 9;
-					maximumTigeDroit = 8;
-					minimumTigeDroit = 1;
-					maximumTigeGauche = 16;
-					minimumTigeGauche= 9;
-					break;
-				}
+		} else if (valeurGammeTige === "implant_libra") {
+			gammeTigeLibra = document.getElementById("gammeTigeLibra");
+			let valeurGammeTigeLibra = gammeTigeLibra.options[gammeTigeLibra.selectedIndex].value;
+			if (valeurGammeTigeLibra === "implant_libra_ha" || valeurGammeTigeLibra === "implant_libra_ha_a" || valeurGammeTigeLibra === "implant_libra_c" || valeurGammeTigeLibra === "implant_libra_c_a") {
+				tableImplant = valeurGammeTigeLibra;
+				indexTigeDroit = 1;
+				indexTigeGauche = 12;
+				maximumTigeDroit = 11;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 22;
+				minimumTigeGauche = 12;
+			} else if (valeurGammeTigeLibra === "implant_libra_ha_of" || valeurGammeTigeLibra === "implant_libra_c_of") {
+				tableImplant = valeurGammeTigeLibra;
+				indexTigeDroit = 1;
+				indexTigeGauche = 9;
+				maximumTigeDroit = 8;
+				minimumTigeDroit = 1;
+				maximumTigeGauche = 16;
+				minimumTigeGauche = 9;
+			} else{
+				console.log("Error 12743 in function TigeSelection().")
 			}
 		} else if (valeurGammeTige === "implant_sagitta") {
-			let gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
+			gammeTigeSagitta = document.getElementById("gammeTigeSagitta");
 			let valeurGammeTigeSagitta = gammeTigeSagitta.options[gammeTigeSagitta.selectedIndex].value;
-			switch(valeurGammeTigeSagitta)
-			{
-			case "implant_sagitta180" : {
+			if (valeurGammeTigeSagitta === "implant_sagitta180" || valeurGammeTigeSagitta === "implant_sagitta250") {
 				tableImplant = valeurGammeTigeSagitta;
 				indexTigeDroit = 1;
 				indexTigeGauche = 6;
 				maximumTigeDroit = 5;
 				minimumTigeDroit = 1;
 				maximumTigeGauche = 10;
-				minimumTigeGauche= 6;
-				break;
-			}
-			case "implant_sagitta250": {
-				tableImplant = valeurGammeTigeSagitta;
-				indexTigeDroit = 1;
-				indexTigeGauche = 6;
-				maximumTigeDroit = 5;
-				minimumTigeDroit = 1;
-				maximumTigeGauche = 10;
-				minimumTigeGauche= 6;
-				break;
-			}
-			case "implant_sagitta325" : {
+				minimumTigeGauche = 6;
+			} else if (valeurGammeTigeSagitta === "implant_sagitta325") {
 				tableImplant = valeurGammeTigeSagitta;
 				indexTigeDroit = 1;
 				indexTigeGauche = 5;
 				maximumTigeDroit = 4;
 				minimumTigeDroit = 1;
 				maximumTigeGauche = 8;
-				minimumTigeGauche= 5;
-				break;
+				minimumTigeGauche = 5;
+			} else{
+				console.log("Error 13584 in function TigeSelection().")
 			}
 		}
-	}
-		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
-		m_canvasHeight=document.getElementById("dwv-imageLayer").height;
+		m_canvasWidth=document.getElementById("dwv-imageLayer").width*1.2; //Width and heigth must have the same multiplicator to keep the ratio on the PDF.
+		m_canvasHeight=document.getElementById("dwv-imageLayer").height*1.2; //Width and heigth must have the same multiplicator to keep the ratio on the PDF.
 
-
-		if (patient.GetOperationGuide()=="Non guider") { // Traitement du cas ou la chirurgie n'est pas guidée
-			var newTigeGauche=null;
-			var newTigeDroit=null;
+		if (patient.GetOperationGuide()==="Non guider") { // Traitement du cas ou la chirurgie n'est pas guidée
+			let newTigeGauche = null;
+			let newTigeDroit = null;
 			// Choix des tiges soit en initialisation simple soit avec conservation de la taille si les tiges sont déjà initialiséee
 			if (tigeDroit==null && tigeGauche==null) {
 				newTigeGauche=getTige(tableImplant, indexTigeGauche);
@@ -380,11 +264,11 @@ $(document).ready(function () {
 				indexTigeDroit=parseInt(newTigeDroit.GetID());
 			}
 
-			var newTige=null;
-			var canvasTige=null;
+			let newTige=null;
+			canvasTige = null;
 			imgTigeDroit = new Image;
 			imgTigeGauche = new Image;
-			if (patient.GetCoteOperation()=="Gauche") {
+			if (patient.GetCoteOperation()==="Gauche") {
 				canvasTige = document.getElementById("canvasTigeDroit");
 			} else {
 				canvasTige = document.getElementById("canvasTigeGauche");
@@ -392,22 +276,24 @@ $(document).ready(function () {
 			canvasTige.width=m_canvasWidth;
 			canvasTige.height=m_canvasHeight;
 			canvasTige.style.zIndex = "26";
-			var contextetige = canvasTige.getContext("2d");
+			contextetige = canvasTige.getContext("2d");
 			imgTigeDroit.onload=function () {
-				var imgTigeDroitWidth=imgTigeDroit.width;
-				var imgTigeDroitHeight=imgTigeDroit.height;
-				var dicomCanvas = document.getElementById("dwv-imageLayer");
+				let imgTigeDroitWidth=imgTigeDroit.width,
+					imgTigeDroitHeight=imgTigeDroit.height,
+					dicomCanvas = document.getElementById("dwv-imageLayer")
+				;
 
 				//position zéro
-				var dicomWidth = sessionStorage.getItem("imageLargeur");
-				var dicomHeight = sessionStorage.getItem("imageHauteur");
-				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+				let dicomWidth = sessionStorage.getItem("imageLargeur"),
+					dicomHeight = sessionStorage.getItem("imageHauteur"),
+					Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6}//TODO Tester si changer ici peut aider à la position libre.
+				;
 
 				newTigeGauche.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 				newTigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 				tigeGauche=newTigeGauche;
 				tigeDroit=newTigeDroit;
-				if (patient.GetCoteOperation()=="Gauche") {
+				if (patient.GetCoteOperation()==="Gauche") {
 					newTige=newTigeDroit;
 				} else {
 					newTige=newTigeGauche;
@@ -421,20 +307,21 @@ $(document).ready(function () {
 			}
 
 			imgTigeGauche.onload=function () {
-				var imgTigeGaucheWidth=imgTigeGauche.width;
-				var imgTigeGaucheHeight=imgTigeGauche.height;
-				var dicomCanvas = document.getElementById("dwv-imageLayer");
+				let imgTigeGaucheWidth=imgTigeGauche.width,
+					imgTigeGaucheHeight=imgTigeGauche.height,
+					dicomCanvas = document.getElementById("dwv-imageLayer");
 
 				//position zéro
-				var dicomWidth = sessionStorage.getItem("imageLargeur");
-				var dicomHeight = sessionStorage.getItem("imageHauteur");
-				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+				let dicomWidth = sessionStorage.getItem("imageLargeur"),
+					dicomHeight = sessionStorage.getItem("imageHauteur"),
+					Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6}//TODO Correctif de position pour les tiges longues.
+					;
 
 				newTigeGauche.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 				newTigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 				tigeGauche=newTigeGauche;
 				tigeDroit=newTigeDroit;
-				if (patient.GetCoteOperation()=="Gauche") {
+				if (patient.GetCoteOperation()==="Gauche") {
 					newTige=newTigeDroit;
 				} else {
 					newTige=newTigeGauche;
@@ -447,7 +334,7 @@ $(document).ready(function () {
 				contextetige.restore();
 			}
 			//Source des images
-			if (patient.GetCoteOperation()=="Gauche") {
+			if (patient.GetCoteOperation()==="Gauche") {
 				imgTigeDroit.src=newTigeDroit.GetUrl();
 			} else {
 				imgTigeGauche.src=newTigeGauche.GetUrl();
@@ -469,7 +356,7 @@ $(document).ready(function () {
 			imgTigeDroit = new Image;
 			imgTigeGauche = new Image;
 			var canvasTige=null;
-			if (patient.GetCoteOperation()=="Gauche") {
+			if (patient.GetCoteOperation()==="Gauche") {
 				canvasTige = document.getElementById("canvasTigeDroit");
 			} else {
 				canvasTige = document.getElementById("canvasTigeGauche");
@@ -481,7 +368,7 @@ $(document).ready(function () {
 			imgTigeDroit.onload=function () {
 				var imgTigeDroitWidth=imgTigeDroit.width;
 				var imgTigeDroitHeight=imgTigeDroit.height;
-				if (patient.GetCoteOperation()=="Gauche") {
+				if (patient.GetCoteOperation()==="Gauche") {
 					tigeDroit.Snap(imgTigeDroitWidth, imgTigeDroitHeight, patient);
 					var b=tigeDroit.GetPosition().y-(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPosition().x);
 					var posyr=(Math.tan(tigeDroit.GetOrientation())*tigeDroit.GetPositionAvtOffset().x)+b;
@@ -498,9 +385,10 @@ $(document).ready(function () {
 					//positionnement de la tige du coté opposé a la chirurgie
 					var dicomCanvas = document.getElementById("dwv-imageLayer");
 					//position zéro
-					var dicomWidth = sessionStorage.getItem("imageLargeur");
-					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					let dicomWidth = sessionStorage.getItem("imageLargeur"),
+						dicomHeight = sessionStorage.getItem("imageHauteur"),
+						Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6}
+					;
 					tigeGauche.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 					if (cotyleDroit!=null) {
 						CalculOffset();
@@ -524,7 +412,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};//TODO Autre taille modification
 
 					tigeDroit.Placement(imgTigeDroitWidth, imgTigeDroitHeight, Position, 0);
 					if (cotyleGauche!=null) {
@@ -554,7 +442,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 					tigeGauche.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 					if (cotyleDroit!=null) {
 						CalculOffset();
@@ -578,7 +466,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 
 					tigeDroit.Placement(imgTigeGaucheWidth, imgTigeGaucheHeight, Position, 0);
 					if (cotyleGauche!=null) {
@@ -672,48 +560,22 @@ $(document).ready(function () {
 		} else if (valeurGammeCotyle == "cotyle_novae") {
 			var gammeCotyleNovae = document.getElementById("gammeCotyleNovae");
 			var valeurGammeCotyleNovae = gammeCotyleNovae.options[gammeCotyleNovae.selectedIndex].value;
-			switch(valeurGammeCotyleNovae)
-			{
-				case "cotyle_sunfit_th" : {
+			if (valeurGammeCotyleNovae === "cotyle_sunfit_th") {
 					tableCotyle = valeurGammeCotyleNovae;
 					indexCotyleDroit = 1;
 					indexCotyleGauche = 13;
 					maximumCotyleDroit = 12;
 					minimumCotyleDroit = 1;
 					maximumCotyleGauche = 24;
-					minimumCotyleGauche= 13;
-					break;
-				}
-				case "cotyle_novae_e_th" : {
+					minimumCotyleGauche = 13;
+			} else if (valeurGammeCotyleNovae === "cotyle_novae_e_th" || valeurGammeCotyleNovae === "cotyle_coptos_th" || valeurGammeCotyleNovae === "cotyle_stick") {
 					tableCotyle = valeurGammeCotyleNovae;
 					indexCotyleDroit = 1;
 					indexCotyleGauche = 12;
 					maximumCotyleDroit = 11;
 					minimumCotyleDroit = 1;
 					maximumCotyleGauche = 22;
-					minimumCotyleGauche= 12;
-					break;
-				}
-				case "cotyle_coptos_th" : {
-					tableCotyle = valeurGammeCotyleNovae;
-					indexCotyleDroit = 1;
-					indexCotyleGauche = 12;
-					maximumCotyleDroit = 11;
-					minimumCotyleDroit = 1;
-					maximumCotyleGauche = 22;
-					minimumCotyleGauche= 12;
-					break;
-				}
-				case "cotyle_stick" : {
-					tableCotyle = valeurGammeCotyleNovae;
-					indexCotyleDroit = 1;
-					indexCotyleGauche = 12;
-					maximumCotyleDroit = 11;
-					minimumCotyleDroit = 1;
-					maximumCotyleGauche = 22;
-					minimumCotyleGauche= 12;
-					break;
-				}
+					minimumCotyleGauche = 12;
 			}
 		}
 		m_canvasWidth=document.getElementById("dwv-imageLayer").width;
@@ -751,7 +613,7 @@ $(document).ready(function () {
 				//position zéro
 				var dicomWidth = sessionStorage.getItem("imageLargeur");
 				var dicomHeight = sessionStorage.getItem("imageHauteur");
-				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 				newCotyleGauche.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
 				newCotyleDroit.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
 				cotyleGauche=newCotyleGauche;
@@ -775,7 +637,7 @@ $(document).ready(function () {
 				//position zéro
 				var dicomWidth = sessionStorage.getItem("imageLargeur");
 				var dicomHeight = sessionStorage.getItem("imageHauteur");
-				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+				var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 				newCotyleGauche.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 				newCotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 				cotyleGauche=newCotyleGauche;
@@ -840,7 +702,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 					cotyleGauche.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
 					if (tigeDroit!=null) {
 						CalculOffset();
@@ -860,7 +722,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 
 					cotyleDroit.Placement(imgCotyleDroitWidth, imgCotyleDroitHeight, Position, 0);
 					if (tigeGauche!=null) {
@@ -885,7 +747,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 					cotyleGauche.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 					if (tigeDroit!=null) {
 						CalculOffset();
@@ -904,7 +766,7 @@ $(document).ready(function () {
 					//position zéro
 					var dicomWidth = sessionStorage.getItem("imageLargeur");
 					var dicomHeight = sessionStorage.getItem("imageHauteur");
-					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/2};
+					var Position = {'x' : dicomCanvas.width/2, 'y' : dicomCanvas.height/1.6};
 					cotyleDroit.Placement(imgCotyleGaucheWidth, imgCotyleGaucheHeight, Position, 0);
 					if (tigeGauche!=null) {
 						CalculOffset();
@@ -1081,7 +943,7 @@ $(document).ready(function () {
 						}
 					}
 				}
-			};
+			}
 			desactivationListe();
 			ValiderPatient()
 		},false);
@@ -1097,7 +959,7 @@ $(document).ready(function () {
 					sessionStorage.setItem("nbTrapeze", 0);
 				}
 				DrawShape("Roi");
-			};
+			}
 			DessinTrapeze()
 	}, false);
 
@@ -1110,7 +972,7 @@ $(document).ready(function () {
 			function DessinRapporteur(){
 				DrawShape("Protractor");
 				document.getElementById("dwv-drawDiv").style.zIndex = "200";
-			};
+			}
 			DessinRapporteur()
 	}, false);
 
@@ -1123,7 +985,7 @@ $(document).ready(function () {
 			function DessinRegle(){
 				DrawShape("Line");
 				document.getElementById("dwv-drawDiv").style.zIndex = "200";
-			};
+			}
 			DessinRegle()
 	}, false);
 
@@ -1138,7 +1000,7 @@ $(document).ready(function () {
 					sessionStorage.setItem("nbCercle", 0);
 				}
 				DrawShape("Circle");
-			};
+			}
 			DessinCercle()
 	}, false);
 
@@ -1150,7 +1012,7 @@ $(document).ready(function () {
 		function() {
 			function DessinMesurePetitTroch(){
 				DrawShape("Mesurepetittroch");
-			};
+			}
 			DessinMesurePetitTroch()
 	}, false);
 
@@ -1435,12 +1297,13 @@ $(document).ready(function () {
 						imgTigeDroit.onload=function () {
 							var imgTigeDroitWidth=imgTigeDroit.width;
 							var imgTigeDroitHeight=imgTigeDroit.height;
-							contexteTigeDrawTige.save();
-							contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-							contexteTigeDrawTige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
-							contexteTigeDrawTige.rotate(tigeDroit.GetOrientation());
-							contexteTigeDrawTige.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur());
-							contexteTigeDrawTige.restore();
+							contexteTigeDrawTige.save()
+												.clearRect(0, 0, canvasTige.width, canvasTige.height)
+												.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y)
+												.rotate(tigeDroit.GetOrientation())
+												.drawImage(imgTigeDroit, 0, 0, imgTigeDroit.width, imgTigeDroit.height, -tigeDroit.GetImageLargeur() / 2, -tigeDroit.GetImageHauteur() / 2, tigeDroit.GetImageLargeur(), tigeDroit.GetImageHauteur())
+												.restore()
+							;
 						}
 						imgTigeDroit.src=tigeDroit.GetUrl();
 					}
@@ -1465,12 +1328,13 @@ $(document).ready(function () {
 						imgTigeGauche.onload=function () {
 							var imgTigeGaucheWidth=imgTigeGauche.width;
 							var imgTigeGaucheHeight=imgTigeGauche.height;
-							contexteTigeDrawTige.save();
-							contexteTigeDrawTige.clearRect(0, 0, canvasTige.width, canvasTige.height);
-							contexteTigeDrawTige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
-							contexteTigeDrawTige.rotate(tigeGauche.GetOrientation());
-							contexteTigeDrawTige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
-							contexteTigeDrawTige.restore();
+							contexteTigeDrawTige.save()
+												.clearRect(0, 0, canvasTige.width, canvasTige.height)
+												.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y)
+												.rotate(tigeGauche.GetOrientation())
+												.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur())
+												.restore()
+							;
 						}
 					imgTigeGauche.src=tigeGauche.GetUrl();
 					}
@@ -1529,12 +1393,13 @@ $(document).ready(function () {
 						imgCotyleDroit.onload=function () {
 							var imgCotyleDroitWidth=imgCotyleDroit.width;
 							var imgCotyleDroitHeight=imgCotyleDroit.height;
-							contexteCotyleDrawCotyle.save();
-							contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
-							contexteCotyleDrawCotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
-							contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
-							contexteCotyleDrawCotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
-							contexteCotyleDrawCotyle.restore();
+							contexteCotyleDrawCotyle.save()
+													.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height)
+													.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y)
+													.rotate(cotyleDroit.GetOrientation())
+													.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur())
+													.restore()
+							;
 						}
 						imgCotyleDroit.src=cotyleDroit.GetUrl();
 					}
@@ -1688,7 +1553,7 @@ $(document).ready(function () {
             	sessionStorage.setItem("nbAngle",0);
 				firstSideChangedTige = true;
 				firstSideChangedCotyle = true;
-			};
+			}
 			RetourDessin()
 	}, false);
 
@@ -2008,7 +1873,7 @@ $(document).ready(function () {
 					}
 				}
 				DrawTige();
-			};
+			}
 			PlusTailleTige()
 	}, false);
 
@@ -2034,7 +1899,7 @@ $(document).ready(function () {
 					}
 				}
 				DrawTige();
-			};
+			}
 			MoinsTailleTige()
 	}, false);
 
@@ -2060,7 +1925,7 @@ $(document).ready(function () {
 					}
 				}
 				DrawCotyle();
-			};
+			}
 			PlusTailleCotyle()
 	}, false);
 
@@ -2086,7 +1951,7 @@ $(document).ready(function () {
 					}
 				}
 				DrawCotyle();
-			};
+			}
 			MoinsTailleCotyle()
 	}, false);
 
@@ -2140,7 +2005,7 @@ $(document).ready(function () {
 					contextetige.restore();
 					CalculOffset();
 				}
-			};
+			}
 			MonterTige()
 	}, false);
 
@@ -2195,7 +2060,7 @@ $(document).ready(function () {
 
 					//UpTige(canvasTige, tigeGauche);
 				}
-			};
+			}
 			DescendreTige()
 	}, false);
 
@@ -2243,7 +2108,7 @@ $(document).ready(function () {
 					contextecotyle.restore();
 					CalculOffset();
 				}
-			};
+			}
 			MonterCotyle()
 	}, false);
 
@@ -2293,7 +2158,7 @@ $(document).ready(function () {
 
 					CalculOffset();
 				}
-			};
+			}
 			DescendreCotyle()
 	}, false);
 
@@ -2334,7 +2199,7 @@ $(document).ready(function () {
 					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contextecotyle.restore();
 				}
-			};
+			}
 			TournerHautCotyle()
 	}, false);
 
@@ -2375,7 +2240,7 @@ $(document).ready(function () {
 					contextecotyle.drawImage(imgCotyleGauche, 0, 0, imgCotyleGauche.width, imgCotyleGauche.height, -cotyleGauche.GetImageLargeur() / 2, -cotyleGauche.GetImageHauteur() / 2, cotyleGauche.GetImageLargeur(), cotyleGauche.GetImageHauteur());
 					contextecotyle.restore();
 				}
-			};
+			}
 			TournerBasCotyle()
 	}, false);
 
@@ -2466,7 +2331,7 @@ $(document).ready(function () {
 				}
 				firstSideChangedTige = true;
 				firstSideChangedCotyle = true;
-			};
+			}
 			RetourImplant()
 	}, false);
 /**
@@ -2488,38 +2353,40 @@ function decode_utf8(s) {
 	buttonValideImplant.addEventListener('click',
 		function() {
 			function ValiderImplant(){
-				var taille_bille_px = parseInt(sessionStorage.getItem("taille_bille_px"));
-				var taille_bille_mm = parseInt(sessionStorage.getItem("taille_bille_mm"));
-				var coeff =  taille_bille_mm / taille_bille_px;
-				var string = translatedTexts["pdfTextSizeCoefficient"][lang] + coeff; //"Le coefficient de redimensionnement des implants est : "
-				var dicomCanvas = document.getElementById("dwv-imageLayer");
-				var dicomImage = dicomCanvas.toDataURL("image/jpeg");
-				var divLayer = document.getElementById("dwv-layerDialog");
-                var imageSerf = "data:image/jpeg;base64,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";
-
-				var coefficient = sessionStorage.getItem("coefficient");
-				if (patient.GetCoteOperation()=="Gauche") {
-					var offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
-					var hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+				let taille_bille_px = parseInt(sessionStorage.getItem("taille_bille_px")),
+					taille_bille_mm = parseInt(sessionStorage.getItem("taille_bille_mm")),
+					coeff =  taille_bille_mm / taille_bille_px,
+					string = translatedTexts["pdfTextSizeCoefficient"][lang] + coeff, //"Le coefficient de redimensionnement des implants est : "
+					dicomCanvas = document.getElementById("dwv-imageLayer"),
+					dicomImage = dicomCanvas.toDataURL("image/jpeg"),
+					divLayer = document.getElementById("dwv-layerDialog"),
+                	imageSerf = "data:image/jpeg;base64,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",
+					offset,
+					hauteur,
+					coefficient = sessionStorage.getItem("coefficient")
+				;
+				if (patient.GetCoteOperation()==="Gauche") {
+					offset = Math.round(( Math.abs((cotyleDroit.GetPositionPtMeca().x -tigeDroit.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					hauteur = Math.round((Math.abs((cotyleDroit.GetPositionPtMeca().y -tigeDroit.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 				}
-				if (patient.GetCoteOperation()=="Droit") {
-					var offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
-					var hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
+				if (patient.GetCoteOperation()==="Droit") {
+					offset =   Math.round((Math.abs((cotyleGauche.GetPositionPtMeca().x -tigeGauche.GetPositionPtMecaHaut().x))*coefficient)*1000)/1000;
+					hauteur = Math.round(( Math.abs((cotyleGauche.GetPositionPtMeca().y -tigeGauche.GetPositionPtMecaHaut().y))*coefficient)*1000)/1000;
 				}
 				html2canvas(divLayer,{
 					onrendered: function (canvas) {
-						var now = new Date();
-						var nowMonth = now.getMonth() + 1;
-						var nowMonthString = null;
+						let now = new Date(),
+							nowMonth = now.getMonth() + 1,
+							nowMonthString = null;
 						if (nowMonth<10) {
 							nowMonthString="0"+nowMonth;
 						} else {
 							nowMonthString=nowMonth;
 						}
 
-						var divData = canvas.toDataURL("image/jpeg");
+						let divData = canvas.toDataURL("image/jpeg");
 
-						var docPDF = new jsPDF();
+						let docPDF = new jsPDF();
 						docPDF.setFontSize(12);
 						docPDF.addImage(imageSerf, 'JPEG', 15, 20, 45, 12);
 						docPDF.text(160, 30, now.getDate() + "/" + nowMonthString + "/" + now.getFullYear());
@@ -2542,24 +2409,24 @@ function decode_utf8(s) {
 						docPDF.setFontSize(12);
 						docPDF.setFontType("normal");
 
-						if (patient.GetCoteOperation()=="Gauche") {
+						if (patient.GetCoteOperation()==="Gauche") {
 							docPDF.text(15, 95, translatedTexts["pdfTextStem"][lang] + decode_utf8(tigeDroit.GetNom())); //"Tige utilisé pour cette planification : "
 							docPDF.text(15, 100, translatedTexts["pdfTextCup"][lang] +cotyleDroit.GetNom()); //"Cotyle utilisé pour cette planification : "
 							console.log(tigeDroit.GetNom())
 						}
 
-						if (patient.GetCoteOperation()=="Droit") {
+						if (patient.GetCoteOperation()==="Droit") {
 							docPDF.text(15, 95, translatedTexts["pdfTextStem"][lang] +decode_utf8(tigeGauche.GetNom())); //"Tige utilisé pour cette planification : "
 							docPDF.text(15, 100, translatedTexts["pdfTextCup"][lang] +cotyleGauche.GetNom()); //"Cotyle utilisé pour cette planification : "
 							console.log(tigeGauche.GetNom())
 						}
 
-						if(patient.GetOperationGuide()=="Guider")
+						if(patient.GetOperationGuide()==="Guider")
 						{
 							docPDF.text(15, 105, translatedTexts["pdfTextOffset"][lang]+offset+" mm"); //"Offset = "
 							docPDF.text(15, 110, translatedTexts["pdfTextHeight"][lang]+hauteur+" mm"); //"Hauteur = "
 							docPDF.addImage(divData, 'JPEG', 15, 115, 180, ((180*m_canvasHeight)/m_canvasWidth));
-						} else if (patient.GetOperationGuide()=="Non guider") {
+						} else if (patient.GetOperationGuide()==="Non guider") {
 							docPDF.addImage(divData, 'JPEG', 15, 105, 180, ((180*m_canvasHeight)/m_canvasWidth));
 						}
 						docPDF.addPage();
@@ -2571,19 +2438,19 @@ function decode_utf8(s) {
 					},
 					id: "pdf"
 				});
-			};
+			}
 			ValiderImplant()
 	}, false);
 
 	/*
 	*	Active le zoom
 	*/
-	var buttonZoom = document.getElementById("buttonZoom");
+	let buttonZoom = document.getElementById("buttonZoom");
 	buttonZoom.addEventListener('click',
 		function() {
 			function Zoom(){
 				ZoomMode();
-			};
+			}
 			Zoom()
 	}, false);
 
@@ -2607,21 +2474,23 @@ function decode_utf8(s) {
 		function() {
 			function DeplacerTige(){
                 document.getElementById("divDeplacerCotyle").classList.remove("activeBtn");
-				var canvasTigeDroit=document.getElementById("canvasTigeDroit");
-				var canvasTigeGauche=document.getElementById("canvasTigeGauche");
-				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
-				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
+				let canvasTigeDroit=document.getElementById("canvasTigeDroit"),
+					canvasTigeGauche=document.getElementById("canvasTigeGauche"),
+					canvasCotyleDroit=document.getElementById("canvasCotyleDroit"),
+					canvasCotyleGauche=document.getElementById("canvasCotyleGauche"),
+					contexteTigeMoveTige
+				;
 				document.getElementById("dwv-drawDiv").style.zIndex = "10";
 
-				if (document.querySelector('input[name="coteTige"]:checked').value == "Gauche") {
-					canvasTigeDroit.style.zIndex=100;
-					canvasTigeGauche.style.zIndex=30;
-					canvasCotyleDroit.style.zIndex=35;
-					canvasCotyleGauche.style.zIndex=40;
+				if (document.querySelector('input[name="coteTige"]:checked').value === "Gauche") {
+					canvasTigeDroit.style.zIndex="100";
+					canvasTigeGauche.style.zIndex="30";
+					canvasCotyleDroit.style.zIndex="35";
+					canvasCotyleGauche.style.zIndex="40";
 
 					draggerTigeDroit(true);
 
-					var contexteTigeMoveTige=canvasTigeDroit.getContext("2d");
+					contexteTigeMoveTige=canvasTigeDroit.getContext("2d");
 					contexteTigeMoveTige.save();
 					contexteTigeMoveTige.clearRect(0, 0, canvasTigeDroit.width, canvasTigeDroit.height);
 					contexteTigeMoveTige.translate(tigeDroit.GetPosition().x,tigeDroit.GetPosition().y);
@@ -2630,18 +2499,16 @@ function decode_utf8(s) {
 					contexteTigeMoveTige.restore();
 
 					draggerTigeDroit(false);
-
 				}
-
-				if (document.querySelector('input[name="coteTige"]:checked').value == "Droit") {
-					canvasTigeDroit.style.zIndex=25;
-					canvasTigeGauche.style.zIndex=100;
-					canvasCotyleDroit.style.zIndex=35;
-					canvasCotyleGauche.style.zIndex=40;
+				if (document.querySelector('input[name="coteTige"]:checked').value === "Droit") {
+					canvasTigeDroit.style.zIndex="25";
+					canvasTigeGauche.style.zIndex="100";
+					canvasCotyleDroit.style.zIndex="35";
+					canvasCotyleGauche.style.zIndex="40";
 
 					draggerTigeGauche(true);
 
-           			var contexteTigeMoveTige=canvasTigeGauche.getContext("2d");
+           			contexteTigeMoveTige=canvasTigeGauche.getContext("2d");
 					contexteTigeMoveTige.save();
 					contexteTigeMoveTige.clearRect(0, 0, canvasTigeGauche.width, canvasTigeGauche.height);
 					contexteTigeMoveTige.translate(tigeGauche.GetPosition().x,tigeGauche.GetPosition().y);
@@ -2652,34 +2519,34 @@ function decode_utf8(s) {
 					draggerTigeGauche(false);
 				}
 
-			};
+			}
 			DeplacerTige()
 	}, false);
 
 	/*
 	*	Active le déplacement manuel du cotyle du coté sélectionné
 	*/
-	var buttonDeplacerCotyle = document.getElementById("buttonDeplacerCotyle");
+	let buttonDeplacerCotyle = document.getElementById("buttonDeplacerCotyle");
 	buttonDeplacerCotyle.addEventListener('click',
 		function() {
 			function DeplacerCotyle(){
                 document.getElementById("divDeplacerTige").classList.remove("activeBtn");
-				var canvasTigeDroit=document.getElementById("canvasTigeDroit");
-				var canvasTigeGauche=document.getElementById("canvasTigeGauche");
-				var canvasCotyleDroit=document.getElementById("canvasCotyleDroit");
-				var canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
+				let canvasTigeDroit=document.getElementById("canvasTigeDroit"),
+					canvasTigeGauche=document.getElementById("canvasTigeGauche"),
+					canvasCotyleDroit=document.getElementById("canvasCotyleDroit"),
+					canvasCotyleGauche=document.getElementById("canvasCotyleGauche");
 				document.getElementById("dwv-drawDiv").style.zIndex = "10";
 
-				if (document.querySelector('input[name="coteCotyle"]:checked').value == "Gauche") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value === "Gauche") {
 
-					canvasTigeDroit.style.zIndex=25;
-					canvasTigeGauche.style.zIndex=30;
-					canvasCotyleDroit.style.zIndex=100;
-					canvasCotyleGauche.style.zIndex=40;
+					canvasTigeDroit.style.zIndex="25";
+					canvasTigeGauche.style.zIndex="30";
+					canvasCotyleDroit.style.zIndex="100";
+					canvasCotyleGauche.style.zIndex="40";
 
 					draggerCotyleDroit(true);
 
-					var contexteCotyleMoveCotyleD=canvasCotyleDroit.getContext("2d");
+					let contexteCotyleMoveCotyleD=canvasCotyleDroit.getContext("2d");
 					contexteCotyleMoveCotyleD.save();
 					contexteCotyleMoveCotyleD.clearRect(0, 0, canvasCotyleDroit.width, canvasCotyleDroit.height);
 					contexteCotyleMoveCotyleD.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
@@ -2690,8 +2557,7 @@ function decode_utf8(s) {
 					draggerCotyleDroit(false);
 
 				}
-
-				if (document.querySelector('input[name="coteCotyle"]:checked').value == "Droit") {
+				if (document.querySelector('input[name="coteCotyle"]:checked').value === "Droit") {
 					canvasTigeDroit.style.zIndex=25;
 					canvasTigeGauche.style.zIndex=30;
 					canvasCotyleDroit.style.zIndex=35;
@@ -2709,8 +2575,7 @@ function decode_utf8(s) {
 
 					draggerCotyleGauche(false);
 				}
-
-			};
+			}
 			DeplacerCotyle()
 	}, false);
 
@@ -2751,7 +2616,7 @@ function decode_utf8(s) {
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
 				}
-			};
+			}
 			TournerHautTige()
 	}, false);
 
@@ -2792,7 +2657,7 @@ function decode_utf8(s) {
 					contextetige.drawImage(imgTigeGauche, 0, 0, imgTigeGauche.width, imgTigeGauche.height, -tigeGauche.GetImageLargeur() / 2, -tigeGauche.GetImageHauteur() / 2, tigeGauche.GetImageLargeur(), tigeGauche.GetImageHauteur());
 					contextetige.restore();
 				}
-			};
+			}
 			TournerBasTige()
 	}, false);
 
@@ -2847,7 +2712,7 @@ function decode_utf8(s) {
 
 					//UpTige(canvasTige, tigeGauche);
 				}
-			};
+			}
 			DeplacementDroitTige()
 	}, false);
 
@@ -2900,7 +2765,7 @@ function decode_utf8(s) {
 					contextetige.restore();
 					CalculOffset();
 				}
-			};
+			}
 			DeplacementGaucheTige()
 	}, false);
 
@@ -2947,7 +2812,7 @@ function decode_utf8(s) {
 
 					CalculOffset();
 				}
-			};
+			}
 			DeplacementGaucheCotyle()
 	}, false);
 
@@ -2994,7 +2859,7 @@ function decode_utf8(s) {
 
 					CalculOffset();
 				}
-			};
+			}
 			DeplacementDroitCotyle()
 	}, false);
 
@@ -3104,7 +2969,7 @@ function decode_utf8(s) {
 
 					//UpTige(canvasTige, tigeGauche);
 				}
-			};
+			}
 			DeplacementBasTige()
 	}, false);
 });
