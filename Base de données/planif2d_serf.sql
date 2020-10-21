@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 19, 2020 at 09:59 AM
+-- Generation Time: Oct 21, 2020 at 08:16 AM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -1407,7 +1407,8 @@ CREATE TABLE IF NOT EXISTS `implant_libra_ha` (
   `PtMecaHautYPx` int(3) DEFAULT NULL,
   `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
   `enabled` int(1) DEFAULT NULL,
-  `taille` int(2) DEFAULT NULL
+  `taille` int(2) DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1415,7 +1416,7 @@ CREATE TABLE IF NOT EXISTS `implant_libra_ha` (
 --
 
 INSERT INTO `implant_libra_ha` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
-(1, 'Libra_HA-T1', 'images/libra/Libra HA 1.png', 205, '5.21', 625, '16.56', 0, 0, 0, 0, 0, 0, 0, 0, 74, -75, 284, 0, 0, 1),
+(1, 'Libra_HA-T1', 'images/libra/Libra HA 1.png', 205, '5.21', 652, '16.56', 0, 0, 0, 0, 0, 0, 0, 0, 75, -76, 298, 0, 0, 1),
 (2, 'Libra_HA-T2', 'images/libra/Libra HA 2.png', 212, '5.38', 772, '19.61', 0, 0, 0, 0, 0, 0, 0, 0, 76, -78, 358, 0, 0, 2),
 (3, 'Libra_HA-T3', 'images/libra/Libra HA 3.png', 218, '5.54', 733, '18.62', 0, 0, 0, 0, 0, 0, 0, 0, 77, -81, 338, 0, 0, 3),
 (4, 'Libra_HA-T4', 'images/libra/Libra HA 4.png', 225, '5.71', 770, '19.56', 0, 0, 0, 0, 0, 0, 0, 0, 77, -84, 357, 0, 0, 4),
@@ -1426,7 +1427,7 @@ INSERT INTO `implant_libra_ha` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heigh
 (9, 'Libra_HA-T9', 'images/libra/Libra HA 9.png', 263, '6.68', 884, '22.45', 0, 0, 0, 0, 0, 0, 0, 0, 78, -103, 414, 0, 0, 9),
 (10, 'Libra_HA-T10', 'images/libra/Libra HA 10.png', 266, '6.76', 919, '23.34', 0, 0, 0, 0, 0, 0, 0, 0, 81, -105, 431, 0, 0, 10),
 (11, 'Libra_HA-T11', 'images/libra/Libra HA 11.png', 279, '7.09', 922, '23.42', 0, 0, 0, 0, 0, 0, 0, 0, 79, -109, 433, 0, 0, 11),
-(12, 'Libra_HA-T1', 'images/libra/Libra HA 1 R.png', 205, '5.21', 625, '16.56', 0, 0, 0, 0, 0, 0, 0, 0, -74, 75, 284, 0, 0, 1),
+(12, 'Libra_HA-T1', 'images/libra/Libra HA 1 R.png', 205, '5.21', 652, '16.56', 0, 0, 0, 0, 0, 0, 0, 0, -75, 76, 298, 0, 0, 1),
 (13, 'Libra_HA-T2', 'images/libra/Libra HA 2 R.png', 212, '5.38', 772, '19.61', 0, 0, 0, 0, 0, 0, 0, 0, -76, 78, 358, 0, 0, 2),
 (14, 'Libra_HA-T3', 'images/libra/Libra HA 3 R.png', 218, '5.54', 733, '18.62', 0, 0, 0, 0, 0, 0, 0, 0, -77, 81, 338, 0, 0, 3),
 (15, 'Libra_HA-T4', 'images/libra/Libra HA 4 R.png', 225, '5.71', 770, '19.56', 0, 0, 0, 0, 0, 0, 0, 0, -77, 84, 357, 0, 0, 4),
@@ -1477,8 +1478,8 @@ INSERT INTO `implant_libra_ha_a` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 (1, 'Libra_HA_A-T1', 'images/libra/Libra HA A 1.png', 220, '5.59', 636, '16.15', 0, 0, 0, 0, 0, 0, 0, 0, 70, -82, 290, 0, 0, 1),
 (2, 'Libra_HA_A-T2', 'images/libra/Libra HA A 2.png', 222, '5.64', 684, '17.37', 0, 0, 0, 0, 0, 0, 0, 0, 73, -83, 314, 0, 0, 2),
 (3, 'Libra_HA_A-T3', 'images/libra/Libra HA A 3.png', 230, '5.84', 748, '19.00', 0, 0, 0, 0, 0, 0, 0, 0, 73, -87, 346, 0, 0, 3),
-(4, 'Libra_HA_A-T4', 'images/libra/Libra HA A 4.png', 233, '5.92', 767, '19.48', 0, 0, 0, 0, 0, 0, 0, 0, 74, -88, 355, 0, 0, 4),
-(5, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5.png', 241, '6.12', 780, '19.81', 0, 0, 0, 0, 0, 0, 0, 0, 74, -92, 362, 0, 0, 5),
+(4, 'Libra_HA_A-T4', 'images/libra/Libra HA A 4.png', 233, '5.92', 665, '16.89', 0, 0, 0, 0, 0, 0, 0, 0, 75, -89, 305, 0, 0, 4),
+(5, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5.png', 242, '6.15', 689, '17.50', 0, 0, 0, 0, 0, 0, 0, 0, 75, -93, 317, 0, 0, 5),
 (6, 'Libra_HA_A-T6', 'images/libra/Libra HA A 6.png', 258, '6.55', 812, '20.62', 0, 0, 0, 0, 0, 0, 0, 0, 70, -101, 378, 0, 0, 6),
 (7, 'Libra_HA_A-T7', 'images/libra/Libra HA A 7.png', 265, '6.73', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, 70, -104, 389, 0, 0, 7),
 (8, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8.png', 298, '7.57', 908, '23.06', 0, 0, 0, 0, 0, 0, 0, 0, 80, -111, 426, 0, 0, 8),
@@ -1488,8 +1489,8 @@ INSERT INTO `implant_libra_ha_a` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 (12, 'Libra_HA_A-T1', 'images/libra/Libra HA A 1 R.png', 220, '5.59', 636, '16.15', 0, 0, 0, 0, 0, 0, 0, 0, -70, 82, 290, 0, 0, 1),
 (13, 'Libra_HA_A-T2', 'images/libra/Libra HA A 2 R.png', 222, '5.64', 684, '17.37', 0, 0, 0, 0, 0, 0, 0, 0, -73, 83, 314, 0, 0, 2),
 (14, 'Libra_HA_A-T3', 'images/libra/Libra HA A 3 R.png', 230, '5.84', 748, '19.00', 0, 0, 0, 0, 0, 0, 0, 0, -73, 87, 346, 0, 0, 3),
-(15, 'Libra_HA_A-T4', 'images/libra/Libra HA A 4 R.png', 233, '5.92', 767, '19.48', 0, 0, 0, 0, 0, 0, 0, 0, -74, 88, 355, 0, 0, 4),
-(16, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5 R.png', 241, '6.12', 780, '19.81', 0, 0, 0, 0, 0, 0, 0, 0, -74, 92, 362, 0, 0, 5),
+(15, 'Libra_HA_A-T4', 'images/libra/Libra HA A 4 R.png', 233, '5.92', 665, '16.89', 0, 0, 0, 0, 0, 0, 0, 0, -75, 89, 305, 0, 0, 4),
+(16, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5 R.png', 242, '6.15', 689, '17.50', 0, 0, 0, 0, 0, 0, 0, 0, -75, 93, 317, 0, 0, 5),
 (17, 'Libra_HA_A-T6', 'images/libra/Libra HA A 6 R.png', 258, '6.55', 812, '20.62', 0, 0, 0, 0, 0, 0, 0, 0, -70, 101, 378, 0, 0, 6),
 (18, 'Libra_HA_A-T7', 'images/libra/Libra HA A 7 R.png', 265, '6.73', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, -70, 104, 389, 0, 0, 7),
 (19, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8 R.png', 298, '7.57', 908, '23.06', 0, 0, 0, 0, 0, 0, 0, 0, -80, 111, 426, 0, 0, 8),
@@ -1637,12 +1638,12 @@ CREATE TABLE IF NOT EXISTS `implant_sagitta250` (
 INSERT INTO `implant_sagitta250` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `heightPx`, `heightCm`, `axeFemurHautPxX`, `axeFemurHautPxY`, `axeFemurBasPxX`, `axeFemurBasPxY`, `axeTeteHancheHautPxX`, `axeTeteHancheHautPxY`, `axeTeteHancheBasPxX`, `axeTeteHancheBasPxY`, `distOffsetX`, `PtMecaHautXPx`, `PtMecaHautYPx`, `angleCervicoDiaphysaire`, `enabled`, `taille`) VALUES
 (1, 'Sagitta250-T2', 'images/sagitta/Sagitta EVLR2-250.png', 219, 5.56, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -73.5, 512, 0, 0, 2),
 (2, 'Sagitta250-T3', 'images/sagitta/Sagitta EVLR3-250.png', 224, 5.69, 1102, 27.99, 0, 0, 0, 0, 0, 0, 0, 0, 76, -72, 514, 0, 0, 3),
-(3, 'Sagitta250-T4', 'images/sagitta/Sagitta EVLR4-250.png', 223, 5.66, 1091, 22.71, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -76.5, 512.5, 0, 0, 4),
+(3, 'Sagitta250-T4', 'images/sagitta/Sagitta EVLR4-250.png', 223, 5.66, 1091, 27.71, 0, 0, 0, 0, 0, 0, 0, 0, 73.5, -76.5, 512.5, 0, 0, 4),
 (4, 'Sagitta250-T5', 'images/sagitta/Sagitta EVLR5-250.png', 229, 5.82, 1098, 27.89, 0, 0, 0, 0, 0, 0, 0, 0, 74.5, -76.5, 512, 0, 0, 5),
 (5, 'Sagitta250-T6', 'images/sagitta/Sagitta EVLR6-250.png', 232, 5.89, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, 75, -78, 510, 0, 0, 6),
 (6, 'Sagitta250-T2', 'images/sagitta/Sagitta EVLR2-250 R.png', 219, 5.56, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 72.5, 512, 0, 0, 2),
 (7, 'Sagitta250-T3', 'images/sagitta/Sagitta EVLR3-250 R.png', 224, 5.69, 1102, 27.99, 0, 0, 0, 0, 0, 0, 0, 0, -76, 72, 514, 0, 0, 3),
-(8, 'Sagitta250-T4', 'images/sagitta/Sagitta EVLR4-250 R.png', 223, 5.66, 1091, 22.71, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 76.5, 512.5, 0, 0, 4),
+(8, 'Sagitta250-T4', 'images/sagitta/Sagitta EVLR4-250 R.png', 223, 5.66, 1091, 27.71, 0, 0, 0, 0, 0, 0, 0, 0, -73.5, 76.5, 512.5, 0, 0, 4),
 (9, 'Sagitta250-T5', 'images/sagitta/Sagitta EVLR5-250 R.png', 229, 5.82, 1098, 27.89, 0, 0, 0, 0, 0, 0, 0, 0, -74.5, 76.5, 512, 0, 0, 5),
 (10, 'Sagitta250-T6', 'images/sagitta/Sagitta EVLR6-250 R.png', 232, 5.89, 1094, 27.79, 0, 0, 0, 0, 0, 0, 0, 0, -75, 78, 510, 0, 0, 6);
 
