@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 21, 2020 at 08:16 AM
+-- Generation Time: Oct 22, 2020 at 12:43 PM
 -- Server version: 5.7.24
 -- PHP Version: 5.6.40
 
@@ -1467,7 +1467,8 @@ CREATE TABLE IF NOT EXISTS `implant_libra_ha_a` (
   `PtMecaHautYPx` int(3) DEFAULT NULL,
   `angleCervicoDiaphysaire` int(1) DEFAULT NULL,
   `enabled` int(1) DEFAULT NULL,
-  `taille` int(2) DEFAULT NULL
+  `taille` int(2) DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1482,7 +1483,7 @@ INSERT INTO `implant_libra_ha_a` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 (5, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5.png', 242, '6.15', 689, '17.50', 0, 0, 0, 0, 0, 0, 0, 0, 75, -93, 317, 0, 0, 5),
 (6, 'Libra_HA_A-T6', 'images/libra/Libra HA A 6.png', 258, '6.55', 812, '20.62', 0, 0, 0, 0, 0, 0, 0, 0, 70, -101, 378, 0, 0, 6),
 (7, 'Libra_HA_A-T7', 'images/libra/Libra HA A 7.png', 265, '6.73', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, 70, -104, 389, 0, 0, 7),
-(8, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8.png', 298, '7.57', 908, '23.06', 0, 0, 0, 0, 0, 0, 0, 0, 80, -111, 426, 0, 0, 8),
+(8, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8.png', 264, '7.71', 860, '21.84', 0, 0, 0, 0, 0, 0, 0, 0, 76, -103, 402, 0, 0, 8),
 (9, 'Libra_HA_A-T9', 'images/libra/Libra HA A 9.png', 292, '7.42', 868, '22.05', 0, 0, 0, 0, 0, 0, 0, 0, 83, -101, 406, 0, 0, 9),
 (10, 'Libra_HA_A-T10', 'images/libra/Libra HA A 10.png', 278, '7.06', 906, '23.01', 0, 0, 0, 0, 0, 0, 0, 0, 79, -108, 425, 0, 0, 10),
 (11, 'Libra_HA_A-T11', 'images/libra/Libra HA A 11.png', 294, '7.47', 935, '23.75', 0, 0, 0, 0, 0, 0, 0, 0, 72, -120, 439, 0, 0, 11),
@@ -1493,7 +1494,7 @@ INSERT INTO `implant_libra_ha_a` (`id`, `nom`, `url`, `widthPx`, `widthCm`, `hei
 (16, 'Libra_HA_A-T5', 'images/libra/Libra HA A 5 R.png', 242, '6.15', 689, '17.50', 0, 0, 0, 0, 0, 0, 0, 0, -75, 93, 317, 0, 0, 5),
 (17, 'Libra_HA_A-T6', 'images/libra/Libra HA A 6 R.png', 258, '6.55', 812, '20.62', 0, 0, 0, 0, 0, 0, 0, 0, -70, 101, 378, 0, 0, 6),
 (18, 'Libra_HA_A-T7', 'images/libra/Libra HA A 7 R.png', 265, '6.73', 835, '21.21', 0, 0, 0, 0, 0, 0, 0, 0, -70, 104, 389, 0, 0, 7),
-(19, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8 R.png', 298, '7.57', 908, '23.06', 0, 0, 0, 0, 0, 0, 0, 0, -80, 111, 426, 0, 0, 8),
+(19, 'Libra_HA_A-T8', 'images/libra/Libra HA A 8 R.png', 264, '6.71', 860, '21.84', 0, 0, 0, 0, 0, 0, 0, 0, -76, 103, 402, 0, 0, 8),
 (20, 'Libra_HA_A-T9', 'images/libra/Libra HA A 9 R.png', 292, '7.42', 868, '22.05', 0, 0, 0, 0, 0, 0, 0, 0, -83, 101, 406, 0, 0, 9),
 (21, 'Libra_HA_A-T10', 'images/libra/Libra HA A 10 R.png', 278, '7.06', 906, '23.01', 0, 0, 0, 0, 0, 0, 0, 0, -79, 108, 425, 0, 0, 10),
 (22, 'Libra_HA_A-T11', 'images/libra/Libra HA A 11 R.png', 294, '7.47', 935, '23.75', 0, 0, 0, 0, 0, 0, 0, 0, -72, 120, 439, 0, 0, 11);
