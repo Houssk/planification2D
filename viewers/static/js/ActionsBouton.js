@@ -1393,13 +1393,12 @@ $(document).ready(function () {
 						imgCotyleDroit.onload=function () {
 							var imgCotyleDroitWidth=imgCotyleDroit.width;
 							var imgCotyleDroitHeight=imgCotyleDroit.height;
-							contexteCotyleDrawCotyle.save()
-													.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height)
-													.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y)
-													.rotate(cotyleDroit.GetOrientation())
-													.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur())
-													.restore()
-							;
+							contexteCotyleDrawCotyle.save();
+							contexteCotyleDrawCotyle.clearRect(0, 0, canvasCotyle.width, canvasCotyle.height);
+							contexteCotyleDrawCotyle.translate(cotyleDroit.GetPosition().x,cotyleDroit.GetPosition().y);
+							contexteCotyleDrawCotyle.rotate(cotyleDroit.GetOrientation());
+							contexteCotyleDrawCotyle.drawImage(imgCotyleDroit, 0, 0, imgCotyleDroit.width, imgCotyleDroit.height, -cotyleDroit.GetImageLargeur() / 2, -cotyleDroit.GetImageHauteur() / 2, cotyleDroit.GetImageLargeur(), cotyleDroit.GetImageHauteur());
+							contexteCotyleDrawCotyle.restore();
 						}
 						imgCotyleDroit.src=cotyleDroit.GetUrl();
 					}
