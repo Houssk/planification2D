@@ -247,12 +247,12 @@ $(document).ready(function () {
 				console.log("Error 13584 in function TigeSelection().")
 			}
 		}
-		m_canvasWidth=document.getElementById("dwv-imageLayer").width*1.2; //Width and heigth must have the same multiplicator to keep the ratio on the PDF.
-		m_canvasHeight=document.getElementById("dwv-imageLayer").height*1.2; //Width and heigth must have the same multiplicator to keep the ratio on the PDF.
+		m_canvasWidth=document.getElementById("dwv-imageLayer").width*1; //Width and heigth must have the same multiplicator to keep the ratio on the PDF.
+		m_canvasHeight=document.getElementById("dwv-imageLayer").height*1; //Width and heigth must have the same multiplicator to keep the ratio on the PDF.
 
 		if (patient.GetOperationGuide()==="Non guider") { // Traitement du cas ou la chirurgie n'est pas guidée
-			let newTigeGauche = null;
-			let newTigeDroit = null;
+			let newTigeGauche = null,
+				newTigeDroit = null;
 			// Choix des tiges soit en initialisation simple soit avec conservation de la taille si les tiges sont déjà initialiséee
 			if (tigeDroit==null && tigeGauche==null) {
 				newTigeGauche=getTige(tableImplant, indexTigeGauche);
